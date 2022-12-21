@@ -1,0 +1,79 @@
+html {
+    font-family: 'EB Garamond' !important;
+    scroll-behavior: smooth;
+}
+
+a { 
+    color: #9e2419;
+}
+a:visited { 
+    color: #9e2419;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 600px;
+    background-color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+
+    background-color: #c63022;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.507) ;
+}
+
+#topnav {
+    justify-content: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#topnav img{
+    width: 3.5rem;
+    margin-top: -0.9rem;
+    margin-bottom: -1.1rem;
+}
+
+#topnav a{
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+#topnav a:hover {
+    transition: 0.2s;
+    background-color: #b1291d;
+    color: rgb(255, 255, 255);
+}
+
+#topnav .active{
+    background-color: #9e2419;
+}
+
+#contentbody {
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    max-width: 1000px;
+    min-width: 600px;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    min-height: 1000px;
+    /*
+    border-radius: 0.5rem;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.212);
+    */
+}
