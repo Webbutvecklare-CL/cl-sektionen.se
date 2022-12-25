@@ -1,0 +1,97 @@
+header {
+}
+
+#topnav{
+    position: fixed;
+    top: 0;
+    background-color: var(--klarrod);
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.507) ;
+}
+
+#navmain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#topnav button{
+    appearance: none;
+    background-color: inherit;
+    border: none;
+}
+
+.nav__menu-list {
+    display: flex;
+}
+
+#navlogo{
+    width: 3rem;
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+}
+
+.nav__item {
+    float: left;
+    color: #ffffff !important; 
+    text-align: center;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.nav__item:hover {
+    transition: 0.2s;
+    background-color: var(--mellanrod);
+}
+
+nav .active{
+    background-color: var(--djuprod);
+}
+
+#navburgirmenu{
+    display: None;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.burgir__menu-list{
+    display: none;
+    position: absolute;
+    top: -20 rem;
+    background-color: var(--klarrod);
+    color: #ffffff;
+    right: 0;
+    transition: 0.3s;
+}
+
+.burgir__menu-list .nav__item{
+    width: 72%;
+}
+
+@media screen and (max-width: 800px) {
+    #navmain {
+        align-items: left;
+        justify-content: space-between;
+    }
+
+    .nav__menu-list {
+        display: none;
+    }
+
+    #navburgirmenu{
+        display: block;
+    }
+
+    #navburgirmenu .nav__item{
+        margin-right: 0;
+    }
+
+    .burgir__menu-list{
+        display: block;
+        top: 3.5rem;
+    }
+
+}

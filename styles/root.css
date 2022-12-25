@@ -1,0 +1,39 @@
+:root{
+    --ljusrod: #e0483a;
+    --klarrod: #c63022;
+    --mellanrod: #b1291d;
+    --djuprod: #9e2419;
+
+    --clgra: #191a1b;
+}
+
+html {
+    font-family: Georgia, serif;
+    scroll-behavior: smooth;
+}
+
+a { 
+    color: var(--djuprod);
+}
+a:visited { 
+    color: var(--djuprod);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+#contentbody {
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1000px;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    min-height: 1000px;
+}

@@ -1,19 +1,80 @@
-import React from "react";
 import Link from "next/link";
+import React, { useState } from "react";
+import NavItem from "./NavItem";
 
-export default function Navbar(){
+const MENU_LIST = [
+    { text: "Kalender", href: "/Kalender" },
+    { text: "Aktuellt", href: "/Aktuellt" },
+    { text: "Verksamhet", href: "/Verksamhet" },
+    { text: "Företag", href: "/Foretag" },
+    { text: "Karriär", href: "/Karriar" },
+];
+
+const MENU_STATES = [
+    "fa-solid fa-bars",
+    "fas fa-times"
+]
+
+
+const Navbar = () => {
+    const [navActive, setNavActive] = useState(null);
+    const [activeIdx, setActiveIdx] = useState(-1);
+    const [navBurgirOpen, setNavBurgirOpen] = useState(false)
+    const burgirToggle = () => {
+        setNavBurgirOpen(!navBurgirOpen)
+    }
+
     return(
         <header>
-        <nav id="topnav">
-            <Link href="/">
-                <img src="/media/grafik/CL-Logo_NAV_White.png"></img>
-            </Link>
-            <Link href="/Kalender">Kalender</Link>
-            <Link href="/Aktuellt">Aktuellt</Link>
-            <Link href="/Verksamhet">Verksamhet</Link>
-            <Link href="/Foretag">Företag</Link>
-            <Link href="/Karriar">Karriär</Link>              
+        <nav>
+            <div id="topnav">
+            <div id="navmain">
+                <div onClick={() => {setNavActive(null); setActiveIdx(-1); setNavBurgirOpen(false)}}>
+                <Link href="/" >
+                    <img id="navlogo" className="nav__item" src="/media/grafik/CL-Logo_NAV_White.png"></img>
+                </Link>
+                </div>
+
+                <div id="navburgirmenu">
+                    <button 
+                        onClick={burgirToggle} 
+                        className={`nav__item ${navBurgirOpen? MENU_STATES[1] : MENU_STATES[0]}`}
+                    >
+                    </button>
+                </div>
+
+                <div className="nav__menu-list">
+                    {MENU_LIST.map((menu, idx) => (
+                        <div onClick={() => {
+                            setActiveIdx(idx);
+                            setNavActive(false);
+                        }}
+                        key={menu.text}>
+                        <NavItem active={activeIdx === idx} {...menu} />
+                        </div>
+                    ))}
+                </div>  
+            </div>
+            </div>
+            {navBurgirOpen ? 
+            <div className="burgir__menu-list">
+                {MENU_LIST.map((menu, idx) => (
+                    <div onClick={() => {
+                        setActiveIdx(idx);
+                        setNavActive(false);
+                        setNavBurgirOpen(false);
+                    }}
+                    key={menu.text}>
+                    <NavItem active={activeIdx === idx} {...menu} />
+                    </div>
+                ))}
+            </div>  
+            : ""
+        }
         </nav>
         </header>
-    )
-}
+    );
+};
+
+export default Navbar;
+

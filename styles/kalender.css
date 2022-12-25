@@ -42,19 +42,19 @@ input[type="radio"]  {
     margin-right: 5%;
     float: left;
     border-radius: 1.5rem;
-    background-color: #e0483a;
+    background-color: var(--ljusrod);
 }
 
 #tab1:checked + label{
-    background-color: #9e2419;
+    background-color: var(--djuprod);
 }
 
 #tab2:checked + label {
-    background-color: #9e2419;
+    background-color: var(--djuprod);
 }
 
 #tab-knapp:hover {
-    background-color: #b1291d;
+    background-color: var(--mellanrod);
     transition: 0.2s;
 }
 

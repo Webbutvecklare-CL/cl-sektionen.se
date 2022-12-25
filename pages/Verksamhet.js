@@ -12,6 +12,7 @@ function Verksamhet(){
                 <a href="https://drive.google.com/file/d/1rOzE5IwIRqV0D89qd5f0i-CnTebz8Y3h/view">Utläggsblankett</a>
                 <a href="https://drive.google.com/file/d/1aBCjU8wfLI5NwNNPjf-RabC1G4ZxM-wn/view">Milersättningsblankett</a>
                 <a href="https://docs.google.com/document/d/1R9VzViVigsH3GzNqoHZJUYT3qf6Nw878BST8yCr3Dik/edit">Mall för entledigande</a> 
+                <br/>
                 <a href="https://docs.google.com/document/d/17srFoYElH16ysq_xeu_jlue3W4cxYeJsYgRA2FRWLus/edit">Mall för motion</a> 
                 <a href="https://docs.google.com/document/d/1-LNWlpYvrYVFwJ9H9fZZO4-a9XAB8KLULQGBnuCX8pQ/edit">Mall för äskan</a> 
                 

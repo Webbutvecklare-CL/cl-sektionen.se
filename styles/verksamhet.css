@@ -3,7 +3,7 @@ h1{
 }
 
 section h2, h1 span{
-    color: #9e2419;
+    color: var(--djuprod);
 }
 
 p {
