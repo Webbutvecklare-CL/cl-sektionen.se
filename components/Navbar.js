@@ -69,11 +69,10 @@ const Navbar = () => {
 
                     <div className="nav__menu-list">
                         {MENU_LIST.map((menu, idx) => (
-                        <div className="submenu_wrapper">
+                        <div key={menu.text} className="submenu_wrapper">
                             <div className="navitem_wrapper" onClick={() => {
                                 setActiveIdx(idx);
-                            }}
-                            key={menu.text}>
+                            }}>
                             <NavItem active={activeIdx === idx} {...menu} />
                             </div>
 
@@ -83,7 +82,7 @@ const Navbar = () => {
                                     setActiveSubIdx(s_idx);
                                     setNavBurgirOpen(false);
                                 }}>
-                                <NavSubItem active={activeSubIdx === s_idx} {...sb} />
+                                <NavSubItem active={activeIdx === idx & activeSubIdx === s_idx} {...sb} />
                                 </div>
                             ))}
                         </div>
@@ -94,16 +93,15 @@ const Navbar = () => {
             {navBurgirOpen ? 
             <div className="burgir__menu-list">
                 {MENU_LIST.map((menu, idx) => (
-                <div className="submenu_wrapper">
+                <div key={menu.text} className="submenu_wrapper">
                     <div className="navitem_wrapper" onClick={() => {
                         setActiveIdx(idx);
-                    }}
-                    key={menu.text}>                    
+                    }}>                    
                     <NavItem active={activeIdx === idx} {...menu} />
                     </div>
 
                     {menu.submenu?.map((sb, s_idx) => ( 
-                        <div key={sb.text}  onClick={() => {
+                        <div key={sb.text} onClick={() => {
                             setActiveIdx(idx);
                             setActiveSubIdx(s_idx);
                             setNavBurgirOpen(false);
