@@ -1,11 +1,17 @@
+import Image from 'next/image'
+import bg from '../public/media/img/KTHcover.jpg'
+
 function Index() {
   return (
     <div>
       <div className="index_bg">
-        <video autoPlay muted loop>
-          <source src="/media/vid/cl_index_bg.mp4" type="video/mp4"></source>
-        </video>
+        <Image
+          src={bg}
+          alt="Bakgrundsbild KTH"
+          fill
+        />
       </div>
+      <div className='bg_bottom_cover'></div>
       <div id="contentbody" className="index_content">
       <h1>
           Sektionen för Civilingenjör och Lärare

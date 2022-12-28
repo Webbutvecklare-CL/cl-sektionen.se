@@ -32,7 +32,7 @@ function Verksamhet(){
                             Ordinarie medlem (=sektionsmedlem) är den THS-medlem som är programstuderande på sektionens program. (CL Stadgar § 1.4.1)
                         </li><br/>
                         <li>
-                            <strong>Juniormedlem</strong> och <strong>hedersmedlem</strong> har närvarorätt och yttranderätt. (CL Stadgar § 1.4.2 och 1.4.3)
+                            <strong>Juniormedlem</strong>, och <strong>hedersmedlem</strong> har närvarorätt och yttranderätt. (CL Stadgar § 1.4.2 och 1.4.3)
                             Juniormedlem är studerande på sektionens program till och med sista dagen månaden efter uppropet. (CL Stadgar § 1.4.2) Juniormedlem kan givetvis bli ordinarie medlem genom att betala kåravgift.
                         </li><br/>
                         <li>
@@ -58,7 +58,7 @@ function Verksamhet(){
                         <strong>Övriga personer</strong> kan adjungeras genom beslut på mötet och få närvarorätt, yttranderätt och vid behov yrkanderätt.
                     </li><br/>
                     <li>
-                        <strong>Mötet får inte fatta besluta i</strong> ärenden som inte upptagits på föredragningslistan.
+                        <strong>Mötet får inte</strong> fatta besluta i ärenden som inte upptagits på föredragningslistan.
                     </li>
                 </ul>
             </section>
