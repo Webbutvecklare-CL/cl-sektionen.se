@@ -1,33 +1,6 @@
-#contentbody #tabs h1{
-    text-align: center;
-    font-size: 2rem;
-    color: white;
-}
-
-p {
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 1rem;
-    font-size: 1.2rem;
-}
-p a {
-    color:#9e2419;
-}
-p strong {
-    color:#9e2419;
-}
-p a:visited {
-    color:#9e2419;
-}
-
-h2 {
-    margin-bottom: 0.5rem;
-}
-
 #tabs {
     width: 100%;
     max-width: 1000px;
-    min-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -36,34 +9,57 @@ input[type="radio"]  {
     display: none;
 }
 
-#tab-knapp {
-    width: 40%;
-    margin-left: 5%;
-    margin-right: 5%;
-    float: left;
-    border-radius: 1.5rem;
+.kalender_tab {
     background-color: var(--ljusrod);
+    padding: 10px;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
-#tab1:checked + label{
-    background-color: var(--djuprod);
-}
-
-#tab2:checked + label {
-    background-color: var(--djuprod);
-}
-
-#tab-knapp:hover {
-    background-color: var(--mellanrod);
-    transition: 0.2s;
+.kalender_tab h1{
+    color: white;
+    font-weight: 500;
 }
 
 .open-web-calendar {
     display: block;
-    padding-top: 3rem;
+    margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
-    min-width: 600px;
-    max-width: 1000px;
-    height: 800px;
+
+}
+
+.kal_knapp{
+    background-color: var(--ljusrod);
+    border: none;
+    min-width: 300px;
+    height: fit-content;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: white;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+}
+.kal_knapp:hover{
+    background-color: var(--mellanrod);
+    transition: .2s;
+}
+
+.controlls_tab{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.controlls_tab p{
+    min-width: 300px;
+}
+
+.kal_titel{
+    text-align: center;
+    padding-bottom: .5rem;
 }

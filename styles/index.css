@@ -1,0 +1,23 @@
+.index_bg{
+    margin-top: 3.5rem;
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    max-height: 28rem;
+    overflow: hidden;
+    align-items: center;
+    
+}
+.index_bg video{
+    width: 100%;
+}
+
+@media screen and (max-width: 800px){
+    .index_bg{
+        display: none;
+    }
+}
+
+.index_content{
+    padding-top: 2rem !important;
+}

@@ -1,14 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 :root{
     --ljusrod: #e0483a;
     --klarrod: #c63022;
     --mellanrod: #b1291d;
     --djuprod: #9e2419;
-
     --clgra: #191a1b;
 }
 
 html {
-    font-family: Georgia, serif;
+    font-family: "EB Garamond", serif;
     scroll-behavior: smooth;
 }
 
@@ -25,15 +25,3 @@ body {
     background-color: white;
 }
 
-#contentbody {
-    padding-top: 4rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    max-width: 1000px;
-    background-color: white;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5rem;
-    min-height: 1000px;
-}

@@ -48,7 +48,7 @@ header {
 }
 
 nav .active{
-    background-color: var(--djuprod);
+    background-color: var(--djuprod) !important;
 }
 
 #navburgirmenu{
@@ -59,17 +59,25 @@ nav .active{
 
 .burgir__menu-list{
     display: none;
-    position: absolute;
-    top: -20 rem;
+    position: fixed;
     background-color: var(--klarrod);
     color: #ffffff;
     right: 0;
-    transition: 0.3s;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.507);
 }
 
 .burgir__menu-list .nav__item{
     width: 72%;
+    background-color: var(--mellanrod);
 }
+
+.burgir__menu-list .nav__item:hover{
+    width: 80%;
+    transform: translate(-4%);
+    background-color: var(--djuprod);
+    transition: .2s;
+}
+
 
 @media screen and (max-width: 800px) {
     #navmain {

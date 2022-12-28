@@ -4,6 +4,7 @@ footer {
     color: #ffffff;
     font-size: 1rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.507) ;
+    justify-content: space-between;
 }
 
 #footerinfo{
@@ -40,7 +41,7 @@ footer div img{
 }
 
 #karta {
-    float: left;
+    float: right;
     flex-grow: 100;
     overflow: hidden;
 }

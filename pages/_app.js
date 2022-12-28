@@ -1,4 +1,6 @@
 import "/styles/root.css";
+import "/styles/index.css";
+import "/styles/contents.css";
 import "/styles/nav.css";
 import "/styles/footer.css";
 import "/styles/kalender.css";
@@ -18,9 +20,9 @@ export default function App({ Component, pageProps }) {
         <meta name="keywords" content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"/>
         <meta name="author" content="Armin Baymani"/>
       </Head>
-      <Navbar/>
       <Component {...pageProps} />
       <Footer/>
+      <Navbar/>
     </div>
   );
 }

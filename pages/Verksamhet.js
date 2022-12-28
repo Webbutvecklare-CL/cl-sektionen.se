@@ -6,21 +6,19 @@ function Verksamhet(){
             <h1>
                 Dokument
             </h1>
-            Genom denna sida kommer du åt sektionens officiella dokument.
-            <h2>Blanketter och mallar</h2>
+            <p>Genom denna sida kommer du åt sektionens officiella dokument.</p>
             <div id="blanketter">
+                <h2>Blanketter och mallar</h2>
                 <a href="https://drive.google.com/file/d/1rOzE5IwIRqV0D89qd5f0i-CnTebz8Y3h/view">Utläggsblankett</a>
                 <a href="https://drive.google.com/file/d/1aBCjU8wfLI5NwNNPjf-RabC1G4ZxM-wn/view">Milersättningsblankett</a>
                 <a href="https://docs.google.com/document/d/1R9VzViVigsH3GzNqoHZJUYT3qf6Nw878BST8yCr3Dik/edit">Mall för entledigande</a> 
-                <br/>
                 <a href="https://docs.google.com/document/d/17srFoYElH16ysq_xeu_jlue3W4cxYeJsYgRA2FRWLus/edit">Mall för motion</a> 
                 <a href="https://docs.google.com/document/d/1-LNWlpYvrYVFwJ9H9fZZO4-a9XAB8KLULQGBnuCX8pQ/edit">Mall för äskan</a> 
-                
             </div>
             <h2>Styrdokument</h2>
-            <iframe src="https://drive.google.com/embeddedfolderview?id=1Nwg-S7C0YZ0FAeoQtQoQs2NpAcB9Jacb#grid" style={{width: "100%", height: "600px", border: "0", backgroundcolor: "rgba(242, 243, 244, 1)"}}></iframe><br/>
+            <iframe src="https://drive.google.com/embeddedfolderview?id=1Nwg-S7C0YZ0FAeoQtQoQs2NpAcB9Jacb#grid" style={{width: "100%", height: "600px", border: "0", backgroundColor: "#F2F3F4"}}></iframe><br/>
             <h2>Protokoll och handlingar från <a href="#rättigheter">SM och StyM</a></h2>
-            <iframe src="https://drive.google.com/embeddedfolderview?id=1TNcYNzvTLvmr-IKdY9TG6rW_0h-QFVGX#grid" style={{width: "100%", height: "600px", border: "0", backgroundcolor: "rgba(242, 243, 244, 1)"}}></iframe>
+            <iframe src="https://drive.google.com/embeddedfolderview?id=1TNcYNzvTLvmr-IKdY9TG6rW_0h-QFVGX#grid" style={{width: "100%", height: "600px", border: "0", backgroundColor: "#F2F3F4"}}></iframe>
             <section id="rättigheter">
                 <h1>Rättigheter på <span>SM</span> och <span>StyM</span></h1>
                 <h2>Sektionsmöte (SM)</h2>
