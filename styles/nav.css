@@ -1,19 +1,17 @@
-header {
-}
-
 #topnav{
     position: fixed;
     top: 0;
     background-color: var(--klarrod);
     width: 100%;
-    height: auto;
-    overflow: hidden;
+    height: 4rem;
+    overflow:visible;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.507) ;
 }
 
 #navmain{
+    overflow: inherit;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -29,8 +27,14 @@ header {
 
 #navlogo{
     width: 3rem;
-    margin-top: -1rem;
-    margin-bottom: -1rem;
+    padding: .5rem 1.5rem .5rem 1.5rem;
+    height: inherit;
+}
+
+.navitem_wrapper{
+    overflow: hidden;
+    height: auto;
+    color: blueviolet;
 }
 
 .nav__item {
@@ -40,6 +44,28 @@ header {
     padding: 1rem 1.5rem;
     text-decoration: none;
     font-size: 1.5rem;
+}
+
+.submenu_item{
+    text-decoration: none;
+    display: none !important;
+    text-align: center;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+    border-bottom: solid 1px var(--ljusrod);
+    color: #ffffff !important;
+    display: block;
+    background-color: var(--klarrod)
+}
+
+
+.submenu_wrapper:hover .submenu_item{
+    display: block !important;
+}
+
+.submenu_item:hover{
+    transform: scale(1.05);
+    background-color: var(--mellanrod);
+    transition: .2s;
 }
 
 .nav__item:hover {
@@ -52,7 +78,7 @@ nav .active{
 }
 
 #navburgirmenu{
-    display: None;
+    display: none;
     font-size: 1.5rem;
     color: #ffffff;
 }
@@ -79,7 +105,7 @@ nav .active{
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 650px) {
     #navmain {
         align-items: left;
         justify-content: space-between;

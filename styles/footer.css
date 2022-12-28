@@ -7,6 +7,10 @@ footer {
     justify-content: space-between;
 }
 
+.footer_logo{
+    height: auto;
+}
+
 #footerinfo{
     float: left;
     max-width: 27rem;

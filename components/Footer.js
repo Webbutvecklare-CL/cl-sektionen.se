@@ -1,10 +1,16 @@
 import React from "react";
+import Image from "next/image";
+import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.png"
 
 export default function Navbar(){
     return(
         <footer>
             <div id="footerinfo">
-                <img src="media/grafik/sidhuvud_inv.png"></img>
+                <Image 
+                    src = {CL_logo_stor}
+                    alt = "CL logo, stor"
+                    className="footer_logo"
+                />
                 <div id="footerinfotext">
                     <h3>
                         Organisationsnummer

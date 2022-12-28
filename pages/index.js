@@ -19,6 +19,7 @@ function Index() {
       <h2>
           Dubbel examen, dubbel kompetens
       </h2>
+      <div className='aktuellt'></div>
       </div>
     </div>
   )
