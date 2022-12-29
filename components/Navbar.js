@@ -72,6 +72,7 @@ const Navbar = () => {
                         <div key={menu.text} className="submenu_wrapper">
                             <div className="navitem_wrapper" onClick={() => {
                                 setActiveIdx(idx);
+                                setActiveSubIdx(-1);
                             }}>
                             <NavItem active={activeIdx === idx} {...menu} />
                             </div>
@@ -82,7 +83,7 @@ const Navbar = () => {
                                     setActiveSubIdx(s_idx);
                                     setNavBurgirOpen(false);
                                 }}>
-                                <NavSubItem active={activeIdx === idx & activeSubIdx === s_idx} {...sb} />
+                                <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                                 </div>
                             ))}
                         </div>
@@ -96,6 +97,7 @@ const Navbar = () => {
                 <div key={menu.text} className="submenu_wrapper">
                     <div className="navitem_wrapper" onClick={() => {
                         setActiveIdx(idx);
+                        setActiveSubIdx(-1);
                     }}>                    
                     <NavItem active={activeIdx === idx} {...menu} />
                     </div>
@@ -106,7 +108,7 @@ const Navbar = () => {
                             setActiveSubIdx(s_idx);
                             setNavBurgirOpen(false);
                         }}>
-                        <NavSubItem active={activeIdx === idx & activeSubIdx === s_idx} {...sb} />
+                        <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                         </div>
                     ))}
                     
