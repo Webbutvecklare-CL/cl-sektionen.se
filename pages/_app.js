@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }) {
         <meta name="description" content="Sektionen för Civilingenjör och Lärare"/>
         <meta name="keywords" content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"/>
         <meta name="author" content="Armin Baymani"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
       </Head>
       <Component {...pageProps} />
       <Footer/>

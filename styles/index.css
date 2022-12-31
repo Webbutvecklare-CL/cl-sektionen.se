@@ -23,6 +23,121 @@
     padding-top: 2rem !important;
 }
 
+.om{
+    display: grid;  
+    gap: 0px 2rem; 
+    grid-template-areas: 
+        ". ."; 
+}
+
+.om strong{
+    color: var(--djuprod);
+}
+
+.om .sektionslogga{
+    width: calc(100% - 20px);
+    height: auto;
+}
+
+
+.title_grid{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.title_grid div{
+    padding-left: 1rem;
+}
+
+.visa_om_knapp{
+    
+    background-color: var(--ljusrod);
+    border: none;
+    width: auto;
+    height: fit-content;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: white;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+}
+
+.visa_om_knapp i{
+    transform: translateY(4px);
+    animation: bounce 1s ease-in-out 2;
+}
+@keyframes bounce {
+    0%{
+        transform: translateY(4px);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(4px);
+    }
+}
+
+.visa_om_knapp:hover{
+    background-color: var(--mellanrod);
+    transition: .2s;
+}
+
+@media screen and (max-width: 750px) {
+    .om{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    
+    .title_grid{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+.collapsed {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+}
+    
+.open {
+    overflow: hidden;
+    max-height: 2000px;
+    transition: max-height 0.25s ease-in;
+}
+
+.mini_aktuellt_o_kalender {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 1rem;
+}
+
+.mini_aktuellt{
+    width: 100%;
+    background-color: var(--superljusrod);
+    padding: 10px;
+    margin-top: -0.5rem;
+}
+
+.mini_kalender{
+    width: 100%;
+    background-color: bisque;
+    padding-left: 10px;
+}
+
+.mini_kalender h1{
+    margin-top: .4rem;
+    margin-bottom: .4rem;
+}
+
 @media screen and (max-width: 550px) {
     .index_bg{
         display: none;
@@ -35,5 +150,14 @@
     .index_content{
         transform: translateY(0) !important;
         padding-top: 3.5rem !important;
+    }
+
+    .title_grid div{
+        text-align: center;
+    }
+
+    .mini_aktuellt_o_kalender {
+        display: flex;
+        flex-wrap: wrap;
     }
 }

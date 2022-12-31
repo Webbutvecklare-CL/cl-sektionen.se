@@ -12,6 +12,7 @@ const MENU_LIST = [
     { text: "Verksamhet", href: "/Verksamhet",
         submenu: [
             {text: "Förtroendevalda", href: "/Fortroendevalda"},
+            {text: "Hedersmedlemmar", href: "/Hedersmedlemmar"},
             {text: "Sångbok", href: "/Sangbok"},
         ]
     },
