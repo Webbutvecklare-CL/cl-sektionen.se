@@ -48,7 +48,7 @@ function Index() {
               Sektionens syfte är att värna om alla programstuderande under dess studietid. Detta strävar vi efter genom 
               att bedriva utbildningsbevakning, näringslivsverksamhet och studiesocial verksamhet. Ansvaret för sektionens 
               arbete är uppdelad mellan sektionsstyrelsen 
-              "<span style={{color: "var(--djuprod)", fontWeight: "600"}}>C</span>tyre<span style={{color: "var(--djuprod)", fontWeight: "600"}}>L</span>sen"
+              &quot;<span style={{color: "var(--djuprod)", fontWeight: "600"}}>C</span>tyre<span style={{color: "var(--djuprod)", fontWeight: "600"}}>L</span>sen&quot;
               samt ett antal nämnder och övriga förtroendevalda. Läs mer om sektionens nämnder och förtroendevalda på&nbsp;
               <Link href="/Fortroendevalda">Denna sida</Link>.
             </p>
