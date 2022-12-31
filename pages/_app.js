@@ -8,6 +8,7 @@ import "/styles/verksamhet.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
+import Sidhuvud from "../public/media/grafik/sidhuvud.png"
 
 export default function App({ Component, pageProps }) {
   return (
