@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import bg from '../public/media/img/KTHcover.jpg'
-import Sidhuvud from "../public/media/grafik/sidhuvud.jpg"
+import Sidhuvud from "../public/media/grafik/Sidhuvud.png"
 import React, { useState } from "react"
 
 function Index() {
