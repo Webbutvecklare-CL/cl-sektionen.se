@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import bg from '../public/media/img/KTHcover.jpg'
-import Sidhuvud from "../public/media/grafik/sidhuvud.png"
+import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.png"
 import React, { useState } from "react"
 
 function Index() {
@@ -53,7 +53,7 @@ function Index() {
               <Link href="/Fortroendevalda">Denna sida</Link>.
             </p>
             <Image 
-                src = {Sidhuvud}
+                src = {CL_logo_stor}
                 alt = "sektionslogga, sidhuvud"
                 className="sektionslogga"
             />
