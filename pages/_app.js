@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
     <div>
       <Head>
         <title>Sektionen för Civilingenjör och Lärare</title>
-        <meta charset="utf-8"/>
+        <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1"/>
         <meta name="description" content="Sektionen för Civilingenjör och Lärare"/>
         <meta name="keywords" content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"/>
