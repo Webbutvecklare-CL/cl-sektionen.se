@@ -48,7 +48,7 @@ function Index() {
               Sektionens syfte är att värna om alla programstuderande under dess studietid. Detta strävar vi efter genom 
               att bedriva utbildningsbevakning, näringslivsverksamhet och studiesocial verksamhet. Ansvaret för sektionens 
               arbete är uppdelad mellan sektionsstyrelsen 
-              &quot;<span style={{color: "var(--djuprod)", fontWeight: "600"}}>C</span>tyre<span style={{color: "var(--djuprod)", fontWeight: "600"}}>L</span>sen&quot;
+              &quot;<span style={{color: "var(--clr5)", fontWeight: "600"}}>C</span>tyre<span style={{color: "var(--clr5)", fontWeight: "600"}}>L</span>sen&quot;
               samt ett antal nämnder och övriga förtroendevalda. Läs mer om sektionens nämnder och förtroendevalda på&nbsp;
               <Link href="/Fortroendevalda">Denna sida</Link>.
             </p>
@@ -70,7 +70,7 @@ function Index() {
               Sedan 2011 finns fyra inriktningar på programmet. De olika inriktningarna samläser med motsvarande civilingenjörsutbildning 
               och ger behörighet för undervisning i olika gymansiekurser. De fyra inriktningarna är:
             </p>
-            <ul>
+            <ul style={{marginTop: "-1rem"}}>
                 <li>Matematik och fysik, <strong>(MAFY)</strong></li>
                 <li>Matematik och kemi, <strong>(MAKE)</strong></li>
                 <li>Matematik och teknik med specialisering mot energi och miljö, <strong>(TEMI)</strong></li>

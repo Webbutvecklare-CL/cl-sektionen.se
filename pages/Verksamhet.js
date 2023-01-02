@@ -4,7 +4,7 @@ function Verksamhet(){
     return(
         <div id="contentbody">
             <h1>
-                Dokument
+                Verksamhet
             </h1>
             <p>Genom denna sida kommer du åt sektionens officiella dokument.</p>
             <div id="blanketter">

@@ -10,7 +10,7 @@ input[type="radio"]  {
 }
 
 .kalender_tab {
-    background-color: var(--ljusrod);
+    background-color: var(--clr1);
     padding: 10px;
     border-radius: 1rem;
     margin-top: 1rem;
@@ -31,7 +31,7 @@ input[type="radio"]  {
 }
 
 .kal_knapp{
-    background-color: var(--ljusrod);
+    background-color: var(--clr1);
     border: none;
     min-width: 300px;
     height: fit-content;
@@ -44,7 +44,7 @@ input[type="radio"]  {
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 .kal_knapp:hover{
-    background-color: var(--mellanrod);
+    background-color: var(--clr3);
     transition: .2s;
 }
 

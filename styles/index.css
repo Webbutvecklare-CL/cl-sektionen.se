@@ -31,7 +31,7 @@
 }
 
 .om strong{
-    color: var(--djuprod);
+    color: var(--clr5);
 }
 
 .om .sektionslogga{
@@ -52,7 +52,7 @@
 
 .visa_om_knapp{
     
-    background-color: var(--ljusrod);
+    background-color: var(--clr1);
     border: none;
     width: auto;
     height: fit-content;
@@ -82,7 +82,7 @@
 }
 
 .visa_om_knapp:hover{
-    background-color: var(--mellanrod);
+    background-color: var(--clr3);
     transition: .2s;
 }
 
@@ -122,7 +122,6 @@
 
 .mini_aktuellt{
     width: 100%;
-    background-color: var(--superljusrod);
     padding: 10px;
     margin-top: -0.5rem;
 }

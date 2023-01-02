@@ -1,7 +1,7 @@
 #topnav{
     position: fixed;
     top: 0;
-    background-color: var(--klarrod);
+    background-color: var(--clr2);
     width: 100%;
     height: 4rem;
     overflow:visible;
@@ -34,7 +34,6 @@
 .navitem_wrapper{
     overflow: hidden;
     height: auto;
-    color: blueviolet;
 }
 
 .nav__item {
@@ -51,30 +50,30 @@
     display: none !important;
     text-align: center;
     padding: 0.5rem 0.25rem 0.5rem 0.25rem;
-    border-bottom: solid 1px var(--ljusrod);
+    border-bottom: solid 1px var(--clr1);
     color: #ffffff !important;
     display: block;
-    background-color: var(--klarrod)
+    background-color: var(--clr2)
 }
 
-
 .submenu_wrapper:hover .submenu_item{
-    display: block !important;
+    display: block !important;  
 }
 
 .submenu_item:hover{
     transform: scale(1.05);
-    background-color: var(--mellanrod);
+    background-color: var(--clr3);
     transition: .2s;
 }
 
 .nav__item:hover {
     transition: 0.2s;
-    background-color: var(--mellanrod);
+    background-color: var(--clr3);
 }
 
 nav .active{
-    background-color: var(--djuprod) !important;
+    background-color: var(--clr4) !important;
+    color: #ffffff;
 }
 
 #navburgirmenu{
@@ -86,7 +85,7 @@ nav .active{
 .burgir__menu-list{
     display: none;
     position: fixed;
-    background-color: var(--klarrod);
+    background-color: var(--clr2);
     color: #ffffff;
     right: 0;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.507);
@@ -94,13 +93,13 @@ nav .active{
 
 .burgir__menu-list .nav__item{
     width: 72%;
-    background-color: var(--mellanrod);
+    background-color: var(--clr2);
 }
 
 .burgir__menu-list .nav__item:hover{
     width: 80%;
     transform: translate(-4%);
-    background-color: var(--djuprod);
+    background-color: var(--clr3);
     transition: .2s;
 }
 

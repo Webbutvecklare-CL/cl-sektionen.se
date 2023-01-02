@@ -1,8 +1,8 @@
 #contentbody {
-    padding-top: 4rem;
+    padding-top: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    max-width: 1000px;
+    max-width: 1200px;
     background-color: white;
     display: block;
     margin-left: auto;
@@ -18,14 +18,6 @@ p {
     font-size: 1.2rem;
 }
 
-ul{
-    margin-top: -1rem;
-}
-
-p a {
-    color: var(--djuprod);
-}
-
 hr{
     margin-top: 2rem;
     border: 0;
@@ -34,11 +26,7 @@ hr{
 }
 
 p strong {
-    color: var(--djuprod);
-}
-
-p a:visited {
-    color: var(--djuprod);
+    color: var(--clr5);
 }
 
 h2 {
@@ -48,4 +36,8 @@ h2 {
 #contentbody iframe{
     border-radius: 1rem;
     box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.507);
+}
+
+.nowrap {
+    white-space: nowrap;
 }

@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 :root{
-    --ljusrod: #e0483a;
-    --klarrod: #c63022;
-    --mellanrod: #b1291d;
-    --djuprod: #9e2419;
-    --clgra: #191a1b;
+    --clr1: #E64128;
+    --clr2: #D23022;
+    --clr3: #BB291D;
+    --clr4: #A7291D;
+    --clr5: #8A2419;
+    --clgra: #252526;
 }
 
 html {
@@ -13,10 +14,10 @@ html {
 }
 
 a { 
-    color: var(--djuprod);
+    color: var(--clr5);
 }
 a:visited { 
-    color: var(--djuprod);
+    color: var(--clr5);
 }
 
 body {

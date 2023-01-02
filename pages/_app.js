@@ -5,6 +5,7 @@ import "/styles/nav.css";
 import "/styles/footer.css";
 import "/styles/kalender.css";
 import "/styles/verksamhet.css";
+import "/styles/fortroendevalda.css"
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";

@@ -3,7 +3,7 @@ h1{
 }
 
 #rättigheter strong, h2, h1 span{
-    color: var(--djuprod)
+    color: var(--clr5);
 }
 
 #rättigheter p {

@@ -7,21 +7,21 @@ import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
 
 
 const MENU_LIST = [
-    { text: "Kalender", href: "/Kalender" },
-    { text: "Aktuellt", href: "/Aktuellt"},
-    { text: "Verksamhet", href: "/Verksamhet",
+    { text: "Kalender", href: "/kalender" },
+    { text: "Aktuellt", href: "/aktuellt"},
+    { text: "Verksamhet", href: "/verksamhet",
         submenu: [
-            {text: "Förtroendevalda", href: "/Fortroendevalda"},
-            {text: "Hedersmedlemmar", href: "/Hedersmedlemmar"},
-            {text: "Sångbok", href: "/Sangbok"},
+            {text: "Förtroendevalda", href: "/fortroendevalda"},
+            {text: "Hedersmedlemmar", href: "/hedersmedlemmar"},
+            {text: "Sångbok", href: "/sangbok"},
         ]
     },
-    { text: "Student", href: "/Student",
+    { text: "Student", href: "/student",
         submenu: [
-            {text: "Alumniblogg", href: "/Alumniblogg"},
-            {text: "Reseberättelser", href: "/Reseberattelser"},
-            {text: "VFU", href: "/VFU"},
-            {text: "Studiebevakning", href: "/Studiebevakning"},
+            {text: "Alumniblogg", href: "/alumniblogg"},
+            {text: "Reseberättelser", href: "/reseberattelser"},
+            {text: "VFU", href: "/vfu"},
+            {text: "Studiebevakning", href: "/studiebevakning"},
         ]
     }
 ];
