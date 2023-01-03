@@ -56,7 +56,7 @@
     background-color: var(--clr2)
 }
 
-.submenu_wrapper:hover .submenu_item{
+.nav__menu-list .submenu_wrapper:hover .submenu_item{
     display: block !important;  
 }
 
@@ -76,6 +76,19 @@ nav .active{
     color: #ffffff;
 }
 
+.nav__item i{
+    transition: 0.5s;
+    transform: rotate(0deg);
+}
+
+.nav__menu-list .submenu_wrapper:hover .nav__item i{
+    transform: rotate(180deg);
+}
+
+.burgir__menu-list .submenu_wrapper.active .nav__item i{
+    transform: rotate(180deg);
+}
+
 #navburgirmenu{
     display: none;
     font-size: 1.5rem;
@@ -84,27 +97,36 @@ nav .active{
 
 .burgir__menu-list{
     display: none;
+    overflow: hidden;
     position: fixed;
+    width: 50%;
+    right: 0px;
     background-color: var(--clr2);
     color: #ffffff;
-    right: 0;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.507);
+    box-shadow: -0.2rem 0.2rem 0.3rem -0.1rem rgba(0, 0, 0, 0.253);
 }
 
 .burgir__menu-list .nav__item{
-    width: 72%;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
     background-color: var(--clr2);
 }
 
 .burgir__menu-list .nav__item:hover{
-    width: 80%;
-    transform: translate(-4%);
     background-color: var(--clr3);
     transition: .2s;
 }
 
+.burgir__menu-list .submenu_wrapper.active .submenu_item{
+    display:block !important;
+}
 
-@media screen and (max-width: 650px) {
+.burgir__menu-list .submenu_item.active{
+    background-color: var(--clr3) !important;
+}
+
+@media screen and (max-width: 700px) {
     #navmain {
         align-items: left;
         justify-content: space-between;
@@ -124,7 +146,8 @@ nav .active{
 
     .burgir__menu-list{
         display: block;
-        top: 3.5rem;
+        
+        top: 4rem;
     }
 
 }

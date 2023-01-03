@@ -95,9 +95,9 @@ const Navbar = () => {
             {navBurgirOpen ? 
             <div className="burgir__menu-list">
                 {MENU_LIST.map((menu, idx) => (
-                <div key={menu.text} className="submenu_wrapper">
+                <div key={menu.text} className={`submenu_wrapper ${(activeIdx === idx)? "active" : ""}`}>
                     <div className="navitem_wrapper" onClick={() => {
-                        setActiveIdx(idx);
+                        (activeIdx === idx)? setActiveIdx(-1) : setActiveIdx(idx);
                         setActiveSubIdx(-1);
                     }}>                    
                     <NavItem active={activeIdx === idx} {...menu} />
@@ -105,9 +105,10 @@ const Navbar = () => {
 
                     {menu.submenu?.map((sb, s_idx) => ( 
                         <div key={sb.text} onClick={() => {
-                            setActiveIdx(idx);
-                            setActiveSubIdx(s_idx);
-                            setNavBurgirOpen(false);
+                            if (idx === activeIdx){
+                                setActiveIdx(idx);
+                                setActiveSubIdx(s_idx);
+                            }
                         }}>
                         <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                         </div>

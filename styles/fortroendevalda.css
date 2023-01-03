@@ -53,6 +53,10 @@
     font-size: 1.4rem;
 }
 
+.nämnder_nav .active {
+    text-align: center;
+}
+
 @media screen and (max-width: 650px) {
     .förtroendevalda_wrapper{
         grid-template-columns: 1fr;

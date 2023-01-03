@@ -3,7 +3,7 @@ import Mail from "./mail";
 const CtyreLsen = () => {
     return(
         <div>
-            <h1>CtyreLsen</h1>
+            <h1>CtyreLsen <i className="fa-solid fa-gavel"/></h1>
             <p className="nämnd_beskrivning">
                 Sektionsstyrelsen, eller CtyreLsen, har ett övergripande ansvar för att 
                 vidareutveckla sektionens verksamhet. Styrelsen består av Ordförande, 
@@ -42,7 +42,7 @@ const CtyreLsen = () => {
 const Studienamnden = () => {
     return(
         <div>
-            <h1>Studienämnden</h1>
+            <h1>Studienämnden <i className="fa-solid fa-book"/></h1>
             <p className="nämnd_beskrivning">
                 Studienämnden består av flera personer vars uppgift är att bevaka 
                 studierna på KTH; att kursernas mål uppfylls och att utformningen är 
@@ -77,7 +77,7 @@ const Studienamnden = () => {
 const Naringslivsnamnden = () => {
     return(
         <div>
-            <h1>Näringslivsnämnden</h1>
+            <h1>Näringslivsnämnden <i class="fa-solid fa-sack-dollar"/></h1>
             <p className="nämnd_beskrivning">
                 Näringslivsnämnden har ansvar för kontakten med näringslivet och sektionens sponsorer 
                 samt sektionens ansikte utåt i form av webbsidan och sociala medier. Näringslivsnämnden 
@@ -110,7 +110,7 @@ const Naringslivsnamnden = () => {
 const Mottagningsnamnden = () => {
     return(
         <div>
-            <h1>Mottagningsnämnden</h1>
+            <h1>Mottagningsnämnden <i className="fa-solid fa-heart"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -133,7 +133,7 @@ const Mottagningsnamnden = () => {
 const JMLnamnden = () => {
     return(
         <div>
-            <h1>JML-nämnden</h1>
+            <h1>JML-nämnden <i className="fa-solid fa-apple-whole"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -152,7 +152,7 @@ const JMLnamnden = () => {
 const Aktivitetsnamnden = () => {
     return(
         <div>
-            <h1>Aktivitetsnämnden</h1>
+            <h1>Aktivitetsnämnden <i className="fa-solid fa-person-running"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -172,7 +172,7 @@ const Aktivitetsnamnden = () => {
 const Lokalnamnden = () => {
     return(
         <div>
-            <h1>Lokalnämnden</h1>
+            <h1>Lokalnämnden <i className="fa-solid fa-house"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -189,7 +189,7 @@ const Lokalnamnden = () => {
 const CLubWasteriet = () => {
     return(
         <div>
-            <h1>CLubWästeriet</h1>
+            <h1>CLubWästeriet <i className="fa-solid fa-wine-glass"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -212,7 +212,7 @@ const CLubWasteriet = () => {
 const Valberedningen = () => {
     return(
         <div>
-            <h1>Valberedningen</h1>
+            <h1>Valberedningen <i class="fa-solid fa-fish-fins"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -241,7 +241,7 @@ const Valberedningen = () => {
 const Revisorer = () => {
     return(
         <div>
-            <h1>Revisorer</h1>
+            <h1>Revisorer <i class="fa-solid fa-scale-balanced"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -261,7 +261,7 @@ const Revisorer = () => {
 const Fanborg = () => {
     return(
         <div>
-            <h1>Fonborg</h1>
+            <h1>Fonborg <i class="fa-solid fa-flag"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -287,7 +287,7 @@ const Fanborg = () => {
 const Kf = () => {
     return(
         <div>
-            <h1>Kårfullmäktigedelegation</h1>
+            <h1>Kårfullmäktigedelegation <i class="fa-solid fa-section"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -306,18 +306,18 @@ const Kf = () => {
 const Enskilda = () => {
     return(
         <div>
-            <h1>Enkilda poster</h1>
+            <h1>Enkilda poster <i class="fa-solid fa-otter"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
-                    Veronica Vilbern, <b>Talman</b><br/><br/>
+                    Veronica Vilbern, <b>Talman</b> <i class="fa-solid fa-comments"/><br/><br/>
                     
-                    Mikael &quot;moppe&quot; Lundkvist, <b>Försäljningsansvarig</b><br/>
+                    Mikael &quot;moppe&quot; Lundkvist, <b>Försäljningsansvarig</b> <i class="fa-solid fa-store"/><br/>
                     <Mail mailadress="forsaljning@cl-sektionen.se"/><br/><br/>
 
-                    Astrid Joseph, <b>Idrottsansvarig</b><br/>
+                    Astrid Joseph, <b>Idrottsansvarig </b><i class="fa-solid fa-basketball"/><br/>
                     <Mail mailadress="idrott@cl-sektionen.se"/><br/><br/>
                 </div>
             </section>
@@ -328,7 +328,7 @@ const Enskilda = () => {
 const CLek = () => {
     return(
         <div>
-            <h1>CLek</h1>
+            <h1>CLek <i class="fa-solid fa-dice"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -351,7 +351,7 @@ const CLek = () => {
 const Dubbelspexet = () => {
     return(
         <div>
-            <h1>Dubbelspexet</h1>
+            <h1>Dubbelspexet <i class="fa-solid fa-masks-theater"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>
@@ -371,7 +371,7 @@ const Dubbelspexet = () => {
 const CLak = () => {
     return(
         <div>
-            <h1>CLak</h1>
+            <h1>CLak <i class="fa-solid fa-arrow-trend-up"/></h1>
             <p className="nämnd_beskrivning">
             </p>
             <hr/><br/>

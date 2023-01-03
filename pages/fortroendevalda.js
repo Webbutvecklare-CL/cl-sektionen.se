@@ -19,45 +19,45 @@ export default function Fortroendevalda(){
                 <nav className="nämnder_nav">
                     <ul id="nämnder_nav_ul">
                         <li id="CtyreLsen" className="active" onClick={() => stateUpdater("CtyreLsen")}>
-                            CtyreLsen</li>
+                        <i className="fa-solid fa-gavel"/> CtyreLsen</li>
 
                         <h2>Nämnder</h2>
                         <li id="Studienämnden" onClick={() => stateUpdater("Studienämnden")}>
-                            Studienämnden</li>
+                        <i className="fa-solid fa-book"/> &nbsp;Studienämnden</li>
                         <li id="Näringslivsnämnden" onClick={() => stateUpdater("Näringslivsnämnden")}>
-                            Näringslivsnämnden</li>
+                        <i class="fa-solid fa-sack-dollar"/> Näringslivsnämnden</li>
                         <li id="Mottagningsnämnden" onClick={() => stateUpdater("Mottagningsnämnden")}>
-                            Mottagningsnämnden</li>
+                        <i className="fa-solid fa-heart"/> Mottagningsnämnden</li>
                         <li id="JML-nämnden" onClick={() => stateUpdater("JML-nämnden")}>
-                            JML-nämnden</li>
+                        <i className="fa-solid fa-apple-whole"/> &nbsp;JML-nämnden</li>
                         <li id="Aktivitetsnämnden" onClick={() => stateUpdater("Aktivitetsnämnden")}>
-                            Aktivitetsnämnden</li>
+                        <i className="fa-solid fa-person-running"/> &nbsp;Aktivitetsnämnden</li>
                         <li id="Lokalnämnden" onClick={() => stateUpdater("Lokalnämnden")}>
-                            Lokalnämnden</li>
+                        <i className="fa-solid fa-house"/> Lokalnämnden</li>
                         <li id="CLubWästeriet" onClick={() => stateUpdater("CLubWästeriet")}>
-                            ClubWästeriet</li>
+                        <i className="fa-solid fa-wine-glass"/> &nbsp;&nbsp;ClubWästeriet</li>
                         <li id="Valberedningen" onClick={() => stateUpdater("Valberedningen")}>
-                            Valberedningen</li>
+                        <i class="fa-solid fa-fish-fins"/> Valberedningen</li>
                         <br/>
 
                         <h2>Övriga förtroendevalda</h2>
                         <li id="Revisorer" onClick={() => stateUpdater("Revisorer")}>
-                            Revisorer</li>
+                        <i class="fa-solid fa-scale-balanced"/> Revisorer</li>
                         <li id="Fanborg" onClick={() => stateUpdater("Fanborg")}>
-                            Fanborg</li>
+                        <i class="fa-solid fa-flag"/> &nbsp;Fanborg</li>
                         <li id="Kårfullmäktigedelegation" onClick={() => stateUpdater("Kårfullmäktigedelegation")}>
-                            Kårfullmäktigedelegation</li>
+                        <i class="fa-solid fa-section"/> &nbsp;&nbsp;&nbsp;Kårfullmäktigedelegation</li>
                         <li id="Enskilda" onClick={() => stateUpdater("Enskilda")}>
-                            Enskilda poster</li>
+                        <i class="fa-solid fa-otter"/> Enskilda poster</li>
                         <br/>
                         
                         <h2>Sektionsföreningar</h2>
                         <li id="CLek" onClick={() => stateUpdater("CLek")}>
-                            CLek</li>
+                        <i class="fa-solid fa-dice"/> CLek</li>
                         <li id="Dubbelspexet" onClick={() => stateUpdater("Dubbelspexet")}>
-                            Dubbelspexet</li>
+                        <i class="fa-solid fa-masks-theater"/> Dubbelspexet</li>
                         <li id="CLak" onClick={() => stateUpdater("CLak")}>
-                            CLak</li>
+                        <i class="fa-solid fa-arrow-trend-up"/> CLak</li>
                         
                     </ul>
                 </nav>
