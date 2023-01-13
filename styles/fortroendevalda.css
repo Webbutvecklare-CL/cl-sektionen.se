@@ -40,10 +40,6 @@
     font-size: 1.2rem;
 }
 
-#förtroendevalda_content{
-    scroll-margin: 5rem;
-}
-
 #förtroendevalda_content h1{
     color: var(--clr5);
     margin-top: 0;

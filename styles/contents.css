@@ -9,6 +9,12 @@
     margin-right: auto;
     margin-bottom: 5rem;
     min-height: 1000px;
+
+    
+}
+
+section{
+    scroll-margin: 5rem;
 }
 
 p {
