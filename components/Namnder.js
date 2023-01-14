@@ -312,7 +312,8 @@ const Enskilda = () => {
             <hr/><br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
-                    Veronica Vilbern, <b>Talman</b> <i class="fa-solid fa-comments"/><br/><br/>
+                    Veronica Vilbern, <b>Talman</b> <i class="fa-solid fa-comments"/><br/>
+                    <Mail mailadress="talman@cl-sektionen.se"/><br/><br/>
                     
                     Mikael &quot;moppe&quot; Lundkvist, <b>Försäljningsansvarig</b> <i class="fa-solid fa-store"/><br/>
                     <Mail mailadress="forsaljning@cl-sektionen.se"/><br/><br/>
