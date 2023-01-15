@@ -25,7 +25,7 @@ export default function Fortroendevalda(){
                         <li id="Studienämnden" onClick={() => stateUpdater("Studienämnden")}>
                         <i className="fa-solid fa-book"/> &nbsp;Studienämnden</li>
                         <li id="Näringslivsnämnden" onClick={() => stateUpdater("Näringslivsnämnden")}>
-                        <i class="fa-solid fa-sack-dollar"/> Näringslivsnämnden</li>
+                        <i className="fa-solid fa-sack-dollar"/> Näringslivsnämnden</li>
                         <li id="Mottagningsnämnden" onClick={() => stateUpdater("Mottagningsnämnden")}>
                         <i className="fa-solid fa-heart"/> Mottagningsnämnden</li>
                         <li id="JML-nämnden" onClick={() => stateUpdater("JML-nämnden")}>
@@ -37,27 +37,27 @@ export default function Fortroendevalda(){
                         <li id="CLubWästeriet" onClick={() => stateUpdater("CLubWästeriet")}>
                         <i className="fa-solid fa-wine-glass"/> &nbsp;&nbsp;ClubWästeriet</li>
                         <li id="Valberedningen" onClick={() => stateUpdater("Valberedningen")}>
-                        <i class="fa-solid fa-fish-fins"/> Valberedningen</li>
+                        <i className="fa-solid fa-fish-fins"/> Valberedningen</li>
                         <br/>
 
                         <h2>Övriga förtroendevalda</h2>
                         <li id="Revisorer" onClick={() => stateUpdater("Revisorer")}>
-                        <i class="fa-solid fa-scale-balanced"/> Revisorer</li>
+                        <i className="fa-solid fa-scale-balanced"/> Revisorer</li>
                         <li id="Fanborg" onClick={() => stateUpdater("Fanborg")}>
-                        <i class="fa-solid fa-flag"/> &nbsp;Fanborg</li>
+                        <i className="fa-solid fa-flag"/> &nbsp;Fanborg</li>
                         <li id="Kårfullmäktigedelegation" onClick={() => stateUpdater("Kårfullmäktigedelegation")}>
-                        <i class="fa-solid fa-section"/> &nbsp;&nbsp;&nbsp;Kårfullmäktigedelegation</li>
+                        <i className="fa-solid fa-section"/> &nbsp;&nbsp;&nbsp;Kårfullmäktigedelegation</li>
                         <li id="Enskilda" onClick={() => stateUpdater("Enskilda")}>
-                        <i class="fa-solid fa-otter"/> Enskilda poster</li>
+                        <i className="fa-solid fa-otter"/> Enskilda poster</li>
                         <br/>
                         
                         <h2>Sektionsföreningar</h2>
                         <li id="CLek" onClick={() => stateUpdater("CLek")}>
-                        <i class="fa-solid fa-dice"/> CLek</li>
+                        <i className="fa-solid fa-dice"/> CLek</li>
                         <li id="Dubbelspexet" onClick={() => stateUpdater("Dubbelspexet")}>
-                        <i class="fa-solid fa-masks-theater"/> Dubbelspexet</li>
+                        <i className="fa-solid fa-masks-theater"/> Dubbelspexet</li>
                         <li id="CLak" onClick={() => stateUpdater("CLak")}>
-                        <i class="fa-solid fa-arrow-trend-up"/> CLak</li>
+                        <i className="fa-solid fa-arrow-trend-up"/> CLak</li>
                         
                     </ul>
                 </nav>

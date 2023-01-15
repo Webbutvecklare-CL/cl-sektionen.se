@@ -77,7 +77,7 @@ const Studienamnden = () => {
 const Naringslivsnamnden = () => {
     return(
         <div>
-            <h1>Näringslivsnämnden <i class="fa-solid fa-sack-dollar"/></h1>
+            <h1>Näringslivsnämnden <i className="fa-solid fa-sack-dollar"/></h1>
             <p className="nämnd_beskrivning">
                 Näringslivsnämnden har ansvar för kontakten med näringslivet och sektionens sponsorer 
                 samt sektionens ansikte utåt i form av webbsidan och sociala medier. Näringslivsnämnden 
