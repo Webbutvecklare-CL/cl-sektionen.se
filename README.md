@@ -31,7 +31,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när den finns tillgänglig på github. DVS allt du behöver göra är att merge:a med main.
 
-## Uppdatera och lägga till text innehåll
+## Uppdatera och lägga till textinnehåll
 
 För att ändra i en text går du bara in på en fil som du vill ändra på i mappen `public/content/`.
 
