@@ -1,0 +1,54 @@
+.create {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+/* Oklart om denna ska vara kvar
+Användaren blir kanske frustrerad över att inte 
+kunna ändra färgen på texten om strong inte ändras */
+.create p strong{
+    color: unset;
+}
+
+/* Ska ha samma formatering som när det visas i flödet */
+.create .ql-container {
+    font-family: unset;
+    font-size: 1.2rem;
+}
+
+.create label {
+  text-align: left;
+  display: block;
+  font-size: 1.2rem;
+}
+
+
+
+.create input,  .create textarea, .create select {
+ width: 100%;
+ padding: 6px 10px;
+ margin: 10px 0;
+ border: 1px solid #ddd;
+ box-sizing: border-box;
+ display: block;
+}
+
+.create button {
+  background: #293a38;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.date-input  {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date-input div {
+    margin-right: 10%;
+    width: 20%;
+    min-width: 120px;
+}
