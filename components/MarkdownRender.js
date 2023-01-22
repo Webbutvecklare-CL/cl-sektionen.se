@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 function MarkdownRender({ source }) {
-    let [content, setContent] = useState({ md: '' });
+    let [content, setContent] = useState('');
 
+    // Hämtar markdown filen och sparar textdata i content
     useEffect(() => {
         fetch(source)
             .then((res) => res.text())
-            .then((md) => {
-                setContent({ md });
+            .then((data) => {
+                setContent(data);
             });
     }, [source]);
 
     return (
+        //Rehype gör så att man kan skriva html kod i markdown filen
         <div>
-            <ReactMarkdown>{content.md}</ReactMarkdown>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
         </div>
     );
 }

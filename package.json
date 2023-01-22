@@ -18,7 +18,8 @@
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.4",
     "react-quill": "^2.0.0",
-    "react-router-dom": "^6.7.0"
+    "react-router-dom": "^6.7.0",
+    "rehype-raw": "^6.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^1.4.1"
