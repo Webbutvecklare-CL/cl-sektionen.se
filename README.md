@@ -31,10 +31,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när den finns tillgänglig på github. DVS allt du behöver göra är att merge:a med main.
 
-## Uppdatera och lägga till textinnehåll
+## Uppdatera och lägga till textinnehåll - Statiskt innehåll
 
 För att ändra i en text går du bara in på en fil som du vill ändra på i mappen `public/content/`.
 
 All längre sammanhängande text ska vara skriven i markdown. [Här](https://www.markdownguide.org/cheat-sheet/) hittar du en guide på hur du formatera texten, du kan även kolla på andra texter i mappen `public/content/`. För att kolla på en förhandsvisning av formateringen kan du använda https://markdownlivepreview.com/. Kom ihåg att spara filen med .md formatet.
 
 För att lägga till texten på en sida ska du använda `<MarkdownRender source={"./content/filnamn.md"} />`. Om det är en längre text lägg texten i ett artikel block `<article><MarkdownRender .../></article>`.
+
+## Struktur på aktuellt sidan - Dynamiskt innehåll
+
+I databasen sparas varje inlägg likt strukturen på JSON. De olika attributen är: _Title, Subtitle, Bild, Body, Tags, Date, PublicationDate och Author_. Body sparas i Rich Text Format dvs html format.  
+`<PostFeed>` komponenten visar en lista med inlägg som kan fetchas på valfritt sätt.
+På aktuelltsidan finns två feed ett för nyheter och ett för event. Det är i `/pages/aktuellt.js` som inläggen fetchas. Varje feed kan få olika listor dvs nyhetsinlägg fetchas och skickas separat till nyhets-feedet.
+
+Varje inlägg har ett unikt ID. För att komma åt ett inlägg används adressen /aktuellt/[id]. Inläggssidan ligger i `/pages/aktuellt/[pageId].js`.

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
 // Används för att kunna skriva rich text vilket gör att man kan formatera texten
-// Målet är att WYSIWYG - What you see is what you get. Dvs så man formaterar det 
+// Målet är att WYSIWYG - What you see is what you get. Dvs så man formaterar det
 // så kommer det se ut när det är publicerat.
 const ReactQuill = dynamic(import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
@@ -123,7 +123,7 @@ function Publicera() {
                     <select
                         required
                         value={tags}
-                        onChange={(e) => setType(e.target.value)}
+                        onChange={(e) => setTags(e.target.value)}
                     >
                         <option value="">Välj typ</option>
                         <option value="fest">Event</option>
