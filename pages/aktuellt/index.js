@@ -1,4 +1,4 @@
-import PostFeed from '../components/PostFeed';
+import PostFeed from '../../components/PostFeed';
 
 function Aktuellt() {
     // För varje feed ska alla/ett antal inlägg fetchas
