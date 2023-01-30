@@ -94,6 +94,11 @@ function Reseberattelser() {
                             Anna Stolpe - Australien
                         </Link>
                     </li>
+                    <li>
+                        <Link href="/reseberattelser/emelie-selinder-australien">
+                            Emelie Selinder - Australien
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </div>

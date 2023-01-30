@@ -21,6 +21,27 @@ function Alumniblogg() {
                         Malin Engquist - bästa examensarbetet 2018 (intervju)
                     </Link>
                 </li>
+                <li>
+                    <Link href="/alumniblogg/erik-evers">Erik Evers</Link>
+                </li>
+                <li>
+                    <Link href="/alumniblogg/henrik-moberg">Henrik Moberg</Link>
+                </li>
+                <li>
+                    <Link href="/alumniblogg/isabelle-wahlund">
+                        Isabelle Wahlund
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/alumniblogg/andreas-martensson">
+                        Andreas Mårtensson
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/alumniblogg/victor-dahlberg">
+                        Victor Dahlberg
+                    </Link>
+                </li>
             </ul>
         </div>
     );
