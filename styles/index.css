@@ -39,46 +39,25 @@
     height: auto;
 }
 
-
-.title_grid{
+.visa_om_knapp_div{
+    transform: translateY(-9px);
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.title_grid div{
-    padding-left: 1rem;
+    justify-content: center;
 }
 
 .visa_om_knapp{
     
-    background-color: var(--clr2);
+    background-color: var(--clr1);
     border: none;
-    width: auto;
+    width: 100px;
     height: fit-content;
-    border-radius: .5rem;
-    padding: 1rem;
+    border-radius: 0 0 1.6rem 1.6rem;
+    padding: .5rem 1rem .5rem 1rem;
     font-size: 1rem;
     font-family: inherit;
     font-weight: 500;
     color: white;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
-}
-
-.visa_om_knapp i{
-    transform: translateY(4px);
-    animation: bounce 1s ease-in-out 2;
-}
-@keyframes bounce {
-    0%{
-        transform: translateY(4px);
-    }
-    50%{
-        transform: translateY(10px);
-    }
-    100%{
-        transform: translateY(4px);
-    }
 }
 
 .visa_om_knapp:hover{
