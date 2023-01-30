@@ -7,11 +7,13 @@ const CtyreLsen = () => {
             <p className="nämnd_beskrivning">
                 Sektionsstyrelsen, eller CtyreLsen, har ett övergripande ansvar för att 
                 vidareutveckla sektionens verksamhet. Styrelsen består av Ordförande, 
-                Vice ordförande tillika Sekreterare, Kassör och ledamöter. Ledamöterna 
+                Vice ordförande tillika Sekreterare, Kassör och ledamöter. Ledamöternas 
                 har delat upp arbetet mellan sig i ansvarsområdena Näringsliv, Studiesocialt 
                 och Utbildningsfrågor. 
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Gustav Heldt, <b>Ordförande </b><br/>
@@ -54,7 +56,9 @@ const Studienamnden = () => {
                 Om du har klagomål eller åsikter om en kurs är det till Studienämnden du 
                 vänder dig! 
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Moa Wettby, <b>Studienämndens Ordförande </b><br/>
@@ -84,7 +88,9 @@ const Naringslivsnamnden = () => {
                 anordnar evenemang som CV-workshops, LinkedIn-workshops och lunchföreläsningar. Nämnden 
                 representerar sektionen vid THS Näringslivsråd. 
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Fabian Olesen, <b>Näringslivsnämndens Ordförande </b><br/>
@@ -113,7 +119,9 @@ const Mottagningsnamnden = () => {
             <h1>Mottagningsnämnden <i className="fa-solid fa-heart"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Oscar Ekström, <b>Mottagningsansvarig</b><br/>
@@ -136,7 +144,9 @@ const JMLnamnden = () => {
             <h1>JML-nämnden <i className="fa-solid fa-apple-whole"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Maja Jansson, <b>Ordförande</b><br/>
@@ -155,7 +165,9 @@ const Aktivitetsnamnden = () => {
             <h1>Aktivitetsnämnden <i className="fa-solid fa-person-running"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Rasmus Harders, <b>Aktivitetsnämndens ordförande</b><br/>
@@ -175,7 +187,9 @@ const Lokalnamnden = () => {
             <h1>Lokalnämnden <i className="fa-solid fa-house"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Anders Wallenthin, <b>Ordförande</b><br/>
@@ -192,7 +206,9 @@ const CLubWasteriet = () => {
             <h1>CLubWästeriet <i className="fa-solid fa-wine-glass"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2021.04.30 - 2022.04.30</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Frida Andersson, <b>Klubbmästare - CL</b><br/>
@@ -215,7 +231,9 @@ const Valberedningen = () => {
             <h1>Valberedningen <i class="fa-solid fa-fish-fins"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2022.04.30 - 2023.4.30</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     David Böhrens Radö, <b>Femmans representant</b><br/>
@@ -244,7 +262,9 @@ const Revisorer = () => {
             <h1>Revisorer <i class="fa-solid fa-scale-balanced"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Erik Åman, <b>Revisor</b><br/>
@@ -264,7 +284,9 @@ const Fanborg = () => {
             <h1>Fonborg <i class="fa-solid fa-flag"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2022.01.01 - 2023.01.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Felicia Rosenberg, <b>Fanbärare</b><br/>
@@ -290,7 +312,9 @@ const Kf = () => {
             <h1>Kårfullmäktigedelegation <i class="fa-solid fa-section"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2022.07.01 - 2023.6.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Moa Wettby, <b>Kårfullmäktigedelegation</b><br/>
@@ -309,14 +333,16 @@ const Enskilda = () => {
             <h1>Enkilda poster <i class="fa-solid fa-otter"/></h1>
             <p className="nämnd_beskrivning">
             </p>
-            <hr/><br/>
+            <hr/>
+            <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
                     Veronica Vilbern, <b>Talman</b> <i class="fa-solid fa-comments"/><br/><br/>
                     
-                    Mikael &quot;moppe&quot; Lundkvist, <b>Försäljningsansvarig</b> <i class="fa-solid fa-store"/><br/>
+                    Mikael &quot;Moppe&quot; Lundkvist, <b>Försäljningsansvarig</b> <i class="fa-solid fa-store"/><br/>
                     <Mail mailadress="forsaljning@cl-sektionen.se"/><br/><br/>
-
+                    
                     Astrid Joseph, <b>Idrottsansvarig </b><i class="fa-solid fa-basketball"/><br/>
                     <Mail mailadress="idrott@cl-sektionen.se"/><br/><br/>
                 </div>

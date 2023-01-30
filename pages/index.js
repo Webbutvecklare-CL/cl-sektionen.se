@@ -19,20 +19,13 @@ function Index() {
       </div>
     <div className='bg_bottom_cover'></div>
     <div id="contentbody" className="index_content">
-      <header className='title_grid'>
-        <div>
-          <h1>
-              Sektionen för Civilingenjör &amp; Lärare
-          </h1>
-          <h2>
-              Dubbel examen, dubbel kompetens
-          </h2>
-        </div>
-        <button className="visa_om_knapp" onClick={toggleOm}>
-          Tryck här för att läsa om CL
-          <br/>
-          {open? <i className="fa-solid fa-arrow-up"></i> : <i className="fa-solid fa-arrow-down"></i>}
-        </button>
+      <header>
+        <h1>
+            Sektionen för Civilingenjör &amp; Lärare
+        </h1>
+        <h2>
+            Dubbel examen, dubbel kompetens
+        </h2>
       </header>
       
       <div className={open? "open" : "collapsed"}>
@@ -50,7 +43,7 @@ function Index() {
               arbete är uppdelad mellan sektionsstyrelsen 
               &quot;<span style={{color: "var(--clr5)", fontWeight: "600"}}>C</span>tyre<span style={{color: "var(--clr5)", fontWeight: "600"}}>L</span>sen&quot;
               samt ett antal nämnder och övriga förtroendevalda. Läs mer om sektionens nämnder och förtroendevalda på&nbsp;
-              <Link href="/Fortroendevalda">Denna sida</Link>.
+              <Link href="/fortroendevalda">Denna sida</Link>.
             </p>
             <Image 
                 src = {Sidhuvud}
@@ -80,6 +73,11 @@ function Index() {
         </section>
       </div>
       <hr/>
+      <div className='visa_om_knapp_div'>
+        <button className="visa_om_knapp" onClick={toggleOm}>
+            Om CL {open? <i className="fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i>}
+        </button>
+      </div>
       <section className="mini_aktuellt_o_kalender">
         <div className='mini_aktuellt'>
           <h1>Aktuellt</h1>

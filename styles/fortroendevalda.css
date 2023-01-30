@@ -57,6 +57,13 @@
     text-align: center;
 }
 
+.mandat_period {
+    display: block;
+    color: grey;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
 @media screen and (max-width: 650px) {
     .förtroendevalda_wrapper{
         grid-template-columns: 1fr;
