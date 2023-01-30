@@ -47,3 +47,28 @@ h2 {
 .nowrap {
     white-space: nowrap;
 }
+
+article {
+    margin: auto;
+    width: 60%;
+    padding: 2em 6em;
+    box-shadow: 0px 0px 25px -11px rgba(0,0,0,0.52);
+}
+
+@media (max-width: 900px) {
+    article{
+        width: 100%;
+        margin: auto;
+        padding: 0px;
+        box-shadow: none;
+    }
+  }
+
+article p {
+    margin-bottom: 0px;
+}
+
+article ul, ol {
+    margin-top: 0px;
+    font-size: 18px;
+}
