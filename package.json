@@ -12,14 +12,17 @@
     "@next/font": "13.0.7",
     "eslint": "8.30.0",
     "eslint-config-next": "13.0.7",
+    "firebase": "^9.15.0",
     "html-react-parser": "^3.0.8",
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-markdown": "^8.0.4",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.7.0",
-    "rehype-raw": "^6.1.1"
+    "rehype-raw": "^6.1.1",
+    "sanitize-html": "^2.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^1.4.1"

@@ -1,41 +1,71 @@
+import { React, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 import parse from 'html-react-parser';
+import { firestore } from '../../firebase/clientApp';
+import { doc, getDoc } from 'firebase/firestore';
 
-export default function Post({ post, postId }) {
+export default function Post() {
+    const router = useRouter();
+    const { postId } = router.query;
+
+    const [post, setPost] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    const myLoader = ({ src, width, quality }) => {
+        console.log(post.image);
+        return post.image;
+    };
+
+    useEffect(() => {
+        const getPost = async () => {
+            setLoading(true);
+            if (!postId) {
+                setError('Inget post id');
+                return;
+            }
+            const docRef = doc(firestore, 'posts', postId);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                // console.log('Document data:', docSnap.data());
+                setPost(docSnap.data());
+                setError(null);
+            } else {
+                setError('Det finns inget inlägg med id ' + postId);
+                console.log('No such document!');
+            }
+            setLoading(false);
+        };
+
+        getPost();
+    }, [postId]);
+
+    const getDate = (date) => {
+        return date.toDate().toLocaleDateString('sv');
+    };
     return (
         <div id="contentbody">
+            {loading && <p>Laddar...</p>}
+            {error && <p>Error: {error}</p>}
             {post && (
-                <article>
-                    <h2>{post.title}</h2>
-                    <h3>{post.subtitle}</h3>
-                    <p>Publicerad av {post.author}</p>
-                    <p>Datum {post.date}</p>
+                <article className="post">
+                    <h1 className="title">{post.title}</h1>
+                    {/* <p>{post.subtitle}</p> */}
+                    <p className="meta">
+                        Publicerad {getDate(post.date)} av {post.author}
+                    </p>
+                    {post.image && (
+                        <div className="image-container">
+                            <img src={post.image} alt="Post bild" />
+                        </div>
+                    )}
+
+                    <hr />
                     <div>{parse(post.body)}</div>
                 </article>
             )}
         </div>
     );
-}
-
-export async function getServerSideProps({ params }) {
-    const postId = params.postId;
-
-    // const post = await fetch(`path-to-posts${postId}`).then((res) =>
-    //     res.json()
-    // );
-    const post = {
-        title: 'Gr8Bibloteket',
-        subtitle: 'Önska böcker Till gr8ns bibliotek!',
-        body: `I Gr8n har <strong>sektionen</strong> en samling kurslitteratur. Nu vill vi i studienämnden utöka denna samling så att den innehåller böcker som är relevanta för oss som går utbildningen just nu. Därför vill vi veta vilka böcker du saknar i Gr8n. (Ni kan även sälja/donera relevant kurslitteratur till biblioteket <3)
-        https://docs.google.com/forms/d/e/1FAIpQLSefGeuMcTTPxl1RgCktD3XXHDWut1U0dOJrf-kjk0BHLWSngg/viewform`,
-        author: 'Studienämnden',
-        tags: ['Gr8an', 'Viktigt'],
-        date: '12/20/2022',
-        publicationDate: '12/20/2022',
-    };
-    return {
-        props: {
-            postId,
-            post,
-        },
-    };
 }

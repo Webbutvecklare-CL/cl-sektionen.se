@@ -4,16 +4,17 @@
     flex-wrap: wrap;
 }
 
-
 .post-list {
     width: 450%;
     min-width: 480px;
     margin: 2% 1%;
-    background-color: #8010100c;
+    background-color: #FFF;
     padding: 10px 20px;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.44);
 }
 
+
+/* Post preview dvs varje länk */
 .post-preview {
     padding: 10px 16px;
     margin: 20px 0;
@@ -23,10 +24,11 @@
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.35);
 }
 .post-preview h2 {
-    font-size: 20px;
+    font-size: 1.5rem;
     color: black;
     margin-bottom: 2px;
 }
+
 .post-preview h3 {
     font-size: 1.2rem;
     font-weight: 500;
@@ -34,18 +36,21 @@
     margin: 6px 0px;
 }
 
-.post-preview p {
-    margin: 0px;
+.post-preview p.meta {
+    font-size: 1.1rem;
+    padding: 0;
+    margin-bottom: 0.5rem;
     color: black;
 }
 
-.post-preview p.author {
-    font-size: 1rem;
+.post-preview p.subtitle {
+    font-size: 1.2rem;
     padding: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
-.post-preview p.body {
+
+.post-preview div.body p{
     padding: 0;
     color: #333;
     overflow: hidden;
@@ -56,4 +61,33 @@
 
 .post-preview a {
     text-decoration: none;
+    height: 100px;
 }
+
+.post-preview hr{
+    margin-top: 0px;
+}
+
+
+/* POST STYLES */
+.post h1.title {
+    margin-bottom: 0;
+}
+
+.post p.meta {
+    font-size: 1rem;
+}
+
+.post hr {
+    margin-top: 0px;
+}
+
+.post div.image-container{
+    width: 100%;
+}
+
+.post div.image-container img{
+    object-fit: scale-down;
+    width: 100%;
+}
+    
