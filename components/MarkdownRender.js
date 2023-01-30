@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 function MarkdownRender({ source }) {
     let [content, setContent] = useState('');
@@ -17,7 +18,12 @@ function MarkdownRender({ source }) {
     return (
         //Rehype gör så att man kan skriva html kod i markdown filen
         <div>
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
+            <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+            >
+                {content}
+            </ReactMarkdown>
         </div>
     );
 }
