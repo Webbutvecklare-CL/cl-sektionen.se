@@ -16,7 +16,7 @@ function Publicera() {
     let [subtitle, setSubtitle] = useState('');
     let [image, setImage] = useState();
     let [body, setBody] = useState('');
-    let [tags, setTags] = useState('');
+    let [tags, setTags] = useState([]);
     let [date, setDate] = useState('');
     let today = new Date().toISOString().substring(0, 10); // Hämtar dagens datum och sätter som default
     let [publishDate, setPublishDate] = useState(today);
@@ -24,6 +24,9 @@ function Publicera() {
 
     const [isPending, setIsPending] = useState(false);
     const [error, setError] = useState('');
+
+    // Lägg till fler strängar för fler alternativ - endast här behövs. Tänk på stor bokstav i början
+    const possible_tags = ['Event', 'Information', 'Annat', 'Viktigt'];
 
     // Skickar allt till databasen
     const handleSubmit = async (e) => {
@@ -53,6 +56,7 @@ function Publicera() {
                     return;
                 } else {
                     //Gör något test så länken faktiskt fungerar
+                    unique_link = create_id(title);
                 }
             } else {
                 // Adressen var unik -> fortsätt försöka skicka data
@@ -69,12 +73,13 @@ function Publicera() {
             author: author,
             date: Timestamp.fromDate(new Date(date)),
             publishDate: Timestamp.fromDate(new Date(publishDate)),
-            tags: [tags],
+            tags: tags,
         };
         const postRef = doc(firestore, 'posts', unique_link);
 
         try {
             await setDoc(postRef, postData);
+            console.log('Inlägget är publicerat!');
         } catch (err) {
             setError('Kunde inte ladda upp inlägget');
             setIsPending(false);
@@ -98,15 +103,33 @@ function Publicera() {
                     image: downloadUrl,
                 });
 
-                setIsPending(false);
-                setError('');
-                clear_form();
-                alert('Inlägget är publicerat');
+                // Hoppar ner och rensar formuläret osv
             } catch (err) {
                 setError('Inlägget uppladdat men inte bilden');
                 setIsPending(false);
                 console.log(err);
             }
+        }
+        setIsPending(false);
+        setError('');
+        clear_form();
+        alert('Inlägget är publicerat');
+    };
+
+    const handleTagClick = (e) => {
+        //Lite halv sketchy lösning men who cares det kommer funka
+
+        e.preventDefault();
+        let tag = e.target.innerHTML;
+        let idx = tags.indexOf(tag);
+        if (idx > -1) {
+            //Ta bort och ändra class
+            tags.splice(idx, 1);
+
+            e.target.classList.remove('selected');
+        } else {
+            tags.push(tag);
+            e.target.classList.add('selected');
         }
     };
 
@@ -117,7 +140,7 @@ function Publicera() {
         setSubtitle('');
         setImage('');
         setBody('');
-        setTags('');
+        setTags([]);
         setDate('');
         setPublishDate(today);
         setAuthor('');
@@ -159,7 +182,9 @@ function Publicera() {
         }
 
         // Tags
-
+        if (tags.length < 1) {
+            return 'Du måste ange minst 1 kategori';
+        }
         // Om inget är fel
         return 'ok';
     };
@@ -258,22 +283,25 @@ function Publicera() {
                             />
                         </div>
                     </div>
-                    <label>Taggar:</label>
-                    <select
-                        required
-                        value={tags}
-                        onChange={(e) => setTags(e.target.value)}
-                    >
-                        <option value="">Välj typ</option>
-                        <option value="event">Event</option>
-                        <option value="information">Information</option>
-                        <option value="annat">Annat</option>
-                    </select>
+                    <label>Kategorier:</label>
+                    <div className="tag-selector">
+                        {possible_tags.map((tag, index) => (
+                            <button
+                                className="tag"
+                                key={index}
+                                onClick={handleTagClick}
+                            >
+                                {tag}
+                            </button>
+                        ))}
+                    </div>
 
                     {/* Submit */}
-                    {!isPending && <button>Skapa</button>}
+                    {!isPending && <button className="submit">Skapa</button>}
                     {isPending && (
-                        <button disabled>Publicerar händelse...</button>
+                        <button className="submit" disabled>
+                            Publicerar händelse...
+                        </button>
                     )}
                     {error && <p>Error: {error}</p>}
                 </form>

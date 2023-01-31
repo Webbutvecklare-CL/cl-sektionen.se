@@ -20,6 +20,7 @@ kunna ändra färgen på texten om strong inte ändras */
   text-align: left;
   display: block;
   font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 
@@ -33,22 +34,75 @@ kunna ändra färgen på texten om strong inte ändras */
  display: block;
 }
 
-.create button {
-  background: #293a38;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
+.create div.ql-container {
+    min-height: 10rem;
 }
 
-.date-input  {
+
+.create .date-input  {
     display: flex;
     flex-wrap: wrap;
 }
 
-.date-input div {
+.create .date-input div {
     margin-right: 10%;
     width: 20%;
     min-width: 120px;
+}
+
+.create .tag-selector {
+    background-color: #ddd;
+    margin: 0.5rem 0rem;
+    padding: 0.6rem;
+    border-radius: 0.6rem;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.create button {
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+.create .tag-selector button {
+    background-color: #555;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    height: 2rem;
+}
+
+.create .tag-selector button:hover {
+    background-color: #5d5d5d;
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.9);
+    box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.9);
+}
+
+
+.create .tag-selector button.selected {
+    
+    background-color: var(--clr3);
+}
+
+.create button.submit {
+    padding: 1rem 2rem;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    background-color: var(--clr4);
+    margin: 2rem 0rem;
+}
+
+.create button.submit:hover {
+    background-color: var(--clr3);
+    -webkit-box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.9);
+    box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.9);
 }
