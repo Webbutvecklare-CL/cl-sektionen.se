@@ -6,17 +6,13 @@ Sektionens skyddsombud har tystnadsplikt och kan hjälpa dig om något inträffa
 # Vägledning
 ## Om du upplever att du eller någon annan blir utsatt: 
 - Om incidenten sker under ett event, kan du ta kontakt med den ansvarige för eventet på plats
-
 - Berätta om din upplevelse för sektionens skyddsombud eller en ledamot i styrelsen som du känner förtroende för. 
-
 - Om det är sektionens skyddsombud som betett sig illa bör sektionens ordförande, eller annan ledamot i styrelsen, kontaktas.
-
 - Kontakta Diskrimineringsombudsmannen (DO) eller polis vid behov!
 
 
 ## Om du anklagas för kränkande behandling:
 - Försök vara lyhörd och förstå vilket beteende som upplevs kränkande och upphör genast med detta
-
 - Ta gärna kontakt med sektionens skyddsombud eller JML-nämnden för att få stöd
 
 

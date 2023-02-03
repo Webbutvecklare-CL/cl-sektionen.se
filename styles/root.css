@@ -26,3 +26,22 @@ body {
     background-color: white;
 }
 
+button{
+    cursor: pointer;
+    background-color: var(--clr1);
+    border: none;
+    height: fit-content;
+    border-radius: .75rem;
+    padding: .75rem 1rem .75rem 1rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: white;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+}
+
+button:hover{
+    background-color: var(--clr3);
+    transition: .2s;
+}
+
