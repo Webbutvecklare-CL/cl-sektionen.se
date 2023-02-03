@@ -6,6 +6,7 @@ import '/styles/footer.css';
 import '/styles/kalender.css';
 import '/styles/verksamhet.css';
 import '/styles/fortroendevalda.css';
+import '/styles/hedersmedlemmar.css'
 import '/styles/publicera.css';
 import '/styles/postfeed.css';
 import '/styles/reseberattelser.css';
