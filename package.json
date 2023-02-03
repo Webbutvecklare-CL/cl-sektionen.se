@@ -22,8 +22,8 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.7.0",
     "rehype-raw": "^6.1.1",
-    "sanitize-html": "^2.8.1",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "sanitize-html": "^2.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^1.4.1"
