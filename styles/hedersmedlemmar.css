@@ -1,0 +1,27 @@
+.hedersmedlemmar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hedersmedlem .imgdiv {
+    margin-top: 2rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.hedersmedlem .imgdiv img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+    .hedersmedlemmar {
+        grid-template-columns: 1fr 1fr;
+    }
+}

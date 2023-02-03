@@ -1,11 +1,21 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from 'next/image';
 import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
 
 
+//Att lägga till nya sidor:
+// 1. Se till att skapa sidan (se guide)
+
+// 2a. skapa ett nytt objekt i listan på formatet:
+//      {text: "<sidans namn>"", href: "/<sid dokumentets namn (länk)>"}
+
+// 2b. skapa dropdown meny genom att lägga till en tredje 'property' och kalla den för 'submenu'
+//     definiera den som en lista [] och dropdown item på samma format som 2a.
+
+//Notera att dropdowns i dropdowns stöds inte
 const MENU_LIST = [
     { text: "Kalender", href: "/kalender" },
     { text: "Aktuellt", href: "/aktuellt"},
@@ -31,23 +41,44 @@ const MENU_STATES = [
     "fas fa-times"
 ]
 
-
+//förord: läs på egen risk --Armin
 const Navbar = () => {
-    const [activeIdx, setActiveIdx] = useState(-1);
-    const [activeSubIdx, setActiveSubIdx] = useState(-1);
-    const [navBurgirOpen, setNavBurgirOpen] = useState(false)
+    const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
+    const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submeny
+    const [navBurgirOpen, setNavBurgirOpen] = useState(false) //för att öppna och stänga hamburgarmeny
+    
+    //egentligen onödig, ska rensas senare (kan alltid kallas med setNavBurgirOpen(!navBurgirOpen) istället)
     const burgirToggle = () => {
         setNavBurgirOpen(!navBurgirOpen)
     }
     
+
+    //för att stänga hamburgarmenyn om man klickar utanför---------------------
+    let menuref = useRef();
+    useEffect(() => {
+        let handler = e =>{
+            if(!menuref.current.contains(e.target)){
+                setNavBurgirOpen(false)
+            }
+        };
+
+        document.addEventListener("mousedown", handler);
+        return () =>{
+            document.removeEventListener("mousedown", handler);
+        }
+        
+    });
+    //-------------------------------------------------------------------------
+
+
     return(
         <header>
         <nav>
             <div id="topnav">
                 <div id="navmain">
+                    {/* Denna div är för CL-loggan som leder till index-page */}
                     <div onClick={() => {
                         setActiveIdx(-1);
-                        setNavBurgirOpen(false);
                         setActiveSubIdx(-1)
                         }}>
                         <Link href="/" >
@@ -59,7 +90,8 @@ const Navbar = () => {
                             />
                         </Link>
                     </div>
-
+                    
+                    {/* För hamburgarmeny knappen, syns endast för mobila/små enheter */}
                     <div id="navburgirmenu">
                         <button 
                             onClick={burgirToggle} 
@@ -68,6 +100,7 @@ const Navbar = () => {
                         </button>
                     </div>
 
+                    {/* Den normala menyn, se separat guide för genomgång av kod */}
                     <div className="nav__menu-list">
                         {MENU_LIST.map((menu, idx) => (
                         <div key={menu.text} className="submenu_wrapper">
@@ -82,7 +115,6 @@ const Navbar = () => {
                                 <div key={sb.text} onClick={() => {
                                     setActiveIdx(idx);
                                     setActiveSubIdx(s_idx);
-                                    setNavBurgirOpen(false);
                                 }}>
                                 <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                                 </div>
@@ -92,34 +124,36 @@ const Navbar = () => {
                     </div>  
                 </div>
             </div>
-            {navBurgirOpen ? 
-            <div className="burgir__menu-list">
-                {MENU_LIST.map((menu, idx) => (
-                <div key={menu.text} className={`submenu_wrapper ${(activeIdx === idx)? "active" : ""}`}>
-                    <div className="navitem_wrapper" onClick={() => {
-                        (activeIdx === idx)? setActiveIdx(-1) : setActiveIdx(idx);
-                        setActiveSubIdx(-1);
-                    }}>                    
-                    <NavItem active={activeIdx === idx} {...menu} />
-                    </div>
+            {/* hamburgarmenyn, se separat guide för genomgång av kod */}
+            <div ref={menuref}>
+                {navBurgirOpen ? 
+                <div className="burgir__menu-list" >
+                    {MENU_LIST.map((menu, idx) => (
+                    <div key={menu.text} className={`submenu_wrapper ${(activeIdx === idx)? "active" : ""}`}>
+                        <div className="navitem_wrapper" onClick={() => {
+                            (activeIdx === idx)? setActiveIdx(-1) : setActiveIdx(idx);
+                            setActiveSubIdx(-1);
+                        }}>                    
+                        <NavItem active={activeIdx === idx} {...menu} />
+                        </div>
 
-                    {menu.submenu?.map((sb, s_idx) => ( 
-                        <div key={sb.text} onClick={() => {
-                            if (idx === activeIdx){
-                                setActiveIdx(idx);
-                                setActiveSubIdx(s_idx);
-                            }
-                        }}>
-                        <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
+                        {menu.submenu?.map((sb, s_idx) => ( 
+                            <div key={sb.text} onClick={() => {
+                                if (idx === activeIdx){
+                                    setActiveIdx(idx);
+                                    setActiveSubIdx(s_idx);
+                                }
+                            }}>
+                            <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
+                            </div>
+                        ))}
+                        
                         </div>
                     ))}
-                    
-                    </div>
-                ))}
-            </div>  
-            : ""
-            
-        }
+                </div>  
+                : ""            
+                }
+            </div>
         </nav>
         </header>
     );
