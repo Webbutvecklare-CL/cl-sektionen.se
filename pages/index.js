@@ -19,7 +19,30 @@ function Index() {
     return (
         <div>
             <div className="index_bg">
-                <Image src={bg} alt="Bakgrundsbild KTH" fill />
+                <Image
+                    src={bg}
+                    alt="Bakgrundsbild KTH"
+                    fill
+                    style={'position: relative'}
+                />
+                <div
+                    style={{
+                        position: 'relative',
+                        zIndex: 100,
+                        textAlign: 'center',
+                        top: 10 + 'rem',
+                        color: 'white',
+
+                        fontWeight: 'bolder',
+                    }}
+                >
+                    <h1 style={{ fontSize: 3 + 'rem', marginTop: 0 + 'px' }}>
+                        Välkommen till
+                    </h1>
+                    <h1 style={{ fontSize: 3 + 'rem', marginBottom: 0 + 'px' }}>
+                        Civilingenjör och Lärare
+                    </h1>
+                </div>
             </div>
             <div className="bg_bottom_cover"></div>
             <div id="contentbody" className="index_content">
