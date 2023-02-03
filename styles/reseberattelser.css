@@ -1,0 +1,61 @@
+article.rese div {
+    position: relative;
+}
+
+img.rese-top  {
+    position: absolute;
+    top:0;
+    right:0;
+    height: 12.5rem;
+    width: auto;
+    max-width: 50%;
+
+}
+
+
+img.rese-right {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    min-width: 250px;
+}
+
+img.rese-mid {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    min-width: 250px;
+}
+
+.rese-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width: 900px) {
+    img.rese-top {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        display: inline-block;
+        float:none;
+        margin-bottom: 1em;
+        position: unset;
+    }
+}
+
+/* Very small screen - fix right aligned images */
+@media only screen and (max-width: 500px) {
+    img.rese-right {
+        width: 90%;
+        float: unset;
+    }
+}
+
+
+article.rese table * {
+    font-size: 1.2rem;
+    vertical-align: top;
+}
+article.rese table td {
+    padding-right: 0.5rem;
+}

@@ -46,6 +46,7 @@ För att lägga till texten på en sida ska du använda `<MarkdownRender source=
 ### Lägga till alumniblogg inlägg eller reseberättelser
 
 Gör en markdown fil och spara den i `public/content/` i någon av mapparna alumniberattelser eller reseberättelser. För att lägga till en länk till sidan kan du gå till `/pages/{alumniblogg | reseberattelser}/index.js` kopiera in följande i `<ul>` tagen:
+
 ```
 <li>
     <Link href="/mapp/filnamn">
@@ -53,6 +54,10 @@ Gör en markdown fil och spara den i `public/content/` i någon av mapparna alum
     </Link>
 </li>
 ```
+
+#### Bilder
+
+I markdown filen kan du lägga in vanlig HTML kod och med vanliga `<img src="path">` taggar kan du lägga in bilder i texten. Det finns tre olika standard styles: _rese-top, rese-mid och rese-right_. _Top_ används för bilden högst upp på sidan (det går bara att använda en bild i toppen med den taggen). Om du vill ha flera bilder på en rad kan dui lägga dem i en "container" med följande tagg: `<div class="rese-img-container">`. För exempel se `public\content\reseberattelser\camilla-björn-irland.md`.
 
 ## Struktur på aktuellt sidan - Dynamiskt innehåll
 

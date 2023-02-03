@@ -1,6 +1,6 @@
-<img src="../../media/grafik/reseberattelser/astrid-häggström.jpg" style="float: right; width: 36%; min-width: 280px;">
-
 # Astrid Häggström – USA
+
+<img src="../../media/reseberattelser/astrid-häggström.jpg" class="rese-top">
 
 Universitet: Iowa State University  
 Termin: HT 2018  
@@ -29,13 +29,9 @@ Oftast kom jag antingen in till universitet innan lektionerna började eller sta
 **Jag läste följande kurser:**
 
 -   GLOBE 120 Geography of global resource systems. Tillgodoräknas som valbar kurs
-
 -   STAT 231 Probability and statistical interference for Engineers. Tillgodoräknas som Tillämpad statistik SF1910
-
 -   ENV S 108 Introduction to Oceanography. Tillgodoräknas som valbar kurs
-
 -   ENV S 345 Pupulation and Society. Tillgodoräknas som valbar kurs
-
 -   Fritid och sociala aktiviteter
 
 Iowa är en liten stad med mycket studentliv. På fritiden tränade jag en del på skolans superfina gym där man hade tillgång till bassänger, basketplaner, gym, badminton, klättring etc. Collagesport är väldigt stort så jag köpte säsongskort och gick ganska ofta och tittade på Amerikansk fotboll och basket. På helgerna gick jag ofta ut på barerna i Ames och hängde med kompisar och spelade biljard. Utöver det försökte jag se så mycket som möjligt under tiden i USA så passade på att resa under helger och lov.

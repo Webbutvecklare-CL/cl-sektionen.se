@@ -16,7 +16,7 @@ const MENU_LIST = [
             {text: "Sångbok", href: "/sangbok"},
         ]
     },
-    { text: "Student", href: "/student",
+    { text: "Studier", href: "/student",
         submenu: [
             {text: "Alumniblogg", href: "/alumniblogg"},
             {text: "Reseberättelser", href: "/reseberattelser"},

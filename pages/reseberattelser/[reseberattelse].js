@@ -7,7 +7,7 @@ function Reseberattelse() {
     return (
         <div id="contentbody">
             <h1>Reseberättelse</h1>
-            <article>
+            <article className="rese">
                 <MarkdownRender
                     source={`../content/reseberattelser/${reseberattelse}.md`}
                 />
