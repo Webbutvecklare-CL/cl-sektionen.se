@@ -3,6 +3,7 @@ import Link from 'next/link'
 import bg from '../public/media/img/KTHcover.jpg'
 import Sidhuvud from "../public/media/grafik/Sidhuvud.png"
 import React, { useState } from "react"
+import MarkdownRender from '../components/MarkdownRender';
 
 function Index() {
   const [open, setOpen] = useState(false);
@@ -79,14 +80,28 @@ function Index() {
         </button>
       </div>
       <section className="mini_aktuellt_o_kalender">
-        <div className='mini_aktuellt'>
-          <h1>Aktuellt</h1>
-          Här<br/>
-          kommer<br/>
-          aktuella<br/>
-          inlägg<br/>
-          senare...<br/>
+        <div className='event_o_aktuellt'>
+          <div className='mini_aktuellt'>
+            <div className='aktuellt_innehåll'>
+              <h1>Aktuellt</h1>
+              Här<br/>
+              kommer<br/>
+              aktuella<br/>
+              inlägg<br/>
+              senare...<br/>
+            </div>
+          </div>
+          <div className='mini_event'>
+            <div className='event_innehåll'>
+              <h1>Event</h1>
+              Här<br/>
+              kommer<br/>
+              event<br/>
+              senare...<br/>
+            </div>
+          </div>
         </div>
+
         <div className='mini_kalender kalender_tab'>
           <h1 className="kal_titel">Sektionskalendern idag</h1>
           <iframe id="open-web-calendar" 
@@ -100,7 +115,12 @@ function Index() {
       <hr/>
       <section className="resurser">
         <h1>Resurser</h1>
-        <h2>Hjälp vid illabehandling</h2>
+        <div>
+          <h2>Hjälp vid illabehandling</h2>
+          <MarkdownRender
+            source={`../content/${hjlp-vid-illabehandling}.md`}
+          />
+        </div>
         <h2>Ny student</h2>
         <h2>Studiebevakning</h2>
       </section>
