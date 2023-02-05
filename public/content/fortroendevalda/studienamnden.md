@@ -8,4 +8,4 @@ Svante Holgersson, **Utbildningsbevakare**
 ubbe@cl-sektionen.se
 
 Aron Johansson, **Utbytesansvarig**  
-?????
+utbyte@cl-sektionen.se
