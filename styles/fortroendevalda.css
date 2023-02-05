@@ -40,13 +40,21 @@
     font-size: 1.2rem;
 }
 
+#förtroendevalda_content{
+    scroll-margin-top: 75px;
+}
+
 #förtroendevalda_content h1{
     color: var(--clr5);
     margin-top: 0;
 }
 
-.poster{
-    font-size: 1.4rem;
+.poster p{
+    font-size: 1.4rem !important;
+}
+
+.poster strong{
+    color: black;
 }
 
 .nämnder_nav .active {

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import bg from '../public/media/img/KTHcover.jpg'
 import Sidhuvud from "../public/media/grafik/Sidhuvud.png"
 import React, { useState } from "react"
+import MarkdownRender from '../components/MarkdownRender'
 
 function Index() {
   const [open, setOpen] = useState(false);
@@ -135,8 +136,12 @@ function Index() {
             </Link>
           </p>
         </div>
-        <h2>Ny student</h2>
-        <h2>Studiebevakning</h2>
+        <div>
+          <h2>Ny student</h2>
+          <MarkdownRender
+            source={`../content/ny-student.md`}
+          />
+        </div>
       </section>
       <hr/>
       <section className="företag">
