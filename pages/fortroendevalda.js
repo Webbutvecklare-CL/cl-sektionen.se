@@ -9,8 +9,7 @@ export default function Fortroendevalda(){
         for (let li of ulNode.childNodes){
             li.className = (li.id === namnd)? "active" : "";
         }
-        document.getElementById("förtroendevalda_content").scrollIntoView();
-        
+        document.getElementById("förtroendevalda_content").scrollIntoView();       
     }
 
     return (

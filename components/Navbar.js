@@ -32,6 +32,7 @@ const MENU_LIST = [
             {text: "Reseberättelser", href: "/reseberattelser"},
             {text: "VFU", href: "/vfu"},
             {text: "Studiebevakning", href: "/studiebevakning"},
+            {text: "Illabehandling", href: "/hjalp-vid-illabehandling"}
         ]
     }
 ];
@@ -57,7 +58,7 @@ const Navbar = () => {
     let menuref = useRef();
     useEffect(() => {
         let handler = e =>{
-            if(!menuref.current.contains(e.target)){
+            if(!menuref.current.contains(e.target) && e.target.className != "nav__item fas fa-times"){
                 setNavBurgirOpen(false)
             }
         };
