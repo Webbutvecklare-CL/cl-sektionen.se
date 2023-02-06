@@ -95,6 +95,10 @@ nav .active{
     color: #ffffff;
 }
 
+#navburgirmenu button{
+    box-shadow: none;
+}
+
 .burgir__menu-list{
     display: none;
     overflow: hidden;

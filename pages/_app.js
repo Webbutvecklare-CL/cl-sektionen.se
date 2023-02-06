@@ -10,6 +10,7 @@ import '/styles/hedersmedlemmar.css'
 import '/styles/publicera.css';
 import '/styles/aktuellt.css';
 import '/styles/reseberattelser.css';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Head from 'next/head';
@@ -40,6 +41,7 @@ export default function App({ Component, pageProps }) {
                 />
             </Head>
             <Component {...pageProps} />
+            <Analytics />
             <Footer />
             <Navbar />
         </div>
