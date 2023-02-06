@@ -6,8 +6,16 @@ import React, { useState } from "react"
 import MarkdownRender from '../components/MarkdownRender'
 
 function Index() {
-  const [open, setOpen] = useState(false);
-  const toggleOm = () => {setOpen(!open)};
+    const [open, setOpen] = useState(false);
+    const toggleOm = (e) => {
+        //Scrollar upp igen så man kommer till toppen
+        if (open) {
+            document.querySelectorAll('header')[0].scrollIntoView();
+        } else {
+            document.querySelectorAll('#om-cl')[0].scrollIntoView();
+        }
+        setOpen(!open);
+    };
 
   return (
     <div>
@@ -151,4 +159,4 @@ function Index() {
   </div>
   )
 }
-export default Index
+export default Index;
