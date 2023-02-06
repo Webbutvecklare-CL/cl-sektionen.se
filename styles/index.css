@@ -1,13 +1,10 @@
 .index_bg{
-    height: 450px;
+    height: 600px;
     position: relative;
 }
 
 .index_bg img{
-    filter: blur(4px);
-    object-fit: cover;
-    transform: scale(1.03);
-    margin-left: -1.5%;
+    transform: scale(1.02);
 }
 
 .bg_bottom_cover{

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import bg from '../public/media/img/KTHcover.jpg'
+import bg from "../public/media/bildspel/bastis22.jpg"
 import Sidhuvud from "../public/media/grafik/Sidhuvud.png"
 import React, { useState } from "react"
 import MarkdownRender from '../components/MarkdownRender'
@@ -14,7 +14,7 @@ function Index() {
       <div className="index_bg">
         <Image
           src={bg}
-          alt="Bakgrundsbild KTH"
+          alt="Bästis 2022"
           fill
         />
       </div>
