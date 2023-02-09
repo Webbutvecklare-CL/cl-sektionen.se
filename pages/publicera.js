@@ -26,7 +26,13 @@ function Publicera() {
     const [error, setError] = useState('');
 
     // Lägg till fler strängar för fler alternativ - endast här behövs. Tänk på stor bokstav i början
-    const possible_tags = ['Event', 'Information', 'Annat', 'Viktigt'];
+    const possible_tags = [
+        'Event',
+        'Aktuellt',
+        'Information',
+        'Annat',
+        'Viktigt',
+    ];
 
     // Skickar allt till databasen
     const handleSubmit = async (e) => {
@@ -144,6 +150,11 @@ function Publicera() {
         setDate('');
         setPublishDate(today);
         setAuthor('');
+
+        document.querySelectorAll('.tag').forEach((elm) => {
+            elm.classList.remove('selected');
+        });
+        document.querySelector('input[type=file]').value = '';
     };
 
     // Validera alla inputs

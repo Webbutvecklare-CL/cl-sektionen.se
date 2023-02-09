@@ -1,0 +1,115 @@
+/* Aktuellt feed */
+.feed-preview {
+    width: 100%;
+}
+
+.feed-preview * {
+    text-decoration: none;
+    
+}
+
+.feed-preview .post-preview{
+    margin: 0.5rem 0;
+    border: 1px solid grey;
+    display: grid; 
+    grid-template-columns: 140px 1fr; 
+    gap: 0 1rem;
+    grid-template-areas: 
+        "image meta"
+        "image content"; 
+      
+}
+
+.feed-preview div.image {
+    width: 140px;
+    height: 90px;
+    grid-area: image;
+}
+
+.feed-preview div.image img {
+    object-fit: contain;
+    width: 140px;
+    height: 87px;
+    border-radius: 0.5rem;
+}
+
+.feed-preview .post-meta {
+    grid-area: meta;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    justify-items: stretch;
+    vertical-align: bottom;
+    color: black;
+    gap:.5rem;
+    width: 100%;
+}
+
+.feed-preview .post-meta div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.feed-preview .post-meta p {
+    padding: 0px;
+    margin: 0px;
+    padding-top: 0.3rem;
+    font-size:1rem;
+}
+
+.feed-preview .post-content {
+    grid-area: content;
+}
+
+.feed-preview .post-preview h2{
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.feed-preview p.subtitle {
+    font-size: 1.1rem;
+}
+
+.feed-preview .post-preview .body p {
+    color: black;
+    font-size: 1.1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+@media screen and (max-width: 550px) {
+    .feed-preview .post-preview {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: unset;
+        gap: 0 1rem; 
+        grid-template-areas: 
+            "image meta"
+            "content content"; 
+
+        overflow: scroll;
+    }
+    .feed-preview div.image {
+        width: 100px;
+        height: 60px;
+    }
+    .feed-preview div.image img {
+        width: 100px;
+        height: 60px;
+    }
+    
+    .feed-preview .post-meta {
+        display: inline-block;
+        
+    }
+    .feed-preview .post-meta div{
+        display: inline-block;
+    }
+
+    .feed-preview .post-content{
+        display: inline-block;
+    }
+}

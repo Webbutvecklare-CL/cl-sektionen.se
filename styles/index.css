@@ -31,6 +31,7 @@ header h1 {
     gap: 0px 2rem; 
     grid-template-areas: 
         ". ."; 
+    scroll-margin-top: 10rem;
 }
 
 .om strong{
@@ -64,7 +65,7 @@ header h1 {
 
 .collapsed {
     max-height: 0;
-    transition: max-height 0.15s ease-out;
+    transition: max-height 0.2s ease-out;
     overflow: hidden;
 }
     
@@ -132,10 +133,17 @@ header h1 {
     margin: 20px auto 10px auto;
 }
 
+
+
+
+
 @media screen and (max-width: 800px) {
-    .event_o_aktuellt div{
+    /* .mini_aktuellt {
         height: 400px;
     }
+    .mini_event {
+        height: 400px;
+    } */
     .mini_aktuellt_o_kalender {
         display: flex;
         flex-wrap: wrap;
