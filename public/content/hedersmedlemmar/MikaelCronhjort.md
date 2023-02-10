@@ -1,0 +1,4 @@
+Mikael Cronhjort har under perioden 2014-01-01 - 2019-09-15 varit programansvarig för programmet Civilingenjör och lärare. Han har alltid gett uttryck för en positiv inställning till sektionens arbete och haft ett genuint intresse av att samarbeta med studenterna på sektionen för att göra tiden på KTH så angenäm som möjligt. Mikael har tagit studenternas parti i de flesta frågor och visat stor förståelse för att studietiden inte alltid är en dans på rosor. Han har aktivt jobbat för att hitta lösningar till de utmaningar som är unika för just vårt program. Mikael har som programansvarig gett oss som studenter och sektion en fantastisk möjlighet att påverka våra studieår på KTH.
+
+Med anledning av detta har sektionen bestämt att tilldela Mikael Cronhjort
+hedersmedlemskap i Sektionen för Civilingenjör & Lärare.

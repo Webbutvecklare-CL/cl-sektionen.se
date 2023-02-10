@@ -4,4 +4,6 @@ Studienämnden består av flera personer vars uppgift är att bevaka studierna p
 #### Nytt:
 Utbytesansvarig informerar om möjligheterna att engagera sig internationellt genom att förlägga en del av utbildningen utomlands. Nämnden utgör även ett stöd för medlemmar som planerar studier utomlands och studerar utomlands. De bevakar även att möjligheterna till studier utomlands uppfylls. De arrangerar också aktiviteter för att informera om utbytesstudier. Utbytesansvarig är ansvarig för att hålla god kontakt med CL:s internationella koordinator och hålla kontakt med studenter som befinner sig utomlands. Personen är även ansvarig för att representera sektionen i THS Internationella Råd.
 
+### Kontakt: studienamnden@cl-sektionen.se
+
 ---

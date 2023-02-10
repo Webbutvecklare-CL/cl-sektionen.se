@@ -20,6 +20,8 @@ const Studienamnden = () => {
         <div>
             <MarkdownRender source={`../content/namndbeskrivningar/studienamnden.md`}/>            
             <span className="mandat_period">Mandatperiod 2023.01.01 - 2023.12.31</span>
+            <span className="mandat_period">Utbytesansvarig: 2022.05.01 - 2023.04.30</span>
+
             <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">
@@ -154,7 +156,7 @@ const Fanborg = () => {
     return(
         <div>
             <MarkdownRender source={`../content/namndbeskrivningar/fanborg.md`}/>
-            <span className="mandat_period">Mandatperiod 2022.01.01 - 2023.01.31</span>
+            <span className="mandat_period">Mandatperiod 2023.02.01 - 2023.01.31</span>
             <br/>
             <section className="nämnd_namnochkontakt">
                 <div className="poster">

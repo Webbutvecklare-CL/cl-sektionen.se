@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import bg from "../public/media/bildspel/bastis22.jpg"
 import Sidhuvud from "../public/media/grafik/Sidhuvud.png"
+import Sidhuvud_inv from "../public/media/grafik/sidhuvud_inv.png";
 import React, { useState } from "react"
 import MarkdownRender from '../components/MarkdownRender'
 
@@ -11,13 +11,13 @@ function Index() {
 
   return (
     <div>
-      <div className="index_bg">
-        <Image
-          src={bg}
-          alt="Bästis 2022"
-          fill
-        />
-      </div>
+    <div className="index_bg">
+      <Image
+        src = {Sidhuvud_inv}
+        alt = 'sektionslogga, sidhuvud vitt'
+        className='sektionslogga_vitt'
+      />
+    </div>
     <div className='bg_bottom_cover'></div>
     <div id="contentbody" className="index_content">
       <header>
@@ -114,9 +114,8 @@ function Index() {
       </section>
       <hr/>
       <section className="resurser">
-        <h1>Resurser</h1>
         <div>
-          <h2>Hjälp vid illabehandling</h2>
+          <h1>Hjälp vid illabehandling</h1>
           <p>
             Det finns stöd för dig som du blir utsatt för diskriminering, trakasserier eller annan illabehandling av en annan student, en lärare eller övrig personal på KTH.
             Sektionens skyddsombud har tystnadsplikt och kan hjälpa dig om något inträffat. Du kan också alltid vända dig till JML-nämndens ordförande eller Ledamot för 
@@ -137,16 +136,18 @@ function Index() {
           </p>
         </div>
         <div>
-          <h2>Ny student</h2>
+          <h1>Ny student</h1>
           <MarkdownRender
             source={`../content/ny-student.md`}
           />
         </div>
       </section>
+      {/*
       <hr/>
       <section className="företag">
         <h1>För företag</h1>
       </section>
+      */}
     </div>
   </div>
   )

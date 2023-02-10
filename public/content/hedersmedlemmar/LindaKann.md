@@ -1,0 +1,5 @@
+Det finns en handfull personer på KTH som gjort det där lilla extra för vår sektion. Linda Kann är en av dem. Linda har varit en viktig person för sektionen och våra programstuderande på CLGYM under en längre tid. Hon har tagit emot priset Årets lärare av sektionen under flera år.
+
+Linda har satt stor prägel på TEDA-inriktningen (tidigare TIKT) i sitt uppdrag som inriktningsansvarig men även som kursansvarig och lärare i bland annat DD1312 Programmeringsteknik och Matlab. Linda har under de senaste åren även varit med och drivit fram en programsammanhållande kurs på CL-programmet. Linda har tydligt visat att hon vill studenternas bästa och inom de kurser hon är kurslärare får hon studenter att lyckas. Linda gör alltid det lilla extra, det som ingen kräver av en.
+
+På möten där sektionen skickat studentrepresentanter har Linda tagit studenters perspektiv och fått studentrepresentanter att känna sig hörda. Ofta vänder hon sig och lämnar ordet till sektionens representanter för att ge utrymme för vårt perspektiv och våra åsikter i möten med anställda från KTH där hon närvarar.
