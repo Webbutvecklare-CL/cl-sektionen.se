@@ -24,7 +24,11 @@ function Index() {
     const postRef = collection(firestore, 'posts');
     const annatQuery = query(
         postRef,
-        where('tags', 'array-contains-any', ['Annat', 'Information']),
+        where('tags', 'array-contains-any', [
+            'Annat',
+            'Information',
+            'Aktuellt',
+        ]),
         where('publishDate', '<', timeNow),
         orderBy('publishDate', 'desc'),
         limit(4)

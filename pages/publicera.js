@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 import { doc, setDoc, getDoc, Timestamp, updateDoc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { firestore, storage } from '../firebase/clientApp';
+import {
+    getAuth,
+    signInWithPopup,
+    GoogleAuthProvider,
+    signOut,
+} from 'firebase/auth';
 
 // Används för att kunna skriva rich text vilket gör att man kan formatera texten
 // Målet är att WYSIWYG - What you see is what you get. Dvs så man formaterar det
@@ -12,6 +18,8 @@ const ReactQuill = dynamic(import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 
 function Publicera() {
+    let [signedin, setSignedin] = useState(false);
+
     let [title, setTitle] = useState('');
     let [subtitle, setSubtitle] = useState('');
     let [image, setImage] = useState();
@@ -32,6 +40,8 @@ function Publicera() {
         'Information',
         'Annat',
         'Viktigt',
+        'SM',
+        'StyM',
     ];
 
     // Skickar allt till databasen
@@ -200,6 +210,69 @@ function Publicera() {
         return 'ok';
     };
 
+    // Auth stuff
+    function googleLogin() {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+            hd: 'cl-sektionen.se',
+            login_hint: 'post@cl-sektionen.se',
+        });
+        const auth = getAuth();
+
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential =
+                    GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // return true;
+                // The signed-in user info.
+                const user = result.user;
+                const validAccount = validateAccountCheck(user);
+                console.log(validAccount);
+                if (validAccount) {
+                    // do something here like update the page
+                    console.log('Inloggad');
+                    setSignedin(true);
+                } else {
+                    //sign user out if not valid
+                    signOut();
+                    console.log('Din mailadress är inte inlagd i systemet');
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                //Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential =
+                    GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+    }
+
+    async function validateAccountCheck(user) {
+        let profileInfo = {
+            displayName: user.displayName,
+            email: user.email,
+        };
+        console.log(profileInfo);
+
+        const userRef = doc(firestore, 'users', user.uid);
+        try {
+            await setDoc(userRef, profileInfo, {
+                merge: true,
+            });
+            console.log('Uppgifter sparade!');
+            return true;
+        } catch (err) {
+            console.log(err);
+            return false;
+        }
+    }
+
     // Quill toolbar stuff
     let modules = {
         toolbar: [
@@ -234,88 +307,99 @@ function Publicera() {
     return (
         <div id="contentbody">
             <h1>Publicera</h1>
-
             <div className="create">
-                <form onSubmit={handleSubmit}>
-                    <label>Titel:</label>
-                    <input
-                        type="text"
-                        required
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                    <label>Subtitel:</label>
-                    <input
-                        type="text"
-                        value={subtitle}
-                        onChange={(e) => setSubtitle(e.target.value)}
-                    />
-                    <label>Bild:</label>
-                    <input
-                        type="file"
-                        onChange={(e) => {
-                            setImage(e.target.files[0]);
-                            console.log(e.target.files[0]);
-                        }}
-                    />
-                    <label>Inlägg:</label>
-                    <ReactQuill
-                        theme="snow"
-                        modules={modules}
-                        formats={formats}
-                        value={body}
-                        onChange={setBody}
-                        required
-                    ></ReactQuill>
-                    <label>Författare:</label>
-                    <input
-                        id="today"
-                        type="text"
-                        required
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
-                    />
-                    <div className="date-input">
-                        <div>
-                            <label>Datum:</label>
-                            <input
-                                type="date"
-                                required
-                                value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <label>Publiceringsdatum:</label>
-                            <input
-                                type="date"
-                                value={publishDate}
-                                onChange={(e) => setPublishDate(e.target.value)}
-                            />
-                        </div>
+                {!signedin && (
+                    <div>
+                        <p>Logga in med din sektionsmail!</p>
+                        <button onClick={googleLogin}>Logga in</button>
                     </div>
-                    <label>Kategorier:</label>
-                    <div className="tag-selector">
-                        {possible_tags.map((tag, index) => (
-                            <button
-                                className="tag"
-                                key={index}
-                                onClick={handleTagClick}
-                            >
-                                {tag}
-                            </button>
-                        ))}
-                    </div>
+                )}
+                {signedin && (
+                    <form onSubmit={handleSubmit}>
+                        <label>Titel:</label>
+                        <input
+                            type="text"
+                            required
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                        <label>Subtitel:</label>
+                        <input
+                            type="text"
+                            value={subtitle}
+                            onChange={(e) => setSubtitle(e.target.value)}
+                        />
+                        <label>Bild:</label>
+                        <input
+                            type="file"
+                            onChange={(e) => {
+                                setImage(e.target.files[0]);
+                                console.log(e.target.files[0]);
+                            }}
+                        />
+                        <label>Inlägg:</label>
+                        <ReactQuill
+                            theme="snow"
+                            modules={modules}
+                            formats={formats}
+                            value={body}
+                            onChange={setBody}
+                            required
+                        ></ReactQuill>
+                        <label>Författare:</label>
+                        <input
+                            id="today"
+                            type="text"
+                            required
+                            value={author}
+                            onChange={(e) => setAuthor(e.target.value)}
+                        />
+                        <div className="date-input">
+                            <div>
+                                <label>Datum:</label>
+                                <input
+                                    type="date"
+                                    required
+                                    value={date}
+                                    onChange={(e) => setDate(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <label>Publiceringsdatum:</label>
+                                <input
+                                    type="date"
+                                    value={publishDate}
+                                    onChange={(e) =>
+                                        setPublishDate(e.target.value)
+                                    }
+                                />
+                            </div>
+                        </div>
+                        <label>Kategorier:</label>
+                        <div className="tag-selector">
+                            {possible_tags.map((tag, index) => (
+                                <button
+                                    className="tag"
+                                    key={index}
+                                    onClick={handleTagClick}
+                                >
+                                    {tag}
+                                </button>
+                            ))}
+                        </div>
 
-                    {/* Submit */}
-                    {!isPending && <button className="submit">Skapa</button>}
-                    {isPending && (
-                        <button className="submit" disabled>
-                            Publicerar händelse...
-                        </button>
-                    )}
-                    {error && <p>Error: {error}</p>}
-                </form>
+                        {/* Submit */}
+                        {!isPending && (
+                            <button className="submit">Skapa</button>
+                        )}
+                        {isPending && (
+                            <button className="submit" disabled>
+                                Publicerar händelse...
+                            </button>
+                        )}
+                        {error && <p>Error: {error}</p>}
+                    </form>
+                )}
             </div>
         </div>
     );
