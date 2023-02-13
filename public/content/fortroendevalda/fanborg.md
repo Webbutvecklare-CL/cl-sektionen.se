@@ -1,11 +1,11 @@
-Felicia Rosenberg, **Fanbärare**  
+Armin Baymani, **Fanbärare**  
 fanborg@cl-sektionen.se
 
-Felix Alin, **Vice Fanbärare**  
+Fanny Enocksson, **Vice Fanbärare**  
 fanborg@cl-sektionen.se
 
-Anna-Natalia Moustakas, **Fanbärare Suppleant**  
+Ellen Olsson, **Fanbärare Suppleant**  
 fanborg@cl-sektionen.se
 
-Christoffer Nilsson, **Fanbärare Suppleant**  
+Jesper Svensson, **Fanbärare Suppleant**  
 fanborg@cl-sektionen.se
