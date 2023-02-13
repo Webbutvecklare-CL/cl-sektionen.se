@@ -1,27 +1,42 @@
-.index_bg{
-    height: 450px;
+.index_bg {
+    width: 102%;
+    transform: translateX(-1%);
+    overflow: hidden;
+    height: 400px;
     position: relative;
+    background-image: url("../public/media/bildspel/cl15jub.jpg");
+    background-position: center;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: brightness(120%);
+    display: flex;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
 }
 
-.index_bg img{
-    filter: blur(4px);
-    object-fit: cover;
-    transform: scale(1.03);
-    margin-left: -1.5%;
+.sektionslogga_vitt {
+    padding: 2rem;
+    max-width: 1200px;
+    min-width: 400px;
+    width: auto;
+    height: min-content;
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
-.bg_bottom_cover{
-    display: block;
-    height: 100px;
-    background-color: white;
-    transform: translateY(-30px);
-    box-shadow: 0 -0.3rem 0.3rem rgba(0, 0, 0, 0.116);
+@media screen and (max-width: 600px){
+    .sektionslogga_vitt{
+        content: url("../public/media/grafik/CL_logo_sketch_chalk.png");
+        scale: 75%;
+    }
 }
 
 .index_content{
-    transform: translateY(-130px);
     padding-top: 0 !important;
 }
+
 
 header h1 {
     margin-bottom: -0.75rem;
@@ -77,7 +92,7 @@ header h1 {
 
 .mini_aktuellt_o_kalender {
     display: grid;
-    grid-template-columns: 4fr 3fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 1rem;
 }
