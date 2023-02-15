@@ -237,10 +237,6 @@ function Index() {
                             }}
                             src="https://open-web-calendar-master-tsa2cnoe3a-lz.a.run.app/calendar.html?specification_url=https://gist.githubusercontent.com/Webbutvecklare-CL/092a7b69c4b1052101b8ca240bbc91d8/raw/b7ebc57157208cd681d8ac18437992a6b1e1c847/SektionskalendernDayview.json"
                             sandbox="allow-scripts allow-same-origin allow-top-navigation"
-                            scrolling="no"
-                            frameBorder="0"
-                            height="600px"
-                            width="100%"
                         ></iframe>
                     </div>
                 </section>

@@ -22,19 +22,11 @@ const FeedPreview = ({ docs, title }) => {
                                         <Image
                                             src={bg}
                                             alt="Bakgrundsbild KTH"
-                                            width={140}
-                                            height={87}
-                                            style={{
-                                                objectFit: 'cover',
-                                            }}
                                         />
                                     )}
                                 </div>
                                 <div className="post-meta">
-                                    <div>
-                                        <h2>{post.title}</h2>
-                                        <p>- {post.author}</p>
-                                    </div>
+                                    <h2>{post.title}</h2>
                                     <div>
                                         <p>
                                             {post.publishDate
@@ -45,11 +37,12 @@ const FeedPreview = ({ docs, title }) => {
                                 </div>
                                 <div className="post-content">
                                     <p className="subtitle">{post.subtitle}</p>
-
-                                    {/* Parse för att formatera om html koden till faktiska element
+                                        {/* Parse för att formatera om html koden till faktiska element
                                         Sanitize för att göra det lite mer stilrent i previewn dvs inga styles*/}
                                     <div className="body">
+                                    
                                         <p>
+                                            
                                             {parse(
                                                 sanitizeHtml(post.body, {
                                                     allowedTags: [],
