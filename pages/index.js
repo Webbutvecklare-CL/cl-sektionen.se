@@ -228,16 +228,32 @@ function Index() {
                     </div>
 
                     <div className="mini_kalender kalender_tab">
-                        <h1 className="kal_titel">Sektionskalendern idag</h1>
+                        <h1 className="kal_titel">Kalendern denna vecka</h1>
                         <iframe
-                            id="open-web-calendar"
+                            className="open-web-calendar"
                             style={{
                                 background:
                                     "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
                             }}
-                            src="https://open-web-calendar-master-tsa2cnoe3a-lz.a.run.app/calendar.html?specification_url=https://gist.githubusercontent.com/Webbutvecklare-CL/092a7b69c4b1052101b8ca240bbc91d8/raw/b7ebc57157208cd681d8ac18437992a6b1e1c847/SektionskalendernDayview.json"
+                            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=week&amp;tabs=week&amp;tabs=month"
                             sandbox="allow-scripts allow-same-origin allow-top-navigation"
                         ></iframe>
+                        <br/>
+                        <iframe className="open-web-calendar agenda" 
+                            style={{
+                                background:
+                                    "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat;",
+                                }}
+                            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fkonsumclw%2540gmail.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=agenda&amp;controls=date&amp;tabs=none"
+                            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+                        ></iframe>
+                        <h2
+                        style={{
+                            marginTop: "-18rem",
+                            marginBottom: "16rem",
+                            textAlign: "center"
+                        }}>Kommande gråttbokningar
+                        </h2>
                     </div>
                 </section>
                 <hr />

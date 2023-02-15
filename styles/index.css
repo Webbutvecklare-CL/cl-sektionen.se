@@ -151,13 +151,18 @@ header h1 {
     margin: 20px auto 10px auto;
 }
 
-#open-web-calendar{
-    height: 800px;
+.open-web-calendar{
+    margin-top: 0 !important;
+    height: 600px;
     width: 100%;
     border:none;
 }
 
-
+.open-web-calendar.agenda{
+    height: 300px;
+    width: 100%;
+    border:none;
+}
 
 @media screen and (max-width: 800px) {
     /* .mini_aktuellt {
@@ -188,7 +193,7 @@ header h1 {
         text-align: center;
     }
 
-    #open-web-calendar{
+    .open-web-calendar{
         height: 600px;
     }
 }
