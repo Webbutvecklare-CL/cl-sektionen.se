@@ -1,5 +1,11 @@
-Holly Lindqvist, **DireKTHréce**  
+Aron Johansson, **DireKTHréce**  
 dubbelspexet@cl-sektionen.se
 
-Mollie Wejdenstolpe, **Ekonomiskt Ansvarig**  
+Linnea Selmarker, **Producent**
+dubbelspexet@cl-sektionen.se
+
+Lukas Kuusivuori, **Ekonomiskt Ansvarig**  
+dubbelspexet@cl-sektionen.se
+
+Dian Xia, **Ledamot**
 dubbelspexet@cl-sektionen.se
