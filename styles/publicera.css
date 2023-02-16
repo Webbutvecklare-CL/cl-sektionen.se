@@ -1,6 +1,11 @@
 .create {
-  max-width: 60%;
-  margin: 0 auto; 
+    background-color: #eee;
+    max-width: 60%;
+    margin: 0 auto; 
+    padding: 2rem 3rem;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
+    box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.45);
 }
 
 /* Oklart om denna ska vara kvar
@@ -38,6 +43,9 @@ kunna ändra färgen på texten om strong inte ändras */
     min-height: 10rem;
 }
 
+.create .quill{
+    background-color: #fff;
+}
 
 .create .date-input  {
     display: flex;
@@ -51,7 +59,7 @@ kunna ändra färgen på texten om strong inte ändras */
 }
 
 .create .tag-selector {
-    background-color: #ddd;
+    background-color: #fdfdfd;
     margin: 0.5rem 0rem;
     padding: 0.6rem;
     border-radius: 0.6rem;
@@ -69,6 +77,8 @@ kunna ändra färgen på texten om strong inte ändras */
     border-radius: 8px;
     cursor: pointer;
   }
+
+
 
 .create .tag-selector button {
     background-color: #555;
