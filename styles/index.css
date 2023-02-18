@@ -137,12 +137,6 @@ header h1 {
 .mini_kalender{
     width: 100%;
     background-color: bisque;
-    padding-left: 10px;
-}
-
-.mini_kalender h1{
-    margin-top: .4rem;
-    margin-bottom: .4rem;
 }
 
 .illabehandling_knapp{
@@ -151,26 +145,7 @@ header h1 {
     margin: 20px auto 10px auto;
 }
 
-.open-web-calendar{
-    margin-top: 0 !important;
-    height: 600px;
-    width: 100%;
-    border:none;
-}
-
-.open-web-calendar.agenda{
-    height: 300px;
-    width: 100%;
-    border:none;
-}
-
 @media screen and (max-width: 800px) {
-    /* .mini_aktuellt {
-        height: 400px;
-    }
-    .mini_event {
-        height: 400px;
-    } */
     .mini_aktuellt_o_kalender {
         display: flex;
         flex-wrap: wrap;
@@ -181,7 +156,6 @@ header h1 {
         flex-wrap: wrap;
     }
 
-    
     .title_grid{
         display: flex;
         flex-wrap: wrap;
@@ -191,10 +165,6 @@ header h1 {
 
     header {
         text-align: center;
-    }
-
-    .open-web-calendar{
-        height: 600px;
     }
 }
 

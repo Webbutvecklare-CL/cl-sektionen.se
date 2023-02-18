@@ -12,7 +12,7 @@ input[type="radio"]  {
 .kalender_tab {
     background-color: var(--clr1);
     padding: 10px;
-    border-radius: 1rem;
+    border-radius: .5rem;
     margin-top: 1rem;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
@@ -20,14 +20,24 @@ input[type="radio"]  {
 .kalender_tab h1{
     color: white;
     font-weight: 500;
+    margin: 0;
 }
 
 .open-web-calendar {
     display: block;
-    margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0 !important;
+    height: 570px;
+    width: 100%;
+    border:none;
 
+}
+
+.open-web-calendar.agenda{
+    height: 300px;
+    width: 100%;
+    border:none;
 }
 
 .kal_knapp{
@@ -62,4 +72,5 @@ input[type="radio"]  {
 .kal_titel{
     text-align: center;
     padding-bottom: .5rem;
+    
 }

@@ -20,6 +20,7 @@
     margin: 0;
     display: grid; 
     grid-template-columns: 120px 1fr; 
+    grid-template-rows: 1.8rem 1fr; 
     gap: 0 .5rem;
     grid-template-areas: 
         "image meta"
@@ -80,6 +81,13 @@
     display:inline;
 }
 
+.feed-preview .post-preview .subtitle {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 .feed-preview .post-preview .body p {
     all:unset;
     width: inherit;
@@ -90,7 +98,6 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-
 
 @media screen and (max-width: 550px) {
     .feed-preview .post-preview {

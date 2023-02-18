@@ -228,7 +228,7 @@ function Index() {
                     </div>
 
                     <div className="mini_kalender kalender_tab">
-                        <h1 className="kal_titel">Kalendern denna vecka</h1>
+                        <h1 className="kal_titel">Kalender</h1>
                         <iframe
                             className="open-web-calendar"
                             style={{
@@ -247,12 +247,11 @@ function Index() {
                             src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fkonsumclw%2540gmail.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=agenda&amp;controls=date&amp;tabs=none"
                             sandbox="allow-scripts allow-same-origin allow-top-navigation"
                         ></iframe>
-                        <h2
-                        style={{
+                        <h2 style={{
                             marginTop: "-18rem",
                             marginBottom: "16rem",
                             textAlign: "center"
-                        }}>Kommande gråttbokningar
+                        }}>Gråttbokningar
                         </h2>
                     </div>
                 </section>
