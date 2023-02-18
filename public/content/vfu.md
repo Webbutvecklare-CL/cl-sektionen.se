@@ -69,6 +69,7 @@ Gå igenom följande checklista innan din praktik börjar:
 - [ ]   Jag vet vad för uppgifter jag ska göra efter min VFU
 - [ ]   Jag har tagit kontakt med min handledare som är
 - [ ]   Jag gör inte VFU på min gamla gymnasieskola
+
 Mer än så behöver du inte fundera över innan din VFU! Det mesta löser sig när du väl kommer ut till skolan.
 
 Stort lycka till på din praktik!  
