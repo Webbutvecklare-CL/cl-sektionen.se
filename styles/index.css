@@ -12,7 +12,7 @@
     background-attachment: fixed;
     filter: brightness(120%);
     display: flex;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
     justify-content: center;
     align-items: center;
 }

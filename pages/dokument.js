@@ -1,10 +1,10 @@
 import React from "react";
 
-function Verksamhet(){
+function Dokument(){
     return(
         <div id="contentbody">
             <h1>
-                Verksamhet
+                Dokument
             </h1>
             <p>Genom denna sida kommer du åt sektionens officiella dokument.</p>
             <div id="blanketter">
@@ -65,4 +65,4 @@ function Verksamhet(){
         </div>
     )
 }
-export default Verksamhet
+export default Dokument
