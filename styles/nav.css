@@ -6,6 +6,7 @@
     height: 3.5rem;
     overflow:visible;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.507) ;
+    z-index: 100; /*fixar så att nav alltid är längst upp*/
 }
 
 #navmain{

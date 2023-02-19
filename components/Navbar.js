@@ -63,7 +63,6 @@ const Navbar = () => {
     const burgirToggle = () => {
         setNavBurgirOpen(!navBurgirOpen)
     }
-    
 
     //för att stänga hamburgarmenyn om man klickar utanför---------------------
     let menuref = useRef();
@@ -116,10 +115,7 @@ const Navbar = () => {
                     <div className="nav__menu-list">
                         {MENU_LIST.map((menu, idx) => (
                         <div key={menu.text} className="submenu_wrapper">
-                            <div className="navitem_wrapper" onClick={() => {
-                                setActiveIdx(idx);
-                                setActiveSubIdx(-1);
-                            }}>
+                            <div className="navitem_wrapper" onClick={() => {}}>
                             <NavItem active={activeIdx === idx} {...menu} />
                             </div>
 
