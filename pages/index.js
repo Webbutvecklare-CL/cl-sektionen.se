@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import bg from '../public/media/img/KTHcover.jpg';
 import Sidhuvud from '../public/media/grafik/Sidhuvud.png';
 import Sidhuvud_inv from "../public/media/grafik/sidhuvud_inv.png";
 import React, { useState, useMemo } from 'react';
@@ -63,7 +62,7 @@ function Index() {
     <div>
         <div className="index_bg">
         <Image
-            src     = {Sidhuvud_inv}
+            src = {Sidhuvud_inv}
             alt = 'sektionslogga, sidhuvud vitt'
             className='sektionslogga_vitt'
         />
