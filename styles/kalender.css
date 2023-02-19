@@ -1,19 +1,7 @@
-#tabs {
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-input[type="radio"]  {
-    display: none;
-}
-
 .kalender_tab {
     background-color: var(--clr1);
     padding: 10px;
-    border-radius: .5rem;
-    margin-top: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
@@ -40,37 +28,85 @@ input[type="radio"]  {
     border:none;
 }
 
-.kal_knapp{
-    background-color: var(--clr1);
-    border: none;
-    min-width: 300px;
-    height: fit-content;
-    border-radius: .5rem;
-    padding: 1rem;
-    font-size: 1.3rem;
-    font-family: inherit;
-    font-weight: 500;
-    color: white;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
-}
-.kal_knapp:hover{
-    background-color: var(--clr3);
-    transition: .2s;
-}
-
-.controlls_tab{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.controlls_tab p{
-    min-width: 300px;
-}
-
 .kal_titel{
     text-align: center;
     padding-bottom: .5rem;
     
 }
+
+.kal-knapp {
+    white-space: nowrap;
+    position: relative;
+    display: block;
+    background-color: var(--clr4);
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: none;
+    padding-bottom: .5rem;
+    margin-left: 0rem;
+}
+
+.kal-knapp.active {
+    background-color: var(--clr1);
+}
+
+.tabs-wrapper {
+    margin-left: 0rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 500px) {
+    .kal-knapp {
+        margin-right: 2rem;
+        margin-left: 2rem;
+    }
+
+    .kal-knapp::before,
+    .kal-knapp::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 101%;
+        width: 2.6rem;
+        background-color:var(--clr4);
+    }
+
+    .kal-knapp::before {
+        transform: skew(-20deg, 0);
+        border-radius: 1rem 0 0 0;
+        left: -2rem;
+    }
+    .kal-knapp::after {
+        transform: skew(20deg, 0);
+        border-radius: 0 1rem 0 0;
+        right: -2rem
+    }
+
+    .kal-knapp.active::before,
+    .kal-knapp.active::after {
+        background-color: var(--clr1);
+        z-index: 2;
+    }
+    .kal-knapp.active:hover::before,
+    .kal-knapp.active:hover::after {
+        background-color: var(--clr1);
+    }
+
+    .kal-knapp:hover::before,
+    .kal-knapp:hover::after {
+        background-color: var(--clr3);
+        transition: .2s;
+    }
+
+    .kalender_tab{
+        border-radius: .5rem;
+    }
+    
+    .tabs-wrapper {
+        margin-left: 1rem;
+        display: flex;
+        justify-content: left;
+    }
+}
+

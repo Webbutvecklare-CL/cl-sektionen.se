@@ -98,7 +98,7 @@ header h1 {
 }
 
 .event_o_aktuellt{
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     display: grid;
     width: 100%;
     grid-row-gap: 1rem;
@@ -136,7 +136,7 @@ header h1 {
 
 .mini_kalender{
     width: 100%;
-    background-color: bisque;
+    margin-bottom: 1rem;
 }
 
 .illabehandling_knapp{
