@@ -36,11 +36,13 @@ footer div img{
 }
 
 #sociallinks {
+    display: flex;
+    float: right;
+    flex-direction: column;
     text-align: center;
     letter-spacing: 1rem;
+    margin-right: 1rem;
     margin-top: 2.5rem;
-    padding-left: 5rem;
-    float: left;
     font-size: 3rem;
 }
 
