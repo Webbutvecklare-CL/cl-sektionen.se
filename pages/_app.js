@@ -16,7 +16,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Head from 'next/head';
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, ...appProps }) {
+    if ([`/TV`].includes(appProps.router.pathname)) {
+        return <Component {...pageProps} />;
+    }
     return (
         <div>
             <Head>
