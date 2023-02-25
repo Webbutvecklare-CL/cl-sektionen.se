@@ -30,6 +30,7 @@ export default function Navbar(){
                 <div id="sociallinks">
                     <a style={{color: "inherit"}} href="https://www.instagram.com/clsektionen/"><i className="fa-brands fa-instagram"></i></a>
                     <a style={{color: "inherit"}} href="https://www.facebook.com/groups/2388999847/"><i className="fa-brands fa-facebook"></i></a>
+                    <a style={{color: "inherit"}} href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/"><i className="fa-brands fa-github"></i></a>
                 </div>
             </div>
             <iframe id="karta" src="https://maps.google.com/maps?q=osquars%20backe%208&t=&z=15&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>

@@ -17,16 +17,21 @@ import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
 
 //Notera att dropdowns i dropdowns stöds inte
 const MENU_LIST = [
-    { text: "Kalender", href: "/kalender" },
-    { text: "Aktuellt", href: "/aktuellt"},
-    { text: "Verksamhet", href: "/verksamhet",
+    { text: "Verksamhet", href:"",
         submenu: [
-            {text: "Förtroendevalda", href: "/fortroendevalda"},
-            {text: "Hedersmedlemmar", href: "/hedersmedlemmar"},
+            {text: "Aktuellt", href: "/aktuellt"},
+            {text: "Kalender", href: "/kalender" },
             {text: "Sångbok", href: "/sangbok"},
         ]
     },
-    { text: "Studier", href: "/student",
+    { text: "Organisation", href:"",
+        submenu: [
+            {text: "Dokument", href: "/dokument"},
+            {text: "Förtroendevalda", href: "/fortroendevalda"},
+            {text: "Hedersmedlemmar", href: "/hedersmedlemmar"},
+        ]
+    },
+    { text: "Studier", href:"",
         submenu: [
             {text: "Alumniblogg", href: "/alumniblogg"},
             {text: "Reseberättelser", href: "/reseberattelser"},
@@ -34,7 +39,13 @@ const MENU_LIST = [
             {text: "Studiebevakning", href: "/studiebevakning"},
             {text: "Illabehandling", href: "/hjalp-vid-illabehandling"}
         ]
-    }
+    },
+    { text: "Näringsliv", href:"",
+        submenu: [
+            {text: "För företag", href: ""},
+            {text: "Samarbeten", href: ""},
+    ]
+}
 ];
 
 const MENU_STATES = [
@@ -52,7 +63,6 @@ const Navbar = () => {
     const burgirToggle = () => {
         setNavBurgirOpen(!navBurgirOpen)
     }
-    
 
     //för att stänga hamburgarmenyn om man klickar utanför---------------------
     let menuref = useRef();
@@ -105,10 +115,7 @@ const Navbar = () => {
                     <div className="nav__menu-list">
                         {MENU_LIST.map((menu, idx) => (
                         <div key={menu.text} className="submenu_wrapper">
-                            <div className="navitem_wrapper" onClick={() => {
-                                setActiveIdx(idx);
-                                setActiveSubIdx(-1);
-                            }}>
+                            <div className="navitem_wrapper" onClick={() => {}}>
                             <NavItem active={activeIdx === idx} {...menu} />
                             </div>
 

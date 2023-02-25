@@ -12,7 +12,7 @@
     background-attachment: fixed;
     filter: brightness(120%);
     display: flex;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
     justify-content: center;
     align-items: center;
 }
@@ -98,7 +98,7 @@ header h1 {
 }
 
 .event_o_aktuellt{
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     display: grid;
     width: 100%;
     grid-row-gap: 1rem;
@@ -108,15 +108,18 @@ header h1 {
 .event_o_aktuellt h1{
     text-align: center;
     margin-top: -0.5rem;
+    margin-bottom: 0;
 }
 
 .event_o_aktuellt div{
-    border-radius: 1rem;
+    border-radius: .5rem;
 }
 
 .mini_aktuellt{
     width: auto;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+    width: 100% !important;
+    min-width: 0px !important;
 }
 
 .mini_event{
@@ -133,13 +136,7 @@ header h1 {
 
 .mini_kalender{
     width: 100%;
-    background-color: bisque;
-    padding-left: 10px;
-}
-
-.mini_kalender h1{
-    margin-top: .4rem;
-    margin-bottom: .4rem;
+    margin-bottom: 1rem;
 }
 
 .illabehandling_knapp{
@@ -148,17 +145,7 @@ header h1 {
     margin: 20px auto 10px auto;
 }
 
-
-
-
-
 @media screen and (max-width: 800px) {
-    /* .mini_aktuellt {
-        height: 400px;
-    }
-    .mini_event {
-        height: 400px;
-    } */
     .mini_aktuellt_o_kalender {
         display: flex;
         flex-wrap: wrap;
@@ -169,7 +156,6 @@ header h1 {
         flex-wrap: wrap;
     }
 
-    
     .title_grid{
         display: flex;
         flex-wrap: wrap;

@@ -3,4 +3,5 @@ Dubbelspexet är en förening, som delas med W. Dubbelspexet anordnar spex, det 
 
 https://www.dubbelspexet.com/
 
+### Kontakt: direktionen@dubbelspexet.com
 ---

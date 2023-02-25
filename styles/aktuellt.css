@@ -16,13 +16,16 @@
 
 /* Post preview dvs varje länk */
 .post-preview {
-    padding: 10px 16px;
-    margin: 20px 0;
-    border-bottom: 1px solid #fafafa;
+    transition: .2s;
 }
-.post-preview:hover {
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.35);
+
+.post-preview:hover,
+.post-preview:focus {
+    background: linear-gradient(90deg, rgba(255,0,26,0.15) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 100%);
+    transform: scale(1.005);
+    transition: .2s;
 }
+
 .post-preview h2 {
     font-size: 1.5rem;
     color: black;
