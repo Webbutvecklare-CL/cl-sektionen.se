@@ -25,7 +25,7 @@ export async function getStaticProps(context) {
   const content = await res.text();
 
   return {
-    props: { reseberattelse: params.reseberattelse, content }, // will be passed to the page component as props
+    props: { reseberattelse: params.reseberattelse, content: JSON.parse(JSON.stringify(content)) }, // will be passed to the page component as props
   };
 }
 
