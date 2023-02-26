@@ -60,7 +60,7 @@ function Reseberattelser() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/reseberattelser/ewa-Hörnlund-tjeckien">
+                        <Link href="/reseberattelser/ewa-hörnlund-tjeckien">
                             Ewa Hörnlund - Tjeckien
                         </Link>
                     </li>
