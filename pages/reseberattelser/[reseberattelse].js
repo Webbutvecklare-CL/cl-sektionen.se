@@ -20,12 +20,12 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  let url = `${process.env.DOMAIN}/content/alumniblogg/${params.alumniberattelse}.md`;
+  let url = `${process.env.DOMAIN}/content/reseberattelser/${params.reseberattelse}.md`;
   const res = await fetch(url);
   const content = await res.text();
 
   return {
-    props: { reseberattelse: params.alumniberattelse, content }, // will be passed to the page component as props
+    props: { reseberattelse: params.reseberattelse, content }, // will be passed to the page component as props
   };
 }
 
