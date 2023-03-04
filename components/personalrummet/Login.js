@@ -1,18 +1,21 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-import { googleLogin, validateAccountCheck, createUser } from "../utils/authUtils";
-import { signOut } from "firebase/auth";
+import { googleLogin, validateAccountCheck, createUser, initGapi } from "../../utils/authUtils";
+import { useAuth } from "../../context/AuthContext";
 
-import UserMenu from "../components/personalrummet/UserMenu";
+import ErrorPage from "../ErrorPage";
 
-export default function Personalrummet() {
+export default function Login() {
   const [screen, setScreen] = useState("login");
-  const [user, setUser] = useState();
-  const [errorMsg, setErrorMsg] = useState("");
+  const [error, setError] = useState("");
+
+  const { user, setUserData, logOut } = useAuth();
 
   const handleLogin = () => {
     googleLogin()
       .then((result) => {
+        console.log("User data: ");
+        console.log(result.user);
         // Användaren har loggat in med sin förtroendevalds-mail
         // Validera kontot om det finns i databasen och har permission samt nämndtillhörighet
         validateAccountCheck(result.user)
@@ -21,32 +24,35 @@ export default function Personalrummet() {
               data.uid = result.user.uid;
               // Kontot finns inlagt i systemet
               console.log("Inloggad");
-              setUser(data);
+              setUserData(data);
 
-              setScreen("menu");
+              initGapi(result.user);
             } else {
               // Kontot är inte inlagt i systemet
               console.log(
                 "Din mailadress är inte inlagd i systemet eller så saknar du behörighet!"
               );
-              setErrorMsg(
-                "Din mailadress är inte inlagd i systemet eller så saknar du behörighet! Kontakta webbansvariga."
-              );
+              setError("Din mailadress är inte inlagd i systemet eller så saknar du behörighet!");
               setScreen("signup");
             }
           })
-          .catch((error) => {
+          .catch((err) => {
             // Om något gått snett vid valideringen eller inladdningen av posts
             // ska användaren loggas ut
-            console.log(error);
-            setScreen("login");
-            setErrorMsg("Något gick fel vid valideringen!");
-            signOut();
+            console.error(err);
+            setError("Något gick fel vid valideringen!");
+            if (user) {
+              logOut();
+            }
           });
       })
-      .catch((error) => {
-        console.log(error);
-        setError("Fel vid inloggningen till google!");
+      .catch((err) => {
+        console.error(err);
+        if (error.code == "auth/popup-closed-by-user") {
+          setError("Inloggningsfönstret stängdes!");
+        } else {
+          setError("Fel vid inloggningen till google!");
+        }
       });
   };
 
@@ -62,33 +68,42 @@ export default function Personalrummet() {
         } catch (err) {
           // Om något gått fel med skapandet av användar-doc så loggas användaren ut
           console.error("Fel vid inloggningen: ", err);
-          signOut();
-          setErrorMsg("Det gick inte att lägga till kontot. Kolla i konsolen efter felmeddelande.");
+          if (user) {
+            logOut();
+          }
+          setError("Det gick inte att lägga till kontot. Kolla i konsolen efter felmeddelande.");
+          return;
         }
       })
-      .catch((error) => {
-        // Något har gått fel vid inloggningen
-        console.log(error);
-        setErrorMsg("Fel vid inloggningen till google!");
+      .catch((err) => {
+        console.error(err);
+        if (error.code == "auth/popup-closed-by-user") {
+          setError("Inloggningsfönstret stängdes!");
+        } else {
+          setError("Fel vid inloggningen till google!");
+        }
       });
   };
 
+  if (error) {
+    return (
+      <ErrorPage
+        error={{ header: "Ett fel inträffade vid inloggningen", body: error }}
+        close={() => {
+          setError("");
+        }}
+      />
+    );
+  }
+
   return (
-    <div id="contentbody">
-      <h1>Personalrummet</h1>
-
-      {user && <UserMenu user={user} />}
-
-      {!user && screen === "login" && (
+    <div>
+      {screen === "login" && (
         <div>
-          <p>
-            Här kan du hitta nämndens tidigare inlägg, lägga upp nya och göra andra kul grejjor!
-            <br /> För att använda alla finesser i personalrummet måste du logga in!
-          </p>
           <button onClick={handleLogin}>Logga in</button>
         </div>
       )}
-      {!user && screen === "signup" && (
+      {screen == "signup" && (
         <div>
           <p>
             Ditt konto verka inte vara inlagt i personalsystemet...
@@ -99,15 +114,6 @@ export default function Personalrummet() {
           <button onClick={handleSignup}>Lägg till konto</button>
         </div>
       )}
-
-      {screen == "error" && (
-        <div>
-          <p>{errorMsg}</p>
-          <p>Vänligen kontakta webbansvariga!</p>
-        </div>
-      )}
-
-      {errorMsg && <p>{errorMsg}</p>}
     </div>
   );
 }

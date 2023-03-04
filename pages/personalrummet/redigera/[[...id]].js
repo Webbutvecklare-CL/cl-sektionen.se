@@ -1,17 +1,24 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState, useMemo } from "react";
 
 import { doc, setDoc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
-import { firestore, storage } from "../../firebase/clientApp";
+import { firestore, storage } from "../../../firebase/clientApp";
 
-import PostForm from "./PostForm";
+import PostForm from "../../../components/personalrummet/PostForm";
 
 export default function EditPost() {
+  // Hämtar id från länken om det finns
+  const router = useRouter();
+  const { id } = router.query;
+
+  // Input och "ren" id
   const [postLink, setPostLink] = useState("");
   const [postId, setPostId] = useState("");
 
-  const [isPending, setIsPending] = useState(false); // För skapandet
+  // För skapandet
+  const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -19,17 +26,30 @@ export default function EditPost() {
   const [loading, setLoading] = useState(false);
   const [prefill, setPrefill] = useState();
 
+  useEffect(() => {
+    if (id) {
+      setPostLink(id);
+      loadPost(id[0]);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
   // Hämtar angivna inlägget
-  const loadPost = () => {
-    setPostId(postLink.split("/").pop());
-    if (!postId) {
+  const loadPost = async (pid) => {
+    // Hämtar id från input om ej specificerat
+    if (!pid) {
+      pid = ("/" + postLink).split("/").pop();
+    }
+
+    if (!pid) {
       setError("Du måste skriva in en länk eller inläggs-id.");
       return;
     }
     console.log("getDoc - Laddar inlägg redigera");
     setLoading(true);
 
-    const postRef = doc(firestore, "posts", postId);
+    const postRef = doc(firestore, "posts", pid);
 
     getDoc(postRef)
       .then((docSnap) => {
@@ -51,7 +71,8 @@ export default function EditPost() {
             publishDate: postData.publishDate.toDate().toLocaleDateString("sv"),
             author: postData.author,
           };
-          console.log(data);
+
+          setPostId(pid);
           setPrefill(data);
           setLoading(false);
           setError("");
@@ -158,6 +179,7 @@ export default function EditPost() {
     setError("");
     setSuccess(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    router.push("/personalrummet/redigera");
   };
 
   // Om man klickar på enter
@@ -168,48 +190,58 @@ export default function EditPost() {
     }
   };
 
-  if (success) {
-    return (
-      <div>
-        <p>
-          Inlägget är uppdaterat du hittar på följande länk:{" "}
-          <Link href={`/aktuellt/${postId}`}>{`www.cl-sektionen.se/aktuellt/${postId}`}</Link>
-          <br />
-          <i>
-            Observera att endast förtroendevalda som är inloggade kan se inlägget om det har ett
-            senare publikationsdatum.
-          </i>
-          <br />
-        </p>
-      </div>
-    );
-  }
-
   return (
-    <div className="create">
-      {!prefill && (
-        <div>
-          <input
-            type="text"
-            onChange={(e) => {
-              setPostLink(e.target.value);
-            }}
-            onKeyDown={handleKeypress}
-          />
-          <button onClick={loadPost}>Hämta inlägg</button>
-        </div>
-      )}
-      {postLink && (
-        <div>
-          {loading && <p>Hämtar inlägg...</p>}
-          {!loading && prefill && (
+    <div id="contentbody">
+      <h1>Personalrummet - Redigera</h1>
+      <button type="button" onClick={() => router.back()}>
+        Tillbaka
+      </button>
+      {!success && (
+        <div className="create">
+          {!prefill && (
             <div>
-              <PostForm onSubmit={handleFormData} prefill={prefill} buttonText={"Uppdatera"} />
-              {isPending && <p>Uppdaterar inlägg...</p>}
-              {error && <p>Error: {error}</p>}
+              <input
+                type="text"
+                onChange={(e) => {
+                  setPostLink(e.target.value);
+                }}
+                value={postLink}
+                onKeyDown={handleKeypress}
+              />
+              <button
+                onClick={() => {
+                  loadPost();
+                }}
+              >
+                Hämta inlägg
+              </button>
             </div>
           )}
-          {error && <p>{error}</p>}
+          <div>
+            {loading && <p>Hämtar inlägg...</p>}
+            {!loading && prefill && (
+              <div>
+                <PostForm onSubmit={handleFormData} prefill={prefill} buttonText={"Uppdatera"} />
+                {isPending && <p>Uppdaterar inlägg...</p>}
+                {error && <p>Error: {error}</p>}
+              </div>
+            )}
+            {error && <p>{error}</p>}
+          </div>
+        </div>
+      )}
+      {success && (
+        <div>
+          <p>
+            Inlägget är uppdaterat du hittar på följande länk:{" "}
+            <Link href={`/aktuellt/${postId}`}>{`www.cl-sektionen.se/aktuellt/${postId}`}</Link>
+            <br />
+            <i>
+              Observera att endast förtroendevalda som är inloggade kan se inlägget om det har ett
+              senare publikationsdatum.
+            </i>
+            <br />
+          </p>
         </div>
       )}
     </div>

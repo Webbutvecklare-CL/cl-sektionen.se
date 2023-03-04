@@ -28,4 +28,4 @@ const auth = getAuth(app);
 // const messaging = getMessaging(app);
 // const analytics = getAnalytics(app);
 
-export { app, firestore, storage };
+export { app, firestore, storage, auth };
