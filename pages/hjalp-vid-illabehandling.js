@@ -1,13 +1,9 @@
-import MarkdownRender from '../components/MarkdownRender';
+import MarkdownRender from "../components/MarkdownRender";
 
-function Illabehandling(){
-    return (
+export default function Illabehandling() {
+  return (
     <div id="contentbody">
-        <MarkdownRender
-            source={`../content/hjlp-vid-illabehandling.md`}
-        />
+      <MarkdownRender source={`../content/hjlp-vid-illabehandling.md`} />
     </div>
-
-    )
+  );
 }
-export default Illabehandling

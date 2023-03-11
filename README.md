@@ -22,8 +22,8 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 To learn more about Next.js, take a look at the following resources:
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
@@ -31,13 +31,33 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när den finns tillgänglig på github. DVS allt du behöver göra är att merge:a med main.
 
+## Environment variables
+
+Du behöver även ha vissa environment variables. Skapa en fil som heter `.env.local`. Kopiera sedan i följande mall:
+
+```
+# Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
+# För att getStaticProps ska komma åt lokala filer
+DOMAIN=http://localhost:3000
+```
+
+_Firebase_ variablerna hämtas från ett firebase projekt under project settings.  
+_Domain_ är den domän som hemsidan kommer gå att nås på. Under utveckling exempelvis http://localhost:3000.
+
 ## Uppdatera och lägga till textinnehåll - Statiskt innehåll
 
 För att ändra i en text går du bara in på en fil som du vill ändra på i mappen `public/content/`.
 
 All längre sammanhängande text ska vara skriven i markdown. [Här](https://www.markdownguide.org/cheat-sheet/) hittar du en guide på hur du formatera texten, du kan även kolla på andra texter i mappen `public/content/`. Tips som inte står där:
 
--   För att göra en ny rad utan mellanrum gör två mellanslag på raden ovan.
+- För att göra en ny rad utan mellanrum gör två mellanslag på raden ovan.
 
 För att kolla på en förhandsvisning av formateringen kan du använda https://markdownlivepreview.com/. Kom ihåg att spara filen med .md formatet.
 

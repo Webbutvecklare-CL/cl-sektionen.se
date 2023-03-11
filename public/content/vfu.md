@@ -64,11 +64,11 @@ Du kan också söka egen VFU-plats på svenska skolor utomlands. Det viktiga att
 ## 6. Checklista för studenter
 
 Gå igenom följande checklista innan din praktik börjar:
-- [ ]   Jag vet hur många timmar jag måste undervisa och auskultera
-- [ ]   Jag har ansökt om belastningsregister hos polisen
-- [ ]   Jag vet vad för uppgifter jag ska göra efter min VFU
-- [ ]   Jag har tagit kontakt med min handledare som är
-- [ ]   Jag gör inte VFU på min gamla gymnasieskola
+- Jag vet hur många timmar jag måste undervisa och auskultera
+- Jag har ansökt om belastningsregister hos polisen
+- Jag vet vad för uppgifter jag ska göra efter min VFU
+- Jag har tagit kontakt med min handledare som är
+- Jag gör inte VFU på min gamla gymnasieskola
 
 Mer än så behöver du inte fundera över innan din VFU! Det mesta löser sig när du väl kommer ut till skolan.
 
