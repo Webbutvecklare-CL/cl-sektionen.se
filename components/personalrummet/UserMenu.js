@@ -1,20 +1,26 @@
+import { useRouter } from "next/router";
+
 import React, { useEffect, useState } from "react";
 
 import { getDocs, collection, query, where, orderBy, limit } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { firestore } from "../../firebase/clientApp";
 import { updateUser } from "../../utils/authUtils";
+import { useAuth } from "../../context/AuthContext";
 
-import CreatePost from "./CreatePost";
-import EditPost from "./EditPost";
 import FeedPreview from "../FeedPreview";
 import MarkdownRender from "../MarkdownRender";
+import ErrorPage from "../ErrorPage";
 
-export default function UserMenu({ user }) {
+export default function UserMenu() {
   const [menuSelect, setMenuSelect] = useState("senaste");
   const [error, setError] = useState("");
   const [committeePosts, setCommitteePosts] = useState({ docs: [] });
 
-  const [status, setStatus] = useState("");
+  const [userUpdateStatus, setUserUpdateStatus] = useState("");
+
+  const { user, userData } = useAuth();
+  const router = useRouter();
 
   // Rensa error om man byter meny
   useEffect(() => {
@@ -27,12 +33,15 @@ export default function UserMenu({ user }) {
 
   // Hämtar de senaste inläggen nämnden skapat
   useEffect(() => {
+    if (!userData.committee) {
+      return;
+    }
     console.log("getDoc - Committee Query");
     const postRef = collection(firestore, "posts");
 
     const committeeQuery = query(
       postRef,
-      where("committee", "==", user.committee),
+      where("committee", "==", userData.committee),
       orderBy("publishDate", "desc"),
       limit(5)
     );
@@ -43,17 +52,17 @@ export default function UserMenu({ user }) {
         console.error("Fel vid laddning av nämndinlägg:", err);
         setError("Det gick inte att hämta nämndens inlägg, vänligen kontakta webbansvariga.");
       });
-  }, [user.committee]);
+  }, [userData.committee]);
 
   const handleUserUpdate = () => {
     setMenuSelect("update");
-    setStatus("Försöker uppdatera användare...");
+    setUserUpdateStatus("Försöker uppdatera användare...");
     if (user) {
       updateUser(user)
-        .then(setStatus("Uppgifter uppdaterade."))
+        .then(setUserUpdateStatus("Uppgifter uppdaterade."))
         .catch((err) => {
           console.error("Fel vid user update:", err);
-          setStatus("Det gick inte att uppdatera uppgifterna.");
+          setUserUpdateStatus("Det gick inte att uppdatera uppgifterna.");
           setError(
             "Det gick inte att uppdatera dina uppgifter. Prova att ladda om sidan och logga in igen eller kontakta webbansvariga."
           );
@@ -63,44 +72,77 @@ export default function UserMenu({ user }) {
     }
   };
 
+  const loadEvents = () => {
+    // Make sure to refresh the Auth Token in case it expires!
+    const auth = getAuth();
+
+    auth.currentUser
+      .getIdToken()
+      .then(function () {
+        console.log(gapi);
+        return gapi.client.calendar.events.list({
+          calendarId: "c_5sqhb0om2kmti770g06qqknfik@group.calendar.google.com",
+          showDeleted: false,
+          singleEvents: true,
+          maxResults: 10,
+          orderBy: "startTime",
+        });
+      })
+      .then(function (response) {
+        console.log(response);
+      });
+  };
+
+  if (error) {
+    return (
+      <ErrorPage
+        error={{ header: "Ett fel inträffade vid inloggningen", body: error }}
+        close={() => {
+          setError("");
+        }}
+      />
+    );
+  }
+
   return (
     <div>
       <div className="userInfo">
         <p>
-          Välkommen {user.displayName}!
+          Välkommen {userData.displayName}!
           <br />
-          Nedanför kan du se {user.committee}s senaste inlägg.
+          Nedanför kan du se {userData.committee}s senaste inlägg.
         </p>
-        {user.permission == "moderator" && (
+        {userData.permission == "moderator" && (
           <p>
             Du kan skapa nya eller redigera tidigare inlägg. Om du ta bort ett inlägg från din nämnd
             kan du arkivera det (Kommer i framtiden).
           </p>
         )}
-        {user.permission == "admin" && <p>Du kan göra vad du vill.</p>}
+        {userData.permission == "admin" && <p>Du kan göra vad du vill.</p>}
       </div>
-      <div
-        className="menu"
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: 2 + "rem",
-        }}
-      >
+
+      {/*Knappar*/}
+      <div className="menu">
         <button className="senaste" onClick={() => setMenuSelect("senaste")}>
           Senaste inläggen
-        </button>
-        <button className="redigera" onClick={() => setMenuSelect("redigera")}>
-          Redigera
-        </button>
-        <button className="publicera" onClick={() => setMenuSelect("publicera")}>
-          Publicera
         </button>
         <button className="update" onClick={handleUserUpdate}>
           Uppdatera uppgifter
         </button>
         <button className="how-to" onClick={() => setMenuSelect("how-to")}>
           HOW-TO
+        </button>
+
+        <button className="how-to" onClick={loadEvents}>
+          Events
+        </button>
+      </div>
+      <div className="menu">
+        <button className="redigera" onClick={() => router.push("personalrummet/redigera")}>
+          Redigera
+        </button>
+        <button className="publicera" onClick={() => router.push("personalrummet/publicera")}>
+          Publicera
         </button>
       </div>
       {menuSelect == "senaste" && (
@@ -114,32 +156,18 @@ export default function UserMenu({ user }) {
           {!committeePosts.docs && (
             <div>
               <h2>Nämndens senaste inlägg</h2>
-              <FeedPreview docs={committeePosts.docs} />
+              <p>Finns inga inlägg</p>
             </div>
           )}
         </div>
       )}
-      {menuSelect == "redigera" && (
-        <div>
-          <h2>Redigera</h2>
-          <EditPost />
-        </div>
-      )}
-      {menuSelect == "publicera" && (
-        <div>
-          <h2>Publicera</h2>
-          <CreatePost user={user} />
-        </div>
-      )}
-      {menuSelect == "update" && <p>{status}</p>}
+      {menuSelect == "update" && <p>{userUpdateStatus}</p>}
       {menuSelect == "how-to" && (
         <div>
           <h2>HOW-TO</h2>
           <MarkdownRender source={"./content/personalrummet/how-to.md"} />
         </div>
       )}
-
-      {error && <p>Ett fel har inträffat: {error}</p>}
     </div>
   );
 }
