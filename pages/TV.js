@@ -1,88 +1,48 @@
-import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
-import Departures from "./Departures";
-import { getGr8anOpen } from "../../utils/tv";
+import ReseInfo from "../components/TV/ReseInfo";
+import Slideshow from "../components/TV/Slideshow";
 
-export default function ReseInfo({ api_key }) {
-  const [buses, setBuses] = useState([]);
-  const [metros, setMetros] = useState([]);
-  const [trams, setTrams] = useState([]);
+import KTH_Winter from "../public/media/TV/kth-winter.png";
+import KTH_Summer from "../public/media/TV/kth-sommar.png";
+import KTH_Night from "../public/media/TV/kth-night.jpg";
 
-  const [lastUpdate, setLastUpdate] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
+import { getAllImages, getIsNight } from "../utils/tv";
 
+export default function TV() {
+  const router = useRouter();
+
+  const [listOfImages, setListOfImages] = useState([]);
+  const [isNight, setIsNight] = useState(getIsNight());
+
+  // Hämtar alla bild länkar.
   useEffect(() => {
-    // Sätter ett interval när komponenten laddas in
-    const id = setInterval(() => {
-      // Uppdatera bara om Gråttan är öppen
-      if (getGr8anOpen) {
-        fetch(`/api/reseinfo?key=${api_key}`)
-          .then((res) => {
-            // Om responsen från api:et är ok försöker vi ta ut all data
-            if (res.ok) {
-              res
-                .json()
-                .then((data) => {
-                  // Om det är något fel med SL:s api skickas ett error
-                  if (data.error) {
-                    setError(data.error);
-                    setLoading(true);
-                    return;
-                  }
-                  // Tar ut de 6 närmast kommande avgångarna
-                  let maxLength = 6;
-                  setBuses(data.Buses.sort().slice(0, maxLength));
-                  setMetros(data.Metros.sort().slice(0, maxLength));
-                  setTrams(data.Trams.sort().slice(0, maxLength));
+    // Hämtar bilderna när sidan laddas in
+    getAllImages().then((list) => {
+      setListOfImages(list);
+    });
 
-                  // Kolla vilken tid informationen gäller för
-                  setLastUpdate(data.LatestUpdate.split("T")[1]);
-                  setLoading(false);
-                  setError("");
-                })
-                .catch((err) => {
-                  console.error(err);
-                  setError("Kunde inte ladda reseinfo! :(");
-                  setLoading(true);
-                });
-            } else {
-              console.log(res);
-              setError("Kunde inte ladda reseinfo! :(");
-              setLoading(true);
-            }
-          })
-          .catch((err) => {
-            console.log("Dunder error");
-            console.error(err);
-            setError("Kunde inte ladda reseinfo! :(");
-            setLoading(true);
-          });
-      }
-    }, 1000 * 12); // Uppdaterar var tolfte sekund
-    return () => clearInterval(id); // ta bort interval när komponenten laddas ut
-  }, [api_key]);
+    // Hämtar länkar till alla bilder och uppdaterar natt/dag varje minut
+    const id = setInterval(async () => {
+      getAllImages().then((list) => {
+        setListOfImages(list);
+      });
+
+      //Kollar om det är kväll eller dag
+      setIsNight(getIsNight());
+    }, 1000 * 60);
+    return () => clearInterval(id); // Tar bort interval när sidan lämnas
+  }, []);
 
   return (
-    <div className="reseinfo">
-      <div id={"buses"}>
-        <h2>Bussar</h2>
-        <Departures data={buses} />
-      </div>
-      <div id={"metros"}>
-        <h2>Tunnelbana</h2>
-        <Departures data={metros} />
-      </div>
-      <div id={"trams"}>
-        <h2>Roslagsbanan</h2>
-        <Departures data={trams} />
-      </div>
-      <div className="messages">
-        <p>Uppdaterat: {lastUpdate}</p>
-        <div className="scroll-container">
-          {(error || loading) && <p>{error} Försöker hämta reseinfo igen...</p>}
-        </div>
-      </div>
+    <div id="tv-content">
+      <Slideshow
+        images={listOfImages}
+        default_image={isNight ? KTH_Night : KTH_Winter}
+        speed={1000 * 10}
+      />
+      <ReseInfo api_key={router.query.key} />
     </div>
   );
 }
