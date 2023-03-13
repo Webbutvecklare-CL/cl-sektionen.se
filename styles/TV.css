@@ -1,0 +1,57 @@
+#tv-content{
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--clr2);
+  background-image: url(../public/media/grafik/CL_logo_sketch_black.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.slideshow{
+  overflow: hidden;
+  height: 100vh;
+  margin: auto;
+  width: 100%;
+}
+
+.slideshow img{
+  display: none;
+}
+
+.slideshow img[src]{
+  display: inline;
+  width: 100%;
+  height:100%;
+  object-fit: contain;
+  border: none;
+  outline: none; 
+}
+
+.reseinfo {
+  background-color: var(--clgra);
+  padding: 3rem 1rem 0 1rem;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.reseinfo h2 {
+  color: var(--clr3);
+}
+
+.reseinfo .departure {
+  display: flex;
+  margin-bottom: 0.2rem;
+}
+
+.reseinfo .line {
+  width: 2.5rem;
+}
+
+.reseinfo .destination {
+  width: 12rem;
+}
+
+.reseinfo .display-time{
+  width: 4rem;
+}
