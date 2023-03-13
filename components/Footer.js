@@ -42,7 +42,7 @@ export default function Navbar() {
             <i className="fa-brands fa-github"></i>
           </a>
           <Link href="/personalrummet" style={{ color: "inherit" }}>
-            <i class="fa-solid fa-mug-hot"></i>
+            <i className="fa-solid fa-mug-hot"></i>
           </Link>
         </div>
       </div>

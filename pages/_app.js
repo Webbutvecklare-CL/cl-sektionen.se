@@ -12,14 +12,22 @@ import "/styles/aktuellt.css";
 import "/styles/feed-preview.css";
 import "/styles/reseberattelser.css";
 import "/styles/personalrummet.css";
+import "/styles/TV.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import Script from "next/script";
+import { useRouter } from "next/router";
 import { AuthContextProvider } from "../context/AuthContext";
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+
+  if (router.pathname.includes("/TV")) {
+    return <Component {...pageProps} />;
+  }
+
   return (
     <div>
       <Head>
@@ -37,7 +45,6 @@ export default function App({ Component, pageProps }) {
           <Script src="https://apis.google.com/js/api.js" type="text/javascript" async />
         </>
       </Head>
-
       <AuthContextProvider>
         <Component {...pageProps} />
       </AuthContextProvider>
