@@ -13,7 +13,7 @@
   height: 100vh;
   margin: auto;
   width: 100%;
-}
+} 
 
 .slideshow img{
   display: none;
@@ -28,30 +28,97 @@
   outline: none; 
 }
 
+
+/* Reseinfo */
 .reseinfo {
+  width: 18vw;
+  height: 100vh;
   background-color: var(--clgra);
-  padding: 3rem 1rem 0 1rem;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: white;
+  overflow: hidden;
 }
 
 .reseinfo h2 {
-  color: var(--clr3);
+  color: var(--clr2);
+  margin-top: 0.5rem;
+  margin-left: 1rem;
 }
 
 .reseinfo .departure {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  width: 100%;
   margin-bottom: 0.2rem;
+  min-height: 2.5rem;
+  padding: 0 1.5rem 0 1rem;
+
+  box-sizing: border-box;
 }
 
-.reseinfo .line {
-  width: 2.5rem;
+.reseinfo .departure:nth-child(odd){
+  background-color: #363636;
 }
 
 .reseinfo .destination {
-  width: 12rem;
+  overflow-wrap: break-word;
 }
 
-.reseinfo .display-time{
-  width: 4rem;
+.reseinfo .messages {
+  width: 18rem;
+  margin-top: 1.3rem;
+}
+
+.reseinfo .messages p {
+  font-size: 1.5rem;
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 1rem;
+}
+
+/* För skrollande error text */
+.scroll-container {
+  width: min-content;
+  white-space: nowrap;
+  height: 2rem;
+  overflow: hidden;
+}
+
+.scroll-container  {
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
 }
