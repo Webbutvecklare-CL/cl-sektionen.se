@@ -31,9 +31,10 @@ export default function ReseInfo({ api_key }) {
                     return;
                   }
                   // Tar ut de 6 närmast kommande avgångarna
-                  setBuses(data.Buses.slice(0, 6).sort());
-                  setMetros(data.Metros.slice(0, 6).sort());
-                  setTrams(data.Trams.slice(0, 6).sort());
+                  let maxLength = 6;
+                  setBuses(data.Buses.sort().slice(0, maxLength));
+                  setMetros(data.Metros.sort().slice(0, maxLength));
+                  setTrams(data.Trams.sort().slice(0, maxLength));
 
                   // Kolla vilken tid informationen gäller för
                   setLastUpdate(data.LatestUpdate.split("T")[1]);
@@ -58,7 +59,7 @@ export default function ReseInfo({ api_key }) {
             setLoading(true);
           });
       }
-    }, 1000 * 25);
+    }, 1000 * 12); // Uppdaterar var tolfte sekund
     return () => clearInterval(id); // ta bort interval när komponenten laddas ut
   }, [api_key]);
 
@@ -76,10 +77,12 @@ export default function ReseInfo({ api_key }) {
         <h2>Roslagsbanan</h2>
         <Departures data={trams} />
       </div>
-      <br />
-      <p>Uppdaterat: {lastUpdate}</p>
-      {loading && <p>Hämtar reseinfo...</p>}
-      {error && <p>Fel: {error}</p>}
+      <div className="messages">
+        <p>Uppdaterat: {lastUpdate}</p>
+        <div className="scroll-container">
+          {(error || loading) && <p>{error} Försöker hämta reseinfo igen...</p>}
+        </div>
+      </div>
     </div>
   );
 }
