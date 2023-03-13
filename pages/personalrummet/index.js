@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Login from "../../components/personalrummet/login";
+import Login from "../../components/personalrummet/Login";
 
 import UserMenu from "../../components/personalrummet/UserMenu";
 
