@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ReseInfo from "../components/TV/ReseInfo";
 import Slideshow from "../components/TV/Slideshow";
 
-import KTH_Winter from "../public/media/TV/kth-Winter.png";
+import KTH_Winter from "../public/media/TV/kth-winter.png";
 import KTH_Summer from "../public/media/TV/kth-sommar.png";
 import KTH_Night from "../public/media/TV/kth-night.jpg";
 
