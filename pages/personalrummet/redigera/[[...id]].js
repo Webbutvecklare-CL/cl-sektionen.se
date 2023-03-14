@@ -193,7 +193,10 @@ export default function EditPost() {
   return (
     <div id="contentbody">
       <h1>Personalrummet - Redigera</h1>
-      <button type="button" onClick={() => router.back()}>
+      <button
+        type="button"
+        onClick={() => router.back()}
+      >
         Tillbaka
       </button>
       {!success && (
@@ -221,7 +224,11 @@ export default function EditPost() {
             {loading && <p>Hämtar inlägg...</p>}
             {!loading && prefill && (
               <div>
-                <PostForm onSubmit={handleFormData} prefill={prefill} buttonText={"Uppdatera"} />
+                <PostForm
+                  onSubmit={handleFormData}
+                  prefill={prefill}
+                  buttonText={"Uppdatera"}
+                />
                 {isPending && <p>Uppdaterar inlägg...</p>}
                 {error && <p>Error: {error}</p>}
               </div>

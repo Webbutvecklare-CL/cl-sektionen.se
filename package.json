@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "npx prettier ./ --check",
+    "prettier:fix": "npm run prettier --write"
   },
   "dependencies": {
     "@next/font": "13.0.7",
@@ -29,6 +31,8 @@
     "sanitize-html": "^2.8.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^1.4.1"
+    "@eslint/eslintrc": "^1.4.1",
+    "eslint-config-prettier": "^8.7.0",
+    "prettier": "2.8.4"
   }
 }

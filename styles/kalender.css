@@ -1,112 +1,109 @@
 .kalender_tab {
-    background-color: var(--clr1);
-    padding: 10px;
-    border-radius: 0 0 0.5rem 0.5rem;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+  background-color: var(--clr1);
+  padding: 10px;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
-.kalender_tab h1{
-    color: white;
-    font-weight: 500;
-    margin: 0;
+.kalender_tab h1 {
+  color: white;
+  font-weight: 500;
+  margin: 0;
 }
 
 .open-web-calendar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0 !important;
-    height: 570px;
-    width: 100%;
-    border:none;
-
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0 !important;
+  height: 570px;
+  width: 100%;
+  border: none;
 }
 
-.open-web-calendar.agenda{
-    height: 300px;
-    width: 100%;
-    border:none;
+.open-web-calendar.agenda {
+  height: 300px;
+  width: 100%;
+  border: none;
 }
 
-.kal_titel{
-    text-align: center;
-    padding-bottom: .5rem;
-    
+.kal_titel {
+  text-align: center;
+  padding-bottom: 0.5rem;
 }
 
 .kal-knapp {
-    white-space: nowrap;
-    position: relative;
-    display: block;
-    background-color: var(--clr4);
-    border-radius: 1rem 1rem 0 0;
-    box-shadow: none;
-    padding-bottom: .5rem;
-    margin-left: 0rem;
+  white-space: nowrap;
+  position: relative;
+  display: block;
+  background-color: var(--clr4);
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: none;
+  padding-bottom: 0.5rem;
+  margin-left: 0rem;
 }
 
 .kal-knapp.active {
-    background-color: var(--clr1);
+  background-color: var(--clr1);
 }
 
 .tabs-wrapper {
-    margin-left: 0rem;
-    display: flex;
-    justify-content: space-between;
+  margin-left: 0rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 500px) {
-    .kal-knapp {
-        margin-right: 2rem;
-        margin-left: 2rem;
-    }
+  .kal-knapp {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
 
-    .kal-knapp::before,
-    .kal-knapp::after {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 0;
-        height: 101%;
-        width: 2.6rem;
-        background-color:var(--clr4);
-    }
+  .kal-knapp::before,
+  .kal-knapp::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 101%;
+    width: 2.6rem;
+    background-color: var(--clr4);
+  }
 
-    .kal-knapp::before {
-        transform: skew(-20deg, 0);
-        border-radius: 1rem 0 0 0;
-        left: -2rem;
-    }
-    .kal-knapp::after {
-        transform: skew(20deg, 0);
-        border-radius: 0 1rem 0 0;
-        right: -2rem
-    }
+  .kal-knapp::before {
+    transform: skew(-20deg, 0);
+    border-radius: 1rem 0 0 0;
+    left: -2rem;
+  }
+  .kal-knapp::after {
+    transform: skew(20deg, 0);
+    border-radius: 0 1rem 0 0;
+    right: -2rem;
+  }
 
-    .kal-knapp.active::before,
-    .kal-knapp.active::after {
-        background-color: var(--clr1);
-        z-index: 2;
-    }
-    .kal-knapp.active:hover::before,
-    .kal-knapp.active:hover::after {
-        background-color: var(--clr1);
-    }
+  .kal-knapp.active::before,
+  .kal-knapp.active::after {
+    background-color: var(--clr1);
+    z-index: 2;
+  }
+  .kal-knapp.active:hover::before,
+  .kal-knapp.active:hover::after {
+    background-color: var(--clr1);
+  }
 
-    .kal-knapp:hover::before,
-    .kal-knapp:hover::after {
-        background-color: var(--clr3);
-        transition: .2s;
-    }
+  .kal-knapp:hover::before,
+  .kal-knapp:hover::after {
+    background-color: var(--clr3);
+    transition: 0.2s;
+  }
 
-    .kalender_tab{
-        border-radius: .5rem;
-    }
-    
-    .tabs-wrapper {
-        margin-left: 1rem;
-        display: flex;
-        justify-content: left;
-    }
+  .kalender_tab {
+    border-radius: 0.5rem;
+  }
+
+  .tabs-wrapper {
+    margin-left: 1rem;
+    display: flex;
+    justify-content: left;
+  }
 }
-

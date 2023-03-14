@@ -2,6 +2,14 @@ Detta är ett [Next.js](https://nextjs.org/) projekt skapat med [`create-next-ap
 
 ## Getting Started
 
+Efter att du klonat ner filerna till din lokala enhet, behöver du se till att din npm innehåller alla paket som krävs. Kör följande kommandon för att installera dependencies och dev dependencies:
+
+```bash
+npm install
+# eller
+yarn install
+```
+
 Starta live-servern genom att köra kommandon:
 
 ```bash
@@ -86,3 +94,22 @@ I databasen sparas varje inlägg likt strukturen på JSON. De olika attributen �
 På aktuelltsidan (`pages/aktuellt/index.js`) finns två feed ett för nyheter och ett för event. Det är i `pages/aktuellt/index.js` som inläggen fetchas. Varje feed kan få olika listor dvs nyhetsinlägg fetchas och skickas separat till nyhets-feedet.
 
 Varje inlägg har ett unikt ID. För att komma åt ett inlägg används adressen /aktuellt/[id]. Inläggssidan ligger i `pages/aktuellt/[pageId].js`.
+
+## Formattering och linting
+
+Projektet använder Prettier och ESLint för att hålla koden enhetlig och felfri. Prettier kollar egentligen bara estetiken av koden, och ESLint är lite mer funktionell för att standarder ska följas. För att säkerställa att din editor har kopplat till Prettier på rätt sätt kan du läsa [här](https://prettier.io/docs/en/editors.html).
+
+Kör följande kommandon för att använda Prettier manuellt:
+
+```bash
+# Kollar om "fel" förekommer
+npm run prettier
+# Fixar eventuella "fel"
+npm run prettier:fix"
+```
+
+ESLint kan köras för att se var "fel" förekommer, men inte fixa dem själv. Kör följande för att köra ESLint-kontrollen genom hela projektet:
+
+```bash
+npm run lint
+```

@@ -29,12 +29,12 @@ Fick visum December men åkte 14 Februari 1 vecka innan O-Week som var välkomst
 
 Dyrt med Australien generellt sett så bra att ha sparpengar innan. Sökte stipendier men fick inga förutom resebidraget från KTH.
 
--   Visum 4000 kr (fick dock tillbaka det av staten 9 månader gör “visum refund application” )
--   Boende 8000 kr/månaden
--   Behövde betala 4000kr bara för att acceptera boendet?? var alltså som en deposition som man aldrig skulle få tillbaka
--   Matpriser lika som hemma lite dyrare, tips handla på Aldi
--   Simkort var ganska billigt, ca 150 kr/månaden. Hade abonnemang på Opusonödigt att skaffa bankkonto där om en inte skaffar jobb är annars är tips att använda sig av “wise” eller “revolut” man behöver inte ens ett fysiskt kort då alla tar emot “blipp” alltså digitala bankkort i mobilen som apple-pay.
--   Cash är bra att ha om man går ut och äter då resturanger inte delar på notan alls, även vid större sällskap och det finns inte swish endast banköverföringar.
+- Visum 4000 kr (fick dock tillbaka det av staten 9 månader gör “visum refund application” )
+- Boende 8000 kr/månaden
+- Behövde betala 4000kr bara för att acceptera boendet?? var alltså som en deposition som man aldrig skulle få tillbaka
+- Matpriser lika som hemma lite dyrare, tips handla på Aldi
+- Simkort var ganska billigt, ca 150 kr/månaden. Hade abonnemang på Opusonödigt att skaffa bankkonto där om en inte skaffar jobb är annars är tips att använda sig av “wise” eller “revolut” man behöver inte ens ett fysiskt kort då alla tar emot “blipp” alltså digitala bankkort i mobilen som apple-pay.
+- Cash är bra att ha om man går ut och äter då resturanger inte delar på notan alls, även vid större sällskap och det finns inte swish endast banköverföringar.
 
 Jag jobbade en del som servitris på bröllopsfester, man fick även söka jobb på campus på restaurangerna och på kontoren för universitetet. Man får ansöka om att jobba men det får man enligt visumet. Gratis frukost på tisdagar, lunch på onsdagar, och varje onsdag lunch fick man hämta gratis matvaror som mjölk, pasta och även schampo, deo, tamponger av skolan. Fick även låna cyklar gratis av boendet! Däremot fanns det inte riktigt infrastruktur för cyklar och gående i Wollongong.. men det gick ganska bra om man var uppmärksam och försiktig i trafiken.
 
@@ -56,11 +56,11 @@ BILD
 
 ### Jag kunde tillgodoräkna följande kurser
 
--   CHEM374 - Molecular Spectroscopy and Structure Elucidation | KD1070 Molekylär struktur
+- CHEM374 - Molecular Spectroscopy and Structure Elucidation | KD1070 Molekylär struktur
 
--   BIOL213 - Principles of Biochemistry | BB1050 Bioteknik
+- BIOL213 - Principles of Biochemistry | BB1050 Bioteknik
 
--   CHEM212 - Organic Chemistry II | KD 1270 Organisk Kemi, grundläggande koncept och praktik 2
+- CHEM212 - Organic Chemistry II | KD 1270 Organisk Kemi, grundläggande koncept och praktik 2
 
 ## Staden och landet
 

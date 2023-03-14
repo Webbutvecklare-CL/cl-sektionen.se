@@ -58,11 +58,11 @@ Jag hade även möjlighet att läsa en grundkurs i irländska, vilket jag passad
 
 Jag hade turen att läsa hälften av mina kurser tillsammans med en klass, vilket jag är oerhört tacksam för eftersom det innebar att jag hade möjlighet att få ett gäng irländska (och två franska) klasskompisar. Annars är det vanligt som internationell student att en hoppar omkring och läser kurser med olika klasser. Det är naturligtvis inget fel med det, men det kan vara svårare att hitta klasskompisar. De kurser som jag läste var:
 
--   Equations of Mathematical Physics
--   MA2223 Metric spaces
--   MA2327 Ordinary Differential
--   MA2341 Advanced Classical Mechanics I I (vilken jag hoppade av efter ett tag)
--   Irish Litterature
+- Equations of Mathematical Physics
+- MA2223 Metric spaces
+- MA2327 Ordinary Differential
+- MA2341 Advanced Classical Mechanics I I (vilken jag hoppade av efter ett tag)
+- Irish Litterature
 
 Mekanikkursen visade sig vara betydligt svårare än den (SG1113 Mekanik, fortsättningskurs) jag skulle ha läst på KTH. Min lärdom var att det inte alltid är så lätt att bedöma kursernas svårighetsgrad utifrån kursbeskrivningarna. Om en är väldigt intresserad av ganska teoretisk mekanik, så kanske kursen är att rekommendera?
 

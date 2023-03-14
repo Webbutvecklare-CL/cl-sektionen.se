@@ -1,8 +1,9 @@
-function Studiebevakning(){
-    return (
-        <div id="contentbody">
-            <h1>Studiebevakning</h1>
-        </div>
-    )
+function Studiebevakning() {
+  return (
+    <div id="contentbody">
+      <h1>Studiebevakning</h1>
+    </div>
+  );
 }
-export default Studiebevakning
+
+export default Studiebevakning;

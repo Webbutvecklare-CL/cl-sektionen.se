@@ -131,24 +131,55 @@ export default function PostForm({ onSubmit, prefill, buttonText = "Skapa" }) {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Titel:</label>
-        <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input
+          type="text"
+          required
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
         <label>Undertitel:</label>
-        <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
+        <input
+          type="text"
+          value={subtitle}
+          onChange={(e) => setSubtitle(e.target.value)}
+        />
         <label>Bild:</label>
         {image && (
           <div className="image-file">
-            {image.name} <i className="fa-regular fa-trash-can" onClick={() => setImage()} />
+            {image.name}{" "}
+            <i
+              className="fa-regular fa-trash-can"
+              onClick={() => setImage()}
+            />
           </div>
         )}
-        {!image && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
+        {!image && (
+          <input
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          />
+        )}
         <label>Inlägg:</label>
-        <TextField value={body} onChange={setBody} />
+        <TextField
+          value={body}
+          onChange={setBody}
+        />
         <label>Författare:</label>
-        <input type="text" required value={author} onChange={(e) => setAuthor(e.target.value)} />
+        <input
+          type="text"
+          required
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
         <div className="date-input">
           <div>
             <label>Datum:</label>
-            <input type="date" required value={date} onChange={(e) => setDate(e.target.value)} />
+            <input
+              type="date"
+              required
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
           </div>
           <div>
             <label>Publiceringsdatum:</label>
@@ -162,7 +193,12 @@ export default function PostForm({ onSubmit, prefill, buttonText = "Skapa" }) {
         <label>Kategorier:</label>
         <div className="tag-selector">
           {possible_tags.map((tag, index) => (
-            <button className="tag" name={tag} key={index} onClick={handleTagClick}>
+            <button
+              className="tag"
+              name={tag}
+              key={index}
+              onClick={handleTagClick}
+            >
               {tag}
             </button>
           ))}

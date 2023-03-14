@@ -26,11 +26,11 @@ Undervisningen var lite rörigare i Prag än vad jag är van vid på KTH. Lektio
 
 **Jag läste följande kurser:**
 
--   Architecture Drawing 1
--   Probability and Statistics
--   Water and Environmental Engineering
--   Civil Engineering in Development Countries
--   En kurs om landskap och parker i Prag (mkt utflykter!)
+- Architecture Drawing 1
+- Probability and Statistics
+- Water and Environmental Engineering
+- Civil Engineering in Development Countries
+- En kurs om landskap och parker i Prag (mkt utflykter!)
 
 Utav dessa kunde jag tillgodoräkna mig statistiken och water and environment.
 

@@ -20,10 +20,10 @@ Största skillnaden mellan studierna på ITU och KTH var att det fanns en matsal
 
 **Jag läste följande kurser:**
 
--   Land treatment systems (CEV447)
--   Environmental chemistry (CEV461)
--   Urban planning (CEV315)
--   Water quality management (CEV343)
+- Land treatment systems (CEV447)
+- Environmental chemistry (CEV461)
+- Urban planning (CEV315)
+- Water quality management (CEV343)
 
 Alla dessa kunde tillgodoräknas som valbara kurser.
 

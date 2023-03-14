@@ -22,10 +22,10 @@ Det var mycket viktigare med närvaro på lektionerna än på KTH och ens procen
 
 Jag läste följande kurser:
 
--   ENV S 2018 Intro Ocenography (kan tillgodoräknas för Energi och Miljö inriktning)
--   STAT 231 Probability & Interference får engeeners (kunde tillgodoräkna)
--   THTRE 251 Acting I (kunde inte tillgodoräkna)
--   WGS Intro Women & Gender Studies (kunde inte tillgodoräkna)
+- ENV S 2018 Intro Ocenography (kan tillgodoräknas för Energi och Miljö inriktning)
+- STAT 231 Probability & Interference får engeeners (kunde tillgodoräkna)
+- THTRE 251 Acting I (kunde inte tillgodoräkna)
+- WGS Intro Women & Gender Studies (kunde inte tillgodoräkna)
 
 ## Fritid och sociala aktiviteter
 

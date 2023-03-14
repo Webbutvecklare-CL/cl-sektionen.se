@@ -26,9 +26,9 @@ Studierna i Ottawa skiljde sig ganska mycket från dem på KTH. Man läser fem k
 
 Jag tillgodoräknade mig följande kurser som valbara:
 
--   Climatology GEG2304
--   Advanced GIS3312
--   Fritid och sociala aktiviteter
+- Climatology GEG2304
+- Advanced GIS3312
+- Fritid och sociala aktiviteter
 
 På fritiden reste jag till Toronto, Quebec City, Montréal, Banff, Mont Tremblant, var på valsafari och testade rafting. Utöver det gick jag på spinning en dag i veckan, tränade på skolans gym och umgicks med vänner.
 
