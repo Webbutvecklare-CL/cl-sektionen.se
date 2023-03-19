@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-import { googleLogin, validateAccountCheck, createUser, initGapi } from "../../utils/authUtils";
+import { googleLogin, validateAccountCheck, createUser } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
+
+import { GoogleAuthProvider } from "firebase/auth";
 
 import ErrorPage from "../ErrorPage";
 
@@ -9,13 +11,12 @@ export default function Login() {
   const [screen, setScreen] = useState("login");
   const [error, setError] = useState("");
 
-  const { user, setUserData, logOut } = useAuth();
+  const { user, setUserData, logOut, setUserAccessToken } = useAuth();
 
   const handleLogin = () => {
     googleLogin()
       .then((result) => {
-        console.log("User data: ");
-        console.log(result.user);
+        console.log("Manuellt inloggad!");
         // Användaren har loggat in med sin förtroendevalds-mail
         // Validera kontot om det finns i databasen och har permission samt nämndtillhörighet
         validateAccountCheck(result.user)
@@ -26,7 +27,10 @@ export default function Login() {
               console.log("Inloggad");
               setUserData(data);
 
-              initGapi(result.user);
+              // Sparar accessToken för Google API (typ kalender) lokalt
+              const credential = GoogleAuthProvider.credentialFromResult(result);
+              const token = credential.accessToken;
+              setUserAccessToken(token);
             } else {
               // Kontot är inte inlagt i systemet
               console.log(
@@ -48,7 +52,7 @@ export default function Login() {
       })
       .catch((err) => {
         console.error(err);
-        if (error.code == "auth/popup-closed-by-user") {
+        if (err.code == "auth/popup-closed-by-user") {
           setError("Inloggningsfönstret stängdes!");
         } else {
           setError("Fel vid inloggningen till google!");
