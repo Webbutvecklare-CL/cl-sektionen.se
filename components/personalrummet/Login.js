@@ -36,7 +36,6 @@ export default function Login() {
               console.log(
                 "Din mailadress är inte inlagd i systemet eller så saknar du behörighet!"
               );
-              setError("Din mailadress är inte inlagd i systemet eller så saknar du behörighet!");
               setScreen("signup");
             }
           })
@@ -112,7 +111,7 @@ export default function Login() {
           <p>
             Ditt konto verka inte vara inlagt i personalsystemet...
             <br />
-            Klicka på &#34;Lägg till konto&#34; för att lägga till din mail i systemet. Meddela
+            Klicka på &#34;Lägg till konto&#34; och logga in igen för att lägga till din mail i systemet. Meddela
             därefter någon av de webbansvariga att du vill ha behörighet till personalrummet.
           </p>
           <button onClick={handleSignup}>Lägg till konto</button>
