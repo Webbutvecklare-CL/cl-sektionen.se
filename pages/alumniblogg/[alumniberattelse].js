@@ -1,6 +1,6 @@
 import React from "react";
 import MarkdownRender from "../../components/MarkdownRender";
-import { readdirSync } from "fs";
+import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 
 export default function Alumniberattelse({ content }) {
@@ -19,9 +19,7 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  let url = `${process.env.DOMAIN}/content/alumniblogg/${params.alumniberattelse}.md`;
-  const res = await fetch(url);
-  const content = await res.text();
+  const content = readFileSync(`public/content/alumniblogg/${params.alumniberattelse}.md`, "utf8");
 
   return {
     props: {
