@@ -22,10 +22,10 @@ På Trinity har de har ingen akademisk kvart i början av föreläsningen, istä
 
 **Jag läste följande kurser:**
 
--   IR1014 Irish literature and language
--   CS3041 Information Management 2 - Kan förhoppningsvis tillgodoräknas
--   CS3012 Software Engineering - Tillgodoräknas som mvk
--   CS2E03 Computer Engineering 2 - Tillgodoräknas som mvk
+- IR1014 Irish literature and language
+- CS3041 Information Management 2 - Kan förhoppningsvis tillgodoräknas
+- CS3012 Software Engineering - Tillgodoräknas som mvk
+- CS2E03 Computer Engineering 2 - Tillgodoräknas som mvk
 
 ## Utbytets höjdpunkt
 

@@ -7,7 +7,11 @@ export default function Navbar() {
   return (
     <footer>
       <div id="footerinfo">
-        <Image src={CL_logo_stor} alt="CL logo, stor" className="footer_logo" />
+        <Image
+          src={CL_logo_stor}
+          alt="CL logo, stor"
+          className="footer_logo"
+        />
         <div id="footerinfotext">
           <h3>Organisationsnummer</h3>802420-8491
           <br />
@@ -29,10 +33,16 @@ export default function Navbar() {
           114 28 Stockholm
         </div>
         <div id="sociallinks">
-          <a style={{ color: "inherit" }} href="https://www.instagram.com/clsektionen/">
+          <a
+            style={{ color: "inherit" }}
+            href="https://www.instagram.com/clsektionen/"
+          >
             <i className="fa-brands fa-instagram"></i>
           </a>
-          <a style={{ color: "inherit" }} href="https://www.facebook.com/groups/2388999847/">
+          <a
+            style={{ color: "inherit" }}
+            href="https://www.facebook.com/groups/2388999847/"
+          >
             <i className="fa-brands fa-facebook"></i>
           </a>
           <a
@@ -41,7 +51,10 @@ export default function Navbar() {
           >
             <i className="fa-brands fa-github"></i>
           </a>
-          <Link href="/personalrummet" style={{ color: "inherit" }}>
+          <Link
+            href="/personalrummet"
+            style={{ color: "inherit" }}
+          >
             <i className="fa-solid fa-mug-hot"></i>
           </Link>
         </div>

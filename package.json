@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "npx prettier ./ --check",
-    "prettier:fix": "npm run prettier --write"
+    "prettier:fix": "npm run prettier -- --write"
   },
   "dependencies": {
     "@next/font": "13.0.7",

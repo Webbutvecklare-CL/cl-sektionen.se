@@ -24,9 +24,9 @@ Utöver detta läste jag kinesiska som hade 2 tillfällen i veckan á 2 timmar. 
 
 **Jag läste följande kurser:**
 
--   CSE590 - Information theory
--   CSE640 - Advanced compilers
--   CSE680 - Kernel-based machine learning
+- CSE590 - Information theory
+- CSE640 - Advanced compilers
+- CSE680 - Kernel-based machine learning
 
 ## Fritid och sociala aktiviteter
 

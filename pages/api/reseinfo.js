@@ -36,10 +36,10 @@ export default async function handler(req, res) {
             // Skickar tillbaka data om alla färdmedel
             res.status(200).json(data.ResponseData);
           } else {
-            /* Skickar 200 eftersom det inte går att ta emot data om vi skickar 
-            *  500 vet inte varför men något med next/react antagligen.
-            *  För koder under 5000 är det fel från vår sida typ att vi gjort för många anrop
-            */
+            /* Skickar 200 eftersom det inte går att ta emot data om vi skickar
+             *  500 vet inte varför men något med next/react antagligen.
+             *  För koder under 5000 är det fel från vår sida typ att vi gjort för många anrop
+             */
             if (data.StatusCode > 5000) {
               res.status(200).send({ error: data.Message });
             } else {

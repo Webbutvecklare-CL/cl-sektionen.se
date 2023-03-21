@@ -72,4 +72,4 @@ function areArraysEqualSets(a1, a2) {
   return true;
 }
 
-export { getAllImages, getIsNight, areArraysEqualSets,getGr8anOpen };
+export { getAllImages, getIsNight, areArraysEqualSets, getGr8anOpen };

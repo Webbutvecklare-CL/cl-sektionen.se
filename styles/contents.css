@@ -1,72 +1,78 @@
 #contentbody {
-    padding-top: 6rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    max-width: 1200px;
-    background-color: white;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5rem;
-    min-height: 1000px;
+  padding-top: 6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1200px;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  min-height: 1000px;
 }
 
-section{
-    scroll-margin: 5rem;
+section {
+  scroll-margin: 5rem;
 }
 
 p {
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 1rem;
-    font-size: 1.2rem;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
-hr{
-    margin-top: 2rem;
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+hr {
+  margin-top: 2rem;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 p strong {
-    color: var(--clr5);
+  color: var(--clr5);
 }
 
 h2 {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-#contentbody iframe{
-    border-radius: .5rem;
-    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.507);
+#contentbody iframe {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.507);
 }
 
 .nowrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 article {
-    margin: auto;
-    width: 60%;
-    padding: 2em 6em;
-    box-shadow: 0px 0px 25px -11px rgba(0,0,0,0.52);
+  margin: auto;
+  width: 60%;
+  padding: 2em 6em;
+  box-shadow: 0px 0px 25px -11px rgba(0, 0, 0, 0.52);
 }
 
 @media (max-width: 900px) {
-    article{
-        width: 100%;
-        margin: auto;
-        padding: 0px;
-        box-shadow: none;
-    }
+  article {
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+    box-shadow: none;
   }
-
-article p {
-    margin-bottom: 0px;
 }
 
-article ul, ol {
-    margin-top: 0px;
-    font-size: 18px;
+article p {
+  margin-bottom: 0px;
+}
+
+article ul,
+ol {
+  margin-top: 0px;
+  font-size: 18px;
 }

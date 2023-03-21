@@ -14,11 +14,19 @@ const FeedPreview = ({ docs, title }) => {
           (doc.data().id = doc.id),
           ((post = doc.data()),
           (
-            <Link href={`/aktuellt/${doc.id}`} key={doc.id}>
+            <Link
+              href={`/aktuellt/${doc.id}`}
+              key={doc.id}
+            >
               <div className="post-preview">
                 <div className="image">
                   {post.image && <img src={post.image} />}
-                  {!post.image && <Image src={bg} alt="Bakgrundsbild KTH" />}
+                  {!post.image && (
+                    <Image
+                      src={bg}
+                      alt="Bakgrundsbild KTH"
+                    />
+                  )}
                 </div>
                 <div className="post-meta">
                   <h2>{post.title}</h2>

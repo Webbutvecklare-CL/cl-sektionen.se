@@ -1,110 +1,110 @@
 /* Aktuellt feed */
 .feed-preview {
-    padding-bottom: 0;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    row-gap: .4rem;
+  padding-bottom: 0;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 0.4rem;
 }
 
 .post-preview {
-    height: 100px;
-    overflow: hidden !important;
+  height: 100px;
+  overflow: hidden !important;
 }
 
 .feed-preview * {
-    text-decoration: none;
-    border-radius: .3rem !important;
+  text-decoration: none;
+  border-radius: 0.3rem !important;
 }
 
-.feed-preview .post-preview{
-    margin: 0;
-    display: grid; 
-    grid-template-columns: 120px 1fr; 
-    grid-template-rows: 1.8rem 1fr; 
-    gap: 0 .5rem;
-    grid-template-areas: 
-        "image meta"
-        "image content";   
+.feed-preview .post-preview {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 1.8rem 1fr;
+  gap: 0 0.5rem;
+  grid-template-areas:
+    "image meta"
+    "image content";
 }
 
 .feed-preview div.image {
-    width: 100%;
-    height: 100%;
-    grid-area: image;
+  width: 100%;
+  height: 100%;
+  grid-area: image;
 }
 
 .feed-preview div.image img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .feed-preview .post-meta {
-    grid-area: meta;
-    height: 1.5rem;
-    overflow: hidden;
-    
-    display: grid;
-    grid-template-columns: 1fr 5rem;
-    color: black;
-    gap:.5rem;
-    width: 100%;
+  grid-area: meta;
+  height: 1.5rem;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 5rem;
+  color: black;
+  gap: 0.5rem;
+  width: 100%;
 }
 
 .feed-preview .post-meta div {
-    gap: 0.5rem;
+  gap: 0.5rem;
 }
 
 .feed-preview .post-meta p {
-    padding: 0px;
-    margin: 0px;
-    padding-top: 0.3rem;
-    font-size: 1rem;
+  padding: 0px;
+  margin: 0px;
+  padding-top: 0.3rem;
+  font-size: 1rem;
 }
 
 .feed-preview .post-content {
-    grid-area: content;
-    height: 100%;
+  grid-area: content;
+  height: 100%;
 }
 
-.feed-preview .post-preview h2{
-    margin-top: 0;
-    font-size: 1.2rem;
-    display: -webkit-box;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 30rem;
+.feed-preview .post-preview h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 30rem;
 }
 
 .feed-preview p.subtitle {
-    font-size: 1rem;
-    display:inline;
+  font-size: 1rem;
+  display: inline;
 }
 
 .feed-preview .post-preview .subtitle {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .feed-preview .post-preview .body p {
-    all:unset;
-    width: inherit;
-    color: black;
-    font-size: 1rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  all: unset;
+  width: inherit;
+  color: black;
+  font-size: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: 550px) {
-    .feed-preview .post-preview {
-        width: calc(100vw - 3rem); /*Det funkar, fråga inte... */
-        grid-template-columns: 100px 1fr;
-        grid-template-areas: 
-            "image meta"
-            "image content"; 
-    }
+  .feed-preview .post-preview {
+    width: calc(100vw - 3rem); /*Det funkar, fråga inte... */
+    grid-template-columns: 100px 1fr;
+    grid-template-areas:
+      "image meta"
+      "image content";
+  }
 }

@@ -126,12 +126,19 @@ export default function Publicera() {
   return (
     <div id="contentbody">
       <h1>Personalrummet - Publicera</h1>
-      <button type="button" onClick={() => router.back()}>
+      <button
+        type="button"
+        onClick={() => router.back()}
+      >
         Tillbaka
       </button>
       {userData && !successLink && (
         <div className="create">
-          <PostForm onSubmit={handleSubmit} prefill={prefillData} buttonText={"Skapa"} />
+          <PostForm
+            onSubmit={handleSubmit}
+            prefill={prefillData}
+            buttonText={"Skapa"}
+          />
           {isPending && <p>Skapar inlägget...</p>}
           {error && <p>Error: {error}</p>}
         </div>
