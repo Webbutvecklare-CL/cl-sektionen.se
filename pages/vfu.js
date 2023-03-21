@@ -6,9 +6,7 @@ export default function VFU({ contents }) {
   return (
     <div id="contentbody">
       <h1>VFU</h1>
-      <article>
-        <MarkdownRender mdData={contents["vfu"]} />
-      </article>
+      <MarkdownRender mdData={contents["vfu"]} />
     </div>
   );
 }
