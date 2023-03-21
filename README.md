@@ -72,7 +72,7 @@ För att lägga till texten på en sida ska du använda `<MarkdownRender source=
 
 Gör en markdown fil och spara den i `public/content/` i någon av mapparna alumniberattelser eller reseberättelser. För att lägga till en länk till sidan kan du gå till `/pages/{alumniblogg | reseberattelser}/index.js` kopiera in följande i `<ul>` tagen:
 
-```
+```html
 <li>
     <Link href="/mapp/filnamn">
         Namn på på personen
