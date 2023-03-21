@@ -44,6 +44,11 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 
+# Kommer från SL - går att få en egen gratis
+SL_API_KEY=
+# En random nyckel som används av TV:n för att inte spamma sönder vår api route
+CL_API_KEY=
+
 # För att getStaticProps ska komma åt lokala filer
 DOMAIN=http://localhost:3000
 ```
