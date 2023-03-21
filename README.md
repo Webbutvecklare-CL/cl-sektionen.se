@@ -1,6 +1,14 @@
+# cl-sektionen.se
+
 Detta är ett [Next.js](https://nextjs.org/) projekt skapat med [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+
+Hämta hem alla dependencies innan du kör igång:
+
+```bash
+npm install
+```
 
 Starta live-servern genom att köra kommandon:
 
@@ -17,6 +25,36 @@ Börja redigera någon av sidorna i mappen pages. Tex `pages/index.js`. Sidan au
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Bygga
+
+Innan du pushar kan det finnas en poäng i att testa att bygga lokalt först. För att göra detta kör du följande kommandon:
+
+```bash
+npm run build
+```
+
+(OBS: Just nu har vi en bugg där du behöver ha en annan terminal upp med `npm run dev` körande)
+
+## Formatering och linting
+
+Projektet använder Prettier och ESLint för att hålla koden enhetlig och felfri. Prettier kollar egentligen bara estetiken av koden, och ESLint är lite mer funktionell för att standarder ska följas. För att säkerställa att din editor har kopplat till Prettier på rätt sätt kan du läsa [här](https://prettier.io/docs/en/editors.html).
+
+ESLint kan köras för att se var "fel" förekommer, men inte fixa dem själv. Kör följande för att köra ESLint-kontrollen genom hela projektet:
+
+```bash
+# Letar efter kod som inte följer standarder
+npm run lint
+```
+
+Kör följande kommandon för att använda Prettier manuellt:
+
+```bash
+# Kollar om någon kod är ful
+npm run prettier
+# Fixar eventuell ful kod
+npm run prettier:fix
+```
 
 ## Learn More
 
@@ -35,7 +73,7 @@ Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när 
 
 Du behöver även ha vissa environment variables. Skapa en fil som heter `.env.local`. Kopiera sedan i följande mall:
 
-```
+```python
 # Firebase
 NEXT_PUBLIC_FIREBASE_API_KEY=
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
@@ -54,7 +92,7 @@ DOMAIN=http://localhost:3000
 ```
 
 _Firebase_ variablerna hämtas från ett firebase projekt under project settings.  
-_Domain_ är den domän som hemsidan kommer gå att nås på. Under utveckling exempelvis http://localhost:3000.
+_Domain_ är den domän som hemsidan kommer gå att nås på. Under utveckling exempelvis [http://localhost:3000](http://localhost:3000).
 
 ## Uppdatera och lägga till textinnehåll - Statiskt innehåll
 
@@ -64,7 +102,7 @@ All längre sammanhängande text ska vara skriven i markdown. [Här](https://www
 
 - För att göra en ny rad utan mellanrum gör två mellanslag på raden ovan.
 
-För att kolla på en förhandsvisning av formateringen kan du använda https://markdownlivepreview.com/. Kom ihåg att spara filen med .md formatet.
+För att kolla på en förhandsvisning av formateringen kan du använda [markdownlivepreview.com](https://markdownlivepreview.com/). Kom ihåg att spara filen med .md formatet.
 
 För att lägga till texten på en sida ska du använda `<MarkdownRender source={"./content/filnamn.md"} />`. Om det är en längre text lägg texten i ett artikel block `<article><MarkdownRender .../></article>`.
 
@@ -90,4 +128,4 @@ I databasen sparas varje inlägg likt strukturen på JSON. De olika attributen �
 `<PostFeed>` komponenten visar en lista med inlägg som kan fetchas på valfritt sätt.
 På aktuelltsidan (`pages/aktuellt/index.js`) finns två feed ett för nyheter och ett för event. Det är i `pages/aktuellt/index.js` som inläggen fetchas. Varje feed kan få olika listor dvs nyhetsinlägg fetchas och skickas separat till nyhets-feedet.
 
-Varje inlägg har ett unikt ID. För att komma åt ett inlägg används adressen /aktuellt/[id]. Inläggssidan ligger i `pages/aktuellt/[pageId].js`.
+Varje inlägg har ett unikt ID. För att komma åt ett inlägg används adressen `/aktuellt/[id]`. Inläggssidan ligger i `pages/aktuellt/[pageId].js`.
