@@ -80,10 +80,10 @@ function Index() {
                         <section>
                             <h2>Om sektionen</h2>
                             <p>
-                                <b>Sektionen</b> för Civilingenjör & Lärare är
+                                <b>Sektionen</b> för Civilingenjör & Lärare (CL) är
                                 en ideell studentsektion under Tekniska
-                                Högskolan och företräder alla som studerar på
-                                Programmet för Civilingenjör och lärare på KTH.
+                                Högskolans Studentkår och företräder studenter på KTH inom
+                                programmet Civilingenjör och lärare samt två utbildningar med kompletterande pedagogisk utbildning för den som redan har ämneskunskaper.
                             </p>
                             <p>
                                 Sektionens syfte är att värna om alla
@@ -125,18 +125,15 @@ function Index() {
                             <h2>Om programmet</h2>
                             <p>
                                 <b>Programmet</b> Civilingenjör och lärare 300
-                                hp (förkortas CL) är ett högskoleprogram som
+                                hp (CLGYM) är ett program som
                                 sedan 2002 erbjuds på KTH. Utbildningen leder
-                                till dubbla yrkesexamina, en fullständig
+                                till dubbla yrkesexamina: en fullständig
                                 civilingenjörsexamen samt en komplett
                                 lärarutbildning med behörighet för undervisning
-                                i gymnasieskolan och den senare delen av
-                                grundskolan. Båda examen ges av KTH, men större
-                                delen av undervisningen i pedagogik ges av
-                                Stockholms Universitet.
+                                i gymnasieskolan och högstadiet.
                             </p>
                             <p>
-                                Sedan 2011 finns fyra inriktningar på
+                                Det finns fyra inriktningar på
                                 programmet. De olika inriktningarna samläser med
                                 motsvarande civilingenjörsutbildning och ger
                                 behörighet för undervisning i olika
