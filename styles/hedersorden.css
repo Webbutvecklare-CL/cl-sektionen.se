@@ -1,0 +1,32 @@
+
+
+.hedersorden ul {
+  padding: 0;
+ list-style-type: none;
+ display: flex;
+ flex-wrap: wrap;
+ /* justify-content: center; */
+ justify-content: flex-start;
+}
+
+.hedersorden h3{
+  /* text-align: center; */
+  margin: 0;
+}
+
+.hedersorden hr{
+  margin: 1rem 4rem 1rem;
+}
+
+.hedersorden #platina {
+  font-size: 1.3rem;
+}
+
+.hedersorden li::after {
+  margin: 0 1rem;
+  content: "●";
+}
+
+.hedersorden li:last-child::after {
+  content: "";
+}
