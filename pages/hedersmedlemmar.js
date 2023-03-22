@@ -21,14 +21,14 @@ export default function Hedersmedlemmar({ contents }) {
               <Image src={JanScheffel} alt="Jan Scheffel" />
             </div>
             <h2>Jan Scheffel</h2>
-            <h3>20xx</h3>
+            <h3>2014</h3>
           </div>
           <div className="hedersmedlem" onClick={() => setSelectedMember("hans-thunberg")}>
             <div className="imgdiv">
               <Image src={HansThunberg} alt="Hans Thunberg" />
             </div>
             <h2>Hans Thunberg</h2>
-            <h3>20xx</h3>
+            <h3>2014</h3>
           </div>
           <div className="hedersmedlem" onClick={() => setSelectedMember("mikael-cronhjort")}>
             <div className="imgdiv">
