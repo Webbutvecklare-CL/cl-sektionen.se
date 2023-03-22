@@ -109,38 +109,6 @@ export default function Hedersmedlemmar({ contents }) {
           <li>Ellen Lennahl - 2017</li>
           <li>Victor Dahlberg - 2017</li>
           <li>Herman Högman Ording - 2017</li>
-        </ul>
-        <h2>Silver</h2>
-        <ul id={"silver"}>
-          <li>Rafael Quick - 2022</li>
-          <li>Nima Mehrabadi - 2022</li>
-          <li>Felicia Rosenberg - 2021</li>
-          <li>Linda Frithiof - 2021</li>
-          <li>Sabina Permats - 2021</li>
-          <li>Petra Lindeborg - 2021</li>
-          <li>Felix Alin - 2020</li>
-          <li>Ida Fantenberg Niklasson - 2020</li>
-          <li>Oscar Rohde Dahlberg - 2019</li>
-          <li>Niklas Karlsson - 2019</li>
-          <li>Camilla Björn - 2019</li>
-          <li>Veronica Vilbern - 2019</li>
-          <li>Josefin Kumlin - 2019</li>
-          <li>Diana Diez - 2018</li>
-          <li>Victor Dahlberg - 2018</li>
-          <li>Joakim Wassinge - 2018</li>
-          <li>Evelina Bergman Laurén - 2018</li>
-          <li>Charley Jönsson - 2018</li>
-          <li>Gabriel Klingofström - 2018</li>
-          <li>Ellen Lennahl - 2018</li>
-          <li>Anna Björkman - 2018</li>
-          <li>Alexander Koski - 2017</li>
-          <li>Emilia Kaufeldt - 2017</li>
-          <li>Hampus Eriksson - 2017</li>
-          <li>Herman Högman Ording - 2017</li>
-          <li>Johanna Kuniholm - 2017</li>
-        </ul>
-        <h2>Okategoriserad</h2>
-        <ul id={"okategoriserad"}>
           <li>Johan Myrsmeden - 2016</li>
           <li>Elisabet Lövkvist - 2016</li>
           <li>Ellinor Olsson - 2016</li>
@@ -173,6 +141,35 @@ export default function Hedersmedlemmar({ contents }) {
           <li>Gabriella David - 2011</li>
           <li>Anna Johansson - 2011</li>
           <li>Martin Pettersson - 2011</li>
+        </ul>
+        <h2>Silver</h2>
+        <ul id={"silver"}>
+          <li>Rafael Quick - 2022</li>
+          <li>Nima Mehrabadi - 2022</li>
+          <li>Felicia Rosenberg - 2021</li>
+          <li>Linda Frithiof - 2021</li>
+          <li>Sabina Permats - 2021</li>
+          <li>Petra Lindeborg - 2021</li>
+          <li>Felix Alin - 2020</li>
+          <li>Ida Fantenberg Niklasson - 2020</li>
+          <li>Oscar Rohde Dahlberg - 2019</li>
+          <li>Niklas Karlsson - 2019</li>
+          <li>Camilla Björn - 2019</li>
+          <li>Veronica Vilbern - 2019</li>
+          <li>Josefin Kumlin - 2019</li>
+          <li>Diana Diez - 2018</li>
+          <li>Victor Dahlberg - 2018</li>
+          <li>Joakim Wassinge - 2018</li>
+          <li>Evelina Bergman Laurén - 2018</li>
+          <li>Charley Jönsson - 2018</li>
+          <li>Gabriel Klingofström - 2018</li>
+          <li>Ellen Lennahl - 2018</li>
+          <li>Anna Björkman - 2018</li>
+          <li>Alexander Koski - 2017</li>
+          <li>Emilia Kaufeldt - 2017</li>
+          <li>Hampus Eriksson - 2017</li>
+          <li>Herman Högman Ording - 2017</li>
+          <li>Johanna Kuniholm - 2017</li>
         </ul>
 
         <br />

@@ -1,6 +1,6 @@
 ## Historia och information
 
-Hedersorden har funnits sedan 20?? och är en hedersbetygelse som ges av sektionen till den som rätteligen har förtjänat det. Medaljen delas ut under årets mest formella event, normalt sett Adeptgasquen. Fram till och med verksamhetsåret 16/17 kunde de som gjort ett tillfredsställande arbete på sin styrelsepost eller de som av någon sektionsmedlem anses förtjäna medlemskapet bli nominerade. På SM#5 2017 beslutades att hedersorden skulle delas ut i tre grader, silver, guld och platina. Sedan 2017 kan man som mest tilldelas tre medaljer, en av varje grad. De olika graderna delas ut baserat på följande enligt Reglementet §6:
+Hedersorden har funnits sedan 20?? och är en hedersbetygelse som ges av sektionen till den som rätteligen har förtjänat det. Medaljen delas ut under årets mest formella event, normalt sett Adeptgasquen. Fram till och med verksamhetsåret 16/17 kunde de som gjort ett tillfredsställande arbete på sin styrelsepost eller de som av någon sektionsmedlem anses förtjäna medlemskapet bli nominerade. På SM#5 2017 beslutades att hedersorden skulle delas ut i tre grader, silver, guld och platina. De tidigare medaljerna kategoriseras som guld. Sedan 2017 kan man som mest tilldelas tre medaljer, en av varje grad. De olika graderna delas ut baserat på följande enligt Reglementet §6:
 
 ### Platina
 
@@ -35,5 +35,5 @@ och sedan blir utvalda av styrelsen för att tilldelas medaljen och medlemskap i
 2018 StyM#1 18HT  
 2017 StyM#4 17/18  
 2016 StyM#1 16/17  
-2015 StyM#1 15/16
+2015 StyM#1 15/16  
 2011 StyM#? (2011-09-03)
