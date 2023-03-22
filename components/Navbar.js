@@ -31,7 +31,7 @@ const MENU_LIST = [
     submenu: [
       { text: "Dokument", href: "/dokument" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
-      { text: "Hedersmedlemmar", href: "/hedersmedlemmar" },
+      { text: "Hedersmedlemmar och hedersorden", href: "/hedersmedlemmar" },
     ],
   },
   {

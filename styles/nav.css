@@ -46,7 +46,7 @@
     font-size: 1.3rem;
 }
 
-.submenu_item{
+.submenu_item {
     text-decoration: none;
     display: none !important;
     text-align: center;
@@ -54,7 +54,15 @@
     border-bottom: solid 1px var(--clr1);
     color: #ffffff !important;
     display: block;
-    background-color: var(--clr2)
+    background-color: var(--clr2);
+}
+
+/* För att subitems ska linewrapa  */
+.submenu_item p{
+  margin: 0 auto;
+  padding: 0;
+  font-size: unset;
+  max-width: 8rem;
 }
 
 .nav__menu-list .submenu_wrapper:hover .submenu_item{
