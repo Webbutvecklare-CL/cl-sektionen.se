@@ -56,132 +56,162 @@ export default function Index({ contents }) {
           alt="sektionslogga, sidhuvud vitt"
           className="sektionslogga_vitt"
         />
-      </div>
-      <div className="bg_bottom_cover"></div>
-      <div id="contentbody" className="index_content">
-        <header>
-          <h1>Sektionen för Civilingenjör &amp; Lärare</h1>
-          <h2>Dubbel examen, dubbel kompetens</h2>
-        </header>
+        </div>
+        <div className="bg_bottom_cover"></div>
+            <div id="contentbody" className="index_content">
+                <header>
+                    <h1>Sektionen för Civilingenjör &amp; Lärare</h1>
+                    <h2>Dubbel examen, dubbel kompetens</h2>
+                </header>
 
-        <div className={`om-container ${open ? "open" : "collapsed"}`}>
-          <hr />
-          <section className="om">
-            <section>
-              <h2>Om sektionen</h2>
-              <p>
-                <b>Sektionen</b> för Civilingenjör & Lärare är en ideell studentsektion under
-                Tekniska Högskolan och företräder alla som studerar på Programmet för Civilingenjör
-                och lärare på KTH.
-              </p>
-              <p>
-                Sektionens syfte är att värna om alla programstuderande under dess studietid. Detta
-                strävar vi efter genom att bedriva utbildningsbevakning, näringslivsverksamhet och
-                studiesocial verksamhet. Ansvaret för sektionens arbete är uppdelad mellan
-                sektionsstyrelsen &quot;
-                <span
-                  style={{
-                    color: "var(--clr5)",
-                    fontWeight: "600",
-                  }}
-                >
-                  C
-                </span>
-                tyre
-                <span
-                  style={{
-                    color: "var(--clr5)",
-                    fontWeight: "600",
-                  }}
-                >
-                  L
-                </span>
-                sen&quot; samt ett antal nämnder och övriga förtroendevalda. Läs mer om sektionens
-                nämnder och förtroendevalda på&nbsp;
-                <Link href="/fortroendevalda">Denna sida</Link>.
-              </p>
-              <Image src={Sidhuvud} alt="sektionslogga, sidhuvud" className="sektionslogga" />
-            </section>
-            <section>
-              <h2>Om programmet</h2>
-              <p>
-                <b>Programmet</b> Civilingenjör och lärare 300 hp (förkortas CL) är ett
-                högskoleprogram som sedan 2002 erbjuds på KTH. Utbildningen leder till dubbla
-                yrkesexamina, en fullständig civilingenjörsexamen samt en komplett lärarutbildning
-                med behörighet för undervisning i gymnasieskolan och den senare delen av
-                grundskolan. Båda examen ges av KTH, men större delen av undervisningen i pedagogik
-                ges av Stockholms Universitet.
-              </p>
-              <p>
-                Sedan 2011 finns fyra inriktningar på programmet. De olika inriktningarna samläser
-                med motsvarande civilingenjörsutbildning och ger behörighet för undervisning i olika
-                gymansiekurser. De fyra inriktningarna är:
-              </p>
-              <ul style={{ marginTop: "-1rem" }}>
-                <li>
-                  Matematik och fysik, <strong>(MAFY)</strong>
-                </li>
-                <li>
-                  Matematik och kemi, <strong>(MAKE)</strong>
-                </li>
-                <li>
-                  Matematik och teknik med specialisering mot energi och miljö,{" "}
-                  <strong>(TEMI)</strong>
-                </li>
-                <li>
-                  Matematik och teknik med specialisering mot datateknik, <strong>(TEDA)</strong>
-                </li>
-              </ul>
-            </section>
-          </section>
-        </div>
-        <hr />
-        <div className="visa_om_knapp_div">
-          <button className="visa_om_knapp" onClick={toggleOm}>
-            Om CL{" "}
-            {open ? (
-              <i className="fa-solid fa-angle-up"></i>
-            ) : (
-              <i className="fa-solid fa-angle-down"></i>
-            )}
-          </button>
-        </div>
-        <section className="mini_aktuellt_o_kalender">
-          <div className="event_o_aktuellt">
-            <div className="mini_aktuellt">
-              <div className="aktuellt_innehåll">
-                <h1>Aktuellt</h1>
-                <div>
-                  {/*Om det finns något i post listan så visas de i PostFeed komponenten
+                <div className={`om-container ${open ? 'open' : 'collapsed'}`}>
+                    <hr />
+                    <section className="om">
+                        <section>
+                            <h2>Om sektionen</h2>
+                            <p>
+                                <b>Sektionen</b> för Civilingenjör & Lärare (CL) är
+                                en ideell studentsektion under Tekniska
+                                Högskolans Studentkår och företräder studenter på KTH inom
+                                programmet Civilingenjör och lärare samt två utbildningar med kompletterande pedagogisk utbildning för den som redan har ämneskunskaper.
+                            </p>
+                            <p>
+                                Sektionens syfte är att värna om alla
+                                programstuderande under dess studietid. Detta
+                                strävar vi efter genom att bedriva
+                                utbildningsbevakning, näringslivsverksamhet och
+                                studiesocial verksamhet. Ansvaret för sektionens
+                                arbete är uppdelad mellan sektionsstyrelsen
+                                &quot;
+                                <span
+                                    style={{
+                                        color: 'var(--clr5)',
+                                        fontWeight: '600',
+                                    }}
+                                >
+                                    C
+                                </span>
+                                tyre
+                                <span
+                                    style={{
+                                        color: 'var(--clr5)',
+                                        fontWeight: '600',
+                                    }}
+                                >
+                                    L
+                                </span>
+                                sen&quot; samt ett antal nämnder och övriga
+                                förtroendevalda. Läs mer om sektionens nämnder
+                                och förtroendevalda på&nbsp;
+                                <Link href="/fortroendevalda">Denna sida</Link>.
+                            </p>
+                            <Image
+                                src={Sidhuvud}
+                                alt="sektionslogga, sidhuvud"
+                                className="sektionslogga"
+                            />
+                        </section>
+                        <section>
+                            <h2>Om programmet</h2>
+                            <p>
+                                <b>Programmet</b> Civilingenjör och lärare 300
+                                hp (CLGYM) är ett program som
+                                sedan 2002 erbjuds på KTH. Utbildningen leder
+                                till dubbla yrkesexamina: en fullständig
+                                civilingenjörsexamen samt en komplett
+                                lärarutbildning med behörighet för undervisning
+                                i gymnasieskolan och högstadiet.
+                            </p>
+                            <p>
+                                Det finns fyra inriktningar på
+                                programmet. De olika inriktningarna samläser med
+                                motsvarande civilingenjörsutbildning och ger
+                                behörighet för undervisning i olika
+                                gymansiekurser. De fyra inriktningarna är:
+                            </p>
+                            <ul style={{ marginTop: '-1rem' }}>
+                                <li>
+                                    Matematik och fysik, <strong>(MAFY)</strong>
+                                </li>
+                                <li>
+                                    Matematik och kemi, <strong>(MAKE)</strong>
+                                </li>
+                                <li>
+                                    Matematik och teknik med specialisering mot
+                                    energi och miljö, <strong>(TEMI)</strong>
+                                </li>
+                                <li>
+                                    Matematik och teknik med specialisering mot
+                                    datateknik, <strong>(TEDA)</strong>
+                                </li>
+                            </ul>
+                        </section>
+                    </section>
+                </div>
+                <hr />
+                <div className="visa_om_knapp_div">
+                    <button className="visa_om_knapp" onClick={toggleOm}>
+                        Om CL{' '}
+                        {open ? (
+                            <i className="fa-solid fa-angle-up"></i>
+                        ) : (
+                            <i className="fa-solid fa-angle-down"></i>
+                        )}
+                    </button>
+                </div>
+                <section className="mini_aktuellt_o_kalender">
+                    <div className="event_o_aktuellt">
+                        <div className="mini_aktuellt">
+                            <div className="aktuellt_innehåll">
+                                <h1>Aktuellt</h1>
+                                <div>
+                                    {/*Om det finns något i post listan så visas de i PostFeed komponenten
                                             Annars visas ett fel meddelande*/}
-                  {annatError && <strong>Error: {JSON.stringify(annatError)}</strong>}
-                  {annatLoading && <span>Collection: Loading...</span>}
-                </div>
-                {annatFeed && (
-                  <div>
-                    <FeedPreview docs={annatFeed.docs} title="Annat" />
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="mini_event">
-              <div className="event_innehåll">
-                <h1>Event</h1>
-                <div>
-                  {/*Om det finns något i post listan så visas de i PostFeed komponenten
+                                    {annatError && (
+                                        <strong>
+                                            Error: {JSON.stringify(annatError)}
+                                        </strong>
+                                    )}
+                                    {annatLoading && (
+                                        <span>Collection: Loading...</span>
+                                    )}
+                                </div>
+                                {annatFeed && (
+                                    <div>
+                                        <FeedPreview
+                                            docs={annatFeed.docs}
+                                            title="Annat"
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <div className="mini_event">
+                            <div className="event_innehåll">
+                                <h1>Event</h1>
+                                <div>
+                                    {/*Om det finns något i post listan så visas de i PostFeed komponenten
                                         Annars visas ett fel meddelande*/}
-                  {eventError && <strong>Error: {JSON.stringify(eventError)}</strong>}
-                  {eventLoading && <span>Collection: Loading...</span>}
-                </div>
-                {eventFeed && (
-                  <div>
-                    <FeedPreview docs={eventFeed.docs} title="Event" />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
+                                    {eventError && (
+                                        <strong>
+                                            Error: {JSON.stringify(eventError)}
+                                        </strong>
+                                    )}
+                                    {eventLoading && (
+                                        <span>Collection: Loading...</span>
+                                    )}
+                                </div>
+                                {eventFeed && (
+                                    <div>
+                                        <FeedPreview
+                                            docs={eventFeed.docs}
+                                            title="Event"
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
           <div className="mini_kalender kalender_tab">
             <h1 className="kal_titel">Kalender</h1>
             <iframe
