@@ -17,6 +17,7 @@ section{
 
 p {
     margin-top: 0;
+    margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 1rem;
     font-size: 1.2rem;
@@ -62,11 +63,8 @@ article {
     }
   }
 
-article p {
-    margin-bottom: 0px;
-}
 
-article ul, ol {
+ul, ol {
     margin-top: 0px;
     font-size: 18px;
 }

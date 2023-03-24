@@ -1,7 +1,7 @@
 import React from "react";
 import MarkdownRender from "../../components/MarkdownRender";
+import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
-import { readdirSync } from "fs";
 
 function Reseberattelse({ content }) {
   return (
@@ -20,9 +20,10 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  let url = `${process.env.DOMAIN}/content/reseberattelser/${params.reseberattelse}.md`;
-  const res = await fetch(url);
-  const content = await res.text();
+  const content = readFileSync(
+    `public/content/reseberattelser/${params.reseberattelse}.md`,
+    "utf8"
+  );
 
   return {
     props: { reseberattelse: params.reseberattelse, content: JSON.parse(JSON.stringify(content)) }, // will be passed to the page component as props

@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 import { getDocs, collection, query, where, orderBy, limit } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
 import { firestore } from "../../firebase/clientApp";
 import { updateUser } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
@@ -72,27 +71,6 @@ export default function UserMenu() {
     }
   };
 
-  const loadEvents = () => {
-    // Make sure to refresh the Auth Token in case it expires!
-    const auth = getAuth();
-
-    auth.currentUser
-      .getIdToken()
-      .then(function () {
-        console.log(gapi);
-        return gapi.client.calendar.events.list({
-          calendarId: "c_5sqhb0om2kmti770g06qqknfik@group.calendar.google.com",
-          showDeleted: false,
-          singleEvents: true,
-          maxResults: 10,
-          orderBy: "startTime",
-        });
-      })
-      .then(function (response) {
-        console.log(response);
-      });
-  };
-
   if (error) {
     return (
       <ErrorPage
@@ -131,10 +109,6 @@ export default function UserMenu() {
         </button>
         <button className="how-to" onClick={() => setMenuSelect("how-to")}>
           HOW-TO
-        </button>
-
-        <button className="how-to" onClick={loadEvents}>
-          Events
         </button>
       </div>
       <div className="menu">

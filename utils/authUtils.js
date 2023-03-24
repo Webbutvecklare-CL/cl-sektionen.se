@@ -1,10 +1,10 @@
 import { firestore } from "../firebase/clientApp";
 import { getDoc, setDoc, doc, updateDoc } from "firebase/firestore";
-import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 function googleLogin() {
   const provider = new GoogleAuthProvider();
-  provider.addScope("https://www.googleapis.com/auth/calendar.events");
+  provider.addScope("https://www.googleapis.com/auth/calendar");
 
   provider.setCustomParameters({
     hd: "cl-sektionen.se",
@@ -13,27 +13,6 @@ function googleLogin() {
 
   const auth = getAuth();
   return signInWithPopup(auth, provider);
-}
-
-// GAPI
-function initGapi() {
-  console.log("init gapi");
-
-  try {
-    gapi.load("client", () => {
-      // Initialize the Google API Client with the config object
-      gapi.client.init({
-        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-        clientId: "1017530078266-0ir6c55ufgrooprnqkurhcbhvgdcramh.apps.googleusercontent.com",
-        discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
-        scope: "https://www.googleapis.com/auth/calendar.events",
-      });
-
-      gapi.client.load("calendar", "v3", () => console.log("loaded calendar"));
-    });
-  } catch (err) {
-    console.error(err);
-  }
 }
 
 async function validateAccountCheck(user) {
@@ -87,4 +66,4 @@ async function updateUser(user) {
   return updateDoc(userRef, profileInfo);
 }
 
-export { googleLogin, validateAccountCheck, createUser, updateUser, initGapi };
+export { googleLogin, validateAccountCheck, createUser, updateUser };
