@@ -1,24 +1,24 @@
 .create {
-    background-color: #eee;
-    max-width: 60%;
-    margin: 0 auto; 
-    padding: 2rem 3rem;
-    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.45);
+  background-color: #eee;
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.45);
 }
 
 /* Oklart om denna ska vara kvar
 Användaren blir kanske frustrerad över att inte 
 kunna ändra färgen på texten om strong inte ändras */
-.create p strong{
-    color: unset;
+.create p strong {
+  color: unset;
 }
 
 /* Ska ha samma formatering som när det visas i flödet */
 .create .ql-container {
-    font-family: unset;
-    font-size: 1.2rem;
+  font-family: unset;
+  font-size: 1.2rem;
 }
 
 .create label {
@@ -28,94 +28,90 @@ kunna ändra färgen på texten om strong inte ändras */
   margin-top: 1rem;
 }
 
-
-
-.create input,  .create textarea, .create select {
- width: 100%;
- padding: 6px 10px;
- margin: 10px 0;
- border: 1px solid #ddd;
- box-sizing: border-box;
- display: block;
- background-color: #fff;
+.create input,
+.create textarea,
+.create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  background-color: #fff;
 }
 
 .create div.ql-container {
-    min-height: 10rem;
+  min-height: 10rem;
 }
 
-.create .quill{
-    background-color: #fff;
+.create .quill {
+  background-color: #fff;
 }
 
-.create .date-input  {
-    display: flex;
-    flex-wrap: wrap;
+.create .date-input {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .create .date-input div {
-    margin-right: 10%;
-    width: 20%;
-    min-width: 120px;
+  margin-right: 10%;
+  width: 20%;
+  min-width: 120px;
 }
 
 .create .tag-selector {
-    background-color: #fdfdfd;
-    margin: 0.5rem 0rem;
-    padding: 0.6rem;
-    border-radius: 0.6rem;
-    width: fit-content;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1rem;
+  background-color: #fdfdfd;
+  margin: 0.5rem 0rem;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 .create button {
-    color: #fff;
-    border: 0;
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 .create .tag-selector button {
-    background-color: #555;
-    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    padding: 0.5rem;
+  background-color: #555;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  padding: 0.5rem;
 }
 
 .create .tag-selector button:hover {
-    background-color: #5d5d5d;
-    -webkit-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.9);
-    -moz-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.9);
-    box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.9);
+  background-color: #5d5d5d;
+  -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.9);
 }
 
-
 .create .tag-selector button.selected {
-    
-    background-color: var(--clr3);
+  background-color: var(--clr3);
 }
 
 .create button.submit {
-    padding: 1rem 2rem;
-    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.65);
-    background-color: var(--clr4);
-    margin: 2rem 0rem;
+  padding: 1rem 2rem;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  background-color: var(--clr4);
+  margin: 2rem 0rem;
 }
 
 .create button.submit:hover {
-    background-color: var(--clr3);
-    -webkit-box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.9);
-    -moz-box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.9);
-    box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.9);
+  background-color: var(--clr3);
+  -webkit-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.9);
 }
 
 .create .image-file {

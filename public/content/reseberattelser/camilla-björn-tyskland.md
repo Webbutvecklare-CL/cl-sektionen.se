@@ -28,11 +28,11 @@ Det var inte särskilt stor skillnad mellan kurserna på TU Darmstadt jämfört 
 
 **Jag läste följande kurser:**
 
--   Einführung in die Algebra
--   Informationsmanagement
--   Rechner Organisation German
--   Intonation B1
--   Deutsche Grammatik B1
+- Einführung in die Algebra
+- Informationsmanagement
+- Rechner Organisation German
+- Intonation B1
+- Deutsche Grammatik B1
 
 ## Fritid och sociala aktiviteter
 

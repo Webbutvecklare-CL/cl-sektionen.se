@@ -1,33 +1,35 @@
-h1{
-    font-size: 2rem;
+h1 {
+  font-size: 2rem;
 }
 
-#rättigheter strong, h2, h1 span{
-    color: var(--clr5);
+#rättigheter strong,
+h2,
+h1 span {
+  color: var(--clr5);
 }
 
 #rättigheter p {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
-#rättigheter li{
-    font-size: 1.1rem;
+#rättigheter li {
+  font-size: 1.1rem;
 }
 
-#blanketter{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+#blanketter {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-#blanketter a{
-    font-size: 1.2rem;
-    padding: 2rem;
-    white-space: nowrap;
-    text-decoration: none;
+#blanketter a {
+  font-size: 1.2rem;
+  padding: 2rem;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
-#blanketter h2{
-    width: 100%;
-    color: black;
+#blanketter h2 {
+  width: 100%;
+  color: black;
 }

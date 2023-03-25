@@ -1,4 +1,10 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Standard .prettier file for Node.js projects
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# Everything from .gitignore
 
 # dependencies
 /node_modules
@@ -31,9 +37,11 @@ yarn-error.log*
 # vercel
 .vercel
 
-.vscode/
-.idea/
+.vscode
 
 .env
 .firebaserc
 
+# IDE folders
+.idea/
+.vscode/

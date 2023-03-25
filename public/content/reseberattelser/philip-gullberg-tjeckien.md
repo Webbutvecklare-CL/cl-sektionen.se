@@ -18,13 +18,13 @@ Kursinformationen på nätet stämde väl överens med kurserna och det fanns et
 
 **Jag läste följande kurser:**
 
--   MIE-IBE Information Security, 2hp - tillgodoräknad.
--   BIE-TJV Java Technology, 4 hp- tillgodoräknad.
--   MIE-TES Systems Theory, 5hp - tillgodoräknad som matematik.
--   11TER Game Theory and Optimial Decision-making, 2hp- Tillgodoräknas som matematik
--   128ENCI Encoding and Ciphering, 4hp- tillgodoräknad.
--   129TWP Prague Architecture, field trips 2hp, ej tillgodoräknad
--   104CZLE Czech/foreign language, 3hp, ej tillgodoräknad
+- MIE-IBE Information Security, 2hp - tillgodoräknad.
+- BIE-TJV Java Technology, 4 hp- tillgodoräknad.
+- MIE-TES Systems Theory, 5hp - tillgodoräknad som matematik.
+- 11TER Game Theory and Optimial Decision-making, 2hp- Tillgodoräknas som matematik
+- 128ENCI Encoding and Ciphering, 4hp- tillgodoräknad.
+- 129TWP Prague Architecture, field trips 2hp, ej tillgodoräknad
+- 104CZLE Czech/foreign language, 3hp, ej tillgodoräknad
 
 ## Bästa med utbytet
 

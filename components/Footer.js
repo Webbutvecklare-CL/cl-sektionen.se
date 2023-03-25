@@ -37,8 +37,7 @@ export default function Navbar() {
           </a>
           <a
             style={{ color: "inherit" }}
-            href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/"
-          >
+            href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/">
             <i className="fa-brands fa-github"></i>
           </a>
           <Link href="/personalrummet" style={{ color: "inherit" }}>
@@ -52,8 +51,7 @@ export default function Navbar() {
         frameBorder="0"
         scrolling="no"
         marginHeight="0"
-        marginWidth="0"
-      ></iframe>
+        marginWidth="0"></iframe>
     </footer>
   );
 }
