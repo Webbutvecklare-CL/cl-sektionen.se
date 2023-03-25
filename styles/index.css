@@ -17,7 +17,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -41,6 +41,10 @@
 }
 
 @media screen and (max-width: 600px) {
+
+  .index-bg {
+    justify-content: space-evenly;
+  }
 
   .sektionslogga-vitt {
     content: url("../public/media/grafik/CL_logo_sketch_chalk.png");
