@@ -139,10 +139,24 @@ header h1 {
     margin-bottom: 1rem;
 }
 
-.illabehandling_knapp{
+.resurser .section-button {
     text-align: center;
     display: block;
     margin: 20px auto 10px auto;
+}
+
+.resurser h1 {
+  margin-bottom: 1rem;
+}
+
+.start-naringsliv {
+  display: grid;  
+  gap: 0px 2rem; 
+  grid-template-areas: ". ."; 
+}
+
+.start-naringsliv h2 {
+  margin-top: 0px;
 }
 
 @media screen and (max-width: 800px) {
@@ -154,6 +168,12 @@ header h1 {
     .om{
         display: flex;
         flex-wrap: wrap;
+    }
+
+    .start-naringsliv {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 1.5rem;
     }
 
     .title_grid{
