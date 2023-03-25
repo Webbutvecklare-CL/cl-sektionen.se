@@ -218,8 +218,7 @@ export default function Publicera() {
           <p>
             Inlägget är publicerat du hittar på följande länk:{" "}
             <Link
-              href={`/aktuellt/${successLink}`}
-            >{`www.cl-sektionen.se/aktuellt/${successLink}`}</Link>
+              href={`/aktuellt/${successLink}`}>{`www.cl-sektionen.se/aktuellt/${successLink}`}</Link>
             <br />
           </p>
         </div>

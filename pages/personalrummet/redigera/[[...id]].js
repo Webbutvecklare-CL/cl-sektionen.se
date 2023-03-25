@@ -211,8 +211,7 @@ export default function EditPost() {
               <button
                 onClick={() => {
                   loadPost();
-                }}
-              >
+                }}>
                 Hämta inlägg
               </button>
             </div>

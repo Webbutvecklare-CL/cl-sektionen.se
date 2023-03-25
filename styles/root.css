@@ -1,50 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
-:root{
-    --clr1: #E64128;
-    --clr2: #D23022;
-    --clr3: #BB291D;
-    --clr4: #A7291D;
-    --clr5: #8A2419;
-    --clgra: #262626;
+:root {
+  --clr1: #e64128;
+  --clr2: #d23022;
+  --clr3: #bb291d;
+  --clr4: #a7291d;
+  --clr5: #8a2419;
+  --clgra: #262626;
 }
 
 html {
-    font-family: "EB Garamond", serif;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  font-family: "EB Garamond", serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-a { 
-    color: var(--clr5);
+a {
+  color: var(--clr5);
 }
-a:visited { 
-    color: var(--clr5);
+a:visited {
+  color: var(--clr5);
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: white;
+  margin: 0;
+  padding: 0;
+  background-color: white;
 }
 
-button{
-    cursor: pointer;
-    background-color: var(--clr1);
-    border: none;
-    height: fit-content;
-    border-radius: .5rem;
-    padding: 1.5ch 1ch 1.5ch 1ch;
-    font-size: 1.2rem;
-    font-family: inherit;
-    font-weight: 500;
-    color: white;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+button {
+  cursor: pointer;
+  background-color: var(--clr1);
+  border: none;
+  height: fit-content;
+  border-radius: 0.5rem;
+  padding: 1.5ch 1ch 1.5ch 1ch;
+  font-size: 1.2rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: white;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
-button:hover{
-    background-color: var(--clr3);
-    transition: .2s;
+button:hover {
+  background-color: var(--clr3);
+  transition: 0.2s;
 }
-

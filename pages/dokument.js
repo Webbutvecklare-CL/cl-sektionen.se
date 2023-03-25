@@ -1,6 +1,6 @@
 import React from "react";
 
-function Dokument(){
+export default function Dokument(){
     return(
         <div id="contentbody">
             <h1>
@@ -66,4 +66,3 @@ function Dokument(){
         </div>
     )
 }
-export default Dokument

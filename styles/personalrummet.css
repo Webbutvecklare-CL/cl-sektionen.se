@@ -1,9 +1,9 @@
-#personalrummet p{
+#personalrummet p {
   padding: 0;
   margin-bottom: 0.5rem;
 }
 
-.menu{
+.menu {
   margin: 1rem 0;
   display: flex;
   flex-direction: row;

@@ -1,8 +1,8 @@
-function Sangbok(){
-    return (
-        <div id="contentbody">
-            <h1>Sångbok</h1>
-        </div>
-    )
+function Sangbok() {
+  return (
+    <div id="contentbody">
+      <h1>Sångbok</h1>
+    </div>
+  );
 }
-export default Sangbok
+export default Sangbok;

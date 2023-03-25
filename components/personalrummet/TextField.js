@@ -39,7 +39,6 @@ export default function TextField({ value, onChange }) {
       formats={formats}
       value={value}
       onChange={onChange}
-      required
-    ></ReactQuill>
+      required></ReactQuill>
   );
 }
