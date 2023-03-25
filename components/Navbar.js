@@ -57,7 +57,6 @@ const MENU_LIST = [
 
 const MENU_STATES = ["fa-solid fa-bars", "fas fa-times"];
 
-// För att slippa använda -1 explicit
 const DEFAULT_ACTIVE_INDEX = -1;
 const DEFAULT_ACTIVE_SUB_INDEX = -1;
 const DEFAULT_NAVBURGER_OPEN = false;
