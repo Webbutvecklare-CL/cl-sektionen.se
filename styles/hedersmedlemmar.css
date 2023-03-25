@@ -1,4 +1,4 @@
-.hedersmedlemmar {
+.hedersmedlemmar-shelf {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
@@ -44,5 +44,4 @@
 
 .hedersmedlemmar .motivering {
   height: 20rem;
-  transition: all .5s ease-in-out;
 }
