@@ -94,15 +94,9 @@ const Navbar = () => {
               onClick={() => {
                 setActiveIdx(-1);
                 setActiveSubIdx(-1);
-              }}
-            >
+              }}>
               <Link href="/">
-                <Image
-                  src={NavLogo}
-                  alt="CL logo, navigation"
-                  id="navlogo"
-                  className="nav__item"
-                />
+                <Image src={NavLogo} alt="CL logo, navigation" id="navlogo" className="nav__item" />
               </Link>
             </div>
 
@@ -110,25 +104,15 @@ const Navbar = () => {
             <div id="navburgirmenu">
               <button
                 onClick={burgirToggle}
-                className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}
-              ></button>
+                className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
             </div>
 
             {/* Den normala menyn, se separat guide för genomgång av kod */}
             <div className="nav__menu-list">
               {MENU_LIST.map((menu, idx) => (
-                <div
-                  key={menu.text}
-                  className="submenu_wrapper"
-                >
-                  <div
-                    className="navitem_wrapper"
-                    onClick={() => {}}
-                  >
-                    <NavItem
-                      active={activeIdx === idx}
-                      {...menu}
-                    />
+                <div key={menu.text} className="submenu_wrapper">
+                  <div className="navitem_wrapper" onClick={() => {}}>
+                    <NavItem active={activeIdx === idx} {...menu} />
                   </div>
 
                   {menu.submenu?.map((sb, s_idx) => (
@@ -137,12 +121,8 @@ const Navbar = () => {
                       onClick={() => {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
-                      }}
-                    >
-                      <NavSubItem
-                        active={activeIdx === idx && activeSubIdx === s_idx}
-                        {...sb}
-                      />
+                      }}>
+                      <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                     </div>
                   ))}
                 </div>
@@ -157,19 +137,14 @@ const Navbar = () => {
               {MENU_LIST.map((menu, idx) => (
                 <div
                   key={menu.text}
-                  className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}
-                >
+                  className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
                   <div
                     className="navitem_wrapper"
                     onClick={() => {
                       activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
                       setActiveSubIdx(-1);
-                    }}
-                  >
-                    <NavItem
-                      active={activeIdx === idx}
-                      {...menu}
-                    />
+                    }}>
+                    <NavItem active={activeIdx === idx} {...menu} />
                   </div>
 
                   {menu.submenu?.map((sb, s_idx) => (
@@ -180,12 +155,8 @@ const Navbar = () => {
                           setActiveIdx(idx);
                           setActiveSubIdx(s_idx);
                         }
-                      }}
-                    >
-                      <NavSubItem
-                        active={activeIdx === idx && activeSubIdx === s_idx}
-                        {...sb}
-                      />
+                      }}>
+                      <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                     </div>
                   ))}
                 </div>

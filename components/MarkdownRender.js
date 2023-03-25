@@ -28,10 +28,7 @@ export default function MarkdownRender({ source, mdData }) {
   return (
     //Rehype gör så att man kan skriva html kod i markdown filen
     <div>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw]}
-      >
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
         {content}
       </ReactMarkdown>
     </div>

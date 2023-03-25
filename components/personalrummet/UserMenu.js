@@ -123,43 +123,25 @@ export default function UserMenu() {
 
       {/*Knappar*/}
       <div className="menu">
-        <button
-          className="senaste"
-          onClick={() => setMenuSelect("senaste")}
-        >
+        <button className="senaste" onClick={() => setMenuSelect("senaste")}>
           Senaste inläggen
         </button>
-        <button
-          className="update"
-          onClick={handleUserUpdate}
-        >
+        <button className="update" onClick={handleUserUpdate}>
           Uppdatera uppgifter
         </button>
-        <button
-          className="how-to"
-          onClick={() => setMenuSelect("how-to")}
-        >
+        <button className="how-to" onClick={() => setMenuSelect("how-to")}>
           HOW-TO
         </button>
 
-        <button
-          className="how-to"
-          onClick={loadEvents}
-        >
+        <button className="how-to" onClick={loadEvents}>
           Events
         </button>
       </div>
       <div className="menu">
-        <button
-          className="redigera"
-          onClick={() => router.push("personalrummet/redigera")}
-        >
+        <button className="redigera" onClick={() => router.push("personalrummet/redigera")}>
           Redigera
         </button>
-        <button
-          className="publicera"
-          onClick={() => router.push("personalrummet/publicera")}
-        >
+        <button className="publicera" onClick={() => router.push("personalrummet/publicera")}>
           Publicera
         </button>
       </div>

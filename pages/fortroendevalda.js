@@ -17,109 +17,62 @@ export default function Fortroendevalda() {
       <div className="förtroendevalda_wrapper">
         <nav className="nämnder_nav">
           <ul id="nämnder_nav_ul">
-            <li
-              id="CtyreLsen"
-              className="active"
-              onClick={() => stateUpdater("CtyreLsen")}
-            >
+            <li id="CtyreLsen" className="active" onClick={() => stateUpdater("CtyreLsen")}>
               <i className="fa-solid fa-gavel" /> CtyreLsen
             </li>
 
             <h2>Nämnder</h2>
-            <li
-              id="Studienämnden"
-              onClick={() => stateUpdater("Studienämnden")}
-            >
+            <li id="Studienämnden" onClick={() => stateUpdater("Studienämnden")}>
               <i className="fa-solid fa-book" /> &nbsp;Studienämnden
             </li>
-            <li
-              id="Näringslivsnämnden"
-              onClick={() => stateUpdater("Näringslivsnämnden")}
-            >
+            <li id="Näringslivsnämnden" onClick={() => stateUpdater("Näringslivsnämnden")}>
               <i className="fa-solid fa-sack-dollar" /> Näringslivsnämnden
             </li>
-            <li
-              id="Mottagningsnämnden"
-              onClick={() => stateUpdater("Mottagningsnämnden")}
-            >
+            <li id="Mottagningsnämnden" onClick={() => stateUpdater("Mottagningsnämnden")}>
               <i className="fa-solid fa-heart" /> Mottagningsnämnden
             </li>
-            <li
-              id="JML-nämnden"
-              onClick={() => stateUpdater("JML-nämnden")}
-            >
+            <li id="JML-nämnden" onClick={() => stateUpdater("JML-nämnden")}>
               <i className="fa-solid fa-apple-whole" /> &nbsp;JML-nämnden
             </li>
-            <li
-              id="Aktivitetsnämnden"
-              onClick={() => stateUpdater("Aktivitetsnämnden")}
-            >
+            <li id="Aktivitetsnämnden" onClick={() => stateUpdater("Aktivitetsnämnden")}>
               <i className="fa-solid fa-person-running" /> &nbsp;Aktivitetsnämnden
             </li>
-            <li
-              id="Lokalnämnden"
-              onClick={() => stateUpdater("Lokalnämnden")}
-            >
+            <li id="Lokalnämnden" onClick={() => stateUpdater("Lokalnämnden")}>
               <i className="fa-solid fa-house" /> Lokalnämnden
             </li>
-            <li
-              id="CLubWästeriet"
-              onClick={() => stateUpdater("CLubWästeriet")}
-            >
+            <li id="CLubWästeriet" onClick={() => stateUpdater("CLubWästeriet")}>
               <i className="fa-solid fa-wine-glass" /> &nbsp;&nbsp;ClubWästeriet
             </li>
-            <li
-              id="Valberedningen"
-              onClick={() => stateUpdater("Valberedningen")}
-            >
+            <li id="Valberedningen" onClick={() => stateUpdater("Valberedningen")}>
               <i className="fa-solid fa-fish-fins" /> Valberedningen
             </li>
             <br />
 
             <h2>Övriga förtroendevalda</h2>
-            <li
-              id="Revisorer"
-              onClick={() => stateUpdater("Revisorer")}
-            >
+            <li id="Revisorer" onClick={() => stateUpdater("Revisorer")}>
               <i className="fa-solid fa-scale-balanced" /> Revisorer
             </li>
-            <li
-              id="Fanborg"
-              onClick={() => stateUpdater("Fanborg")}
-            >
+            <li id="Fanborg" onClick={() => stateUpdater("Fanborg")}>
               <i className="fa-solid fa-flag" /> &nbsp;Fanborg
             </li>
             <li
               id="Kårfullmäktigedelegation"
-              onClick={() => stateUpdater("Kårfullmäktigedelegation")}
-            >
+              onClick={() => stateUpdater("Kårfullmäktigedelegation")}>
               <i className="fa-solid fa-section" /> &nbsp;&nbsp;&nbsp;Kårfullmäktigedelegation
             </li>
-            <li
-              id="Enskilda"
-              onClick={() => stateUpdater("Enskilda")}
-            >
+            <li id="Enskilda" onClick={() => stateUpdater("Enskilda")}>
               <i className="fa-solid fa-otter" /> Enskilda poster
             </li>
             <br />
 
             <h2>Sektionsföreningar</h2>
-            <li
-              id="CLek"
-              onClick={() => stateUpdater("CLek")}
-            >
+            <li id="CLek" onClick={() => stateUpdater("CLek")}>
               <i className="fa-solid fa-dice" /> CLek
             </li>
-            <li
-              id="Dubbelspexet"
-              onClick={() => stateUpdater("Dubbelspexet")}
-            >
+            <li id="Dubbelspexet" onClick={() => stateUpdater("Dubbelspexet")}>
               <i className="fa-solid fa-masks-theater" /> Dubbelspexet
             </li>
-            <li
-              id="CLak"
-              onClick={() => stateUpdater("CLak")}
-            >
+            <li id="CLak" onClick={() => stateUpdater("CLak")}>
               <i className="fa-solid fa-arrow-trend-up" /> CLak
             </li>
           </ul>

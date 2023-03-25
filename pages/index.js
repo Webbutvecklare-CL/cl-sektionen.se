@@ -55,10 +55,7 @@ function Index() {
         />
       </div>
       <div className="bg_bottom_cover"></div>
-      <div
-        id="contentbody"
-        className="index_content"
-      >
+      <div id="contentbody" className="index_content">
         <header>
           <h1>Sektionen för Civilingenjör &amp; Lärare</h1>
           <h2>Dubbel examen, dubbel kompetens</h2>
@@ -83,8 +80,7 @@ function Index() {
                   style={{
                     color: "var(--clr5)",
                     fontWeight: "600",
-                  }}
-                >
+                  }}>
                   C
                 </span>
                 tyre
@@ -92,19 +88,14 @@ function Index() {
                   style={{
                     color: "var(--clr5)",
                     fontWeight: "600",
-                  }}
-                >
+                  }}>
                   L
                 </span>
                 sen&quot; samt ett antal nämnder och övriga förtroendevalda. Läs mer om sektionens
                 nämnder och förtroendevalda på&nbsp;
                 <Link href="/fortroendevalda">Denna sida</Link>.
               </p>
-              <Image
-                src={Sidhuvud}
-                alt="sektionslogga, sidhuvud"
-                className="sektionslogga"
-              />
+              <Image src={Sidhuvud} alt="sektionslogga, sidhuvud" className="sektionslogga" />
             </section>
             <section>
               <h2>Om programmet</h2>
@@ -141,10 +132,7 @@ function Index() {
         </div>
         <hr />
         <div className="visa_om_knapp_div">
-          <button
-            className="visa_om_knapp"
-            onClick={toggleOm}
-          >
+          <button className="visa_om_knapp" onClick={toggleOm}>
             Om CL{" "}
             {open ? (
               <i className="fa-solid fa-angle-up"></i>
@@ -166,10 +154,7 @@ function Index() {
                 </div>
                 {annatFeed && (
                   <div>
-                    <FeedPreview
-                      docs={annatFeed.docs}
-                      title="Annat"
-                    />
+                    <FeedPreview docs={annatFeed.docs} title="Annat" />
                   </div>
                 )}
               </div>
@@ -185,10 +170,7 @@ function Index() {
                 </div>
                 {eventFeed && (
                   <div>
-                    <FeedPreview
-                      docs={eventFeed.docs}
-                      title="Event"
-                    />
+                    <FeedPreview docs={eventFeed.docs} title="Event" />
                   </div>
                 )}
               </div>
@@ -204,8 +186,7 @@ function Index() {
                   "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
               }}
               src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=week&amp;tabs=week&amp;tabs=month"
-              sandbox="allow-scripts allow-same-origin allow-top-navigation"
-            ></iframe>
+              sandbox="allow-scripts allow-same-origin allow-top-navigation"></iframe>
             <br />
             <iframe
               className="open-web-calendar agenda"
@@ -214,15 +195,13 @@ function Index() {
                   "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
               }}
               src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fkonsumclw%2540gmail.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=agenda&amp;controls=date&amp;tabs=none"
-              sandbox="allow-scripts allow-same-origin allow-top-navigation"
-            ></iframe>
+              sandbox="allow-scripts allow-same-origin allow-top-navigation"></iframe>
             <h2
               style={{
                 marginTop: "-18rem",
                 marginBottom: "16rem",
                 textAlign: "center",
-              }}
-            >
+              }}>
               Gråttbokningar
             </h2>
           </div>
@@ -254,10 +233,7 @@ function Index() {
                 <i className="fa-solid fa-arrow-up-right-from-square" />
               </Link>
               <br />
-              <Link
-                className="illabehandling_knapp"
-                href={"/hjalp-vid-illabehandling"}
-              >
+              <Link className="illabehandling_knapp" href={"/hjalp-vid-illabehandling"}>
                 <button>Mer information</button>
               </Link>
             </p>

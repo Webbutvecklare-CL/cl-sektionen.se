@@ -55,12 +55,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
   if (!images || typeof images == "string" || images.length < 1) {
     return (
       <div className="slideshow">
-        {default_image && (
-          <Image
-            src={default_image}
-            alt="Standard bakgrund!"
-          />
-        )}
+        {default_image && <Image src={default_image} alt="Standard bakgrund!" />}
       </div>
     );
   }
@@ -69,11 +64,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
     <div className="slideshow">
       {images.length > 0 && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img
-          crossOrigin="anonymous"
-          src={`${images[currentIndex]}`}
-          alt="Bild"
-        />
+        <img crossOrigin="anonymous" src={`${images[currentIndex]}`} alt="Bild" />
       )}
     </div>
   );

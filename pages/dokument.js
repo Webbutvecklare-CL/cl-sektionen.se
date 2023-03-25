@@ -26,16 +26,24 @@ function Dokument() {
       <h2>Styrdokument</h2>
       <iframe
         src="https://drive.google.com/embeddedfolderview?id=1Nwg-S7C0YZ0FAeoQtQoQs2NpAcB9Jacb#grid"
-        style={{ width: "100%", height: "600px", border: "0", backgroundColor: "#F2F3F4" }}
-      ></iframe>
+        style={{
+          width: "100%",
+          height: "600px",
+          border: "0",
+          backgroundColor: "#F2F3F4",
+        }}></iframe>
       <br />
       <h2>
         Protokoll och handlingar från <a href="#rättigheter">SM och StyM</a>
       </h2>
       <iframe
         src="https://drive.google.com/embeddedfolderview?id=1TNcYNzvTLvmr-IKdY9TG6rW_0h-QFVGX#grid"
-        style={{ width: "100%", height: "600px", border: "0", backgroundColor: "#F2F3F4" }}
-      ></iframe>
+        style={{
+          width: "100%",
+          height: "600px",
+          border: "0",
+          backgroundColor: "#F2F3F4",
+        }}></iframe>
       <section id="rättigheter">
         <h1>
           Rättigheter på <span>SM</span> och <span>StyM</span>

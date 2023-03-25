@@ -34,16 +34,14 @@ function Kalender() {
           onClick={() => {
             setCalendar(0);
           }}
-          className={`kal-knapp sektionskalender ${activeIdx === 0 ? "active" : ""}`}
-        >
+          className={`kal-knapp sektionskalender ${activeIdx === 0 ? "active" : ""}`}>
           Sektionskalender
         </button>
         <button
           onClick={() => {
             setCalendar(1);
           }}
-          className={`kal-knapp gråttkalender ${activeIdx === 1 ? "active" : ""}`}
-        >
+          className={`kal-knapp gråttkalender ${activeIdx === 1 ? "active" : ""}`}>
           Gråttans kalender
         </button>
       </div>
@@ -51,8 +49,7 @@ function Kalender() {
       <div
         id="sektionskal"
         className="kalender_tab"
-        style={{ display: activeIdx === 0 ? "block" : "none" }}
-      >
+        style={{ display: activeIdx === 0 ? "block" : "none" }}>
         <h1 className="kal_titel">Sektionskalendern</h1>
         <iframe
           id="open-web-calendar"
@@ -65,14 +62,12 @@ function Kalender() {
           scrolling="no"
           frameBorder="0"
           height="750px"
-          width="100%"
-        ></iframe>
+          width="100%"></iframe>
       </div>
       <div
         id="gråttkal"
         className="kalender_tab"
-        style={{ display: activeIdx === 1 ? "block" : "none" }}
-      >
+        style={{ display: activeIdx === 1 ? "block" : "none" }}>
         <h1 className="kal_titel">Gråttans kalender</h1>
         <iframe
           id="open-web-calendar"
@@ -85,8 +80,7 @@ function Kalender() {
           scrolling="no"
           frameBorder="0"
           height="750px"
-          width="100%"
-        ></iframe>
+          width="100%"></iframe>
       </div>
     </div>
   );
