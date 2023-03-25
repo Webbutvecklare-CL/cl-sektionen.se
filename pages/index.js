@@ -36,28 +36,20 @@ export default function Index({ contents }) {
 
   const [open, setOpen] = useState(false);
   const toggleOm = (e) => {
-    //Scrollar upp igen så man kommer till toppen
-    // if (open) {
-    //   document.querySelectorAll("h2")[0].scrollIntoView({ block: "start", behavior: "smooth" });
-    // } else {
-    //   document
-    //     .querySelector(".om-container")
-    //     .scrollIntoView({ block: "start", behavior: "smooth" });
-    // }
     setOpen(!open);
   };
 
   return (
     <div>
-      <div className="index_bg">
-        <Image
-          src={Sidhuvud_inv}
-          alt="sektionslogga, sidhuvud vitt"
-          className="sektionslogga_vitt"
-        />
-        <header>
-          <h1>Dubbel examen, dubbel kompetens</h1>
-        </header>
+      <div className="index-bg">
+        <div className="image-container">
+          <Image
+            src={Sidhuvud_inv}
+            alt="sektionslogga, sidhuvud vitt"
+            className="sektionslogga-vitt"
+          />
+        </div>
+        <h1>Dubbel examen, dubbel kompetens</h1>
       </div>
       <div className="bg_bottom_cover"></div>
       <div id="contentbody" className="index_content">
@@ -172,7 +164,7 @@ export default function Index({ contents }) {
               <section>
                 <MarkdownRender mdData={contents["for-foretag"]} />
                 <Link className="section-button" href={"/for-foretag"}>
-                  <button>Mer information och produkt katalog</button>
+                  <button>Mer information och produktkatalog</button>
                 </Link>
               </section>
               <section>

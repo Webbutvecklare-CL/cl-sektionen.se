@@ -1,85 +1,103 @@
-.index_bg {
-    width: 102%;
-    transform: translateX(-1%);
-    overflow: hidden;
-    height: 400px;
-    position: relative;
-    background-image: url("../public/media/bildspel/cl15jub.jpg");
-    background-position: center;
-    background-position-y: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    filter: brightness(120%);
-    display: flex;
-    flex-direction: column;
-    margin-top: 3.5rem;
-    justify-content: center;
-    align-items: center;
+/* Banner bild med logga och slogan */
+
+.index-bg {
+  width: 102%;
+  height: 400px;
+  margin-top: 3.5rem;
+  overflow: hidden;
+  position: relative;
+  transform: translateX(-1%);
+  background-image: url("../public/media/bildspel/cl15jub.jpg");
+  background-position: center;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: brightness(120%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.sektionslogga_vitt {
-    /* padding: 2rem; */
-    max-width: 1200px;
-    min-width: 400px;
-    width: auto;
-    height: min-content;
-    filter: drop-shadow(5px 5px 5px #222);
+.sektionslogga-vitt {
+  max-width: 1200px;
+  min-width: 400px;
+  width: 80%;
+  height: min-content;
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
-@media screen and (max-width: 600px){
-    .sektionslogga_vitt{
-        content: url("../public/media/grafik/CL_logo_sketch_chalk.png");
-        scale: 75%;
-    }
-}
-
-.index_content{
-    padding-top: 0 !important;
-}
-
-
-header h1 {
+.index-bg h1 {
   color: white;
   font-size: 2.4rem;
   margin-top: 1rem;
-}
-.om{
-    display: grid;  
-    gap: 0px 2rem; 
-    grid-template-areas: 
-        ". ."; 
-    scroll-margin-top: 10rem;
+  text-align: center;
 }
 
-.om strong{
-    color: var(--clr5);
+.image-container {
+  text-align: center;
 }
 
-.om .sektionslogga{
-    width: calc(100% - 20px);
-    height: auto;
+@media screen and (max-width: 600px) {
+
+  .sektionslogga-vitt {
+    content: url("../public/media/grafik/CL_logo_sketch_chalk.png");
+    object-fit: contain;
+    max-height: 100%;
+  }
+
+  .image-container {
+    height: 60%;
+  }
+  
+  .index-bg h1 {
+    margin: 0 1rem;
+    padding: 0;
+    font-size: 2rem;
+  }
 }
 
-.visa_om_knapp_div{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
+/* Content */
+.index_content {
+  padding-top: 0 !important;
 }
 
-.visa_om_knapp{
-    background-color: var(--clr1);
-    border: none;
-    width: 120px;
-    height: 3rem;
-    border-radius: 0 0 1.6rem 1.6rem;
-    padding: .5rem 1rem .5rem 1rem;
-    font-size: 1.2rem;
-    font-family: inherit;
-    font-weight: 500;
-    color: white;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
-    
+.om {
+  display: grid;
+  gap: 0px 2rem;
+  grid-template-areas: ". .";
+  scroll-margin-top: 10rem;
+}
+
+.om strong {
+  color: var(--clr5);
+}
+
+.om .sektionslogga {
+  width: calc(100% - 20px);
+  height: auto;
+}
+
+.visa_om_knapp_div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.visa_om_knapp {
+  background-color: var(--clr1);
+  border: none;
+  width: 120px;
+  height: 3rem;
+  border-radius: 0 0 1.6rem 1.6rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: white;
+  box-shadow: inset 0 1px 0.2rem rgba(0, 0, 0, 0.3), 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
 .visa_om_knapp.btn-open {
@@ -87,70 +105,70 @@ header h1 {
 }
 
 .collapsed {
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-    overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  overflow: hidden;
 }
-    
+
 .open {
-    overflow: hidden;
-    max-height: 2000px;
-    transition: max-height 0.25s ease-in;
+  overflow: hidden;
+  max-height: 2000px;
+  transition: max-height 0.25s ease-in;
 }
 
 .mini_aktuellt_o_kalender {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 1rem;
 }
 
-.event_o_aktuellt{
-    margin-bottom: 1rem;
-    display: grid;
-    width: 100%;
-    grid-row-gap: 1rem;
-    grid-template-rows: repeat(auto-fit, );
+.event_o_aktuellt {
+  margin-bottom: 1rem;
+  display: grid;
+  width: 100%;
+  grid-row-gap: 1rem;
+  grid-template-rows: repeat(auto-fit);
 }
 
-.event_o_aktuellt h1{
-    text-align: center;
-    margin-top: -0.5rem;
-    margin-bottom: 0;
+.event_o_aktuellt h1 {
+  text-align: center;
+  margin-top: -0.5rem;
+  margin-bottom: 0;
 }
 
-.event_o_aktuellt div{
-    border-radius: .5rem;
+.event_o_aktuellt div {
+  border-radius: 0.5rem;
 }
 
-.mini_aktuellt{
-    width: auto;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
-    width: 100% !important;
-    min-width: 0px !important;
+.mini_aktuellt {
+  width: auto;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+  width: 100% !important;
+  min-width: 0px !important;
 }
 
-.mini_event{
-    width: 100%;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+.mini_event {
+  width: 100%;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
-.aktuellt_innehåll{
-    margin: 10px;
+.aktuellt_innehåll {
+  margin: 10px;
 }
-.event_innehåll{
-    margin: 10px;
+.event_innehåll {
+  margin: 10px;
 }
 
-.mini_kalender{
-    width: 100%;
-    margin-bottom: 1rem;
+.mini_kalender {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .resurser .section-button {
-    text-align: center;
-    display: block;
-    margin: 20px auto 10px auto;
+  text-align: center;
+  display: block;
+  margin: 20px auto 10px auto;
 }
 
 .resurser h1 {
@@ -158,9 +176,9 @@ header h1 {
 }
 
 .start-naringsliv {
-  display: grid;  
-  gap: 0px 2rem; 
-  grid-template-areas: ". ."; 
+  display: grid;
+  gap: 0px 2rem;
+  grid-template-areas: ". .";
 }
 
 .start-naringsliv h2 {
@@ -168,36 +186,32 @@ header h1 {
 }
 
 @media screen and (max-width: 800px) {
-    .mini_aktuellt_o_kalender {
-        display: flex;
-        flex-wrap: wrap;
-    }
+  .mini_aktuellt_o_kalender {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .om{
-        display: flex;
-        flex-wrap: wrap;
-    }
+  .om {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .start-naringsliv {
-      display: flex;
-      flex-wrap: wrap;
-      row-gap: 1.5rem;
-    }
+  .start-naringsliv {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
 
-    .title_grid{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    header {
-        text-align: center;
-    }
+  .title_grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .title_grid div{
-        text-align: center;
-    }
+  .title_grid div {
+    text-align: center;
+  }
 }
