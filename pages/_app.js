@@ -43,7 +43,6 @@ export default function App({ Component, pageProps }) {
         <meta name="author" content="Armin Baymani" />
         <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
       </Head>
-      {/* <Script src="https://apis.google.com/js/api.js" type="text/javascript" onLoad={initGapi} /> */}
       <AuthContextProvider>
         <Component {...pageProps} />
       </AuthContextProvider>
