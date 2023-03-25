@@ -50,7 +50,7 @@ const MENU_LIST = [
     href: "",
     submenu: [
       { text: "För företag", href: "/for-foretag" },
-      { text: "Samarbeten", href: "" },
+      { text: "Samarbeten", href: "/samarbeten" },
     ],
   },
 ];
