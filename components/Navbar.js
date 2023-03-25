@@ -57,22 +57,23 @@ const MENU_LIST = [
 
 const MENU_STATES = ["fa-solid fa-bars", "fas fa-times"];
 
-const DEFAULT_ACTIVE_INDEX = -1;
-const DEFAULT_ACTIVE_SUB_INDEX = -1;
-const DEFAULT_NAVBURGER_OPEN = false;
-
 //förord: läs på egen risk --Armin
 const Navbar = () => {
-  const [activeIdx, setActiveIdx] = useState(DEFAULT_ACTIVE_INDEX); //för att markera aktiv menytab
-  const [activeSubIdx, setActiveSubIdx] = useState(DEFAULT_ACTIVE_SUB_INDEX); // för att markera aktiv submeny
-  const [navBurgirOpen, setNavBurgirOpen] = useState(DEFAULT_NAVBURGER_OPEN); //för att öppna och stänga hamburgarmeny
+  const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
+  const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submeny
+  const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
+
+  //egentligen onödig, ska rensas senare (kan alltid kallas med setNavBurgirOpen(!navBurgirOpen) istället)
+  const burgirToggle = () => {
+    setNavBurgirOpen(!navBurgirOpen);
+  };
 
   //för att stänga hamburgarmenyn om man klickar utanför---------------------
   let menuref = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if (!menuref.current.contains(e.target) && e.target.className !== "nav__item fas fa-times") {
-        setNavBurgirOpen(DEFAULT_NAVBURGER_OPEN);
+      if (!menuref.current.contains(e.target) && e.target.className != "nav__item fas fa-times") {
+        setNavBurgirOpen(false);
       }
     };
 
@@ -91,8 +92,8 @@ const Navbar = () => {
             {/* Denna div är för CL-loggan som leder till index-page */}
             <div
               onClick={() => {
-                setActiveIdx(DEFAULT_ACTIVE_INDEX);
-                setActiveSubIdx(DEFAULT_ACTIVE_SUB_INDEX);
+                setActiveIdx(-1);
+                setActiveSubIdx(-1);
               }}
             >
               <Link href="/">
@@ -108,7 +109,7 @@ const Navbar = () => {
             {/* För hamburgarmeny knappen, syns endast för mobila/små enheter */}
             <div id="navburgirmenu">
               <button
-                onClick={() => setNavBurgirOpen(!navBurgirOpen)}
+                onClick={burgirToggle}
                 className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}
               ></button>
             </div>
@@ -120,7 +121,10 @@ const Navbar = () => {
                   key={menu.text}
                   className="submenu_wrapper"
                 >
-                  <div className="navitem_wrapper">
+                  <div
+                    className="navitem_wrapper"
+                    onClick={() => {}}
+                  >
                     <NavItem
                       active={activeIdx === idx}
                       {...menu}
@@ -158,8 +162,8 @@ const Navbar = () => {
                   <div
                     className="navitem_wrapper"
                     onClick={() => {
-                      activeIdx === idx ? setActiveIdx(DEFAULT_ACTIVE_INDEX) : setActiveIdx(idx);
-                      setActiveSubIdx(DEFAULT_ACTIVE_SUB_INDEX);
+                      activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
+                      setActiveSubIdx(-1);
                     }}
                   >
                     <NavItem
