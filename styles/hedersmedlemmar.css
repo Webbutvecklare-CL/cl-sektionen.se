@@ -6,6 +6,21 @@
   text-align: center;
 }
 
+.hedersmedlem {
+  padding: 0rem 2rem;
+  -webkit-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    0 3px 10px rgb(0 0 0 / 0.2);  /* Firefox 3.5 - 3.6 */
+  box-shadow:         0 3px 10px rgb(0 0 0 / 0.2);
+
+  cursor: pointer;
+}
+
+.hedersmedlem:hover{
+  -webkit-box-shadow: 0 7px 13px rgb(0 0 0 / 0.3);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    0 7px 13px rgb(0 0 0 / 0.3);  /* Firefox 3.5 - 3.6 */
+  box-shadow:         0 7px 13px rgb(0 0 0 / 0.3);
+}
+
 .hedersmedlem .imgdiv {
   margin-top: 2rem;
   width: 150px;
@@ -20,8 +35,14 @@
   border-radius: 50%;
 }
 
-@media screen and (max-width: 800px) {
-  .hedersmedlemmar {
+@media screen and (max-width: 1000px) {
+  .hedersmedlemmar-shelf {
     grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
   }
+}
+
+.hedersmedlemmar .motivering {
+  height: 20rem;
+  transition: all .5s ease-in-out;
 }

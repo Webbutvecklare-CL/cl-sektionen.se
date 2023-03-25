@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef  } from "react";
 import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from "next/image";
@@ -31,7 +31,7 @@ const MENU_LIST = [
     submenu: [
       { text: "Dokument", href: "/dokument" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
-      { text: "Hedersmedlemmar", href: "/hedersmedlemmar" },
+      { text: "Hedersmedlemmar och hedersorden", href: "/hedersmedlemmar" },
     ],
   },
   {
@@ -49,7 +49,7 @@ const MENU_LIST = [
     text: "Näringsliv",
     href: "",
     submenu: [
-      { text: "För företag", href: "" },
+      { text: "För företag", href: "/for-foretag" },
       { text: "Samarbeten", href: "" },
     ],
   },
@@ -58,7 +58,7 @@ const MENU_LIST = [
 const MENU_STATES = ["fa-solid fa-bars", "fas fa-times"];
 
 //förord: läs på egen risk --Armin
-const Navbar = () => {
+export default function Navbar() {
   const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
   const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submeny
   const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
@@ -90,11 +90,8 @@ const Navbar = () => {
         <div id="topnav">
           <div id="navmain">
             {/* Denna div är för CL-loggan som leder till index-page */}
-            <div
-              onClick={() => {
-                setActiveIdx(-1);
-                setActiveSubIdx(-1);
-              }}>
+            <div onClick={() => { setActiveIdx(-1); setActiveSubIdx(-1);}}
+            >
               <Link href="/">
                 <Image src={NavLogo} alt="CL logo, navigation" id="navlogo" className="nav__item" />
               </Link>
@@ -104,7 +101,8 @@ const Navbar = () => {
             <div id="navburgirmenu">
               <button
                 onClick={burgirToggle}
-                className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
+                className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}>
+              </button>
             </div>
 
             {/* Den normala menyn, se separat guide för genomgång av kod */}
@@ -121,7 +119,8 @@ const Navbar = () => {
                       onClick={() => {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
-                      }}>
+                      }}
+                    >
                       <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                     </div>
                   ))}
@@ -137,13 +136,15 @@ const Navbar = () => {
               {MENU_LIST.map((menu, idx) => (
                 <div
                   key={menu.text}
-                  className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
+                  className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}
+                >
                   <div
                     className="navitem_wrapper"
                     onClick={() => {
                       activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
                       setActiveSubIdx(-1);
-                    }}>
+                    }}
+                  >
                     <NavItem active={activeIdx === idx} {...menu} />
                   </div>
 
@@ -155,7 +156,8 @@ const Navbar = () => {
                           setActiveIdx(idx);
                           setActiveSubIdx(s_idx);
                         }
-                      }}>
+                      }}
+                    >
                       <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                     </div>
                   ))}
@@ -170,5 +172,3 @@ const Navbar = () => {
     </header>
   );
 };
-
-export default Navbar;

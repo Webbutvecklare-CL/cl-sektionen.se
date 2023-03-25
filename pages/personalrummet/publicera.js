@@ -9,10 +9,11 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { firestore, storage } from "../../firebase/clientApp";
 import { useAuth } from "../../context/AuthContext";
 
+import { createEvent } from "../../utils/calendarUtils";
 import { validateLink, create_id } from "../../utils/postUtils";
 
 export default function Publicera() {
-  const { userData } = useAuth();
+  const { userData, userAccessToken, setUserAccessToken } = useAuth();
   const router = useRouter();
 
   let today = new Date().toLocaleString().substring(0, 10); // Hämtar dagens datum och sätter som default
@@ -117,10 +118,85 @@ export default function Publicera() {
         return;
       }
     }
+
+    /*
+    if (data.tags.includes("Event")) {
+      let startTime = new Date(data.date);
+      startTime.setHours(17);
+      let endTime = new Date(data.date);
+      endTime.setHours(20);
+      addEvent({
+        title: data.title,
+        description: data.subtitle,
+        start: startTime,
+        end: endTime,
+      });
+    }
+    */
+
     setIsPending(false);
     setError("");
     setSuccessLink(link);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleReauthenticate = async () => {
+    return new Promise((resolve, reject) => {
+      googleLogin()
+        .then(async (result) => {
+          console.log("Omautentiserad!");
+          // Användaren har loggat in med sin förtroendevalds-mail
+          // Förutsätter att användaren loggat in tidigare dvs att userData finns
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          resolve(token);
+        })
+        .catch((err) => {
+          console.error(err);
+          if (err.code == "auth/popup-closed-by-user") {
+            setError("Inloggningsfönstret stängdes!");
+          } else {
+            setError("Fel vid inloggningen till google!");
+          }
+          reject();
+        });
+    });
+  };
+
+  // Lägger in event i kalendern
+  const addEvent = async (eventData) => {
+    // Om access token inte finns måste användaren logga in på nytt
+    let token = userAccessToken;
+    if (!token) {
+      if (user && userData) {
+        try {
+          token = await handleReauthenticate();
+          setUserAccessToken(token);
+        } catch (err) {
+          return;
+        }
+      } else {
+        setError("Du måste vara inloggad, prova ladda om sidan!");
+        return;
+      }
+    }
+
+    createEvent(token, "webbunderhallare@cl-sektionen.se", eventData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        if (err.status == 401) {
+          console.log(
+            "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com"
+          );
+        } else {
+          console.error(err);
+        }
+        err.json().then((data) => {
+          console.log(data);
+        });
+      });
   };
 
   return (

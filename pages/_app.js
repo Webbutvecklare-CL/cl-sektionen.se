@@ -12,6 +12,7 @@ import "/styles/aktuellt.css";
 import "/styles/feed-preview.css";
 import "/styles/reseberattelser.css";
 import "/styles/personalrummet.css";
+import "/styles/hedersorden.css";
 import "/styles/TV.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/Navbar";
@@ -41,10 +42,8 @@ export default function App({ Component, pageProps }) {
         />
         <meta name="author" content="Armin Baymani" />
         <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
-        <>
-          <Script src="https://apis.google.com/js/api.js" type="text/javascript" async />
-        </>
       </Head>
+      {/* <Script src="https://apis.google.com/js/api.js" type="text/javascript" onLoad={initGapi} /> */}
       <AuthContextProvider>
         <Component {...pageProps} />
       </AuthContextProvider>

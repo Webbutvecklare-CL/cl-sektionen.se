@@ -2,17 +2,18 @@ import React from "react";
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
-export default function VFU({ contents }) {
+export default function ForForetag({ contents }) {
   return (
     <div id="contentbody">
-      <h1>VFU</h1>
-      <MarkdownRender mdData={contents["vfu"]} />
+      <h1>För företag</h1>
+      <MarkdownRender mdData={contents["for-foretag"]} />
+      
     </div>
   );
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("vfu");
+  let contents = getContentData("for-foretag");
   return {
     props: {
       contents,
