@@ -12,13 +12,14 @@
     background-attachment: fixed;
     filter: brightness(120%);
     display: flex;
+    flex-direction: column;
     margin-top: 3.5rem;
     justify-content: center;
     align-items: center;
 }
 
 .sektionslogga_vitt {
-    padding: 2rem;
+    /* padding: 2rem; */
     max-width: 1200px;
     min-width: 400px;
     width: auto;
@@ -39,7 +40,9 @@
 
 
 header h1 {
-    margin-bottom: -0.75rem;
+  color: white;
+  font-size: 2.4rem;
+  margin-top: 1rem;
 }
 .om{
     display: grid;  
@@ -59,23 +62,28 @@ header h1 {
 }
 
 .visa_om_knapp_div{
-    transform: translateY(-9px);
     display: flex;
     justify-content: center;
+    margin-bottom: 3rem;
 }
 
 .visa_om_knapp{
     background-color: var(--clr1);
     border: none;
-    width: 100px;
-    height: fit-content;
+    width: 120px;
+    height: 3rem;
     border-radius: 0 0 1.6rem 1.6rem;
     padding: .5rem 1rem .5rem 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: inherit;
     font-weight: 500;
     color: white;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+    
+}
+
+.visa_om_knapp.btn-open {
+  transform: translateY(-8px);
 }
 
 .collapsed {

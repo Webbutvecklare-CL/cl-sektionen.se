@@ -37,13 +37,13 @@ export default function Index({ contents }) {
   const [open, setOpen] = useState(false);
   const toggleOm = (e) => {
     //Scrollar upp igen så man kommer till toppen
-    if (open) {
-      document.querySelectorAll("h2")[0].scrollIntoView({ block: "start", behavior: "smooth" });
-    } else {
-      document
-        .querySelector(".om-container")
-        .scrollIntoView({ block: "start", behavior: "smooth" });
-    }
+    // if (open) {
+    //   document.querySelectorAll("h2")[0].scrollIntoView({ block: "start", behavior: "smooth" });
+    // } else {
+    //   document
+    //     .querySelector(".om-container")
+    //     .scrollIntoView({ block: "start", behavior: "smooth" });
+    // }
     setOpen(!open);
   };
 
@@ -55,16 +55,13 @@ export default function Index({ contents }) {
           alt="sektionslogga, sidhuvud vitt"
           className="sektionslogga_vitt"
         />
+        <header>
+          <h1>Dubbel examen, dubbel kompetens</h1>
+        </header>
       </div>
       <div className="bg_bottom_cover"></div>
       <div id="contentbody" className="index_content">
-        <header>
-          <h1>Sektionen för Civilingenjör &amp; Lärare</h1>
-          <h2>Dubbel examen, dubbel kompetens</h2>
-        </header>
-
         <div className={`om-container ${open ? "open" : "collapsed"}`}>
-          <hr />
           <section className="om">
             <section>
               <MarkdownRender mdData={contents["om-sektionen"]} />
@@ -73,10 +70,10 @@ export default function Index({ contents }) {
               <MarkdownRender mdData={contents["om-programmet"]} />
             </section>
           </section>
+          <hr />
         </div>
-        <hr />
         <div className="visa_om_knapp_div">
-          <button className="visa_om_knapp" onClick={toggleOm}>
+          <button className={`visa_om_knapp ${open ? "btn-open" : ""}`} onClick={toggleOm}>
             Om CL{" "}
             {open ? (
               <i className="fa-solid fa-angle-up"></i>
