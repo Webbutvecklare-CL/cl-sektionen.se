@@ -126,19 +126,12 @@ export default function Publicera() {
   return (
     <div id="contentbody">
       <h1>Personalrummet - Publicera</h1>
-      <button
-        type="button"
-        onClick={() => router.back()}
-      >
+      <button type="button" onClick={() => router.back()}>
         Tillbaka
       </button>
       {userData && !successLink && (
         <div className="create">
-          <PostForm
-            onSubmit={handleSubmit}
-            prefill={prefillData}
-            buttonText={"Skapa"}
-          />
+          <PostForm onSubmit={handleSubmit} prefill={prefillData} buttonText={"Skapa"} />
           {isPending && <p>Skapar inlägget...</p>}
           {error && <p>Error: {error}</p>}
         </div>
@@ -149,8 +142,7 @@ export default function Publicera() {
           <p>
             Inlägget är publicerat du hittar på följande länk:{" "}
             <Link
-              href={`/aktuellt/${successLink}`}
-            >{`www.cl-sektionen.se/aktuellt/${successLink}`}</Link>
+              href={`/aktuellt/${successLink}`}>{`www.cl-sektionen.se/aktuellt/${successLink}`}</Link>
             <br />
           </p>
         </div>

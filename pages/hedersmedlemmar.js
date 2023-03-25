@@ -11,40 +11,28 @@ function Hedersmedlemmar() {
       <div className="hedersmedlemmar">
         <div className="hedersmedlem">
           <div className="imgdiv">
-            <Image
-              src={JanScheffel}
-              alt="Jan Scheffel"
-            />
+            <Image src={JanScheffel} alt="Jan Scheffel" />
           </div>
           <h2>Jan Scheffel</h2>
           <h3>20xx</h3>
         </div>
         <div className="hedersmedlem">
           <div className="imgdiv">
-            <Image
-              src={HansThunberg}
-              alt="Hans Thunberg"
-            />
+            <Image src={HansThunberg} alt="Hans Thunberg" />
           </div>
           <h2>Hans Thunberg</h2>
           <h3>20xx</h3>
         </div>
         <div className="hedersmedlem">
           <div className="imgdiv">
-            <Image
-              src={MikaelCronhjort}
-              alt="Mikael Cronhjort"
-            />
+            <Image src={MikaelCronhjort} alt="Mikael Cronhjort" />
           </div>
           <h2>Mikael Cronhjort</h2>
           <h3>2020</h3>
         </div>
         <div className="hedersmedlem">
           <div className="imgdiv">
-            <Image
-              src={LindaKann}
-              alt="Linda Kann"
-            />
+            <Image src={LindaKann} alt="Linda Kann" />
           </div>
           <h2>Linda Kann</h2>
           <h3>2022</h3>

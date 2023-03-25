@@ -44,21 +44,11 @@ function Aktuellt() {
         {console.log(examplefeed[0].data().date.toString())}
         {/*Om det finns något i post listan så visas de i PostFeed komponenten
                     Annars visas ett fel meddelande*/}
-        {examplefeed && (
-          <PostFeed
-            docs={[]}
-            title="Nyheter"
-          />
-        )}
+        {examplefeed && <PostFeed docs={[]} title="Nyheter" />}
         {/* {error && <div>Ett fel uppstod! {error}</div>} */}
         {/* {isPending && <div>Laddar händelser...</div>} */}
 
-        {examplefeed && (
-          <PostFeed
-            docs={[]}
-            title="Events"
-          />
-        )}
+        {examplefeed && <PostFeed docs={[]} title="Events" />}
         {/* {error && <div>Ett fel uppstod! {error}</div>} */}
         {/* {isPending && <div>Laddar händelser...</div>} */}
       </div>

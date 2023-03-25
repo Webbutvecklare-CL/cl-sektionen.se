@@ -6,14 +6,7 @@ const PostFeed = ({ docs, title }) => {
       <h2>{title}</h2>
       {docs.map(
         (doc) => (
-          (doc.data().id = doc.id),
-          (
-            <PostPreview
-              post={doc.data()}
-              postId={doc.id}
-              key={doc.id}
-            />
-          )
+          (doc.data().id = doc.id), (<PostPreview post={doc.data()} postId={doc.id} key={doc.id} />)
         )
       )}
     </div>
