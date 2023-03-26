@@ -72,7 +72,8 @@ article p {
   margin-bottom: 0px;
 }
 
-article ul, ol {
+article ul,
+ol {
   margin-top: 0px;
   font-size: 18px;
 }

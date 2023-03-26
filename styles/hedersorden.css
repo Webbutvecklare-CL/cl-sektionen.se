@@ -1,20 +1,18 @@
-
-
 .hedersorden ul {
   padding: 0;
- list-style-type: none;
- display: flex;
- flex-wrap: wrap;
- /* justify-content: center; */
- justify-content: flex-start;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  justify-content: flex-start;
 }
 
-.hedersorden h3{
+.hedersorden h3 {
   /* text-align: center; */
   margin: 0;
 }
 
-.hedersorden hr{
+.hedersorden hr {
   margin: 1rem 4rem 1rem;
 }
 

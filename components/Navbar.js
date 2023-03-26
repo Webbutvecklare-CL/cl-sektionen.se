@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState, useEffect, useRef  } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from "next/image";
@@ -90,8 +90,11 @@ export default function Navbar() {
         <div id="topnav">
           <div id="navmain">
             {/* Denna div är för CL-loggan som leder till index-page */}
-            <div onClick={() => { setActiveIdx(-1); setActiveSubIdx(-1);}}
-            >
+            <div
+              onClick={() => {
+                setActiveIdx(-1);
+                setActiveSubIdx(-1);
+              }}>
               <Link href="/">
                 <Image src={NavLogo} alt="CL logo, navigation" id="navlogo" className="nav__item" />
               </Link>
@@ -101,8 +104,7 @@ export default function Navbar() {
             <div id="navburgirmenu">
               <button
                 onClick={burgirToggle}
-                className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}>
-              </button>
+                className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
             </div>
 
             {/* Den normala menyn, se separat guide för genomgång av kod */}
@@ -119,8 +121,7 @@ export default function Navbar() {
                       onClick={() => {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
-                      }}
-                    >
+                      }}>
                       <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                     </div>
                   ))}
@@ -136,15 +137,13 @@ export default function Navbar() {
               {MENU_LIST.map((menu, idx) => (
                 <div
                   key={menu.text}
-                  className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}
-                >
+                  className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
                   <div
                     className="navitem_wrapper"
                     onClick={() => {
                       activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
                       setActiveSubIdx(-1);
-                    }}
-                  >
+                    }}>
                     <NavItem active={activeIdx === idx} {...menu} />
                   </div>
 
@@ -156,8 +155,7 @@ export default function Navbar() {
                           setActiveIdx(idx);
                           setActiveSubIdx(s_idx);
                         }
-                      }}
-                    >
+                      }}>
                       <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                     </div>
                   ))}
@@ -171,4 +169,4 @@ export default function Navbar() {
       </nav>
     </header>
   );
-};
+}

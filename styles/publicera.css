@@ -17,7 +17,6 @@
   }
 }
 
-
 .create label {
   text-align: left;
   display: block;
@@ -37,7 +36,7 @@
   background-color: #fff;
   font-size: 1rem;
   font-family: unset;
-  box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .create input:focus {
@@ -154,9 +153,6 @@ kunna ändra färgen på texten om strong inte ändras */
   cursor: pointer;
 }
 
-
-
-
 /* Blandat */
 
 .create button.submit {
@@ -171,8 +167,8 @@ kunna ändra färgen på texten om strong inte ändras */
 
 .create i.required {
   color: var(--clr1);
-  margin-left: .2rem;
-  scale:70%;
+  margin-left: 0.2rem;
+  scale: 70%;
 }
 
 .create input:disabled {
@@ -199,11 +195,11 @@ kunna ändra färgen på texten om strong inte ändras */
   height: 0;
   background-color: var(--clr4);
   color: #fff;
-  padding: .6rem;
+  padding: 0.6rem;
   border-radius: 6px;
   overflow: hidden;
 
-  transition: all .1s linear;
+  transition: all 0.1s linear;
   /* transition: all .82s cubic-bezier(0.74, 0.04, 0.64, 2.36); */
 
   /* Position the tooltip text - see examples below! */
