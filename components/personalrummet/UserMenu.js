@@ -27,7 +27,7 @@ export default function UserMenu() {
     document.querySelectorAll(".menu button").forEach((elem) => {
       elem.style.backgroundColor = null;
     });
-    document.querySelector(`.${menuSelect}`).style.backgroundColor = "var(--clr5)";
+    document.querySelector(`.${menuSelect}`).style.backgroundColor = "var(--clr3)";
   }, [menuSelect]);
 
   // Hämtar de senaste inläggen nämnden skapat
