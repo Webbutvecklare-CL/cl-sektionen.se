@@ -7,7 +7,6 @@ export default function ForForetag({ contents }) {
     <div id="contentbody">
       <h1>För företag</h1>
       <MarkdownRender mdData={contents["for-foretag"]} />
-      
     </div>
   );
 }

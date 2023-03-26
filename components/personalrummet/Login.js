@@ -111,8 +111,9 @@ export default function Login() {
           <p>
             Ditt konto verka inte vara inlagt i personalsystemet...
             <br />
-            Klicka på &#34;Lägg till konto&#34; och logga in igen för att lägga till din mail i systemet. Meddela
-            därefter någon av de webbansvariga att du vill ha behörighet till personalrummet.
+            Klicka på &#34;Lägg till konto&#34; och logga in igen för att lägga till din mail i
+            systemet. Meddela därefter någon av de webbansvariga att du vill ha behörighet till
+            personalrummet.
           </p>
           <button onClick={handleSignup}>Lägg till konto</button>
         </div>

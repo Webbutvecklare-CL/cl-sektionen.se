@@ -54,7 +54,7 @@ export default function Post() {
           <h1 className="title">{post.title}</h1>
           {/* <p>{post.subtitle}</p> */}
           <p className="meta">
-            Publicerad {getDate(post.date)} av {post.author}
+            Publicerad {getDate(post.publishDate)} av {post.author}
           </p>
           {post.image && (
             <div className="image-container">

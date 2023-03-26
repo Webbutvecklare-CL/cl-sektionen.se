@@ -10,10 +10,11 @@ import { firestore, storage } from "../../firebase/clientApp";
 import { useAuth } from "../../context/AuthContext";
 
 import { createEvent } from "../../utils/calendarUtils";
-import { validateLink, create_id } from "../../utils/postUtils";
+import { validateLink } from "../../utils/postUtils";
+import { reauthenticate } from "../../utils/authUtils";
 
 export default function Publicera() {
-  const { userData, userAccessToken, setUserAccessToken } = useAuth();
+  const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
   const router = useRouter();
 
   let today = new Date().toLocaleString().substring(0, 10); // Hämtar dagens datum och sätter som default
@@ -24,6 +25,8 @@ export default function Publicera() {
     body: "",
     tags: [],
     date: today,
+    startDateTime: new Date().toLocaleString().substring(0, 16),
+    endDateTime: new Date().toLocaleString().substring(0, 16),
     publishDate: today,
     author: "",
   });
@@ -47,6 +50,7 @@ export default function Publicera() {
   const [error, setError] = useState("");
 
   const [successLink, setSuccessLink] = useState(""); // False/null om inlägget inte har publicerats
+  const [calendarStatus, setCalendarStatus] = useState("");
 
   // Skickar allt till databasen
   const handleSubmit = async (data) => {
@@ -56,7 +60,11 @@ export default function Publicera() {
     // Om ej unik be användaren specificera en adress kollar därefter om den är unik
     let link = "";
     try {
-      link = await validateLink(data.title);
+      if (data.link) {
+        link = await validateLink(data.link);
+      } else {
+        link = await validateLink(data.title);
+      }
     } catch (error) {
       console.error("Fel vid valideringen av länken:", error);
       setError("Det gick inte att validera länken/id:et");
@@ -65,7 +73,7 @@ export default function Publicera() {
     }
 
     if (!link) {
-      // Användaren
+      // Användaren stängde fönstret för att ange unik länk
       setIsPending(false);
       setError("Användaren avbröt uppladdningen.");
       return;
@@ -78,12 +86,19 @@ export default function Publicera() {
       image: "",
       body: data.body,
       author: data.author,
-      date: Timestamp.fromDate(new Date(data.date)),
       publishDate: Timestamp.fromDate(new Date(data.publishDate)),
       tags: data.tags,
       committee: userData.committee, // Länkar inlägget med nämnden
       creator: userData.uid, // Länkar inlägget till användaren
+      type: data.type,
     };
+
+    if (data.type === "Event") {
+      postData.startDateTime = Timestamp.fromDate(new Date(data.startDateTime));
+      postData.endDateTime = Timestamp.fromDate(new Date(data.endDateTime));
+    } else {
+      postData.date = Timestamp.fromDate(new Date(data.date));
+    }
 
     const postRef = doc(firestore, "posts", link);
 
@@ -119,48 +134,19 @@ export default function Publicera() {
       }
     }
 
-    /*
-    if (data.tags.includes("Event")) {
-      let startTime = new Date(data.date);
-      startTime.setHours(17);
-      let endTime = new Date(data.date);
-      endTime.setHours(20);
+    if (data.type === "Event" && data.publishInCalendar) {
       addEvent({
         title: data.title,
         description: data.subtitle,
-        start: startTime,
-        end: endTime,
+        start: new Date(data.startDateTime),
+        end: new Date(data.endDateTime),
       });
     }
-    */
 
     setIsPending(false);
     setError("");
     setSuccessLink(link);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleReauthenticate = async () => {
-    return new Promise((resolve, reject) => {
-      googleLogin()
-        .then(async (result) => {
-          console.log("Omautentiserad!");
-          // Användaren har loggat in med sin förtroendevalds-mail
-          // Förutsätter att användaren loggat in tidigare dvs att userData finns
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          resolve(token);
-        })
-        .catch((err) => {
-          console.error(err);
-          if (err.code == "auth/popup-closed-by-user") {
-            setError("Inloggningsfönstret stängdes!");
-          } else {
-            setError("Fel vid inloggningen till google!");
-          }
-          reject();
-        });
-    });
   };
 
   // Lägger in event i kalendern
@@ -170,7 +156,7 @@ export default function Publicera() {
     if (!token) {
       if (user && userData) {
         try {
-          token = await handleReauthenticate();
+          token = await reauthenticate();
           setUserAccessToken(token);
         } catch (err) {
           return;
@@ -180,10 +166,13 @@ export default function Publicera() {
         return;
       }
     }
+    const calendarID =
+      "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com";
 
-    createEvent(token, "webbunderhallare@cl-sektionen.se", eventData)
+    createEvent(token, calendarID, eventData)
       .then((res) => {
         console.log(res);
+        setCalendarStatus("Uppladdat i kalendern.");
       })
       .catch((err) => {
         if (err.status == 401) {
@@ -196,6 +185,7 @@ export default function Publicera() {
         err.json().then((data) => {
           console.log(data);
         });
+        setCalendarStatus("Det gick inte att ladda upp i kalendern.");
       });
   };
 

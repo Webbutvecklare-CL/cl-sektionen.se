@@ -57,6 +57,14 @@
   background-color: var(--clr2);
 }
 
+/* För att subitems ska linewrapa  */
+.submenu_item p {
+  margin: 0 auto;
+  padding: 0;
+  font-size: unset;
+  max-width: 8rem;
+}
+
 .nav__menu-list .submenu_wrapper:hover .submenu_item {
   display: block !important;
 }

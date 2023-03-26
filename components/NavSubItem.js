@@ -6,4 +6,4 @@ export default function NavSubItem({ text, href, active }) {
       <p>{text}</p>
     </Link>
   );
-};
+}

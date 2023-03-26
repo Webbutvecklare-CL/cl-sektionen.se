@@ -57,8 +57,7 @@ export const AuthContextProvider = ({ children }) => {
         logOut,
         userAccessToken,
         setUserAccessToken,
-      }}
-    >
+      }}>
       {children}
     </AuthContext.Provider>
   );
