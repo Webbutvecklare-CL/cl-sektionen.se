@@ -1,20 +1,30 @@
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase/clientApp";
 
-function create_id(title) {
-  title = title.toLowerCase();
-  title = title.replace(/[åä]/g, "a");
-  title = title.replace(/ö/g, "o");
-  title = title.replace(/([\W_]+){1,}/g, "-"); // Tar bort alla konstiga tecken
-  title = title.replace(/[ ]{1,}/g, "-"); // Byter ut alla mellanslag till -
-  title = title.replace(/-*$/, ""); // Tar bort alla bindestreck i slutet
+function create_id(data, type = "") {
+  if (type === "SM") {
+    // Kommer funka i lite mindre än 2000 år
+    return `sm-${data.number}-${new Date().getFullYear() - 2000}`;
+  }
 
-  return title;
+  if (type === "StyM") {
+    // Kommer funka i lite mindre än 2000 år
+    return `stym-${data.number}-${new Date().getFullYear() - 2000}`;
+  }
+
+  data = data.toLowerCase();
+  data = data.replace(/[åä]/g, "a");
+  data = data.replace(/ö/g, "o");
+  data = data.replace(/([\W_]+){1,}/g, "-"); // Tar bort alla konstiga tecken
+  data = data.replace(/[ ]{1,}/g, "-"); // Byter ut alla mellanslag till -
+  data = data.replace(/-*$/, ""); // Tar bort alla bindestreck i slutet
+
+  return data;
 }
 
-async function validateLink(title) {
+async function validateLink(data, type) {
   let exist = true;
-  let unique_link = create_id(title);
+  let unique_link = create_id(data, type);
   while (exist) {
     console.log("getDoc - Validera länken");
     try {

@@ -70,7 +70,15 @@ export default function EditPost() {
             date: postData.date.toDate().toLocaleDateString("sv"),
             publishDate: postData.publishDate.toDate().toLocaleDateString("sv"),
             author: postData.author,
+            link: pid,
           };
+
+          if (postData.startDateTime) {
+            data.startDateTime = postData.startDateTime.toDate().toLocaleString().substring(0, 16);
+          }
+          if (postData.startDateTime) {
+            data.endDateTime = postData.endDateTime.toDate().toLocaleString().substring(0, 16);
+          }
 
           setPostId(pid);
           setPrefill(data);
@@ -103,13 +111,15 @@ export default function EditPost() {
       }
 
       if (data[key] !== prefill[key]) {
-        if (key.toLowerCase().includes("date")) {
+        // Datumen sparas som en string och måste göras om till firebase date
+        if (key.includes("date") || key.includes("startDateTime") || key.includes("endDateTime")) {
           postData[key] = Timestamp.fromDate(new Date(data[key]));
         } else {
           postData[key] = data[key];
         }
       }
     }
+    delete postData["publishInCalendar"];
 
     const postRef = doc(firestore, "posts", postId);
 
@@ -220,7 +230,7 @@ export default function EditPost() {
             {loading && <p>Hämtar inlägg...</p>}
             {!loading && prefill && (
               <div>
-                <PostForm onSubmit={handleFormData} prefill={prefill} buttonText={"Uppdatera"} />
+                <PostForm onSubmit={handleFormData} prefill={prefill} editMode={true} />
                 {isPending && <p>Uppdaterar inlägg...</p>}
                 {error && <p>Error: {error}</p>}
               </div>
