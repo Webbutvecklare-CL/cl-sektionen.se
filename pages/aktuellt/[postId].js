@@ -58,7 +58,7 @@ export default function Post() {
           </p>
           {post.image && (
             <div className="image-container">
-              <img src={post.image} alt="Post bild" />
+              <Image src={post.image} alt="Post bild" />
             </div>
           )}
 
