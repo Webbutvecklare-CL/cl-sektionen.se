@@ -11,27 +11,31 @@
     "prettier:fix": "npm run prettier -- --write"
   },
   "dependencies": {
-    "@vercel/analytics": "^0.1.8",
-    "eslint": "8.30.0",
-    "eslint-config-next": "13.0.7",
+    "@vercel/analytics": "^0.1.11",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
     "fast-average-color": "^9.3.0",
-    "firebase": "^9.16.0",
-    "html-react-parser": "^3.0.8",
+    "firebase": "^9.18.0",
+    "html-react-parser": "^3.0.15",
     "localforage": "^1.10.0",
-    "next": "13.0.7",
+    "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
-    "react-markdown": "^8.0.4",
+    "react-markdown": "^8.0.6",
     "react-quill": "^2.0.0",
-    "react-router-dom": "^6.7.0",
+    "react-router-dom": "^6.9.0",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
-    "sanitize-html": "^2.8.1"
+    "sanitize-html": "^2.10.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^1.4.1",
+    "@eslint/eslintrc": "^2.0.1",
     "eslint-config-prettier": "^8.8.0",
-    "prettier": "^2.8.6"
+    "prettier": "^2.8.7"
+  },
+  "engines": {
+    "node": ">=19.6.0",
+    "npm": ">=9.6.0"
   }
 }
