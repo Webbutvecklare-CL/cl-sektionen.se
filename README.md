@@ -34,6 +34,8 @@ Innan du pushar kan det finnas en poäng i att testa att bygga lokalt först. F�
 npm run build
 ```
 
+(OBS: Just nu har vi en bugg där du behöver ha en annan terminal upp med `npm run dev` körande)
+
 ## Formatering och linting
 
 Projektet använder Prettier och ESLint för att hålla koden enhetlig och felfri. Prettier kollar egentligen bara estetiken av koden, och ESLint är lite mer funktionell för att standarder ska följas. För att säkerställa att din editor har kopplat till Prettier på rätt sätt kan du läsa [här](https://prettier.io/docs/en/editors.html).
