@@ -51,3 +51,5 @@ Den som tävlar med drycker är vansklig och dum,
 och riskerar att vakna i ett litet, låst rum.
 Men hur blev det med segern? Vem avgick med den?
 Den gick till Soldaten, som blott skålat med en.
+
+*Text: I. Milles & M. Sjölin, CL-sektionen*

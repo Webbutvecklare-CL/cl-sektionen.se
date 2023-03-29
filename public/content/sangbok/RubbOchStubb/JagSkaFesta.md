@@ -22,3 +22,7 @@ Spyan rinner ner för ylleslipsen,
 raviolin torkar i mitt hår.
 Vem har lagt mig här i pissoaren,
 vems är gaffeln i mitt högra lår?
+
+*Text: D-sektionen LTH, Sångarstriden 1987*
+
+\* Sista versen kan (med fördel) framföras till en stor mängd melodier. Pröva en på måfå och se om det funkar, vetja!

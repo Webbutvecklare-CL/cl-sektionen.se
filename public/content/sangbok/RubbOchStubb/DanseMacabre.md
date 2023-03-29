@@ -20,3 +20,5 @@ Helvetets alla fasor släppts loss,
 Fan rider här med hela sin tross.
 Göm dig i stugan, du har fått flugan,
 dille det blir din lott.
+
+*Text: Carl-Erik Carlstedt, CTH*

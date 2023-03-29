@@ -1,4 +1,4 @@
-#Lyft ditt välförsedda glas
+# Lyft ditt välförsedda glas
 *Melodi: Ding dong, merrily on high*
 
 Lyft ditt välförsedda glas,
@@ -16,3 +16,6 @@ hör liemannen flämta!
 ||: Dingedingedinge dingedingedinge
 Dingedingedinge ding dong dong
 Begravningsklockor klämta :||
+
+*Text: Medicinarspexet
+Göteborg, 1968*

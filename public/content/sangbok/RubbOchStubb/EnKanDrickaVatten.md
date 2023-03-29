@@ -19,3 +19,5 @@ Vi kan häva ost och vardagsrum.
 Och vi kan supa bomfadderalla,
 bomfadderalla, skål på Er alla!
 Vi kan supa andra hållet, andra hållet med.
+
+*Text: NØllespexet F-sektionen KTH, 1995*

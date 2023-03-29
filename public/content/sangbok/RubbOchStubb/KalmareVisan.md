@@ -33,3 +33,6 @@ F: Hej dick...
 A: satt på krogen i går :|| och var full som ett får.
 
 F: Hej dick...
+
+*Texten är känd sedan 1700-talet.
+Äldsta utförliga versionen är från 1855.*

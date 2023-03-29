@@ -12,3 +12,5 @@ När vi ställt oss, hela tjocka släkten,
 ska vi leka dominoeffekten:
 faller far, faller farfars far,
 faller du och ja, faller alla.
+
+*Text: J. Malmgren*
