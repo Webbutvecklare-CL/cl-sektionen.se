@@ -19,7 +19,7 @@
     "html-react-parser": "^3.0.15",
     "localforage": "^1.10.0",
     "next": "13.2.4",
-    "node": "^18.15.0",
+    "node": "^18.12.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
