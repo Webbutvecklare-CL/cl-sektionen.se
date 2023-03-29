@@ -57,7 +57,7 @@ function Kalender() {
             background:
               "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
           }}
-          src="https://open-web-calendar-master-tsa2cnoe3a-lz.a.run.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv"
+          src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;target=_blank"
           sandbox="allow-scripts allow-same-origin allow-top-navigation"
           scrolling="no"
           frameBorder="0"
@@ -75,7 +75,7 @@ function Kalender() {
             background:
               "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
           }}
-          src="https://open-web-calendar-master-tsa2cnoe3a-lz.a.run.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fkonsumclw%2540gmail.com%2Fpublic%2Fbasic.ics&amp;language=sv"
+          src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;target=_blank"
           sandbox="allow-scripts allow-same-origin allow-top-navigation"
           scrolling="no"
           frameBorder="0"
