@@ -1,9 +1,9 @@
 # Porthos visa *
 *Melodi: You can’t get a man with a gun*
 
-Jag vill börja gasqua, var fan är min flaska?  
-Vem i helvete stal min butelj?  
-Skall törsten mig tvinga, en TT börja svinga  
+Jag vill börja gasqua, var fan är min flaska?    
+Vem i helvete stal min butelj?    
+Skall törsten mig tvinga, en TT börja svinga    
 Nej, för fan bara blunda och svälj  
 Vilken smörja, får jag spörja  
 Vem för fan tror att jag är en älg?**  
