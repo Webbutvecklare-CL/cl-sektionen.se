@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function Sangbok() {
     const [search, setSearch] = useState("")
-    
+
     return (
         <div id="contentbody">
             <h1>Sångbok</h1>
@@ -24,7 +24,7 @@ function Sangbok() {
                     sång : 
                     sång.title.toLowerCase().includes(search.toLowerCase());
             }).map((sång) =>
-                <div className="sånglänk">
+                <div className="sånglänk" key={sång.href}>
                     <Link href={`sangbok${sång.href}`}>
                         {sång.title}
                     </Link>
