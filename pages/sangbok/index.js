@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function Sangbok() {
     const [search, setSearch] = useState("")
-    console.log(search)
+    
     return (
         <div id="contentbody">
             <h1>Sångbok</h1>
