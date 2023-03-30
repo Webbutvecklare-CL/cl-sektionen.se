@@ -1,11 +1,14 @@
 .sånglänk{
     display: block;
+    height: 1.8rem;
+    max-width: 800px;
+
     font-size: 1.2rem;
     font-weight: 600;
-    height: 1.8rem;
+
     padding: .7rem 1rem .7rem 1rem;
     border: 1px solid rgb(230, 230, 230);
-    margin-top: -1px;
+    margin: -1px auto 0 auto;
 }
 
 .sånglänk:hover{
@@ -19,6 +22,11 @@
       );
     transition: .2s;
     
+}
+.sånglänk .sångsida{
+    color: grey;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 /*kan komma att återanvändas på andra ställen, vi får se...*/
