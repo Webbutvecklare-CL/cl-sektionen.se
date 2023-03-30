@@ -1,0 +1,47 @@
+.sånglänk{
+    display: block;
+    height: 1.8rem;
+    max-width: 800px;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    padding: .7rem 1rem .7rem 1rem;
+    border: 1px solid rgb(230, 230, 230);
+    margin: -1px auto 0 auto;
+}
+
+.sånglänk:hover{
+    text-decoration: none;
+    font-size: 1.3rem;
+    background: linear-gradient(
+        90deg,
+        rgba(200, 0, 26, 0.1) 0%,
+        rgba(255, 255, 255, 1) 10%,
+        rgba(255, 255, 255, 1) 100%
+      );
+    transition: .2s;
+    
+}
+.sånglänk .sångsida{
+    color: grey;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/*kan komma att återanvändas på andra ställen, vi får se...*/
+.searchbar{
+    display: block;
+    width: 80%;
+    max-width: 800px;
+
+    margin: 1rem auto 1rem auto;
+    padding: .7rem;
+
+    font-family: unset;
+    font-size: 1rem;
+
+    border: 1px solid lightgrey;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.1);
+}
