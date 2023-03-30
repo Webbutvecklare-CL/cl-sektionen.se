@@ -65,7 +65,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy:a på Vercel
 
-Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när den finns tillgänglig på github. DVS allt du behöver göra är att merge:a med main.
+Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när den finns tillgänglig på github. DVS allt du behöver göra är att merge:a med main. Kan du inte se ändringar efter din merge? Då har Vercel misslyckats med att build:a den nya versionen... Testa att nuild:a lokalt och fixa errors som uppstår!
 
 ## Environment variables
 
