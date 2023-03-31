@@ -51,16 +51,18 @@ export default function Post() {
       {error && <p>Error: {error}</p>}
       {post && (
         <article className="post">
-          <h1 className="title">{post.title}</h1>
-          {/* <p>{post.subtitle}</p> */}
-          <p className="meta">
-            Publicerad {getDate(post.publishDate)} av {post.author}
-          </p>
-          {post.image && (
+          <div className="head">
             <div className="image-container">
-              <Image src={post.image} alt="Post bild" />
+              {post.image && <Image src={post.image} width={400} height={400} alt="Post bild" />}
             </div>
-          )}
+            <div className="info">
+              <h1 className="title">{post.title}</h1>
+              <h2>{post.subtitle}</h2>
+              <p className="meta">
+                Publicerad {getDate(post.publishDate)} av {post.author}
+              </p>
+            </div>
+          </div>
 
           <hr />
           <div>{parse(post.body)}</div>
