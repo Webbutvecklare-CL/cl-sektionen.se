@@ -1,12 +1,13 @@
 # Supen
-*Melodi: Räven*
+
+_Melodi: Räven_
 
 Jag fångade en sup idag  
 men supen slank ur näven.  
 Men lika gla’ för det är ja’  
-Men gladast är nog levern!  
+Men gladast är nog levern!
 
-*Refr:*  
+_Refr:_  
 Åh, hum, vår sång är dum  
 den är ju ingenting  
 Vad gör det om 100 år  
@@ -14,13 +15,13 @@ när allting kommer kring?
 Jag fångade en präst idag  
 men prästen damp i gatan,  
 men lika gla’ för det är ja’  
-men gladast är nog Satan  
+men gladast är nog Satan
 
-*Refr*  
+_Refr_
 
 Jag fångade en biff idag  
 men den var seg som kola  
 och lika seg som den är ja’.  
-Det är så kul att skåla!  
+Det är så kul att skåla!
 
-*Refr*  
+_Refr_

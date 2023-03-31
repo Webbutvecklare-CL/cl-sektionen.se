@@ -1,10 +1,11 @@
 # Snapsens ABC
-*Melodi: Brevet från lillan*
+
+_Melodi: Brevet från lillan_
 
 A-  
 B-  
 C-  
-D-  
+D-
 
 E-  
 F-  
@@ -12,11 +13,11 @@ G-
 H-  
 I-  
 J-  
-K-  
+K-
 
 L-  
 M-  
 N-  
-OP!  
+OP!
 
-*Text: H. Holmquist*  
+_Text: H. Holmquist_

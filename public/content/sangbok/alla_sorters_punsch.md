@@ -1,20 +1,21 @@
-# Alla sorters punsch*
-*Melodi: Gökvisa*
+# Alla sorters punsch\*
 
-*Osquar:*  
+_Melodi: Gökvisa_
+
+_Osquar:_  
 ||: Punsch, punsch,  
 Punsch, punsch, punsch, punsch  
-Alla sorters :||  
+Alla sorters :||
 
-*Quristina:*  
+_Quristina:_  
 När supen runnit hädan  
 Och maten lagts därpå  
 Och kaffet står på bordet  
-Vad väntar vi då på?  
+Vad väntar vi då på?
 
 ||: Jo punsch, jo punsch  
-och ännu mera punsch :||  
+och ännu mera punsch :||
 
-*Text: Sångarstriden Lund, 1987*
+_Text: Sångarstriden Lund, 1987_
 
-\* *Osquars stämma repeteras under hela Quristinas framförande. På CL byter Osquar och Quristina stämmor efter första varvet och repeterar.*
+\* _Osquars stämma repeteras under hela Quristinas framförande. På CL byter Osquar och Quristina stämmor efter första varvet och repeterar._

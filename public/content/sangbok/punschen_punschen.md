@@ -1,12 +1,13 @@
 # Punschen! Punschen!
-*Melodi: My Bonnie*
+
+_Melodi: My Bonnie_
 
 Punschen skall värma min mage.  
 Punschen skall göra mig stor.  
 Punschen skall få mig rätt dragen,  
-när punschen gått ut i mitt blod.  
+när punschen gått ut i mitt blod.
 
 Punschen! Punschen!  
 Ta glaset med punschen och svep, och svep.  
 Punschen! Punschen!  
-Ta glaset med punschen och svep!  
+Ta glaset med punschen och svep!
