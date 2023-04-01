@@ -7,6 +7,7 @@ export default async function handler(req, res) {
   try {
     // Försöker revalidate:a index
     await res.revalidate("/");
+    console.log("Revalidated index");
     return res.json({ revalidated: true });
   } catch (err) {
     // If there was an error, Next.js will continue
