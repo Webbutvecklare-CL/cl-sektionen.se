@@ -1,13 +1,14 @@
 # Festen ska börjas
-*Melodi: Vårvindar friska*
+
+_Melodi: Vårvindar friska_
 
 Festen skall börjas kråset ska smörjas  
 magen skall få det som den vill ha.  
 Glasen står fulla låt sången rulla  
-Glädjen skall vara gäst här i da.  
+Glädjen skall vara gäst här i da.
 
 Glasen i handen fatta och sjung  
 glöm alla sorger, var bara ung.  
 Glöm morgondagen.  
 Tänk blott på magen.  
-Skål alla vänner! Hej och gutår!  
+Skål alla vänner! Hej och gutår!

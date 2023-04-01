@@ -1,5 +1,6 @@
 # FESTU:s punschvisa
-*Melodi: Tomtarnas julnatt*
+
+_Melodi: Tomtarnas julnatt_
 
 Punschen, punschen,  
 rinner genom strupen,  
@@ -9,4 +10,4 @@ där med supen,
 där med supen.  
 Gula droppar  
 stärker våra kroppar!  
-Punsch, punsch, punsch!  
+Punsch, punsch, punsch!

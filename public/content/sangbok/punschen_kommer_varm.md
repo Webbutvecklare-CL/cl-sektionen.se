@@ -1,5 +1,6 @@
-# Punschen kommer (varm)*
-*Melodi: Glada änkan*  
+# Punschen kommer (varm)\*
+
+_Melodi: Glada änkan_
 
 Punschen kommer, punschen kommer,  
 god och varm.  
@@ -8,6 +9,6 @@ ner i tarm.
 Skål för glada minnen,  
 dom vi snart ej ha,  
 då ett par glas simmig punsch  
-vi hunnit ta!  
+vi hunnit ta!
 
-\* *Sjunges om och om igen. Rörelser finnes och byts för varje gång sången upprepas. Vagga från sida till sida, fram och tillbaka, ställ dig upp och sätt dig ner. Sluta sjung när du fått punsch.*
+\* _Sjunges om och om igen. Rörelser finnes och byts för varje gång sången upprepas. Vagga från sida till sida, fram och tillbaka, ställ dig upp och sätt dig ner. Sluta sjung när du fått punsch._

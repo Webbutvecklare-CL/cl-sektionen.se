@@ -1,10 +1,11 @@
 # Imperial punsch
-*Melodi: Imperial March*
+
+_Melodi: Imperial March_
 
 Punsch, punsch, punsch, mera punsch, mera punsch!  
-Punsch, punsch, punsch, mera punsch, mera punsch!  
+Punsch, punsch, punsch, mera punsch, mera punsch!
 
 Punsch, punsch, punsch, mera punsch, punsch punsch,  
-mera punsch, punsch, punsch, mera punsch, mera punsch!  
+mera punsch, punsch, punsch, mera punsch, mera punsch!
 
-*Text: D-sektionen KTH, 2000*
+_Text: D-sektionen KTH, 2000_

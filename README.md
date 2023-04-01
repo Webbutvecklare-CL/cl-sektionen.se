@@ -34,8 +34,6 @@ Innan du pushar kan det finnas en poäng i att testa att bygga lokalt först. F�
 npm run build
 ```
 
-(OBS: Just nu har vi en bugg där du behöver ha en annan terminal upp med `npm run dev` körande)
-
 ## Formatering och linting
 
 Projektet använder Prettier och ESLint för att hålla koden enhetlig och felfri. Prettier kollar egentligen bara estetiken av koden, och ESLint är lite mer funktionell för att standarder ska följas. För att säkerställa att din editor har kopplat till Prettier på rätt sätt kan du läsa [här](https://prettier.io/docs/en/editors.html).
@@ -67,7 +65,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy:a på Vercel
 
-Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när den finns tillgänglig på github. DVS allt du behöver göra är att merge:a med main.
+Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när den finns tillgänglig på github. DVS allt du behöver göra är att merge:a med main. Kan du inte se ändringar efter din merge? Då har Vercel misslyckats med att build:a den nya versionen... Testa att nuild:a lokalt och fixa errors som uppstår!
 
 ## Environment variables
 
