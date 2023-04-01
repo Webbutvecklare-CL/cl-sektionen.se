@@ -10,30 +10,10 @@ import { getContentData } from "../utils/contents";
 
 //Firebase stuff
 import { firestore } from "../firebase/clientApp";
-import { collection, query, where, orderBy, limit, Timestamp } from "firebase/firestore";
+import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { useCollectionOnce } from "react-firebase-hooks/firestore";
 
-export default function Index({ contents }) {
-  // Aktuellt feed
-  const timeNow = useMemo(() => Timestamp.now(), []);
-  const postRef = collection(firestore, "posts");
-  const annatQuery = query(
-    postRef,
-    where("type", "==", "Nyheter"),
-    where("publishDate", "<", timeNow),
-    orderBy("publishDate", "desc"),
-    limit(4)
-  );
-  const eventQuery = query(
-    postRef,
-    where("type", "==", "Event"),
-    where("publishDate", "<", timeNow),
-    orderBy("publishDate", "desc"),
-    limit(4)
-  );
-  const [annatFeed, annatLoading, annatError] = useCollectionOnce(annatQuery);
-  const [eventFeed, eventLoading, eventError] = useCollectionOnce(eventQuery);
-
+export default function Index({ contents, newsList, eventList }) {
   const [open, setOpen] = useState(false);
   const toggleOm = (e) => {
     setOpen(!open);
@@ -78,16 +58,12 @@ export default function Index({ contents }) {
           <div className="event_o_aktuellt">
             <div className="mini_aktuellt">
               <div className="aktuellt_innehåll">
-                <h1>Aktuellt</h1>
-                <div>
-                  {/*Om det finns något i post listan så visas de i PostFeed komponenten
-                                            Annars visas ett fel meddelande*/}
-                  {annatError && <strong>Error: {JSON.stringify(annatError)}</strong>}
-                  {annatLoading && <span>Collection: Loading...</span>}
-                </div>
-                {annatFeed && (
+                <h1>Nyheter</h1>
+                {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
+                {eventList.length < 1 && <p>Inlägg saknas</p>}
+                {newsList && (
                   <div>
-                    <FeedPreview docs={annatFeed.docs} title="Annat" />
+                    <FeedPreview posts={newsList} title="Annat" />
                   </div>
                 )}
               </div>
@@ -95,15 +71,11 @@ export default function Index({ contents }) {
             <div className="mini_event">
               <div className="event_innehåll">
                 <h1>Event</h1>
-                <div>
-                  {/*Om det finns något i post listan så visas de i PostFeed komponenten
-                                        Annars visas ett fel meddelande*/}
-                  {eventError && <strong>Error: {JSON.stringify(eventError)}</strong>}
-                  {eventLoading && <span>Collection: Loading...</span>}
-                </div>
-                {eventFeed && (
+                {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
+                {eventList.length < 1 && <p>Inlägg saknas</p>}
+                {eventList && (
                   <div>
-                    <FeedPreview docs={eventFeed.docs} title="Event" />
+                    <FeedPreview posts={eventList} title="Event" />
                   </div>
                 )}
               </div>
@@ -180,10 +152,54 @@ export default function Index({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("start");
+  let newsList = [];
+  let eventList = [];
+
+  // Aktuellt
+  const timeNow = Timestamp.now();
+  const postRef = collection(firestore, "posts");
+
+  // Skapar en query - vilka inlägg som ska hämtas
+  const newsQuery = query(
+    postRef,
+    where("type", "==", "Nyheter"),
+    where("publishDate", "<", timeNow),
+    orderBy("publishDate", "desc"),
+    limit(4)
+  );
+  const eventQuery = query(
+    postRef,
+    where("type", "==", "Event"),
+    where("publishDate", "<", timeNow),
+    orderBy("publishDate", "desc"),
+    limit(4)
+  );
+  
+  // Hämtar inläggen från firestore
+  const newsDocs = await getDocs(newsQuery);
+  const eventDocs = await getDocs(eventQuery);
+
+  // Plockar ut data och lägger till id i post data
+  newsDocs.forEach((doc) => {
+    let data = doc.data();
+    data.id = doc.id;
+    newsList.push(data);
+  });
+
+  eventDocs.forEach((doc) => {
+    let data = doc.data();
+    data.id = doc.id;
+    eventList.push(data);
+  });
+
+  // Contents är all text
+  // newsList och eventList är listor med de senaste inläggen
+  // stringify gör om listan till en sträng parse gör sedan om till objekt
   return {
     props: {
-      contents,
+      contents: getContentData("start"),
+      newsList: JSON.parse(JSON.stringify(newsList)),
+      eventList: JSON.parse(JSON.stringify(eventList)),
     }, // will be passed to the page component as props
   };
 }
