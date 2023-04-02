@@ -73,6 +73,10 @@ export default function EditPost() {
             link: pid,
           };
 
+          if (postData.type) {
+            data.type = postData.type;
+          }
+
           if (postData.startDateTime) {
             data.startDateTime = postData.startDateTime.toDate().toLocaleString().substring(0, 16);
           }
