@@ -17,20 +17,21 @@ import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
 //Notera att dropdowns i dropdowns stöds inte
 const MENU_LIST = [
   {
-    text: "Verksamhet",
+    text: "På gång",
     href: "",
     submenu: [
-      { text: "Aktuellt", href: "/aktuellt" },
+      { text: "Aktuellt & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
-      { text: "Sångbok", href: "/sangbok" },
+      { text: "Illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
   },
   {
-    text: "Organisation",
+    text: "Sektionen",
     href: "",
     submenu: [
-      { text: "Dokument", href: "/dokument" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
+      { text: "Sångbok", href: "/sangbok" },
+      { text: "Dokument", href: "/dokument" },
       { text: "Hedersmedlemmar och hedersorden", href: "/hedersmedlemmar" },
     ],
   },
@@ -38,11 +39,10 @@ const MENU_LIST = [
     text: "Studier",
     href: "",
     submenu: [
+      { text: "Studiebevakning", href: "/studiebevakning" },
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
       { text: "VFU", href: "/vfu" },
-      { text: "Studiebevakning", href: "/studiebevakning" },
-      { text: "Illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
   },
   {
