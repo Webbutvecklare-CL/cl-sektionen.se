@@ -11,7 +11,6 @@ import { getContentData } from "../utils/contents";
 //Firebase stuff
 import { firestore } from "../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
-import { useCollectionOnce } from "react-firebase-hooks/firestore";
 
 export default function Index({ contents, newsList, eventList }) {
   const [open, setOpen] = useState(false);
