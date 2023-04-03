@@ -82,6 +82,8 @@ function Sangbok() {
 }
 export default Sangbok;
 
+
+//Sånger som nämnder eller refererar till magistratet har en attribut 'hemlig: true'
 const sånger = [
   { 
     title: "800 rader", 
@@ -111,7 +113,8 @@ const sånger = [
     title: "CL i mitt hjärta", 
     href: "/cl_i_mitt_hjarta", 
     sida: "93",
-    kategori: "Visor om CL"
+    kategori: "Visor om CL",
+    hemlig: true
   },
   { 
     title: "Crassus vinsång", 
@@ -495,7 +498,8 @@ const sånger = [
     title: "Magistratets makt", 
     href: "/magistratets_makt", 
     sida: "94",
-    kategori: "Visor om CL"
+    kategori: "Visor om CL",
+    hemlig: true
   },
   { 
     title: "Matlab", 
@@ -765,7 +769,8 @@ const sånger = [
     title: "Vi kan visa en värld", 
     href: "/vi_kan_visa_en_varld", 
     sida: "95",
-    kategori: "Visor om CL"
+    kategori: "Visor om CL",
+    hemlig: true
   },
   { 
     title: "Vi ska supa", 

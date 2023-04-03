@@ -1,4 +1,5 @@
 .förtroendevalda_wrapper {
+  padding-top: 2rem;
   display: grid;
   grid-template-columns: auto 1fr;
   height: auto;
