@@ -1,5 +1,5 @@
 import Link from "next/link";
-function Reseberattelser() {
+export default function Reseberattelser() {
   return (
     <div id="contentbody">
       <h1>Reseberättelser</h1>
@@ -73,9 +73,11 @@ function Reseberattelser() {
               Emelie Selinder - Australien
             </Link>
           </li>
+          <li>
+            <Link href="/reseberattelser/albin-westlin-singapore">Albin Westlin - Singapore</Link>
+          </li>
         </ul>
       </div>
     </div>
   );
 }
-export default Reseberattelser;

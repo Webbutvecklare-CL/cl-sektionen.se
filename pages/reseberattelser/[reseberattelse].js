@@ -3,7 +3,7 @@ import MarkdownRender from "../../components/MarkdownRender";
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 
-function Reseberattelse({ content }) {
+export default function Reseberattelse({ content }) {
   return (
     <div id="contentbody">
       <h1>Reseberättelse</h1>
@@ -13,7 +13,6 @@ function Reseberattelse({ content }) {
     </div>
   );
 }
-export default Reseberattelse;
 
 export async function getStaticProps(context) {
   // Skickar med filnamnet som en prop vilket gör att next kan serverside rendera alla reseberättelser
