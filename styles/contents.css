@@ -1,5 +1,5 @@
 #contentbody {
-  padding-top: 6rem;
+  padding-top: 4rem;
   padding-left: 1rem;
   padding-right: 1rem;
   max-width: 1200px;
@@ -19,7 +19,7 @@ p {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 0;
-  padding-bottom: 1rem;
+  padding-bottom: .75rem;
   font-size: 1.2rem;
 }
 
@@ -72,7 +72,7 @@ article p {
   margin-bottom: 0px;
 }
 
-article ul,
+ul,
 ol {
   margin-top: 0px;
   font-size: 18px;

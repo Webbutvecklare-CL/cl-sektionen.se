@@ -30,42 +30,25 @@ function Sangbok() {
       </div>
 
       {
-        alphabetical?
-
         sånger
         .filter((sång) => {
           return search.toLowerCase() === ""
             ? sång
             : sång.title.toLowerCase().includes(search.toLowerCase());
-        })
-        .sort(function(a, b){
+          })
+        .sort(
+          alphabetical?
+          function(a, b){
           if(a.kategori < b.kategori) { return -1; }
           if(a.kategori > b.kategori) { return 1; }
           return 0;
-        })
-        .map((sång) => (
-          <Link href={`sangbok${sång.href}`} className="sånglänk" key={sång.href}>
-            <div>
-              <span className="sångtitel">{sång.title}</span>
-              <span className="sångsida">&nbsp; s.{sång.sida}</span>
-            </div>
-            <div className="sångkategori">&nbsp; {sång.kategori}</div>
-          </Link>
-        ))
-
-        :
-
-        sånger
-        .filter((sång) => {
-          return search.toLowerCase() === ""
-            ? sång
-            : sång.title.toLowerCase().includes(search.toLowerCase());
-        })
-        .sort(function(a, b){
-          if(a.title < b.title) { return -1; }
-          if(a.title > b.title) { return 1; }
-          return 0;
-        })
+          }
+          :
+          function(a, b){
+            if(a.title < b.title) { return -1; }
+            if(a.title > b.title) { return 1; }
+            return 0;
+          })
         .map((sång) => (
           <Link href={`sangbok${sång.href}`} className="sånglänk" key={sång.href}>
             <div>
@@ -76,12 +59,13 @@ function Sangbok() {
           </Link>
         ))
       }
-
     </div>
   );
 }
 export default Sangbok;
 
+
+//Sånger som nämnder eller refererar till magistratet har en attribut 'hemlig: true'
 const sånger = [
   { 
     title: "800 rader", 
@@ -111,7 +95,8 @@ const sånger = [
     title: "CL i mitt hjärta", 
     href: "/cl_i_mitt_hjarta", 
     sida: "93",
-    kategori: "Visor om CL"
+    kategori: "Visor om CL",
+    hemlig: true
   },
   { 
     title: "Crassus vinsång", 
@@ -495,7 +480,8 @@ const sånger = [
     title: "Magistratets makt", 
     href: "/magistratets_makt", 
     sida: "94",
-    kategori: "Visor om CL"
+    kategori: "Visor om CL",
+    hemlig: true
   },
   { 
     title: "Matlab", 
@@ -765,7 +751,8 @@ const sånger = [
     title: "Vi kan visa en värld", 
     href: "/vi_kan_visa_en_varld", 
     sida: "95",
-    kategori: "Visor om CL"
+    kategori: "Visor om CL",
+    hemlig: true
   },
   { 
     title: "Vi ska supa", 

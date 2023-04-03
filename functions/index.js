@@ -4,11 +4,12 @@ import fetch from "node-fetch";
 export const createPost = functions
   .region("europe-west1")
   .firestore.document("posts/{postId}")
-  .onCreate(() => {
+  .onCreate((context) => {
     logger.log("Post skapad");
 
     // Revalidate:ar hemsidan
-    revalidate();
+    revalidate("all");
+    revalidate("post", context.params.postId);
 
     // Skickar notis till alla som följer eventuella taggar
 
@@ -22,7 +23,8 @@ export const updatePost = functions
     logger.log("Post uppdaterad");
 
     // Revalidate:ar hemsidan
-    revalidate();
+    revalidate("all");
+    revalidate("post", context.params.postId);
 
     const newValue = change.after.data();
     const previousValue = change.before.data();
@@ -41,11 +43,12 @@ export const updatePost = functions
 export const deletePost = functions
   .region("europe-west1")
   .firestore.document("posts/{postId}")
-  .onDelete(() => {
+  .onDelete((context) => {
     logger.log("Post borttagen");
 
     // Revalidate:ar hemsidan
-    revalidate();
+    revalidate("all");
+    revalidate("post", context.params.postId);
 
     // Ta bort eventuell kopplad bild
 
@@ -54,8 +57,8 @@ export const deletePost = functions
     return 0;
   });
 
-function revalidate() {
-  const url = `${process.env.DOMAIN}/api/revalidate?secret=${process.env.REVALIDATE_TOKEN}`;
+function revalidate(page = "all", postId = "") {
+  const url = `${process.env.DOMAIN}/api/revalidate?secret=${process.env.REVALIDATE_TOKEN}&page=${page}&postId=${postId}`;
   const headers = {
     "Content-Type": "application/json",
     "method": "GET",
