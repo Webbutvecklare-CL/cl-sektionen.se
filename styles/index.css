@@ -146,14 +146,12 @@
 
 .mini_aktuellt {
   width: auto;
-  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
   width: 100% !important;
   min-width: 0px !important;
 }
 
 .mini_event {
   width: 100%;
-  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
 .aktuellt_innehåll {
