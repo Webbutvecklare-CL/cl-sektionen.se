@@ -30,42 +30,25 @@ function Sangbok() {
       </div>
 
       {
-        alphabetical?
-
         sånger
         .filter((sång) => {
           return search.toLowerCase() === ""
             ? sång
             : sång.title.toLowerCase().includes(search.toLowerCase());
-        })
-        .sort(function(a, b){
+          })
+        .sort(
+          alphabetical?
+          function(a, b){
           if(a.kategori < b.kategori) { return -1; }
           if(a.kategori > b.kategori) { return 1; }
           return 0;
-        })
-        .map((sång) => (
-          <Link href={`sangbok${sång.href}`} className="sånglänk" key={sång.href}>
-            <div>
-              <span className="sångtitel">{sång.title}</span>
-              <span className="sångsida">&nbsp; s.{sång.sida}</span>
-            </div>
-            <div className="sångkategori">&nbsp; {sång.kategori}</div>
-          </Link>
-        ))
-
-        :
-
-        sånger
-        .filter((sång) => {
-          return search.toLowerCase() === ""
-            ? sång
-            : sång.title.toLowerCase().includes(search.toLowerCase());
-        })
-        .sort(function(a, b){
-          if(a.title < b.title) { return -1; }
-          if(a.title > b.title) { return 1; }
-          return 0;
-        })
+          }
+          :
+          function(a, b){
+            if(a.title < b.title) { return -1; }
+            if(a.title > b.title) { return 1; }
+            return 0;
+          })
         .map((sång) => (
           <Link href={`sangbok${sång.href}`} className="sånglänk" key={sång.href}>
             <div>
@@ -76,7 +59,6 @@ function Sangbok() {
           </Link>
         ))
       }
-
     </div>
   );
 }
