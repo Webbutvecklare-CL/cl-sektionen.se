@@ -8,7 +8,10 @@ Inriktning: Kemi
 
 Jag sökte utbyte för jag gillar att utmanas, att upptäcka nya ställen och träffa nya människor. Här är bilder från EN av stränderna jag bodde vid:
 
-BILD \* 3
+<div class="rese-img-container">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-strand.jpg" class="rese-mid">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-grupp.jpg" class="rese-mid">  
+</div>
 
 Jag hade inga förväntningar egentligen förutom de som jag sett på bilder. Det fanns vackra stränder och en stor surfkultur. Jag visste inget om Australien förutom att de har farliga insekter och djur. Visste inte ens huvudstaden i Australien.
 
@@ -42,7 +45,10 @@ Jag jobbade en del som servitris på bröllopsfester, man fick även söka jobb 
 
 Jag ordnade bostad med skolan och man ansökte innan man åkte med hjälp av en portal som var länkad via universitetet. Dyrt men tyckte det var värt att träffa alla studenter där samt det fanns bio, biljard, pingis och lära-känna-event. Bodde 5 min från mina lektioner och biblioteket. 73,74 och 75 var nybyggda och fräscha det fanns några andra äldre som var sämre och hade mögel..
 
-BILD
+<div class="rese-img-container">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-boende.png" class="rese-mid">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-boendevy.jpg" class="rese-mid">  
+</div>
 
 ## Universitetet och studierna
 
@@ -52,7 +58,7 @@ Var fortfarande distansstudier till viss del p.g.a. corona så alla föreläsnin
 
 Läste 3 “riktiga” kurser och kompletterade med en lite lugnare kurs där man tillverkade föremål i keramik se min fina smörgåstårta jag gjorde:
 
-BILD
+<img src="../../media/reseberattelser/emelie-selinder-australien-smorgastarta.jpg" style="width:100%">
 
 ### Jag kunde tillgodoräkna följande kurser
 
@@ -70,10 +76,19 @@ Australiensisk kultur är då i princip “snagg” eller “sausage sizzle” s
 
 Kulturkrockar att alla pratar med alla. Skulle sätta mig på restaurang och kvinnan bredvid snackade med oss om hela sitt liv i typ 30 min innan vi ens hann beställa. Random folk snackade med en på bussen, flygplatsen, ja i princip överallt. Det var också fullkomligt normalt att ständigt gå runt barfota, till och med i matbutiker och i köpcentrum… När man åker buss MÅSTE man också säga G’day, How are you going?, Hello, när man gå på och när man går av MÅSTE man säga Thank you, Thanks, eller le och vinka med handen. Detta gäller även om man går av där bak :)
 
-BILDER
+<div class="rese-img-container">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-opera.png" class="rese-mid">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-opera-farg.png" class="rese-mid">  
+</div>
 
 ## Fritid och sociala aktiviteter
 
 Reste så mycket som möjligt när jag kunde. Åkte till Carins, Bayron Bay, Mellbourne, Townsville, Nya Zeeland.
 
-BILD BILD
+<div class="rese-img-container">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-dyka.jpg" class="rese-mid">
+    <img src="../../media/reseberattelser/emelie-selinder-australien-surf.png" class="rese-mid">  
+    <img src="../../media/reseberattelser/emelie-selinder-australien-surfbrada.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/emelie-selinder-australien-mata.png" class="rese-mid">  
+    <img src="../../media/reseberattelser/emelie-selinder-australien-kamel.png" class="rese-mid">  
+</div>
