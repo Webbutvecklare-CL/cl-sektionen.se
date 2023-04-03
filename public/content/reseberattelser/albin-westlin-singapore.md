@@ -21,8 +21,8 @@ Jag fick stipendier från Gålöstiftelsen och KTHs resestipendium för att fina
 Jag hade tur och fick boende i UTown som ligger på campus, vilket var smidigt och gjorde transport enkelt. Boendestandarden var någorlunda hög och på campus hade jag tillgång till allt jag behövde. I UTown finns bland annat idrottshall, dansstudio, gym, butiker, restauranger, studieytor och en pool. På resten av campus finns ännu mer möjligheter för sport/aktiviteter/med mera. Bostadspriserna i Singapore är som sagt mycket höga, så jag skulle rekommendera att söka boende på campus, men vara beredd på att få söka utanför skolan eftersom skolan inte har tillräckligt med boenden för alla utbytesstudenter. Var beredd på att det kan bli dyrt att bo utanför campus, åtminstone 2-3 gånger priserna i Stockholm.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/albin-westlin-singapore-tornmedpool.jpg" class="rese-mid">
-    <img src="../../media/reseberattelser/albin-westlin-singapore-marinabay.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/albin-westlin-singapore-nus.jpg" class="rese-mid">
+    <img src="../../media/reseberattelser/albin-westlin-singapore-vy.jpg" class="rese-mid">  
 </div>
 
 _Gräsytan på UTown med UTown Residence där jag bodde i bakgrunden, samt vyn från fönstret i mitt rum_
@@ -40,8 +40,8 @@ Jag valde att läsa följande kurser: MA3209, MA3205, CN4125R, CN3421A, och LSM1
 Staden Singapore upplevdes som mycket modern och välutvecklad. Kulturen i Singapore är en unik blandning av olika influenser från malayiska, kinesiska, indiska och européiska kulturer. Jag kände inte att jag upplevde några stora kulturkrockar, men jag lärde mig mycket om den lokala kulturen genom att prata med medstudenter och delta i olika evenemang.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/albin-westlin-singapore-nus.jpg" class="rese-mid">
-    <img src="../../media/reseberattelser/albin-westlin-singapore-vy.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/albin-westlin-singapore-tornmedpool.jpg" class="rese-mid">
+    <img src="../../media/reseberattelser/albin-westlin-singapore-marinabay.jpg" class="rese-mid">  
 </div>
 
 _Vy över Marina Bay Sands från högsta våningen på Capita Springs, samt kvällsvy från Marina Bay Sands tillbaka mot staden_
