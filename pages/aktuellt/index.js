@@ -1,58 +1,76 @@
 import PostFeed from "../../components/PostFeed";
+import { firestore } from "../../firebase/clientApp";
+import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 
-function Aktuellt() {
-  // För varje feed ska alla/ett antal inlägg fetchas
-  // och för att sedan skickas in till ett <PostFeed>
-  let examplefeed = [
-    {
-      id: "test-post",
-      data: () => {
-        return {
-          title: "Gr8Bibloteket",
-          subtitle: "Önska böcker Till gr8ns bibliotek!",
-          body: `I Gr8n har sektionen en samling kurslitteratur. Nu vill vi i studienämnden utöka denna samling så att den innehåller böcker som är relevanta för oss som går utbildningen just nu. Därför vill vi veta vilka böcker du saknar i Gr8n. (Ni kan även sälja/donera relevant kurslitteratur till biblioteket <3)
-                    https://docs.google.com/forms/d/e/1FAIpQLSefGeuMcTTPxl1RgCktD3XXHDWut1U0dOJrf-kjk0BHLWSngg/viewform`,
-          author: "Studienämnden",
-          tags: ["Gr8an", "Viktigt"],
-          date: { seconds: 0, nanoseconds: 0 },
-          publishDate: { seconds: 0, nanoseconds: 0 },
-        };
-      },
-    },
-    {
-      id: "forsta-test-konstiga-saker-nagot-1",
-      data: () => {
-        return {
-          title: "Kylskåpet i gråttan har gått sönder",
-          subtitle: "Kylskåpet kommer tömmas tisdag 29/11",
-          body: `Tyvärr har kylen i gråttan gått sönder, och på grund av detta ber vi er att hämta era matlådor och eventuella andra saker ni har i kylen så fort som möjligt. Även allt som finns bland ”free for all” behöver tömmas ur kylen, är det något du vill ha, plocka med dig det.
-                Under lunchen imorgon 29/11 kommer allt som finns kvar i kylen att slängas.
-                \/\/Lokalnämnden`,
-          author: "Lokalnämnden",
-          tags: ["Gr8an", "Viktigt"],
-          date: { seconds: 0, nanoseconds: 0 },
-          publishDate: { seconds: 0, nanoseconds: 0 },
-        };
-      },
-    },
-  ];
+import FeedPreview from "../../components/FeedPreview";
+
+export default function Aktuellt({ newsList, eventList }) {
+  // Någon useEffect kanske om användaren laddar in fler inlägg
+  // eller vill söka som bara lägger till de nya i newsList/eventList
 
   return (
     <div id="contentbody">
-      <h1>Aktuellt</h1>
-      <div className="feed-container">
-        {console.log(examplefeed[0].data().date.toString())}
-        {/*Om det finns något i post listan så visas de i PostFeed komponenten
-                    Annars visas ett fel meddelande*/}
-        {examplefeed && <PostFeed docs={[]} title="Nyheter" />}
-        {/* {error && <div>Ett fel uppstod! {error}</div>} */}
-        {/* {isPending && <div>Laddar händelser...</div>} */}
-
-        {examplefeed && <PostFeed docs={[]} title="Events" />}
-        {/* {error && <div>Ett fel uppstod! {error}</div>} */}
-        {/* {isPending && <div>Laddar händelser...</div>} */}
+      <div style={{ display: "flex" }}>
+        <div style={{ width: "48%" }}>
+          <h1>Nyheter</h1>
+          <FeedPreview posts={newsList} />
+        </div>
+        <div style={{ width: "48%" }}>
+          <h1>Event</h1>
+          <FeedPreview posts={eventList} />
+        </div>
       </div>
     </div>
   );
 }
-export default Aktuellt;
+
+export async function getStaticProps() {
+  let newsList = [];
+  let eventList = [];
+
+  // Aktuellt
+  const timeNow = Timestamp.now();
+  const postRef = collection(firestore, "posts");
+
+  // Skapar en query - vilka inlägg som ska hämtas
+  const newsQuery = query(
+    postRef,
+    where("type", "==", "Nyheter"),
+    where("publishDate", "<", timeNow),
+    orderBy("publishDate", "desc"),
+    limit(60)
+  );
+  const eventQuery = query(
+    postRef,
+    where("type", "==", "Event"),
+    where("publishDate", "<", timeNow),
+    orderBy("publishDate", "desc"),
+    limit(60)
+  );
+
+  // Hämtar inläggen från firestore
+  const newsDocs = await getDocs(newsQuery);
+  const eventDocs = await getDocs(eventQuery);
+
+  // Plockar ut data och lägger till id i post data
+  newsDocs.forEach((doc) => {
+    let data = doc.data();
+    data.id = doc.id;
+    newsList.push(data);
+  });
+
+  eventDocs.forEach((doc) => {
+    let data = doc.data();
+    data.id = doc.id;
+    eventList.push(data);
+  });
+
+  // newsList och eventList är listor med de senaste inläggen
+  // stringify gör om listan till en sträng parse gör sedan om till objekt
+  return {
+    props: {
+      newsList: JSON.parse(JSON.stringify(newsList)),
+      eventList: JSON.parse(JSON.stringify(eventList)),
+    }, // will be passed to the page component as props
+  };
+}

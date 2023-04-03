@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/sidhuvud_inv.png";
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import FeedPreview from "../components/FeedPreview";
 
 // För text rendering
