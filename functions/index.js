@@ -4,14 +4,26 @@ import fetch from "node-fetch";
 export const createPost = functions
   .region("europe-west1")
   .firestore.document("posts/{postId}")
-  .onCreate((context) => {
+  .onCreate((snapshot, context) => {
     logger.log("Post skapad");
 
+    logger.log(context.params);
     // Revalidate:ar hemsidan
     revalidate("all");
     revalidate("post", context.params.postId);
 
     // Skickar notis till alla som följer eventuella taggar
+    const type = snapshot.data().type;
+    const payload = {
+      notification: {
+        title: `${snapshot.data().committee} publicerade ${
+          type == "Event" ? "ett event" : "en nyhet"
+        }`,
+        body: `${snapshot.data().title}`,
+        // icon: snapshot.data().image || "/images/profile_placeholder.png",
+        click_action: `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/aktuellt/${snapshot.id}`,
+      },
+    };
 
     return 0;
   });
@@ -67,7 +79,7 @@ function revalidate(page = "all", postId = "") {
   fetch(url, headers)
     .then((res) => {
       if (res.ok) {
-        logger.log("Revalidation successful");
+        logger.log("Revalidation successful page: " + page);
       } else {
         logger.warn("Revalidation unsuccessful", res.statusText);
       }
@@ -75,3 +87,33 @@ function revalidate(page = "all", postId = "") {
     .catch((error) => logger.error(error));
 }
 
+async function sendNotification(payload, tokens) {
+  if (tokens.length > 0) {
+    // Send notifications to all tokens.
+    const response = await admin.messaging().sendToDevice(tokens, payload);
+    await cleanupTokens(response, tokens);
+    functions.logger.log("Notifications have been sent and tokens cleaned up.");
+  }
+}
+
+// Cleans up the tokens that are no longer valid.
+function cleanupTokens(response, tokens) {
+  // For each notification we check if there was an error.
+  const tokensDelete = [];
+  response.results.forEach((result, index) => {
+    const error = result.error;
+    if (error) {
+      functions.logger.error("Failure sending notification to", tokens[index], error);
+      // Cleanup the tokens that are not registered anymore.
+      if (
+        error.code === "messaging/invalid-registration-token" ||
+        error.code === "messaging/registration-token-not-registered"
+      ) {
+        // Ta bort från alla prenumerationer struktur kommer förändras
+        const deleteTask = admin.firestore().collection("fcmTokens").doc(tokens[index]).delete();
+        tokensDelete.push(deleteTask);
+      }
+    }
+  });
+  return Promise.all(tokensDelete);
+}
