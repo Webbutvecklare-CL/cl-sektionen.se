@@ -15,45 +15,49 @@ import {
 } from "firebase/firestore";
 
 export default function Post({ postData }) {
-  console.log(postData);
-
-  const [post, setPost] = useState(postData);
-
   const getDate = (date) => {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
 
   return (
     <div id="contentbody">
-      {post && (
+      {postData && (
         <article className="post">
           <div className="head">
             <div className="image-container">
-              {post.image && <Image src={post.image} width={400} height={400} alt="Post bild" />}
+              {postData.image && (
+                <Image src={postData.image} width={400} height={400} alt="Post bild" />
+              )}
             </div>
             <div className="info">
-              <h1 className="title">{post.title}</h1>
-              <h2>{post.subtitle}</h2>
+              <h1 className="title">{postData.title}</h1>
+              <h2>{postData.subtitle}</h2>
               <p className="meta">
-                Publicerad {getDate(post.publishDate)} av {post.author}
+                Publicerad {getDate(postData.publishDate)} av {postData.author}
               </p>
             </div>
           </div>
 
           <hr />
-          <div>{parse(post.body)}</div>
+          <div>{parse(postData.body)}</div>
         </article>
       )}
-      {!post && <p>Inlägget saknas!</p>}
+      {!postData && <p>Inlägget saknas eller håller på att laddas upp!</p>}
     </div>
   );
 }
 
 export async function getStaticProps({ params }) {
+  // Hämtar all inläggs data
   const docRef = doc(firestore, "posts", params.postId);
   const docSnap = await getDoc(docRef);
 
-  return { props: { postData: JSON.parse(JSON.stringify(docSnap.data())) } };
+  // Kollar om inlägget faktiskt fanns
+  if (docSnap.exists()) {
+    return { props: { postData: JSON.parse(JSON.stringify(docSnap.data())) } };
+  } else {
+    return { props: { postData: null } };
+  }
 }
 
 export async function getStaticPaths() {
