@@ -19,7 +19,6 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
-import Script from "next/script";
 import { useRouter } from "next/router";
 import { AuthContextProvider } from "../context/AuthContext";
 
