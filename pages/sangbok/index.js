@@ -1,9 +1,19 @@
 import Link from "next/link";
 import { useState } from "react";
 
+//göm majjelåtar mellan månad 6 och 9
+function HideDate(currentMonth){
+  if (currentMonth < 6 || currentMonth > 9) {
+    console.log("heh")
+    return false;
+  } 
+  return true;
+}
+
 function Sangbok() {
   const [search, setSearch] = useState("");
   const [alphabetical, setAlphabetical] = useState(false)
+  const currentMonth = (new Date).getMonth()
 
   return (
     <div id="contentbody">
@@ -49,7 +59,7 @@ function Sangbok() {
             if(a.title > b.title) { return 1; }
             return 0;
           })
-        .map((sång) => (
+        .map((sång) => ((sång.hemlig && HideDate(currentMonth))? "" :
           <Link href={`sangbok${sång.href}`} className="sånglänk" key={sång.href}>
             <div>
               <span className="sångtitel">{sång.title}</span>

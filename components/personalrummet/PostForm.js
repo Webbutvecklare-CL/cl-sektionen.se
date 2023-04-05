@@ -91,6 +91,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       tags: selectedTags,
       type,
       publishInCalendar,
+      link,
     };
 
     // Om det är ett event skickar vi med start- och sluttid
@@ -419,7 +420,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               </div>
             </label>
             <input
-              disabled={editMode}
+              disabled={editMode || tags.StyM || tags.SM}
               type="text"
               value={link}
               placeholder={"Ex: sm-1-23 ger länken /aktuellt/sm-1-23"}
