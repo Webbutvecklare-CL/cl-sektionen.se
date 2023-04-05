@@ -39,8 +39,26 @@ export async function saveMessagingDeviceToken(collection) {
       // This will fire when a message is received while the app is in the foreground.
       // When the app is in the background, firebase-messaging-sw.js will receive the message instead.
       onMessage(msg, (message) => {
-        console.log("New foreground notification from Firebase Messaging!", message.notification);
-        new Notification(message.notification.title, { body: message.notification.body });
+        // Om notisen kommer som en data-notis se
+        // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
+        if (message.data.title) {
+          console.log("New background notification with data!", message.data);
+          new Notification(message.data.title, {
+            body: message.data.body,
+            icon: "/media/grafik/favicon/android-chrome-512x512.png",
+            image: message.data.image,
+            link: message.data.link,
+          });
+        } else {
+          // Notis typ
+          console.log("New background notification with notification!", message.notification);
+          new Notification(message.notification.title, {
+            body: message.notification.body,
+            icon: "/media/grafik/favicon/android-chrome-512x512.png",
+            image: message.notification.image,
+            link: message.notification.link,
+          });
+        }
       });
       return fcmToken;
     } else {

@@ -96,14 +96,30 @@ async function sendNotification(payload, tokens) {
   logger.log(`Sending notification to ${tokens.length} devices`);
   if (tokens.length > 0) {
     // Send notifications to all tokens.
-    const response = await admin.messaging().sendToDevice(tokens, payload);
-    await cleanupTokens(response, tokens);
-    logger.log("Notifications have been sent and tokens cleaned up.");
+    const options = {
+      webpush: {
+        headers: {
+          TTL: "86400",
+        },
+        fcm_options: {
+          link: payload.link,
+        },
+      },
+    };
+    try {
+      const response = await admin.messaging().sendToDevice(tokens, payload, options);
+      await cleanupTokens(response, tokens);
+      logger.log("Notifications have been sent and tokens cleaned up.");
+    } catch (error) {
+      logger.error("Something went wrong with sending notification or cleaning up tokens.", error);
+    }
   }
 }
 
 // Cleans up the tokens that are no longer valid.
 function cleanupTokens(response, tokens) {
+  logger.warn("No cleanup");
+  return;
   // For each notification we check if there was an error.
   const tokensDelete = [];
   response.results.forEach((result, index) => {
@@ -126,14 +142,15 @@ function cleanupTokens(response, tokens) {
 
 // Create payload
 function createPayload(snapshot) {
-  const data = snapshot.data();
-  const type = data.type;
+  const snapData = snapshot.data();
+  const type = snapData.type;
   return {
-    notification: {
-      title: `${data.committee} publicerade ${type == "Event" ? "ett event" : "en nyhet"}`,
-      body: `${data.title}`,
-      // icon: snapshot.data().image || "/images/profile_placeholder.png",
-      click_action: `https://${process.env.DOMAIN}/aktuellt/${snapshot.id}`,
+    data: {
+      title: `${snapData.committee} publicerade ${type == "Event" ? "ett event" : "en nyhet"}`,
+      body: `${snapData.title}`,
+      image: snapData.image || "",
+      // icon: snapshot.data().image || "/images/profile_placeholder.png", // kanske alla nämnders loggor här
+      link: `https://${process.env.DOMAIN}/aktuellt/${snapshot.id}`,
     },
   };
 }

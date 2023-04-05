@@ -13,14 +13,22 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-messaging.onBackgroundMessage(function (payload) {
-  console.log("Received background message ", payload);
+console.log("SW loaded");
 
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body + "asdfjkhasdhjklsdfhj",
-    icon: "https://cl-sektionen.vercel.app/media/grafik/CL_logo_color_transparent.png",
-  };
-
-  self.registration.showNotification(notificationTitle, notificationOptions);
+messaging.onBackgroundMessage(function (message) {
+  // Om notisen kommer som en data-notis se
+  // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
+  if (message.data.title) {
+    console.log("New foreground notification with data!", message.data);
+    self.registration.showNotification(message.data.title, {
+      body: message.data.body,
+      icon: "/media/grafik/favicon/android-chrome-512x512.png",
+      image: message.data.image,
+      link: message.data.link,
+    });
+  } else {
+    // Notis typ
+    console.log("New foreground notification with notification!", message.notification);
+    // Gör inget för den visas automatiskt av någon anledning
+  }
 });
