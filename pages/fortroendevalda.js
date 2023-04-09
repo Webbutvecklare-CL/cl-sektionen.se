@@ -7,7 +7,7 @@ export default function Fortroendevalda() {
     let ulNode = document.getElementById("nämnder_nav_ul");
     setValdNämnd(namnd);
     for (let li of ulNode.childNodes) {
-      li.className = li.id === namnd ? "active" : "";
+      li.className = (li.id === namnd) ? "active" : "";
     }
     document.getElementById("förtroendevalda_content").scrollIntoView();
   };
