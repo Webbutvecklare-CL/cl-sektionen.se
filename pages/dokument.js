@@ -1,4 +1,5 @@
 import React from "react";
+import MarkdownRender from "../components/MarkdownRender";
 
 export default function Dokument() {
   return (
@@ -48,66 +49,7 @@ export default function Dokument() {
           backgroundColor: "#F2F3F4",
         }}></iframe>
       <section id="rättigheter">
-        <h1>
-          Rättigheter på <span>SM</span> och <span>StyM</span>
-        </h1>
-        <h2>Sektionsmöte (SM)</h2>
-        <p>
-          Sektionsmötet är sektionens högsta beslutande organ (THS Reglemente § 9.1.4). För
-          beslutsmässighet på SM krävs minst tio närvarande sektionsmedlemmar. (THS Reglemente §
-          9.2.4)
-        </p>
-        <ul>
-          <li>
-            <strong>Ordinarie medlem</strong> har närvarorätt, yttranderätt, yrkanderätt och
-            rösträtt. (THS Reglemente § 9.2.1 + CL Stadgar § 1.4.1). Inga andra kan tilldelas
-            rösträtt. Ordinarie medlem (=sektionsmedlem) är den THS-medlem som är programstuderande
-            på sektionens program. (CL Stadgar § 1.4.1)
-          </li>
-          <br />
-          <li>
-            <strong>Juniormedlem</strong>, och <strong>hedersmedlem</strong> har närvarorätt och
-            yttranderätt. (CL Stadgar § 1.4.2 och 1.4.3) Juniormedlem är studerande på sektionens
-            program till och med sista dagen månaden efter uppropet. (CL Stadgar § 1.4.2)
-            Juniormedlem kan givetvis bli ordinarie medlem genom att betala kåravgift.
-          </li>
-          <br />
-          <li>
-            <strong>Talmannen</strong> har närvarorätt, yttranderätt och yrkanderätt. (CL Stadgar §
-            1.4.4)
-          </li>
-          <br />
-          <li>
-            <strong>Övriga personer</strong> kan adjungeras genom beslut på mötet och få
-            närvarorätt, yttranderätt och vid behov yrkanderätt.
-          </li>
-        </ul>
-        <br />
-        <h2>Styrelsemöte (StyM)</h2>
-        <p>
-          Styrelsen är beslutsmässig då minst hälften av ledamöterna är närvarande, förutom vid
-          personval då minst tre fjärdedelar av styrelsen måste vara närvarande. (CL Stadgar § 3.3)
-        </p>
-        <ul>
-          <li>
-            <strong>Styrelsemedlem</strong> har närvarorätt, yttranderätt, yrkanderätt och rösträtt.
-            Inga andra kan tilldelas rösträtt.
-          </li>
-          <br />
-          <li>
-            <strong>Ordinarie medlem</strong> har närvarorätt och yttranderätt. (CL Stadgar § 3.3)
-          </li>
-          <br />
-          <li>
-            <strong>Övriga personer</strong> kan adjungeras genom beslut på mötet och få
-            närvarorätt, yttranderätt och vid behov yrkanderätt.
-          </li>
-          <br />
-          <li>
-            <strong>Mötet får inte</strong> fatta besluta i ärenden som inte upptagits på
-            föredragningslistan.
-          </li>
-        </ul>
+        <MarkdownRender source={`../content/dokument/rattigheter.md`}/>
       </section>
     </div>
   );
