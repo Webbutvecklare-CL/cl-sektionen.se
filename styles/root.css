@@ -16,6 +16,11 @@ html {
   overflow-x: hidden;
 }
 
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
 a {
   color: var(--clr5);
 }
