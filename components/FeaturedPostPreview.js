@@ -13,7 +13,7 @@ const FeaturedPostPreview = ({ post }) => {
         <div className="post-preview featured">
           <div className="image">
             {post.image && <Image src={post.image} width={480} height={360} alt="Post image" />}
-            {!post.image && <Image src={bg} alt="Bakgrundsbild KTH" />}
+            {!post.image && <Image src={bg} width={480} height={360} alt="Bakgrundsbild KTH" />}
           </div>
           <div className="post-meta">
             <h2>{post.title}</h2>   

@@ -27,8 +27,8 @@
     height: 360px !important;
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0 1.5rem;
+    grid-template-columns: 480px 1fr !important;
+    gap: 0 1rem;
     grid-template-areas:
       "image meta"
       "image content";
