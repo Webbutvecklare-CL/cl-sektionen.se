@@ -99,6 +99,13 @@
   -webkit-box-orient: vertical;
 }
 
+.aktuellt_innehåll .feed-preview{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
 @media screen and (max-width: 550px) {
   .feed-preview .post-preview {
     width: 100% - 3rem;

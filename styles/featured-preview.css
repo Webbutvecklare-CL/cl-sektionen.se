@@ -103,7 +103,7 @@
 }
   
 
-.nyheter_och_gråttan{
+.event_och_gråttan{
     display: grid;
     grid-template-columns: 1fr 400px;
     gap: 1rem;
@@ -116,24 +116,12 @@
 }
 
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
     .featured-preview .post-preview {
         height: 285px !important;
         grid-template-columns: 380px 1fr !important;;
     }
 
-    .featured-preview div.image img {
-        height: 285px;
-        width: 380px;
-    }
-
-    .featured-preview .post-preview .body p {
-        -webkit-line-clamp: 4;
-    }
-}
-
-
-@media screen and (max-width: 800px) {
     .featured-preview .post-preview h2 {
         font-size: 1.3rem;
         -webkit-line-clamp: 1;
@@ -156,8 +144,18 @@
     .featured-preview .post-preview .body p {
         -webkit-line-clamp: 3;
     }
+}
 
-    .nyheter_och_gråttan{
+
+@media screen and (max-width: 850px) {
+    .aktuellt_innehåll .feed-preview{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .event_och_gråttan{
         display: flex;
         flex-wrap: wrap;
     }

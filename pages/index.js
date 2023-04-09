@@ -63,10 +63,7 @@ export default function Index({ contents, newsList, eventList }) {
                   <div>
                     <FeaturedPostPreview post={newsList[0]}/>
                     <br/>
-                    <div className="nyheter_och_gråttan">
-                        <FeedPreview posts={newsList.slice(1)} title="Annat"/>
-                        <GråttAgenda/>
-                    </div>
+                    <FeedPreview posts={newsList.slice(1)} title="Annat"/>
                   </div>
                 )}
             </div>
@@ -77,7 +74,10 @@ export default function Index({ contents, newsList, eventList }) {
               {eventList.length < 1 && <p>Inlägg saknas</p>}
               {eventList && (
                 <div className="event">
-                    <FeedPreview posts={eventList} title="Annat"/>
+                    <div className="event_och_gråttan">
+                        <FeedPreview posts={eventList} title="Annat"/>
+                        <GråttAgenda/>
+                    </div>
                 </div>
               )}
             </div>
