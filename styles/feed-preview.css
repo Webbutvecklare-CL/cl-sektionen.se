@@ -101,7 +101,7 @@
 
 @media screen and (max-width: 550px) {
   .feed-preview .post-preview {
-    width: calc(100vw - 3rem); /*Det funkar, fråga inte... */
+    width: 100% - 3rem;
     grid-template-columns: 100px 1fr;
     grid-template-areas:
       "image meta"

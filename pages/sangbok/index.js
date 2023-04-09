@@ -4,7 +4,6 @@ import { useState } from "react";
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth){
   if (currentMonth < 6 || currentMonth > 9) {
-    console.log("heh")
     return false;
   } 
   return true;

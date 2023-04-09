@@ -3,6 +3,8 @@ import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/sidhuvud_inv.png";
 import React, { useState } from "react";
 import FeedPreview from "../components/FeedPreview";
+import GråttAgenda from "../components/GråttAgenda";
+import FeaturedPostPreview from "../components/FeaturedPostPreview";
 
 // För text rendering
 import MarkdownRender from "../components/MarkdownRender";
@@ -28,7 +30,6 @@ export default function Index({ contents, newsList, eventList }) {
             className="sektionslogga-vitt"
           />
         </div>
-        <h1>Dubbel examen, dubbel kompetens</h1>
       </div>
       <div className="bg_bottom_cover"></div>
       <div id="contentbody" className="index_content">
@@ -53,66 +54,39 @@ export default function Index({ contents, newsList, eventList }) {
             )}
           </button>
         </div>
-        <section className="mini_aktuellt_o_kalender" id="happenings">
-          <div className="event_o_aktuellt">
-            <div className="mini_aktuellt">
-              <div className="aktuellt_innehåll">
-                <h1>Nyheter</h1>
+        <section id="happenings">
+            <div className="aktuellt_innehåll">
+              <h2>Nyheter</h2>
                 {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
-                {eventList.length < 1 && <p>Inlägg saknas</p>}
+                {newsList.length < 1 && <p>Inlägg saknas</p>}
                 {newsList && (
                   <div>
-                    <FeedPreview posts={newsList} title="Annat" />
+                    <FeaturedPostPreview post={newsList[0]}/>
+                    <br/>
+                    <div className="nyheter_och_gråttan">
+                        <FeedPreview posts={newsList.slice(1)} title="Annat"/>
+                        <GråttAgenda/>
+                    </div>
                   </div>
                 )}
-              </div>
             </div>
-            <div className="mini_event">
-              <div className="event_innehåll">
-                <h1>Event</h1>
-                {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
-                {eventList.length < 1 && <p>Inlägg saknas</p>}
-                {eventList && (
-                  <div>
-                    <FeedPreview posts={eventList} title="Event" />
-                  </div>
-                )}
-              </div>
+            <hr/>
+            <div className="event_innehåll">
+              <h2>Event (WIP)</h2>
+              {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
+              {eventList.length < 1 && <p>Inlägg saknas</p>}
+              {eventList && (
+                <div className="event">
+                    <FeedPreview posts={eventList} title="Annat"/>
+                </div>
+              )}
             </div>
-          </div>
-          <div className="mini_kalender kalender_tab">
-            <h1 className="kal_titel">Kalender</h1>
-            <iframe
-              className="open-web-calendar"
-              style={{
-                background:
-                  "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
-              }}
-              src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=week&amp;tabs=week&amp;tabs=month"
-              sandbox="allow-scripts allow-same-origin allow-top-navigation"></iframe>
-            <br />
-            <iframe
-              className="open-web-calendar agenda"
-              style={{
-                background:
-                  "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
-              }}
-              src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fkonsumclw%2540gmail.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=agenda&amp;controls=date&amp;tabs=none"
-              sandbox="allow-scripts allow-same-origin allow-top-navigation"></iframe>
-            <h2
-              style={{
-                marginTop: "-18rem",
-                marginBottom: "16rem",
-                textAlign: "center",
-              }}>
-              Gråttbokningar
-            </h2>
-          </div>
         </section>
         <hr />
         <section className="resurser">
           <div>
             <section>
+              <br/>
               <h1>Hjälp vid illabehandling</h1>
               <MarkdownRender mdData={contents["hjalp-vid-illabehandling"]} />
               <Link className="section-button" href={"/hjalp-vid-illabehandling"}>
@@ -127,6 +101,7 @@ export default function Index({ contents, newsList, eventList }) {
             </section>
           </div>
           <div>
+            <br/>
             <h1>Näringsliv</h1>
             <div className="start-naringsliv">
               <section>
@@ -164,7 +139,7 @@ export async function getStaticProps() {
     where("type", "==", "Nyheter"),
     where("publishDate", "<", timeNow),
     orderBy("publishDate", "desc"),
-    limit(4)
+    limit(5)
   );
   const eventQuery = query(
     postRef,
