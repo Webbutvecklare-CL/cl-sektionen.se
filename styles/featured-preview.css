@@ -94,7 +94,7 @@
 .featured-preview .post-preview .body p {
     all: unset;
     width: inherit;
-    color: black;
+    color: #1d1d1f;
     font-size: 1.1rem;
     overflow: hidden;
     display: -webkit-box;

@@ -16,8 +16,13 @@ html {
   overflow-x: hidden;
 }
 
+p{
+  color: #1d1d1f;
+}
+
 h1 {
   font-size: 2rem;
+  color: #1d1d1f;
   margin-top: 0;
 }
 
