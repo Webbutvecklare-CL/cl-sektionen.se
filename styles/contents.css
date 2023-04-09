@@ -44,8 +44,8 @@ h2 {
 }
 
 #contentbody iframe {
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.507);
+  border-radius: 0.2rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
 .nowrap {
@@ -56,7 +56,7 @@ article {
   margin: auto;
   width: 60%;
   padding: 2em 6em;
-  box-shadow: 0px 0px 25px -11px rgba(0, 0, 0, 0.52);
+  box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 900px) {

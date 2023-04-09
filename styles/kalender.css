@@ -1,6 +1,6 @@
 .kalender_tab {
   background-color: var(--clr1);
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: 0 0 0.2rem 0.2rem;
   box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
@@ -24,12 +24,13 @@
   margin-top: 0 !important;
   height: 570px;
   width: 100%;
+  max-width: 850px;
   border: none;
 }
 
 .open-web-calendar.agenda {
-  height: 390px;
-  width: calc(100% - 20px);
+  height: 405px;
+  width: calc(100% - 10px);
   border: none;
 }
 
@@ -104,7 +105,7 @@
   }
 
   .kalender_tab {
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
   }
 
   .tabs-wrapper {

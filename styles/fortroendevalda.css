@@ -9,7 +9,7 @@
 .nämnder_nav {
   background-color: rgb(247, 247, 247);
   max-width: fit-content;
-  border-radius: 1rem;
+  border-radius: .3rem;
   overflow: hidden;
 }
 

@@ -99,7 +99,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
+  gap: .5rem;
 }
 
 @media screen and (max-width: 550px) {

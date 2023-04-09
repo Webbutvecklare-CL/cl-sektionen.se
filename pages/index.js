@@ -62,14 +62,12 @@ export default function Index({ contents, newsList, eventList }) {
                 {newsList && (
                   <div>
                     <FeaturedPostPreview post={newsList[0]}/>
-                    <br/>
                     <FeedPreview posts={newsList.slice(1)} title="Annat"/>
                   </div>
                 )}
             </div>
-            <hr/>
             <div className="event_innehåll">
-              <h2>Event (WIP)</h2>
+              <h2>Event</h2>
               {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
               {eventList.length < 1 && <p>Inlägg saknas</p>}
               {eventList && (
@@ -81,6 +79,19 @@ export default function Index({ contents, newsList, eventList }) {
                 </div>
               )}
             </div>
+        </section>
+        <hr />
+        <section className="sektionskal_månad">
+          <h2>Sektionens kalender</h2>
+          <iframe
+            className="open-web-calendar"
+            style={{
+              background:
+                "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
+            }}
+            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            height="400px"
+            width="100%"></iframe>
         </section>
         <hr />
         <section className="resurser">
