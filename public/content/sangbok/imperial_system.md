@@ -1,5 +1,6 @@
 # Imperial system
-*Melodi: Studentsången*
+
+_Melodi: Studentsången_
 
 ft kp K bu B  
 ′′ Gb Oe  
@@ -12,23 +13,25 @@ at
 hk nmi  
 M Ci dptr cal  
 mvp mvp  
-ha!  
+ha!
 
-*Skriven till F-sektionens 75-årsjubileum*
+_Skriven till F-sektionens 75-årsjubileum_
 
 #
+
 ### Fusklapp (imperial system)
+
 fot kilopond kayser bushel Beaufort  
-tum gilbert oersted   
+tum gilbert oersted  
 pund riksdaler standard  
 stadion matsked knop eötvös  
-franklin kryddmått carat centiStoke  
+franklin kryddmått carat centiStoke
 
-grader Fahrenheit   
+grader Fahrenheit  
 punkt streck sekund minut  
 teknisk atmosfär  
 hästkraft nautisk mil  
 mach curie dioptri kalori  
 meter vattenpelare  
 meter vattenpelare  
-hektar!  
+hektar!

@@ -1,13 +1,18 @@
 import { readdirSync, readFileSync } from "fs";
+import path from "path";
 
-export function getContentData(path) {
+export function getContentData(page) {
   let contents = {};
-  readdirSync(`public/content/${path}`)
-    .map((path) => path.replace(/\.mdx?$/, ""))
-    .map(
-      (file_name) =>
-        (contents[file_name] = readFileSync(`public/content/${path}/${file_name}.md`, "utf8"))
-    );
+
+  readdirSync(`public/content/${page}`).forEach((fileName) => {
+    // Behåller endast filnamnet
+    fileName = fileName.replace(/\.mdx?$/, "");
+    // process.cwd() är för att skit ska fungera
+    const fullPath = path.join(process.cwd(), `public/content/${page}/${fileName}.md`);
+
+    // Läser in textdata och lägger till i contents
+    contents[fileName] = readFileSync(fullPath, "utf8");
+  });
 
   // Combine the data with the id
   return {

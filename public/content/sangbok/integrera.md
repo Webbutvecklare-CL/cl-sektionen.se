@@ -1,14 +1,15 @@
 # Integrera
-*Melodi: Broder Jakob*
+
+_Melodi: Broder Jakob_
 
 Integrera, integrera.  
 Inte nu, inte nu.  
 Jag vill derivera, jag vill derivera:  
-∂/∂u, ∂/∂u  
+∂/∂u, ∂/∂u
 
 Integrera, integrera.  
 Inte nu, inte nu.  
 Jag vill dricka mera, jag vill dricka mera:  
-Ta den nu, ta den nu.  
+Ta den nu, ta den nu.
 
-*Text: P. Broman & K. Moberg, D-sektionen KTH*
+_Text: P. Broman & K. Moberg, D-sektionen KTH_

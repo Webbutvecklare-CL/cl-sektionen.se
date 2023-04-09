@@ -1,5 +1,6 @@
 # Vi ska supa
-*Melodi: Askungen*
+
+_Melodi: Askungen_
 
 Vi ska supa, vi ska festa,  
 vi ska göra vårat bästa,  
@@ -9,4 +10,4 @@ Vi dansar uppå borden
 vi festar in Norden  
 och vi ska bara supa, sjunga,  
 Spexa, älska, vara unga,  
-Imorgon äro alla huven tunga.  
+Imorgon äro alla huven tunga.

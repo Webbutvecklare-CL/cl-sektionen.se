@@ -1,71 +1,89 @@
 import { React, useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import parse from "html-react-parser";
 import { firestore } from "../../firebase/clientApp";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  collection,
+  query,
+  where,
+  orderBy,
+  limit,
+  Timestamp,
+  getDocs,
+} from "firebase/firestore";
 
-export default function Post() {
-  const router = useRouter();
-  const { postId } = router.query;
-
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const myLoader = ({ src, width, quality }) => {
-    console.log(post.image);
-    return post.image;
-  };
-
-  useEffect(() => {
-    const getPost = async () => {
-      setLoading(true);
-      if (!postId) {
-        setError("Inget post id");
-        return;
-      }
-      const docRef = doc(firestore, "posts", postId);
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        // console.log('Document data:', docSnap.data());
-        setPost(docSnap.data());
-        setError(null);
-      } else {
-        setError("Det finns inget inlägg med id " + postId);
-        console.log("No such document!");
-      }
-      setLoading(false);
-    };
-
-    getPost();
-  }, [postId]);
-
+export default function Post({ postData }) {
   const getDate = (date) => {
-    return date.toDate().toLocaleDateString("sv");
+    return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
+
   return (
     <div id="contentbody">
-      {loading && <p>Laddar...</p>}
-      {error && <p>Error: {error}</p>}
-      {post && (
+      {postData && (
         <article className="post">
-          <h1 className="title">{post.title}</h1>
-          {/* <p>{post.subtitle}</p> */}
-          <p className="meta">
-            Publicerad {getDate(post.publishDate)} av {post.author}
-          </p>
-          {post.image && (
+          <div className="head">
             <div className="image-container">
-              <Image src={post.image} alt="Post bild" />
+              {postData.image && (
+                <Image src={postData.image} width={400} height={400} alt="Post bild" />
+              )}
             </div>
-          )}
+            <div className="info">
+              <h1 className="title">{postData.title}</h1>
+              <h2>{postData.subtitle}</h2>
+              <p className="meta">
+                Publicerad {getDate(postData.publishDate)} av {postData.author}
+              </p>
+            </div>
+          </div>
 
           <hr />
-          <div>{parse(post.body)}</div>
+          <div>{parse(postData.body)}</div>
         </article>
       )}
+      {!postData && <p>Inlägget saknas eller håller på att laddas upp!</p>}
     </div>
   );
+}
+
+export async function getStaticProps({ params }) {
+  // Hämtar all inläggs data
+  const docRef = doc(firestore, "posts", params.postId);
+  const docSnap = await getDoc(docRef);
+
+  // Kollar om inlägget faktiskt fanns
+  if (docSnap.exists()) {
+    return { props: { postData: JSON.parse(JSON.stringify(docSnap.data())) } };
+  } else {
+    return { props: { postData: null } };
+  }
+}
+
+export async function getStaticPaths() {
+  const timeNow = Timestamp.now();
+  const postRef = collection(firestore, "posts");
+
+  // Skapar en query över de 20 senaste inläggen vilka är troliga att folk vill komma åt
+  // Övriga inlägg renderas efter behov
+  const publicQuery = query(
+    postRef,
+    where("publishDate", "<", timeNow),
+    orderBy("publishDate", "desc"),
+    limit(20)
+  );
+
+  // Hämtar inläggen från firestore
+  const publicDocs = await getDocs(publicQuery);
+
+  // Plockar ut id:et
+  let postIdList = [];
+  publicDocs.forEach((doc) => {
+    postIdList.push({ params: { postId: doc.id } });
+  });
+
+  return {
+    paths: postIdList,
+    fallback: true, // True gör att inlägg som inte är pre-renderade renderas vid request
+  };
 }

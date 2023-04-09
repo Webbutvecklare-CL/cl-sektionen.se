@@ -1,4 +1,5 @@
 # Studentsången
+
 Sjung om studentens lyckliga dag!  
 Låtom oss fröjdas i ungdomens vår!  
 Än klappar hjärtat med friska slag,  
@@ -8,6 +9,6 @@ hoppet är vår vän och vi dess löften tro
 När vi knyta förbund i en lund  
 Där de härliga lagrarna gro,  
 Där de härliga lagrarna gro.  
-Hurra!  
+Hurra!
 
-*Text: H. Sätherberg*
+_Text: H. Sätherberg_

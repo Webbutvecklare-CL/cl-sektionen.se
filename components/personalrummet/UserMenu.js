@@ -14,7 +14,7 @@ import ErrorPage from "../ErrorPage";
 export default function UserMenu() {
   const [menuSelect, setMenuSelect] = useState("senaste");
   const [error, setError] = useState("");
-  const [committeePosts, setCommitteePosts] = useState({ docs: [] });
+  const [committeePosts, setCommitteePosts] = useState([]);
 
   const [userUpdateStatus, setUserUpdateStatus] = useState("");
 
@@ -46,7 +46,15 @@ export default function UserMenu() {
     );
 
     getDocs(committeeQuery)
-      .then((docs) => setCommitteePosts(docs))
+      .then((docs) => {
+        let posts = [];
+        docs.forEach((doc) => {
+          let data = doc.data();
+          data.id = doc.id;
+          posts.push(data);
+        });
+        setCommitteePosts(posts);
+      })
       .catch((err) => {
         console.error("Fel vid laddning av nämndinlägg:", err);
         setError("Det gick inte att hämta nämndens inlägg, vänligen kontakta webbansvariga.");
@@ -121,13 +129,13 @@ export default function UserMenu() {
       </div>
       {menuSelect == "senaste" && (
         <div>
-          {committeePosts.docs && (
+          {committeePosts && (
             <div>
               <h2>Nämndens senaste inlägg</h2>
-              <FeedPreview docs={committeePosts.docs} />
+              <FeedPreview posts={committeePosts} />
             </div>
           )}
-          {!committeePosts.docs && (
+          {!committeePosts && (
             <div>
               <h2>Nämndens senaste inlägg</h2>
               <p>Finns inga inlägg</p>

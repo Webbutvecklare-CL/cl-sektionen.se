@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+*/node_modules
 /.pnp
 .pnp.js
 
@@ -36,4 +37,7 @@ yarn-error.log*
 
 .env
 .firebaserc
-
+firestore.rules
+firestore.indexes.json
+firebase.json
+storage.rules

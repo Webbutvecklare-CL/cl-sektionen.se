@@ -1,5 +1,6 @@
 # En matematiker
-*Melodi: En sockerbagare*
+
+_Melodi: En sockerbagare_
 
 En matematiker här bor i staden  
 hen räknar matte mest hela dagen.  
@@ -8,7 +9,7 @@ Hen tycker om x upphöjt till två.
 Och i hens fönster hänger skumma saker,  
 där finns det sfärer, ibland kvadrater,  
 och små ellipser och kägelsnitt.  
-Låter det roligt så ta en titt!  
+Låter det roligt så ta en titt!
 
 Vår matematiker som bor i staden,  
 hen deriverar i högsta graden,  
@@ -17,4 +18,4 @@ det verkar vettigt på något vis.
 Hen skriver räkneböcker för studenter,  
 och hen gör uppgifter till massa tentor.  
 Och är hen snäller blir svaret 2,  
-men är hen stygger så blir det ρ.  
+men är hen stygger så blir det ρ.

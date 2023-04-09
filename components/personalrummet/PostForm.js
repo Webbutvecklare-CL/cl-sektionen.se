@@ -26,7 +26,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   useEffect(() => {
     if (prefill.type) {
       // Null för att handleSetType tar in ett element på första parametern
-      handleSetType(null, "Event");
+      handleSetType(null, prefill.type);
     } else if (prefill.tags.includes("Event")) {
       prefill.tags.slice(prefill.tags.indexOf("Event"), 1);
       handleSetType(null, "Event");
@@ -91,6 +91,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       tags: selectedTags,
       type,
       publishInCalendar,
+      link,
     };
 
     // Om det är ett event skickar vi med start- och sluttid
@@ -125,12 +126,13 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       return "Du måste ange en författare med minst 2 tecken.";
     }
 
-    // Date inputs
-    try {
-      new Date(date);
-    } catch {
-      return "Datumet måste vara på formen åååå-mm-dd";
-    }
+    if (type)
+      // Date inputs
+      try {
+        new Date(date);
+      } catch {
+        return "Datumet måste vara på formen åååå-mm-dd";
+      }
 
     try {
       if (editMode) {
@@ -210,6 +212,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       setTags({
         Idrott: false,
         Gasque: false,
+        Pub: false,
+        Lunchföreläsning: false,
+        Workshop: false,
+        Förtroendevalda: false,
         SM: false,
         StyM: false,
       });
@@ -414,7 +420,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               </div>
             </label>
             <input
-              disabled={editMode}
+              disabled={editMode || tags.StyM || tags.SM}
               type="text"
               value={link}
               placeholder={"Ex: sm-1-23 ger länken /aktuellt/sm-1-23"}

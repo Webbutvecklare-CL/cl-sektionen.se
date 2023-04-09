@@ -4,6 +4,10 @@
   flex-wrap: wrap;
 }
 
+.post{
+  background-color: #fefefe;
+}
+
 .post-list {
   width: 450%;
   min-width: 480px;
@@ -15,7 +19,11 @@
 
 /* Post preview dvs varje länk */
 .post-preview {
+  padding: 5px;
   transition: 0.2s;
+  border-radius: 0.1rem !important;
+  background-color: white;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .post-preview:hover,
@@ -23,7 +31,7 @@
   background: linear-gradient(
     90deg,
     rgba(255, 0, 26, 0.15) 0%,
-    rgba(255, 255, 255, 1) 35%,
+    rgba(255, 255, 255, 1) 65%,
     rgba(255, 255, 255, 1) 100%
   );
   transform: scale(1.005);
@@ -32,7 +40,7 @@
 
 .post-preview h2 {
   font-size: 1.5rem;
-  color: black;
+  color: #1d1d1f;
   margin-bottom: 2px;
 }
 
@@ -47,11 +55,12 @@
   font-size: 1.1rem;
   padding: 0;
   margin-bottom: 0.5rem;
-  color: black;
+  color: #1d1d1f;
 }
 
 .post-preview p.subtitle {
   font-size: 1.2rem;
+  color: var(--clr5);
   padding: 0;
   margin-bottom: 0rem;
 }
@@ -75,12 +84,30 @@
 }
 
 /* POST STYLES */
-.post h1.title {
+.post .head {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.post .info {
+  /* max-width: 60%; */
+  min-width: 400px;
+}
+
+.post .info h1 {
   margin-bottom: 0;
+}
+
+.post .info h2 {
+  margin: 0px;
+  padding: 0px;
 }
 
 .post p.meta {
   font-size: 1rem;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 .post hr {
@@ -88,10 +115,13 @@
 }
 
 .post div.image-container {
-  width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 240px;
 }
 
 .post div.image-container img {
-  object-fit: scale-down;
+  object-fit: contain;
   width: 100%;
+  height: 100%;
 }

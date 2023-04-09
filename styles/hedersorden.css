@@ -28,3 +28,14 @@
 .hedersorden li:last-child::after {
   content: "";
 }
+
+@media screen and (max-width: 480px) {
+  .hedersorden ul {
+    padding: 0;
+    display: block;
+  }
+  .hedersorden li::after {
+    content: "";
+  }
+  
+}

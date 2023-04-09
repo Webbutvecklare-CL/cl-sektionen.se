@@ -4,6 +4,7 @@ import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from "next/image";
 import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
+import {useRouter} from 'next/router';
 
 //Att lägga till nya sidor:
 // 1. Se till att skapa sidan (se guide)
@@ -17,20 +18,21 @@ import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
 //Notera att dropdowns i dropdowns stöds inte
 const MENU_LIST = [
   {
-    text: "Verksamhet",
+    text: "På gång",
     href: "",
     submenu: [
-      { text: "Aktuellt", href: "/aktuellt" },
+      { text: "Aktuellt & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
-      { text: "Sångbok", href: "/sangbok" },
+      { text: "Illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
   },
   {
-    text: "Organisation",
+    text: "Sektionen",
     href: "",
     submenu: [
-      { text: "Dokument", href: "/dokument" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
+      { text: "Sångbok", href: "/sangbok" },
+      { text: "Dokument", href: "/dokument" },
       { text: "Hedersmedlemmar och hedersorden", href: "/hedersmedlemmar" },
     ],
   },
@@ -38,12 +40,10 @@ const MENU_LIST = [
     text: "Studier",
     href: "",
     submenu: [
+      { text: "Studiebevakning", href: "/studiebevakning" },
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
       { text: "VFU", href: "/vfu" },
-      {text: "Valbara kurser", href: "/valbara-kurser"},
-      { text: "Studiebevakning", href: "/studiebevakning" },
-      { text: "Illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
   },
   {
@@ -63,6 +63,15 @@ export default function Navbar() {
   const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
   const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submeny
   const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
+  const [scrolled, setScrolled] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    window.addEventListener('scroll', ()=> {
+      window.scrollY > 50 ?
+      setScrolled(true) : setScrolled(false)
+    })
+  })
 
   //egentligen onödig, ska rensas senare (kan alltid kallas med setNavBurgirOpen(!navBurgirOpen) istället)
   const burgirToggle = () => {
@@ -88,7 +97,7 @@ export default function Navbar() {
   return (
     <header>
       <nav>
-        <div id="topnav">
+        <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
           <div id="navmain">
             {/* Denna div är för CL-loggan som leder till index-page */}
             <div

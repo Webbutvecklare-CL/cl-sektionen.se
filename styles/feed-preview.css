@@ -13,7 +13,7 @@
 
 .feed-preview * {
   text-decoration: none;
-  border-radius: 0.3rem !important;
+  border-radius: 0.1rem !important;
 }
 
 .feed-preview .post-preview {
@@ -41,11 +41,7 @@
 
 .feed-preview .post-meta {
   grid-area: meta;
-  height: 1.5rem;
   overflow: hidden;
-
-  display: grid;
-  grid-template-columns: 1fr 5rem;
   color: black;
   gap: 0.5rem;
   width: 100%;
@@ -91,7 +87,7 @@
 .feed-preview .post-preview .body p {
   all: unset;
   width: inherit;
-  color: black;
+  color: #1d1d1f;
   font-size: 1rem;
   overflow: hidden;
   display: -webkit-box;
@@ -101,7 +97,7 @@
 
 @media screen and (max-width: 550px) {
   .feed-preview .post-preview {
-    width: calc(100vw - 3rem); /*Det funkar, fråga inte... */
+    width: 100% - 3rem;
     grid-template-columns: 100px 1fr;
     grid-template-areas:
       "image meta"

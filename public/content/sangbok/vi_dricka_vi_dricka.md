@@ -1,5 +1,6 @@
 # Vi dricka, vi dricka
-*Melodi: Tre pepparkaksgubbar*
+
+_Melodi: Tre pepparkaksgubbar_
 
 Vi dricka, vi dricka  
 upp allt som dukas fram  
@@ -8,4 +9,4 @@ sen snapsar vi som fan
 Väl runda och goda  
 vi lämnar vår salong  
 Men ramlar ner och somnar sött  
-i rännstenens schäslong.  
+i rännstenens schäslong.
