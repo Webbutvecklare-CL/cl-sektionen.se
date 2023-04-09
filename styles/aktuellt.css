@@ -40,7 +40,7 @@
 
 .post-preview h2 {
   font-size: 1.5rem;
-  color: black;
+  color: #1d1d1f;
   margin-bottom: 2px;
 }
 
@@ -55,11 +55,12 @@
   font-size: 1.1rem;
   padding: 0;
   margin-bottom: 0.5rem;
-  color: black;
+  color: #1d1d1f;
 }
 
 .post-preview p.subtitle {
   font-size: 1.2rem;
+  color: var(--clr5);
   padding: 0;
   margin-bottom: 0rem;
 }

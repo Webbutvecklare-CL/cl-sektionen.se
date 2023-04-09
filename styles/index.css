@@ -131,14 +131,13 @@
 }
 
 #happenings h2 {
-  text-align: center;
+  text-align: left;
   margin-top: 0rem;
 }
 
 
 .mini_kalender {
   width: 100%;
-  margin-bottom: 1rem;
 }
 
 .resurser .section-button {

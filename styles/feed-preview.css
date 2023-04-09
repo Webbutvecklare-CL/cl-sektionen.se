@@ -41,11 +41,7 @@
 
 .feed-preview .post-meta {
   grid-area: meta;
-  height: 1.5rem;
   overflow: hidden;
-
-  display: grid;
-  grid-template-columns: 1fr 5rem;
   color: black;
   gap: 0.5rem;
   width: 100%;
@@ -91,7 +87,7 @@
 .feed-preview .post-preview .body p {
   all: unset;
   width: inherit;
-  color: black;
+  color: #1d1d1f;
   font-size: 1rem;
   overflow: hidden;
   display: -webkit-box;
