@@ -6,11 +6,10 @@ Sektionsmötet är sektionens högsta beslutande organ (THS Reglemente § 9.1.4)
 
 * **Ordinarie medlem** har närvarorätt, yttranderätt, yrkanderätt och rösträtt. (THS Reglemente §9.2.1 + CL Stadgar §1.4.1). Inga andra kan tilldelas rösträtt. Ordinarie medlem (=sektionsmedlem) är den THS-medlem som är programstuderande på sektionens program. (CL Stadgar §1.4.1)
 
+* **Förtroendevald** har närvarorätt, yttranderätt och yrkanderätt. (THS Reglemente §9.2.1 + CL Stadgar §2.1).
 
 * **Juniormedlem**, och **hedersmedlem** har närvarorätt och
 yttranderätt. (CL Stadgar §1.4.2 och 1.4.3) Juniormedlem är studerande på sektionens program till och med sista dagen månaden efter uppropet. (CL Stadgar §1.4.2) Juniormedlem kan givetvis bli ordinarie medlem genom att betala kåravgift.
-
-* **Förtroendevald** har närvarorätt, yttranderätt och yrkanderätt. (THS Reglemente §9.2.1 + CL Stadgar §2.1). Inga andra kan tilldelas rösträtt. Ordinarie medlem (=sektionsmedlem) är den THS-medlem som är programstuderande på sektionens program. (CL Stadgar §1.4.1)
 
 * **Övriga personer** kan adjungeras genom beslut på mötet och få närvarorätt, yttranderätt och vid behov yrkanderätt.
 
