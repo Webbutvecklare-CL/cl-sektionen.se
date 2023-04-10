@@ -1,15 +1,82 @@
 import PostFeed from "../../components/PostFeed";
 import { firestore } from "../../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
+import { useState, useRef, useEffect } from "react";
 
 import FeedPreview from "../../components/FeedPreview";
 
 export default function Aktuellt({ newsList, eventList }) {
+  const [filterPanelOpen, setfilterPanelOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filterTags, setfilterTags] = useState([]);
+
+  // tar bort filter kategori of den redan finns, lägger annars till den
+  const handleTagChange = (newTag) =>{
+    filterTags.includes(newTag)?
+    setfilterTags(filterTags.filter(tag => tag !== newTag)):
+    setfilterTags(arr => [...arr, newTag]);
+  }
+
+  const toggleSearchControlls = () => {
+    setfilterPanelOpen(!filterPanelOpen)
+  }
+
+  const panelref = useRef();
+
+  //Stänger filterpanelen om man trycker utanför
+  useEffect(() => {
+    let handler = (e) => {
+      if (panelref.current.contains(e.target)){return}
+      if (e.target.className === "filterPanel"){return}
+      if (e.target.className === "searchbar aktuellt"){return}
+      if (e.target.className === "filter-knapp active"){return}
+      if (e.target.className === "fa-solid fa-ellipsis"){return}
+      setfilterPanelOpen(false);
+    };
+
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
   // Någon useEffect kanske om användaren laddar in fler inlägg
   // eller vill söka som bara lägger till de nya i newsList/eventList
+  
 
   return (
     <div id="contentbody">
+      <div>
+        <div className="inputfält-aktuellt">
+          <input
+            ref={panelref}
+            type="text"
+            placeholder="Sök efter inlägg..."
+            onChange={(e) => setSearch(e.target.value)}
+            className="searchbar aktuellt"
+          />
+          <button
+            ref={panelref}
+            className={`filter-knapp ${filterPanelOpen ? "active" : ""}`}
+            onClick={(e) => toggleSearchControlls()}
+          >
+            <i className="fa-solid fa-ellipsis"/>
+          </button>
+        </div>
+        <section 
+          ref={panelref} 
+          className={`filterPanel ${filterPanelOpen ? "open" : "collapsed"}`}
+        >
+          <p>
+            Här ska man kunna filtrera på tags osv(WIP)...
+          </p>
+          <p>
+            Kanske vore bättre med en permanent sidebar istället? 
+            eller detta för mobile och sidebar för desktop.
+          </p>
+        </section>
+      </div>
+
       <div style={{ display: "flex" }}>
         <div style={{ width: "48%" }}>
           <h1>Nyheter</h1>

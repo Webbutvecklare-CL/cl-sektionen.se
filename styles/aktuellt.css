@@ -1,3 +1,69 @@
+/* Sök- & filterfält*/
+.inputfält-aktuellt{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 500px;
+  
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid lightgray;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+/* Fungerar för tillfället inte på firefox eller opera mini*/
+.inputfält-aktuellt:has(.searchbar.aktuellt:focus-visible){
+  border: 1px solid black;
+}
+
+.searchbar.aktuellt{
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.searchbar.aktuellt:focus-visible{
+  outline: 0;
+}
+
+.filter-knapp{
+  color: #c0c0c0;
+  padding-top: calc(0.45rem - 1px);
+  padding-bottom: calc(0.45rem - 1px);
+  font-size: 1.5rem;
+  box-shadow: none;
+  background-color: #fefefe;
+  border-radius: 0;
+}
+
+.filter-knapp:hover{
+  color: #fff;
+  background-color: var(--clr2);
+}
+
+.filter-knapp.active{
+  color: #fff;
+  background-color: var(--clr4);
+}
+
+.filterPanel{
+  background-color: #fefefe;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: .2rem;
+
+  height: 150px;
+  margin: 1rem auto 1rem auto;
+  width: 100%;
+  max-width: 700px;
+}
+/*________________________*/
+
+
 .feed-container {
   display: flex;
   justify-content: space-evenly;

@@ -16,7 +16,7 @@ import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "fi
 
 export default function Index({ contents, newsList, eventList }) {
   const [open, setOpen] = useState(false);
-  const toggleOm = (e) => {
+  const toggleOm = () => {
     setOpen(!open);
   };
 

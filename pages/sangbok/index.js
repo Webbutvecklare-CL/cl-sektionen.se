@@ -23,12 +23,12 @@ function Sangbok() {
         är skapade av Rebecka Ingram CL18.
       </p>
 
-      <div className="inputfält">
+      <div className="inputfält-sångbok">
         <input
           type="text"
           placeholder="Sök efter sång..."
           onChange={(e) => setSearch(e.target.value)}
-          className="searchbar"
+          className="searchbar sångbok"
         />
         <div className="filter">Sortera på kategori</div>
         <input

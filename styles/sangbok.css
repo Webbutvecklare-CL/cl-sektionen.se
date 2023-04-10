@@ -44,29 +44,19 @@
 }
 
 
-.inputfält{
+.inputfält-sångbok{
   max-width: 833px;
   margin: auto;
   padding: 1rem 0 1rem 0;
   display: flex;
 }
 
-.searchbar {
-  display: block;
+.searchbar.sångbok{
   width: 80%;
   max-width: 800px;
   min-width: 100px;
-
-  margin: 0 1rem 1rem 0;
-  padding: 0.7rem;
-
-  font-family: unset;
-  font-size: 1rem;
-
-  border: 1px solid lightgrey;
-  border-radius: .5rem;
-  box-shadow: 0px 0px 8px -3px rgba(0, 0, 0, 0.1);
   scroll-margin-top: 75px;
+  margin: 0 1rem 1rem 0;
 }
 
 .filter{
