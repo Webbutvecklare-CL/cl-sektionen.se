@@ -87,7 +87,7 @@
 .feed-preview .post-preview .body p {
   all: unset;
   width: 100%;
-  word-wrap:break-word;
+  word-wrap: break-word;
   word-break: break-all;
   color: #1d1d1f;
   font-size: 1rem;
@@ -95,6 +95,10 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.feed-preview .post-preview .body strong {
+  color: #1d1d1f;
 }
 
 .aktuellt_innehåll .feed-preview{
