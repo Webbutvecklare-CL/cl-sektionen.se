@@ -2,7 +2,7 @@
 
 _Melodi: Studentsången_
 
-<img src="..\media\sangbok\Emojivisan_färg.jpg" class="emojivisan">
+<img src="..\media\sangbok\emojivisan_färg.png" class="emojivisan">
 
 _Text: Axel Hultman & Gustav Fridh, Media KTH, 2015_
 
