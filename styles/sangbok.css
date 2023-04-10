@@ -70,3 +70,8 @@
   width: 1rem;
   margin: .8rem;
 }
+
+img.emojivisan{
+  width: 100%;
+  max-width: 400px;
+}
