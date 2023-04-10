@@ -18,9 +18,8 @@ function Sangbok() {
     <div id="contentbody">
       <h1>Sångbok</h1>
       <p>
-        Nedan finner du samtliga sånger från sektionens officiella sångbok. Fysisk kopia av
-        sångboken finns att köpa för 130 kr. Prata med försäljningsansvarig! Samtliga illustrationer
-        är skapade av Rebecka Ingram CL18.
+        Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför sektionens 20-årsjubileum. Fysisk kopia av
+        sångboken finns att köpa för 130 kr. Prata med försäljningsansvarig!
       </p>
 
       <div className="inputfält-sångbok">
