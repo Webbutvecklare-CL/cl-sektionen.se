@@ -102,10 +102,18 @@
     font-size: 1.1rem;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 8;
+    -webkit-line-clamp: 11;
     -webkit-box-orient: vertical;
 }
-  
+
+.featured-preview .post-preview .body strong {
+    color: #1d1d1f
+}
+.featured-preview .post-preview .body br {
+    content: "";
+    display: block;
+    margin-bottom: .5rem;
+}
 
 .event_och_gråttan{
     display: grid;

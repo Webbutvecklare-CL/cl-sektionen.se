@@ -28,7 +28,7 @@ const FeaturedPostPreview = ({ post }) => {
               <p>
                 {parse(
                   sanitizeHtml(post.body, {
-                    allowedTags: [],
+                    allowedTags: ["strong", "br"],
                   })
                 )}
               </p>
