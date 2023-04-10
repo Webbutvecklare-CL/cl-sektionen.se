@@ -86,7 +86,9 @@
 
 .feed-preview .post-preview .body p {
   all: unset;
-  width: inherit;
+  width: 100%;
+  word-wrap:break-word;
+  word-break: break-all;
   color: #1d1d1f;
   font-size: 1rem;
   overflow: hidden;

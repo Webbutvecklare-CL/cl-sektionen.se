@@ -28,6 +28,7 @@
     margin: 0;
     display: grid;
     grid-template-columns: 480px 1fr !important;
+    grid-template-rows: auto 1fr;
     gap: 0 1rem;
     grid-template-areas:
       "image meta"
@@ -95,6 +96,8 @@
 .featured-preview .post-preview .body p {
     all: unset;
     width: inherit;
+    word-wrap: break-word;
+    word-break: break-all;
     color: #1d1d1f;
     font-size: 1.1rem;
     overflow: hidden;
