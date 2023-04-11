@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react";
 
 import FeedPreview from "../../components/FeedPreview";
 
-export default function Aktuellt({ newsList, eventList }) {
+export default function Aktuellt({ postList }) {
   const [currentpage, setcurrentPage] = useState(1);
   const itemsperpage = 6;
 
@@ -18,7 +18,7 @@ export default function Aktuellt({ newsList, eventList }) {
   });
   const [filterTags, setFilterTags] = useState({});
   const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState(new Date().toLocaleString().substring(0, 10));
+  const [endDate, setEndDate] = useState(new Date().toDateString());
 
   // tar bort filter kategori of den redan finns, lägger annars till den
   const handleTagClick = (e) => {
@@ -46,39 +46,39 @@ export default function Aktuellt({ newsList, eventList }) {
     //Går säkert att göra super smidigt med '...' syntax, men jag orkar inte lära mig det.
     if (type["Nyheter"] && type["Event"]){
       setFilterTags({
-        Aktuellt: filterTags["Aktuellt"]? filterTags["Aktuellt"] : false,
-        Viktigt: filterTags["Viktigt"]?  filterTags["Viktigt"] : false,
-        Information: filterTags["Information"]?  filterTags["Information"] : false,
-        Annat: filterTags["Annat"]?  filterTags["Annat"] : false,
+        Aktuellt: filterTags["Aktuellt"]? true : filterTags["Aktuellt"],
+        Viktigt: filterTags["Viktigt"]? true : filterTags["Viktigt"],
+        Information: filterTags["Information"]? true : filterTags["Information"],
+        Annat: filterTags["Annat"]? true : filterTags["Annat"],
     
-        Idrott: filterTags["Idrott"]?  filterTags["Idrott"] : false,
-        Gasque: filterTags["Gasque"]?  filterTags["Gasque"] : false,
-        Pub: filterTags["Pub"]?  filterTags["Pub"] : false,
-        Lunchföreläsning: filterTags["Lunchföreläsning"]?  filterTags["Lunchföreläsning"] : false,
-        Workshop: filterTags["Workshop"]?  filterTags["Workshop"] : false,
-        Förtroendevalda: filterTags["Förtroendevalda"]?  filterTags["Förtroendevalda"] : false,
-        SM: filterTags["SM"]?  filterTags["SM"] : false,
-        StyM: filterTags["StyM"]?  filterTags["StyM"] : false,
+        Idrott: filterTags["Idrott"]? true : filterTags["Idrott"],
+        Gasque: filterTags["Gasque"]? true : filterTags["Gasque"],
+        Pub: filterTags["Pub"]? true : filterTags["Pub"],
+        Lunchföreläsning: filterTags["Lunchföreläsning"]? true : filterTags["Lunchföreläsning"],
+        Workshop: filterTags["Workshop"]? true : filterTags["Workshop"],
+        Förtroendevalda: filterTags["Förtroendevalda"]? true : filterTags["Förtroendevalda"],
+        SM: filterTags["SM"]? true : filterTags["SM"],
+        StyM: filterTags["StyM"]? true : filterTags["StyM"],
       })
     }
     else if (type["Nyheter"]){
       setFilterTags({
-        Aktuellt: filterTags["Aktuellt"]? filterTags["Aktuellt"] : false,
-        Viktigt: filterTags["Viktigt"]?  filterTags["Viktigt"] : false,
-        Information: filterTags["Information"]?  filterTags["Information"] : false,
-        Annat: filterTags["Annat"]?  filterTags["Annat"] : false,
+        Aktuellt: filterTags["Aktuellt"]? true : filterTags["Aktuellt"],
+        Viktigt: filterTags["Viktigt"]? true : filterTags["Viktigt"],
+        Information: filterTags["Information"]? true : filterTags["Information"],
+        Annat: filterTags["Annat"]? true : filterTags["Annat"],
       })
     }
     else if (type["Event"]){
       setFilterTags({
-        Idrott: filterTags["Idrott"]?  filterTags["Idrott"] : false,
-        Gasque: filterTags["Gasque"]?  filterTags["Gasque"] : false,
-        Pub: filterTags["Pub"]?  filterTags["Pub"] : false,
-        Lunchföreläsning: filterTags["Lunchföreläsning"]?  filterTags["Lunchföreläsning"] : false,
-        Workshop: filterTags["Workshop"]?  filterTags["Workshop"] : false,
-        Förtroendevalda: filterTags["Förtroendevalda"]?  filterTags["Förtroendevalda"] : false,
-        SM: filterTags["SM"]?  filterTags["SM"] : false,
-        StyM: filterTags["StyM"]?  filterTags["StyM"] : false,
+        Idrott: filterTags["Idrott"]? true : filterTags["Idrott"],
+        Gasque: filterTags["Gasque"]? true : filterTags["Gasque"],
+        Pub: filterTags["Pub"]? true : filterTags["Pub"],
+        Lunchföreläsning: filterTags["Lunchföreläsning"]? true : filterTags["Lunchföreläsning"],
+        Workshop: filterTags["Workshop"]? true : filterTags["Workshop"],
+        Förtroendevalda: filterTags["Förtroendevalda"]? true : filterTags["Förtroendevalda"],
+        SM: filterTags["SM"]? true : filterTags["SM"],
+        StyM: filterTags["StyM"]? true : filterTags["StyM"],
       })
     }
     else {setFilterTags({})}
@@ -172,16 +172,17 @@ export default function Aktuellt({ newsList, eventList }) {
           type="date"
           className="datepicker"
           required
-          onChange={(e) => setStartDate(e.target.value)}
+          value={FormatDate(new Date(Date.parse(startDate)))}
+          onChange={(e) => setStartDate(new Date(e.target.value))}
+          max={endDate}
         /><br/><br/>
         <strong>Till &nbsp;&nbsp;</strong>
         <input
           type="date"
           className="datepicker"
           required
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          min={startDate}
+          value={FormatDate(new Date(Date.parse(endDate)))}
+          onChange={(e) => setEndDate(new Date(e.target.value))}
         />
       </div>
     )
@@ -237,17 +238,41 @@ export default function Aktuellt({ newsList, eventList }) {
 
           <section className="posts">
             <div style={{ display: "flex" }}>
-              <FeedPreview posts={newsList.filter((post) =>{
+              <FeedPreview posts={
+                postList.filter((post) =>{
                   return search.toLowerCase() === ""
                   ? true
                   : post.title.toLowerCase().includes(search.toLowerCase());
-                })
-                .slice(0, (currentpage) * itemsperpage)
+                }).filter((post) =>{
+                  return type[post.type]
+                  ? true
+                  : false
+                }).filter((post) =>{
+                  //Om alla filters är avstända eller påslagna, returnera allt
+                  if (Object.keys(filterTags).every((k) => filterTags[k])) {return true}
+                  if (Object.keys(filterTags).every((k) => !filterTags[k])) {return true}
+                  return post.tags.some((tag) => filterTags[tag])
+                  ? true
+                  : false
+                }).filter((post) => {
+                  let res = true;
+                  const publishDate = new Date(post.publishDate.seconds * 1000);
+
+                  if (endDate && publishDate > endDate) {res = false};
+                  if (startDate && publishDate < startDate) {res = false};
+                  return res;
+                }).slice(0, (currentpage) * itemsperpage)
               }/>
             </div>
             <button 
-              className={`ladda-fler ${(currentpage*itemsperpage < newsList.length)? "ok" : "nope"}`}
-              onClick={(currentpage*itemsperpage < newsList.length)? () => setcurrentPage(currentpage + 1) : ()=>{} }>{currentpage*itemsperpage < newsList.length? "Ladda fler inlägg" : "Inga fler inlägg att hämta"}
+              className={`ladda-fler ${(currentpage*itemsperpage < postList.length)? "ok" : "nope"}`}
+              onClick={
+                (currentpage*itemsperpage < postList.length)
+                ? () => setcurrentPage(currentpage + 1) 
+                : ()=>{} }>
+              {(currentpage*itemsperpage < postList.length)
+              ? "Ladda fler inlägg" 
+              : "Inga fler inlägg att hämta"}
             </button>
           </section>
         </div>
@@ -256,53 +281,52 @@ export default function Aktuellt({ newsList, eventList }) {
   );
 }
 
+//Hjälpfunktion för att visa upp vald publiceringsdatum på android.
+function FormatDate(dateObj){
+  var month = '' + (dateObj.getMonth() + 1);
+  var day = '' + dateObj.getDate();
+  var year = dateObj.getFullYear();
+
+  if (month.length < 2) {month = '0' + month;}
+      
+  if (day.length < 2) {day = '0' + day;}
+      
+  var res = [year, month, day].join('-')
+  return res.includes("NaN")
+  ? ""
+  : res
+}
+
 export async function getStaticProps() {
-  let newsList = [];
-  let eventList = [];
+  let postList = [];
 
   // Aktuellt
   const timeNow = Timestamp.now();
   const postRef = collection(firestore, "posts");
 
   // Skapar en query - vilka inlägg som ska hämtas
-  const newsQuery = query(
+  const postQuery = query(
     postRef,
-    where("type", "==", "Nyheter"),
-    where("publishDate", "<", timeNow),
-    orderBy("publishDate", "desc"),
-    limit(60)
-  );
-  const eventQuery = query(
-    postRef,
-    where("type", "==", "Event"),
     where("publishDate", "<", timeNow),
     orderBy("publishDate", "desc"),
     limit(60)
   );
 
   // Hämtar inläggen från firestore
-  const newsDocs = await getDocs(newsQuery);
-  const eventDocs = await getDocs(eventQuery);
+  const postDocs = await getDocs(postQuery);
 
   // Plockar ut data och lägger till id i post data
-  newsDocs.forEach((doc) => {
+  postDocs.forEach((doc) => {
     let data = doc.data();
     data.id = doc.id;
-    newsList.push(data);
+    postList.push(data);
   });
 
-  eventDocs.forEach((doc) => {
-    let data = doc.data();
-    data.id = doc.id;
-    eventList.push(data);
-  });
-
-  // newsList och eventList är listor med de senaste inläggen
+  // Postlist är listan med de senaste inläggen
   // stringify gör om listan till en sträng parse gör sedan om till objekt
   return {
     props: {
-      newsList: JSON.parse(JSON.stringify(newsList)),
-      eventList: JSON.parse(JSON.stringify(eventList)),
+      postList: JSON.parse(JSON.stringify(postList))
     }, // will be passed to the page component as props
   };
 }
