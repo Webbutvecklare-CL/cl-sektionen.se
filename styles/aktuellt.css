@@ -16,8 +16,7 @@
   overflow: hidden;
 }
 
-/* Fungerar för tillfället inte på firefox eller opera mini*/
-.inputfält-aktuellt:has(.searchbar.aktuellt:focus-visible){
+.inputfält-aktuellt.active{
   border: 1px solid black;
 }
 

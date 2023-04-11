@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react";
 import FeedPreview from "../../components/FeedPreview";
 
 export default function Aktuellt({ newsList, eventList }) {
+  const [fokusSearchBar, setfokusSearchBar] = useState(false);
   const [filterPanelOpen, setfilterPanelOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [filterTags, setfilterTags] = useState([]);
@@ -25,7 +26,7 @@ export default function Aktuellt({ newsList, eventList }) {
 
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
-    let handler = (e) => {
+    let panelCloseHandler = (e) => {
       if (panelref.current.contains(e.target)){return}
       if (e.target.className === "filterPanel"){return}
       if (e.target.className === "searchbar aktuellt"){return}
@@ -34,20 +35,32 @@ export default function Aktuellt({ newsList, eventList }) {
       setfilterPanelOpen(false);
     };
 
-    document.addEventListener("mousedown", handler);
+    document.addEventListener("mousedown", panelCloseHandler);
     return () => {
-      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("mousedown", panelCloseHandler);
+    };
+  });
+
+  //outline runt sökfältet om man klickar innuti, detta för att firefox inte stödjer css 'has()' selector
+  useEffect(() => {
+    let focusSearchHandler = (e) => {
+      if (!fokusSearchBar && e.target.className === "searchbar aktuellt"){setfokusSearchBar(true)}
+      else if (fokusSearchBar && e.target.className !== "searchbar aktuellt"){setfokusSearchBar(false)}
+      console.log(fokusSearchBar);
+    };
+
+    document.addEventListener("mousedown", focusSearchHandler);
+    return () => {
+      document.removeEventListener("mousedown", focusSearchHandler);
     };
   });
 
   // Någon useEffect kanske om användaren laddar in fler inlägg
   // eller vill söka som bara lägger till de nya i newsList/eventList
-  
-
   return (
     <div id="contentbody">
       <div>
-        <div className="inputfält-aktuellt">
+        <div className={`inputfält-aktuellt ${fokusSearchBar ? "active" : ""}`}>
           <input
             ref={panelref}
             type="text"
