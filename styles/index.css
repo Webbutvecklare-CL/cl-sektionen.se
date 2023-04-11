@@ -82,15 +82,13 @@
   background-color: var(--clr1);
   border: none;
   width: 120px;
-  height: 3rem;
-  border-radius: 0 0 1.6rem 1.6rem;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  font-size: 1.2rem;
+  border-radius: 0 0 .7rem .7rem;
+  padding: 0.5rem .75rem 0.5rem .75rem;
+  font-size: 1rem;
   font-family: inherit;
   font-weight: 500;
   color: white;
-  box-shadow: inset 0 1px 0.2rem rgba(0, 0, 0, 0.3), 0 0 0.2rem rgba(0, 0, 0, 0.507);
-}
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);}
 
 .visa_om_knapp.btn-open {
   transform: translateY(-8px);
