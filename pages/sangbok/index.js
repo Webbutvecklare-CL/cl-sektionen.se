@@ -41,7 +41,7 @@ function Sangbok() {
         sånger
         .filter((sång) => {
           return search.toLowerCase() === ""
-            ? sång
+            ? true
             : sång.title.toLowerCase().includes(search.toLowerCase());
           })
         .sort(

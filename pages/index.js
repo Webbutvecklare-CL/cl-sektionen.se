@@ -42,7 +42,7 @@ export default function Index({ contents, newsList, eventList }) {
               <MarkdownRender mdData={contents["om-programmet"]} />
             </section>
           </section>
-          <hr />
+          <hr/>
         </div>
         <div className="visa_om_knapp_div">
           <button className={`visa_om_knapp ${open ? "btn-open" : ""}`} onClick={toggleOm}>

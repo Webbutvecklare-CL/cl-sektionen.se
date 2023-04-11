@@ -88,7 +88,8 @@
   font-family: inherit;
   font-weight: 500;
   color: white;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);}
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
 
 .visa_om_knapp.btn-open {
   transform: translateY(-8px);
