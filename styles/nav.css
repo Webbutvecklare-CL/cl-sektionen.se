@@ -5,12 +5,12 @@
   height: 3.5rem;
   backdrop-filter: blur(4px);
   overflow: visible;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
   z-index: 100; /*fixar så att nav alltid är längst upp*/
 }
 
-.nav_scrolled{
-  transition: .2s ease-in-out;
+.nav_scrolled {
+  transition: 0.2s ease-in-out;
   background-color: var(--clr2);
   backdrop-filter: none;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.307);

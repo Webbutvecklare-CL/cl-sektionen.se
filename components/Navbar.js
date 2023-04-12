@@ -4,7 +4,7 @@ import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from "next/image";
 import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
-import {useRouter} from 'next/router';
+import { useRouter } from "next/router";
 
 //Att lägga till nya sidor:
 // 1. Se till att skapa sidan (se guide)
@@ -63,15 +63,14 @@ export default function Navbar() {
   const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
   const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submeny
   const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
-  const [scrolled, setScrolled] = useState(false)
-  const router = useRouter()
+  const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    window.addEventListener('scroll', ()=> {
-      window.scrollY > 50 ?
-      setScrolled(true) : setScrolled(false)
-    })
-  })
+    window.addEventListener("scroll", () => {
+      window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
+    });
+  });
 
   //egentligen onödig, ska rensas senare (kan alltid kallas med setNavBurgirOpen(!navBurgirOpen) istället)
   const burgirToggle = () => {

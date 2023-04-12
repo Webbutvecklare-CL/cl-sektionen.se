@@ -49,7 +49,7 @@ export default function Dokument() {
           backgroundColor: "#F2F3F4",
         }}></iframe>
       <section id="rättigheter">
-        <MarkdownRender source={`../content/dokument/rattigheter.md`}/>
+        <MarkdownRender source={`../content/dokument/rattigheter.md`} />
       </section>
     </div>
   );

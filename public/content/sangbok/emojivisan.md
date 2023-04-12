@@ -6,7 +6,6 @@ _Melodi: Studentsången_
 
 _Text: Axel Hultman & Gustav Fridh, Media KTH, 2015_
 
-
 ### Fusklapp (emojivisan)
 
 Glad ledsen arg tumme upp tumme ner  
