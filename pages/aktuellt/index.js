@@ -1,4 +1,3 @@
-import PostFeed from "../../components/PostFeed";
 import { firestore } from "../../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { useState, useRef, useEffect } from "react";
