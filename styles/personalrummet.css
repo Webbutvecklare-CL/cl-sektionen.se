@@ -10,25 +10,16 @@
   gap: 2rem;
 }
 
+.committee-feed .post-wrapper {
+  display: flex;
+}
+
 .committee-feed .post-preview {
-  grid-template-columns: 0px 120px 1fr !important;
-  gap: unset;
-  grid-template-areas:
-  "options image meta"
-  "options image content";
-  overflow: hidden;
-  transition: all  0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
 }
 
-.committee-feed .post-meta, .post-content {
-  padding-left: 0.5rem;
-}
-
-.committee-feed .post-preview:hover {
-  grid-template-columns: 2rem 120px 1fr !important;
-}
-
-.committee-feed .post-preview .options > div {
+.committee-feed .post-wrapper .options > div {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -36,25 +27,28 @@
   height: 100%;
 }
 
-.committee-feed .post-preview .options {
-  margin: auto;
+.committee-feed .post-wrapper .options {
+  visibility: hidden;
+  margin: 0;
+  width: 0rem;
   height: 100%;
-  width: min-content;
+  transition: all 0.3s ease-in-out;
   transform: translateX(-1.5rem);
-  transition: all  0.3s ease-in-out;
+  color: var(--clr5) !important;
 }
 
-.committee-feed .post-preview:hover .options {
-  display: block;
+.committee-feed .post-wrapper:hover .options {
+  visibility: visible;
+  width: 1rem;
+  margin: 0 0.5rem;
   transform: translateX(0rem);
 }
 
-
-.options {
-  grid-area: options;
+.committee-feed .post-wrapper .options i {
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.options a {
-  height: fit-content;
+.committee-feed .post-wrapper .options i:hover {
+  transform: scale(1.3);
 }
-

@@ -134,7 +134,7 @@ export default function UserMenu() {
           {committeePosts && (
             <div>
               <h2>Nämndens senaste inlägg</h2>
-              <CommitteeFeed posts={committeePosts} />
+              <CommitteeFeed posts={committeePosts} permission={userData.permission} />
             </div>
           )}
           {!committeePosts && (

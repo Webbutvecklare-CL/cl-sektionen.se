@@ -7,9 +7,75 @@
   row-gap: 0.4rem;
 }
 
-.post-preview {
+/* Post preview dvs varje länk */
+.post-wrapper {
   height: 100px;
+  padding: 5px;
+  transition: 0.2s;
+  border-radius: 0.1rem !important;
+  background-color: white;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden !important;
+}
+
+.post-wrapper:hover,
+.post-wrapper:focus {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 26, 0.15) 0%,
+    rgba(255, 255, 255, 1) 65%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  transform: scale(1.005);
+  transition: 0.2s;
+}
+
+.post-preview {
+  height: 100%;
+}
+.post-preview h2 {
+  font-size: 1.5rem;
+  color: #1d1d1f;
+  margin-bottom: 2px;
+}
+
+.post-preview h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 6px 0px;
+}
+
+.post-preview p.meta {
+  font-size: 1.1rem;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  color: #1d1d1f;
+}
+
+.post-preview p.subtitle {
+  font-size: 1.2rem;
+  color: var(--clr5);
+  padding: 0;
+  margin-bottom: 0rem;
+}
+
+.post-preview div.body p {
+  padding: 0;
+  color: #333;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.post-preview a {
+  text-decoration: none;
+  height: 100px;
+}
+
+.post-preview hr {
+  margin-top: 0px;
 }
 
 .feed-preview * {
@@ -21,7 +87,7 @@
   margin: 0;
   display: grid;
   grid-template-columns: 120px 1fr;
-  grid-template-rows: 1.8rem 1fr;
+  grid-template-rows: auto 1fr;
   gap: 0 0.5rem;
   grid-template-areas:
     "image meta"
@@ -102,11 +168,11 @@
   color: #1d1d1f;
 }
 
-.aktuellt_innehåll .feed-preview{
+.aktuellt_innehåll .feed-preview {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 @media screen and (max-width: 550px) {

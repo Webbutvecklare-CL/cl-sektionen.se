@@ -91,6 +91,7 @@ export default function Publicera() {
       committee: userData.committee, // Länkar inlägget med nämnden
       creator: userData.uid, // Länkar inlägget till användaren
       type: data.type,
+      public: true,
     };
 
     if (data.type === "Event") {

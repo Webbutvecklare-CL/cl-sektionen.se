@@ -67,14 +67,21 @@ export default function EditPost() {
             image: { name: fileName },
             body: postData.body,
             tags: postData.tags,
-            date: postData.date.toDate().toLocaleDateString("sv"),
-            publishDate: postData.publishDate.toDate().toLocaleDateString("sv"),
             author: postData.author,
             link: pid,
+            publishDate: postData.publishDate.toDate().toLocaleDateString("sv"),
+            public: postData.public,
           };
 
           if (postData.type) {
             data.type = postData.type;
+
+            if (postData.type === "Event") {
+              data.startDateTime = postData.startDateTime.toDate().toLocaleDateString("sv");
+              data.endDateTime = postData.endDateTime.toDate().toLocaleDateString("sv");
+            } else if (postData.type === "Nyheter") {
+              data.date = postData.date.toDate().toLocaleDateString("sv");
+            }
           }
 
           if (postData.startDateTime) {
