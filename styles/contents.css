@@ -3,7 +3,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   max-width: 1200px;
-  background-color: white;
+  background-color: #fafafa;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -16,6 +16,7 @@ section {
 }
 
 p {
+  word-wrap: break-word;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 0;
@@ -29,9 +30,9 @@ hr {
   height: 1px;
   background-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0)
+    rgba(20, 20, 20, 0),
+    rgba(20, 20, 20, 0.55),
+    rgba(20, 20, 20, 0)
   );
 }
 
@@ -44,8 +45,8 @@ h2 {
 }
 
 #contentbody iframe {
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.507);
+  border-radius: 0.2rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
 .nowrap {
@@ -53,10 +54,11 @@ h2 {
 }
 
 article {
+  background-color: #fefefe;
   margin: auto;
   width: 60%;
   padding: 2em 6em;
-  box-shadow: 0px 0px 25px -11px rgba(0, 0, 0, 0.52);
+  box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 900px) {

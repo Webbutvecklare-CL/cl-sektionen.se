@@ -16,6 +16,16 @@ html {
   overflow-x: hidden;
 }
 
+p{
+  color: #1d1d1f;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #1d1d1f;
+  margin-top: 0;
+}
+
 a {
   color: var(--clr5);
 }
@@ -26,7 +36,7 @@ a:visited {
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: #fafafa;
 }
 
 button {
@@ -46,4 +56,17 @@ button {
 button:hover {
   background-color: var(--clr3);
   transition: 0.2s;
+}
+
+.searchbar {
+  display: block;
+  padding: 0.7rem;
+
+  font-family: unset;
+  font-size: 1rem;
+
+  background-color: #fefefe;
+  border: 1px solid lightgrey;
+  border-radius: .5rem;
+  box-shadow: 0px 0px 8px -3px rgba(0, 0, 0, 0.1);
 }

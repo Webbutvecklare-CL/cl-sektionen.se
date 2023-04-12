@@ -4,7 +4,6 @@ import { useState } from "react";
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth){
   if (currentMonth < 6 || currentMonth > 9) {
-    console.log("heh")
     return false;
   } 
   return true;
@@ -19,17 +18,16 @@ function Sangbok() {
     <div id="contentbody">
       <h1>Sångbok</h1>
       <p>
-        Nedan finner du samtliga sånger från sektionens officiella sångbok. Fysisk kopia av
-        sångboken finns att köpa för 130 kr. Prata med försäljningsansvarig! Samtliga illustrationer
-        är skapade av Rebecka Ingram CL18.
+        Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför sektionens 20-årsjubileum. Fysisk kopia av
+        sångboken finns att köpa för 130 kr. Prata med försäljningsansvarig!
       </p>
 
-      <div className="inputfält">
+      <div className="inputfält-sångbok">
         <input
           type="text"
           placeholder="Sök efter sång..."
           onChange={(e) => setSearch(e.target.value)}
-          className="searchbar"
+          className="searchbar sångbok"
         />
         <div className="filter">Sortera på kategori</div>
         <input
@@ -43,7 +41,7 @@ function Sangbok() {
         sånger
         .filter((sång) => {
           return search.toLowerCase() === ""
-            ? sång
+            ? true
             : sång.title.toLowerCase().includes(search.toLowerCase());
           })
         .sort(

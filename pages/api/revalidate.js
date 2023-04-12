@@ -42,7 +42,10 @@ export default async function handler(req, res) {
     }
   } else if (page === "post") {
     try {
-      // Försöker revalidate:a index
+      // Försöker revalidate:a post
+      if (!req.query.postId) {
+        return res.status(500).send(`Error revalidating post ${req.query.postId}`);
+      }
       await res.revalidate(`/aktuellt/${req.query.postId}`);
       console.log(`Revalidated /aktuellt/${req.query.postId}`);
       return res.json({ revalidated: true, pages: `/aktuellt/${req.query.postId}` });

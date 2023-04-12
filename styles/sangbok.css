@@ -4,13 +4,13 @@
   flex-wrap: nowrap;
 
   max-width: 800px;
-  height: 1.8rem;
   text-decoration: none;
 
   font-size: 1.2rem;
   font-weight: 600;
 
   padding: 0.7rem 1rem 0.7rem 1rem;
+  background-color: white;
   border: 1px solid rgb(230, 230, 230);
   margin: -1px auto 0 auto;
 }
@@ -20,13 +20,13 @@
   background: linear-gradient(
     90deg,
     rgba(200, 0, 26, 0.1) 0%,
-    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 1) 35%,
     rgba(255, 255, 255, 1) 100%
   );
 }
 
-.sånglänk:hover .sångtitel {
-  font-size: 1.3rem;
+.sånglänk:hover  {
+  transform: scale(1.01);
   transition: 0.2s;
 }
 
@@ -44,29 +44,19 @@
 }
 
 
-.inputfält{
-  max-width: 800px;
+.inputfält-sångbok{
+  max-width: 833px;
   margin: auto;
   padding: 1rem 0 1rem 0;
   display: flex;
 }
 
-.searchbar {
-  display: block;
+.searchbar.sångbok{
   width: 80%;
   max-width: 800px;
   min-width: 100px;
-
-  margin: 0 1rem 1rem 0;
-  padding: 0.7rem;
-
-  font-family: unset;
-  font-size: 1rem;
-
-  border: 1px solid lightgrey;
-  border-radius: 1rem;
-  box-shadow: 0px 0px 8px -3px rgba(0, 0, 0, 0.1);
   scroll-margin-top: 75px;
+  margin: 0 1rem 1rem 0;
 }
 
 .filter{
@@ -79,4 +69,9 @@
   height: 1rem;
   width: 1rem;
   margin: .8rem;
+}
+
+img.emojivisan{
+  width: 100%;
+  max-width: 400px;
 }

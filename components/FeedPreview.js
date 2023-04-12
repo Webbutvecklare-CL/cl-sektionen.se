@@ -29,7 +29,7 @@ const FeedPreview = ({ posts }) => {
                   <p>
                     {parse(
                       sanitizeHtml(post.body, {
-                        allowedTags: [],
+                        allowedTags: ["strong"],
                       })
                     )}
                   </p>

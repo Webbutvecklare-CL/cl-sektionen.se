@@ -1,8 +1,9 @@
 /* Aktuellt feed */
 .feed-preview {
+  width: 100%;
   padding-bottom: 0;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: 1fr;
   row-gap: 0.4rem;
 }
 
@@ -41,11 +42,7 @@
 
 .feed-preview .post-meta {
   grid-area: meta;
-  height: 1.5rem;
   overflow: hidden;
-
-  display: grid;
-  grid-template-columns: 1fr 5rem;
   color: black;
   gap: 0.5rem;
   width: 100%;
@@ -90,8 +87,10 @@
 
 .feed-preview .post-preview .body p {
   all: unset;
-  width: inherit;
-  color: black;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #1d1d1f;
   font-size: 1rem;
   overflow: hidden;
   display: -webkit-box;
@@ -99,9 +98,20 @@
   -webkit-box-orient: vertical;
 }
 
+.feed-preview .post-preview .body strong {
+  color: #1d1d1f;
+}
+
+.aktuellt_innehåll .feed-preview{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: .5rem;
+}
+
 @media screen and (max-width: 550px) {
   .feed-preview .post-preview {
-    width: calc(100vw - 3rem); /*Det funkar, fråga inte... */
+    width: 100% - 3rem;
     grid-template-columns: 100px 1fr;
     grid-template-areas:
       "image meta"

@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
-import { getMessaging } from "firebase/messaging";
+import { getMessaging, isSupported } from "firebase/messaging";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -23,7 +23,7 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const firestore = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
-// const messaging = getMessaging(app);
+const messaging = async () => (await isSupported()) && getMessaging(app);
 // const analytics = getAnalytics(app);
 
-export { app, firestore, storage, auth };
+export { app, firestore, storage, auth, messaging };

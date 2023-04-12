@@ -2,11 +2,10 @@
 
 _Melodi: Studentsången_
 
-WORK IN PROGRESS :/
+<img src="..\media\sangbok\emojivisan_färg.png" class="emojivisan">
 
 _Text: Axel Hultman & Gustav Fridh, Media KTH, 2015_
 
-#
 
 ### Fusklapp (emojivisan)
 
