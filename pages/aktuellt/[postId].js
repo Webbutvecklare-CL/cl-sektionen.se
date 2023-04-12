@@ -51,7 +51,12 @@ export default function Post({ postData }) {
 
 export async function getStaticProps({ params }) {
   const docRef = doc(firestore, "posts", params.postId);
-  const docSnap = await getDoc(docRef);
+  let docSnap = null;
+  try {
+    docSnap = await getDoc(docRef);
+  } catch (error) {
+    console.error("Det gick inte att ladda inlägget: ", error);
+  }
 
   return { props: { postData: JSON.parse(JSON.stringify(docSnap.data())) } };
 }
@@ -70,7 +75,12 @@ export async function getStaticPaths() {
   );
 
   // Hämtar inläggen från firestore
-  const publicDocs = await getDocs(publicQuery);
+  let publicDocs = [];
+  try {
+    publicDocs = await getDocs(publicQuery);
+  } catch (error) {
+    console.error("Det gick inte att ladda inläggen: ", error);
+  }
 
   // Plockar ut id:et
   let postIdList = [];

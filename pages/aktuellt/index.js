@@ -49,8 +49,14 @@ export async function getStaticProps() {
   );
 
   // Hämtar inläggen från firestore
-  const newsDocs = await getDocs(newsQuery);
-  const eventDocs = await getDocs(eventQuery);
+  let newsDocs = [];
+  let eventDocs = [];
+  try {
+    newsDocs = await getDocs(newsQuery);
+    eventDocs = await getDocs(eventQuery);
+  } catch (error) {
+    console.error("Det gick inte att hämta inläggen: ", error);
+  }
 
   // Plockar ut data och lägger till id i post data
   newsDocs.forEach((doc) => {

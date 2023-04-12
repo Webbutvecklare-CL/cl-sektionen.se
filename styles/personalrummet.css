@@ -9,3 +9,52 @@
   flex-direction: row;
   gap: 2rem;
 }
+
+.committee-feed .post-preview {
+  grid-template-columns: 0px 120px 1fr !important;
+  gap: unset;
+  grid-template-areas:
+  "options image meta"
+  "options image content";
+  overflow: hidden;
+  transition: all  0.3s ease-in-out;
+}
+
+.committee-feed .post-meta, .post-content {
+  padding-left: 0.5rem;
+}
+
+.committee-feed .post-preview:hover {
+  grid-template-columns: 2rem 120px 1fr !important;
+}
+
+.committee-feed .post-preview .options > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.committee-feed .post-preview .options {
+  margin: auto;
+  height: 100%;
+  width: min-content;
+  transform: translateX(-1.5rem);
+  transition: all  0.3s ease-in-out;
+}
+
+.committee-feed .post-preview:hover .options {
+  display: block;
+  transform: translateX(0rem);
+}
+
+
+.options {
+  grid-area: options;
+}
+
+.options a {
+  height: fit-content;
+}
+
