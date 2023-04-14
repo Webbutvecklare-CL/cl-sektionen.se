@@ -9,3 +9,46 @@
   flex-direction: row;
   gap: 2rem;
 }
+
+.committee-feed .post-wrapper {
+  display: flex;
+}
+
+.committee-feed .post-preview {
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+}
+
+.committee-feed .post-wrapper .options > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.committee-feed .post-wrapper .options {
+  visibility: hidden;
+  margin: 0;
+  width: 0rem;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-1.5rem);
+  color: var(--clr5) !important;
+}
+
+.committee-feed .post-wrapper:hover .options {
+  visibility: visible;
+  width: 1rem;
+  margin: 0 0.5rem;
+  transform: translateX(0rem);
+}
+
+.committee-feed .post-wrapper .options i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.committee-feed .post-wrapper .options i:hover {
+  transform: scale(1.3);
+}

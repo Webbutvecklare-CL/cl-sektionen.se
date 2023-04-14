@@ -5,13 +5,11 @@ export function getContentData(page) {
   let contents = {};
 
   readdirSync(`public/content/${page}`).forEach((fileName) => {
-    // Behåller endast filnamnet
-    fileName = fileName.replace(/\.mdx?$/, "");
     // process.cwd() är för att skit ska fungera
-    const fullPath = path.join(process.cwd(), `public/content/${page}/${fileName}.md`);
+    const fullPath = path.join(process.cwd(), `public/content/${page}/${fileName}`);
 
     // Läser in textdata och lägger till i contents
-    contents[fileName] = readFileSync(fullPath, "utf8");
+    contents[fileName.split(".")[0]] = readFileSync(fullPath, "utf8");
   });
 
   // Combine the data with the id

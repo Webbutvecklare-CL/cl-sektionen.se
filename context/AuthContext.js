@@ -8,6 +8,7 @@ const AuthContext = createContext({});
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({ children }) => {
+  const testUser = { displayName: "Test User", committee: "Testnämnden" };
   const [user, setUser] = useState({}); // Sparar google user uppgifter
   const [userData, setUserData] = useState(); // Sparar data som finns på firebase under /user/{uid}
   const [userAccessToken, setUserAccessToken] = useState(); // Användarens access token för google api

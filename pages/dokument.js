@@ -1,7 +1,8 @@
 import React from "react";
 import MarkdownRender from "../components/MarkdownRender";
+import { getContentData } from "../utils/contents";
 
-export default function Dokument() {
+export default function Dokument({ contents }) {
   return (
     <div id="contentbody">
       <h1>Dokument</h1>
@@ -49,8 +50,17 @@ export default function Dokument() {
           backgroundColor: "#F2F3F4",
         }}></iframe>
       <section id="rättigheter">
-        <MarkdownRender source={`../content/dokument/rattigheter.md`}/>
+        <MarkdownRender mdData={contents["rattigheter"]} />
       </section>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  let contents = getContentData("dokument");
+  return {
+    props: {
+      contents,
+    },
+  };
 }

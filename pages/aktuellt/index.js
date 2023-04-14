@@ -1,4 +1,3 @@
-import PostFeed from "../../components/PostFeed";
 import { firestore } from "../../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { useState, useRef, useEffect } from "react";
@@ -32,7 +31,6 @@ export default function Aktuellt({ postList }) {
     setFilterTags((filterTags) => ({ ...filterTags, ...{ [tag]: !selected } }));
   };
 
-  
   const handleSetType = (e) => {
     if (e) {
       e.preventDefault();
@@ -40,59 +38,68 @@ export default function Aktuellt({ postList }) {
     let tag = e.target.innerHTML;
     let selected = e.target.classList.contains("selected");
 
-    setType((t) => ({ ...t, ...{ [tag]: !selected}}));
+    setType((t) => ({ ...t, ...{ [tag]: !selected } }));
   };
-  useEffect(() =>{
+  useEffect(() => {
     //Går säkert att göra super smidigt med '...' syntax, men jag orkar inte lära mig det.
-    if (type["Nyheter"] && type["Event"]){
+    if (type["Nyheter"] && type["Event"]) {
       setFilterTags({
-        Aktuellt: filterTags["Aktuellt"]? true : filterTags["Aktuellt"],
-        Viktigt: filterTags["Viktigt"]? true : filterTags["Viktigt"],
-        Information: filterTags["Information"]? true : filterTags["Information"],
-        Annat: filterTags["Annat"]? true : filterTags["Annat"],
-    
-        Idrott: filterTags["Idrott"]? true : filterTags["Idrott"],
-        Gasque: filterTags["Gasque"]? true : filterTags["Gasque"],
-        Pub: filterTags["Pub"]? true : filterTags["Pub"],
-        Lunchföreläsning: filterTags["Lunchföreläsning"]? true : filterTags["Lunchföreläsning"],
-        Workshop: filterTags["Workshop"]? true : filterTags["Workshop"],
-        Förtroendevalda: filterTags["Förtroendevalda"]? true : filterTags["Förtroendevalda"],
-        SM: filterTags["SM"]? true : filterTags["SM"],
-        StyM: filterTags["StyM"]? true : filterTags["StyM"],
-      })
-    }
-    else if (type["Nyheter"]){
+        Aktuellt: filterTags["Aktuellt"] ? true : filterTags["Aktuellt"],
+        Viktigt: filterTags["Viktigt"] ? true : filterTags["Viktigt"],
+        Information: filterTags["Information"] ? true : filterTags["Information"],
+        Annat: filterTags["Annat"] ? true : filterTags["Annat"],
+
+        Idrott: filterTags["Idrott"] ? true : filterTags["Idrott"],
+        Gasque: filterTags["Gasque"] ? true : filterTags["Gasque"],
+        Pub: filterTags["Pub"] ? true : filterTags["Pub"],
+        Lunchföreläsning: filterTags["Lunchföreläsning"] ? true : filterTags["Lunchföreläsning"],
+        Workshop: filterTags["Workshop"] ? true : filterTags["Workshop"],
+        Förtroendevalda: filterTags["Förtroendevalda"] ? true : filterTags["Förtroendevalda"],
+        SM: filterTags["SM"] ? true : filterTags["SM"],
+        StyM: filterTags["StyM"] ? true : filterTags["StyM"],
+      });
+    } else if (type["Nyheter"]) {
       setFilterTags({
-        Aktuellt: filterTags["Aktuellt"]? true : filterTags["Aktuellt"],
-        Viktigt: filterTags["Viktigt"]? true : filterTags["Viktigt"],
-        Information: filterTags["Information"]? true : filterTags["Information"],
-        Annat: filterTags["Annat"]? true : filterTags["Annat"],
-      })
-    }
-    else if (type["Event"]){
+        Aktuellt: filterTags["Aktuellt"] ? true : filterTags["Aktuellt"],
+        Viktigt: filterTags["Viktigt"] ? true : filterTags["Viktigt"],
+        Information: filterTags["Information"] ? true : filterTags["Information"],
+        Annat: filterTags["Annat"] ? true : filterTags["Annat"],
+      });
+    } else if (type["Event"]) {
       setFilterTags({
-        Idrott: filterTags["Idrott"]? true : filterTags["Idrott"],
-        Gasque: filterTags["Gasque"]? true : filterTags["Gasque"],
-        Pub: filterTags["Pub"]? true : filterTags["Pub"],
-        Lunchföreläsning: filterTags["Lunchföreläsning"]? true : filterTags["Lunchföreläsning"],
-        Workshop: filterTags["Workshop"]? true : filterTags["Workshop"],
-        Förtroendevalda: filterTags["Förtroendevalda"]? true : filterTags["Förtroendevalda"],
-        SM: filterTags["SM"]? true : filterTags["SM"],
-        StyM: filterTags["StyM"]? true : filterTags["StyM"],
-      })
+        Idrott: filterTags["Idrott"] ? true : filterTags["Idrott"],
+        Gasque: filterTags["Gasque"] ? true : filterTags["Gasque"],
+        Pub: filterTags["Pub"] ? true : filterTags["Pub"],
+        Lunchföreläsning: filterTags["Lunchföreläsning"] ? true : filterTags["Lunchföreläsning"],
+        Workshop: filterTags["Workshop"] ? true : filterTags["Workshop"],
+        Förtroendevalda: filterTags["Förtroendevalda"] ? true : filterTags["Förtroendevalda"],
+        SM: filterTags["SM"] ? true : filterTags["SM"],
+        StyM: filterTags["StyM"] ? true : filterTags["StyM"],
+      });
+    } else {
+      setFilterTags({});
     }
-    else {setFilterTags({})}
-  }, [type])
+  }, [type]);
 
   const panelref = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
-      if (panelref.current.contains(e.target)){return}
-      if (e.target.className === "filterPanel mobile"){return}
-      if (e.target.className === "searchbar aktuellt"){return}
-      if (e.target.className === "filter-knapp active"){return}
-      if (e.target.className === "fa-solid fa-ellipsis"){return}
+      if (panelref.current.contains(e.target)) {
+        return;
+      }
+      if (e.target.className === "filterPanel mobile") {
+        return;
+      }
+      if (e.target.className === "searchbar aktuellt") {
+        return;
+      }
+      if (e.target.className === "filter-knapp active") {
+        return;
+      }
+      if (e.target.className === "fa-solid fa-ellipsis") {
+        return;
+      }
       setfilterPanelOpen(false);
     };
 
@@ -105,8 +112,11 @@ export default function Aktuellt({ postList }) {
   const [fokusSearchBar, setfokusSearchBar] = useState(false);
   useEffect(() => {
     let focusSearchHandler = (e) => {
-      if (!fokusSearchBar && e.target.className === "searchbar aktuellt"){setfokusSearchBar(true)}
-      else if (fokusSearchBar && e.target.className !== "searchbar aktuellt"){setfokusSearchBar(false)}
+      if (!fokusSearchBar && e.target.className === "searchbar aktuellt") {
+        setfokusSearchBar(true);
+      } else if (fokusSearchBar && e.target.className !== "searchbar aktuellt") {
+        setfokusSearchBar(false);
+      }
     };
 
     document.addEventListener("mousedown", focusSearchHandler);
@@ -116,35 +126,37 @@ export default function Aktuellt({ postList }) {
   });
 
   //HTML för filterpaneler
-  const TypPanel = () =>{
-    return(
+  const TypPanel = () => {
+    return (
       <div>
-        <h3><i className="fa-solid fa-filter"/>  Nyheter eller event</h3>
-        <button
-          className={`${type["Nyheter"] ? "selected" : ""}`}
-          onClick={handleSetType}>
+        <h3>
+          <i className="fa-solid fa-filter" /> Nyheter eller event
+        </h3>
+        <button className={`${type["Nyheter"] ? "selected" : ""}`} onClick={handleSetType}>
           Nyheter
         </button>
-        <button
-          className={`${type["Event"] ? "selected" : ""}`}
-          onClick={handleSetType}>
+        <button className={`${type["Event"] ? "selected" : ""}`} onClick={handleSetType}>
           Event
         </button>
       </div>
-    )
-  }
-  const SortPanel = () =>{
-    return(
-      <div>
-        <h3><i className="fa-solid fa-arrow-down-wide-short"/> Sortera efter</h3>
-        <p>[Sortera efter datum, nämnd eller alfabetisk samt toggle för ascending/descending]</p>
-      </div>
-    )
-  }
-  const TagPanel = () =>{
+    );
+  };
+  const SortPanel = () => {
     return (
       <div>
-        <h3><i className="fa-solid fa-tags"/> Kategorier</h3>
+        <h3>
+          <i className="fa-solid fa-arrow-down-wide-short" /> Sortera efter
+        </h3>
+        <p>[Sortera efter datum, nämnd eller alfabetisk samt toggle för ascending/descending]</p>
+      </div>
+    );
+  };
+  const TagPanel = () => {
+    return (
+      <div>
+        <h3>
+          <i className="fa-solid fa-tags" /> Kategorier
+        </h3>
         <div className="tag-container">
           <div className="tag-selector">
             {Object.keys(filterTags).map((tag, index) => {
@@ -161,12 +173,14 @@ export default function Aktuellt({ postList }) {
           </div>
         </div>
       </div>
-    )
-  }
-  const DatumPanel = () =>{
+    );
+  };
+  const DatumPanel = () => {
     return (
       <div className="publiceringsdatum-wrapper">
-        <h3><i className="fa-solid fa-calendar-days"/> Publiceringsdatum</h3>
+        <h3>
+          <i className="fa-solid fa-calendar-days" /> Publiceringsdatum
+        </h3>
         <strong>Från&nbsp;</strong>
         <input
           type="date"
@@ -175,7 +189,9 @@ export default function Aktuellt({ postList }) {
           value={FormatDate(new Date(Date.parse(startDate)))}
           onChange={(e) => setStartDate(new Date(e.target.value))}
           max={endDate}
-        /><br/><br/>
+        />
+        <br />
+        <br />
         <strong>Till &nbsp;&nbsp;</strong>
         <input
           type="date"
@@ -185,8 +201,8 @@ export default function Aktuellt({ postList }) {
           onChange={(e) => setEndDate(new Date(e.target.value))}
         />
       </div>
-    )
-  }
+    );
+  };
 
   // Någon useEffect kanske om användaren laddar in fler inlägg
   // eller vill söka som bara lägger till de nya i newsList/eventList
@@ -194,14 +210,13 @@ export default function Aktuellt({ postList }) {
     <div id="contentbody">
       <h1>Sök bland alla inlägg</h1>
       <div className="aktuellt-wrapper">
-
         {/*filterpanel för widescreen*/}
         <section className="filterPanel wide">
           <h2>Filtrera inlägg</h2>
-          <TypPanel/>
-          <SortPanel/>
-          <TagPanel/>
-          <DatumPanel/>
+          <TypPanel />
+          <SortPanel />
+          <TagPanel />
+          <DatumPanel />
         </section>
 
         <div className="sök-och-content-wrapper">
@@ -211,68 +226,79 @@ export default function Aktuellt({ postList }) {
               type="text"
               placeholder="Sök efter inlägg..."
               onChange={(e) => {
-                setSearch(e.target.value)
+                setSearch(e.target.value);
               }}
               className="searchbar aktuellt"
             />
             <button
               ref={panelref}
               className={`filter-knapp ${filterPanelOpen ? "active" : ""}`}
-              onClick={() => setfilterPanelOpen(!filterPanelOpen)}
-            >
-              <i className="fa-solid fa-ellipsis"/>
+              onClick={() => setfilterPanelOpen(!filterPanelOpen)}>
+              <i className="fa-solid fa-ellipsis" />
             </button>
           </div>
 
           {/*filterpanel för mobile*/}
-          <section 
-              ref={panelref} 
-              className={`filterPanel mobile ${filterPanelOpen ? "open" : "collapsed"}`}>
+          <section
+            ref={panelref}
+            className={`filterPanel mobile ${filterPanelOpen ? "open" : "collapsed"}`}>
             <div className="typ_o_sort_wrapper">
-              <TypPanel/>
-              <SortPanel/>
+              <TypPanel />
+              <SortPanel />
             </div>
-            <TagPanel/>
-            <DatumPanel/>
+            <TagPanel />
+            <DatumPanel />
           </section>
 
           <section className="posts">
             <div style={{ display: "flex" }}>
-              <FeedPreview posts={
-                postList.filter((post) =>{
-                  return search.toLowerCase() === ""
-                  ? true
-                  : post.title.toLowerCase().includes(search.toLowerCase());
-                }).filter((post) =>{
-                  return type[post.type]
-                  ? true
-                  : false
-                }).filter((post) =>{
-                  //Om alla filters är avstända eller påslagna, returnera allt
-                  if (Object.keys(filterTags).every((k) => filterTags[k])) {return true}
-                  if (Object.keys(filterTags).every((k) => !filterTags[k])) {return true}
-                  return post.tags.some((tag) => filterTags[tag])
-                  ? true
-                  : false
-                }).filter((post) => {
-                  let res = true;
-                  const publishDate = new Date(post.publishDate.seconds * 1000);
+              <FeedPreview
+                posts={postList
+                  .filter((post) => {
+                    return search.toLowerCase() === ""
+                      ? true
+                      : post.title.toLowerCase().includes(search.toLowerCase());
+                  })
+                  .filter((post) => {
+                    return type[post.type] ? true : false;
+                  })
+                  .filter((post) => {
+                    //Om alla filters är avstända eller påslagna, returnera allt
+                    if (Object.keys(filterTags).every((k) => filterTags[k])) {
+                      return true;
+                    }
+                    if (Object.keys(filterTags).every((k) => !filterTags[k])) {
+                      return true;
+                    }
+                    return post.tags.some((tag) => filterTags[tag]) ? true : false;
+                  })
+                  .filter((post) => {
+                    let res = true;
+                    const publishDate = new Date(post.publishDate.seconds * 1000);
 
-                  if (endDate && publishDate > endDate) {res = false};
-                  if (startDate && publishDate < startDate) {res = false};
-                  return res;
-                }).slice(0, (currentpage) * itemsperpage)
-              }/>
+                    if (endDate && publishDate > endDate) {
+                      res = false;
+                    }
+                    if (startDate && publishDate < startDate) {
+                      res = false;
+                    }
+                    return res;
+                  })
+                  .slice(0, currentpage * itemsperpage)}
+              />
             </div>
-            <button 
-              className={`ladda-fler ${(currentpage*itemsperpage < postList.length)? "ok" : "nope"}`}
+            <button
+              className={`ladda-fler ${
+                currentpage * itemsperpage < postList.length ? "ok" : "nope"
+              }`}
               onClick={
-                (currentpage*itemsperpage < postList.length)
-                ? () => setcurrentPage(currentpage + 1) 
-                : ()=>{} }>
-              {(currentpage*itemsperpage < postList.length)
-              ? "Ladda fler inlägg" 
-              : "Inga fler inlägg att hämta"}
+                currentpage * itemsperpage < postList.length
+                  ? () => setcurrentPage(currentpage + 1)
+                  : () => {}
+              }>
+              {currentpage * itemsperpage < postList.length
+                ? "Ladda fler inlägg"
+                : "Inga fler inlägg att hämta"}
             </button>
           </section>
         </div>
@@ -282,19 +308,21 @@ export default function Aktuellt({ postList }) {
 }
 
 //Hjälpfunktion för att visa upp vald publiceringsdatum på android.
-function FormatDate(dateObj){
-  var month = '' + (dateObj.getMonth() + 1);
-  var day = '' + dateObj.getDate();
+function FormatDate(dateObj) {
+  var month = "" + (dateObj.getMonth() + 1);
+  var day = "" + dateObj.getDate();
   var year = dateObj.getFullYear();
 
-  if (month.length < 2) {month = '0' + month;}
-      
-  if (day.length < 2) {day = '0' + day;}
-      
-  var res = [year, month, day].join('-')
-  return res.includes("NaN")
-  ? ""
-  : res
+  if (month.length < 2) {
+    month = "0" + month;
+  }
+
+  if (day.length < 2) {
+    day = "0" + day;
+  }
+
+  var res = [year, month, day].join("-");
+  return res.includes("NaN") ? "" : res;
 }
 
 export async function getStaticProps() {
@@ -326,7 +354,7 @@ export async function getStaticProps() {
   // stringify gör om listan till en sträng parse gör sedan om till objekt
   return {
     props: {
-      postList: JSON.parse(JSON.stringify(postList))
+      postList: JSON.parse(JSON.stringify(postList)),
     }, // will be passed to the page component as props
   };
 }

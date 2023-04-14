@@ -16,19 +16,19 @@
   text-align: center;
   -webkit-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); /* Firefox 3.5 - 3.6 */
-  box-shadow: 0 0px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
   background-color: #fcfcfc;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   cursor: pointer;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .hedersmedlem:hover {
   -webkit-box-shadow: 0 7px 13px rgb(0 0 0 / 0.3); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 0 7px 13px rgb(0 0 0 / 0.3); /* Firefox 3.5 - 3.6 */
-  box-shadow: 0 0px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.01);
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 
   background: linear-gradient(
     180deg,

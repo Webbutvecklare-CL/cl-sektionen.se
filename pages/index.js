@@ -42,7 +42,7 @@ export default function Index({ contents, newsList, eventList }) {
               <MarkdownRender mdData={contents["om-programmet"]} />
             </section>
           </section>
-          <hr/>
+          <hr />
         </div>
         <div className="visa_om_knapp_div">
           <button className={`visa_om_knapp ${open ? "btn-open" : ""}`} onClick={toggleOm}>
@@ -55,30 +55,30 @@ export default function Index({ contents, newsList, eventList }) {
           </button>
         </div>
         <section id="happenings">
-            <div className="aktuellt_innehåll">
-              <h2>Nyheter</h2>
-                {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
-                {newsList.length < 1 && <p>Inlägg saknas</p>}
-                {newsList && (
-                  <div>
-                    <FeaturedPostPreview post={newsList[0]}/>
-                    <FeedPreview posts={newsList.slice(1)} title="Annat"/>
-                  </div>
-                )}
-            </div>
-            <div className="event_innehåll">
-              <h2>Event</h2>
-              {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
-              {eventList.length < 1 && <p>Inlägg saknas</p>}
-              {eventList && (
-                <div className="event">
-                    <div className="event_och_gråttan">
-                        <FeedPreview posts={eventList} title="Annat"/>
-                        <GråttAgenda/>
-                    </div>
+          <div className="aktuellt_innehåll">
+            <h2>Nyheter</h2>
+            {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
+            {newsList.length < 1 && <p>Inlägg saknas</p>}
+            {newsList && (
+              <div>
+                <FeaturedPostPreview post={newsList[0]} />
+                <FeedPreview posts={newsList.slice(1)} title="Annat" />
+              </div>
+            )}
+          </div>
+          <div className="event_innehåll">
+            <h2>Event</h2>
+            {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
+            {eventList.length < 1 && <p>Inlägg saknas</p>}
+            {eventList && (
+              <div className="event">
+                <div className="event_och_gråttan">
+                  <FeedPreview posts={eventList} title="Annat" />
+                  <GråttAgenda />
                 </div>
-              )}
-            </div>
+              </div>
+            )}
+          </div>
         </section>
         <hr />
         <section className="sektionskal_månad">
@@ -89,7 +89,8 @@ export default function Index({ contents, newsList, eventList }) {
               background:
                 "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
             }}
-            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
             height="400px"
             width="100%"></iframe>
         </section>
@@ -97,7 +98,7 @@ export default function Index({ contents, newsList, eventList }) {
         <section className="resurser">
           <div>
             <section>
-              <br/>
+              <br />
               <h1>Hjälp vid illabehandling</h1>
               <MarkdownRender mdData={contents["hjalp-vid-illabehandling"]} />
               <Link className="section-button" href={"/hjalp-vid-illabehandling"}>
@@ -112,7 +113,7 @@ export default function Index({ contents, newsList, eventList }) {
             </section>
           </div>
           <div>
-            <br/>
+            <br />
             <h1>Näringsliv</h1>
             <div className="start-naringsliv">
               <section>
@@ -159,10 +160,16 @@ export async function getStaticProps() {
     orderBy("publishDate", "desc"),
     limit(4)
   );
-  
   // Hämtar inläggen från firestore
-  const newsDocs = await getDocs(newsQuery);
-  const eventDocs = await getDocs(eventQuery);
+
+  let newsDocs = [];
+  let eventDocs = [];
+  try {
+    newsDocs = await getDocs(newsQuery);
+    eventDocs = await getDocs(eventQuery);
+  } catch (error) {
+    console.error("Det gick inte att hämta inläggen: ", error);
+  }
 
   // Plockar ut data och lägger till id i post data
   newsDocs.forEach((doc) => {

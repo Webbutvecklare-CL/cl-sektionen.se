@@ -25,12 +25,12 @@
   );
 }
 
-.sånglänk:hover  {
+.sånglänk:hover {
   transform: scale(1.01);
   transition: 0.2s;
 }
 
-.sångkategori{
+.sångkategori {
   text-align: right;
   font-weight: 400;
   color: black;
@@ -43,15 +43,14 @@
   font-size: 1rem;
 }
 
-
-.inputfält-sångbok{
+.inputfält-sångbok {
   max-width: 833px;
   margin: auto;
   padding: 1rem 0 1rem 0;
   display: flex;
 }
 
-.searchbar.sångbok{
+.searchbar.sångbok {
   width: 80%;
   max-width: 800px;
   min-width: 100px;
@@ -59,19 +58,18 @@
   margin: 0 1rem 1rem 0;
 }
 
-.filter{
+.filter {
   text-align: right;
-  
 }
 
-.filterbutton{
+.filterbutton {
   accent-color: var(--clr4);
   height: 1rem;
   width: 1rem;
-  margin: .8rem;
+  margin: 0.8rem;
 }
 
-img.emojivisan{
+img.emojivisan {
   width: 100%;
   max-width: 400px;
 }
