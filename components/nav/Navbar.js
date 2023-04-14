@@ -98,6 +98,7 @@ export default function Navbar() {
   return (
     <header>
       <nav>
+        {/* Om man har scorllat på startsidan eller är på en annan sida är top nav röd */}
         <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
           <div id="navmain">
             {/* Denna div är för CL-loggan som leder till index-page */}
