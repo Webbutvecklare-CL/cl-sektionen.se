@@ -56,15 +56,10 @@ export default function EditPost() {
         if (docSnap.exists()) {
           const postData = docSnap.data();
 
-          var pictureItem = postData.image;
-          var url_token = pictureItem.split("?");
-          var url = url_token[0].split("/");
-          var fileName = url[url.length - 1].split("%2F")[2];
-
           const data = {
             title: postData.title,
             subtitle: postData.subtitle,
-            image: { name: fileName },
+            image: postData.image,
             body: postData.body,
             tags: postData.tags,
             author: postData.author,

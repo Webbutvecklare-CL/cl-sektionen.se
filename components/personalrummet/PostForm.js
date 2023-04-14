@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 import TextField from "./TextField";
 import { create_id } from "../../utils/postUtils";
@@ -62,6 +63,18 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       setLink(create_id(title));
     }
   }, [title, tags]);
+
+  // Uppdaterar bild preview
+  // useEffect(() => {
+  //   const frame = document.getElementById("frame");
+  //   console.log(image);
+  //   console.log(URL.revokeObjectURL(image));
+  //   const reader = new FileReader();
+  //   reader.onload = function (e) {
+  //     frame.attr("src", e.target.result);
+  //   };
+  //   reader.readAsDataURL(image);
+  // }, [image]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -241,6 +254,14 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     document.querySelector("input[type=file]").value = "";
   };
 
+  // Konverterar firebase bild länk till filnamn
+  const getImageName = (link) => {
+    const url_token = link.split("?");
+    const url = url_token[0].split("/");
+    const fileName = url[url.length - 1].split("%2F")[2];
+    return fileName;
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -313,9 +334,25 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
             <label>Bild:</label>
             {image && (
-              <div className="image-file">
-                {image.name} <i className="fa-regular fa-trash-can" onClick={() => setImage()} />
-              </div>
+              <>
+                <div className="image-file">
+                  {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
+                  {typeof image === "string" && <>{getImageName(image)}</>}
+                  {typeof image !== "string" && <>{image.name} </>}
+                  <i className="fa-regular fa-trash-can" onClick={() => setImage()} />
+                </div>
+                <p>
+                  <i>Så här kommer bilden se ut i flödet</i>
+                </p>
+                {/* Om det är en sträng så är det länken från firebase annars skapa en lokal url */}
+                <Image
+                  id="frame"
+                  src={typeof image === "string" ? image : URL.createObjectURL(image)}
+                  width={120}
+                  height={100}
+                  alt="Förhandsvisning"
+                />
+              </>
             )}
             {!image && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
 
