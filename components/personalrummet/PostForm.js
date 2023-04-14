@@ -333,28 +333,31 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
 
             <label>Bild:</label>
-            {image && (
+            {image.name && (
               <>
                 <div className="image-file">
                   {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
-                  {typeof image === "string" && <>{getImageName(image)}</>}
-                  {typeof image !== "string" && <>{image.name} </>}
-                  <i className="fa-regular fa-trash-can" onClick={() => setImage()} />
+                  {image.name}{" "}
+                  <i
+                    className="fa-regular fa-trash-can"
+                    onClick={() => setImage({ name: undefined, url: undefined })}
+                  />
                 </div>
                 <p>
                   <i>Så här kommer bilden se ut i flödet</i>
                 </p>
                 {/* Om det är en sträng så är det länken från firebase annars skapa en lokal url */}
+                {console.log(image)}
                 <Image
                   id="frame"
-                  src={typeof image === "string" ? image : URL.createObjectURL(image)}
+                  src={image.url ? image.url : URL.createObjectURL(image)}
                   width={120}
                   height={100}
                   alt="Förhandsvisning"
                 />
               </>
             )}
-            {!image && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
+            {!image.name && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
 
             <label>
               Inlägg:

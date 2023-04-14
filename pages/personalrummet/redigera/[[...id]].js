@@ -8,6 +8,8 @@ import { firestore, storage } from "../../../firebase/clientApp";
 
 import PostForm from "../../../components/personalrummet/PostForm";
 
+import { revalidate } from "../../../utils/server";
+
 export default function EditPost() {
   // Hämtar id från länken om det finns
   const router = useRouter();
@@ -56,10 +58,14 @@ export default function EditPost() {
         if (docSnap.exists()) {
           const postData = docSnap.data();
 
+          const url_token = postData.image.split("?");
+          const url = url_token[0].split("/");
+          const fileName = url[url.length - 1].split("%2F")[2];
+
           const data = {
             title: postData.title,
             subtitle: postData.subtitle,
-            image: postData.image,
+            image: { url: postData.image, name: fileName },
             body: postData.body,
             tags: postData.tags,
             author: postData.author,
@@ -143,8 +149,10 @@ export default function EditPost() {
       // Tar bort bilden
       const oldImageRef = ref(storage, `posts/${postId}/${prefill.image.name}`);
       try {
-        console.log("delete - Raderar gammal bild");
-        deleteObject(oldImageRef);
+        if (prefill.image.name) {
+          console.log("delete - Raderar gammal bild");
+          await deleteObject(oldImageRef);
+        }
       } catch (err) {
         console.error(err);
         setIsPending(false);
@@ -155,9 +163,8 @@ export default function EditPost() {
       }
 
       // Ladda upp den nya bilden om det finns någon
-      if (data.image) {
-        let downloadUrl = "";
-
+      let downloadUrl = "";
+      if (data.image.name) {
         // Laddar upp
         try {
           console.log("upload - Laddar upp bilden.");
@@ -172,21 +179,20 @@ export default function EditPost() {
           );
           return;
         }
-
-        // Uppdatera fältet i inlägget med länken till bilden
-        try {
-          console.log("updateDoc - Uppdatera bildlänken");
-          await updateDoc(postRef, {
-            image: downloadUrl,
-          });
-        } catch (err) {
-          console.error(err);
-          setIsPending(false);
-          setError(
-            "Det gick inte att uppdatera bildreferensen i inlägget. Bilden kan dock ha blivit uppladdad."
-          );
-          return;
-        }
+      }
+      // Uppdatera fältet i inlägget med länken till bilden alt tar bort den om ingen ny laddades upp
+      try {
+        console.log("updateDoc - Uppdatera bildlänken");
+        await updateDoc(postRef, {
+          image: downloadUrl,
+        });
+      } catch (err) {
+        console.error(err);
+        setIsPending(false);
+        setError(
+          "Det gick inte att uppdatera bildreferensen i inlägget. Bilden kan dock ha blivit uppladdad."
+        );
+        return;
       }
     }
     setIsPending(false);
@@ -194,6 +200,15 @@ export default function EditPost() {
     setSuccess(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
     router.push("/personalrummet/redigera");
+
+    // Försöker revalidate
+    try {
+      // Revalidate:ar hemsidan
+      revalidate("all");
+      revalidate("post", id);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Om man klickar på enter

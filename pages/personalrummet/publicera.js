@@ -12,6 +12,7 @@ import { useAuth } from "../../context/AuthContext";
 import { createEvent } from "../../utils/calendarUtils";
 import { validateLink } from "../../utils/postUtils";
 import { reauthenticate } from "../../utils/authUtils";
+import { revalidate } from "../../utils/server";
 
 export default function Publicera() {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
@@ -110,7 +111,7 @@ export default function Publicera() {
       });
 
     // Kolla om det finns en bild
-    if (data.image) {
+    if (data.image.name) {
       // Ladda upp bilden
       try {
         const imageRef = ref(storage, `posts/${link}/${data.image.name}`);
@@ -144,6 +145,15 @@ export default function Publicera() {
     setError("");
     setSuccessLink(link);
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Försöker revalidate
+    try {
+      // Revalidate:ar hemsidan
+      revalidate("all");
+      revalidate("post", link);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Lägger in event i kalendern
