@@ -24,7 +24,6 @@ export default function Publicera() {
     image: "",
     body: "",
     tags: [],
-    date: today,
     startDateTime: new Date().toLocaleString().substring(0, 16),
     endDateTime: new Date().toLocaleString().substring(0, 16),
     publishDate: today,
@@ -39,7 +38,6 @@ export default function Publicera() {
         image: "",
         body: "",
         tags: [],
-        date: today,
         publishDate: today,
         author: userData.committee,
       });
@@ -97,8 +95,6 @@ export default function Publicera() {
     if (data.type === "Event") {
       postData.startDateTime = Timestamp.fromDate(new Date(data.startDateTime));
       postData.endDateTime = Timestamp.fromDate(new Date(data.endDateTime));
-    } else {
-      postData.date = Timestamp.fromDate(new Date(data.date));
     }
 
     const postRef = doc(firestore, "posts", link);

@@ -79,8 +79,6 @@ export default function EditPost() {
             if (postData.type === "Event") {
               data.startDateTime = postData.startDateTime.toDate().toLocaleDateString("sv");
               data.endDateTime = postData.endDateTime.toDate().toLocaleDateString("sv");
-            } else if (postData.type === "Nyheter") {
-              data.date = postData.date.toDate().toLocaleDateString("sv");
             }
           }
 

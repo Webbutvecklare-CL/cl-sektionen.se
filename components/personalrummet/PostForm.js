@@ -9,7 +9,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [image, setImage] = useState(prefill.image);
   const [body, setBody] = useState(prefill.body);
   const [tags, setTags] = useState(prefill.tags);
-  const [date, setDate] = useState(prefill.date);
   const [startDateTime, setStartDateTime] = useState(prefill.startDateTime);
   const [endDateTime, setEndDateTime] = useState(prefill.endDateTime);
   const [publishDate, setPublishDate] = useState(prefill.publishDate);
@@ -98,8 +97,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (type == "Event") {
       formData.startDateTime = startDateTime;
       formData.endDateTime = endDateTime;
-    } else {
-      formData.date = date;
     }
 
     onSubmit(formData);
@@ -125,14 +122,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (author.length < 2) {
       return "Du måste ange en författare med minst 2 tecken.";
     }
-
-    if (type)
-      // Date inputs
-      try {
-        new Date(date);
-      } catch {
-        return "Datumet måste vara på formen åååå-mm-dd";
-      }
 
     try {
       if (editMode) {
@@ -243,7 +232,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     setImage("");
     setBody("");
     setTags([]);
-    setDate("");
     setPublishDate("");
     setAuthor("");
 
@@ -349,21 +337,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             />
 
             <div className="date-input">
-              {type == "Nyheter" && (
-                <div>
-                  <label>
-                    Datum:
-                    <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-                  </label>
-                  <input
-                    type="date"
-                    required
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                  />
-                </div>
-              )}
-
               {type === "Event" && (
                 <>
                   <div>
