@@ -16,6 +16,14 @@
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.307);
 }
 
+/* Gör topnav röd när menyn är ute på mobil */
+.topnav-active {
+  transition: none !important;
+  background-color: var(--clr2);
+  backdrop-filter: none;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.307);
+}
+
 #navmain {
   overflow: inherit;
   display: flex;
@@ -75,6 +83,11 @@
 
 .nav__menu-list .submenu_wrapper:hover .submenu_item {
   display: block !important;
+}
+
+.nav__menu-list .submenu_wrapper:hover {
+  transition: 0.2s;
+  background-color: var(--clr3);
 }
 
 .submenu_item:hover {

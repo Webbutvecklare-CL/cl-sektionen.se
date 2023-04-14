@@ -40,7 +40,7 @@ const MENU_LIST = [
     text: "Studier",
     href: "",
     submenu: [
-      { text: "Studiebevakning", href: "/studiebevakning" },
+      // { text: "Studiebevakning", href: "/studiebevakning" },
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
       { text: "VFU", href: "/vfu" },
@@ -72,8 +72,8 @@ export default function Navbar() {
     });
   });
 
-  //egentligen onödig, ska rensas senare (kan alltid kallas med setNavBurgirOpen(!navBurgirOpen) istället)
   const burgirToggle = () => {
+    document.querySelector("#topnav").classList.toggle("topnav-active", !navBurgirOpen);
     setNavBurgirOpen(!navBurgirOpen);
   };
 
@@ -87,8 +87,10 @@ export default function Navbar() {
     };
 
     document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
     return () => {
       document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
     };
   });
   //-------------------------------------------------------------------------
