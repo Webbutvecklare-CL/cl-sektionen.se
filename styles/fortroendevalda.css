@@ -57,8 +57,14 @@
   color: black;
 }
 
+.nämnder_nav li i {
+  width: 1.6rem;
+}
+
 .nämnder_nav .active {
   text-align: center;
+  background-color: var(--clr4) !important; 
+  color: white;
 }
 
 .mandat_period {

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from "next/image";
-import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
+import NavLogo from "../../public/media/grafik/CL-Logo_NAV_White.png";
 import { useRouter } from "next/router";
 
 //Att lägga till nya sidor:

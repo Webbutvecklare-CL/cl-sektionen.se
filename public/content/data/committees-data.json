@@ -1,0 +1,88 @@
+{
+  "board": {
+    "name": "CtyreLsen",
+    "icon": "fa-solid fa-gavel",
+    "id": "ctyrelsen"
+  },
+  "committees": [
+    {
+      "name": "Studienämnden",
+      "icon": "fa-solid fa-book",
+      "id": "studienamnden"
+    },
+    {
+      "name": "Näringslivsnämnden",
+      "icon": "fa-solid fa-sack-dollar",
+      "id": "naringslivsnamnden"
+    },
+    {
+      "name": "Mottagningsnämnden",
+      "icon": "fa-solid fa-heart",
+      "id": "mottagningsnamnden"
+    },
+    {
+      "name": "JML-nämnden",
+      "icon": "fa-solid fa-apple-whole",
+      "id": "jml-namnden"
+    },
+    {
+      "name": "Aktivitetsnämnden",
+      "icon": "fa-solid fa-person-running",
+      "id": "aktivitetsnamnden"
+    },
+    {
+      "name": "Lokalnämnden",
+      "icon": "fa-solid fa-house",
+      "id": "lokalnamnden"
+    },
+    {
+      "name": "CLubWästeriet",
+      "icon": "fa-solid fa-wine-glass",
+      "id": "clw"
+    },
+    {
+      "name": "Valberedningen",
+      "icon": "fa-solid fa-fish-fins",
+      "id": "valberedningen"
+    }
+  ],
+  "trustees": [
+    {
+      "name": "Revisorer",
+      "icon": "fa-solid fa-scale-balanced",
+      "id": "revisorer"
+    },
+    {
+      "name": "Fanborg",
+      "icon": "fa-solid fa-flag",
+      "id": "fanborg"
+    },
+    {
+      "name": "Kårfullmäktigedelegation",
+      "icon": "fa-solid fa-section",
+      "id": "kf"
+    },
+    {
+      "name": "Enskilda",
+      "icon": "fa-solid fa-otter",
+      "id": "enskilda"
+    }
+  ],
+  "associations": [
+    {
+      "name": "CLek",
+      "icon": "fa-solid fa-dice",
+      "id": "clek"
+    },
+    {
+      "name": "Dubbelspexet",
+      "icon": "fa-solid fa-masks-theater",
+      "id": "dubbelspexet"
+    },
+    {
+      "name": "CLak",
+      "icon": "fa-solid fa-arrow-trend-up",
+      "id": "clak"
+    }
+  ]
+}
