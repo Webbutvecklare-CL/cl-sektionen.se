@@ -56,17 +56,20 @@ h2 {
 article {
   background-color: #fefefe;
   margin: auto;
-  width: 60%;
+  width: 100%;
+  max-width: 650px;
   padding: 2em 6em;
   box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.2);
 }
 
+article div {
+  padding: 2em;
+}
+
 @media (max-width: 900px) {
   article {
-    width: 100%;
-    margin: auto;
-    padding: 0px;
-    box-shadow: none;
+    padding: 0;
+    box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.2);
   }
 }
 

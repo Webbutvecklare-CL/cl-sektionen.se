@@ -39,31 +39,13 @@ function Sangbok() {
       </div>
 
       {sånger
-        .filter((sång) => {
-          return search.toLowerCase() === ""
-            ? true
-            : sång.title.toLowerCase().includes(search.toLowerCase());
-        })
-        .sort(
-          alphabetical
-            ? function (a, b) {
-                if (a.kategori < b.kategori) {
-                  return -1;
-                }
-                if (a.kategori > b.kategori) {
-                  return 1;
-                }
-                return 0;
-              }
-            : function (a, b) {
-                if (a.title < b.title) {
-                  return -1;
-                }
-                if (a.title > b.title) {
-                  return 1;
-                }
-                return 0;
-              }
+        .filter((sång) => 
+          search === "" || 
+          sång.title.toLowerCase().includes(search.toLowerCase()))
+        .sort((a, b) => 
+          alphabetical 
+          ? a.kategori.localeCompare(b.kategori) 
+          : a.title.localeCompare(b.title)
         )
         .map((sång) =>
           sång.hemlig && HideDate(currentMonth) ? (
