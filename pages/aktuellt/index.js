@@ -4,6 +4,10 @@ import { useState, useRef, useEffect } from "react";
 
 import FeedPreview from "../../components/FeedPreview";
 
+//Ändra dessa för att lägga till och ta bort tags
+const NEWSTAGS = ["Aktuellt", "Viktigt", "Information", "Annat"]
+const EVENTSTAGS = ["Idrott", "Gasque", "Pub", "Lunchföreläsning", "Workshop", "Förtroendevalda", "SM", "StyM"]
+
 export default function Aktuellt({ postList }) {
   const [currentpage, setcurrentPage] = useState(1);
   const itemsperpage = 6;
@@ -40,42 +44,25 @@ export default function Aktuellt({ postList }) {
 
     setType((t) => ({ ...t, ...{ [tag]: !selected } }));
   };
-  useEffect(() => {
-    //Går säkert att göra super smidigt med '...' syntax, men jag orkar inte lära mig det.
-    if (type["Nyheter"] && type["Event"]) {
-      setFilterTags({
-        Aktuellt: filterTags["Aktuellt"] ? true : filterTags["Aktuellt"],
-        Viktigt: filterTags["Viktigt"] ? true : filterTags["Viktigt"],
-        Information: filterTags["Information"] ? true : filterTags["Information"],
-        Annat: filterTags["Annat"] ? true : filterTags["Annat"],
 
-        Idrott: filterTags["Idrott"] ? true : filterTags["Idrott"],
-        Gasque: filterTags["Gasque"] ? true : filterTags["Gasque"],
-        Pub: filterTags["Pub"] ? true : filterTags["Pub"],
-        Lunchföreläsning: filterTags["Lunchföreläsning"] ? true : filterTags["Lunchföreläsning"],
-        Workshop: filterTags["Workshop"] ? true : filterTags["Workshop"],
-        Förtroendevalda: filterTags["Förtroendevalda"] ? true : filterTags["Förtroendevalda"],
-        SM: filterTags["SM"] ? true : filterTags["SM"],
-        StyM: filterTags["StyM"] ? true : filterTags["StyM"],
-      });
+  //Hanterar tags när man filtrerar bort antingen Event eller Nyheter
+  useEffect(() => {
+    const newsTags = {};
+    NEWSTAGS.forEach(tag => {
+      newsTags[tag] = !!filterTags[tag];
+    })
+
+    const eventTags = {};
+    EVENTSTAGS.forEach(tag => {
+      eventTags[tag] = !!filterTags[tag];
+    })
+    
+    if (type["Nyheter"] && type["Event"]) {
+      setFilterTags({...newsTags, ...eventTags});
     } else if (type["Nyheter"]) {
-      setFilterTags({
-        Aktuellt: filterTags["Aktuellt"] ? true : filterTags["Aktuellt"],
-        Viktigt: filterTags["Viktigt"] ? true : filterTags["Viktigt"],
-        Information: filterTags["Information"] ? true : filterTags["Information"],
-        Annat: filterTags["Annat"] ? true : filterTags["Annat"],
-      });
+      setFilterTags(newsTags);
     } else if (type["Event"]) {
-      setFilterTags({
-        Idrott: filterTags["Idrott"] ? true : filterTags["Idrott"],
-        Gasque: filterTags["Gasque"] ? true : filterTags["Gasque"],
-        Pub: filterTags["Pub"] ? true : filterTags["Pub"],
-        Lunchföreläsning: filterTags["Lunchföreläsning"] ? true : filterTags["Lunchföreläsning"],
-        Workshop: filterTags["Workshop"] ? true : filterTags["Workshop"],
-        Förtroendevalda: filterTags["Förtroendevalda"] ? true : filterTags["Förtroendevalda"],
-        SM: filterTags["SM"] ? true : filterTags["SM"],
-        StyM: filterTags["StyM"] ? true : filterTags["StyM"],
-      });
+      setFilterTags(eventTags);
     } else {
       setFilterTags({});
     }
