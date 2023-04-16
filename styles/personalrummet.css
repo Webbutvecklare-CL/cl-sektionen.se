@@ -14,6 +14,12 @@
   display: flex;
 }
 
+.committee-feed a {
+  width: auto;
+  
+  flex-grow:1;
+}
+
 .committee-feed .post-preview {
   transition: all 0.3s ease-in-out;
   height: 100%;
