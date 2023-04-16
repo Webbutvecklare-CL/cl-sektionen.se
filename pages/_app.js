@@ -16,6 +16,7 @@ import "/styles/personalrummet.css";
 import "/styles/hedersorden.css";
 import "/styles/TV.css";
 import "/styles/sangbok.css";
+import "/styles/kontakt.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";
 import Footer from "../components/Footer";

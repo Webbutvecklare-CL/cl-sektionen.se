@@ -20,11 +20,11 @@ Sektionens skyddsombud har tystnadsplikt och kan hjälpa dig om något inträffa
 
 ## Kontakt
 
-Sektionens skyddsombud når du via mail: skyddsombud@cl-sektionen.se. Du kan också skicka in en händelsebeskrivning som enbart når skyddsombudet via följande länk: [Anmälan om illabehandling](https://forms.gle/28p5Y6c4ToNe4K9t6). Om du gör anmälan via länken kan du välja att vara anonym.
+Sektionens skyddsombud når du via mail: [skyddsombud@cl-sektionen.se](mailto:skyddsombud@cl-sektionen.se). Du kan också skicka in en händelsebeskrivning som enbart når skyddsombudet via följande länk: [Anmälan om illabehandling](https://forms.gle/28p5Y6c4ToNe4K9t6). Om du gör anmälan via länken kan du välja att vara anonym.
 
 Vill du inte prata med någon på sektionen kan du ta kontakt med studiesocialt ansvarig på THS, som kan stötta och hjälpa dig: studiesocialt@ths.kts.se
 
-Vår kontaktperson på KTH är Andreas Alm Arvidsson: andreas.alm.arvidsson@itm.kth.se. Honom kan du vända dig till om du vill ha direkt kontakt med någon som arbetar på ITM-skolan.
+Vår kontaktperson på KTH är Andreas Alm Arvidsson: [andreas.alm.arvidsson@itm.kth.se](mailto:andreas.alm.arvidsson@itm.kth.se). Honom kan du vända dig till om du vill ha direkt kontakt med någon som arbetar på ITM-skolan.
 
-Du kan även vända dig till Studenthälsan i Stockholm, kontaktuppgifter finns här.
-Mer information om vart du kan vända dig om du blir utsatt för diskriminering, trakasserier, sexuella trakasserier eller kränkande särbehandling finns på: https://www.kth.se/student/studentliv/likabehandling-jams
+Du kan även vända dig till Studenthälsan i Stockholm, kontaktuppgifter finns [här](https://www.kth.se/student/stod/halsa/studenthalsan/kontakta-studenthalsan-i-stockholm-1.409903).
+Mer information om vart du kan vända dig om du blir utsatt för diskriminering, trakasserier, sexuella trakasserier eller kränkande särbehandling finns på: [https://www.kth.se/student/stod/halsa/diskriminering/diskriminering](https://www.kth.se/student/stod/halsa/diskriminering/diskriminering)
