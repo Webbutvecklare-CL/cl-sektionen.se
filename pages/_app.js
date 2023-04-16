@@ -17,7 +17,7 @@ import "/styles/hedersorden.css";
 import "/styles/TV.css";
 import "/styles/sangbok.css";
 import { Analytics } from "@vercel/analytics/react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/nav/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import { useRouter } from "next/router";

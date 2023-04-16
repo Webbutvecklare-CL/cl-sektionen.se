@@ -7,14 +7,16 @@ import { firestore } from "../../firebase/clientApp";
 import { updateUser } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
 
-import FeedPreview from "../FeedPreview";
+import CommitteeFeed from "./CommitteeFeed";
 import MarkdownRender from "../MarkdownRender";
 import ErrorPage from "../ErrorPage";
 
 export default function UserMenu() {
   const [menuSelect, setMenuSelect] = useState("senaste");
   const [error, setError] = useState("");
-  const [committeePosts, setCommitteePosts] = useState([]);
+  const [committeePosts, setCommitteePosts] = useState([
+    // { id: "s", title: "Test", subtitle: "", author: "Test person" },
+  ]);
 
   const [userUpdateStatus, setUserUpdateStatus] = useState("");
 
@@ -98,13 +100,13 @@ export default function UserMenu() {
           <br />
           Nedanför kan du se {userData.committee}s senaste inlägg.
         </p>
-        {userData.permission == "moderator" && (
+        {userData.permission === "moderator" && (
           <p>
             Du kan skapa nya eller redigera tidigare inlägg. Om du ta bort ett inlägg från din nämnd
             kan du arkivera det (Kommer i framtiden).
           </p>
         )}
-        {userData.permission == "admin" && <p>Du kan göra vad du vill.</p>}
+        {userData.permission === "admin" && <p>Du kan göra vad du vill.</p>}
       </div>
 
       {/*Knappar*/}
@@ -132,7 +134,7 @@ export default function UserMenu() {
           {committeePosts && (
             <div>
               <h2>Nämndens senaste inlägg</h2>
-              <FeedPreview posts={committeePosts} />
+              <CommitteeFeed posts={committeePosts} permission={userData.permission} />
             </div>
           )}
           {!committeePosts && (

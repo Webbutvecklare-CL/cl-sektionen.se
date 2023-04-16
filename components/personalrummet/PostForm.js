@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 import TextField from "./TextField";
 import { create_id } from "../../utils/postUtils";
@@ -9,7 +10,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [image, setImage] = useState(prefill.image);
   const [body, setBody] = useState(prefill.body);
   const [tags, setTags] = useState(prefill.tags);
-  const [date, setDate] = useState(prefill.date);
   const [startDateTime, setStartDateTime] = useState(prefill.startDateTime);
   const [endDateTime, setEndDateTime] = useState(prefill.endDateTime);
   const [publishDate, setPublishDate] = useState(prefill.publishDate);
@@ -64,6 +64,18 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
   }, [title, tags]);
 
+  // Uppdaterar bild preview
+  // useEffect(() => {
+  //   const frame = document.getElementById("frame");
+  //   console.log(image);
+  //   console.log(URL.revokeObjectURL(image));
+  //   const reader = new FileReader();
+  //   reader.onload = function (e) {
+  //     frame.attr("src", e.target.result);
+  //   };
+  //   reader.readAsDataURL(image);
+  // }, [image]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -98,8 +110,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (type == "Event") {
       formData.startDateTime = startDateTime;
       formData.endDateTime = endDateTime;
-    } else {
-      formData.date = date;
     }
 
     onSubmit(formData);
@@ -125,14 +135,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (author.length < 2) {
       return "Du måste ange en författare med minst 2 tecken.";
     }
-
-    if (type)
-      // Date inputs
-      try {
-        new Date(date);
-      } catch {
-        return "Datumet måste vara på formen åååå-mm-dd";
-      }
 
     try {
       if (editMode) {
@@ -243,7 +245,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     setImage("");
     setBody("");
     setTags([]);
-    setDate("");
     setPublishDate("");
     setAuthor("");
 
@@ -251,6 +252,14 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       elm.classList.remove("selected");
     });
     document.querySelector("input[type=file]").value = "";
+  };
+
+  // Konverterar firebase bild länk till filnamn
+  const getImageName = (link) => {
+    const url_token = link.split("?");
+    const url = url_token[0].split("/");
+    const fileName = url[url.length - 1].split("%2F")[2];
+    return fileName;
   };
 
   return (
@@ -324,12 +333,31 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
 
             <label>Bild:</label>
-            {image && (
-              <div className="image-file">
-                {image.name} <i className="fa-regular fa-trash-can" onClick={() => setImage()} />
-              </div>
+            {image.name && (
+              <>
+                <div className="image-file">
+                  {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
+                  {image.name}{" "}
+                  <i
+                    className="fa-regular fa-trash-can"
+                    onClick={() => setImage({ name: undefined, url: undefined })}
+                  />
+                </div>
+                <p>
+                  <i>Så här kommer bilden se ut i flödet</i>
+                </p>
+                {/* Om det är en sträng så är det länken från firebase annars skapa en lokal url */}
+                {console.log(image)}
+                <Image
+                  id="frame"
+                  src={image.url ? image.url : URL.createObjectURL(image)}
+                  width={120}
+                  height={100}
+                  alt="Förhandsvisning"
+                />
+              </>
             )}
-            {!image && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
+            {!image.name && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
 
             <label>
               Inlägg:
@@ -349,21 +377,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             />
 
             <div className="date-input">
-              {type == "Nyheter" && (
-                <div>
-                  <label>
-                    Datum:
-                    <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-                  </label>
-                  <input
-                    type="date"
-                    required
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                  />
-                </div>
-              )}
-
               {type === "Event" && (
                 <>
                   <div>

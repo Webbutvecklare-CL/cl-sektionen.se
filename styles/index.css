@@ -82,8 +82,8 @@
   background-color: var(--clr1);
   border: none;
   width: 120px;
-  border-radius: 0 0 .7rem .7rem;
-  padding: 0.5rem .75rem 0.5rem .75rem;
+  border-radius: 0 0 0.7rem 0.7rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   font-size: 1rem;
   font-family: inherit;
   font-weight: 500;
@@ -131,7 +131,7 @@
   margin-top: 0rem;
 }
 
-.sektionskal_månad h2{
+.sektionskal_månad h2 {
   text-align: center;
 }
 

@@ -14,34 +14,40 @@ export default function Hedersmedlemmar({ contents }) {
     let rootNode = document.getElementById("hedersmedlemmar-shelf");
     setSelectedMember(member);
 
-    for (let hedersmedlem of rootNode.childNodes){
-      hedersmedlem.className = 
-      (hedersmedlem.id === member)? 
-      "hedersmedlem active" : "hedersmedlem";
+    for (let hedersmedlem of rootNode.childNodes) {
+      hedersmedlem.className = hedersmedlem.id === member ? "hedersmedlem active" : "hedersmedlem";
     }
-
-  }
+  };
   return (
     <div id="contentbody">
       <div className="hedersmedlemmar">
         <h1>Hedersmedlemmar</h1>
         <MarkdownRender mdData={contents["hedersmedlemmar-info"]} />
         <div id="hedersmedlemmar-shelf">
-          <div id="Jan-Scheffel" className="hedersmedlem" onClick={() => stateUpdater("Jan-Scheffel")}>
+          <div
+            id="Jan-Scheffel"
+            className="hedersmedlem"
+            onClick={() => stateUpdater("Jan-Scheffel")}>
             <div className="imgdiv">
               <Image src={JanScheffel} alt="Jan Scheffel" />
             </div>
             <h2>Jan Scheffel</h2>
             <h3>2014</h3>
           </div>
-          <div id="Hans-Thunberg" className="hedersmedlem" onClick={() => stateUpdater("Hans-Thunberg")}>
+          <div
+            id="Hans-Thunberg"
+            className="hedersmedlem"
+            onClick={() => stateUpdater("Hans-Thunberg")}>
             <div className="imgdiv">
               <Image src={HansThunberg} alt="Hans Thunberg" />
             </div>
             <h2>Hans Thunberg</h2>
             <h3>2014</h3>
           </div>
-          <div id="Mikael-Cronhjort" className="hedersmedlem" onClick={(e) => stateUpdater("Mikael-Cronhjort")}>
+          <div
+            id="Mikael-Cronhjort"
+            className="hedersmedlem"
+            onClick={(e) => stateUpdater("Mikael-Cronhjort")}>
             <div className="imgdiv">
               <Image src={MikaelCronhjort} alt="Mikael Cronhjort" />
             </div>
@@ -66,7 +72,7 @@ export default function Hedersmedlemmar({ contents }) {
         </div>
       </div>
       <div className="hedersorden">
-        <br/>
+        <br />
         <h1>Hedersorden</h1>
         <h2>Platina</h2>
         <ul id={"platina"}>

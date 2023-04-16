@@ -1,5 +1,6 @@
 # De har kallat oss svin
-*Melodi: Vi klarar oss nog ändå*
+
+_Melodi: Vi klarar oss nog ändå_
 
 De har kallat oss svin  
 och ett hår utav hin,  
@@ -10,7 +11,7 @@ men i så fall är det deras eget fel.
 Vi har sett teknologer som festat en del  
 och vi har mött phöseriet som testat vår själ,  
 ||: men låt dem bara gå på,  
-vi klarar oss nog ändå. :||  
+vi klarar oss nog ändå. :||
 
 Vi har Aphus som uthus  
 och Vatten och Väghus,  
@@ -21,6 +22,6 @@ men i så fall är det deras egen musik.
 Vi har Bergsmän, min vän, de är dummast ändå;  
 inte dricker de sprit, men blir fullast ändå,  
 ||: men låt dem bara gå på,  
-vi klarar oss nog ändå :||  
+vi klarar oss nog ändå :||
 
-*Text: F. Lindblad till nØllespexet 1978*
+_Text: F. Lindblad till nØllespexet 1978_

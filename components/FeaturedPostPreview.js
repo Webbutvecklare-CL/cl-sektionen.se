@@ -6,7 +6,7 @@ import Image from "next/image";
 import bg from "../public/media/img/KTHcover.jpg";
 
 const FeaturedPostPreview = ({ post }) => {
-  const date = new Date(post.publishDate["seconds"] *1000)
+  const date = new Date(post.publishDate["seconds"] * 1000);
   return (
     <div className="featured-preview">
       <Link href={`/aktuellt/${post.id}`} key={post.id}>
@@ -16,15 +16,16 @@ const FeaturedPostPreview = ({ post }) => {
             {!post.image && <Image src={bg} width={480} height={360} alt="Bakgrundsbild KTH" />}
           </div>
           <div className="post-meta">
-            <h2>{post.title}</h2>   
+            <h2>{post.title}</h2>
             <div>
               <h4>{post.author}</h4>, {date.toLocaleDateString("sv")}
-            </div>    
+            </div>
           </div>
           <div className="post-content">
             <p className="subtitle">{post.subtitle}</p>
-            
-            <div className="body"><br/>
+
+            <div className="body">
+              <br />
               <p>
                 {parse(
                   sanitizeHtml(post.body, {
@@ -33,7 +34,6 @@ const FeaturedPostPreview = ({ post }) => {
                 )}
               </p>
             </div>
-            
           </div>
         </div>
       </Link>

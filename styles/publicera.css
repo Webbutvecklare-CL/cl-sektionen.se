@@ -133,6 +133,11 @@ kunna ändra färgen på texten om strong inte ändras */
   background-color: var(--clr3);
 }
 
+/* Förhandsvisning bild */
+.create #frame {
+  object-fit: cover;
+}
+
 /* Calender input */
 .create .calender-input {
   display: flex;

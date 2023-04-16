@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from "next/image";
-import NavLogo from "../public/media/grafik/CL-Logo_NAV_White.png";
-import {useRouter} from 'next/router';
+import NavLogo from "../../public/media/grafik/CL-Logo_NAV_White.png";
+import { useRouter } from "next/router";
 
 //Att lägga till nya sidor:
 // 1. Se till att skapa sidan (se guide)
@@ -40,7 +40,7 @@ const MENU_LIST = [
     text: "Studier",
     href: "",
     submenu: [
-      { text: "Studiebevakning", href: "/studiebevakning" },
+      // { text: "Studiebevakning", href: "/studiebevakning" },
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
       { text: "VFU", href: "/vfu" },
@@ -63,18 +63,17 @@ export default function Navbar() {
   const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
   const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submeny
   const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
-  const [scrolled, setScrolled] = useState(false)
-  const router = useRouter()
+  const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    window.addEventListener('scroll', ()=> {
-      window.scrollY > 50 ?
-      setScrolled(true) : setScrolled(false)
-    })
-  })
+    window.addEventListener("scroll", () => {
+      window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
+    });
+  });
 
-  //egentligen onödig, ska rensas senare (kan alltid kallas med setNavBurgirOpen(!navBurgirOpen) istället)
   const burgirToggle = () => {
+    document.querySelector("#topnav").classList.toggle("topnav-active", !navBurgirOpen);
     setNavBurgirOpen(!navBurgirOpen);
   };
 
@@ -88,8 +87,10 @@ export default function Navbar() {
     };
 
     document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
     return () => {
       document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
     };
   });
   //-------------------------------------------------------------------------
@@ -97,6 +98,7 @@ export default function Navbar() {
   return (
     <header>
       <nav>
+        {/* Om man har scorllat på startsidan eller är på en annan sida är top nav röd */}
         <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
           <div id="navmain">
             {/* Denna div är för CL-loggan som leder till index-page */}
