@@ -39,7 +39,7 @@ export default function TV() {
     <div id="tv-content">
       <Slideshow
         images={listOfImages}
-        default_image={isNight ? KTH_Night : KTH_Winter}
+        default_image={isNight ? KTH_Night : KTH_Summer}
         speed={1000 * 10}
       />
       <ReseInfo api_key={router.query.key} />
