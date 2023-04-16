@@ -223,7 +223,7 @@ export default function EditPost() {
   return (
     <div id="contentbody">
       <h1>Personalrummet - Redigera</h1>
-      <button type="button" onClick={() => router.back()}>
+      <button type="button" onClick={() => router.push("/personalrummet")}>
         Tillbaka
       </button>
       {!success && (
