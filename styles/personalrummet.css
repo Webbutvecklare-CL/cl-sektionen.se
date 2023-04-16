@@ -14,7 +14,7 @@
   display: flex;
 }
 
-.committee-feed .post-wrapper > a  {
+.committee-feed .post-wrapper > a {
   flex-grow: 1; /* Gör så att man kan klicka på hela raden */
 }
 
