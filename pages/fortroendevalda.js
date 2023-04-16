@@ -20,7 +20,7 @@ export default function Fortroendevalda({ descriptions, contacts, committeesData
 
   // När en användare väljer en nämnd uppdateras url:en och vilken nämnd som visas
   const stateUpdater = (committee) => {
-    history.pushState({}, "", "#" + committee);
+    router.replace("#" + committee);
     document.getElementById("förtroendevalda_content").scrollIntoView();
     setSelectedCommittee(committee);
   };
@@ -29,7 +29,7 @@ export default function Fortroendevalda({ descriptions, contacts, committeesData
   const NavTab = ({ data }) => {
     return (
       <li
-        id={data.id}
+        // id={data.id}
         className={selectedCommittee === data.id ? "active" : ""}
         onClick={() => stateUpdater(data.id)}>
         <i className={data.icon} /> {data.name}
