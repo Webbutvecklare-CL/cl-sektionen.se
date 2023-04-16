@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut, onAuthStateChanged, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/clientApp";
-import { validateAccountCheck } from "../utils/authUtils";
+import { validateAccountCheck, createUser } from "../utils/authUtils";
 
 const AuthContext = createContext({});
 
@@ -18,34 +18,60 @@ export const AuthContextProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        // Kollar om google kontot har tillgång till personalrummet
-        // Om så spara dess uppgifter - nämnd osv
-        validateAccountCheck(user).then((data) => {
-          if (data) {
-            data.uid = user.uid;
-            // Kontot finns inlagt i systemet
-            console.log("Auto Inloggad");
-            setUserData(data);
-          } else {
-            // Kontot är inte inlagt i systemet
-            console.log("Din mailadress är inte inlagd i systemet eller så saknar du behörighet!");
-            logOut();
-          }
-        });
+        getUserData(user);
       } else {
         setUser();
         setUserData();
       }
     });
     setSigningIn(false);
-
     return () => unsubscribe();
   }, []);
 
+  const getUserData = (user) => {
+    // Kollar om google kontot har tillgång till personalrummet
+    // Om så spara dess uppgifter - nämnd osv'
+    return new Promise((resolve, reject) => {
+      validateAccountCheck(user)
+        .then((res) => {
+          if (res.ok) {
+            // Kontot finns inlagt i systemet
+            res.data.uid = user.uid;
+            console.log("Auto Inloggad");
+            setUserData(res.data);
+            resolve("ok");
+          } else {
+            // Kontot är inte inlagt i systemet
+            console.log("Auto inloggning:", res.message);
+            resolve(res.message);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          reject(err);
+        });
+    });
+  };
+
   const logOut = async () => {
+    console.log("Försöker logga ut");
     setUser();
     setUserData();
     await signOut(auth);
+  };
+
+  const signUp = () => {
+    return new Promise((resolve, reject) => {
+      createUser(user)
+        .then(() => {
+          resolve();
+        })
+        .catch((err) => {
+          reject(err);
+        });
+
+      return;
+    });
   };
 
   return (
@@ -58,6 +84,8 @@ export const AuthContextProvider = ({ children }) => {
         logOut,
         userAccessToken,
         setUserAccessToken,
+        signUp,
+        getUserData,
       }}>
       {children}
     </AuthContext.Provider>

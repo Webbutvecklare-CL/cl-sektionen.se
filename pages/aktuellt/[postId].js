@@ -1,5 +1,6 @@
-import { React, useState, useEffect } from "react";
+import { React } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import parse from "html-react-parser";
 import { firestore } from "../../firebase/clientApp";
 import {
@@ -14,10 +15,32 @@ import {
   getDocs,
 } from "firebase/firestore";
 
-export default function Post({ postData }) {
+export default function Post({ postData, postId }) {
   const getDate = (date) => {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
+
+  if (!postData) {
+    return (
+      <div id="contentbody">
+        <h1>Hoppsan, här ekar det tomt</h1>
+        <p>
+          Det finns inget inlägg med id{" "}
+          <q>
+            <strong>{postId}</strong>
+          </q>
+          .
+        </p>
+        <p>
+          Detta kan bero på att du angivit ett felaktigt id, inlägget håller på att publiceras eller
+          inlägget inte är publikt.
+        </p>
+        <p>
+          <Link href={"/aktuellt"}>Tillbaka till aktuellt & event</Link>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div id="contentbody">
@@ -54,14 +77,16 @@ export async function getStaticProps({ params }) {
   try {
     docSnap = await getDoc(docRef);
   } catch (error) {
-    console.error("Det gick inte att ladda inlägget: ", error);
+    console.error("Det gick inte att ladda inlägget: ", error.toString());
   }
 
   // Kollar om inlägget faktiskt fanns
-  if (docSnap.exists()) {
-    return { props: { postData: JSON.parse(JSON.stringify(docSnap.data())) } };
+  if (docSnap && docSnap.exists()) {
+    return {
+      props: { postData: JSON.parse(JSON.stringify(docSnap.data())), postId: params.postId },
+    };
   } else {
-    return { props: { postData: null } };
+    return { props: { postData: null, postId: params.postId } };
   }
 }
 
@@ -83,7 +108,7 @@ export async function getStaticPaths() {
   try {
     publicDocs = await getDocs(publicQuery);
   } catch (error) {
-    console.error("Det gick inte att ladda inläggen: ", error);
+    console.error("Det gick inte att ladda inläggen: ", error.toString());
   }
 
   // Plockar ut id:et

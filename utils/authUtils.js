@@ -22,39 +22,29 @@ async function validateAccountCheck(user) {
   let docSnap = await getDoc(userRef);
   if (docSnap.exists()) {
     if (!docSnap.data().committee || !docSnap.data().permission) {
-      console.log(
-        "Du saknar tillhörighet till någon nämnd eller behörighet att komma åt personalrummet."
-      );
-      return false;
+      return { ok: false, message: "no permission" };
     }
-    return docSnap.data();
+    return { ok: true, data: docSnap.data() };
   } else {
     // doc.data() will be undefined in this case
-    console.log("UID hittades inte!");
-    return false;
+    return { ok: false, message: "no uid" };
   }
 }
 
-async function createUser(user) {
+function createUser(user) {
   console.log("setDoc - Skapar användare");
   let profileInfo = {
     displayName: user.displayName,
     email: user.email,
-    permission: null,
-    committee: null,
+    committee: "",
+    permission: "",
   };
 
   const userRef = doc(firestore, "users", user.uid);
-  try {
-    await setDoc(userRef, profileInfo);
-    console.log("Uppgifter sparade!");
-    return true;
-  } catch (err) {
-    throw err;
-  }
+  return setDoc(userRef, profileInfo);
 }
 
-async function updateUser(user) {
+function updateUser(user) {
   console.log("updateDoc - Update user");
   let profileInfo = {
     displayName: user.displayName,

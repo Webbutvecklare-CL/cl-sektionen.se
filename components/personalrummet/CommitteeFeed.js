@@ -1,25 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
 
 import { firestore } from "../../firebase/clientApp";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 
+import { revalidate } from "../../utils/server";
+
 import bg from "../../public/media/img/KTHcover.jpg";
 
 export default function CommitteeFeed({ posts, permission = "" }) {
+  // För att feedet ska uppdateras när man klickar på ex ögat
+  const [postList, setPostList] = useState([]);
+
+  // För att postList ska få data när komponenten laddas in
+  useEffect(() => {
+    setPostList(posts);
+  }, [posts]);
+
   const handleChangePublic = async (e) => {
     // Ändra om inlägget ska vara publikt eller privat
     e.preventDefault();
 
     const postElem = e.currentTarget.parentElement.parentElement.parentElement;
-    console.log(postElem);
     const postIdx = postElem.getAttribute("post-idx");
     const post = posts[postIdx];
     const postPublicState = post.public !== undefined ? post.public : true; // Det nuvarande läget true = publikt
-    console.log("Nuvarande: ", postPublicState);
 
     // Uppdatera dokumentet
     const postRef = doc(firestore, "posts", post.id);
@@ -27,6 +35,22 @@ export default function CommitteeFeed({ posts, permission = "" }) {
       console.log("updateDoc - Synlighetsstatus");
       await updateDoc(postRef, { public: !postPublicState });
       post.public = !postPublicState;
+
+      // Uppdaterar post med ny status
+      setPostList((prevState) => {
+        const posts = [...prevState];
+        posts[postIdx] = post;
+        return posts;
+      });
+
+      // Försöker revalidate
+      try {
+        // Revalidate:ar hemsidan
+        revalidate("all");
+        revalidate("post", post.id);
+      } catch (error) {
+        console.error("Fel vid revalidate:", error);
+      }
     } catch (error) {
       console.error("Det gick inte att uppdatera synlighetsstatusen", error);
     }
@@ -40,7 +64,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 
   return (
     <div className="committee-feed feed-preview">
-      {posts.map((post, idx) => {
+      {postList.map((post, idx) => {
         return (
           <div className="post-wrapper" key={post.id} post-idx={idx}>
             <div className="options">

@@ -15,13 +15,13 @@ export default function Fortroendevalda({ descriptions, contacts, committeesData
   useEffect(() => {
     const urlSelect = router.asPath.split("#")[1] || "ctyrelsen";
     setSelectedCommittee(urlSelect);
-    document.documentElement.scrollIntoView();
+    document.getElementById("förtroendevalda_content").scrollIntoView();
   }, []);
 
   // När en användare väljer en nämnd uppdateras url:en och vilken nämnd som visas
   const stateUpdater = (committee) => {
     history.pushState({}, "", "#" + committee);
-    document.documentElement.scrollIntoView();
+    document.getElementById("förtroendevalda_content").scrollIntoView();
     setSelectedCommittee(committee);
   };
 

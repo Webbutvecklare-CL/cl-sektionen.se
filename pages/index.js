@@ -59,7 +59,7 @@ export default function Index({ contents, newsList, eventList }) {
             <h2>Nyheter</h2>
             {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
             {newsList.length < 1 && <p>Inlägg saknas</p>}
-            {newsList && (
+            {newsList.length > 0 && (
               <div>
                 <FeaturedPostPreview post={newsList[0]} />
                 <FeedPreview posts={newsList.slice(1)} title="Annat" />
@@ -149,6 +149,7 @@ export async function getStaticProps() {
   const newsQuery = query(
     postRef,
     where("type", "==", "Nyheter"),
+    where("public", "==", true),
     where("publishDate", "<", timeNow),
     orderBy("publishDate", "desc"),
     limit(5)
@@ -156,6 +157,7 @@ export async function getStaticProps() {
   const eventQuery = query(
     postRef,
     where("type", "==", "Event"),
+    where("public", "==", true),
     where("publishDate", "<", timeNow),
     orderBy("publishDate", "desc"),
     limit(4)
@@ -166,11 +168,14 @@ export async function getStaticProps() {
   let eventDocs = [];
   try {
     newsDocs = await getDocs(newsQuery);
+  } catch (error) {
+    console.error("Det gick inte att hämta nyhetsinlägg: ", error.toString());
+  }
+  try {
     eventDocs = await getDocs(eventQuery);
   } catch (error) {
-    console.error("Det gick inte att hämta inläggen: ", error);
+    console.error("Det gick inte att hämta eventinlägg: ", error.toString());
   }
-
   // Plockar ut data och lägger till id i post data
   newsDocs.forEach((doc) => {
     let data = doc.data();

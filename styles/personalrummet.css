@@ -14,6 +14,10 @@
   display: flex;
 }
 
+.committee-feed .post-wrapper > a {
+  flex-grow: 1; /* Gör så att man kan klicka på hela raden */
+}
+
 .committee-feed .post-preview {
   transition: all 0.3s ease-in-out;
   height: 100%;
@@ -40,7 +44,7 @@
 .committee-feed .post-wrapper:hover .options {
   visibility: visible;
   width: 1rem;
-  margin: 0 0.5rem;
+  margin: 0 8px 0 3px;
   transform: translateX(0rem);
 }
 

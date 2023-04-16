@@ -20,7 +20,7 @@ export default function UserMenu() {
 
   const [userUpdateStatus, setUserUpdateStatus] = useState("");
 
-  const { user, userData } = useAuth();
+  const { user, userData, logOut } = useAuth();
   const router = useRouter();
 
   // Rensa error om man byter meny
@@ -119,6 +119,9 @@ export default function UserMenu() {
         </button>
         <button className="how-to" onClick={() => setMenuSelect("how-to")}>
           HOW-TO
+        </button>
+        <button className="how-to" onClick={() => logOut()}>
+          Logga ut
         </button>
       </div>
       <div className="menu">
