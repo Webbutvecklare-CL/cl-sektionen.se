@@ -65,7 +65,6 @@ export default function Navbar() {
   const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
-  
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -96,8 +95,7 @@ export default function Navbar() {
   });
   //-------------------------------------------------------------------------
 
-
-  const homeButton = () =>{
+  const homeButton = () => {
     return (
       <div
         onClick={() => {
@@ -108,87 +106,84 @@ export default function Navbar() {
           <Image src={NavLogo} alt="CL logo, navigation" id="navlogo" className="nav__item" />
         </Link>
       </div>
-    )
-  }
+    );
+  };
 
-  const burgerMenuButton = () =>{
+  const burgerMenuButton = () => {
     return (
       <div id="navburgirmenu">
-      <button
-        onClick={burgirToggle}
-        className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
+        <button
+          onClick={burgirToggle}
+          className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
       </div>
-    )
-  }
+    );
+  };
 
-  const burgerMenu = () =>{
+  const burgerMenu = () => {
     return (
-    <div ref={menuref}>
-      {navBurgirOpen ? (
-        <div className="burgir__menu-list">
-          {MENU_LIST.map((menu, idx) => (
-            <div
-              key={menu.text}
-              className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
+      <div ref={menuref}>
+        {navBurgirOpen ? (
+          <div className="burgir__menu-list">
+            {MENU_LIST.map((menu, idx) => (
               <div
-                className="navitem_wrapper"
-                onClick={() => {
-                  activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
-                  setActiveSubIdx(-1);
-                }}>
-                <NavItem active={activeIdx === idx} {...menu} />
-              </div>
-
-              {menu.submenu?.map((sb, s_idx) => (
-                <NavSubItem 
-                  key={sb.text} 
-                  active={activeIdx === idx && activeSubIdx === s_idx} 
-                  {...sb} 
+                key={menu.text}
+                className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
+                <div
+                  className="navitem_wrapper"
                   onClick={() => {
-                    if (idx === activeIdx) {
-                      setActiveIdx(idx);
-                      setActiveSubIdx(s_idx);
-                    }
-                  }}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      ) : (
-        ""
-      )}
-    </div>
-    )
-  }
+                    activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
+                    setActiveSubIdx(-1);
+                  }}>
+                  <NavItem active={activeIdx === idx} {...menu} />
+                </div>
 
+                {menu.submenu?.map((sb, s_idx) => (
+                  <NavSubItem
+                    key={sb.text}
+                    active={activeIdx === idx && activeSubIdx === s_idx}
+                    {...sb}
+                    onClick={() => {
+                      if (idx === activeIdx) {
+                        setActiveIdx(idx);
+                        setActiveSubIdx(s_idx);
+                      }
+                    }}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    );
+  };
 
   const wideScreenMenu = () => {
     return (
       <div className="nav__menu-list">
-      {MENU_LIST.map((menu, idx) => (
-        <div key={menu.text} className="submenu_wrapper">
-          <div className="navitem_wrapper">
-            <NavItem active={activeIdx === idx} {...menu} />
+        {MENU_LIST.map((menu, idx) => (
+          <div key={menu.text} className="submenu_wrapper">
+            <div className="navitem_wrapper">
+              <NavItem active={activeIdx === idx} {...menu} />
+            </div>
+            {menu.submenu?.map((sb, s_idx) => (
+              <NavSubItem
+                active={activeIdx === idx && activeSubIdx === s_idx}
+                {...sb}
+                key={sb.text}
+                onClick={() => {
+                  setActiveIdx(idx);
+                  setActiveSubIdx(s_idx);
+                }}
+              />
+            ))}
           </div>
-          {menu.submenu?.map((sb, s_idx) => (
-            <NavSubItem 
-              active={activeIdx === idx && activeSubIdx === s_idx} 
-              {...sb} 
-              key={sb.text}
-              onClick={() => {
-                setActiveIdx(idx);
-                setActiveSubIdx(s_idx);
-              }}
-            />
-          ))}
-        </div>
-      ))}
+        ))}
       </div>
-    )
-  }
-
-
+    );
+  };
 
   return (
     <header>

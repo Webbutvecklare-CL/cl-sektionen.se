@@ -5,8 +5,17 @@ import { useState, useRef, useEffect } from "react";
 import FeedPreview from "../../components/FeedPreview";
 
 //Ändra dessa för att lägga till och ta bort tags
-const NEWSTAGS = ["Aktuellt", "Viktigt", "Information", "Annat"]
-const EVENTSTAGS = ["Idrott", "Gasque", "Pub", "Lunchföreläsning", "Workshop", "Förtroendevalda", "SM", "StyM"]
+const NEWSTAGS = ["Aktuellt", "Viktigt", "Information", "Annat"];
+const EVENTSTAGS = [
+  "Idrott",
+  "Gasque",
+  "Pub",
+  "Lunchföreläsning",
+  "Workshop",
+  "Förtroendevalda",
+  "SM",
+  "StyM",
+];
 
 export default function Aktuellt({ postList }) {
   const [currentpage, setcurrentPage] = useState(1);
@@ -48,17 +57,17 @@ export default function Aktuellt({ postList }) {
   //Hanterar tags när man filtrerar bort antingen Event eller Nyheter
   useEffect(() => {
     const newsTags = {};
-    NEWSTAGS.forEach(tag => {
+    NEWSTAGS.forEach((tag) => {
       newsTags[tag] = !!filterTags[tag];
-    })
+    });
 
     const eventTags = {};
-    EVENTSTAGS.forEach(tag => {
+    EVENTSTAGS.forEach((tag) => {
       eventTags[tag] = !!filterTags[tag];
-    })
-    
+    });
+
     if (type["Nyheter"] && type["Event"]) {
-      setFilterTags({...newsTags, ...eventTags});
+      setFilterTags({ ...newsTags, ...eventTags });
     } else if (type["Nyheter"]) {
       setFilterTags(newsTags);
     } else if (type["Event"]) {
@@ -245,7 +254,7 @@ export default function Aktuellt({ postList }) {
                     return (
                       (search === "" || post.title.toLowerCase().includes(search.toLowerCase())) &&
                       type[post.type]
-                    )
+                    );
                   })
                   .filter((post) => {
                     //Om alla filters är avstända eller påslagna, returnera allt

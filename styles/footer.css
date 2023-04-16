@@ -90,7 +90,7 @@ footer div img {
     flex-direction: row;
     justify-content: space-between;
     width: 80%;
-    gap:0.5rem;
+    gap: 0.5rem;
     max-width: 270px;
   }
 }

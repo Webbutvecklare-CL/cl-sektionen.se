@@ -119,11 +119,11 @@
 
 .aktuellt_innehåll {
   margin-bottom: 10px;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
 }
 
 .event_innehåll {
-  border-radius: .3rem;
+  border-radius: 0.3rem;
 }
 
 #happenings h2 {
