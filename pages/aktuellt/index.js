@@ -336,12 +336,18 @@ export async function getStaticProps() {
   const postQuery = query(
     postRef,
     where("publishDate", "<", timeNow),
+    where("public", "==", true),
     orderBy("publishDate", "desc"),
     limit(60)
   );
 
   // Hämtar inläggen från firestore
-  const postDocs = await getDocs(postQuery);
+  let postDocs = [];
+  try {
+    postDocs = await getDocs(postQuery);
+  } catch (error) {
+    console.error("Det gick inte att ladda inläggen: ", error.toString());
+  }
 
   // Plockar ut data och lägger till id i post data
   postDocs.forEach((doc) => {

@@ -389,7 +389,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                       required
                       value={startDateTime}
                       onChange={(e) => setStartDateTime(e.target.value)}
-                      min={new Date().toLocaleString().substring(0, 16)}
+                      min={editMode ? "" : new Date().toLocaleString().substring(0, 16)}
                     />
                   </div>
                   <div>

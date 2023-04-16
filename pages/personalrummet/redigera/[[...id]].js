@@ -134,6 +134,7 @@ export default function EditPost() {
     const postRef = doc(firestore, "posts", postId);
 
     try {
+      console.log(postData);
       await updateDoc(postRef, postData);
       console.log("Inlägget är uppdaterat!");
     } catch (err) {
