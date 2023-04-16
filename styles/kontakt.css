@@ -1,0 +1,24 @@
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.contact div {
+  flex: 1;
+  max-width: 300px;
+}
+
+@media (max-width: 1000px) {
+  .contact {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact div {
+    flex: 1;
+    max-width: unset;
+  }
+
+}
