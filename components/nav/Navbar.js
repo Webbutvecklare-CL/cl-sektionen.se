@@ -65,6 +65,7 @@ export default function Navbar() {
   const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+  
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -95,89 +96,112 @@ export default function Navbar() {
   });
   //-------------------------------------------------------------------------
 
+
+  const homeButton = () =>{
+    return (
+      <div
+        onClick={() => {
+          setActiveIdx(-1);
+          setActiveSubIdx(-1);
+        }}>
+        <Link href="/">
+          <Image src={NavLogo} alt="CL logo, navigation" id="navlogo" className="nav__item" />
+        </Link>
+      </div>
+    )
+  }
+
+  const burgerMenuButton = () =>{
+    return (
+      <div id="navburgirmenu">
+      <button
+        onClick={burgirToggle}
+        className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
+      </div>
+    )
+  }
+
+  const burgerMenu = () =>{
+    return (
+    <div ref={menuref}>
+      {navBurgirOpen ? (
+        <div className="burgir__menu-list">
+          {MENU_LIST.map((menu, idx) => (
+            <div
+              key={menu.text}
+              className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
+              <div
+                className="navitem_wrapper"
+                onClick={() => {
+                  activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
+                  setActiveSubIdx(-1);
+                }}>
+                <NavItem active={activeIdx === idx} {...menu} />
+              </div>
+
+              {menu.submenu?.map((sb, s_idx) => (
+                <NavSubItem 
+                  key={sb.text} 
+                  active={activeIdx === idx && activeSubIdx === s_idx} 
+                  {...sb} 
+                  onClick={() => {
+                    if (idx === activeIdx) {
+                      setActiveIdx(idx);
+                      setActiveSubIdx(s_idx);
+                    }
+                  }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
+    )
+  }
+
+
+  const wideScreenMenu = () => {
+    return (
+      <div className="nav__menu-list">
+      {MENU_LIST.map((menu, idx) => (
+        <div key={menu.text} className="submenu_wrapper">
+          <div className="navitem_wrapper">
+            <NavItem active={activeIdx === idx} {...menu} />
+          </div>
+          {menu.submenu?.map((sb, s_idx) => (
+            <NavSubItem 
+              active={activeIdx === idx && activeSubIdx === s_idx} 
+              {...sb} 
+              key={sb.text}
+              onClick={() => {
+                setActiveIdx(idx);
+                setActiveSubIdx(s_idx);
+              }}
+            />
+          ))}
+        </div>
+      ))}
+      </div>
+    )
+  }
+
+
+
   return (
     <header>
       <nav>
         {/* Om man har scorllat på startsidan eller är på en annan sida är top nav röd */}
         <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
           <div id="navmain">
-            {/* Denna div är för CL-loggan som leder till index-page */}
-            <div
-              onClick={() => {
-                setActiveIdx(-1);
-                setActiveSubIdx(-1);
-              }}>
-              <Link href="/">
-                <Image src={NavLogo} alt="CL logo, navigation" id="navlogo" className="nav__item" />
-              </Link>
-            </div>
-
-            {/* För hamburgarmeny knappen, syns endast för mobila/små enheter */}
-            <div id="navburgirmenu">
-              <button
-                onClick={burgirToggle}
-                className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
-            </div>
-
-            {/* Den normala menyn, se separat guide för genomgång av kod */}
-            <div className="nav__menu-list">
-              {MENU_LIST.map((menu, idx) => (
-                <div key={menu.text} className="submenu_wrapper">
-                  <div className="navitem_wrapper" onClick={() => {}}>
-                    <NavItem active={activeIdx === idx} {...menu} />
-                  </div>
-
-                  {menu.submenu?.map((sb, s_idx) => (
-                    <div
-                      key={sb.text}
-                      onClick={() => {
-                        setActiveIdx(idx);
-                        setActiveSubIdx(s_idx);
-                      }}>
-                      <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+            {homeButton()}
+            {burgerMenuButton()}
+            {wideScreenMenu()}
           </div>
         </div>
-        {/* hamburgarmenyn, se separat guide för genomgång av kod */}
-        <div ref={menuref}>
-          {navBurgirOpen ? (
-            <div className="burgir__menu-list">
-              {MENU_LIST.map((menu, idx) => (
-                <div
-                  key={menu.text}
-                  className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
-                  <div
-                    className="navitem_wrapper"
-                    onClick={() => {
-                      activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
-                      setActiveSubIdx(-1);
-                    }}>
-                    <NavItem active={activeIdx === idx} {...menu} />
-                  </div>
-
-                  {menu.submenu?.map((sb, s_idx) => (
-                    <div
-                      key={sb.text}
-                      onClick={() => {
-                        if (idx === activeIdx) {
-                          setActiveIdx(idx);
-                          setActiveSubIdx(s_idx);
-                        }
-                      }}>
-                      <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+        {burgerMenu()}
       </nav>
     </header>
   );

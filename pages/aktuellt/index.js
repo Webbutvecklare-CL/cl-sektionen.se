@@ -242,12 +242,10 @@ export default function Aktuellt({ postList }) {
               <FeedPreview
                 posts={postList
                   .filter((post) => {
-                    return search.toLowerCase() === ""
-                      ? true
-                      : post.title.toLowerCase().includes(search.toLowerCase());
-                  })
-                  .filter((post) => {
-                    return type[post.type] ? true : false;
+                    return (
+                      (search === "" || post.title.toLowerCase().includes(search.toLowerCase())) &&
+                      type[post.type]
+                    )
                   })
                   .filter((post) => {
                     //Om alla filters är avstända eller påslagna, returnera allt
