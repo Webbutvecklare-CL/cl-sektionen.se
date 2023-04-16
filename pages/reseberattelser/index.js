@@ -151,6 +151,9 @@ export default function Reseberattelser() {
         <h2>Asien</h2>
         <ul>
           <li>
+            <Link href="/reseberattelser/albin-westlin-singapore">Albin Westlin - Singapore</Link>
+          </li>
+          <li>
             <Link href="/reseberattelser/william-friefeldt-taiwan">William Friefeldt - Taiwan</Link>
           </li>
         </ul>
@@ -166,9 +169,6 @@ export default function Reseberattelser() {
             <Link href="/reseberattelser/emelie-selinder-australien">
               Emelie Selinder - Australien
             </Link>
-          </li>
-          <li>
-            <Link href="/reseberattelser/albin-westlin-singapore">Albin Westlin - Singapore</Link>
           </li>
         </ul>
       </div> : ""}
