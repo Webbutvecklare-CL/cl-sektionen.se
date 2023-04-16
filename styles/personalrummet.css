@@ -14,10 +14,8 @@
   display: flex;
 }
 
-.committee-feed a {
-  width: auto;
-  
-  flex-grow:1;
+.committee-feed > a  {
+  flex-grow:1; /* Gör så att man kan klicka på hela raden */
 }
 
 .committee-feed .post-preview {
