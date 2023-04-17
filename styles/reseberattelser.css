@@ -63,30 +63,29 @@ article.rese table td {
   padding-right: 0.5rem;
 }
 
-#scroll-node{
+#scroll-node {
   scroll-margin: 3rem;
 }
 
-.worldmap svg{
+.worldmap svg {
   overflow: visible;
   width: 125%;
   transform: translate(-9%);
 }
 
-.worldmap g{
+.worldmap g {
   stroke: #aaa;
   stroke-width: 15;
   cursor: pointer;
 }
 
-.worldmap svg path{
+.worldmap svg path {
   fill: #fff;
-  transition: .1s;
+  transition: 0.1s;
 }
 
-.worldmap g:hover path{
+.worldmap g:hover path {
   fill: var(--clr5);
-  transition: .1s;
+  transition: 0.1s;
   stroke-width: 0;
 }
-

@@ -39,13 +39,9 @@ function Sangbok() {
       </div>
 
       {sånger
-        .filter((sång) => 
-          search === "" || 
-          sång.title.toLowerCase().includes(search.toLowerCase()))
-        .sort((a, b) => 
-          alphabetical 
-          ? a.kategori.localeCompare(b.kategori) 
-          : a.title.localeCompare(b.title)
+        .filter((sång) => search === "" || sång.title.toLowerCase().includes(search.toLowerCase()))
+        .sort((a, b) =>
+          alphabetical ? a.kategori.localeCompare(b.kategori) : a.title.localeCompare(b.title)
         )
         .map((sång) =>
           sång.hemlig && HideDate(currentMonth) ? (
