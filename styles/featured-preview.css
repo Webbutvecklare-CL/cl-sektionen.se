@@ -96,8 +96,8 @@
 .featured-preview .post-preview .body p {
   all: unset;
   width: inherit;
-  word-wrap: break-word;
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
   color: #1d1d1f;
   font-size: 1.1rem;
   overflow: hidden;
