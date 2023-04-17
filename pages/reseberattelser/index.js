@@ -93,7 +93,7 @@ export default function Reseberattelser() {
         växa så småning om! Förutom att läsa CL studenters reseberättelser rekommenderar vi även att
         du kikar på de som publicerats på KTHs hemsida av studenter från andra program.
       </p>
-      <h2>Klicka på någon världsdel på kartan för att filtrera reseberättelser</h2>
+      <h2>Klicka en världsdel på kartan för att filtrera reseberättelser</h2>
       <div className="worldmap">
         {worldMap()}
       </div>

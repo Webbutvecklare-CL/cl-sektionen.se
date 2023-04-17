@@ -3,6 +3,7 @@
 .featured-preview {
   background-color: white;
   border-radius: 0.1rem !important;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.5rem;
 }
 
@@ -96,8 +97,8 @@
 .featured-preview .post-preview .body p {
   all: unset;
   width: inherit;
-  word-wrap: break-word;
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
   color: #1d1d1f;
   font-size: 1.1rem;
   overflow: hidden;
