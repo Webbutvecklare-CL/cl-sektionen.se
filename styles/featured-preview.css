@@ -3,6 +3,7 @@
 .featured-preview {
   background-color: white;
   border-radius: 0.1rem !important;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.5rem;
 }
 
