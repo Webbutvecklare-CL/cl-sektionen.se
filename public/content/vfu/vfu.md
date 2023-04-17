@@ -1,5 +1,4 @@
 ## 1. Syfte och mål med VFU
-Armin och moppe var här, POK
 
 VFU står för verksamhetsförlagd utbildning. Syftet med VFUn är att lärarstudenter ska få tillfälle att uppleva och pröva på hur det är att vara lärare i praktiken. Det är också en bra möjlighet att få öva på att omsätta sina teoretiska kunskaper till undervisning genom planering och utförande.
 Olika VFU-kurser har olika omfattning, men de har alla dessa gemensamma drag:
@@ -75,4 +74,6 @@ Gå igenom följande checklista innan din praktik börjar:
 Mer än så behöver du inte fundera över innan din VFU! Det mesta löser sig när du väl kommer ut till skolan.
 
 Stort lycka till på din praktik!  
-SN, Studienämnden
+SN, Studienämnden 
+
+Redigerad 17/4-23 av Tuva Egman
