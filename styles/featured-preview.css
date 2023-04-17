@@ -116,15 +116,10 @@
   margin-bottom: 0.5rem;
 }
 
-.event_och_gråttan {
+.inlägg_wrapper{
   display: grid;
-  grid-template-columns: 1fr 378px;
-  gap: 0.5rem;
-}
-
-.gråttagenda_wrapper {
-  border-radius: 0.3rem;
-  padding-bottom: 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -158,21 +153,9 @@
 }
 
 @media screen and (max-width: 850px) {
-  .aktuellt_innehåll .feed-preview {
-    display: grid;
+  .inlägg_wrapper{
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-  }
-
-  .event_och_gråttan {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .open-web-calendar.agenda {
-    height: 270px;
-    width: calc(100% - 20px);
-    border: none;
+    grid-template-rows: 1fr 1fr;
   }
 }
 
