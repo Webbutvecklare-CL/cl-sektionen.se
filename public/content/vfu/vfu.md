@@ -75,5 +75,3 @@ Mer än så behöver du inte fundera över innan din VFU! Det mesta löser sig n
 
 Stort lycka till på din praktik!  
 SN, Studienämnden
-
-Tuva och Hårtork var här hehe
