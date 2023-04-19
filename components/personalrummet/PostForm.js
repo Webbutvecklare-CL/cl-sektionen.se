@@ -64,18 +64,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
   }, [title, tags]);
 
-  // Uppdaterar bild preview
-  // useEffect(() => {
-  //   const frame = document.getElementById("frame");
-  //   console.log(image);
-  //   console.log(URL.revokeObjectURL(image));
-  //   const reader = new FileReader();
-  //   reader.onload = function (e) {
-  //     frame.attr("src", e.target.result);
-  //   };
-  //   reader.readAsDataURL(image);
-  // }, [image]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -138,7 +126,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
     try {
       if (editMode) {
-        if (new Date(publishDate) < new Date(prefill.publishDate)) {
+        if (new Date(publishDate) <= new Date(prefill.publishDate)) {
           return "Du kan inte ange ett tidigare publiceringsdatum än det tidigare.";
         }
       } else if (new Date(publishDate) <= new Date().setHours(0, 0, 0, 0)) {
@@ -254,12 +242,91 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     document.querySelector("input[type=file]").value = "";
   };
 
-  // Konverterar firebase bild länk till filnamn
-  const getImageName = (link) => {
-    const url_token = link.split("?");
-    const url = url_token[0].split("/");
-    const fileName = url[url.length - 1].split("%2F")[2];
-    return fileName;
+  // Komponenter
+  const RequiredStar = () => {
+    return <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>;
+  };
+
+  const Label = ({ children, required }) => {
+    return (
+      <label>
+        {children}
+        {required ? <RequiredStar /> : ""}
+      </label>
+    );
+  };
+
+  const ImageInput = () => {
+    return (
+      <>
+        {image.name && (
+          <>
+            <div className="image-file">
+              {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
+              {image.name}{" "}
+              <i
+                className="fa-regular fa-trash-can"
+                onClick={() => setImage({ name: undefined, url: undefined })}
+              />
+            </div>
+            <p>
+              <i>Så här kommer bilden se ut i flödet</i>
+            </p>
+            {/* Om det är en sträng så är det länken från firebase annars skapa en lokal url */}
+            <Image
+              id="frame"
+              src={image.url ? image.url : URL.createObjectURL(image)}
+              width={120}
+              height={100}
+              alt="Förhandsvisning"
+            />
+          </>
+        )}
+        {!image.name && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
+      </>
+    );
+  };
+
+  const DateInput = () => {
+    return (
+      <div className="date-input">
+        {type === "Event" && (
+          <>
+            <div>
+              <Label required>Start:</Label>
+              <input
+                type="datetime-local"
+                required
+                value={startDateTime}
+                onChange={(e) => setStartDateTime(e.target.value)}
+                min={editMode ? "" : new Date().toLocaleString().substring(0, 16)}
+              />
+            </div>
+            <div>
+              <Label required>Slut:</Label>
+              <input
+                type="datetime-local"
+                required
+                value={endDateTime}
+                onChange={(e) => setEndDateTime(e.target.value)}
+                min={startDateTime}
+              />
+            </div>
+          </>
+        )}
+
+        <div>
+          <Label required>Publiceringsdatum:</Label>
+          <input
+            type="datetime-local"
+            required
+            value={publishDate}
+            onChange={(e) => setPublishDate(e.target.value)}
+            min={editMode ? prefill.publishDate : new Date().toLocaleString().substring(0, 16)}
+          />
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -282,6 +349,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
         </div>
         {type && (
           <div>
+            {/* Tagg väljare */}
             {(!editMode || !(tags["SM"] || tags["StyM"])) && (
               <>
                 <label>
@@ -323,52 +391,19 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               </>
             )}
 
-            <label>
-              Titel:
-              <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-            </label>
+            <Label required>Titel:</Label>
             <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
 
-            <label>Undertitel:</label>
+            <Label>Undertitel:</Label>
             <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
 
-            <label>Bild:</label>
-            {image.name && (
-              <>
-                <div className="image-file">
-                  {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
-                  {image.name}{" "}
-                  <i
-                    className="fa-regular fa-trash-can"
-                    onClick={() => setImage({ name: undefined, url: undefined })}
-                  />
-                </div>
-                <p>
-                  <i>Så här kommer bilden se ut i flödet</i>
-                </p>
-                {/* Om det är en sträng så är det länken från firebase annars skapa en lokal url */}
-                {console.log(image)}
-                <Image
-                  id="frame"
-                  src={image.url ? image.url : URL.createObjectURL(image)}
-                  width={120}
-                  height={100}
-                  alt="Förhandsvisning"
-                />
-              </>
-            )}
-            {!image.name && <input type="file" onChange={(e) => setImage(e.target.files[0])} />}
+            <Label>Bild:</Label>
+            <ImageInput />
 
-            <label>
-              Inlägg:
-              <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-            </label>
+            <Label required>Inlägg:</Label>
             <TextField value={body} onChange={setBody} />
 
-            <label>
-              Författare:
-              <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-            </label>
+            <Label required>Författare:</Label>
             <input
               type="text"
               required
@@ -376,54 +411,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               onChange={(e) => setAuthor(e.target.value)}
             />
 
-            <div className="date-input">
-              {type === "Event" && (
-                <>
-                  <div>
-                    <label>
-                      Start:
-                      <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-                    </label>
-                    <input
-                      type="datetime-local"
-                      required
-                      value={startDateTime}
-                      onChange={(e) => setStartDateTime(e.target.value)}
-                      min={editMode ? "" : new Date().toLocaleString().substring(0, 16)}
-                    />
-                  </div>
-                  <div>
-                    <label>
-                      Slut:
-                      <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-                    </label>
-                    <input
-                      type="datetime-local"
-                      required
-                      value={endDateTime}
-                      onChange={(e) => setEndDateTime(e.target.value)}
-                      min={startDateTime}
-                    />
-                  </div>
-                </>
-              )}
+            <DateInput />
 
-              <div>
-                <label>
-                  Publiceringsdatum:
-                  <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
-                </label>
-                <input
-                  type="date"
-                  required
-                  value={publishDate}
-                  onChange={(e) => setPublishDate(e.target.value)}
-                  min={editMode ? "" : new Date().toLocaleDateString()}
-                />
-              </div>
-            </div>
-
-            <label>
+            {/* URL */}
+            <Label>
               Url:{" "}
               <div className="infobox-container">
                 <i className="fa-regular fa-circle-question fa-xs"> </i>
@@ -431,7 +422,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                   Länken måste vara unik och får bara innehålla a-z, 0-9 samt &quot;-&quot;.
                 </span>
               </div>
-            </label>
+            </Label>
             <input
               disabled={editMode || tags.StyM || tags.SM}
               type="text"
@@ -440,6 +431,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               onChange={(e) => handleLinkInput(e.target.value)}
             />
 
+            {/* Kalender */}
             {!editMode && type === "Event" && (
               <>
                 <div className="calender-input">

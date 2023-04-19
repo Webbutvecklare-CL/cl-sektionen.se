@@ -56,7 +56,6 @@ export default function Index({ contents, newsList, eventList }) {
         </div>
         <section id="happenings">
           <div className="aktuellt_innehåll">
-
             {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
             {newsList.length < 1 && <p>Inlägg saknas</p>}
             {newsList.length > 0 && (
@@ -88,8 +87,7 @@ export default function Index({ contents, newsList, eventList }) {
             src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"
             sandbox="allow-scripts allow-same-origin allow-top-navigation"
             height="400px"
-            width="100%">
-          </iframe>
+            width="100%"></iframe>
           <GråttAgenda />
         </section>
         <hr />
@@ -140,7 +138,8 @@ export async function getStaticProps() {
   let eventList = [];
 
   // Aktuellt
-  const timeNow = Timestamp.now();
+  const todayDate = new Date().toLocaleString().substring(0, 16);
+  const timeNow = Timestamp.fromDate(new Date(todayDate));
   const postRef = collection(firestore, "posts");
 
   // Skapar en query - vilka inlägg som ska hämtas
