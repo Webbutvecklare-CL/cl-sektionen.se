@@ -355,6 +355,7 @@ export async function getStaticProps() {
   return {
     props: {
       postList: JSON.parse(JSON.stringify(postList)),
-    }, // will be passed to the page component as props
+    },
+    revalidate: 60 * 60 * 12, // Som oftast var 12:e timme - utöver de som kommer in när inlägg uppdateras
   };
 }

@@ -80,14 +80,17 @@ export async function getStaticProps({ params }) {
     console.error("Det gick inte att ladda inlägget: ", error.toString());
   }
 
+  let props = { postData: null, postId: params.postId }; // default om inget inlägg finns
+
   // Kollar om inlägget faktiskt fanns
   if (docSnap && docSnap.exists()) {
-    return {
-      props: { postData: JSON.parse(JSON.stringify(docSnap.data())), postId: params.postId },
-    };
-  } else {
-    return { props: { postData: null, postId: params.postId } };
+    props = { postData: JSON.parse(JSON.stringify(docSnap.data())), postId: params.postId };
   }
+
+  return {
+    props,
+    revalidate: 60 * 60 * 12, // Som oftast var 12:e timme - utöver de som kommer in när inlägg uppdateras
+  };
 }
 
 export async function getStaticPaths() {
