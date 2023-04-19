@@ -56,3 +56,12 @@
 .committee-feed .post-wrapper .options i:hover {
   transform: scale(1.3);
 }
+
+@media only screen and (max-width: 500px) {
+  .committee-feed .post-wrapper .options {
+    visibility: visible;
+    width: 1rem;
+    margin: 0 8px 0 3px;
+    transform: translateX(0rem);
+  }
+}
