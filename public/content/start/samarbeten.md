@@ -1,5 +1,3 @@
 ## Samarbeten
 
-Hej Student! Sektionen jobbar med flertalet sponsorer som är exalterade över att bjuda dig på mat och hjärntvätta dig med deras propaganda. Det är väldigt viktigt att du visar intresse i de samarbeten vi har eftersom vi behöver pengarna, du kan faktiskt ändå få hyfsat god mat (källa saknas)!
-
-Om du klicka på knappen nedan kan du se att vi inte ha några atm :(
+Hej Student! Sektionen samarbetar med flera företag och det kommer kontinuerligt in nya jobberbjudanden. Klicka på knappen nedan för att kika in vilka sommarjobb och extraknäck som passar dig. Näringslivsnämnden anordnar även regelbundet lunchföreläsningar, workshops och andra event där ni får chans att möta näringslivet. Så glöm inte att hålla utkik här på webbsidan och i [sektionskalendern](https://calendar.google.com/calendar/embed?src=c_5sqhb0om2kmti770g06qqknfik%40group.calendar.google.com&ctz=Europe%2FBerlin) för att inte missa nästa event.
