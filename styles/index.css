@@ -131,12 +131,15 @@
   margin-top: 0rem;
 }
 
-.sektionskal_månad h2 {
-  text-align: center;
+.sektionskal_månad_och_bokningar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
-.mini_kalender {
-  width: 100%;
+.open-web-calendar.månad {
+  height: 570px;
+  margin: unset;
 }
 
 .resurser .section-button {
@@ -157,6 +160,28 @@
 
 .start-naringsliv h2 {
   margin-top: 0px;
+}
+
+@media screen and (max-width: 1000px) {
+  .sektionskal_månad_och_bokningar {
+    display: block;
+  }
+
+  .open-web-calendar.månad {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .open-web-calendar.agenda {
+    height: 300px !important;
+    max-width: 450px !important;
+    min-width: 270px !important;
+  }
+
+  .gråttagenda_wrapper {
+    min-width: 280px !important;
+    margin: 1rem auto 0 auto;
+  }
 }
 
 @media screen and (max-width: 800px) {

@@ -56,35 +56,30 @@ export default function Index({ contents, newsList, eventList }) {
         </div>
         <section id="happenings">
           <div className="aktuellt_innehåll">
-            <h2>Nyheter</h2>
             {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
             {newsList.length < 1 && <p>Inlägg saknas</p>}
             {newsList.length > 0 && (
               <div>
                 <FeaturedPostPreview post={newsList[0]} />
-                <FeedPreview posts={newsList.slice(1)} title="Annat" />
-              </div>
-            )}
-          </div>
-          <div className="event_innehåll">
-            <h2>Event</h2>
-            {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
-            {eventList.length < 1 && <p>Inlägg saknas</p>}
-            {eventList && (
-              <div className="event">
-                <div className="event_och_gråttan">
-                  <FeedPreview posts={eventList} title="Annat" />
-                  <GråttAgenda />
+                <div className="inlägg_wrapper">
+                  <div className="event_innehåll">
+                    <h2>Information</h2>
+                    <FeedPreview posts={newsList.slice(1)} title="Annat" />
+                  </div>
+                  <div className="event_innehåll">
+                    <h2>Event</h2>
+                    <FeedPreview posts={eventList} title="Annat" />
+                  </div>
                 </div>
               </div>
             )}
           </div>
         </section>
         <hr />
-        <section className="sektionskal_månad">
-          <h2>Sektionens kalender</h2>
+        <h2>Kalendern och gråttbokningar</h2>
+        <section className="sektionskal_månad_och_bokningar">
           <iframe
-            className="open-web-calendar"
+            className="open-web-calendar månad"
             style={{
               background:
                 "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
@@ -93,6 +88,7 @@ export default function Index({ contents, newsList, eventList }) {
             sandbox="allow-scripts allow-same-origin allow-top-navigation"
             height="400px"
             width="100%"></iframe>
+          <GråttAgenda />
         </section>
         <hr />
         <section className="resurser">
@@ -142,7 +138,8 @@ export async function getStaticProps() {
   let eventList = [];
 
   // Aktuellt
-  const timeNow = Timestamp.now();
+  const todayDate = new Date().toLocaleString().substring(0, 16);
+  const timeNow = Timestamp.fromDate(new Date(todayDate));
   const postRef = collection(firestore, "posts");
 
   // Skapar en query - vilka inlägg som ska hämtas
