@@ -29,8 +29,9 @@
 }
 
 .open-web-calendar.agenda {
-  height: 405px;
+  height: 510px;
   width: calc(100% - 10px);
+  min-width: 350px;
   border: none;
 }
 
@@ -58,6 +59,13 @@
   margin-left: 0rem;
   display: flex;
   justify-content: space-between;
+}
+
+.gråttagenda_wrapper {
+  border-radius: 0.3rem;
+  min-width: 360px;
+  max-width: 450px;
+  padding-bottom: 10px;
 }
 
 @media screen and (min-width: 500px) {

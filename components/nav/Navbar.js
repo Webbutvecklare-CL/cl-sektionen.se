@@ -19,20 +19,20 @@ import { useRouter } from "next/router";
 const MENU_LIST = [
   {
     text: "På gång",
-    href: "",
+    href: "/aktuellt",
     submenu: [
       { text: "Aktuellt & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
-      { text: "Illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
   },
   {
     text: "Sektionen",
-    href: "",
+    href: "/om-oss",
     submenu: [
-      { text: "Förtroendevalda", href: "/fortroendevalda" },
+      { text: "Om oss", href: "/om-oss" },
       { text: "Sångbok", href: "/sangbok" },
       { text: "Dokument", href: "/dokument" },
+      { text: "Förtroendevalda", href: "/fortroendevalda" },
       { text: "Hedersmedlemmar och hedersorden", href: "/hedersmedlemmar" },
     ],
   },
@@ -40,15 +40,23 @@ const MENU_LIST = [
     text: "Studier",
     href: "",
     submenu: [
-      // { text: "Studiebevakning", href: "/studiebevakning" },
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
       { text: "VFU", href: "/vfu" },
+      // { text: "Valbara kurser", href: "/valbara-kurser" },
+    ],
+  },
+  {
+    text: "Studiesocialt",
+    href: "",
+    submenu: [
+      { text: "Illabehandling", href: "/hjalp-vid-illabehandling" },
+      // { text: "Studiebevakning", href: "/studiebevakning" },
     ],
   },
   {
     text: "Näringsliv",
-    href: "",
+    href: "/for-foretag",
     submenu: [
       { text: "För företag", href: "/for-foretag" },
       { text: "Samarbeten", href: "/samarbeten" },

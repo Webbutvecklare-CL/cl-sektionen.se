@@ -18,7 +18,7 @@ export default function Publicera() {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
   const router = useRouter();
 
-  let today = new Date().toLocaleString().substring(0, 10); // Hämtar dagens datum och sätter som default
+  let today = new Date().toLocaleString().substring(0, 16); // Hämtar dagens datum och sätter som default
   const [prefillData, setPrefillData] = useState({
     title: "",
     subtitle: "",

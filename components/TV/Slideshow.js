@@ -22,7 +22,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
         .getColorAsync(container.querySelector("img"), { algorithm: "dominant" })
         .then((color) => {
           container.style.backgroundColor = color.rgba;
-          // Kanske kan användas på reseinfo
+          // Kanske kan användas på reseinfo för att minska kontrasten eller öka idk
           // container.style.color = color.isDark ? "#fff" : "#000";
         })
         .catch((e) => {

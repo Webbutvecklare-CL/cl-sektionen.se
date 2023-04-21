@@ -1,3 +1,10 @@
 ## För Företag
 
-Hej Företag! Här står det säljande och intressant information om sektionen och oss som studenter. Vi behöver pengar och vi skulle bli extremt tacksamma om ni ville ge oss lite. Det vi kan erbjuda är hungriga studenter som gärna sitter tyst och lyssnar med mat framför sig. **Är ni trötta på vanliga tråkiga nördar från Data eller Fysik** som har hög IQ (tveksamt dock) men noll EQ (definitivt) se hit! Vi är det kompletta paketet. Vi kan lära oss nya saker, vi kan samarbeta, vi kan komma på kreativa idéer men framför allt kan vi föra över detta till våra kollegor. Vi har heller inte några missbruk utöver alkohol till skillnad från Indek så vi klarar alla drogtester! Om ni inte vill bjuda på mat kan ni få sätta er logga på våra ryggar under mottagningen så ska vi bära den med en stor lökring.
+Hej Företag! Sektionen arbeta ständigt med att knyta nya kontakter med näringslivet. Är ert företag intresserade att träffa studenter med passion för teknik och pedagogik och blandade intressen inom data, fysik, kemi samt energi och miljö? Då har ni hittat rätt! Våra studenter är framtidens ledare inom teknik- och utbildningsindustrin, och att ha en närvaro på vår sektion ger ert företag en unik möjlighet att marknadsföra er själva och visa upp vad ni har att erbjuda. Det som särskiljer oss från andra civilingenjörsprogram är att vi besitter förmågan att kommunicera och förklara tekniska problem och lösningar på ett pedagogiskt sätt.
+
+Vi kan erbjuda företag flera möjligheter till samarbete, exempelvis lunchföreläsningar där ni kan presentera er verksamhet och dessutom få möjlighet att interagera med studenter och svara på deras frågor. Detta ger er en utmärkt möjlighet att marknadsföra er verksamhet och samtidigt öka studenternas förståelse för ert företags verksamhet.
+
+Vi kan också erbjuda er möjligheter till annonsering på våra plattformar, såsom vår webbsida och sociala mediekanaler. Detta ger er en utmärkt möjlighet att nå ut till en målinriktad publik och öka er synlighet på KTH.
+
+Klicka på knappen nedan för att veta mer eller kontakta oss direkt på naringslivsnamnden@cl-sektionen.se.
+

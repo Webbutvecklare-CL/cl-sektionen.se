@@ -159,9 +159,6 @@ export default function Reseberattelser() {
                 Philip Gullberg - Tjeckien
               </Link>
             </li>
-            <li>
-              <Link href="/reseberattelser/furkan-kocak-turkiet">Furkan Kocak - Turkiet</Link>
-            </li>
           </ul>
         </div>
       ) : (
@@ -175,6 +172,9 @@ export default function Reseberattelser() {
               <Link href="/reseberattelser/william-friefeldt-taiwan">
                 William Friefeldt - Taiwan
               </Link>
+            </li>
+            <li>
+              <Link href="/reseberattelser/furkan-kocak-turkiet">Furkan Kocak - Turkiet</Link>
             </li>
           </ul>
         </div>
