@@ -1,5 +1,5 @@
-Maja Jansson, **Ordförande**  
+Maja Jansson CL22, **Ordförande**  
 jml@cl-sektionen.se
 
-Gabriella Hajto, **Vice Ordförande tillika Studerandeskyddsombud**  
+Gabriella Hajto CL21, **Vice Ordförande tillika Studerandeskyddsombud**  
 skyddsombud@cl-sektionen.se

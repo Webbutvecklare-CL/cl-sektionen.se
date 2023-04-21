@@ -1,14 +1,14 @@
-David Böhrens Radö, **Femmans representant**  
+David Böhrens Radö CL20, **Femmans representant**  
 val@cl-sektionen.se
 
-Sander Söderberg, **Fyrans representant**  
+Sander Söderberg CL21, **Fyrans representant**  
 val@cl-sektionen.se
 
-Lea Martinelle, **Treans representant (sammankallande)**  
+Lea Martinelle CL20, **Treans representant (sammankallande)**  
 val@cl-sektionen.se
 
-Matilda Algotsson, **Tvåans representant**  
+Matilda Algotsson CL21, **Tvåans representant**  
 val@cl-sektionen.se
 
-Fabian Olesen, **Ettans representant**  
+Fabian Olesen CL22, **Ettans representant**  
 val@cl-sektionen.se

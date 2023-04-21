@@ -1,11 +1,11 @@
-Aron Johansson, **DireKTHréce**  
+Aron Johansson CL22, **DireKTHréce**  
 dubbelspexet@cl-sektionen.se
 
-Linnea Selmarker, **Producent**
+Linnea Selmarker CL20, **Producent**
 dubbelspexet@cl-sektionen.se
 
-Lukas Kuusivuori, **Ekonomiskt Ansvarig**  
+Lukas Kuusivuori CL22, **Ekonomiskt Ansvarig**  
 dubbelspexet@cl-sektionen.se
 
-Dian Xia, **Ledamot**
+Dian Xia CL22, **Ledamot**
 dubbelspexet@cl-sektionen.se

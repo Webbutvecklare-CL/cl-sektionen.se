@@ -1,8 +1,8 @@
-Vera Roos, **Ordförande**  
+Vera Roos CL21, **Ordförande**  
 clek@cl-sektionen.se
 
-Tuva Egman, **Vice Ordförande**  
+Tuva Egman CL20, **Vice Ordförande**  
 clek@cl-sektionen.se
 
-Saraa Engström, **Ekonomiskt Ansvarig**  
+Saraa Engström CL21, **Ekonomiskt Ansvarig**  
 clek@cl-sektionen.se
