@@ -9,6 +9,7 @@ const FeedPreview = ({ posts }) => {
   return (
     <div className="feed-preview">
       {posts.map((post) => {
+        const date = new Date(post.publishDate["seconds"] * 1000);
         return (
           <div className="post-wrapper" key={post.id}>
             <Link href={`/aktuellt/${post.id}`}>
@@ -21,8 +22,7 @@ const FeedPreview = ({ posts }) => {
                 </div>
                 <div className="post-meta">
                   <h2>{post.title}</h2>
-                  {/*här fanns post.author förut, kan läggas in igen om plats finns*/}
-                  <div>{/* <p>{post.publishDate.toDate().toLocaleDateString("sv")}</p> */}</div>
+                  {post.author} {date.toLocaleDateString("sv")}
                 </div>
                 <div className="post-content">
                   <p className="subtitle">{post.subtitle}</p>
