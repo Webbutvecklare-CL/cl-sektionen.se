@@ -162,6 +162,10 @@
   margin-top: 0px;
 }
 
+.gråttan.månad{
+  display: none;
+}
+
 @media screen and (max-width: 1000px) {
   .sektionskal_månad_och_bokningar {
     display: block;
@@ -181,6 +185,13 @@
   .gråttagenda_wrapper {
     min-width: 280px !important;
     margin: 1rem auto 0 auto;
+  }
+
+  .agenda-vy{
+    display: none;
+  }
+  .gråttan.månad{
+    display: block;
   }
 }
 

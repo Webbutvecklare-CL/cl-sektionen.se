@@ -1,6 +1,6 @@
 const GråttAgenda = () => {
   return (
-    <div className="mini_kalender kalender_tab gråttagenda_wrapper">
+    <div className="mini_kalender kalender_tab gråttagenda_wrapper agenda-vy">
       <h1 className="kal_titel">Gråttbokningar</h1>
       <iframe
         className="open-web-calendar agenda"
