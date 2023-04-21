@@ -18,10 +18,10 @@ import { useRouter } from "next/router";
 //Notera att dropdowns i dropdowns stöds inte
 const MENU_LIST = [
   {
-    text: "På gång",
+    text: "Aktuellt",
     href: "/aktuellt",
     submenu: [
-      { text: "Aktuellt & Event", href: "/aktuellt" },
+      { text: "Information & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
     ],
   },
@@ -30,10 +30,9 @@ const MENU_LIST = [
     href: "/om-oss",
     submenu: [
       { text: "Om oss", href: "/om-oss" },
-      { text: "Sångbok", href: "/sangbok" },
-      { text: "Dokument", href: "/dokument" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
-      { text: "Hedersmedlemmar och hedersorden", href: "/hedersmedlemmar" },
+      { text: "Hedersutmärkelser", href: "/hedersmedlemmar" },
+      { text: "Dokument", href: "/dokument" },
     ],
   },
   {
@@ -43,6 +42,7 @@ const MENU_LIST = [
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
       { text: "VFU", href: "/vfu" },
+      // { text: "Studiebevakning", href: "/studiebevakning" },
       // { text: "Valbara kurser", href: "/valbara-kurser" },
     ],
   },
@@ -50,8 +50,8 @@ const MENU_LIST = [
     text: "Studiesocialt",
     href: "",
     submenu: [
-      { text: "Illabehandling", href: "/hjalp-vid-illabehandling" },
-      // { text: "Studiebevakning", href: "/studiebevakning" },
+      { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
+      { text: "Sångbok", href: "/sangbok" },
     ],
   },
   {
