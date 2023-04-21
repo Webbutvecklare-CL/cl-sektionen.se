@@ -20,6 +20,7 @@ export default function Post({ postData, postId }) {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
 
+  // 404 sida - om det saknas ett inlägg till den angivna länken
   if (!postData) {
     return (
       <div id="contentbody">

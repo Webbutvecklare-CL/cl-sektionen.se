@@ -1,8 +1,13 @@
-Veronica Vilbern CL17, **Talman** <i class="fa-solid fa-comments"></i>  
-talman@cl-sektionen.se
+# Enskilda poster <i class="fa-solid fa-otter" ></i>
 
-Mikael "Moppe" Lundkvist CL19, **Försäljningsansvarig** <i class="fa-solid fa-store"></i>  
-forsaljning@cl-sektionen.se
+### Talman
 
-Astrid Joseph CL22, **Idrottsansvarig** <i class="fa-solid fa-basketball"></i>  
-idrott@cl-sektionen.se
+Talmannen är den person som har rätt att öppna sektionsmöten, och vanligtvis agerar mötesordförande. Talmannen är ofta en student från CL som har tagit examen.
+
+### Försäljningsansvarig
+
+Försäljningsansvarig är en person som ansvarar för försäljning av sektionens märken, ovvar och liknande. Personen ska löpande ta reda på vad medlemmarna önskar köpa, och införskaffa och sälja därefter.
+
+### Idrottsansvarig
+
+Idrottsansvarig är framförallt ansvarig för idrottsverksamheten som bedrivs tillsammans med W. Idrottsansvarig representerar sektionen i THS Idrottsråd.
