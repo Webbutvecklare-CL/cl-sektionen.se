@@ -2,20 +2,22 @@
 .feed-preview {
   width: 100%;
   padding-bottom: 0;
-  display: grid;
-  grid-template-rows: 1fr;
+  display: flex !important;
+  flex-direction: column;
   row-gap: 0.4rem;
+  justify-content: space-between;
 }
 
 /* Post preview dvs varje länk */
 .post-wrapper {
-  height: 100px;
-  padding: 5px;
+  padding: 5px !important;
   transition: 0.2s;
   border-radius: 0.1rem !important;
   background-color: white;
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden !important;
+  
+  height: 100px;
 }
 
 .post-wrapper:hover,
@@ -26,7 +28,9 @@
     rgba(255, 255, 255, 1) 55%,
     rgba(255, 255, 255, 1) 100%
   );
-  transform: scale(1.005);
+  
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
   transition: 0.2s;
 }
 
@@ -86,7 +90,7 @@
 .feed-preview .post-preview {
   margin: 0;
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   gap: 0 0.5rem;
   grid-template-areas:
@@ -95,15 +99,17 @@
 }
 
 .feed-preview div.image {
-  width: 100%;
+  width: 120px;
   height: 100%;
   grid-area: image;
+  /* overflow: hidden; */
 }
 
 .feed-preview div.image img {
   object-fit: cover;
-  height: 100%;
+  object-position: center;
   width: 100%;
+  height: 100%;
 }
 
 .feed-preview .post-meta {
@@ -112,6 +118,7 @@
   color: black;
   gap: 0.5rem;
   width: 100%;
+  height: 50px;
 }
 
 .feed-preview .post-meta div {
@@ -182,4 +189,25 @@
       "image meta"
       "image content";
   }
+}
+
+.aktuellt_innehåll .feed-preview {
+  height: 480px;
+}
+
+.aktuellt_innehåll .feed-preview .post-wrapper * {
+  -webkit-transition: all 0.3s;
+}
+
+.aktuellt_innehåll .feed-preview .post-wrapper:hover {
+  height: 160px;
+}
+
+.aktuellt_innehåll .feed-preview .post-wrapper:hover .image {
+  width: 160px;
+  height: 145px;
+}
+
+.aktuellt_innehåll .feed-preview .post-wrapper:hover .post-content .body p{
+  -webkit-line-clamp: 3;
 }
