@@ -21,7 +21,7 @@ const MENU_LIST = [
     text: "Aktuellt",
     href: "/aktuellt",
     submenu: [
-      { text: "Information & Event", href: "/aktuellt" },
+      { text: "Info & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
     ],
   },
