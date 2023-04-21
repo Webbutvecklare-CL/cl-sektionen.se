@@ -12,7 +12,7 @@
   transform: none;
   background: linear-gradient(
     90deg,
-    rgba(255, 0, 26, 0.15) 35%,
+    rgba(255, 0, 26, 0.1) 35%,
     rgba(255, 255, 255, 1) 65%,
     rgba(255, 255, 255, 1) 100%
   );
@@ -155,6 +155,17 @@
   .featured-preview .post-preview .body p {
     -webkit-line-clamp: 3;
   }
+
+  .post-preview.featured:hover,
+.post-preview.featured:focus {
+  transform: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 26, 0.1) 25%,
+    rgba(255, 255, 255, 1) 45%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
 }
 
 @media screen and (max-width: 850px) {
@@ -204,7 +215,7 @@
     transform: none;
     background: linear-gradient(
       180deg,
-      rgba(255, 0, 26, 0.15) 35%,
+      rgba(255, 0, 26, 0.1) 35%,
       rgba(255, 255, 255, 1) 85%,
       rgba(255, 255, 255, 1) 100%
     );

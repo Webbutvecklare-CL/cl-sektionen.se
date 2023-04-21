@@ -22,8 +22,8 @@
 .post-wrapper:focus {
   background: linear-gradient(
     90deg,
-    rgba(255, 0, 26, 0.15) 0%,
-    rgba(255, 255, 255, 1) 65%,
+    rgba(255, 0, 26, 0.1) 10%,
+    rgba(255, 255, 255, 1) 35%,
     rgba(255, 255, 255, 1) 100%
   );
   transform: scale(1.005);

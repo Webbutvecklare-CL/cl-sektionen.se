@@ -32,8 +32,8 @@
 
   background: linear-gradient(
     180deg,
-    rgba(255, 0, 26, 0.15) 05%,
-    rgba(252, 252, 252, 1) 95%,
+    rgba(255, 0, 26, 0.1) 05%,
+    rgba(252, 252, 252, 1) 35%,
     rgba(252, 252, 252, 1) 100%
   );
 }
@@ -41,8 +41,8 @@
 .hedersmedlem.active {
   background: linear-gradient(
     180deg,
-    rgba(255, 0, 26, 0.15) 05%,
-    rgba(252, 252, 252, 1) 75%,
+    rgba(255, 0, 26, 0.1) 0%,
+    rgba(252, 252, 252, 1) 35%,
     rgba(252, 252, 252, 1) 100%
   );
 }
