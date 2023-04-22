@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 110px;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .inputfält-aktuellt {

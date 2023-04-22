@@ -163,7 +163,7 @@
   margin-top: 0px;
 }
 
-.gråttan.månad{
+.gråttan.månad {
   display: none;
 }
 
@@ -188,10 +188,10 @@
     margin: 1rem auto 0 auto;
   }
 
-  .agenda-vy{
+  .agenda-vy {
     display: none;
   }
-  .gråttan.månad{
+  .gråttan.månad {
     display: block;
   }
 }

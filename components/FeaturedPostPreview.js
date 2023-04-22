@@ -5,9 +5,8 @@ import Image from "next/image";
 
 import bg from "../public/media/img/KTHcover.jpg";
 
-const FeaturedPostPreview = ({ post }) => {
+export default function FeaturedPostPreview({ post }) {
   const date = new Date(post.publishDate["seconds"] * 1000);
-  console.log(post.body)
   return (
     <div className="featured-preview">
       <Link href={`/aktuellt/${post.id}`} key={post.id}>
@@ -40,6 +39,4 @@ const FeaturedPostPreview = ({ post }) => {
       </Link>
     </div>
   );
-};
-
-export default FeaturedPostPreview;
+}

@@ -102,7 +102,7 @@ export async function getStaticPaths() {
   // Övriga inlägg renderas efter behov
   const publicQuery = query(
     postRef,
-    where("publishDate", "<", timeNow),
+    where("visibility", "in", ["public", "hidden"]),
     orderBy("publishDate", "desc"),
     limit(20)
   );
