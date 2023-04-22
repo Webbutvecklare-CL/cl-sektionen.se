@@ -55,10 +55,10 @@ h2 {
 
 article {
   background-color: #fefefe;
-  margin: auto;
+  margin: 3rem auto;
   width: 100%;
   max-width: 650px;
-  padding: 2em 6em;
+  padding: 2rem 6rem;
   box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.2);
 }
 
@@ -79,3 +79,10 @@ ol {
   margin-top: 0px;
   font-size: 18px;
 }
+
+.article-head {
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+}
+
