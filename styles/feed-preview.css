@@ -11,27 +11,25 @@
 /* Post preview dvs varje länk */
 .post-wrapper {
   padding: 5px !important;
-  transition: 0.2s;
   border-radius: 0.1rem !important;
   background-color: white;
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden !important;
-  
+  transition: 0.05s ease-in-out;
   height: 100px;
 }
 
 .post-wrapper:hover,
 .post-wrapper:focus {
+  overflow: hidden;
   background: linear-gradient(
     90deg,
-    rgba(255, 0, 26, 0.1) 10%,
-    rgba(255, 255, 255, 1) 55%,
+    rgba(255, 0, 26, 0.1) 0%,
+    rgba(255, 255, 255, 1) 45%,
     rgba(255, 255, 255, 1) 100%
   );
-  
-  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
-  transform: scale(1.01);
-  transition: 0.2s;
+  transform: scale(1);
+  transition: 0.05s ease-in-out;
 }
 
 .post-preview {
@@ -184,7 +182,6 @@
 @media screen and (max-width: 550px) {
   .feed-preview .post-preview {
     width: 100% - 3rem;
-    grid-template-columns: 100px 1fr;
     grid-template-areas:
       "image meta"
       "image content";
@@ -204,7 +201,6 @@
 }
 
 .aktuellt_innehåll .feed-preview .post-wrapper:hover .image {
-  width: 160px;
   height: 145px;
 }
 
