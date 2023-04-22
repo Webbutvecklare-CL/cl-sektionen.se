@@ -34,7 +34,6 @@ const MENU_LIST = [
       // { text: "Engagera dig", href: "/engagera-dig" },
       { text: "Hedersutmärkelser", href: "/hedersmedlemmar" },
       { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
-      
     ],
   },
   {

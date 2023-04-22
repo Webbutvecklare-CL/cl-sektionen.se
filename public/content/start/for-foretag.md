@@ -7,4 +7,3 @@ Vi kan erbjuda företag flera möjligheter till samarbete, exempelvis lunchföre
 Vi kan också erbjuda er möjligheter till annonsering på våra plattformar, såsom vår webbsida och sociala mediekanaler. Detta ger er en utmärkt möjlighet att nå ut till en målinriktad publik och öka er synlighet på KTH.
 
 Klicka på knappen nedan för att veta mer eller kontakta oss direkt på naringslivsnamnden@cl-sektionen.se.
-
