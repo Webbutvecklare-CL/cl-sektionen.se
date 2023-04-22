@@ -25,10 +25,10 @@
 
 .featured-preview .post-preview {
   padding: 5px;
-  height: 360px !important;
+  height: 300px !important;
   margin: 0;
   display: grid;
-  grid-template-columns: 480px 1fr !important;
+  grid-template-columns: 400px 1fr !important;
   grid-template-rows: auto 1fr;
   gap: 0 1rem;
   grid-template-areas:

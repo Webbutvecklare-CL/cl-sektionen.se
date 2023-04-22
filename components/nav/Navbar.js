@@ -21,7 +21,7 @@ const MENU_LIST = [
     text: "Aktuellt",
     href: "/aktuellt",
     submenu: [
-      { text: "Information & Event", href: "/aktuellt" },
+      { text: "Info & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
     ],
   },
@@ -31,27 +31,30 @@ const MENU_LIST = [
     submenu: [
       { text: "Om oss", href: "/om-oss" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
+      // { text: "Engagera dig", href: "/engagera-dig" },
       { text: "Hedersutmärkelser", href: "/hedersmedlemmar" },
-      { text: "Dokument", href: "/dokument" },
+      { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
+      
     ],
   },
   {
-    text: "Studier",
+    text: "Utbildning",
     href: "",
     submenu: [
+      { text: "VFU", href: "/vfu" },
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
-      { text: "VFU", href: "/vfu" },
       // { text: "Studiebevakning", href: "/studiebevakning" },
       // { text: "Valbara kurser", href: "/valbara-kurser" },
     ],
   },
   {
-    text: "Studiesocialt",
+    text: "Resurser",
     href: "",
     submenu: [
-      { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
       { text: "Sångbok", href: "/sangbok" },
+      { text: "Dokument", href: "/dokument" },
+      // { text: "Bildarkiv", href: "/bildarkiv" },
     ],
   },
   {
