@@ -5,6 +5,13 @@
   margin-top: 2rem;
 }
 
+.aktuelltsidan-contentwrapper .feed-preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 110px;
+  gap: .5rem;
+}
+
 .inputfält-aktuellt {
   display: flex;
   flex-direction: row;

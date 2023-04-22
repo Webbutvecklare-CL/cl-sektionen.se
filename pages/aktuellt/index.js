@@ -247,7 +247,7 @@ export default function Aktuellt({ postList }) {
           </section>
 
           <section className="posts">
-            <div style={{ display: "flex" }}>
+            <div className="aktuelltsidan-contentwrapper">
               <FeedPreview
                 posts={postList
                   .filter((post) => {

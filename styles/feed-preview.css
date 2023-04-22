@@ -1,12 +1,4 @@
 /* Aktuellt feed */
-.feed-preview {
-  width: 100%;
-  padding-bottom: 0;
-  display: flex !important;
-  flex-direction: column;
-  row-gap: 0.4rem;
-  justify-content: space-between;
-}
 
 /* Post preview dvs varje länk */
 .post-wrapper {
@@ -15,7 +7,7 @@
   background-color: white;
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden !important;
-  transition: 0.05s ease-in-out;
+  transition: 0.1s ease-in-out;
   height: 100px;
 }
 
@@ -24,12 +16,13 @@
   overflow: hidden;
   background: linear-gradient(
     90deg,
-    rgba(255, 0, 26, 0.1) 0%,
+    rgb(255, 220, 223) 15%,
     rgba(255, 255, 255, 1) 45%,
     rgba(255, 255, 255, 1) 100%
   );
-  transform: scale(1);
-  transition: 0.05s ease-in-out;
+  transform: scale(1) translateY(-20px);
+  transition: 0.1s ease-in-out;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .post-preview {
@@ -176,7 +169,8 @@
 .aktuellt_innehåll .feed-preview {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 110px);
+  gap: .5rem;
 }
 
 @media screen and (max-width: 550px) {
@@ -188,22 +182,18 @@
   }
 }
 
-.aktuellt_innehåll .feed-preview {
-  height: 480px;
+.feed-preview .post-wrapper * {
+  -webkit-transition: all 0.1s;
 }
 
-.aktuellt_innehåll .feed-preview .post-wrapper * {
-  -webkit-transition: all 0.3s;
+.feed-preview .post-wrapper:hover {
+  height: 150px;
 }
 
-.aktuellt_innehåll .feed-preview .post-wrapper:hover {
-  height: 160px;
+.feed-preview .post-wrapper:hover .image {
+  height: 100%;
 }
 
-.aktuellt_innehåll .feed-preview .post-wrapper:hover .image {
-  height: 145px;
-}
-
-.aktuellt_innehåll .feed-preview .post-wrapper:hover .post-content .body p{
+.feed-preview .post-wrapper:hover .post-content .body p{
   -webkit-line-clamp: 3;
 }
