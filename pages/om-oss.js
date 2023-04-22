@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
@@ -10,6 +9,7 @@ export default function Samarbete({ contents }) {
       <MarkdownRender mdData={contents["programmet"]} />
       <MarkdownRender mdData={contents["sektionen"]} />
       <MarkdownRender mdData={contents["medlem"]} />
+      <MarkdownRender mdData={contents["inriktningar"]} />
     </div>
   );
 }

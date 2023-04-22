@@ -249,9 +249,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     return <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>;
   };
 
-  const Label = ({ children, required, for_ }) => {
+  const Label = ({ children, required }) => {
     return (
-      <label for={for_}>
+      <label>
         {children}
         {required ? <RequiredStar /> : ""}
       </label>
