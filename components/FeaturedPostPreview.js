@@ -7,6 +7,7 @@ import bg from "../public/media/img/KTHcover.jpg";
 
 const FeaturedPostPreview = ({ post }) => {
   const date = new Date(post.publishDate["seconds"] * 1000);
+  console.log(post.body)
   return (
     <div className="featured-preview">
       <Link href={`/aktuellt/${post.id}`} key={post.id}>

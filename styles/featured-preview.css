@@ -24,6 +24,7 @@
 }
 
 .featured-preview .post-preview {
+  overflow: hidden;
   padding: 5px;
   height: 300px !important;
   margin: 0;
@@ -103,7 +104,7 @@
   font-size: 1.1rem;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 11;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
 }
 

@@ -14,7 +14,7 @@ import { getContentData } from "../utils/contents";
 import { firestore } from "../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 
-export default function Index({ contents, newsList, eventList }) {
+export default function Index({ contents, featured, newsList, eventList }) {
   const [open, setOpen] = useState(false);
   const toggleOm = () => {
     setOpen(!open);
@@ -60,11 +60,11 @@ export default function Index({ contents, newsList, eventList }) {
             {newsList.length < 1 && <p>Inlägg saknas</p>}
             {newsList.length > 0 && (
               <div>
-                <FeaturedPostPreview post={newsList[0]} />
+                <FeaturedPostPreview post={featured} />
                 <div className="inlägg_wrapper">
                   <div className="event_innehåll">
                     <h2>Information</h2>
-                    <FeedPreview posts={newsList.slice(1)} title="Annat" />
+                    <FeedPreview posts={newsList} title="Annat" />
                   </div>
                   <div className="event_innehåll">
                     <h2>Event</h2>
@@ -167,7 +167,7 @@ export async function getStaticProps() {
     where("public", "==", true),
     where("publishDate", "<", timeNow),
     orderBy("publishDate", "desc"),
-    limit(4)
+    limit(5)
   );
   // Hämtar inläggen från firestore
 
@@ -196,12 +196,28 @@ export async function getStaticProps() {
     eventList.push(data);
   });
 
+  let featured = {}
+
+  let newestEventDate = new Date(eventList[0].publishDate["seconds"] * 1000)
+  let newestNewsDate = new Date(newsList[0].publishDate["seconds"] * 1000)
+
+  if (newestEventDate >= newestNewsDate){
+    featured = eventList[0]
+    eventList = eventList.slice(1)
+    newsList = newsList.slice(0, -1)
+  } else {
+    featured = newsList[0]
+    newsList = newsList.slice(1)
+    eventList = eventList.slice(0, -1)
+  }
+
   // Contents är all text
   // newsList och eventList är listor med de senaste inläggen
   // stringify gör om listan till en sträng parse gör sedan om till objekt
   return {
     props: {
       contents: getContentData("start"),
+      featured: JSON.parse(JSON.stringify(featured)),
       newsList: JSON.parse(JSON.stringify(newsList)),
       eventList: JSON.parse(JSON.stringify(eventList)),
     },
