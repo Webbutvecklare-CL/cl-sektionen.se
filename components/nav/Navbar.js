@@ -31,7 +31,7 @@ const MENU_LIST = [
     submenu: [
       { text: "Om oss", href: "/om-oss" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
-      // { text: "Engagera dig", href: "/engagera-dig" },
+      { text: "Engagera dig", href: "/engagera-dig" },
       { text: "Hedersutmärkelser", href: "/hedersmedlemmar" },
       { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
