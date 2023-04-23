@@ -166,13 +166,13 @@ nav .active {
   float: left;
   color: #ffffff !important;
   text-align: center;
-  padding: 0.9rem .2rem;
   text-decoration: none;
   font-size: 1.3rem;
 }
 
 .homebutton-wrapper{
   display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 780px) {
