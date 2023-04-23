@@ -5,7 +5,6 @@ import { getContentData } from "../utils/contents";
 export default function Samarbete({ contents }) {
   return (
     <div id="contentbody">
-      <h1>Om oss</h1>
       <MarkdownRender mdData={contents["programmet"]} />
       <MarkdownRender mdData={contents["sektionen"]} />
       <MarkdownRender mdData={contents["medlem"]} />

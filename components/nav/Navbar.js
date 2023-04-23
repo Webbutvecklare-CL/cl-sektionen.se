@@ -76,6 +76,26 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
+  const [currentPageTitle, setCurrentPageTitle] = useState("");
+
+
+  useEffect(() => {
+    const path = router.asPath
+    
+    let text = ""
+    for (const menu of MENU_LIST){
+      for (const sub of menu.submenu){
+        if (sub.href === path){
+          console.log(sub.text)
+          text = sub.text
+          break;
+        }
+      }
+    }
+    
+    setCurrentPageTitle(text)
+  });
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
@@ -146,19 +166,19 @@ export default function Navbar() {
                   }}>
                   <NavItem active={activeIdx === idx} {...menu} />
                 </div>
-
                 {menu.submenu?.map((sb, s_idx) => (
-                  <NavSubItem
-                    key={sb.text}
-                    active={activeIdx === idx && activeSubIdx === s_idx}
-                    {...sb}
+                  <div 
                     onClick={() => {
                       if (idx === activeIdx) {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
-                      }
-                    }}
-                  />
+                      }}}>
+                    <NavSubItem
+                      key={sb.text}
+                      active={activeIdx === idx && activeSubIdx === s_idx}
+                      {...sb}
+                    />
+                  </div>
                 ))}
               </div>
             ))}
@@ -179,15 +199,17 @@ export default function Navbar() {
               <NavItem active={activeIdx === idx} {...menu} />
             </div>
             {menu.submenu?.map((sb, s_idx) => (
-              <NavSubItem
-                active={activeIdx === idx && activeSubIdx === s_idx}
-                {...sb}
-                key={sb.text}
+              <div
                 onClick={() => {
                   setActiveIdx(idx);
                   setActiveSubIdx(s_idx);
-                }}
-              />
+                }}>
+                <NavSubItem
+                  active={activeIdx === idx && activeSubIdx === s_idx}
+                  {...sb}
+                  key={sb.text}
+                />
+              </div>
             ))}
           </div>
         ))}
@@ -201,7 +223,12 @@ export default function Navbar() {
         {/* Om man har scorllat på startsidan eller är på en annan sida är top nav röd */}
         <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
           <div id="navmain">
-            {homeButton()}
+            <div className="homebutton-wrapper">
+              {homeButton()}
+              <div className="current-Page">
+                {currentPageTitle}
+              </div>
+            </div>
             {burgerMenuButton()}
             {wideScreenMenu()}
           </div>

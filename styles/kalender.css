@@ -68,6 +68,14 @@
   padding-bottom: 10px;
 }
 
+.mini_kalender.kalender_tab.gråttan.månad{
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+
 @media screen and (min-width: 500px) {
   .kal-knapp {
     margin-right: 2rem;

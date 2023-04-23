@@ -5,8 +5,6 @@ import { getContentData } from "../utils/contents";
 export default function Dokument({ contents }) {
   return (
     <div id="contentbody">
-      <h1>Dokument</h1>
-      <p>Genom denna sida kommer du åt sektionens officiella dokument.</p>
       <div id="blanketter">
         <h2>Blanketter och mallar</h2>
         <a href="https://drive.google.com/file/d/1rOzE5IwIRqV0D89qd5f0i-CnTebz8Y3h/view">

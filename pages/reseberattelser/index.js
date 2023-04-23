@@ -6,7 +6,7 @@ export default function Reseberattelser() {
   const setContinent = (newContinent) => {
     activeContinent === newContinent ? setActiveContinent() : setActiveContinent(newContinent);
 
-    document.getElementById("scroll-node").scrollIntoView();
+    document.getElementById("scroll-node").scrollIntoView(false);
   };
 
   //SVG bild av världen
@@ -101,17 +101,15 @@ export default function Reseberattelser() {
 
   return (
     <div id="contentbody">
-      <h1>Reseberättelser</h1>
+      <h2>Klicka en världsdel på kartan för att filtrera reseberättelser</h2>
       <p>
         Här kan du läsa om andra CL-studenters erfarenheter under sina utbytesstudievistelser.
         Listan av reseberättelser är för tillfället inte särskilt lång, men vi hoppas att den kommer
         växa så småning om! Förutom att läsa CL studenters reseberättelser rekommenderar vi även att
         du kikar på de som publicerats på KTHs hemsida av studenter från andra program.
       </p>
-      <h2>Klicka en världsdel på kartan för att filtrera reseberättelser</h2>
       <div className="worldmap">{worldMap()}</div>
 
-      <div id="scroll-node" />
       {!activeContinent || activeContinent === "Nordamerika" ? (
         <div>
           <h2>Nordamerika</h2>
@@ -215,6 +213,7 @@ export default function Reseberattelser() {
       ) : (
         ""
       )}
+      <div id="scroll-node" />
     </div>
   );
 }

@@ -5,8 +5,6 @@ import { getContentData } from "../utils/contents";
 export default function Engagera({ contents }) {
   return (
     <div id="contentbody">
-      <h1>Engagera dig</h1>
-
       {/* <MarkdownRender mdData={contents["engagera-dig"]} /> Ska skrivas en om information om hur du blir nämndaktiv typ */}
       <MarkdownRender mdData={contents["evenemangsplanering"]} />
       <MarkdownRender mdData={contents["checklista-inkludering"]} />
