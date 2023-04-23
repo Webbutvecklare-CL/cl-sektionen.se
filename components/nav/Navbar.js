@@ -82,18 +82,14 @@ export default function Navbar() {
   useEffect(() => {
     const path = router.asPath
     
-    let text = ""
     for (const menu of MENU_LIST){
       for (const sub of menu.submenu){
         if (sub.href === path){
-          console.log(sub.text)
-          text = sub.text
+          setCurrentPageTitle(sub.text)
           break;
         }
       }
     }
-    
-    setCurrentPageTitle(text)
   });
 
   useEffect(() => {
