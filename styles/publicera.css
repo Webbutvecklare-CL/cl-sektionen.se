@@ -12,8 +12,12 @@
   .create {
     width: 80%;
     margin: 2rem auto;
-    background-color: #fff;
+    background-color: #fafafa;
     box-shadow: none;
+  }
+
+  .tag-selector {
+    background-color: #fff !important;
   }
 }
 
@@ -89,7 +93,7 @@ kunna ändra färgen på texten om strong inte ändras */
 
 .create .meeting-input {
   display: block;
-  width: 150px;
+  width: 120px;
 }
 
 .create .tag-selector {
@@ -103,6 +107,7 @@ kunna ändra färgen på texten om strong inte ändras */
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .create .tag-selector button {
