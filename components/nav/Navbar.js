@@ -78,18 +78,17 @@ export default function Navbar() {
 
   const [currentPageTitle, setCurrentPageTitle] = useState("");
 
-
   useEffect(() => {
-    const path = router.asPath
-    if (path === "/"){
-      setCurrentPageTitle("")
-      return
+    const path = router.asPath;
+    if (path === "/") {
+      setCurrentPageTitle("");
+      return;
     }
-    
-    for (const menu of MENU_LIST){
-      for (const sub of menu.submenu){
-        if (sub.href === path){
-          setCurrentPageTitle(sub.text)
+
+    for (const menu of MENU_LIST) {
+      for (const sub of menu.submenu) {
+        if (sub.href === path) {
+          setCurrentPageTitle(sub.text);
           break;
         }
       }
@@ -104,7 +103,7 @@ export default function Navbar() {
 
   useEffect(() => {
     window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
-  }, [])
+  }, []);
 
   const burgirToggle = () => {
     document.querySelector("#topnav").classList.toggle("topnav-active", !navBurgirOpen);
@@ -171,17 +170,15 @@ export default function Navbar() {
                   <NavItem active={activeIdx === idx} {...menu} />
                 </div>
                 {menu.submenu?.map((sb, s_idx) => (
-                  <div 
+                  <div
                     key={sb.text}
                     onClick={() => {
                       if (idx === activeIdx) {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
-                      }}}>
-                    <NavSubItem
-                      active={activeIdx === idx && activeSubIdx === s_idx}
-                      {...sb}
-                    />
+                      }
+                    }}>
+                    <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
                   </div>
                 ))}
               </div>
@@ -209,10 +206,7 @@ export default function Navbar() {
                   setActiveIdx(idx);
                   setActiveSubIdx(s_idx);
                 }}>
-                <NavSubItem
-                  active={activeIdx === idx && activeSubIdx === s_idx}
-                  {...sb}
-                />
+                <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
               </div>
             ))}
           </div>
@@ -229,9 +223,7 @@ export default function Navbar() {
           <div id="navmain">
             <div className="homebutton-wrapper">
               {homeButton()}
-              <div className="current-Page">
-                {currentPageTitle}
-              </div>
+              <div className="current-Page">{currentPageTitle}</div>
             </div>
             {burgerMenuButton()}
             {wideScreenMenu()}

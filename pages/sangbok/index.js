@@ -10,15 +10,17 @@ function HideDate(currentMonth) {
   return true;
 }
 
-function Sangbok({sånger}) {
+function Sangbok({ sånger }) {
   const [search, setSearch] = useState("");
   const [alphabetical, setAlphabetical] = useState(true);
   const currentMonth = new Date().getMonth();
 
-  const sortSongs= () =>{
-    setAlphabetical(!alphabetical)
-    sånger.sort((a, b) => alphabetical ? a.kategori.localeCompare(b.kategori) : a.title.localeCompare(b.title))
-  }
+  const sortSongs = () => {
+    setAlphabetical(!alphabetical);
+    sånger.sort((a, b) =>
+      alphabetical ? a.kategori.localeCompare(b.kategori) : a.title.localeCompare(b.title)
+    );
+  };
 
   return (
     <div id="contentbody">
@@ -37,13 +39,9 @@ function Sangbok({sånger}) {
           className="searchbar sångbok"
         />
         <div className="filter">Sortera på kategori</div>
-        <input
-          type="checkbox"
-          onChange={() => sortSongs()}
-          className="filterbutton"
-        />
+        <input type="checkbox" onChange={() => sortSongs()} className="filterbutton" />
       </div>
-      
+
       {sånger
         .filter((sång) => search === "" || sång.title.toLowerCase().includes(search.toLowerCase()))
         .map((sång) =>
@@ -58,15 +56,16 @@ function Sangbok({sånger}) {
               <div className="sångkategori">&nbsp; {sång.kategori}</div>
             </Link>
           )
-          )}
+        )}
     </div>
   );
-} export default Sangbok;
+}
+export default Sangbok;
 
 export async function getStaticProps() {
-  var sånger = JSON.parse(readFileSync(`public/content/data/sangbok-index.json`))
+  var sånger = JSON.parse(readFileSync(`public/content/data/sangbok-index.json`));
 
   return {
-    props: {sånger}
+    props: { sånger },
   };
 }
