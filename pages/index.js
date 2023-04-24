@@ -76,7 +76,19 @@ export default function Index({ contents, featured, infoList, eventList }) {
           </div>
         </section>
         <hr />
-        <h2>Kalendern</h2>
+        <h2>Kalender</h2>
+        <p>
+          <b>Psst!!</b> Du kan exportera sektionens kalendrar för att komma åt dem enklare.
+          <br />
+          <a href="https://calendar.google.com/calendar/embed?src=c_5sqhb0om2kmti770g06qqknfik%40group.calendar.google.com&ctz=Europe%2FBerlin">
+            Tryck här <i className="fa-solid fa-arrow-up-right-from-square" />
+          </a>
+          &nbsp;för att exportera <strong>Sektionskalendern</strong>.<br />
+          <a href="https://calendar.google.com/calendar/u/0/embed?height=700&wkst=2&bgcolor=%23616161&ctz=Europe/Stockholm&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&mode=MONTH&src=MDA4Z3BsM3M3ODd0ZTZqaGlwazU3MjljNmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=a29uc3VtY2x3QGdtYWlsLmNvbQ&color=%237CB342&color=%23AD1457&pli=1">
+            Tryck här <i className="fa-solid fa-arrow-up-right-from-square" />
+          </a>
+          &nbsp;för att exportera <strong>Gråttkalendern</strong>.
+        </p>
         <section className="sektionskal_månad_och_bokningar">
           <iframe
             className="open-web-calendar månad"
