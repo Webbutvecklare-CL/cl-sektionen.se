@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 const MENU_LIST = [
   {
     text: "Aktuellt",
-    href: "/aktuellt",
+    href: "",
     submenu: [
       { text: "Info & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
@@ -27,7 +27,7 @@ const MENU_LIST = [
   },
   {
     text: "Sektionen",
-    href: "/om-oss",
+    href: "",
     submenu: [
       { text: "Om oss", href: "/om-oss" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
@@ -58,7 +58,7 @@ const MENU_LIST = [
   },
   {
     text: "Näringsliv",
-    href: "/for-foretag",
+    href: "",
     submenu: [
       { text: "För företag", href: "/for-foretag" },
       { text: "Samarbeten", href: "/samarbeten" },
@@ -81,6 +81,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const path = router.asPath
+    if (path === "/"){
+      setCurrentPageTitle("")
+      return
+    }
     
     for (const menu of MENU_LIST){
       for (const sub of menu.submenu){
@@ -90,7 +94,7 @@ export default function Navbar() {
         }
       }
     }
-  });
+  }, [router.asPath]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -164,13 +168,13 @@ export default function Navbar() {
                 </div>
                 {menu.submenu?.map((sb, s_idx) => (
                   <div 
+                    key={sb.text}
                     onClick={() => {
                       if (idx === activeIdx) {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
                       }}}>
                     <NavSubItem
-                      key={sb.text}
                       active={activeIdx === idx && activeSubIdx === s_idx}
                       {...sb}
                     />
@@ -196,6 +200,7 @@ export default function Navbar() {
             </div>
             {menu.submenu?.map((sb, s_idx) => (
               <div
+                key={sb.text}
                 onClick={() => {
                   setActiveIdx(idx);
                   setActiveSubIdx(s_idx);
@@ -203,7 +208,6 @@ export default function Navbar() {
                 <NavSubItem
                   active={activeIdx === idx && activeSubIdx === s_idx}
                   {...sb}
-                  key={sb.text}
                 />
               </div>
             ))}
