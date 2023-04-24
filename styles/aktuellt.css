@@ -148,7 +148,8 @@
 
   .typ_o_sort_wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 155px 1fr;
+    justify-items: center;
   }
 
   .posts {

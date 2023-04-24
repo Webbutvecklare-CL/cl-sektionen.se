@@ -29,6 +29,27 @@ const COMMONTAGS = [
   "Gemenskap"
 ];
 
+const PUBLISHERS = [
+  "CtyreLsen",
+  "Studienämnden",
+  "Näringslivsnämnden",
+  "Mottagningsnämnden",
+  "JML-nämnden",
+  "Aktivitetsnämnden",
+  "Lokalnämnden",
+  "CLubWästeriet",
+  "Valberedningen",
+  //"Revisorer",
+  //"Fanborg",
+  "Kårfullmäktige",
+  //"Talman",
+  "Försäljningsansvarig",
+  "Idrottsansvarig",
+  "CLek",
+  "Dubbelspexet",
+  "CLak"
+]
+
 export default function Aktuellt({ postList }) {
   const [currentpage, setcurrentPage] = useState(1);
   const itemsperpage = 6;
@@ -40,6 +61,13 @@ export default function Aktuellt({ postList }) {
     information: true,
     event: true,
   });
+
+  const [sortNewestFirst, setSortNewestFirst] = useState(true);
+  const toggleSort= () =>{
+    setSortNewestFirst(!sortNewestFirst)
+    postList.reverse()
+  }
+
   const [filterTags, setFilterTags] = useState({});
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState(new Date().toDateString());
@@ -91,6 +119,7 @@ export default function Aktuellt({ postList }) {
   }, [type]);
 
   const panelref = useRef();
+  
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
@@ -117,6 +146,7 @@ export default function Aktuellt({ postList }) {
       document.removeEventListener("mousedown", panelCloseHandler);
     };
   });
+
   //outline runt sökfältet om man klickar innuti, detta för att firefox inte stödjer css 'has()' selector
   const [fokusSearchBar, setfokusSearchBar] = useState(false);
   useEffect(() => {
@@ -139,7 +169,7 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-filter" /> Information eller event
+          <i className="fa-solid fa-filter" /> Inläggstyp
         </h3>
         <button
           className={`${type["information"] ? "selected" : ""}`}
@@ -164,10 +194,26 @@ export default function Aktuellt({ postList }) {
         <h3>
           <i className="fa-solid fa-arrow-down-wide-short" /> Sortera efter
         </h3>
-        <p>[Sortera efter datum, nämnd eller alfabetisk samt toggle för ascending/descending]</p>
+        <button 
+          className={sortNewestFirst? "selected" : ""}
+          onClick={() => toggleSort()}
+        >
+          Nyast först
+        </button>
       </div>
     );
   };
+
+  const CommitteesPanel = () => {
+    return (
+      <div>
+        <h3>
+          <i className="fa-solid fa-pencil"/> Publicerad av
+        </h3>
+      </div>
+    )
+  }
+
   const TagPanel = () => {
     return (
       <div>
@@ -233,6 +279,7 @@ export default function Aktuellt({ postList }) {
           <TypPanel />
           <SortPanel />
           <TagPanel />
+          <CommitteesPanel />
           <DatumPanel />
         </section>
 
@@ -264,13 +311,15 @@ export default function Aktuellt({ postList }) {
               <SortPanel />
             </div>
             <TagPanel />
+            <CommitteesPanel />
             <DatumPanel />
           </section>
 
           <section className="posts">
             <div className="aktuelltsidan-contentwrapper">
               <FeedPreview
-                posts={postList
+                posts={ 
+                  postList
                   .filter((post) => {
                     return (
                       (search === "" || post.title.toLowerCase().includes(search.toLowerCase())) &&
@@ -279,12 +328,8 @@ export default function Aktuellt({ postList }) {
                   })
                   .filter((post) => {
                     //Om alla filters är avstända eller påslagna, returnera allt
-                    if (Object.keys(filterTags).every((k) => filterTags[k])) {
-                      return true;
-                    }
-                    if (Object.keys(filterTags).every((k) => !filterTags[k])) {
-                      return true;
-                    }
+                    if (Object.keys(filterTags).every((k) => filterTags[k])) { return true; }
+                    if (Object.keys(filterTags).every((k) => !filterTags[k])) { return true; }
                     return post.tags.some((tag) => filterTags[tag]) ? true : false;
                   })
                   .filter((post) => {
@@ -299,7 +344,8 @@ export default function Aktuellt({ postList }) {
                     }
                     return res;
                   })
-                  .slice(0, currentpage * itemsperpage)}
+                  .slice(0, currentpage * itemsperpage)
+                }
               />
             </div>
             <button
