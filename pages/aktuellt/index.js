@@ -5,16 +5,28 @@ import { useState, useRef, useEffect } from "react";
 import FeedPreview from "../../components/FeedPreview";
 
 //Ändra dessa för att lägga till och ta bort tags
-const NEWSTAGS = ["Aktuellt", "Viktigt", "Information", "Annat"];
+const INFOTAGS = [
+  "Annons", 
+  "Bidra", 
+  "Engagera dig", 
+  "Gråttan"
+];
 const EVENTSTAGS = [
-  "Idrott",
-  "Gasque",
   "Pub",
+  "Gasque",
   "Lunchföreläsning",
   "Workshop",
-  "Förtroendevalda",
+  "Mässa"
+];
+const COMMONTAGS = [
+  "Viktigt",
+  "THS",
+  "KTH",
   "SM",
   "StyM",
+  "Studier",
+  "Sektionen",
+  "Gemenskap"
 ];
 
 export default function Aktuellt({ postList }) {
@@ -52,9 +64,9 @@ export default function Aktuellt({ postList }) {
 
   //Hanterar tags när man filtrerar bort antingen Event eller Information
   useEffect(() => {
-    const newsTags = {};
-    NEWSTAGS.forEach((tag) => {
-      newsTags[tag] = !!filterTags[tag];
+    const infoTags = {};
+    INFOTAGS.forEach((tag) => {
+      infoTags[tag] = !!filterTags[tag];
     });
 
     const eventTags = {};
@@ -62,12 +74,17 @@ export default function Aktuellt({ postList }) {
       eventTags[tag] = !!filterTags[tag];
     });
 
+    const commonTags = {};
+    COMMONTAGS.forEach((tag) => {
+      commonTags[tag] = !!filterTags[tag];
+    });
+
     if (type["information"] && type["event"]) {
-      setFilterTags({ ...newsTags, ...eventTags });
+      setFilterTags({...commonTags, ...infoTags, ...eventTags});
     } else if (type["information"]) {
-      setFilterTags(newsTags);
+      setFilterTags({...commonTags, ...infoTags});
     } else if (type["event"]) {
-      setFilterTags(eventTags);
+      setFilterTags({...commonTags, ...eventTags});
     } else {
       setFilterTags({});
     }
@@ -122,14 +139,14 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-filter" /> Nyheter eller event
+          <i className="fa-solid fa-filter" /> Information eller event
         </h3>
         <button
           className={`${type["information"] ? "selected" : ""}`}
           onClick={(e) => {
             handleSetType(e, "information");
           }}>
-          Nyheter
+          Information
         </button>
         <button
           className={`${type["event"] ? "selected" : ""}`}
@@ -208,7 +225,7 @@ export default function Aktuellt({ postList }) {
   // eller vill söka som bara lägger till de nya i newsList/eventList
   return (
     <div id="contentbody">
-      <h1>Sök bland alla inlägg</h1>
+      <h1>Sök bland alla Nyheter</h1>
       <div className="aktuellt-wrapper">
         {/*filterpanel för widescreen*/}
         <section className="filterPanel wide">
