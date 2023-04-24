@@ -24,7 +24,7 @@ function Sangbok({ sånger }) {
 
   return (
     <div id="contentbody">
-      <h1>Sångbok</h1>
+      <h1 id="page-title">Sångbok</h1>
       <p>
         Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför
         sektionens 20-årsjubileum. Fysisk kopia av sångboken finns att köpa för 130 kr. Prata med

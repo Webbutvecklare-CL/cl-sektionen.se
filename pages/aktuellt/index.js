@@ -17,10 +17,10 @@ const PUBLISHERS = [
   "Lokalnämnden",
   "CLubWästeriet",
   "Valberedningen",
-  //"Revisorer",
-  //"Fanborg",
+  "Revisor",
+  "Fanborg",
   "Kårfullmäktige",
-  //"Talman",
+  "Talman",
   "Försäljningsansvarig",
   "Idrottsansvarig",
   "CLek",
@@ -47,6 +47,7 @@ export default function Aktuellt({ postList }) {
   };
 
   const [filterTags, setFilterTags] = useState({});
+  const [publisher, setPublisher] = useState("")
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState(new Date().toDateString());
 
@@ -185,6 +186,20 @@ export default function Aktuellt({ postList }) {
         <h3>
           <i className="fa-solid fa-pencil" /> Publicerad av
         </h3>
+        <select 
+          className="Committeepicker"
+          value={publisher}
+          onChange={(e) => {setPublisher(e.target.value)}}
+        >
+          <option value={""}>Alla</option>
+          {PUBLISHERS.map((publisher) => {
+            return (
+              <option key={publisher} value={publisher}>
+                {publisher}
+              </option>
+            );
+          })}
+        </select>
       </div>
     );
   };
@@ -286,8 +301,10 @@ export default function Aktuellt({ postList }) {
               <SortPanel />
             </div>
             <TagPanel />
-            <CommitteesPanel />
-            <DatumPanel />
+            <div className="date_and_committee_wrapper">
+              <DatumPanel />
+              <CommitteesPanel />
+            </div>
           </section>
 
           <section className="posts">
@@ -296,6 +313,7 @@ export default function Aktuellt({ postList }) {
                 posts={postList
                   .filter((post) => {
                     return (
+                      (publisher === "" || post.committee === publisher) &&
                       (search === "" || post.title.toLowerCase().includes(search.toLowerCase())) &&
                       type[post.type]
                     );

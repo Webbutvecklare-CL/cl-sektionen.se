@@ -13,19 +13,11 @@ h1 span {
 }
 
 #blanketter {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
-#blanketter a {
-  font-size: 1.2rem;
-  padding: 2rem;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
 #blanketter h2 {
   width: 100%;
-  color: black;
+  color: #1d1d1f;
 }

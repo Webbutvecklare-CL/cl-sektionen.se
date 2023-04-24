@@ -11,6 +11,10 @@
   min-height: 1000px;
 }
 
+#page-title{
+  display: block;
+}
+
 section {
   scroll-margin: 5rem;
 }
@@ -84,4 +88,30 @@ ol {
   height: 4rem;
   display: flex;
   flex-direction: row;
+}
+
+.link-card{
+  background-color:rgb(237, 237, 238);
+  color: #444 !important;
+  box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.3);
+
+  font-size: 1.2rem;
+  padding: .4rem;
+  white-space: nowrap;
+  text-decoration: none;
+
+  border-radius: .5rem;
+  margin: .5rem;
+}
+
+.link-card:hover,
+.link-card:focus{
+  transform: scale(1.02);
+  box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.15);
+  color: var(--clr3) !important;
+  transition: .1s ease-in-out;
+}
+
+.link-card i{
+  color: var(--clr3)
 }
