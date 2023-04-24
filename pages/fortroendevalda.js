@@ -89,20 +89,29 @@ export async function getStaticProps() {
 }
 
 function csvTOJSON(csvStream) {
-  csvStream += "\r\n"; // Lägger till ett blanksteg/ny rad i slutet
+  csvStream += "\n"; // Lägger till ett blanksteg/ny rad i slutet
 
-  let committees = csvStream.split(",,,,\r"); // Splittra upp alla nämnder
+  let rows = csvStream.split(/\r?\n/); // Plockar ut alla rader
+
+  let committees = [];
+  let lastBreak = 0; // Senaste tomma raden = ',,,,'
+  for (let i = 0; i < rows.length; i++) {
+    let row = rows[i];
+    if (row == ",,,,") {
+      committees.push(rows.slice(lastBreak + 1, i)); // +1 för att ta bort rubrikraden och den tomma raden
+      lastBreak = i;
+    }
+  }
 
   let contactsData = {};
   committees.forEach((committee) => {
-    const committeeRows = committee.split("\n").splice(1); // Första raden är alltid tom
-    const committeeData = committeeRows[0].split(","); // Nämnd informationen
+    const committeeData = committee[0].split(","); // Nämnd informationen
     const committeeId = committeeData[0]; // Id som används i komponenten
     contactsData[committeeId] = { mail: committeeData[1], period: committeeData[4] };
 
     // Skapa lista med alla poster för nämnden
     let trustees = [];
-    const trusteesRows = committeeRows.splice(1, committeeRows.length - 2); // Raderna med förtroendevalda
+    const trusteesRows = committee.splice(1); // Raderna med förtroendevalda
     trusteesRows.forEach((trustee) => {
       const trusteeData = trustee.split(",");
       trustees.push({
