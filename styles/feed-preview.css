@@ -183,7 +183,7 @@
 }
 
 .feed-preview .post-wrapper * {
-  transition: all .1s;
+  transition: all 0.1s;
   -webkit-transition: all 0.1s;
 }
 

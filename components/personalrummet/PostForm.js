@@ -4,6 +4,9 @@ import Image from "next/image";
 import TextField from "./TextField";
 import { create_id } from "../../utils/postUtils";
 
+// Taggar som kan väljas
+import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
+
 export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [title, setTitle] = useState(prefill.title);
   const [subtitle, setSubtitle] = useState(prefill.subtitle);
@@ -28,12 +31,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (prefill.type) {
       // Null för att handleSetType tar in ett element på första parametern
       handleSetType(null, prefill.type);
-    } else if (prefill.tags.includes("event")) {
-      prefill.tags.slice(prefill.tags.indexOf("event"), 1);
-      handleSetType(null, "event");
-    } else if (["Nyheter", "Annat", "Information"].some((tag) => prefill.tags.includes(tag))) {
-      // Om prefill innehåller nyheter, annat eller Information antar vi att det är av typen nyhet
-      handleSetType(null, "information");
     }
 
     // Markera de tidigare valda taggarna
@@ -186,31 +183,33 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
   };
 
-  // När användaren väljer typ av inlägg nyhet/event
+  // När användaren väljer typ av inlägg information/event
   const handleSetType = (e, type) => {
     if (e) {
       e.preventDefault();
     }
     setType(type);
+
+    // Ger varje tag ett på/av värde (av från början)
+    const infoTags = {};
+    INFOTAGS.forEach((tag) => {
+      infoTags[tag] = false;
+    });
+
+    const eventTags = {};
+    EVENTSTAGS.forEach((tag) => {
+      eventTags[tag] = false;
+    });
+
+    const commonTags = {};
+    COMMONTAGS.forEach((tag) => {
+      commonTags[tag] = false;
+    });
+
     if (type === "information") {
-      setTags({
-        Aktuellt: false,
-        Viktigt: false,
-        Information: false,
-        Annat: false,
-      });
-    }
-    if (type === "event") {
-      setTags({
-        Idrott: false,
-        Gasque: false,
-        Pub: false,
-        Lunchföreläsning: false,
-        Workshop: false,
-        Förtroendevalda: false,
-        SM: false,
-        StyM: false,
-      });
+      setTags({ ...infoTags, ...commonTags });
+    } else if (type === "event") {
+      setTags({ ...eventTags, ...commonTags });
     }
   };
 
@@ -338,9 +337,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
         <div className="type-container">
           <button
             disabled={editMode}
-            onClick={(e) => handleSetType(e, "Information")}
+            onClick={(e) => handleSetType(e, "information")}
             className={type === "information" ? "selected" : ""}>
-            Nyheter
+            Information
           </button>
           <button
             disabled={editMode}

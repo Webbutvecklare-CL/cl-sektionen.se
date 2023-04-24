@@ -161,7 +161,7 @@ nav .active {
   background-color: var(--clr3) !important;
 }
 
-.current-Page{
+.current-Page {
   display: none;
   float: left;
   color: #ffffff !important;
@@ -170,7 +170,7 @@ nav .active {
   font-size: 1.3rem;
 }
 
-.homebutton-wrapper{
+.homebutton-wrapper {
   display: flex;
   align-items: center;
 }
@@ -203,7 +203,7 @@ nav .active {
     top: 3.5rem;
   }
 
-  .current-Page{
+  .current-Page {
     display: block;
   }
 }

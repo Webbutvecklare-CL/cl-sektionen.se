@@ -102,7 +102,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
             width="100%"></iframe>
           <GråttAgenda className="agenda-vy" />
           <br />
-          <GråttKalender/>
+          <GråttKalender />
         </section>
         <hr />
         <section className="resurser">

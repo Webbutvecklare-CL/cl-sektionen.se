@@ -5,29 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import FeedPreview from "../../components/FeedPreview";
 
 //Ändra dessa för att lägga till och ta bort tags
-const INFOTAGS = [
-  "Annons", 
-  "Bidra", 
-  "Engagera dig", 
-  "Gråttan"
-];
-const EVENTSTAGS = [
-  "Pub",
-  "Gasque",
-  "Lunchföreläsning",
-  "Workshop",
-  "Mässa"
-];
-const COMMONTAGS = [
-  "Viktigt",
-  "THS",
-  "KTH",
-  "SM",
-  "StyM",
-  "Studier",
-  "Sektionen",
-  "Gemenskap"
-];
+import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 
 const PUBLISHERS = [
   "CtyreLsen",
@@ -47,8 +25,8 @@ const PUBLISHERS = [
   "Idrottsansvarig",
   "CLek",
   "Dubbelspexet",
-  "CLak"
-]
+  "CLak",
+];
 
 export default function Aktuellt({ postList }) {
   const [currentpage, setcurrentPage] = useState(1);
@@ -63,10 +41,10 @@ export default function Aktuellt({ postList }) {
   });
 
   const [sortNewestFirst, setSortNewestFirst] = useState(true);
-  const toggleSort= () =>{
-    setSortNewestFirst(!sortNewestFirst)
-    postList.reverse()
-  }
+  const toggleSort = () => {
+    setSortNewestFirst(!sortNewestFirst);
+    postList.reverse();
+  };
 
   const [filterTags, setFilterTags] = useState({});
   const [startDate, setStartDate] = useState();
@@ -108,18 +86,18 @@ export default function Aktuellt({ postList }) {
     });
 
     if (type["information"] && type["event"]) {
-      setFilterTags({...commonTags, ...infoTags, ...eventTags});
+      setFilterTags({ ...commonTags, ...infoTags, ...eventTags });
     } else if (type["information"]) {
-      setFilterTags({...commonTags, ...infoTags});
+      setFilterTags({ ...commonTags, ...infoTags });
     } else if (type["event"]) {
-      setFilterTags({...commonTags, ...eventTags});
+      setFilterTags({ ...commonTags, ...eventTags });
     } else {
       setFilterTags({});
     }
   }, [type]);
 
   const panelref = useRef();
-  
+
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
@@ -194,10 +172,7 @@ export default function Aktuellt({ postList }) {
         <h3>
           <i className="fa-solid fa-arrow-down-wide-short" /> Sortera efter
         </h3>
-        <button 
-          className={sortNewestFirst? "selected" : ""}
-          onClick={() => toggleSort()}
-        >
+        <button className={sortNewestFirst ? "selected" : ""} onClick={() => toggleSort()}>
           Nyast först
         </button>
       </div>
@@ -208,11 +183,11 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-pencil"/> Publicerad av
+          <i className="fa-solid fa-pencil" /> Publicerad av
         </h3>
       </div>
-    )
-  }
+    );
+  };
 
   const TagPanel = () => {
     return (
@@ -318,8 +293,7 @@ export default function Aktuellt({ postList }) {
           <section className="posts">
             <div className="aktuelltsidan-contentwrapper">
               <FeedPreview
-                posts={ 
-                  postList
+                posts={postList
                   .filter((post) => {
                     return (
                       (search === "" || post.title.toLowerCase().includes(search.toLowerCase())) &&
@@ -328,8 +302,12 @@ export default function Aktuellt({ postList }) {
                   })
                   .filter((post) => {
                     //Om alla filters är avstända eller påslagna, returnera allt
-                    if (Object.keys(filterTags).every((k) => filterTags[k])) { return true; }
-                    if (Object.keys(filterTags).every((k) => !filterTags[k])) { return true; }
+                    if (Object.keys(filterTags).every((k) => filterTags[k])) {
+                      return true;
+                    }
+                    if (Object.keys(filterTags).every((k) => !filterTags[k])) {
+                      return true;
+                    }
                     return post.tags.some((tag) => filterTags[tag]) ? true : false;
                   })
                   .filter((post) => {
@@ -344,8 +322,7 @@ export default function Aktuellt({ postList }) {
                     }
                     return res;
                   })
-                  .slice(0, currentpage * itemsperpage)
-                }
+                  .slice(0, currentpage * itemsperpage)}
               />
             </div>
             <button
