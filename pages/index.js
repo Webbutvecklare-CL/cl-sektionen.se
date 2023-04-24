@@ -4,6 +4,7 @@ import Sidhuvud_inv from "../public/media/grafik/sidhuvud_inv.png";
 import React, { useState } from "react";
 import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
+import GråttKalender from "../components/GråttKalender";
 import FeaturedPostPreview from "../components/FeaturedPostPreview";
 
 // För text rendering
@@ -14,7 +15,7 @@ import { getContentData } from "../utils/contents";
 import { firestore } from "../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 
-export default function Index({ contents, newsList, eventList }) {
+export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
   const toggleOm = () => {
     setOpen(!open);
@@ -57,26 +58,25 @@ export default function Index({ contents, newsList, eventList }) {
         <section id="happenings">
           <div className="aktuellt_innehåll">
             {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
-            {newsList.length < 1 && <p>Inlägg saknas</p>}
-            {newsList.length > 0 && (
-              <div>
-                <FeaturedPostPreview post={newsList[0]} />
-                <div className="inlägg_wrapper">
-                  <div className="event_innehåll">
-                    <h2>Information</h2>
-                    <FeedPreview posts={newsList.slice(1)} title="Annat" />
-                  </div>
-                  <div className="event_innehåll">
-                    <h2>Event</h2>
-                    <FeedPreview posts={eventList} title="Annat" />
-                  </div>
+            <div>
+              {featured && <FeaturedPostPreview post={featured} />}
+              <div className="inlägg_wrapper">
+                <div className="event_innehåll">
+                  <h2>Information</h2>
+                  {infoList.length > 0 && <FeedPreview posts={infoList} />}
+                  {!infoList.length > 0 && <p>Inlägg saknas</p>}
+                </div>
+                <div className="event_innehåll">
+                  <h2>Event</h2>
+                  {eventList.length > 0 && <FeedPreview posts={eventList} />}
+                  {!eventList.length > 0 && <p>Inlägg saknas</p>}
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </section>
         <hr />
-        <h2>Kalendern och gråttbokningar</h2>
+        <h2>Kalendern</h2>
         <section className="sektionskal_månad_och_bokningar">
           <iframe
             className="open-web-calendar månad"
@@ -88,17 +88,9 @@ export default function Index({ contents, newsList, eventList }) {
             sandbox="allow-scripts allow-same-origin allow-top-navigation"
             height="400px"
             width="100%"></iframe>
-          <GråttAgenda className="agenda-vy"/>
-          <br/>
-          <iframe id="open-web-calendar månad" 
-            className="open-web-calendar gråttan månad"
-            style={{
-              background:"url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
-            }}
-            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fkonsumclw%2540gmail.com%2Fpublic%2Fbasic.ics&amp;url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2F008gpl3s787te6jhipk5729c6g%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"
-            sandbox="allow-scripts allow-same-origin allow-top-navigation"
-            height="400px" 
-            width="100%"></iframe>
+          <GråttAgenda className="agenda-vy" />
+          <br />
+          <GråttKalender/>
         </section>
         <hr />
         <section className="resurser">
@@ -144,7 +136,7 @@ export default function Index({ contents, newsList, eventList }) {
 }
 
 export async function getStaticProps() {
-  let newsList = [];
+  let infoList = [];
   let eventList = [];
 
   // Aktuellt
@@ -153,28 +145,26 @@ export async function getStaticProps() {
   const postRef = collection(firestore, "posts");
 
   // Skapar en query - vilka inlägg som ska hämtas
-  const newsQuery = query(
+  const infoQuery = query(
     postRef,
-    where("type", "==", "Nyheter"),
-    where("public", "==", true),
-    where("publishDate", "<", timeNow),
+    where("type", "==", "information"),
+    where("visibility", "==", "public"),
     orderBy("publishDate", "desc"),
     limit(5)
   );
   const eventQuery = query(
     postRef,
-    where("type", "==", "Event"),
-    where("public", "==", true),
-    where("publishDate", "<", timeNow),
+    where("type", "==", "event"),
+    where("visibility", "==", "public"),
     orderBy("publishDate", "desc"),
-    limit(4)
+    limit(5)
   );
   // Hämtar inläggen från firestore
 
-  let newsDocs = [];
+  let infoDocs = [];
   let eventDocs = [];
   try {
-    newsDocs = await getDocs(newsQuery);
+    infoDocs = await getDocs(infoQuery);
   } catch (error) {
     console.error("Det gick inte att hämta nyhetsinlägg: ", error.toString());
   }
@@ -184,10 +174,10 @@ export async function getStaticProps() {
     console.error("Det gick inte att hämta eventinlägg: ", error.toString());
   }
   // Plockar ut data och lägger till id i post data
-  newsDocs.forEach((doc) => {
+  infoDocs.forEach((doc) => {
     let data = doc.data();
     data.id = doc.id;
-    newsList.push(data);
+    infoList.push(data);
   });
 
   eventDocs.forEach((doc) => {
@@ -196,13 +186,29 @@ export async function getStaticProps() {
     eventList.push(data);
   });
 
+  let featured = {};
+
+  let newestEventDate = eventList.length ? new Date(eventList[0].publishDate["seconds"] * 1000) : 0;
+  let newestInfoDate = infoList.length ? new Date(infoList[0].publishDate["seconds"] * 1000) : 0;
+
+  if (newestEventDate >= newestInfoDate) {
+    featured = eventList[0];
+    eventList = eventList.slice(1);
+    infoList = infoList.slice(0, -1);
+  } else {
+    featured = infoList[0];
+    infoList = infoList.slice(1);
+    eventList = eventList.slice(0, -1);
+  }
+
   // Contents är all text
-  // newsList och eventList är listor med de senaste inläggen
+  // infoList och eventList är listor med de senaste inläggen
   // stringify gör om listan till en sträng parse gör sedan om till objekt
   return {
     props: {
       contents: getContentData("start"),
-      newsList: JSON.parse(JSON.stringify(newsList)),
+      featured: JSON.parse(JSON.stringify(featured)),
+      infoList: JSON.parse(JSON.stringify(infoList)),
       eventList: JSON.parse(JSON.stringify(eventList)),
     },
     revalidate: 60 * 60 * 12, // Som oftast var 12:e timme - utöver de som kommer in när inlägg uppdateras

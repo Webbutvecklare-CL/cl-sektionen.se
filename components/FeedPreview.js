@@ -5,7 +5,7 @@ import sanitizeHtml from "sanitize-html";
 
 import bg from "../public/media/img/KTHcover.jpg";
 
-const FeedPreview = ({ posts }) => {
+export default function FeedPreview({ posts }) {
   return (
     <div className="feed-preview">
       {posts.map((post) => {
@@ -45,6 +45,4 @@ const FeedPreview = ({ posts }) => {
       })}
     </div>
   );
-};
-
-export default FeedPreview;
+}

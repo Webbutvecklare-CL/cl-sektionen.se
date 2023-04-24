@@ -20,6 +20,7 @@ export default function Post({ postData, postId }) {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
 
+  // 404 sida - om det saknas ett inlägg till den angivna länken
   if (!postData) {
     return (
       <div id="contentbody">
@@ -101,7 +102,7 @@ export async function getStaticPaths() {
   // Övriga inlägg renderas efter behov
   const publicQuery = query(
     postRef,
-    where("publishDate", "<", timeNow),
+    where("visibility", "in", ["public", "hidden"]),
     orderBy("publishDate", "desc"),
     limit(20)
   );

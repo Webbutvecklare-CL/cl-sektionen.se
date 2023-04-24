@@ -1,11 +1,9 @@
-Aron Johansson CL22, **DireKTHréce**  
-dubbelspexet@cl-sektionen.se
+# Dubbelspexet
 
-Linnea Selmarker CL20, **Producent**
-dubbelspexet@cl-sektionen.se
+Dubbelspexet är en förening, som delas med W. Dubbelspexet anordnar spex, det vill säga interaktiva teaterföreställningar. Mer om Dubbelspexet kan du läsa på deras hemsida!
 
-Lukas Kuusivuori CL22, **Ekonomiskt Ansvarig**  
-dubbelspexet@cl-sektionen.se
+https://www.dubbelspexet.com/
 
-Dian Xia CL22, **Ledamot**
-dubbelspexet@cl-sektionen.se
+### Kontakt: direktionen@dubbelspexet.com
+
+---

@@ -1,33 +1,28 @@
 /* Aktuellt feed */
-.feed-preview {
-  width: 100%;
-  padding-bottom: 0;
-  display: grid;
-  grid-template-rows: 1fr;
-  row-gap: 0.4rem;
-}
 
 /* Post preview dvs varje länk */
 .post-wrapper {
-  height: 100px;
-  padding: 5px;
-  transition: 0.2s;
+  padding: 5px !important;
   border-radius: 0.1rem !important;
   background-color: white;
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden !important;
+  transition: 0.1s ease-in-out;
+  height: 100px;
 }
 
 .post-wrapper:hover,
 .post-wrapper:focus {
+  overflow: hidden;
   background: linear-gradient(
     90deg,
-    rgba(255, 0, 26, 0.1) 10%,
-    rgba(255, 255, 255, 1) 55%,
+    rgb(255, 235, 235) 10%,
+    rgba(255, 255, 255, 1) 45%,
     rgba(255, 255, 255, 1) 100%
   );
-  transform: scale(1.005);
-  transition: 0.2s;
+  transform: scale(1) translateY(-20px);
+  transition: 0.1s ease-in-out;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .post-preview {
@@ -86,7 +81,7 @@
 .feed-preview .post-preview {
   margin: 0;
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   gap: 0 0.5rem;
   grid-template-areas:
@@ -95,15 +90,17 @@
 }
 
 .feed-preview div.image {
-  width: 100%;
+  width: 120px;
   height: 100%;
   grid-area: image;
+  /* overflow: hidden; */
 }
 
 .feed-preview div.image img {
   object-fit: cover;
-  height: 100%;
+  object-position: center;
   width: 100%;
+  height: 100%;
 }
 
 .feed-preview .post-meta {
@@ -112,6 +109,7 @@
   color: black;
   gap: 0.5rem;
   width: 100%;
+  height: 50px;
 }
 
 .feed-preview .post-meta div {
@@ -171,15 +169,32 @@
 .aktuellt_innehåll .feed-preview {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 110px);
+  gap: 0.5rem;
 }
 
 @media screen and (max-width: 550px) {
   .feed-preview .post-preview {
     width: 100% - 3rem;
-    grid-template-columns: 100px 1fr;
     grid-template-areas:
       "image meta"
       "image content";
   }
+}
+
+.feed-preview .post-wrapper * {
+  transition: all .1s;
+  -webkit-transition: all 0.1s;
+}
+
+.feed-preview .post-wrapper:hover {
+  height: 150px;
+}
+
+.feed-preview .post-wrapper:hover .image {
+  height: 100%;
+}
+
+.feed-preview .post-wrapper:hover .post-content .body p {
+  -webkit-line-clamp: 3;
 }

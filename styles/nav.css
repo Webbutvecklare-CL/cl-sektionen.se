@@ -161,6 +161,20 @@ nav .active {
   background-color: var(--clr3) !important;
 }
 
+.current-Page{
+  display: none;
+  float: left;
+  color: #ffffff !important;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.homebutton-wrapper{
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (max-width: 780px) {
   #navmain {
     align-items: left;
@@ -183,5 +197,9 @@ nav .active {
     display: block;
 
     top: 3.5rem;
+  }
+
+  .current-Page{
+    display: block;
   }
 }

@@ -189,6 +189,44 @@ kunna ändra färgen på texten om strong inte ändras */
   background-color: #92534d;
 }
 
+.create .visibility-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.create .visibility-input * {
+  padding: 0;
+  margin: 0;
+}
+
+.create .visibility-input .visibility-button {
+  text-align: center;
+  cursor: pointer;
+  font-size: large;
+  border: 2px solid var(--clr1);
+  border-radius: 2px;
+  color: #999;
+}
+
+.create .visibility-input .visibility-button.active {
+  background-color: var(--clr1);
+  color: black;
+}
+
+.create .visibility-input .visibility-button:hover {
+  border: 2px solid var(--clr2);
+}
+
+.create .visibility-input .visibility-button i {
+  width: 30px;
+}
+
+.create .visibility-input .visibility-button:hover i {
+  transform: scale(1.2);
+}
+
 /* Info box / Tooltip  */
 .infobox-container {
   display: inline;

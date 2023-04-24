@@ -25,8 +25,8 @@ export default function Aktuellt({ postList }) {
 
   const [search, setSearch] = useState("");
   const [type, setType] = useState({
-    Nyheter: true,
-    Event: true,
+    information: true,
+    event: true,
   });
   const [filterTags, setFilterTags] = useState({});
   const [startDate, setStartDate] = useState();
@@ -44,17 +44,13 @@ export default function Aktuellt({ postList }) {
     setFilterTags((filterTags) => ({ ...filterTags, ...{ [tag]: !selected } }));
   };
 
-  const handleSetType = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    let tag = e.target.innerHTML;
+  const handleSetType = (e, tag) => {
     let selected = e.target.classList.contains("selected");
 
     setType((t) => ({ ...t, ...{ [tag]: !selected } }));
   };
 
-  //Hanterar tags när man filtrerar bort antingen Event eller Nyheter
+  //Hanterar tags när man filtrerar bort antingen Event eller Information
   useEffect(() => {
     const newsTags = {};
     NEWSTAGS.forEach((tag) => {
@@ -66,11 +62,11 @@ export default function Aktuellt({ postList }) {
       eventTags[tag] = !!filterTags[tag];
     });
 
-    if (type["Nyheter"] && type["Event"]) {
+    if (type["information"] && type["event"]) {
       setFilterTags({ ...newsTags, ...eventTags });
-    } else if (type["Nyheter"]) {
+    } else if (type["information"]) {
       setFilterTags(newsTags);
-    } else if (type["Event"]) {
+    } else if (type["event"]) {
       setFilterTags(eventTags);
     } else {
       setFilterTags({});
@@ -128,10 +124,18 @@ export default function Aktuellt({ postList }) {
         <h3>
           <i className="fa-solid fa-filter" /> Nyheter eller event
         </h3>
-        <button className={`${type["Nyheter"] ? "selected" : ""}`} onClick={handleSetType}>
+        <button
+          className={`${type["information"] ? "selected" : ""}`}
+          onClick={(e) => {
+            handleSetType(e, "information");
+          }}>
           Nyheter
         </button>
-        <button className={`${type["Event"] ? "selected" : ""}`} onClick={handleSetType}>
+        <button
+          className={`${type["event"] ? "selected" : ""}`}
+          onClick={(e) => {
+            handleSetType(e, "event");
+          }}>
           Event
         </button>
       </div>
@@ -247,7 +251,7 @@ export default function Aktuellt({ postList }) {
           </section>
 
           <section className="posts">
-            <div style={{ display: "flex" }}>
+            <div className="aktuelltsidan-contentwrapper">
               <FeedPreview
                 posts={postList
                   .filter((post) => {
@@ -329,8 +333,7 @@ export async function getStaticProps() {
   // Skapar en query - vilka inlägg som ska hämtas
   const postQuery = query(
     postRef,
-    where("publishDate", "<", timeNow),
-    where("public", "==", true),
+    where("visibility", "in", ["public", "hidden"]),
     orderBy("publishDate", "desc"),
     limit(60)
   );

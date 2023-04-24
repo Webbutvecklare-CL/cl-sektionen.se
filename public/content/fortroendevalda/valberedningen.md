@@ -1,14 +1,7 @@
-David Böhrens Radö CL20, **Femmans representant**  
-val@cl-sektionen.se
+# Valberedningen
 
-Sander Söderberg CL21, **Fyrans representant**  
-val@cl-sektionen.se
+Valberedningen är den grupp på CL som ansvarar för att valen av samtliga förtroendevalda utförs i rätt tid och på ett korrekt sätt. Valberedningen består av ettans representant, tvåans representant, treans representant, fyrans representant och femmans representant. Representanterna är ansvariga för att ha god kontakt med respektive årskurs i frågor som rör val på sektionen. Representanten måste inte tillhöra årskursen i fråga, utan det räcker att ha god kontakt med de som tillhör årskursen.
 
-Lea Martinelle CL20, **Treans representant (sammankallande)**  
-val@cl-sektionen.se
+### Kontakt: val@cl-sektionen.se
 
-Matilda Algotsson CL21, **Tvåans representant**  
-val@cl-sektionen.se
-
-Fabian Olesen CL22, **Ettans representant**  
-val@cl-sektionen.se
+---

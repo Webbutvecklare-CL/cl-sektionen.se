@@ -8,7 +8,7 @@ function Kalender() {
 
   return (
     <div id="contentbody">
-      <h1>Kalender</h1>
+      <h1>Sektionskalendern och gråttbokningar</h1>
       <p>
         Här kan du se både vad som händer i Gråttan och event som sektionen anordnar. Du kan även
         klicka dig in på eventen för att se detaljer kring det. Om du är intresserad av att boka
