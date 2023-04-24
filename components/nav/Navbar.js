@@ -102,6 +102,10 @@ export default function Navbar() {
     });
   });
 
+  useEffect(() => {
+    window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
+  }, [])
+
   const burgirToggle = () => {
     document.querySelector("#topnav").classList.toggle("topnav-active", !navBurgirOpen);
     setNavBurgirOpen(!navBurgirOpen);
