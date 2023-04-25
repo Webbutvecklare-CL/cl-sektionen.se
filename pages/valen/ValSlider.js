@@ -9,10 +9,6 @@ export default function ValSlider({ folderName, numberOfImages }) {
     (_, index) => `/media/valen/${folderName}/${index + 1}.jpg`
   );
 
-  useEffect(()=>{
-    console.log(images)
-  })
-  
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
