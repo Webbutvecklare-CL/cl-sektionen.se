@@ -101,6 +101,10 @@
   text-align: center;
 }
 
+button.tag{
+  padding: 0.3rem !important;
+}
+
 .posts {
   margin-top: 0.5rem;
   border-radius: 0.3rem;
