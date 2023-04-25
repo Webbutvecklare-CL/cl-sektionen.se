@@ -17,7 +17,10 @@ export default function Dokument({ contents }) {
           link={"https://docs.google.com/document/d/1BxySegqiWihlavewTlbLEPKaY3XAOuSA7fJPdoS-U-w/edit?usp=sharing"}
           innerText={<div><i className="fa-regular fa-file-pdf" /> Mall för digitalt signerat kvitto</div>}
         />
-        
+        <Card 
+          link={"https://docs.google.com/document/d/1cqWZFaQ8CyRdVJ8qTxTLiFinnVLjPE0QKf3rvVIx6BA/edit?usp=sharing"}
+          innerText={<div><i className="fa-regular fa-file-pdf" /> Mall för handsignerat kvitto</div>}
+        />
         <Card 
           link={"https://drive.google.com/file/d/1aBCjU8wfLI5NwNNPjf-RabC1G4ZxM-wn/view"}
           innerText={<div><i className="fa-regular fa-file-pdf" /> Milersättningsblankett</div>}
