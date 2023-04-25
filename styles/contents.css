@@ -95,8 +95,8 @@ ol {
   color: #444 !important;
   box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.3);
 
-  font-size: 1.2rem;
-  padding: .4rem;
+  font-size: 1.3rem;
+  padding: .1rem .4rem;
   white-space: nowrap;
   text-decoration: none;
 
@@ -106,9 +106,8 @@ ol {
 
 .link-card:hover,
 .link-card:focus{
-  transform: scale(1.02);
   box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.15);
-  color: var(--clr3) !important;
+  background-color: rgb(192, 192, 192) !important;
   transition: .1s ease-in-out;
 }
 
