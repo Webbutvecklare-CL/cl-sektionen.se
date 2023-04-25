@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import CommitteeInfo from "../components/CommitteeInfo";
 import { getContentData } from "../utils/contents";
 
-export default function Fortroendevalda({ descriptions, contacts, committeesData }) {
+export default function Fortroendevalda({ descriptions, committeesData, contacts }) {
   // Descriptions - Objekt med alla nämndbeskrivningar
   // Contacts - Objekt med alla namn och mail till förtroendevalda
   // CommitteeData - namn, icon och id till varje nämnd - används i menyn
@@ -75,14 +75,55 @@ export default function Fortroendevalda({ descriptions, contacts, committeesData
 }
 
 export async function getStaticProps() {
-  let descriptions = getContentData("namndbeskrivningar");
-  let contacts = getContentData("fortroendevalda");
-  let committeesData = JSON.parse(getContentData("data")["committees-data"]);
+  const descriptions = getContentData("fortroendevalda");
+  const committeesData = JSON.parse(getContentData("data")["committees-data"]);
+  const contacts = csvTOJSON(getContentData("data")["fortroendevalda"]);
+
   return {
     props: {
       descriptions,
-      contacts,
       committeesData,
+      contacts,
     },
   };
+}
+
+function csvTOJSON(csvStream) {
+  csvStream += "\n"; // Lägger till ett blanksteg/ny rad i slutet
+
+  let rows = csvStream.split(/\r?\n/); // Plockar ut alla rader
+
+  let committees = [];
+  let lastBreak = 0; // Senaste tomma raden = ',,,,'
+  for (let i = 0; i < rows.length; i++) {
+    let row = rows[i];
+    if (row == ",,,,") {
+      committees.push(rows.slice(lastBreak + 1, i)); // +1 för att ta bort rubrikraden och den tomma raden
+      lastBreak = i;
+    }
+  }
+
+  let contactsData = {};
+  committees.forEach((committee) => {
+    const committeeData = committee[0].split(","); // Nämnd informationen
+    const committeeId = committeeData[0]; // Id som används i komponenten
+    contactsData[committeeId] = { mail: committeeData[1], period: committeeData[4] };
+
+    // Skapa lista med alla poster för nämnden
+    let trustees = [];
+    const trusteesRows = committee.splice(1); // Raderna med förtroendevalda
+    trusteesRows.forEach((trustee) => {
+      const trusteeData = trustee.split(",");
+      trustees.push({
+        position: trusteeData[0],
+        mail: trusteeData[1],
+        name: trusteeData[2],
+        year: trusteeData[3],
+      });
+    });
+
+    // Lägger till de förtroendevalda i nämnd objektet
+    contactsData[committeeId]["trustees"] = trustees;
+  });
+  return contactsData;
 }

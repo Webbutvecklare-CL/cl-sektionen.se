@@ -4,7 +4,7 @@
 
 Det finns fyra inriktningar på programmet. De olika inriktningarna samläser med motsvarande civilingenjörsutbildning och ger behörighet för undervisning i olika gymansiekurser. De fyra inriktningarna är:
 
-- Matematik och fysik **(MAFY)**
-- Matematik och kemi **(MAKE)**
-- Matematik och teknik med specialisering mot energi och miljö **(TEMI)**
-- Matematik och teknik med specialisering mot datateknik **(TEDA)**
+- Matematik och fysik [MAFY](/om-oss#mafy)
+- Matematik och kemi [MAKE](/om-oss#make)
+- Matematik och teknik med specialisering mot energi och miljö [TEMI](/om-oss#temi)
+- Matematik och teknik med specialisering mot datateknik [TEDA](/om-oss#teda)

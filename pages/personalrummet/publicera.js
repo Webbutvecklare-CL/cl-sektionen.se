@@ -27,8 +27,9 @@ export default function Publicera() {
     tags: [],
     startDateTime: new Date().toLocaleString().substring(0, 16),
     endDateTime: new Date().toLocaleString().substring(0, 16),
-    publishDate: today,
+    // publishDate: today,
     author: "",
+    visibility: "public",
   });
 
   useEffect(() => {
@@ -85,15 +86,15 @@ export default function Publicera() {
       image: "",
       body: data.body,
       author: data.author,
-      publishDate: Timestamp.fromDate(new Date(data.publishDate)),
+      publishDate: Timestamp.fromDate(new Date()),
       tags: data.tags,
       committee: userData.committee, // Länkar inlägget med nämnden
       creator: userData.uid, // Länkar inlägget till användaren
       type: data.type,
-      public: true,
+      visibility: data.visibility,
     };
 
-    if (data.type === "Event") {
+    if (data.type === "event") {
       postData.startDateTime = Timestamp.fromDate(new Date(data.startDateTime));
       postData.endDateTime = Timestamp.fromDate(new Date(data.endDateTime));
     }
@@ -132,7 +133,7 @@ export default function Publicera() {
       }
     }
 
-    if (data.type === "Event" && data.publishInCalendar) {
+    if (data.type === "event" && data.publishInCalendar) {
       addEvent({
         title: data.title,
         description: data.subtitle,

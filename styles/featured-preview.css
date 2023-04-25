@@ -12,8 +12,8 @@
   transform: none;
   background: linear-gradient(
     90deg,
-    rgba(255, 0, 26, 0.1) 35%,
-    rgba(255, 255, 255, 1) 65%,
+    rgb(255, 235, 235) 10%,
+    rgba(255, 255, 255, 1) 55%,
     rgba(255, 255, 255, 1) 100%
   );
 }
@@ -24,11 +24,12 @@
 }
 
 .featured-preview .post-preview {
+  overflow: hidden;
   padding: 5px;
-  height: 360px !important;
+  height: 300px !important;
   margin: 0;
   display: grid;
-  grid-template-columns: 480px 1fr !important;
+  grid-template-columns: 400px 1fr !important;
   grid-template-rows: auto 1fr;
   gap: 0 1rem;
   grid-template-areas:
@@ -103,7 +104,7 @@
   font-size: 1.1rem;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 11;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
 }
 
@@ -156,7 +157,7 @@
     transform: none;
     background: linear-gradient(
       90deg,
-      rgba(255, 0, 26, 0.1) 25%,
+      rgb(255, 235, 235) 10%,
       rgba(255, 255, 255, 1) 45%,
       rgba(255, 255, 255, 1) 100%
     );
@@ -198,7 +199,7 @@
     transform: none;
     background: linear-gradient(
       180deg,
-      rgba(255, 0, 26, 0.1) 35%,
+      rgb(255, 235, 235) 10%,
       rgba(255, 255, 255, 1) 85%,
       rgba(255, 255, 255, 1) 100%
     );

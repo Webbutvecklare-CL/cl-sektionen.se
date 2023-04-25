@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState, useMemo } from "react";
 
-import { doc, setDoc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
+import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
 import { firestore, storage } from "../../../firebase/clientApp";
 
@@ -70,14 +70,14 @@ export default function EditPost() {
             tags: postData.tags,
             author: postData.author,
             link: pid,
-            publishDate: postData.publishDate.toDate().toLocaleDateString("sv"),
-            public: postData.public,
+            // publishDate: postData.publishDate.toDate().toLocaleDateString("sv"),
+            visibility: postData.visibility,
           };
 
           if (postData.type) {
             data.type = postData.type;
 
-            if (postData.type === "Event") {
+            if (postData.type === "event") {
               data.startDateTime = postData.startDateTime.toDate().toLocaleDateString("sv");
               data.endDateTime = postData.endDateTime.toDate().toLocaleDateString("sv");
             }
@@ -113,10 +113,15 @@ export default function EditPost() {
   const handleFormData = async (data) => {
     setIsPending(true);
     let postData = {};
+    // Kollar igenom vilka fält som blivit uppdaterade
     for (let key in data) {
       // Kollar om fälten blivit uppdaterade
       // Om det är en bild så ska den få lite särbehandling senare
       if (key === "image") {
+        continue;
+      }
+      // Link ska aldrig uppdateras och sparas inte heller
+      if (key === "link") {
         continue;
       }
 
@@ -134,7 +139,6 @@ export default function EditPost() {
     const postRef = doc(firestore, "posts", postId);
 
     try {
-      console.log(postData);
       await updateDoc(postRef, postData);
       console.log("Inlägget är uppdaterat!");
     } catch (err) {

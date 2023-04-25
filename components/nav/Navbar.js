@@ -19,44 +19,46 @@ import { useRouter } from "next/router";
 const MENU_LIST = [
   {
     text: "Aktuellt",
-    href: "/aktuellt",
+    href: "",
     submenu: [
-      { text: "Information & Event", href: "/aktuellt" },
+      { text: "Info & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
     ],
   },
   {
     text: "Sektionen",
-    href: "/om-oss",
+    href: "",
     submenu: [
       { text: "Om oss", href: "/om-oss" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
+      { text: "Engagera dig", href: "/engagera-dig" },
       { text: "Hedersutmärkelser", href: "/hedersmedlemmar" },
-      { text: "Dokument", href: "/dokument" },
+      { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
   },
   {
-    text: "Studier",
+    text: "Utbildning",
     href: "",
     submenu: [
+      { text: "VFU", href: "/vfu" },
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
-      { text: "VFU", href: "/vfu" },
       // { text: "Studiebevakning", href: "/studiebevakning" },
       // { text: "Valbara kurser", href: "/valbara-kurser" },
     ],
   },
   {
-    text: "Studiesocialt",
+    text: "Resurser",
     href: "",
     submenu: [
-      { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
       { text: "Sångbok", href: "/sangbok" },
+      { text: "Dokument", href: "/dokument" },
+      // { text: "Bildarkiv", href: "/bildarkiv" },
     ],
   },
   {
     text: "Näringsliv",
-    href: "/for-foretag",
+    href: "",
     submenu: [
       { text: "För företag", href: "/for-foretag" },
       { text: "Samarbeten", href: "/samarbeten" },
@@ -74,11 +76,34 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
+  const [currentPageTitle, setCurrentPageTitle] = useState("");
+
+  useEffect(() => {
+    const path = router.asPath;
+    if (path === "/") {
+      setCurrentPageTitle("");
+      return;
+    }
+
+    for (const menu of MENU_LIST) {
+      for (const sub of menu.submenu) {
+        if (sub.href === path) {
+          setCurrentPageTitle(sub.text);
+          break;
+        }
+      }
+    }
+  }, [router.asPath]);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
     });
   });
+
+  useEffect(() => {
+    window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
+  }, []);
 
   const burgirToggle = () => {
     document.querySelector("#topnav").classList.toggle("topnav-active", !navBurgirOpen);
@@ -144,19 +169,17 @@ export default function Navbar() {
                   }}>
                   <NavItem active={activeIdx === idx} {...menu} />
                 </div>
-
                 {menu.submenu?.map((sb, s_idx) => (
-                  <NavSubItem
+                  <div
                     key={sb.text}
-                    active={activeIdx === idx && activeSubIdx === s_idx}
-                    {...sb}
                     onClick={() => {
                       if (idx === activeIdx) {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
                       }
-                    }}
-                  />
+                    }}>
+                    <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
+                  </div>
                 ))}
               </div>
             ))}
@@ -177,15 +200,14 @@ export default function Navbar() {
               <NavItem active={activeIdx === idx} {...menu} />
             </div>
             {menu.submenu?.map((sb, s_idx) => (
-              <NavSubItem
-                active={activeIdx === idx && activeSubIdx === s_idx}
-                {...sb}
+              <div
                 key={sb.text}
                 onClick={() => {
                   setActiveIdx(idx);
                   setActiveSubIdx(s_idx);
-                }}
-              />
+                }}>
+                <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
+              </div>
             ))}
           </div>
         ))}
@@ -199,7 +221,10 @@ export default function Navbar() {
         {/* Om man har scorllat på startsidan eller är på en annan sida är top nav röd */}
         <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
           <div id="navmain">
-            {homeButton()}
+            <div className="homebutton-wrapper">
+              {homeButton()}
+              <div className="current-Page">{currentPageTitle}</div>
+            </div>
             {burgerMenuButton()}
             {wideScreenMenu()}
           </div>

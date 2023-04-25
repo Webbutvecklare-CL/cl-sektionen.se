@@ -5,16 +5,27 @@ import { useState, useRef, useEffect } from "react";
 import FeedPreview from "../../components/FeedPreview";
 
 //Ändra dessa för att lägga till och ta bort tags
-const NEWSTAGS = ["Aktuellt", "Viktigt", "Information", "Annat"];
-const EVENTSTAGS = [
-  "Idrott",
-  "Gasque",
-  "Pub",
-  "Lunchföreläsning",
-  "Workshop",
-  "Förtroendevalda",
-  "SM",
-  "StyM",
+import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
+
+const PUBLISHERS = [
+  "CtyreLsen",
+  "Studienämnden",
+  "Näringslivsnämnden",
+  "Mottagningsnämnden",
+  "JML-nämnden",
+  "Aktivitetsnämnden",
+  "Lokalnämnden",
+  "CLubWästeriet",
+  "Valberedningen",
+  "Revisor",
+  "Fanborg",
+  "Kårfullmäktige",
+  "Talman",
+  "Försäljningsansvarig",
+  "Idrottsansvarig",
+  "CLek",
+  "Dubbelspexet",
+  "CLak",
 ];
 
 export default function Aktuellt({ postList }) {
@@ -25,10 +36,18 @@ export default function Aktuellt({ postList }) {
 
   const [search, setSearch] = useState("");
   const [type, setType] = useState({
-    Nyheter: true,
-    Event: true,
+    information: true,
+    event: true,
   });
+
+  const [sortNewestFirst, setSortNewestFirst] = useState(true);
+  const toggleSort = () => {
+    setSortNewestFirst(!sortNewestFirst);
+    postList.reverse();
+  };
+
   const [filterTags, setFilterTags] = useState({});
+  const [publisher, setPublisher] = useState("")
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState(new Date().toDateString());
 
@@ -44,21 +63,17 @@ export default function Aktuellt({ postList }) {
     setFilterTags((filterTags) => ({ ...filterTags, ...{ [tag]: !selected } }));
   };
 
-  const handleSetType = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    let tag = e.target.innerHTML;
+  const handleSetType = (e, tag) => {
     let selected = e.target.classList.contains("selected");
 
     setType((t) => ({ ...t, ...{ [tag]: !selected } }));
   };
 
-  //Hanterar tags när man filtrerar bort antingen Event eller Nyheter
+  //Hanterar tags när man filtrerar bort antingen Event eller Information
   useEffect(() => {
-    const newsTags = {};
-    NEWSTAGS.forEach((tag) => {
-      newsTags[tag] = !!filterTags[tag];
+    const infoTags = {};
+    INFOTAGS.forEach((tag) => {
+      infoTags[tag] = !!filterTags[tag];
     });
 
     const eventTags = {};
@@ -66,18 +81,24 @@ export default function Aktuellt({ postList }) {
       eventTags[tag] = !!filterTags[tag];
     });
 
-    if (type["Nyheter"] && type["Event"]) {
-      setFilterTags({ ...newsTags, ...eventTags });
-    } else if (type["Nyheter"]) {
-      setFilterTags(newsTags);
-    } else if (type["Event"]) {
-      setFilterTags(eventTags);
+    const commonTags = {};
+    COMMONTAGS.forEach((tag) => {
+      commonTags[tag] = !!filterTags[tag];
+    });
+
+    if (type["information"] && type["event"]) {
+      setFilterTags({ ...commonTags, ...infoTags, ...eventTags });
+    } else if (type["information"]) {
+      setFilterTags({ ...commonTags, ...infoTags });
+    } else if (type["event"]) {
+      setFilterTags({ ...commonTags, ...eventTags });
     } else {
       setFilterTags({});
     }
   }, [type]);
 
   const panelref = useRef();
+
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
@@ -104,6 +125,7 @@ export default function Aktuellt({ postList }) {
       document.removeEventListener("mousedown", panelCloseHandler);
     };
   });
+
   //outline runt sökfältet om man klickar innuti, detta för att firefox inte stödjer css 'has()' selector
   const [fokusSearchBar, setfokusSearchBar] = useState(false);
   useEffect(() => {
@@ -126,12 +148,20 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-filter" /> Nyheter eller event
+          <i className="fa-solid fa-filter" /> Inläggstyp
         </h3>
-        <button className={`${type["Nyheter"] ? "selected" : ""}`} onClick={handleSetType}>
-          Nyheter
+        <button
+          className={`${type["information"] ? "selected" : ""}`}
+          onClick={(e) => {
+            handleSetType(e, "information");
+          }}>
+          Information
         </button>
-        <button className={`${type["Event"] ? "selected" : ""}`} onClick={handleSetType}>
+        <button
+          className={`${type["event"] ? "selected" : ""}`}
+          onClick={(e) => {
+            handleSetType(e, "event");
+          }}>
           Event
         </button>
       </div>
@@ -143,10 +173,37 @@ export default function Aktuellt({ postList }) {
         <h3>
           <i className="fa-solid fa-arrow-down-wide-short" /> Sortera efter
         </h3>
-        <p>[Sortera efter datum, nämnd eller alfabetisk samt toggle för ascending/descending]</p>
+        <button className={sortNewestFirst ? "selected" : ""} onClick={() => toggleSort()}>
+          Nyast först
+        </button>
       </div>
     );
   };
+
+  const CommitteesPanel = () => {
+    return (
+      <div>
+        <h3>
+          <i className="fa-solid fa-pencil" /> Publicerad av
+        </h3>
+        <select 
+          className="Committeepicker"
+          value={publisher}
+          onChange={(e) => {setPublisher(e.target.value)}}
+        >
+          <option value={""}>Alla</option>
+          {PUBLISHERS.map((publisher) => {
+            return (
+              <option key={publisher} value={publisher}>
+                {publisher}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+    );
+  };
+
   const TagPanel = () => {
     return (
       <div>
@@ -204,7 +261,7 @@ export default function Aktuellt({ postList }) {
   // eller vill söka som bara lägger till de nya i newsList/eventList
   return (
     <div id="contentbody">
-      <h1>Sök bland alla inlägg</h1>
+      <h1>Sök bland alla Nyheter</h1>
       <div className="aktuellt-wrapper">
         {/*filterpanel för widescreen*/}
         <section className="filterPanel wide">
@@ -212,6 +269,7 @@ export default function Aktuellt({ postList }) {
           <TypPanel />
           <SortPanel />
           <TagPanel />
+          <CommitteesPanel />
           <DatumPanel />
         </section>
 
@@ -243,15 +301,19 @@ export default function Aktuellt({ postList }) {
               <SortPanel />
             </div>
             <TagPanel />
-            <DatumPanel />
+            <div className="date_and_committee_wrapper">
+              <DatumPanel />
+              <CommitteesPanel />
+            </div>
           </section>
 
           <section className="posts">
-            <div style={{ display: "flex" }}>
+            <div className="aktuelltsidan-contentwrapper">
               <FeedPreview
                 posts={postList
                   .filter((post) => {
                     return (
+                      (publisher === "" || post.committee === publisher) &&
                       (search === "" || post.title.toLowerCase().includes(search.toLowerCase())) &&
                       type[post.type]
                     );
@@ -329,8 +391,7 @@ export async function getStaticProps() {
   // Skapar en query - vilka inlägg som ska hämtas
   const postQuery = query(
     postRef,
-    where("publishDate", "<", timeNow),
-    where("public", "==", true),
+    where("visibility", "in", ["public", "hidden"]),
     orderBy("publishDate", "desc"),
     limit(60)
   );

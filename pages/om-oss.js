@@ -1,15 +1,15 @@
 import React from "react";
-import Link from "next/link";
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
 export default function Samarbete({ contents }) {
   return (
     <div id="contentbody">
-      <h1>Om oss</h1>
+      <h1 id="page-title">Om oss</h1>
       <MarkdownRender mdData={contents["programmet"]} />
       <MarkdownRender mdData={contents["sektionen"]} />
       <MarkdownRender mdData={contents["medlem"]} />
+      <MarkdownRender mdData={contents["inriktningar"]} />
     </div>
   );
 }

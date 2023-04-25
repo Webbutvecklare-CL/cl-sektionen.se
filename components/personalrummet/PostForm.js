@@ -4,6 +4,9 @@ import Image from "next/image";
 import TextField from "./TextField";
 import { create_id } from "../../utils/postUtils";
 
+// Taggar som kan väljas
+import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
+
 export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [title, setTitle] = useState(prefill.title);
   const [subtitle, setSubtitle] = useState(prefill.subtitle);
@@ -12,7 +15,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [tags, setTags] = useState(prefill.tags);
   const [startDateTime, setStartDateTime] = useState(prefill.startDateTime);
   const [endDateTime, setEndDateTime] = useState(prefill.endDateTime);
-  const [publishDate, setPublishDate] = useState(prefill.publishDate);
+  // const [publishDate, setPublishDate] = useState(prefill.publishDate);
+  const [visibility, setVisibility] = useState(prefill.visibility);
   const [meetingNumber, setMeetingNumber] = useState(1);
   const [author, setAuthor] = useState(prefill.author);
   const [link, setLink] = useState(prefill.link);
@@ -27,12 +31,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (prefill.type) {
       // Null för att handleSetType tar in ett element på första parametern
       handleSetType(null, prefill.type);
-    } else if (prefill.tags.includes("Event")) {
-      prefill.tags.slice(prefill.tags.indexOf("Event"), 1);
-      handleSetType(null, "Event");
-    } else if (["Nyheter", "Annat", "Information"].some((tag) => prefill.tags.includes(tag))) {
-      // Om prefill innehåller nyheter, annat eller Information antar vi att det är av typen nyhet
-      handleSetType(null, "Nyheter");
     }
 
     // Markera de tidigare valda taggarna
@@ -87,7 +85,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       image,
       body,
       author,
-      publishDate,
+      // publishDate,
+      visibility,
       tags: selectedTags,
       type,
       publishInCalendar,
@@ -95,7 +94,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     };
 
     // Om det är ett event skickar vi med start- och sluttid
-    if (type == "Event") {
+    if (type == "event") {
       formData.startDateTime = startDateTime;
       formData.endDateTime = endDateTime;
     }
@@ -124,17 +123,17 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       return "Du måste ange en författare med minst 2 tecken.";
     }
 
-    try {
-      if (editMode) {
-        if (new Date(publishDate) <= new Date(prefill.publishDate)) {
-          return "Du kan inte ange ett tidigare publiceringsdatum än det tidigare.";
-        }
-      } else if (new Date(publishDate) <= new Date().setHours(0, 0, 0, 0)) {
-        return "Du kan inte ange ett tidigare publiceringsdatum än idag.";
-      }
-    } catch {
-      return "Publiceringsdatumet måste vara på formen åååå-mm-dd";
-    }
+    // try {
+    //   if (editMode) {
+    //     if (new Date(publishDate) <= new Date(prefill.publishDate)) {
+    //       return "Du kan inte ange ett tidigare publiceringsdatum än det tidigare.";
+    //     }
+    //   } else if (new Date(publishDate) <= new Date().setHours(0, 0, 0, 0)) {
+    //     return "Du kan inte ange ett tidigare publiceringsdatum än idag.";
+    //   }
+    // } catch {
+    //   return "Publiceringsdatumet måste vara på formen åååå-mm-dd";
+    // }
 
     //Kollar start- och sluttider
     try {
@@ -176,7 +175,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
 
     // Kopiera förra statet och skriver över värdet på den valda tagen
-    if (type == "Event") {
+    if (type == "event") {
       // Tar bort SM om StyM om de var valda
       setTags((tags) => ({ ...tags, ...{ SM: false, StyM: false, [tag]: !selected } }));
     } else {
@@ -184,31 +183,33 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
   };
 
-  // När användaren väljer typ av inlägg nyhet/event
+  // När användaren väljer typ av inlägg information/event
   const handleSetType = (e, type) => {
     if (e) {
       e.preventDefault();
     }
     setType(type);
-    if (type === "Nyheter") {
-      setTags({
-        Aktuellt: false,
-        Viktigt: false,
-        Information: false,
-        Annat: false,
-      });
-    }
-    if (type === "Event") {
-      setTags({
-        Idrott: false,
-        Gasque: false,
-        Pub: false,
-        Lunchföreläsning: false,
-        Workshop: false,
-        Förtroendevalda: false,
-        SM: false,
-        StyM: false,
-      });
+
+    // Ger varje tag ett på/av värde (av från början)
+    const infoTags = {};
+    INFOTAGS.forEach((tag) => {
+      infoTags[tag] = false;
+    });
+
+    const eventTags = {};
+    EVENTSTAGS.forEach((tag) => {
+      eventTags[tag] = false;
+    });
+
+    const commonTags = {};
+    COMMONTAGS.forEach((tag) => {
+      commonTags[tag] = false;
+    });
+
+    if (type === "information") {
+      setTags({ ...infoTags, ...commonTags });
+    } else if (type === "event") {
+      setTags({ ...eventTags, ...commonTags });
     }
   };
 
@@ -290,7 +291,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const DateInput = () => {
     return (
       <div className="date-input">
-        {type === "Event" && (
+        {type === "event" && (
           <>
             <div>
               <Label required>Start:</Label>
@@ -315,7 +316,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
           </>
         )}
 
-        <div>
+        {/* <div>
           <Label required>Publiceringsdatum:</Label>
           <input
             type="datetime-local"
@@ -324,7 +325,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             onChange={(e) => setPublishDate(e.target.value)}
             min={editMode ? prefill.publishDate : new Date().toLocaleString().substring(0, 16)}
           />
-        </div>
+        </div> */}
       </div>
     );
   };
@@ -336,14 +337,14 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
         <div className="type-container">
           <button
             disabled={editMode}
-            onClick={(e) => handleSetType(e, "Nyheter")}
-            className={type === "Nyheter" ? "selected" : ""}>
-            Nyheter
+            onClick={(e) => handleSetType(e, "information")}
+            className={type === "information" ? "selected" : ""}>
+            Information
           </button>
           <button
             disabled={editMode}
-            onClick={(e) => handleSetType(e, "Event")}
-            className={type === "Event" ? "selected" : ""}>
+            onClick={(e) => handleSetType(e, "event")}
+            className={type === "event" ? "selected" : ""}>
             Event
           </button>
         </div>
@@ -413,6 +414,20 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
             <DateInput />
 
+            <div className={"visibility-input"}>
+              <Label>Synlighet:</Label>
+              <div
+                className={`visibility-button ${visibility === "public" ? "active" : ""}`}
+                onClick={() => setVisibility(visibility === "public" ? "private" : "public")}>
+                <i className={`fa-regular fa-eye${visibility !== "public" ? "-slash" : ""}`}></i>
+              </div>
+              <p>
+                {visibility === "public"
+                  ? "Visas på startsidan och aktuelltsidan."
+                  : "Kan endast ses i personalrummet."}
+              </p>
+            </div>
+
             {/* URL */}
             <Label>
               Url:{" "}
@@ -432,7 +447,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             />
 
             {/* Kalender */}
-            {!editMode && type === "Event" && (
+            {!editMode && type === "event" && (
               <>
                 <div className="calender-input">
                   <label htmlFor="calendar">Lägg till i sektionskalendern (test):</label>

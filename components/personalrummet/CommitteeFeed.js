@@ -27,14 +27,15 @@ export default function CommitteeFeed({ posts, permission = "" }) {
     const postElem = e.currentTarget.parentElement.parentElement.parentElement;
     const postIdx = postElem.getAttribute("post-idx");
     const post = posts[postIdx];
-    const postPublicState = post.public !== undefined ? post.public : true; // Det nuvarande läget true = publikt
+    const postVisibility = post.visibility !== undefined ? post.visibility : "public"; // Det nuvarande läget true = publikt
 
     // Uppdatera dokumentet
     const postRef = doc(firestore, "posts", post.id);
+    // console.log("Innan:", postVisibility);
     try {
       console.log("updateDoc - Synlighetsstatus");
-      await updateDoc(postRef, { public: !postPublicState });
-      post.public = !postPublicState;
+      await updateDoc(postRef, { visibility: postVisibility === "public" ? "private" : "public" });
+      post.visibility = postVisibility === "public" ? "private" : "public";
 
       // Uppdaterar post med ny status
       setPostList((prevState) => {
@@ -42,7 +43,6 @@ export default function CommitteeFeed({ posts, permission = "" }) {
         posts[postIdx] = post;
         return posts;
       });
-
       // Försöker revalidate
       try {
         // Revalidate:ar hemsidan
@@ -73,10 +73,10 @@ export default function CommitteeFeed({ posts, permission = "" }) {
                   <i className="fa-regular fa-solid fa-arrow-up-right-from-square"></i>
                 </Link>
                 <div onClick={handleChangePublic}>
-                  {(post.public || post.public === undefined) && (
-                    <i className="fa-regular fa-eye"></i>
-                  )}
-                  {!post.public && <i className="fa-regular fa-eye-slash"></i>}
+                  <i
+                    className={`fa-regular fa-eye${
+                      post.visibility !== "public" ? "-slash" : ""
+                    }`}></i>
                 </div>
 
                 {permission === "admin" && (

@@ -36,7 +36,15 @@ export default function CommitteeInfo({ committee, description, contact }) {
       <br />
       <section className="nämnd_namnochkontakt">
         <div className="poster">
-          <MarkdownRender mdData={contact} />
+          {contact.trustees.map((trustee, idx) => {
+            return (
+              <p key={idx}>
+                {trustee.name} {trustee.year}, <strong>{trustee.position}</strong>
+                <br />
+                <a href={"mailto:" + trustee.mail}>{trustee.mail}</a>
+              </p>
+            );
+          })}
         </div>
       </section>
     </div>

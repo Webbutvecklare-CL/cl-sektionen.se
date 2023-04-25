@@ -1,14 +1,7 @@
-Fabian Olesen CL22, **Näringslivsnämndens Ordförande**  
-ordf.naringsliv@cl-sektionen.se
+# Näringslivsnämnden
 
-Viktor Uhlgren CL22, **Arbetsmarknadsansvarig**  
-arbetsmarknad@cl-sektionen.se
+Näringslivsnämnden har ansvar för kontakten med näringslivet och sektionens sponsorer samt sektionens ansikte utåt i form av webbsidan och sociala medier. Näringslivsnämnden anordnar evenemang som CV-workshops, LinkedIn-workshops och lunchföreläsningar. Nämnden representerar sektionen vid THS Näringslivsråd.
 
-Jesper Svensson CL21, **Webbunderhållare**  
-webmaster@cl-sektionen.se
+### Kontakt: naringslivsnamnden@cl-sektionen.se
 
-Armin Baymani CL19, **Webbutvecklare**  
-webbutvecklare@cl-sektionen.se
-
-Tuva Egman CL20, **PR-ansvarig**  
-pransvarig@cl-sektionen.se
+---

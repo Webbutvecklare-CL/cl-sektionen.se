@@ -1,12 +1,17 @@
 import React from "react";
+import { useRouter } from "next/router";
 import MarkdownRender from "../../components/MarkdownRender";
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 
 function Sang({ content }) {
+  const router = useRouter();
   return (
     <div id="contentbody">
       <article className="sång">
+        <button onClick={() => router.back()}>
+          <i className="fa fa-arrow-left" aria-hidden="true"></i> Tillbaka
+        </button>
         <MarkdownRender mdData={content} />
       </article>
     </div>
