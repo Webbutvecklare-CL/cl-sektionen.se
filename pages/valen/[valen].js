@@ -12,7 +12,7 @@ export default function Valen() {
   return (
     <div id="contentbody">
       <h1>{smTitle}</h1>
-      <ValSlider folderName={folderName} numberOfImages={4} />
+      <ValSlider folderName={folderName} numberOfImages={10} />
     </div>
   );
 }
