@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Sidhuvud_inv from "../public/media/grafik/sidhuvud_inv.png";
+import Sidhuvud_inv from "../public/media/grafik/Namn_vit.png";
 import React, { useState } from "react";
 import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";

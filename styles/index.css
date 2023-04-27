@@ -21,8 +21,7 @@
 }
 
 .sektionslogga-vitt {
-  max-width: 1200px;
-  min-width: 380px;
+  max-width: 1000px;
   width: 80%;
   height: min-content;
   filter: drop-shadow(5px 5px 5px #222);
