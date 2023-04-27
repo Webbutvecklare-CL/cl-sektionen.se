@@ -176,6 +176,10 @@ nav .active {
 }
 
 @media screen and (max-width: 780px) {
+  #page-title{
+    display: none;
+  }
+
   #navmain {
     align-items: left;
     justify-content: space-between;
