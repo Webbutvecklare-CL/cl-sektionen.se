@@ -1,4 +1,5 @@
 import { React } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
@@ -19,6 +20,8 @@ export default function Post({ postData, postId }) {
   const getDate = (date) => {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
+
+  const router = useRouter();
 
   // 404 sida - om det saknas ett inlägg till den angivna länken
   if (!postData) {
@@ -45,28 +48,30 @@ export default function Post({ postData, postId }) {
 
   return (
     <div id="contentbody">
-      {postData && (
-        <article className="post">
-          <div className="head">
-            <div className="image-container">
-              {postData.image && (
-                <Image src={postData.image} width={400} height={400} alt="Post bild" />
-              )}
-            </div>
-            <div className="info">
-              <h1 className="title">{postData.title}</h1>
-              <h2>{postData.subtitle}</h2>
-              <p className="meta">
-                Publicerad {getDate(postData.publishDate)} av {postData.author}
-              </p>
-            </div>
+      <article className="post">
+        <div className="article-head">
+          <button onClick={() => router.back()}>
+            <i className="fa fa-arrow-left" aria-hidden="true"></i> Tillbaka
+          </button>
+        </div>
+        <div className="head">
+          <div className="image-container">
+            {postData.image && (
+              <Image src={postData.image} width={400} height={400} alt="Post bild" />
+            )}
           </div>
+          <div className="info">
+            <h1 className="title">{postData.title}</h1>
+            <h2>{postData.subtitle}</h2>
+            <p className="meta">
+              Publicerad {getDate(postData.publishDate)} av {postData.author}
+            </p>
+          </div>
+        </div>
 
-          <hr />
-          <div>{parse(postData.body)}</div>
-        </article>
-      )}
-      {!postData && <p>Inlägget saknas eller håller på att laddas upp!</p>}
+        <hr />
+        <div>{parse(postData.body)}</div>
+      </article>
     </div>
   );
 }
