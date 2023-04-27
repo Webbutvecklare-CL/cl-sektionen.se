@@ -208,9 +208,9 @@
 }
 
 .post div.image-container {
-  width: auto;
+  width: 100%;
   height: auto;
-  max-height: 240px;
+  max-height: 360px;
 }
 
 .post div.image-container img {

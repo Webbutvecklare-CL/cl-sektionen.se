@@ -64,7 +64,7 @@ article {
 
 @media (max-width: 900px) {
   article {
-    background-color: unset;
+    background-color: unset !important;
     padding: 0;
     box-shadow: unset;
   }
