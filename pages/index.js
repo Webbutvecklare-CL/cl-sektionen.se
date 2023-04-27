@@ -59,6 +59,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
           <div className="aktuellt_innehåll">
             {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
             <div>
+              <h2>Senaste</h2>
               {featured && <FeaturedPostPreview post={featured} />}
               <div className="inlägg_wrapper">
                 <div className="event_innehåll">
