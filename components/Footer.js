@@ -32,7 +32,7 @@ export default function Navbar() {
           <div id="quick-links" className="footer-col">
             <h3>Hitta snabbt</h3>
             <Link href={"/for-foretag"}>För företag</Link>
-            <Link href={"/for-foretag"}>Om oss</Link>
+            <Link href={"/om-oss"}>Om oss</Link>
             <Link href={"/aktuellt"}>Aktuellt</Link>
             <Link href={"/kontakt"}>Kontakt</Link>
             <Link href={"/hjalp-vid-illabehandling"}>Illabehandling</Link>
