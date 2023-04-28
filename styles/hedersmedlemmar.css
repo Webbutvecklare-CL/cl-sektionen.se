@@ -9,10 +9,10 @@
 }
 
 .hedersmedlem {
-  min-width: 170px;
+  min-width: 120px;
   max-width: 200px;
   width: 100%;
-  /* padding: 0rem 2rem; */
+  
   text-align: center;
   -webkit-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); /* Firefox 3.5 - 3.6 */
@@ -21,6 +21,10 @@
   border-radius: 0.3rem;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hedersmedlem:hover {
@@ -50,9 +54,11 @@
 .hedersmedlem .imgdiv {
   margin: 0 auto;
   margin-top: 2rem;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 75%;
+  min-height: 0;
+  aspect-ratio : 1 / 1;
+  border-radius: 50%;  
+
 }
 
 .hedersmedlem .imgdiv img {
@@ -60,6 +66,11 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.hedersmedlem h3 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 @media screen and (max-width: 775px) {
