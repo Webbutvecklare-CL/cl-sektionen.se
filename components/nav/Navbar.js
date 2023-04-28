@@ -79,7 +79,7 @@ export default function Navbar() {
   const [currentPageTitle, setCurrentPageTitle] = useState("");
 
   useEffect(() => {
-    const path = router.asPath;
+    const path = router.asPath.split("#")[0];
     if (path === "/") {
       setCurrentPageTitle("");
       return;
@@ -128,7 +128,7 @@ export default function Navbar() {
   });
   //-------------------------------------------------------------------------
 
-  const homeButton = () => {
+  const HomeButton = () => {
     return (
       <div
         onClick={() => {
@@ -142,7 +142,7 @@ export default function Navbar() {
     );
   };
 
-  const burgerMenuButton = () => {
+  const BurgerMenuButton = () => {
     return (
       <div id="navburgirmenu">
         <button
@@ -152,7 +152,7 @@ export default function Navbar() {
     );
   };
 
-  const burgerMenu = () => {
+  const BurgerMenu = () => {
     return (
       <div ref={menuref}>
         {navBurgirOpen ? (
@@ -176,6 +176,7 @@ export default function Navbar() {
                       if (idx === activeIdx) {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
+                        setNavBurgirOpen(false);
                       }
                     }}>
                     <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
@@ -191,7 +192,7 @@ export default function Navbar() {
     );
   };
 
-  const wideScreenMenu = () => {
+  const WideScreenMenu = () => {
     return (
       <div className="nav__menu-list">
         {MENU_LIST.map((menu, idx) => (
@@ -218,18 +219,18 @@ export default function Navbar() {
   return (
     <header>
       <nav>
-        {/* Om man har scorllat på startsidan eller är på en annan sida är top nav röd */}
+        {/* Om man har scrollat på startsidan eller är på en annan sida är top nav röd */}
         <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
           <div id="navmain">
             <div className="homebutton-wrapper">
-              {homeButton()}
+              <HomeButton />
               <div className="current-Page">{currentPageTitle}</div>
             </div>
-            {burgerMenuButton()}
-            {wideScreenMenu()}
+            <BurgerMenuButton />
+            <WideScreenMenu />
           </div>
         </div>
-        {burgerMenu()}
+        <BurgerMenu />
       </nav>
     </header>
   );
