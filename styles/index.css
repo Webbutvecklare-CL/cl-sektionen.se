@@ -27,13 +27,6 @@
   filter: drop-shadow(5px 5px 5px #222);
 }
 
-.index-bg h1 {
-  color: white;
-  font-size: 2.4rem;
-  margin-top: 1rem;
-  text-align: center;
-}
-
 .image-container {
   text-align: center;
 }
@@ -104,16 +97,6 @@
   overflow: hidden;
   max-height: 2000px;
   transition: max-height 0.25s ease-in;
-}
-
-.mini_aktuellt {
-  width: auto;
-  width: 100% !important;
-  min-width: 0px !important;
-}
-
-.mini_event {
-  width: 100%;
 }
 
 .aktuellt_innehåll {
@@ -206,17 +189,5 @@
     flex-wrap: wrap;
     row-gap: 1.5rem;
   }
-
-  .title_grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
 }
 
-@media screen and (max-width: 550px) {
-  .title_grid div {
-    text-align: center;
-  }
-}
