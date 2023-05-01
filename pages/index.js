@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
 import GråttKalender from "../components/GråttKalender";
@@ -12,12 +12,18 @@ import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
 //Firebase stuff
-import { firestore } from "../firebase/clientApp";
+import { firestore, analytics } from "../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
+import { logEvent } from "firebase/analytics";
 
 export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
   const toggleOm = () => {
+    if (!open) {
+      // Om vi går från stängd till öppen
+      logEvent(analytics, "view_om");
+      console.log("hej");
+    }
     setOpen(!open);
   };
 

@@ -1,5 +1,7 @@
-import { firestore } from "../../firebase/clientApp";
+import { firestore, analytics } from "../../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
+import { logEvent } from "firebase/analytics";
+
 import { useState, useRef, useEffect } from "react";
 
 import FeedPreview from "../../components/FeedPreview";
@@ -47,7 +49,7 @@ export default function Aktuellt({ postList }) {
   };
 
   const [filterTags, setFilterTags] = useState({});
-  const [publisher, setPublisher] = useState("")
+  const [publisher, setPublisher] = useState("");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState(new Date().toDateString());
 
@@ -186,11 +188,12 @@ export default function Aktuellt({ postList }) {
         <h3>
           <i className="fa-solid fa-pencil" /> Publicerad av
         </h3>
-        <select 
+        <select
           className="Committeepicker"
           value={publisher}
-          onChange={(e) => {setPublisher(e.target.value)}}
-        >
+          onChange={(e) => {
+            setPublisher(e.target.value);
+          }}>
           <option value={""}>Alla</option>
           {PUBLISHERS.map((publisher) => {
             return (
@@ -281,6 +284,10 @@ export default function Aktuellt({ postList }) {
               placeholder="Sök efter inlägg..."
               onChange={(e) => {
                 setSearch(e.target.value);
+              }}
+              onBlur={() => {
+                // När användaren lämnar sökrutan
+                logEvent(analytics, "search", { search_term: search });
               }}
               className="searchbar aktuellt"
             />
@@ -385,7 +392,6 @@ export async function getStaticProps() {
   let postList = [];
 
   // Aktuellt
-  const timeNow = Timestamp.now();
   const postRef = collection(firestore, "posts");
 
   // Skapar en query - vilka inlägg som ska hämtas

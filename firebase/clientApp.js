@@ -15,7 +15,7 @@ const firebaseConfig = {
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: "G-7Q1MHPQ2EM",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
@@ -24,6 +24,7 @@ const firestore = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
 const messaging = async () => (await isSupported()) && getMessaging(app);
-// const analytics = getAnalytics(app);
+// const analytics = isAnalyticsSupported().then((yes) => (yes ? getAnalytics(app) : null));
+const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
 
-export { app, firestore, storage, auth, messaging };
+export { app, firestore, storage, auth, messaging, analytics };

@@ -4,7 +4,8 @@ import React, { useEffect, useState, useMemo } from "react";
 
 import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
-import { firestore, storage } from "../../../firebase/clientApp";
+import { analytics, firestore, storage } from "../../../firebase/clientApp";
+import { logEvent } from "firebase/analytics";
 
 import PostForm from "../../../components/personalrummet/PostForm";
 
@@ -214,6 +215,8 @@ export default function EditPost() {
     } catch (error) {
       console.error(error);
     }
+
+    logEvent(analytics, "post_update", { updated_keys: Object.keys(data) });
   };
 
   // Om man klickar på enter
