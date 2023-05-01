@@ -37,7 +37,6 @@
 }
 
 @media screen and (max-width: 600px) {
-
   .hedersorden ul.category {
     padding: 0;
     display: block;
@@ -53,7 +52,6 @@
   .hedersorden ul.year-list > li:nth-child(2n) {
     text-align: end;
   }
-
 
   .hedersorden li.name-tag::after {
     content: none;

@@ -176,7 +176,7 @@ nav .active {
 }
 
 @media screen and (max-width: 780px) {
-  #page-title{
+  #page-title {
     display: none;
   }
 

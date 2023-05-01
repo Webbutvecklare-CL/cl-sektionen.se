@@ -101,7 +101,7 @@ export default function Reseberattelser() {
 
   return (
     <div id="contentbody">
-      <h1 id="page-title">Reseberättelser</h1> 
+      <h1 id="page-title">Reseberättelser</h1>
       <h2>Klicka en världsdel på kartan för att filtrera reseberättelser</h2>
       <p>
         Här kan du läsa om andra CL-studenters erfarenheter under sina utbytesstudievistelser.

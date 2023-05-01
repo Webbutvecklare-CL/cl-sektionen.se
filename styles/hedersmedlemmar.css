@@ -12,7 +12,7 @@
   min-width: 120px;
   max-width: 200px;
   width: 100%;
-  
+
   text-align: center;
   -webkit-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); /* Firefox 3.5 - 3.6 */
@@ -56,9 +56,8 @@
   margin-top: 2rem;
   width: 75%;
   min-height: 0;
-  aspect-ratio : 1 / 1;
-  border-radius: 50%;  
-
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
 }
 
 .hedersmedlem .imgdiv img {
