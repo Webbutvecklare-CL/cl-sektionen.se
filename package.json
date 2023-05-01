@@ -16,6 +16,7 @@
     "eslint-config-next": "13.2.4",
     "fast-average-color": "^9.3.0",
     "firebase": "^9.18.0",
+    "firebase-admin": "^11.7.0",
     "html-react-parser": "^3.0.15",
     "localforage": "^1.10.0",
     "next": "13.2.4",

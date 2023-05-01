@@ -42,21 +42,23 @@ export async function saveMessagingDeviceToken(collection) {
         // Om notisen kommer som en data-notis se
         // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
         if (message.data.title) {
-          console.log("New background notification with data!", message.data);
+          console.log("New foreground notification with data!", message.data);
           new Notification(message.data.title, {
             body: message.data.body,
             icon: "/media/grafik/favicon/android-chrome-512x512.png",
             image: message.data.image,
             link: message.data.link,
+            click_action: message.data.link,
           });
         } else {
           // Notis typ
-          console.log("New background notification with notification!", message.notification);
+          console.log("New foreground notification with notification!", message.notification);
           new Notification(message.notification.title, {
             body: message.notification.body,
             icon: "/media/grafik/favicon/android-chrome-512x512.png",
             image: message.notification.image,
             link: message.notification.link,
+            click_action: message.data.link,
           });
         }
       });
