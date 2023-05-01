@@ -1,7 +1,8 @@
 import { firestore, messaging } from "./clientApp";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { getToken, onMessage } from "firebase/messaging";
+import { getToken, onMessage, getMessaging } from "firebase/messaging";
 import localforage from "localforage";
+import { COMPILER_NAMES } from "next/dist/shared/lib/constants";
 
 const VAPID_KEY =
   "BOhBPHGOqQCjY-LHq0C2sYo_0yoWW87X0a_Pk-YupV0wyJLauCJJm90_jPYAS78g-qaUrpycktrhKwvU72kNbdA";
@@ -36,32 +37,7 @@ export async function saveMessagingDeviceToken(collection) {
       await updateDoc(tokenRef, {
         tokens: arrayUnion(fcmToken),
       });
-      // This will fire when a message is received while the app is in the foreground.
-      // When the app is in the background, firebase-messaging-sw.js will receive the message instead.
-      onMessage(msg, (message) => {
-        // Om notisen kommer som en data-notis se
-        // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
-        if (message.data.title) {
-          console.log("New foreground notification with data!", message.data);
-          new Notification(message.data.title, {
-            body: message.data.body,
-            icon: "/media/grafik/favicon/android-chrome-512x512.png",
-            image: message.data.image,
-            link: message.data.link,
-            click_action: message.data.link,
-          });
-        } else {
-          // Notis typ
-          console.log("New foreground notification with notification!", message.notification);
-          new Notification(message.notification.title, {
-            body: message.notification.body,
-            icon: "/media/grafik/favicon/android-chrome-512x512.png",
-            image: message.notification.image,
-            link: message.notification.link,
-            click_action: message.data.link,
-          });
-        }
-      });
+
       return fcmToken;
     } else {
       // Need to request permissions to show notifications.

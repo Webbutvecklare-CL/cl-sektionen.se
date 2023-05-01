@@ -24,8 +24,51 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { AuthContextProvider } from "../context/AuthContext";
 
+// import { messaging } from "../firebase/clientApp";
+import { onMessage, getMessaging, isSupported } from "firebase/messaging";
+import { useEffect } from "react";
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+
+  // När sidan laddas in startas en notis hanterare som hanterar foreground(webbläsaren i fokus) notiser
+  useEffect(() => {
+    // Vissa webbläsare stödjer inte foreground notiser (de flesta mobiler)
+    isSupported().then((yes) => {
+      if (!yes) {
+        console.log("Notiser stödjs inte på din enhet eller webbläsare.");
+        return;
+      }
+
+      const messaging = getMessaging();
+
+      // This will fire when a message is received while the app is in the foreground.
+      // When the app is in the background, firebase-messaging-sw.js will receive the message instead.
+      onMessage(messaging, (message) => {
+        console.log("New foreground notification with notification!", message.notification);
+
+        // Kanske visa notisen som en toast
+
+        // Skapa notisen
+        const title = message.notification.title;
+        const options = {
+          body: message.notification.body,
+          icon: message.notification.icon || "/media/grafik/favicon/android-chrome-512x512.png",
+          image: message.notification.image,
+          link: message.data.link,
+        };
+
+        // Visar notisen och lägger till ett klick event
+        let notification = new Notification(title, options);
+        notification.addEventListener("click", () => {
+          notification.close();
+          if (message.data.link) {
+            router.push(message.data.link);
+          }
+        });
+      });
+    });
+  }, [router]);
 
   if (router.pathname.includes("/TV")) {
     return <Component {...pageProps} />;

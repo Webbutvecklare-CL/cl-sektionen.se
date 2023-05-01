@@ -3,7 +3,7 @@ import { saveMessagingDeviceToken } from "../firebase/messaging";
 
 export default function Firebase() {
   const [result, setResult] = useState("");
-  const [notifMessage, setNotifMessage] = useState("");
+  const [notificationMessage, setNotificationMessage] = useState("");
 
   const handleSubscribe = async (topic) => {
     const res = await saveMessagingDeviceToken(topic);
@@ -23,7 +23,7 @@ export default function Firebase() {
       body: JSON.stringify({
         id: "hej-armin",
         type: "event",
-        title: notifMessage,
+        title: notificationMessage,
         committee: "Näringslivsnämnden",
         image: "",
       }),
@@ -32,6 +32,10 @@ export default function Firebase() {
       if (res.ok) {
         res.json().then((data) => {
           console.log(data);
+        });
+      } else {
+        res.json().then((data) => {
+          console.error(data);
         });
       }
     });
@@ -64,9 +68,9 @@ export default function Firebase() {
           type="textarea"
           name=""
           id=""
-          value={notifMessage}
+          value={notificationMessage}
           onChange={(e) => {
-            setNotifMessage(e.target.value);
+            setNotificationMessage(e.target.value);
           }}
         />
         <button onClick={handleSendNotification}>Skicka notis</button>
