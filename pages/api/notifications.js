@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 }
 
 import admin from "firebase-admin";
-import serviceAccount from "../firebase/cl-sektionen-test-firebase-adminsdk-hg4t4-d28e5cc501.json";
+import serviceAccount from "../../firebase/cl-sektionen-test-firebase-adminsdk-hg4t4-d28e5cc501.json";
 export async function sendNotification(data) {
   // Admin initialization
   try {
