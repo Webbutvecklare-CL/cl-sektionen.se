@@ -1,8 +1,7 @@
-import { initializeApp } from "firebase/app";
-import { getMessaging } from "firebase/messaging/sw";
-import { onBackgroundMessage } from "firebase/messaging/sw";
+importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js");
 
-const firebaseApp = initializeApp({
+firebase.initializeApp({
   apiKey: "AIzaSyCImoQ7ARRJ16nxGr1OaHuFhmWerJckg-E",
   authDomain: "cl-sektionen-test.firebaseapp.com",
   projectId: "cl-sektionen-test",
@@ -12,11 +11,11 @@ const firebaseApp = initializeApp({
   measurementId: "G-7Q1MHPQ2EM",
 });
 
-const messaging = getMessaging(firebaseApp);
+const messaging = firebase.messaging();
 
 console.log("SW loaded");
 
-onBackgroundMessage(messaging, (payload) => {
+messaging.onBackgroundMessage((payload) => {
   // Om notisen kommer som en data-notis se
   // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
   if (payload.data.title) {

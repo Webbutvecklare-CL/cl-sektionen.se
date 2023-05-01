@@ -49,7 +49,7 @@ export default function Firebase() {
         </button>
         <button
           onClick={() => {
-            handleSubscribe("news");
+            handleSubscribe("information");
           }}>
           Notiser för news
         </button>
