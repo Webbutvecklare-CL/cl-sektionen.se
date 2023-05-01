@@ -1,7 +1,8 @@
-importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js");
+import { initializeApp } from "firebase/app";
+import { getMessaging } from "firebase/messaging/sw";
+import { onBackgroundMessage } from "firebase/messaging/sw";
 
-firebase.initializeApp({
+const firebaseApp = initializeApp({
   apiKey: "AIzaSyCImoQ7ARRJ16nxGr1OaHuFhmWerJckg-E",
   authDomain: "cl-sektionen-test.firebaseapp.com",
   projectId: "cl-sektionen-test",
@@ -11,24 +12,25 @@ firebase.initializeApp({
   measurementId: "G-7Q1MHPQ2EM",
 });
 
-const messaging = firebase.messaging();
+const messaging = getMessaging(firebaseApp);
 
 console.log("SW loaded");
 
-messaging.onBackgroundMessage(function (message) {
+onBackgroundMessage(messaging, (payload) => {
   // Om notisen kommer som en data-notis se
   // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
-  if (message.data.title) {
-    console.log("New foreground notification with data!", message.data);
-    self.registration.showNotification(message.data.title, {
-      body: message.data.body,
+  if (payload.data.title) {
+    console.log("New background notification with data!", payload.data);
+    self.registration.showNotification(payload.data.title, {
+      body: payload.data.body,
       icon: "/media/grafik/favicon/android-chrome-512x512.png",
-      image: message.data.image,
-      link: message.data.link,
+      image: payload.data.image,
+      link: payload.data.link,
+      click_action: payload.data.link,
     });
   } else {
     // Notis typ
-    console.log("New foreground notification with notification!", message.notification);
-    // Gör inget för den visas automatiskt av någon anledning
+    console.log("New background notification with notification!", payload.notification);
+    // Gör inget - Den visas automatiskt ändå  av någon anledning
   }
 });
