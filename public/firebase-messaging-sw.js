@@ -22,13 +22,21 @@ self.addEventListener("notificationclick", (e) => {
 });
 
 messaging.onBackgroundMessage((payload) => {
-  console.log("New background notification with data!", payload);
-  const title = payload.notification.title;
-  const options = {
-    body: payload.notification.body,
-    icon: payload.notification.icon || "/media/grafik/favicon/android-chrome-512x512.png",
-    image: payload.notification.image,
-    data: { link: payload.data.link },
-  };
-  self.registration.showNotification(title, options);
+  console.log("New background notification!", payload);
+  // Det finns olika typer data och notification. Se och läs noga "Message types"
+  // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
+  if (payload.notification) {
+    // Gör någon automatisk grej, fett drygt. Kan användas för att skicka campaigns
+  } else {
+    const notification = payload.data;
+
+    const title = notification.title;
+    const options = {
+      body: notification.body,
+      icon: notification.icon || "/media/grafik/favicon/android-chrome-512x512.png",
+      image: notification.image,
+      data: { link: notification.link },
+    };
+    self.registration.showNotification(title, options);
+  }
 });

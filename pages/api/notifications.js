@@ -69,7 +69,6 @@ async function sendNotification(data) {
     if (tokens.length > 0) {
       // Send notifications to all tokens.
       const options = {
-        collapseKey: "new_post",
         collapse_key: "new_post",
       };
       try {
@@ -89,15 +88,14 @@ async function sendNotification(data) {
 }
 function createPayload(data) {
   return {
-    notification: {
+    data: {
       title: `${data.committee} publicerade ${data.type == "event" ? "ett event" : "ett inlägg"}`,
       body: `${data.title}`,
       image: data.image || "",
       icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
       tag: "Nytt inlägg",
-      color: "#ff0000",
+      link: `/aktuellt/${data.id}`,
     },
-    data: { link: `/aktuellt/${data.id}` },
   };
 }
 

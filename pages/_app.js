@@ -24,7 +24,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { AuthContextProvider } from "../context/AuthContext";
 
-// import { messaging } from "../firebase/clientApp";
 import { onMessage, getMessaging, isSupported } from "firebase/messaging";
 import { useEffect } from "react";
 
@@ -40,33 +39,7 @@ export default function App({ Component, pageProps }) {
         return;
       }
 
-      const messaging = getMessaging();
-
-      // This will fire when a message is received while the app is in the foreground.
-      // When the app is in the background, firebase-messaging-sw.js will receive the message instead.
-      onMessage(messaging, (message) => {
-        console.log("New foreground notification with notification!", message.notification);
-
-        // Kanske visa notisen som en toast
-
-        // Skapa notisen
-        const title = message.notification.title;
-        const options = {
-          body: message.notification.body,
-          icon: message.notification.icon || "/media/grafik/favicon/android-chrome-512x512.png",
-          image: message.notification.image,
-          link: message.data.link,
-        };
-
-        // Visar notisen och lägger till ett klick event
-        let notification = new Notification(title, options);
-        notification.addEventListener("click", () => {
-          notification.close();
-          if (message.data.link) {
-            router.push(message.data.link);
-          }
-        });
-      });
+      messageListener();
     });
   }, [router]);
 
@@ -96,4 +69,36 @@ export default function App({ Component, pageProps }) {
       <Navbar />
     </div>
   );
+}
+
+function messageListener() {
+  const messaging = getMessaging();
+
+  // This will fire when a message is received while the app is in the foreground.
+  // When the app is in the background, firebase-messaging-sw.js will receive the message instead.
+  onMessage(messaging, (payload) => {
+    console.log("New foreground notification!", payload);
+
+    // Det finns olika typer data och notification. Se och läs noga "Message types"
+    // https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages
+    const message = payload.notification || payload.data;
+
+    // Skapa notisen
+    const title = message.title;
+    const options = {
+      body: message.body,
+      icon: message.icon || "/media/grafik/favicon/android-chrome-512x512.png",
+      image: message.image,
+      link: message.link,
+    };
+
+    // Visar notisen och lägger till ett klick event
+    let notification = new Notification(title, options);
+    notification.addEventListener("click", () => {
+      notification.close();
+      if (message.link) {
+        router.push(message.link);
+      }
+    });
+  });
 }
