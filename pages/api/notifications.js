@@ -1,3 +1,6 @@
+import admin from "firebase-admin";
+import serviceAccount from "../../firebase/cl-sektionen-test-firebase-adminsdk-hg4t4-d28e5cc501.json";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).send({ message: "Only POST requests allowed" });
@@ -5,10 +8,19 @@ export default async function handler(req, res) {
   }
   console.log("Received notification request with message:", req.body);
 
-  // Verifiera användaren
-  // Hämta inlägget
-  // Jämför creator och klientens UID
-  // Skapa notis-data från inlägget
+  if (!req.body.userId || !req.body.postId) {
+    res.status(400).send({ message: "Felaktiga attribut i body." });
+    return;
+  }
+
+  let postData;
+  try {
+    postData = await verifyRequest(req.body.userId, req.body.postId);
+  } catch (error) {
+    console.error(error);
+    res.status(400).send({ message: error });
+    return;
+  }
 
   // Typ lite oklart vad dessa headers gör
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -17,28 +29,17 @@ export default async function handler(req, res) {
 
   try {
     // Skickar notis till alla som följer eventuella taggar
-    let response = await sendNotification(req.body);
+    let response = await sendNotification(postData);
     // Skickar tillbaka respons
     res
       .status(200)
       .json({ message: `Notis skickat till ${response.tokens} enheter`, data: req.query.message });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: `Ett fel inträffade`, error });
   }
-
   return;
-
-  // För att kunna använda detta apiet behöver anroparen ange en nyckel
-  if (req.query.key !== process.env.CL_API_KEY) {
-    console.log("Invalid access");
-    return res
-      .status(403)
-      .json("Du måste ange en api nyckel för att använda api:et. Kontakta webbansvariga.");
-  }
 }
-
-import admin from "firebase-admin";
-import serviceAccount from "../../firebase/cl-sektionen-test-firebase-adminsdk-hg4t4-d28e5cc501.json";
 
 async function sendNotification(data) {
   // Admin initialization
@@ -86,6 +87,7 @@ async function sendNotification(data) {
     }
   });
 }
+
 function createPayload(data) {
   return {
     data: {
@@ -144,4 +146,43 @@ function cleanupTokens(response, tokens) {
     }
   });
   return Promise.all(tokensDelete);
+}
+
+function verifyRequest(userId, postId) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+      });
+      console.log("Initialized.");
+    } catch (error) {
+      if (!/already exists/u.test(error.message)) {
+        console.error("Firebase admin initialization error", error.stack);
+        reject({ error });
+      }
+    }
+    const db = admin.firestore();
+    const postRef = db.collection("posts").doc(postId);
+    const snap = postRef.get();
+
+    snap
+      .then((docSnap) => {
+        if (docSnap.exists) {
+          const postData = docSnap.data();
+
+          if (postData.creator !== userId) {
+            reject({ error: "not a valid user" });
+          }
+
+          postData.id = postId;
+
+          resolve(postData);
+        } else {
+          reject({ error: "no document" });
+        }
+      })
+      .catch((err) => {
+        reject({ error: err });
+      });
+  });
 }

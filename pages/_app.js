@@ -39,7 +39,11 @@ export default function App({ Component, pageProps }) {
         return;
       }
 
-      messageListener();
+      const click_event = (link) => {
+        router.push(link);
+      };
+
+      messageListener(click_event);
     });
   }, [router]);
 
@@ -71,7 +75,7 @@ export default function App({ Component, pageProps }) {
   );
 }
 
-function messageListener() {
+function messageListener(click_event) {
   const messaging = getMessaging();
 
   // This will fire when a message is received while the app is in the foreground.
@@ -97,7 +101,7 @@ function messageListener() {
     notification.addEventListener("click", () => {
       notification.close();
       if (message.link) {
-        router.push(message.link);
+        click_event(message.link);
       }
     });
   });

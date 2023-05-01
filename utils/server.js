@@ -15,3 +15,24 @@ export function revalidate(page = "all", postId = "") {
     })
     .catch((error) => console.error(error));
 }
+
+export function sendNotification(userId, postId) {
+  let options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ userId, postId }),
+  };
+  fetch(`/api/notifications`, options).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        console.log(data);
+      });
+    } else {
+      res.json().then((data) => {
+        console.error(data);
+      });
+    }
+  });
+}

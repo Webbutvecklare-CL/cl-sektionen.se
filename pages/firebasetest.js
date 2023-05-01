@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { saveMessagingDeviceToken } from "../firebase/messaging";
+import { sendNotification } from "../utils/server";
+
+import { useAuth } from "../context/AuthContext";
 
 export default function Firebase() {
   const [result, setResult] = useState("");
   const [notificationMessage, setNotificationMessage] = useState("");
+
+  const { userData } = useAuth();
 
   const handleSubscribe = async (topic) => {
     const res = await saveMessagingDeviceToken(topic);
@@ -15,30 +20,7 @@ export default function Firebase() {
   };
 
   const handleSendNotification = () => {
-    let options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: "hej-armin",
-        type: "event",
-        title: notificationMessage,
-        committee: "Näringslivsnämnden",
-        image: "",
-      }),
-    };
-    fetch(`/api/notifications`, options).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          console.log(data);
-        });
-      } else {
-        res.json().then((data) => {
-          console.error(data);
-        });
-      }
-    });
+    sendNotification(userData.uid, notificationMessage);
   };
 
   return (
