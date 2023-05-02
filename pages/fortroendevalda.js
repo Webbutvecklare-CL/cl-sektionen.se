@@ -97,7 +97,8 @@ function csvTOJSON(csvStream) {
   let lastBreak = 0; // Senaste tomma raden = ',,,,'
   for (let i = 0; i < rows.length; i++) {
     let row = rows[i];
-    if (row == ",,,,") {
+    // Alla nämner är avskilda med en tom rad kolla även om det är slut på listan
+    if (row == ",,,," || i == rows.length - 1) {
       committees.push(rows.slice(lastBreak + 1, i)); // +1 för att ta bort rubrikraden och den tomma raden
       lastBreak = i;
     }
