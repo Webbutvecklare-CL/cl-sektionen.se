@@ -7,8 +7,7 @@ Hedersorden har funnits sedan 20?? och är en hedersbetygelse som ges av sektion
 Medalj Platina tillfaller den sektionsmedlem som blivit personligt nominerad utav en eller flera
 sektionsmedlemmar och sedan utvald av styrelsen för att motta medaljen och medlemskap i orden. Den
 nominerade ska ha visat stort engagemang och handlat i sektionens bästa intresse under en längre
-tidsperiod på sammanlagt tre år eller längre. Nomineringen ska vara välskriven och innehålla motivering till
-varför den nominerade bör tilldelas medaljen och medlemskap i orden.
+tidsperiod på sammanlagt tre år eller längre. Nomineringen ska vara välskriven och innehålla motivering till varför den nominerade bör tilldelas medaljen och medlemskap i orden.
 
 ### Guld
 
@@ -36,4 +35,5 @@ och sedan blir utvalda av styrelsen för att tilldelas medaljen och medlemskap i
 2017 StyM#4 17/18  
 2016 StyM#1 16/17  
 2015 StyM#1 15/16  
+2014 StyM#1 14/15  
 2011 StyM#? (2011-09-03)

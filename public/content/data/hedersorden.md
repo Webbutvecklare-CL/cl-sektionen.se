@@ -112,6 +112,22 @@ Anna Land
 Veine Haglund
 Sara Kristoffersson
 
+## 2014
+
+Maria Bergner
+Katja Norlin
+Erik Elgemyr
+Morgan Wiström
+Emma Martinsson
+Erika Hellquist
+Jacob von Eckermann
+Louise Hagesjö
+Caroline Bern
+Sofie Brock
+Anna Persson
+Sara Karlsson
+Gustav Sollenberg
+
 ## 2011
 
 Robin Bramsäte
