@@ -32,7 +32,7 @@ const MENU_LIST = [
       { text: "Om oss", href: "/om-oss" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
       { text: "Engagera dig", href: "/engagera-dig" },
-      { text: "Hedersutmärkelser", href: "/hedersmedlemmar" },
+      { text: "Hedersutmärkelser", href: "/hedersutmarkelser" },
       { text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
     ],
   },
