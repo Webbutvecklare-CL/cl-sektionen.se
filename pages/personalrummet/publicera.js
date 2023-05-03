@@ -12,9 +12,9 @@ import { useAuth } from "../../context/AuthContext";
 import { createEvent } from "../../utils/calendarUtils";
 import { validateLink } from "../../utils/postUtils";
 import { reauthenticate } from "../../utils/authUtils";
-import { revalidate } from "../../utils/server";
+import { revalidate, sendNotification } from "../../utils/server";
 
-export default function Publicera() {
+export default function Publicera({ calendarID }) {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
   const router = useRouter();
 
@@ -133,20 +133,6 @@ export default function Publicera() {
       }
     }
 
-    if (data.type === "event" && data.publishInCalendar) {
-      addEvent({
-        title: data.title,
-        description: data.subtitle,
-        start: new Date(data.startDateTime),
-        end: new Date(data.endDateTime),
-      });
-    }
-
-    setIsPending(false);
-    setError("");
-    setSuccessLink(link);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
     // Försöker revalidate
     try {
       // Revalidate:ar hemsidan
@@ -155,6 +141,26 @@ export default function Publicera() {
     } catch (error) {
       console.error(error);
     }
+
+    // Lägger till i kalender om valt
+    if (data.type === "event" && data.publishInCalendar) {
+      addEvent({
+        title: data.title,
+        description: data.body,
+        start: new Date(data.startDateTime),
+        end: new Date(data.endDateTime),
+      });
+    }
+
+    // Skickar notis om valt
+    if (data.sendNotification) {
+      sendNotification(userData?.uid, link);
+    }
+
+    setIsPending(false);
+    setError("");
+    setSuccessLink(link);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // Lägger in event i kalendern
@@ -174,8 +180,6 @@ export default function Publicera() {
         return;
       }
     }
-    const calendarID =
-      "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com";
 
     createEvent(token, calendarID, eventData)
       .then((res) => {
@@ -184,9 +188,7 @@ export default function Publicera() {
       })
       .catch((err) => {
         if (err.status == 401) {
-          console.log(
-            "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com"
-          );
+          console.log(calendarID);
         } else {
           console.error(err);
         }
@@ -223,4 +225,12 @@ export default function Publicera() {
       )}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      calendarID: process.env.CL_CALENDAR,
+    },
+  };
 }

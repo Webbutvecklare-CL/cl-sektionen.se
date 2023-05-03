@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node swEnvBuild.js && next dev",
+    "build": "node swEnvBuild.js && next build",
     "start": "next start",
     "lint": "next lint",
     "prettier": "npx prettier ./ --check",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.11",
+    "dotenv": "^16.0.3",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "fast-average-color": "^9.3.0",

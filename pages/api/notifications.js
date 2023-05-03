@@ -1,5 +1,26 @@
 import admin from "firebase-admin";
+import { FieldValue } from "firebase-admin/firestore";
+
+// const serviceAccount = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT);
+
 import serviceAccount from "../../firebase/cl-sektionen-test-firebase-adminsdk-hg4t4-d28e5cc501.json";
+
+// Admin initialization
+try {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+  });
+  console.log("Initialized.");
+} catch (error) {
+  /*
+   * We skip the "already exists" message which is
+   * not an actual error when we're hot-reloading.
+   */
+  if (!/already exists/u.test(error.message)) {
+    console.error("Firebase admin initialization error", error.stack);
+    reject({ ok: false, tokens: 0, error });
+  }
+}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -41,39 +62,27 @@ export default async function handler(req, res) {
   return;
 }
 
+// Hjälp funktioner
+
 async function sendNotification(data) {
-  // Admin initialization
   return new Promise(async (resolve, reject) => {
-    try {
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-      });
-      console.log("Initialized.");
-    } catch (error) {
-      /*
-       * We skip the "already exists" message which is
-       * not an actual error when we're hot-reloading.
-       */
-      if (!/already exists/u.test(error.message)) {
-        console.error("Firebase admin initialization error", error.stack);
-        reject({ ok: false, tokens: 0, error });
-      }
-    }
-
-    // Skapa payload objekt med all data
-    const payload = createPayload(data);
-
     // Hämtar alla tokens - de som ska få notisen
     const tokens = await getTokens(data.type);
 
     console.log(`Sending notification to ${tokens.length} devices`);
     if (tokens.length > 0) {
-      // Send notifications to all tokens.
-      const options = {
-        collapse_key: "new_post",
+      // Skapa payload objekt med all data
+      const payload = createPayload(data);
+      const message = {
+        topic: "new_post",
+        ...payload,
+        tokens: tokens,
+        collapseKey: "new_post",
       };
+
       try {
-        const response = await admin.messaging().sendToDevice(tokens, payload, options);
+        // Send notifications to all tokens.
+        const response = await admin.messaging().sendMulticast(message);
         await cleanupTokens(response, tokens);
         console.log("Notifications have been sent and tokens cleaned up.");
         resolve({ ok: true, tokens: tokens.length });
@@ -126,22 +135,39 @@ async function getTokens(type) {
 
 // Cleans up the tokens that are no longer valid.
 function cleanupTokens(response, tokens) {
-  console.warn("No cleanup");
-  return;
   // For each notification we check if there was an error.
   const tokensDelete = [];
-  response.results.forEach((result, index) => {
+  response.responses.forEach((result, index) => {
     const error = result.error;
     if (error) {
-      console.error("Failure sending notification to", tokens[index], error);
+      console.error("Failure sending notification to", {
+        token: tokens[index],
+        message: error.message,
+        code: error.code,
+      });
       // Cleanup the tokens that are not registered anymore.
       if (
+        error.message === "The registration token is not a valid FCM registration token" ||
         error.code === "messaging/invalid-registration-token" ||
         error.code === "messaging/registration-token-not-registered"
       ) {
         // Ta bort från alla prenumerationer struktur kommer förändras
-        const deleteTask = admin.firestore().collection("fcmTokens").doc(tokens[index]).delete();
-        tokensDelete.push(deleteTask);
+        const eventTokensRef = admin.firestore().collection("fcmTokens").doc("event");
+        const infoTokensRef = admin.firestore().collection("fcmTokens").doc("information");
+
+        // Tar bort ifrån event prenumerationen
+        tokensDelete.push(
+          eventTokensRef.update({
+            tokens: FieldValue.arrayRemove(tokens[index]),
+          })
+        );
+
+        // Tar bort ifrån informations prenumerationen
+        tokensDelete.push(
+          infoTokensRef.update({
+            tokens: FieldValue.arrayRemove(tokens[index]),
+          })
+        );
       }
     }
   });
@@ -150,17 +176,6 @@ function cleanupTokens(response, tokens) {
 
 function verifyRequest(userId, postId) {
   return new Promise(async (resolve, reject) => {
-    try {
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-      });
-      console.log("Initialized.");
-    } catch (error) {
-      if (!/already exists/u.test(error.message)) {
-        console.error("Firebase admin initialization error", error.stack);
-        reject({ error });
-      }
-    }
     const db = admin.firestore();
     const postRef = db.collection("posts").doc(postId);
     const snap = postRef.get();

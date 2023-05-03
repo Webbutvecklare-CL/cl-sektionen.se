@@ -25,6 +25,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
   const [type, setType] = useState("");
   const [publishInCalendar, setPublishInCalendar] = useState(false);
+  const [sendNotification, setSendNotification] = useState(true);
 
   // Sätter typ och tags från prefill
   useEffect(() => {
@@ -89,8 +90,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       visibility,
       tags: selectedTags,
       type,
-      publishInCalendar,
       link,
+      publishInCalendar,
+      sendNotification,
     };
 
     // Om det är ett event skickar vi med start- och sluttid
@@ -288,48 +290,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     );
   };
 
-  const DateInput = () => {
-    return (
-      <div className="date-input">
-        {type === "event" && (
-          <>
-            <div>
-              <Label required>Start:</Label>
-              <input
-                type="datetime-local"
-                required
-                value={startDateTime}
-                onChange={(e) => setStartDateTime(e.target.value)}
-                min={editMode ? "" : new Date().toLocaleString().substring(0, 16)}
-              />
-            </div>
-            <div>
-              <Label required>Slut:</Label>
-              <input
-                type="datetime-local"
-                required
-                value={endDateTime}
-                onChange={(e) => setEndDateTime(e.target.value)}
-                min={startDateTime}
-              />
-            </div>
-          </>
-        )}
-
-        {/* <div>
-          <Label required>Publiceringsdatum:</Label>
-          <input
-            type="datetime-local"
-            required
-            value={publishDate}
-            onChange={(e) => setPublishDate(e.target.value)}
-            min={editMode ? prefill.publishDate : new Date().toLocaleString().substring(0, 16)}
-          />
-        </div> */}
-      </div>
-    );
-  };
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -412,7 +372,32 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               onChange={(e) => setAuthor(e.target.value)}
             />
 
-            <DateInput />
+            {type === "event" && (
+              <>
+                <div className="date-input">
+                  <div>
+                    <Label required>Start:</Label>
+                    <input
+                      type="datetime-local"
+                      required
+                      value={startDateTime}
+                      onChange={(e) => setStartDateTime(e.target.value)}
+                      min={editMode ? "" : new Date().toLocaleString().substring(0, 16)}
+                    />
+                  </div>
+                  <div>
+                    <Label required>Slut:</Label>
+                    <input
+                      type="datetime-local"
+                      required
+                      value={endDateTime}
+                      onChange={(e) => setEndDateTime(e.target.value)}
+                      min={startDateTime}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
 
             <div className={"visibility-input"}>
               <Label>Synlighet:</Label>
@@ -450,12 +435,26 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             {!editMode && type === "event" && (
               <>
                 <div className="calender-input">
-                  <label htmlFor="calendar">Lägg till i sektionskalendern (test):</label>
+                  <label htmlFor="calendar">Lägg till i sektionskalendern (beta):</label>
                   <input
                     id="calendar"
                     type="checkbox"
                     checked={publishInCalendar}
                     onChange={() => setPublishInCalendar(!publishInCalendar)}
+                  />
+                </div>
+              </>
+            )}
+
+            {!editMode && (
+              <>
+                <div className="calender-input">
+                  <label htmlFor="notis">Skicka notis (Test):</label>
+                  <input
+                    id="notis"
+                    type="checkbox"
+                    checked={sendNotification}
+                    onChange={() => setSendNotification(!sendNotification)}
                   />
                 </div>
               </>

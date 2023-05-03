@@ -80,6 +80,7 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
+NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT= # Fråga Webbansvariga efter denna - används för notis api:et
 
 # Väljs fritt för att verifiera att revalidation request är från en betrodd källa
 REVALIDATE_TOKEN=
@@ -87,6 +88,8 @@ REVALIDATE_TOKEN=
 SL_API_KEY=
 # En random nyckel som används av TV:n för att inte spamma sönder vår api route
 CL_API_KEY=
+# Länk till sektionskalendern kalender id för att publicera automatiskt
+CL_CALENDAR=
 
 # För att getStaticProps ska komma åt lokala filer
 DOMAIN=http://localhost:3000

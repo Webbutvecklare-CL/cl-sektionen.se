@@ -117,12 +117,12 @@ export default function EditPost() {
     // Kollar igenom vilka fält som blivit uppdaterade
     for (let key in data) {
       // Kollar om fälten blivit uppdaterade
+
       // Om det är en bild så ska den få lite särbehandling senare
-      if (key === "image") {
-        continue;
-      }
       // Link ska aldrig uppdateras och sparas inte heller
-      if (key === "link") {
+      // Data som inte sparas i inlägget/dokumentet
+      const jumpKeys = ["image", "link", "publishInCalendar", "sendNotification"];
+      if (jumpKeys.includes(key)) {
         continue;
       }
 
@@ -135,7 +135,6 @@ export default function EditPost() {
         }
       }
     }
-    delete postData["publishInCalendar"];
 
     const postRef = doc(firestore, "posts", postId);
 

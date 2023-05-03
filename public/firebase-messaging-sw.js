@@ -1,12 +1,13 @@
 importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js");
+importScripts("swenv.js"); // Skapas av swEnvBuild.js i root mappen
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCImoQ7ARRJ16nxGr1OaHuFhmWerJckg-E",
-  projectId: "cl-sektionen-test",
-  messagingSenderId: "1017530078266",
-  appId: "1:1017530078266:web:2c2fd85c6f515b356f9103",
-  measurementId: "G-7Q1MHPQ2EM",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 });
 
 const messaging = firebase.messaging();

@@ -41,3 +41,5 @@ firestore.rules
 firestore.indexes.json
 firebase.json
 storage.rules
+
+/public/swenv.js

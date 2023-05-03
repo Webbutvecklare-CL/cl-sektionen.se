@@ -20,7 +20,7 @@ export default function Firebase() {
   };
 
   const handleSendNotification = () => {
-    sendNotification(userData.uid, notificationMessage);
+    sendNotification(userData?.uid, notificationMessage);
   };
 
   return (
