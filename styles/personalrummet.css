@@ -9,13 +9,21 @@
   flex-direction: row;
   gap: 2rem;
 }
-
+div.committee-feed.feed-preview {
+  display: flex !important;
+  flex-direction: column;
+  row-gap: 1rem;
+}
 .committee-feed .post-wrapper {
   display: flex;
 }
 
 .committee-feed .post-wrapper > a {
   flex-grow: 1; /* Gör så att man kan klicka på hela raden */
+}
+
+.committee-feed .post-wrapper:hover {
+  transform: none;
 }
 
 .committee-feed .post-preview {

@@ -94,10 +94,8 @@ export default function CommitteeFeed({ posts, permission = "" }) {
                   )}
                   {!post.image && <Image src={bg} alt="Bakgrundsbild KTH" />}
                 </div>
-                <div className="post-meta">
+                <div>
                   <h2>{post.title}</h2>
-                  {/*här fanns post.author förut, kan läggas in igen om plats finns*/}
-                  <div>{/* <p>{post.publishDate.toDate().toLocaleDateString("sv")}</p> */}</div>
                 </div>
                 <div className="post-content">
                   <p className="subtitle">{post.subtitle}</p>
