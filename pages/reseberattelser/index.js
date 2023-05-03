@@ -175,6 +175,9 @@ export default function Reseberattelser() {
             <li>
               <Link href="/reseberattelser/furkan-kocak-turkiet">Furkan Kocak - Turkiet</Link>
             </li>
+            <li>
+              <Link href="/reseberattelser/albin-westlin-singapore">Albin Westlin - Singapore</Link>
+            </li>
           </ul>
         </div>
       ) : (
@@ -191,9 +194,6 @@ export default function Reseberattelser() {
               <Link href="/reseberattelser/emelie-selinder-australien">
                 Emelie Selinder - Australien
               </Link>
-            </li>
-            <li>
-              <Link href="/reseberattelser/albin-westlin-singapore">Albin Westlin - Singapore</Link>
             </li>
           </ul>
         </div>
