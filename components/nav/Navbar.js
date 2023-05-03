@@ -15,11 +15,10 @@ import { useRouter } from "next/router";
 // 2b. skapa dropdown meny genom att lägga till en tredje 'property' och kalla den för 'submenu'
 //     definiera den som en lista [] och dropdown item på samma format som 2a.
 
-//Notera att dropdowns i dropdowns stöds inte
+//Notera att dropdowns i dropdowns inte stödjs
 const MENU_LIST = [
   {
     text: "Aktuellt",
-    href: "",
     submenu: [
       { text: "Info & Event", href: "/aktuellt" },
       { text: "Kalender", href: "/kalender" },
@@ -27,7 +26,6 @@ const MENU_LIST = [
   },
   {
     text: "Sektionen",
-    href: "",
     submenu: [
       { text: "Om oss", href: "/om-oss" },
       { text: "Förtroendevalda", href: "/fortroendevalda" },
@@ -38,7 +36,6 @@ const MENU_LIST = [
   },
   {
     text: "Utbildning",
-    href: "",
     submenu: [
       { text: "VFU", href: "/vfu" },
       { text: "Alumniblogg", href: "/alumniblogg" },
@@ -49,7 +46,6 @@ const MENU_LIST = [
   },
   {
     text: "Resurser",
-    href: "",
     submenu: [
       { text: "Sångbok", href: "/sangbok" },
       { text: "Dokument", href: "/dokument" },
@@ -58,7 +54,6 @@ const MENU_LIST = [
   },
   {
     text: "Näringsliv",
-    href: "",
     submenu: [
       { text: "För företag", href: "/for-foretag" },
       { text: "Samarbeten", href: "/samarbeten" },

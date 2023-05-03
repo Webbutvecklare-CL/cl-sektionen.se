@@ -3,6 +3,9 @@ import Image from "next/image";
 import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
 
+import { analytics } from "../firebase/clientApp";
+import { logEvent } from "firebase/analytics";
+
 import bg from "../public/media/img/KTHcover.jpg";
 
 export default function FeedPreview({ posts }) {
@@ -12,7 +15,11 @@ export default function FeedPreview({ posts }) {
         const date = new Date(post.publishDate["seconds"] * 1000);
         return (
           <div className="post-wrapper" key={post.id}>
-            <Link href={`/aktuellt/${post.id}`}>
+            <Link
+              href={`/aktuellt/${post.id}`}
+              onClick={() => {
+                logEvent(analytics, "post_click", { page: window.location.pathname });
+              }}>
               <div className="post-preview">
                 <div className="image">
                   {post.image && (

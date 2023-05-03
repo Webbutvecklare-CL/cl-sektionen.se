@@ -5,11 +5,19 @@ import Image from "next/image";
 
 import bg from "../public/media/img/KTHcover.jpg";
 
+import { analytics } from "../firebase/clientApp";
+import { logEvent } from "firebase/analytics";
+
 export default function FeaturedPostPreview({ post }) {
   const date = new Date(post.publishDate["seconds"] * 1000);
   return (
     <div className="featured-preview">
-      <Link href={`/aktuellt/${post.id}`} key={post.id}>
+      <Link
+        href={`/aktuellt/${post.id}`}
+        key={post.id}
+        onClick={() => {
+          logEvent(analytics, "post_click", { page: "featured" });
+        }}>
         <div className="post-preview featured">
           <div className="image">
             {post.image && <Image src={post.image} width={400} height={300} alt="Post image" />}

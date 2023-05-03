@@ -24,14 +24,17 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { AuthContextProvider } from "../context/AuthContext";
 
+import { analytics } from "../firebase/clientApp";
+import { logEvent } from "firebase/analytics";
 import { onMessage, getMessaging, isSupported } from "firebase/messaging";
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  // När sidan laddas in startas en notis hanterare som hanterar foreground(webbläsaren i fokus) notiser
+  // Körs första gången sidan laddas in
   useEffect(() => {
+    // När sidan laddas in startas en notis hanterare som hanterar foreground(webbläsaren i fokus) notiser
     // Vissa webbläsare stödjer inte foreground notiser (de flesta mobiler)
     isSupported().then((yes) => {
       if (!yes) {
@@ -45,7 +48,24 @@ export default function App({ Component, pageProps }) {
 
       messageListener(click_event);
     });
-  }, [router]);
+
+    // Skapar en event listener på när sidan uppdateras och loggar då sidvisningen
+    const logScreenEvent = (url) => {
+      logEvent(analytics, "screen_view", { firebase_screen: url });
+      console.log(url);
+    };
+
+    router.events.on("routeChangeComplete", logScreenEvent);
+    // Loggar förstasidan
+    logScreenEvent("/");
+
+    //Remove Event Listener after un-mount
+    return () => {
+      router.events.off("routeChangeComplete", logScreenEvent);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (router.pathname.includes("/TV")) {
     return <Component {...pageProps} />;

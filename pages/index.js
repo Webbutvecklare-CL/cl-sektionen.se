@@ -22,7 +22,6 @@ export default function Index({ contents, featured, infoList, eventList }) {
     if (!open) {
       // Om vi går från stängd till öppen
       logEvent(analytics, "view_om");
-      console.log("hej");
     }
     setOpen(!open);
   };
