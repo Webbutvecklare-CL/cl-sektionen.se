@@ -89,14 +89,14 @@
 
 .collapsed {
   max-height: 0;
-  transition: max-height 0.2s ease-out;
+  transition: max-height 0.25s ease-in-out;
   overflow: hidden;
 }
 
 .open {
   overflow: hidden;
-  max-height: 2000px;
-  transition: max-height 0.25s ease-in;
+  max-height: 28rem;
+  transition: max-height 0.25s ease-in-out;
 }
 
 .aktuellt_innehåll {

@@ -110,7 +110,7 @@ export default function Reseberattelser() {
         du kikar på de som publicerats på KTHs hemsida av studenter från andra program.
       </p>
       <div className="worldmap">{worldMap()}</div>
-
+      <div id="scroll-node" />
       {!activeContinent || activeContinent === "Nordamerika" ? (
         <div>
           <h2>Nordamerika</h2>
@@ -214,7 +214,7 @@ export default function Reseberattelser() {
       ) : (
         ""
       )}
-      <div id="scroll-node" />
+      
     </div>
   );
 }
