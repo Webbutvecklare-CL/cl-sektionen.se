@@ -12,12 +12,13 @@ h1 span {
   font-size: 1.1rem;
 }
 
-#blanketter {
+.cards {
+  width: 100%;
+  font-size: 1.2rem;
   display: flex;
   flex-wrap: wrap;
 }
 
-#blanketter h2 {
-  width: 100%;
-  color: #1d1d1f;
+.praxis-cards {
+  font-size: 1.4rem;
 }

@@ -6,9 +6,46 @@ import { getContentData } from "../utils/contents";
 export default function Dokument({ contents }) {
   return (
     <div id="contentbody">
-      <div id="blanketter">
-        <h1 id="page-title">Dokument</h1>
-        <h2>Blanketter, mallar och lathundar</h2>
+      <h1 id="page-title">Dokument</h1>
+      <h2>Praxisdokment</h2>
+      <p>Har som syfte att samla viktig information som inte passar in i något av sektionens styrdokument. Notera att dessa är levande dokument.</p>
+      <div className="cards praxis-cards">
+        <Card
+          link={"/praxis/alkoholservering"}
+          innerText={
+            <div>
+              <i className="fa-solid fa-martini-glass" /> Rutiner för <b>alkoholservering</b>
+            </div>
+          }
+        />
+        <Card
+          link={"/praxis/lokalbokning"}
+          innerText={
+            <div>
+              <i className="fa-solid fa-house" /> Praxis för <b>lokalbokning</b>
+            </div>
+          }
+        />
+        <Card
+          link={"/praxis/personuppgifter"}
+          innerText={
+            <div>
+              <i className="fa-solid fa-address-card" /> Hantering av <b>personuppgifter</b>
+            </div>
+          }
+        />
+        <Card
+          link={"/praxis/utlagg"}
+          innerText={
+            <div>
+              <i className="fa-solid fa-file-invoice-dollar" /> Praxis för <b>utlägg</b>
+            </div>
+          }
+        />
+      </div>
+
+      <h2>Blanketter, mallar och lathundar</h2>
+      <div className="cards">
         <Card
           link={"https://drive.google.com/file/d/1rOzE5IwIRqV0D89qd5f0i-CnTebz8Y3h/view"}
           innerText={
