@@ -106,7 +106,7 @@ export default function Reseberattelser() {
       <p>
         Här kan du läsa om andra CL-studenters erfarenheter under sina utbytesstudievistelser.
         Listan av reseberättelser är för tillfället inte särskilt lång, men vi hoppas att den kommer
-        växa så småning om! Förutom att läsa CL studenters reseberättelser rekommenderar vi även att
+        växa så småningom! Förutom att läsa CL-studenters reseberättelser rekommenderar vi även att
         du kikar på de som publicerats på KTHs hemsida av studenter från andra program.
       </p>
       <div className="worldmap">{worldMap()}</div>
@@ -175,6 +175,9 @@ export default function Reseberattelser() {
             <li>
               <Link href="/reseberattelser/furkan-kocak-turkiet">Furkan Kocak - Turkiet</Link>
             </li>
+            <li>
+              <Link href="/reseberattelser/albin-westlin-singapore">Albin Westlin - Singapore</Link>
+            </li>
           </ul>
         </div>
       ) : (
@@ -191,9 +194,6 @@ export default function Reseberattelser() {
               <Link href="/reseberattelser/emelie-selinder-australien">
                 Emelie Selinder - Australien
               </Link>
-            </li>
-            <li>
-              <Link href="/reseberattelser/albin-westlin-singapore">Albin Westlin - Singapore</Link>
             </li>
           </ul>
         </div>
