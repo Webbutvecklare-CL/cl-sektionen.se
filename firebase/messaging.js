@@ -1,11 +1,8 @@
 import { firestore, messaging } from "./clientApp";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { getToken, onMessage, getMessaging } from "firebase/messaging";
-import localforage from "localforage";
-import { COMPILER_NAMES } from "next/dist/shared/lib/constants";
+import { getToken } from "firebase/messaging";
 
-const VAPID_KEY =
-  "BOhBPHGOqQCjY-LHq0C2sYo_0yoWW87X0a_Pk-YupV0wyJLauCJJm90_jPYAS78g-qaUrpycktrhKwvU72kNbdA";
+const VAPID_KEY = process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY;
 
 // https://github.com/FirebaseExtended/expense-tracker
 

@@ -77,7 +77,10 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
             <h2>Mikael Cronhjort</h2>
             <h3>2020</h3>
           </div>
-          <div id="Linda-Kann" className="hedersmedlem" onClick={() => stateUpdater("Linda-Kann")}>
+          <div 
+            id="Linda-Kann" 
+            className="hedersmedlem" 
+            onClick={() => stateUpdater("Linda-Kann")}>
             <div className="imgdiv">
               <Image src={LindaKann} alt="Linda Kann" />
             </div>

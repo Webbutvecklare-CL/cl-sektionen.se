@@ -16,13 +16,9 @@
   font-size: 1.3rem;
 }
 
-.hedersorden li.name-tag::after {
-  margin: 0 1rem;
-  content: "●";
-}
-
-.hedersorden li.name-tag:last-child::after {
-  content: none;
+.hedersorden li.name-tag:not(:last-child)::after {
+  margin: .5rem;
+  content: " ● ";
 }
 
 .year-list {
@@ -38,29 +34,30 @@
 
 @media screen and (max-width: 600px) {
   .hedersorden ul.category {
-    padding: 0;
-    display: block;
-  }
-
-  .hedersorden ul.category > ul {
-    padding: 0;
-    display: grid;
-    column-gap: 6%;
-    grid-template-columns: repeat(2, 47%);
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .hedersorden ul.year-list > li:nth-child(2n) {
     text-align: end;
   }
 
-  .hedersorden li.name-tag::after {
-    content: none;
+  li.name-tag::after {
+    margin: 0 !important;
+    content: ",\00a0" !important;
   }
+
   .year-header {
+    margin: 1rem 0 0 0;
+    width: 100%;
     display: block;
   }
 
   .hedersorden li > span {
     display: none;
+  }
+
+  ul.category li{
+    display: block;
   }
 }

@@ -80,6 +80,7 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
+NEXT_PUBLIC_FIREBASE_VAPID_KEY= # Behövs för notiser
 NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT= # Fråga Webbansvariga efter denna - används för notis api:et
 
 # Väljs fritt för att verifiera att revalidation request är från en betrodd källa
