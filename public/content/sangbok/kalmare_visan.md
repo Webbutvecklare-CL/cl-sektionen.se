@@ -35,5 +35,9 @@ A: satt på krogen i går :|| och var full som ett får.
 
 F: Hej dick...
 
+||: F: Vad ska bonden ha till mat?  
+A: sura sillar och potat:|| Det blir sillsallat.  
+F: Hej dick...  
+
 _Texten är känd sedan 1700-talet.  
 Äldsta utförliga versionen är från 1855._
