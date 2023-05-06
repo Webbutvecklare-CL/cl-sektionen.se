@@ -47,9 +47,10 @@ export default function Index({ contents, featured, infoList, eventList }) {
             <section>
               <MarkdownRender mdData={contents["om-programmet"]} />
             </section>
+            
           </section>
-          <hr />
         </div>
+        <hr className="no-margin-line" />
         <div className="visa_om_knapp_div">
           <button className={`visa_om_knapp ${open ? "btn-open" : ""}`} onClick={toggleOm}>
             Om CL{" "}
