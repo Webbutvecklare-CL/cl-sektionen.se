@@ -22,7 +22,7 @@ Sektionens skyddsombud har tystnadsplikt och kan hjälpa dig om något inträffa
 
 Sektionens skyddsombud når du via mail: [skyddsombud@cl-sektionen.se](mailto:skyddsombud@cl-sektionen.se). Du kan också skicka in en händelsebeskrivning som enbart når skyddsombudet via följande länk: [Anmälan om illabehandling](https://forms.gle/28p5Y6c4ToNe4K9t6). Om du gör anmälan via länken kan du välja att vara anonym.
 
-Vill du inte prata med någon på sektionen kan du ta kontakt med studiesocialt ansvarig på THS, som kan stötta och hjälpa dig: studiesocialt@ths.kts.se
+Vill du inte prata med någon på sektionen kan du ta kontakt med studiemiljöansvarig på THS, som kan stötta och hjälpa dig: studiemiljo@ths.kts.se
 
 Vår kontaktperson på KTH är Andreas Alm Arvidsson: [andreas.alm.arvidsson@itm.kth.se](mailto:andreas.alm.arvidsson@itm.kth.se). Honom kan du vända dig till om du vill ha direkt kontakt med någon som arbetar på ITM-skolan.
 
