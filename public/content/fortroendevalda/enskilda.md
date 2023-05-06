@@ -11,3 +11,5 @@ Försäljningsansvarig är en person som ansvarar för försäljning av sektione
 ### Idrottsansvarig
 
 Idrottsansvarig är framförallt ansvarig för idrottsverksamheten som bedrivs tillsammans med W. Idrottsansvarig representerar sektionen i THS Idrottsråd.
+
+---
