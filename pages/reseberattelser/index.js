@@ -210,9 +210,7 @@ export default function Reseberattelser() {
               </Link>
             </li>
             <li>
-              <Link href="/reseberattelser/edith-jacobson-botswana">
-                Edith Jacobson - Botswana
-              </Link>
+              <Link href="/reseberattelser/edith-jacobson-botswana">Edith Jacobson - Botswana</Link>
             </li>
           </ul>
         </div>
@@ -226,7 +224,6 @@ export default function Reseberattelser() {
       ) : (
         ""
       )}
-      
     </div>
   );
 }

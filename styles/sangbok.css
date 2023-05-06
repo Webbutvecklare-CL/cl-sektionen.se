@@ -1,4 +1,4 @@
-.sångbok-wrapper{
+.sångbok-wrapper {
   max-width: 833px;
   margin-left: auto;
   margin-right: auto;
@@ -52,7 +52,7 @@
   accent-color: var(--clr4);
   height: 1rem;
   width: 1rem;
-  margin: 0 .4rem 0 1rem;
+  margin: 0 0.4rem 0 1rem;
 }
 
 .sångbok-filter-knapp {
@@ -85,13 +85,13 @@
 }
 
 .sångbok.filterPanel label:first-child {
-  margin-top: .8rem;
+  margin-top: 0.8rem;
 }
 .sångbok.filterPanel label:last-child {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-.filteroption{
+.filteroption {
   font-size: 1.1rem;
   vertical-align: 10%;
 }

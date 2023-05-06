@@ -21,7 +21,7 @@ img.rese-mid {
   min-width: 250px;
   max-width: 315px;
   max-height: 300px;
-  object-fit:contain;
+  object-fit: contain;
 }
 
 .rese-img-container {

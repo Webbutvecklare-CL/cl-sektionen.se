@@ -8,7 +8,10 @@ export default function Dokument({ contents }) {
     <div id="contentbody">
       <h1 id="page-title">Dokument</h1>
       <h2>Praxisdokment</h2>
-      <p>Har som syfte att samla viktig information som inte passar in i något av sektionens styrdokument. Notera att dessa är levande dokument.</p>
+      <p>
+        Har som syfte att samla viktig information som inte passar in i något av sektionens
+        styrdokument. Notera att dessa är levande dokument.
+      </p>
       <div className="cards praxis-cards">
         <Card
           link={"/praxis/alkoholservering"}

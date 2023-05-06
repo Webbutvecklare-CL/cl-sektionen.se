@@ -17,7 +17,7 @@
 }
 
 .hedersorden li.name-tag:not(:last-child)::after {
-  margin: .5rem;
+  margin: 0.5rem;
   content: " ● ";
 }
 
@@ -57,7 +57,7 @@
     display: none;
   }
 
-  ul.category li{
+  ul.category li {
     display: block;
   }
 }

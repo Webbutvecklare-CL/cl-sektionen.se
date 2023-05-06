@@ -47,7 +47,6 @@ export default function Index({ contents, featured, infoList, eventList }) {
             <section>
               <MarkdownRender mdData={contents["om-programmet"]} />
             </section>
-            
           </section>
         </div>
         <hr className="no-margin-line" />

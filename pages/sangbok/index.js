@@ -14,31 +14,23 @@ function HideDate(currentMonth) {
 
 function Sangbok({ sånger }) {
   const [sortedSongs, setSortedSongs] = useState(
-    [...sånger].sort((a, b) =>
-        parseInt(a.sida, 10) - parseInt(b.sida, 10)
-    )
+    [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
   );
   const [sort, setSort] = useState("pageNr");
   const sortBy = (e) => {
     setSort(e.target.value);
   };
-  
+
   useEffect(() => {
     if (sort === "category") {
-      setSortedSongs([...sånger].sort((a, b) =>
-        a.kategori.localeCompare(b.kategori)
-      ));
+      setSortedSongs([...sånger].sort((a, b) => a.kategori.localeCompare(b.kategori)));
     } else if (sort === "pageNr") {
-      setSortedSongs([...sånger].sort((a, b) =>
-        parseInt(a.sida, 10) - parseInt(b.sida, 10)
-      ));
+      setSortedSongs([...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10)));
     } else {
-      setSortedSongs([...sånger].sort((a, b) =>
-        a.title.localeCompare(b.title)
-      ));
+      setSortedSongs([...sånger].sort((a, b) => a.title.localeCompare(b.title)));
     }
   }, [sort]);
-  
+
   const [search, setSearch] = useState("");
   const currentMonth = new Date().getMonth();
 
@@ -81,7 +73,7 @@ function Sangbok({ sånger }) {
       }
       setfilterPanelOpen(false);
     };
-    
+
     document.addEventListener("mousedown", panelCloseHandler);
     return () => {
       document.removeEventListener("mousedown", panelCloseHandler);
@@ -123,40 +115,45 @@ function Sangbok({ sånger }) {
         <section
           ref={panelref}
           className={`sångbok filterPanel ${filterPanelOpen ? "open" : "collapsed"}`}>
-            <label>
-              <input 
-                type="radio" 
-                name="filters" 
-                value="pageNr"
-                checked={sort === "pageNr"} 
-                onChange={(e) => sortBy(e)} 
-                className="filterbutton" /> 
-              <span className="filteroption">Sortera på sidnummer</span>
-            </label>
-            <label>
-              <input 
-                type="radio" 
-                name="filters" 
-                value="alphabetical"
-                checked={sort === "alphabetical"} 
-                onChange={(e) => sortBy(e)} 
-                className="filterbutton" /> 
-              <span className="filteroption">Sortera Alfabetiskt</span>
-            </label>
-            <label>
-              <input 
-                type="radio" 
-                name="filters" 
-                value="category"
-                checked={sort === "category"}
-                onChange={(e) => sortBy(e)} 
-                className="filterbutton" /> 
-              <span className="filteroption">Sortera på kategori</span>
-            </label>
+          <label>
+            <input
+              type="radio"
+              name="filters"
+              value="pageNr"
+              checked={sort === "pageNr"}
+              onChange={(e) => sortBy(e)}
+              className="filterbutton"
+            />
+            <span className="filteroption">Sortera på sidnummer</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="filters"
+              value="alphabetical"
+              checked={sort === "alphabetical"}
+              onChange={(e) => sortBy(e)}
+              className="filterbutton"
+            />
+            <span className="filteroption">Sortera Alfabetiskt</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="filters"
+              value="category"
+              checked={sort === "category"}
+              onChange={(e) => sortBy(e)}
+              className="filterbutton"
+            />
+            <span className="filteroption">Sortera på kategori</span>
+          </label>
         </section>
 
         {sortedSongs
-          .filter((sång) => search === "" || sång.title.toLowerCase().includes(search.toLowerCase()))
+          .filter(
+            (sång) => search === "" || sång.title.toLowerCase().includes(search.toLowerCase())
+          )
           .map((sång) =>
             sång.hemlig && HideDate(currentMonth) ? (
               ""
@@ -169,7 +166,7 @@ function Sangbok({ sånger }) {
                 <div className="sångkategori">&nbsp; {sång.kategori}</div>
               </Link>
             )
-        )}
+          )}
       </div>
     </div>
   );
