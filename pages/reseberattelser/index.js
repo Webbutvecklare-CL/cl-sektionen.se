@@ -203,6 +203,18 @@ export default function Reseberattelser() {
       {!activeContinent || activeContinent === "Afrika" ? (
         <div>
           <h2>Afrika</h2>
+          <ul>
+            <li>
+              <Link href="/reseberattelser/veronica-vilbern-botswana">
+                Veronica Vilbern - Botswana
+              </Link>
+            </li>
+            <li>
+              <Link href="/reseberattelser/edith-jacobson-botswana">
+                Edith Jacobson - Botswana
+              </Link>
+            </li>
+          </ul>
         </div>
       ) : (
         ""
