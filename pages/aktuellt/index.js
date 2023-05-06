@@ -100,7 +100,6 @@ export default function Aktuellt({ postList }) {
   }, [type]);
 
   const panelref = useRef();
-
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
@@ -110,7 +109,7 @@ export default function Aktuellt({ postList }) {
       if (e.target.className === "filterPanel mobile") {
         return;
       }
-      if (e.target.className === "searchbar aktuellt") {
+      if (e.target.className === "searchbar") {
         return;
       }
       if (e.target.className === "filter-knapp active") {
@@ -132,9 +131,9 @@ export default function Aktuellt({ postList }) {
   const [fokusSearchBar, setfokusSearchBar] = useState(false);
   useEffect(() => {
     let focusSearchHandler = (e) => {
-      if (!fokusSearchBar && e.target.className === "searchbar aktuellt") {
+      if (!fokusSearchBar && e.target.className === "searchbar") {
         setfokusSearchBar(true);
-      } else if (fokusSearchBar && e.target.className !== "searchbar aktuellt") {
+      } else if (fokusSearchBar && e.target.className !== "searchbar") {
         setfokusSearchBar(false);
       }
     };
@@ -277,7 +276,7 @@ export default function Aktuellt({ postList }) {
         </section>
 
         <div className="sök-och-content-wrapper">
-          <div className={`inputfält-aktuellt ${fokusSearchBar ? "active" : ""}`}>
+          <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
             <input
               ref={panelref}
               type="text"
@@ -289,7 +288,7 @@ export default function Aktuellt({ postList }) {
                 // När användaren lämnar sökrutan
                 logEvent(analytics, "search", { search_term: search });
               }}
-              className="searchbar aktuellt"
+              className="searchbar"
             />
             <button
               ref={panelref}

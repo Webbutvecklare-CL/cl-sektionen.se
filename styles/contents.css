@@ -113,3 +113,31 @@ ol {
 .link-card i {
   color: var(--clr3);
 }
+
+
+.inputfält {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+
+  width: 100%;
+
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.inputfält.active {
+  border: 1px solid black;
+}
+
+.searchbar {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.searchbar:focus-visible {
+  outline: 0;
+}
