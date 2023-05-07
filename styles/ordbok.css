@@ -34,6 +34,7 @@
 
 .kategori {
   font-size: 0.9rem;
+  margin-left: -0.1rem;
   font-style: italic;
   color: #777;
 }

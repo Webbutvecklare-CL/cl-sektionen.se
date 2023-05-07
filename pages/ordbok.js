@@ -94,7 +94,7 @@ function Ordbok({ ordbok }) {
       <h1 id="page-title">Ordbok</h1>
       <p>
         Följande är en lista över krångliga begrepp och förkortningar som kan dyka upp på SM eller
-        andra sammanhand på sektionen.
+        andra sammanhang på sektionen.
       </p>
       <div className="ordbok-wrapper">
         <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
