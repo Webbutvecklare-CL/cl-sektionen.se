@@ -79,3 +79,29 @@ button:hover {
 .highlighted {
   color: inherit;
 }
+
+.error-msg{
+  display: flex;
+  justify-content: center;
+  
+  margin-top: 7rem;
+}
+
+.error-code{
+  font-size: 2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  color: #888;
+}
+
+.devider {
+  margin: .4rem 1rem 1rem 1rem;
+  font-size: 3rem;
+}
+
+.error-description{
+  font-size: 1.2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
