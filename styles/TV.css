@@ -29,6 +29,7 @@
 
 /* Reseinfo */
 .reseinfo {
+  font-family: 'PT sans', 'Roboto';
   width: 18vw;
   height: 100vh;
   background-color: var(--clgra);
