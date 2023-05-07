@@ -75,7 +75,7 @@ function Ordbok({ ordbok }) {
         return(
             <div className="ord">
                 <div>
-                    <span className="begrepp">
+                    <span lang="sv" className="begrepp">
                     <TextHighlighter
                         search={search}
                         text={ord.begrepp}

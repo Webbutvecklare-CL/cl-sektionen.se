@@ -6,11 +6,12 @@
 
 .ord{
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: minmax(120px, 200px) minmax(150px, 1fr);
     align-items: start;
 
     background-color: white;
-    
+    overflow: hidden;
+
     border: 1px solid rgb(230, 230, 230);
     margin: -1px auto 0 auto;
 }
@@ -23,6 +24,12 @@
     color: var(--clr5);
     font-size: 1rem;
     font-weight: 600;
+    word-wrap: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 .kategori{
