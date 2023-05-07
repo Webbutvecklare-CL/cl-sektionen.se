@@ -85,6 +85,15 @@ footer div img {
     text-align: center;
   }
 
+  #quick-links{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #quick-links h3 {
+    grid-column: 1 / -1;
+  }
+
   #sociallinks {
     margin: 1rem 0;
     flex-direction: row;
