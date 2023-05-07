@@ -80,14 +80,14 @@ button:hover {
   color: inherit;
 }
 
-.error-msg{
+.error-msg {
   display: flex;
   justify-content: center;
-  
+
   margin-top: 7rem;
 }
 
-.error-code{
+.error-code {
   font-size: 2rem;
   margin-top: auto;
   margin-bottom: auto;
@@ -96,12 +96,18 @@ button:hover {
 }
 
 .devider {
-  margin: .4rem 1rem 1rem 1rem;
+  margin: 0.4rem 1rem 1rem 1rem;
   font-size: 3rem;
 }
 
-.error-description{
+.error-description {
   font-size: 1.2rem;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.error-back-link {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
 }

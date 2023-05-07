@@ -1,18 +1,15 @@
 import React from "react";
-import { useRouter } from "next/router";
 import MarkdownRender from "../../components/MarkdownRender";
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
+import BackButton from "../../components/BackButton";
 
 export default function Alumniberattelse({ content }) {
-  const router = useRouter();
   return (
     <div id="contentbody">
       <article>
         <div className="article-head">
-          <button onClick={() => router.back()}>
-            <i className="fa fa-arrow-left" aria-hidden="true"></i> Tillbaka
-          </button>
+          <BackButton />
         </div>
         <MarkdownRender mdData={content} />
       </article>
