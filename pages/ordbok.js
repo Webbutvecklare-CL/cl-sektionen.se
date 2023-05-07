@@ -1,5 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
+import TextHighlighter from "../components/Highlighter";
 import { readFileSync } from "fs";
 
 function Ordbok({ ordbok }) {
@@ -74,10 +75,20 @@ function Ordbok({ ordbok }) {
         return(
             <div className="ord">
                 <div>
-                    <span className="begrepp">{ord.begrepp}</span><br/>
+                    <span className="begrepp">
+                    <TextHighlighter
+                        search={search}
+                        text={ord.begrepp}
+                    />
+                    </span><br/>
                     <span className="kategori">{ord.kategori}</span>
                 </div>
-                <p className="betydelse">{ord.betydelse}</p>
+                <p className="betydelse">                    
+                    <TextHighlighter
+                        search={search}
+                        text={ord.betydelse}
+                    />
+                </p>
             </div>
         )
     }

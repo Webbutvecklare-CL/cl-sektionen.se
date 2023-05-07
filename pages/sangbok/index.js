@@ -3,6 +3,7 @@ import { analytics } from "../../firebase/clientApp";
 import { useEffect, useRef, useState } from "react";
 import { readFileSync } from "fs";
 import { logEvent } from "firebase/analytics";
+import TextHighlighter from "../../components/Highlighter";
 
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth) {
@@ -80,6 +81,27 @@ function Sangbok({ sånger }) {
     };
   });
 
+  const SångLänk = ({sång}) =>{
+    return (
+      sång.hemlig && HideDate(currentMonth) ? (
+        ""
+      ) : (
+        <Link href={`sangbok${sång.href}`} className="sånglänk">
+          <div>
+            <span className="sångtitel">
+              <TextHighlighter
+                  search={search}
+                  text={sång.title}
+              />
+            </span>
+            <span className="sångsida">&nbsp; s.{sång.sida}</span>
+          </div>
+          <div className="sångkategori">&nbsp; {sång.kategori}</div>
+        </Link>
+      )
+    )
+  }
+
   return (
     <div id="contentbody">
       <h1 id="page-title">Sångbok</h1>
@@ -152,20 +174,13 @@ function Sangbok({ sånger }) {
 
         {sortedSongs
           .filter(
-            (sång) => search === "" || sång.title.toLowerCase().includes(search.toLowerCase())
+            (sång) => 
+            search === "" 
+            || sång.title.toLowerCase().includes(search.toLowerCase())
+            || sång.altSearch?.some(title => title.toLowerCase().includes(search.toLowerCase()))
           )
           .map((sång) =>
-            sång.hemlig && HideDate(currentMonth) ? (
-              ""
-            ) : (
-              <Link href={`sangbok${sång.href}`} className="sånglänk" key={sång.href}>
-                <div>
-                  <span className="sångtitel">{sång.title}</span>
-                  <span className="sångsida">&nbsp; s.{sång.sida}</span>
-                </div>
-                <div className="sångkategori">&nbsp; {sång.kategori}</div>
-              </Link>
-            )
+            <SångLänk key={sång.href} sång={sång}/>
           )}
       </div>
     </div>

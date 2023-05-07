@@ -320,6 +320,22 @@
   },
   {
     "title": "Jag har aldrig var’t på snusen (m.m.)",
+    "altSearch" : [
+      "Handelsvisan", 
+      "CL-visan", 
+      "CL visan", 
+      "clvisan",
+      "W-hatarvisan", 
+      "W hatarvisan",
+      "Fysikvisan", 
+      "Datas visa", 
+      "Lärarvisan", 
+      "Mattehatarvisan", 
+      "Jag vill aldrig gå på media",
+      "Kistavisan",
+      "Lappisvisan",
+      "Visa om Medicinteknik"
+    ],
     "href": "/jag_har_aldrig",
     "sida": "98",
     "kategori": ""
