@@ -2,7 +2,7 @@ footer {
   background-color: var(--clgra);
   display: flex;
   color: #ffffff;
-  font-size: .8rem;
+  font-size: 0.8rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.507);
   justify-content: space-between;
 }
@@ -43,7 +43,7 @@ footer div img {
 }
 
 #sociallinks {
-  padding-top: .6rem;
+  padding-top: 0.6rem;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -87,7 +87,7 @@ footer div img {
     text-align: center;
   }
 
-  #quick-links{
+  #quick-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }

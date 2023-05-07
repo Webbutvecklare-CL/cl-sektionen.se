@@ -103,7 +103,6 @@ export default function Aktuellt({ postList }) {
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
-      console.log(e.target);
       if (panelref.current.contains(e.target)) {
         return;
       }
@@ -119,7 +118,6 @@ export default function Aktuellt({ postList }) {
       if (e.target.className === "fa-solid fa-ellipsis") {
         return;
       }
-      console.log("ran");
       setfilterPanelOpen(false);
     };
 
@@ -174,7 +172,7 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-arrow-down-wide-short" /> Sortera efter
+          <i className="fa-solid fa-arrow-down-wide-short" /> Sortera
         </h3>
         <button className={sortNewestFirst ? "selected" : ""} onClick={() => toggleSort()}>
           Nyast först

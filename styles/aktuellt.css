@@ -150,20 +150,29 @@ button.tag {
   .typ_o_sort_wrapper {
     display: grid;
     grid-template-columns: 155px 1fr;
-    justify-items: center;
+    gap: 0.5rem;
+    justify-items: start;
   }
 
   .date_and_committee_wrapper {
     display: grid;
     grid-template-columns: 155px 1fr;
-    justify-items: center;
-    gap: 0.5rem;
+    justify-items: start;
+    gap: 1rem;
   }
 
   .posts {
     margin-top: 0;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .date_and_committee_wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px 100px;
+  }
+}
+
 /*________________________*/
 
 .feed-container {
