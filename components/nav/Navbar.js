@@ -49,7 +49,7 @@ const MENU_LIST = [
     submenu: [
       { text: "Sångbok", href: "/sangbok" },
       { text: "Dokument", href: "/dokument" },
-      { text: "Ordboken", href: "/ordbok"}
+      { text: "Ordboken", href: "/ordbok" },
       // { text: "Bildarkiv", href: "/bildarkiv" },
     ],
   },

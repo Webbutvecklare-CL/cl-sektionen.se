@@ -1,257 +1,283 @@
 [
-    {
-        "begrepp" : "Ajournering",
-        "betydelse" : "Mötet tar en kortare paus eller ett längre uppehåll",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Bordlägga",
-        "betydelse" : "Beslut att skjuta upp en fråga till nästkommande möte",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Föredragningslista",
-        "betydelse" : "Lista över de ärenden som ska behandlas på mötet",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Interpellation",
-        "betydelse" : "Skriftlig fråga till förtroendevald som ska få skriftligt svar",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Motion",
-        "betydelse" : "Ett skriftligt förslag från en medlem",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Motionssvar",
-        "betydelse" : "Styrelsens svar, tankar och rekommendation på en motion",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Ordningsfråga",
-        "betydelse" : "Praktisk fråga som kan tas upp när som helst under mötet",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Plädera",
-        "betydelse" : "Att tala för något",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Proposition",
-        "betydelse" : "Ett skriftligt förslag från styrelsen",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Propositionsordning",
-        "betydelse" : "På vilket sätt förslagen ställs mot varandra",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Replik",
-        "betydelse" : "Kort inlägg utanför talarlistan för förklaring eller tillrättaläggande",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Sakupplysning",
-        "betydelse" : "En ordningsfråga som man använder sig av om man vill tillföra ett möte en upplysning. Upplysningen skall inte spegla talarens ståndpunkt utan endast tillföra fakta",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Streck",
-        "betydelse" : "Beslut att inga nya sätts upp på talarlistan och sen gå till beslut",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Talarlista",
-        "betydelse" : "Lista över de som begärt ordet",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Tidsbegränsning",
-        "betydelse" : "Beslut om en viss talartid vid diskussion",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Yrkande",
-        "betydelse" : "Förslag",
-        "kategori" : "Mötesinnehåll"
-    },
-    {
-        "begrepp" : "Adjungerad",
-        "betydelse" : "En person ges rätt att delta på mötet, oftast utan rösträtt",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Ansvarsfrihet",
-        "betydelse" : "Ges ofta styrelser vid godkännande av föregående års verksamhet",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Delegera",
-        "betydelse" : "Att överlåta ett beslut eller genomförande till någon annan",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Justera",
-        "betydelse" : "Att kontrollera och godkänna ett protokoll",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Justeringsperson",
-        "betydelse" : "Person som utses för att justera protokollet efter mötet",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Jämka",
-        "betydelse" : "Att slå ihop sitt förslag med ett annat",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Jävig",
-        "betydelse" : "Att någon har personlig vinning i frågan och därför inte bör delta i beslut",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Protokoll",
-        "betydelse" : "De formella anteckningarna om vad som beslutades på mötet",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Protokollsanteckning",
-        "betydelse" : "En anteckning om något i mötesprotokollet som begärs av någon på mötet",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Revision",
-        "betydelse" : "Granskning av redovisning, verksamhet och räkenskaper",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Revisionsberättelse",
-        "betydelse" : "Revisorernas redogörelse för sin revision",
-        "kategori" : "Formalia"
-    },
-    {
-        "begrepp" : "Acklamation",
-        "betydelse" : "Röstning genom “ja”-rop",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Försöksvotering",
-        "betydelse" : "Röstning genom handuppräckning",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Nominera",
-        "betydelse" : "Att ge förslag på person",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Reservation",
-        "betydelse" : "Meddelande att man inte står bakom ett beslut",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Röstlängd",
-        "betydelse" : "En lista över de som får rösta",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Rösträknare",
-        "betydelse" : "Utses på mötet för att räkna röster vid votering och sluten omröstning",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Sluten omröstning",
-        "betydelse" : "Anonym röstning",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Valberedning",
-        "betydelse" : "Personer som väljs för att lägga fram förslag vid personval",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Valkrets",
-        "betydelse" : "En grupp eller indelning som får välja en viss del av en församling. Nyttjades för valet till Kårfullmäktige fram till hösten 2022.",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Votering",
-        "betydelse" : "Omröstning",
-        "kategori" : "Röstning & Val"
-    },
-    {
-        "begrepp" : "Äskan",
-        "betydelse" : "En officiell förfrågan av pengar som inte ingår i budgeten",
-        "kategori" : "Ekonomi"
-    },
-    {
-        "begrepp" : "Ackumulerad",
-        "betydelse" : "Gradvis ökning i mängd över tid",
-        "kategori" : "Ekonomi"
-    },
-    {
-        "begrepp" : "Balansrapport",
-        "betydelse" : "Rapport över tillgångar och skulder för en viss period, ger en mer ögonblicksbild än resultatrapporten",
-        "kategori" : "Ekonomi"
-    },
-    {
-        "begrepp" : "Budget",
-        "betydelse" : "En prognos (kvalificerad gissning) över framtidens planerade utlopp",
-        "kategori" : "Ekonomi"
-    },
-    {
-        "begrepp" : "Konto",
-        "betydelse" : "En etikett över ett område inom verksamheten där kostnader och intäkter bokförs",
-        "kategori" : "Ekonomi"
-    },
-    {
-        "begrepp" : "Likviditet",
-        "betydelse" : "Ett mått på en organisations kortsiktiga betalningsförmåga, dvs. finansiella medel som vi har tillgång till i stunden",
-        "kategori" : "Ekonomi"
-    },
-    {
-        "begrepp" : "Resultatrapport",
-        "betydelse" : "Rapport över intäkter minus kostnader för en viss period, visar vad pengarna har gått till och hur mycket som gått åt",
-        "kategori" : "Ekonomi"
-    },
-    {
-        "begrepp" : "CtyreLsen",
-        "betydelse" : "Sektionens sittande styrelse",
-        "kategori" : "Förkortningar"
-    },
-    {
-        "begrepp" : "SNO",
-        "betydelse" : "Studienämndens ordförande",
-        "kategori" : "Förkortningar"
-    },
-    {
-        "begrepp" : "PAS",
-        "betydelse" : "Programsansvarig student",
-        "kategori" : "Förkortningar"
-    },
-    {
-        "begrepp" : "UBBE",
-        "betydelse" : "Utbildningsbevakare",
-        "kategori" : "Förkortningar"
-    },
-    {
-        "begrepp" : "SN",
-        "betydelse" : "Studienämnden",
-        "kategori" : "Förkortningar"
-    },
-    {
-        "begrepp" : "NN",
-        "betydelse" : "Näringslivsnämnden",
-        "kategori" : "Förkortningar"
-    },
-    {
-        "begrepp" : "AN",
-        "betydelse" : "Aktivitetsnämnden",
-        "kategori" : "Förkortningar"
-    }
+  {
+    "begrepp": "Ajournering",
+    "betydelse": "Mötet tar en kortare paus eller ett längre uppehåll",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Bordlägga",
+    "betydelse": "Beslut att skjuta upp en fråga till nästkommande möte",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Föredragningslista",
+    "betydelse": "Lista över de ärenden som ska behandlas på mötet",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Interpellation",
+    "betydelse": "Skriftlig fråga till förtroendevald som ska få skriftligt svar",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Motion",
+    "betydelse": "Ett skriftligt förslag från en medlem",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Motionssvar",
+    "betydelse": "Styrelsens svar, tankar och rekommendation på en motion",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Ordningsfråga",
+    "betydelse": "Praktisk fråga som kan tas upp när som helst under mötet",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Plädera",
+    "betydelse": "Att tala för något",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Proposition",
+    "betydelse": "Ett skriftligt förslag från styrelsen",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Propositionsordning",
+    "betydelse": "På vilket sätt förslagen ställs mot varandra",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Replik",
+    "betydelse": "Kort inlägg utanför talarlistan för förklaring eller tillrättaläggande",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Sakupplysning",
+    "betydelse": "En ordningsfråga som man använder sig av om man vill tillföra ett möte en upplysning. Upplysningen skall inte spegla talarens ståndpunkt utan endast tillföra fakta",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Streck",
+    "betydelse": "Beslut att inga nya sätts upp på talarlistan och sen gå till beslut",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Talarlista",
+    "betydelse": "Lista över de som begärt ordet",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Tidsbegränsning",
+    "betydelse": "Beslut om en viss talartid vid diskussion",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Yrkande",
+    "betydelse": "Förslag",
+    "kategori": "Mötesinnehåll"
+  },
+  {
+    "begrepp": "Adjungerad",
+    "betydelse": "En person ges rätt att delta på mötet, oftast utan rösträtt",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Ansvarsfrihet",
+    "betydelse": "Ges ofta styrelser vid godkännande av föregående års verksamhet",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Delegera",
+    "betydelse": "Att överlåta ett beslut eller genomförande till någon annan",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Justera",
+    "betydelse": "Att kontrollera och godkänna ett protokoll",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Justeringsperson",
+    "betydelse": "Person som utses för att justera protokollet efter mötet",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Jämka",
+    "betydelse": "Att slå ihop sitt förslag med ett annat",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Jävig",
+    "betydelse": "Att någon har personlig vinning i frågan och därför inte bör delta i beslut",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Protokoll",
+    "betydelse": "De formella anteckningarna om vad som beslutades på mötet",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Protokollsanteckning",
+    "betydelse": "En anteckning om något i mötesprotokollet som begärs av någon på mötet",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Revision",
+    "betydelse": "Granskning av redovisning, verksamhet och räkenskaper",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Revisionsberättelse",
+    "betydelse": "Revisorernas redogörelse för sin revision",
+    "kategori": "Formalia"
+  },
+  {
+    "begrepp": "Acklamation",
+    "betydelse": "Röstning genom “ja”-rop",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Försöksvotering",
+    "betydelse": "Röstning genom handuppräckning",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Nominera",
+    "betydelse": "Att ge förslag på person",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Reservation",
+    "betydelse": "Meddelande att man inte står bakom ett beslut",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Röstlängd",
+    "betydelse": "En lista över de som får rösta",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Rösträknare",
+    "betydelse": "Utses på mötet för att räkna röster vid votering och sluten omröstning",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Sluten omröstning",
+    "betydelse": "Anonym röstning",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Valberedning",
+    "betydelse": "Personer som väljs för att lägga fram förslag vid personval",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Valkrets",
+    "betydelse": "En grupp eller indelning som får välja en viss del av en församling. Nyttjades för valet till Kårfullmäktige fram till hösten 2022.",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Votering",
+    "betydelse": "Omröstning",
+    "kategori": "Röstning & Val"
+  },
+  {
+    "begrepp": "Äskan",
+    "betydelse": "En officiell förfrågan av pengar som inte ingår i budgeten",
+    "kategori": "Ekonomi"
+  },
+  {
+    "begrepp": "Ackumulerad",
+    "betydelse": "Gradvis ökning i mängd över tid",
+    "kategori": "Ekonomi"
+  },
+  {
+    "begrepp": "Balansrapport",
+    "betydelse": "Rapport över tillgångar och skulder för en viss period, ger en mer ögonblicksbild än resultatrapporten",
+    "kategori": "Ekonomi"
+  },
+  {
+    "begrepp": "Budget",
+    "betydelse": "En prognos (kvalificerad gissning) över framtidens planerade utlopp",
+    "kategori": "Ekonomi"
+  },
+  {
+    "begrepp": "Konto",
+    "betydelse": "En etikett över ett område inom verksamheten där kostnader och intäkter bokförs",
+    "kategori": "Ekonomi"
+  },
+  {
+    "begrepp": "Likviditet",
+    "betydelse": "Ett mått på en organisations kortsiktiga betalningsförmåga, dvs. finansiella medel som vi har tillgång till i stunden",
+    "kategori": "Ekonomi"
+  },
+  {
+    "begrepp": "Resultatrapport",
+    "betydelse": "Rapport över intäkter minus kostnader för en viss period, visar vad pengarna har gått till och hur mycket som gått åt",
+    "kategori": "Ekonomi"
+  },
+  {
+    "begrepp": "CtyreLsen",
+    "betydelse": "CL-Sektionens styrelse",
+    "kategori": "Sektionen"
+  },
+  {
+    "begrepp": "SNO",
+    "betydelse": "Studienämndens ordförande",
+    "kategori": "Förkortningar"
+  },
+  {
+    "begrepp": "PAS",
+    "betydelse": "Programsansvarig student",
+    "kategori": "Förkortningar"
+  },
+  {
+    "begrepp": "UBBE",
+    "betydelse": "Utbildningsbevakare",
+    "kategori": "Förkortningar"
+  },
+  {
+    "begrepp": "SN",
+    "betydelse": "Studienämnden",
+    "kategori": "Förkortningar"
+  },
+  {
+    "begrepp": "NN",
+    "betydelse": "Näringslivsnämnden",
+    "kategori": "Förkortningar"
+  },
+  {
+    "begrepp": "AN",
+    "betydelse": "Aktivitetsnämnden",
+    "kategori": "Förkortningar"
+  },
+
+  {
+    "begrepp": "KF",
+    "betydelse": "THS Kårfullmäktige (KF) är THS högsta beslutande organ. Varje sektion väljer ett antal representanter till Kårfullmäktige, som är det forum där sektionerna möts och beslutar om övergripande gemensamma frågor samt delar med sig av egna frågor och erfarenheter från sektionerna. Det är Kårfullmäktige som beslutar om THS stadgar och verksamhetsplan. Det är även Kårfullmäktige som förrättar val till kårstyrelsen, kårledningen och kårens andra centrala verksamheter.",
+    "kategori": "THS"
+  },
+  {
+    "begrepp": "KS",
+    "betydelse": "THS Kårstyrelse, även kallad KS, är THS högst verkställande organ och ansvarar för THS långsiktiga och strategiska arbete. Styrelsen ansvarar även för att samordna och förankra THS övergripande frågor och verksamhetsområden som har bestämts av Kårfullmäktige, och som verkställs av THS Kårledning.",
+    "kategori": "THS"
+  },
+  {
+    "begrepp": "KL",
+    "betydelse": "Kårledningen eller KL består av studenter som arbetar hel- eller deltid på THS som arvoderade under ett års tid. Kårledningen ansvarar för den centrala och gemensamma verksamhetens genomförande. Varje medlem i THS Kårledning ansvarar för vissa frågor, och gemensamt ansvarar de för den löpande verksamheten. Det är dessutom THS Kårledning som samordnar och förankrar den centrala verksamheten hos sektionerna.",
+    "kategori": "THS"
+  },
+  {
+    "begrepp": "KårX",
+    "betydelse": "Kårexpeditionen är receptionen i Nymble.",
+    "kategori": "THS"
+  },
+  {
+    "begrepp": "Nämndaktiv",
+    "betydelse": "En person som inte håller en förtroendevaldspost men bidrar aktivt i någon av sektionens nämnder.",
+    "kategori": "Sektionen"
+  }
 ]

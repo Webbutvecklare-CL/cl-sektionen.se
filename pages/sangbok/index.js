@@ -81,26 +81,21 @@ function Sangbok({ sånger }) {
     };
   });
 
-  const SångLänk = ({sång}) =>{
-    return (
-      sång.hemlig && HideDate(currentMonth) ? (
-        ""
-      ) : (
-        <Link href={`sangbok${sång.href}`} className="sånglänk">
-          <div>
-            <span className="sångtitel">
-              <TextHighlighter
-                  search={search}
-                  text={sång.title}
-              />
-            </span>
-            <span className="sångsida">&nbsp; s.{sång.sida}</span>
-          </div>
-          <div className="sångkategori">&nbsp; {sång.kategori}</div>
-        </Link>
-      )
-    )
-  }
+  const SångLänk = ({ sång }) => {
+    return sång.hemlig && HideDate(currentMonth) ? (
+      ""
+    ) : (
+      <Link href={`sangbok${sång.href}`} className="sånglänk">
+        <div>
+          <span className="sångtitel">
+            <TextHighlighter search={search} text={sång.title} />
+          </span>
+          <span className="sångsida">&nbsp; s.{sång.sida}</span>
+        </div>
+        <div className="sångkategori">&nbsp; {sång.kategori}</div>
+      </Link>
+    );
+  };
 
   return (
     <div id="contentbody">
@@ -174,14 +169,14 @@ function Sangbok({ sånger }) {
 
         {sortedSongs
           .filter(
-            (sång) => 
-            search === "" 
-            || sång.title.toLowerCase().includes(search.toLowerCase())
-            || sång.altSearch?.some(title => title.toLowerCase().includes(search.toLowerCase()))
+            (sång) =>
+              search === "" ||
+              sång.title.toLowerCase().includes(search.toLowerCase()) ||
+              sång.altSearch?.some((title) => title.toLowerCase().includes(search.toLowerCase()))
           )
-          .map((sång) =>
-            <SångLänk key={sång.href} sång={sång}/>
-          )}
+          .map((sång) => (
+            <SångLänk key={sång.href} sång={sång} />
+          ))}
       </div>
     </div>
   );
