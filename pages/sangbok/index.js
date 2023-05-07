@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { analytics } from "../../firebase/clientApp";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { readFileSync } from "fs";
 import { logEvent } from "firebase/analytics";
 
@@ -23,11 +23,11 @@ function Sangbok({ sånger }) {
 
   useEffect(() => {
     if (sort === "category") {
-      setSortedSongs([...sånger].sort((a, b) => a.kategori.localeCompare(b.kategori)));
+      setSortedSongs([...sånger].sort((a, b) => a.kategori.localeCompare(b.kategori, "sv")));
     } else if (sort === "pageNr") {
       setSortedSongs([...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10)));
     } else {
-      setSortedSongs([...sånger].sort((a, b) => a.title.localeCompare(b.title)));
+      setSortedSongs([...sånger].sort((a, b) => a.title.localeCompare(b.title, "sv")));
     }
   }, [sort]);
 
@@ -62,7 +62,7 @@ function Sangbok({ sånger }) {
       if (e.target.className === "filterPanel mobile") {
         return;
       }
-      if (e.target.className === "searchbar aktuellt") {
+      if (e.target.className === "searchbar") {
         return;
       }
       if (e.target.className === "sångbok-filter-knapp active") {
@@ -135,7 +135,7 @@ function Sangbok({ sånger }) {
               onChange={(e) => sortBy(e)}
               className="filterbutton"
             />
-            <span className="filteroption">Sortera Alfabetiskt</span>
+            <span className="filteroption">Sortera alfabetiskt</span>
           </label>
           <label>
             <input

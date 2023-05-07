@@ -102,7 +102,9 @@ export default function Aktuellt({ postList }) {
   const panelref = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
+    
     let panelCloseHandler = (e) => {
+      console.log(e.target)
       if (panelref.current.contains(e.target)) {
         return;
       }
@@ -118,6 +120,7 @@ export default function Aktuellt({ postList }) {
       if (e.target.className === "fa-solid fa-ellipsis") {
         return;
       }
+      console.log("ran")
       setfilterPanelOpen(false);
     };
 

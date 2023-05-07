@@ -22,6 +22,19 @@
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   border-radius: 0.2rem;
 }
+
+.filterPanel.open {
+  overflow: hidden;
+  max-height: 1500px;
+  transition: max-height 0.35s ease-in-out;
+}
+
+.filterPanel.collapsed {
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+}
+
 .filterPanel.wide {
   border-radius: 0.3rem;
   height: fit-content;
