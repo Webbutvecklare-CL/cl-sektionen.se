@@ -158,7 +158,7 @@ export async function getStaticProps() {
   let eventList = [];
 
   // Aktuellt
-  const todayDate = new Date().toLocaleString("sv").substring(0, 16);
+  const todayDate = new Date().toLocaleString("sv-SE").substring(0, 16);
   const timeNow = Timestamp.fromDate(new Date(todayDate));
   const postRef = collection(firestore, "posts");
 
