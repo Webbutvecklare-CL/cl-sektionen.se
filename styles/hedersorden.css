@@ -42,9 +42,14 @@
     text-align: end;
   }
 
-  li.name-tag::after {
+  .hedersorden li.name-tag:not(:last-child)::after {
     margin: 0 !important;
-    content: ",\00a0" !important;
+    content: ",\00a0";
+  }
+
+  /* Tar bort alla , från namnet precis innan nytt år - Stödjs ej av firefox */
+  .hedersorden li.name-tag:has(+ h3)::after {
+    content: none !important;
   }
 
   .year-header {
