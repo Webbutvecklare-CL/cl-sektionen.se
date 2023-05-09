@@ -1,3 +1,5 @@
+//Används för att konvertera datumet som är sparad i firebase till datumsträng på yyyy-mm-dd format
+//Eftersom .toLocaleString() gav error i production build.
 export function convertDate(date){
     var y = String(date.getUTCFullYear());
     var m = String(date.getUTCMonth());
