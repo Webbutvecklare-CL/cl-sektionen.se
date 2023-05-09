@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import MarkdownRender from "../../components/MarkdownRender";
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
+import BackButton from "../../components/BackButton";
 
 export default function Praxis({ content }) {
   const router = useRouter();
@@ -10,9 +11,7 @@ export default function Praxis({ content }) {
     <div id="contentbody">
       <article className="rese">
         <div className="article-head">
-          <button onClick={() => router.back()}>
-            <i className="fa fa-arrow-left" aria-hidden="true"></i> Tillbaka
-          </button>
+          <BackButton />
         </div>
         <MarkdownRender mdData={content} />
       </article>
