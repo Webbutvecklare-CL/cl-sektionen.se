@@ -29,7 +29,7 @@ export default function FeedPreview({ posts }) {
                 </div>
                 <div className="post-meta">
                   <h2>{post.title}</h2>
-                  {post.author} {date.getFullYear()}
+                  {post.author} {date.getUTCFullYear()}-{date.getUTCMonth}-{date.getUTCDate}
                 </div>
                 <div className="post-content">
                   <p className="subtitle">{post.subtitle}</p>
