@@ -26,7 +26,7 @@ export default function FeaturedPostPreview({ post }) {
           <div className="post-meta">
             <h2>{post.title}</h2>
             <div>
-              <h4>{post.author}</h4>, {date.toLocaleDateString("sv-SE")}
+              <h4>{post.author}</h4>, {/*date.toLocaleDateString("sv-SE")*/}
             </div>
           </div>
           <div className="post-content">
