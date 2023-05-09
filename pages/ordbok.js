@@ -91,11 +91,13 @@ function Ordbok({ ordbok }) {
 
   return (
     <div id="contentbody">
-      <h1 id="page-title">Ordbok</h1>
-      <p>
-        Följande är en lista över krångliga begrepp och förkortningar som kan dyka upp på SM eller
-        andra sammanhang på sektionen.
-      </p>
+      <div className="small-header">
+        <h1 id="page-title">Ordbok</h1>
+        <p>
+          Följande är en lista över krångliga begrepp och förkortningar som kan dyka upp på SM eller
+          andra sammanhang på sektionen.
+        </p>
+      </div>
       <div className="ordbok-wrapper">
         <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
           <input

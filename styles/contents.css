@@ -140,3 +140,8 @@ ol {
 .searchbar:focus-visible {
   outline: 0;
 }
+
+.small-header {
+  max-width: 833px;
+  margin: auto;
+}
