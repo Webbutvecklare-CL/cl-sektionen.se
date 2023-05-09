@@ -1,9 +1,7 @@
 import admin from "firebase-admin";
 import { FieldValue } from "firebase-admin/firestore";
 
-// const serviceAccount = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT);
-
-import serviceAccount from "../../firebase/cl-sektionen-test-firebase-adminsdk-hg4t4-d28e5cc501.json";
+const serviceAccount = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT);
 
 // Admin initialization
 try {

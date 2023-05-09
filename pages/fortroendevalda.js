@@ -107,7 +107,7 @@ function csvTOJSON(csvStream) {
   let contactsData = {};
   committees.forEach((committee) => {
     const committeeData = committee[0].split(","); // Nämnd informationen
-    const committeeId = committeeData[0]; // Id som används i komponenten
+    const committeeId = committeeData[0].toLowerCase(); // Id som används i komponenten
     contactsData[committeeId] = { mail: committeeData[1], period: committeeData[4] };
 
     // Skapa lista med alla poster för nämnden

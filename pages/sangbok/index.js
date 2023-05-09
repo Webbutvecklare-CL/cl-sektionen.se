@@ -99,12 +99,14 @@ function Sangbok({ sånger }) {
 
   return (
     <div id="contentbody">
-      <h1 id="page-title">Sångbok</h1>
-      <p>
-        Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför
-        sektionens 20-årsjubileum. Fysisk kopia av sångboken finns att köpa för 130 kr. Prata med
-        försäljningsansvarig!
-      </p>
+      <div className="small-header">
+        <h1 id="page-title">Sångbok</h1>
+        <p>
+          Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför
+          sektionens 20-årsjubileum. Fysisk kopia av sångboken finns att köpa för 130 kr. Prata med
+          försäljningsansvarig!
+        </p>
+      </div>
 
       <div className="sångbok-wrapper">
         <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>

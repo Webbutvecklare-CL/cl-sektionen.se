@@ -15,6 +15,7 @@ import {
   Timestamp,
   getDocs,
 } from "firebase/firestore";
+import BackButton from "../../components/BackButton";
 
 export default function Post({ postData, postId }) {
   const getDate = (date) => {
@@ -50,9 +51,7 @@ export default function Post({ postData, postId }) {
     <div id="contentbody">
       <article className="post">
         <div className="article-head">
-          <button onClick={() => router.back()}>
-            <i className="fa fa-arrow-left" aria-hidden="true"></i> Tillbaka
-          </button>
+          <BackButton />
         </div>
         <div className="head">
           <div className="image-container">
