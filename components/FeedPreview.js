@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
+import { convertDate } from "../utils/convertDate";
 
 import { analytics } from "../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
@@ -29,7 +30,7 @@ export default function FeedPreview({ posts }) {
                 </div>
                 <div className="post-meta">
                   <h2>{post.title}</h2>
-                  {post.author} {date.toLocaleDateString("sv")}
+                  {post.author} {convertDate(date)}
                 </div>
                 <div className="post-content">
                   <p className="subtitle">{post.subtitle}</p>

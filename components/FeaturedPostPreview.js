@@ -2,7 +2,7 @@ import Link from "next/link";
 import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
 import Image from "next/image";
-
+import { convertDate } from "../utils/convertDate";
 import bg from "../public/media/img/KTHcover.jpg";
 
 import { analytics } from "../firebase/clientApp";
@@ -26,7 +26,7 @@ export default function FeaturedPostPreview({ post }) {
           <div className="post-meta">
             <h2>{post.title}</h2>
             <div>
-              <h4>{post.author}</h4>, {date.toLocaleDateString("sv")}
+              <h4>{post.author}</h4>, {convertDate(date)}
             </div>
           </div>
           <div className="post-content">
