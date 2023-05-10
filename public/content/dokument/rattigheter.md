@@ -23,4 +23,4 @@ Styrelsen är beslutsmässig då minst hälften av ledamöterna är närvarande,
 
 - **Övriga personer** kan adjungeras genom beslut på mötet och få närvarorätt, yttranderätt och vid behov yrkanderätt.
 
-- **Mötet får inte** fatta besluta i ärenden som inte upptagits på föredragningslistan.
+- **Mötet får inte** fatta beslut i ärenden som inte upptagits på föredragningslistan.
