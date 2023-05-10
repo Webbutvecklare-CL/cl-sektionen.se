@@ -46,10 +46,11 @@ export default function Navbar() {
             <a style={{ color: "inherit" }} href="https://www.facebook.com/groups/2388999847/">
               <i className="fa-brands fa-facebook"></i>
             </a>
-            <a
-              style={{ color: "inherit" }}
-              href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/">
+            <a style={{ color: "inherit" }} href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/">
               <i className="fa-brands fa-github"></i>
+            </a>
+            <a style={{ color: "inherit"}} href="https://login.one.com/mail">
+              <i className="fa-solid fa-envelope"></i>
             </a>
             <Link href="/personalrummet" style={{ color: "inherit" }}>
               <i className="fa-solid fa-mug-hot"></i>
