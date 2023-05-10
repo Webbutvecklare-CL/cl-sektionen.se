@@ -37,6 +37,7 @@ export default function Navbar() {
             <Link href={"/kontakt"}>Kontakt</Link>
             <Link href={"/hjalp-vid-illabehandling"}>Illabehandling</Link>
             <Link href={"/dokument"}>Dokument</Link>
+            <Link href={"https://cl-sektionen.zyrosite.com"}>Gamla webbplatsen</Link>
           </div>
           <div id="sociallinks" className="footer-col">
             <a style={{ color: "inherit" }} href="https://www.instagram.com/clsektionen/">
