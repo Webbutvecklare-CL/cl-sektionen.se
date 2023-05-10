@@ -1,6 +1,8 @@
 # Kårfullmäktige
 
-Sektionens kårfullmäktigedelegation består av två personer, varav en är suppleant. Personerna representerar CL i Kårfullmäktige (KF) på THS, vilket är kårens högsta beslutande organ. Där bestäms en rad saker som rör THS, till exempel vad de ska använda sina pengar till. KF består av representanter från alla sektioner. De som är med i Kårfullmäktige väljs genom val på THS, där medlemmar i sektionen får rösta. Det innebär att posterna inte väljs av sektionsmötet på CL.
+THS Kårfullmäktige (KF) är THS högsta beslutande organ. Varje sektion väljer ett antal representanter till Kårfullmäktige, som är det forum där sektionerna möts och beslutar om övergripande gemensamma frågor samt delar med sig av egna frågor och erfarenheter från sektionerna. Det är Kårfullmäktige som beslutar om THS stadgar och verksamhetsplan. Det är även Kårfullmäktige som förrättar val till kårstyrelsen, kårledningen och kårens andra centrala verksamheter.
+
+Sektionens kårfullmäktigedelegation består av en ordinarie ledamot och suppleanter.
 
 ### Kontakt: kf@cl-sektionen.se
 
