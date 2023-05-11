@@ -13,7 +13,7 @@ function HideDate(currentMonth) {
   return true;
 }
 
-function Sangbok({ sånger }) {
+export default function Sangbok({ sånger }) {
   const [sortedSongs, setSortedSongs] = useState(
     [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
   );
@@ -97,6 +97,25 @@ function Sangbok({ sånger }) {
     );
   };
 
+  var audio;
+  const playSong = () => {
+    if (audio) {
+      audio.pause();
+      const btn = document.querySelector(".muteButton");
+      if (btn) btn.remove();
+    }
+    audio = new Audio("/media/ljud/Rick Astley - Never Gonna Give You Up.mp3");
+    audio.play();
+    const muteButton = document.createElement("button");
+    muteButton.addEventListener("click", (e) => {
+      audio.pause();
+      muteButton.remove();
+    });
+    muteButton.classList.add("muteButton");
+    muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"/>';
+    document.querySelector("div.inputfält").appendChild(muteButton);
+  };
+
   return (
     <div id="contentbody">
       <div className="small-header">
@@ -120,6 +139,9 @@ function Sangbok({ sånger }) {
             onBlur={() => {
               // När användaren lämnar sökrutan
               logEvent(analytics, "search", { search_term: search });
+              if (["never gonna give you up", "spela en låt"].includes(search.toLowerCase())) {
+                playSong();
+              }
             }}
             className="searchbar"
           />
@@ -183,7 +205,6 @@ function Sangbok({ sånger }) {
     </div>
   );
 }
-export default Sangbok;
 
 export async function getStaticProps() {
   var sånger = JSON.parse(readFileSync(`public/content/data/sangbok-index.json`));
