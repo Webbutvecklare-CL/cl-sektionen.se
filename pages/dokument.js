@@ -45,6 +45,14 @@ export default function Dokument({ contents }) {
             </div>
           }
         />
+        <Card
+          link={"/praxis/skattjakt"}
+          innerText={
+            <div>
+              <i className="fa-solid fa-gem" /> Praxis för <b>Skattjakt</b>
+            </div>
+          }
+        />
       </div>
 
       <h2>Blanketter, mallar och lathundar</h2>
