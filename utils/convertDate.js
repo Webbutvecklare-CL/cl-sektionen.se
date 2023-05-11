@@ -2,7 +2,7 @@
 //Eftersom .toLocaleString() gav error i production build.
 export function convertDate(date){
     var y = String(date.getUTCFullYear());
-    var m = String(date.getUTCMonth());
+    var m = String(date.getUTCMonth() + 1);
     var d = String(date.getUTCDate());
     
     if (m.length < 2) {
@@ -13,5 +13,6 @@ export function convertDate(date){
     d = "0" + d;
     }
 
-    return [y, m, d].join("-");
+    var res = [y, m, d].join("-");
+    return res.includes("NaN") ? "" : res;
 }

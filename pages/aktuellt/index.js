@@ -1,6 +1,7 @@
 import { firestore, analytics } from "../../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
+import { convertDate } from "../../utils/convertDate";
 
 import { useState, useRef, useEffect } from "react";
 
@@ -241,7 +242,7 @@ export default function Aktuellt({ postList }) {
           type="date"
           className="datepicker"
           required
-          value={FormatDate(new Date(Date.parse(startDate)))}
+          value={convertDate(new Date(Date.parse(startDate)))}
           onChange={(e) => setStartDate(new Date(e.target.value))}
           max={endDate}
         />
@@ -252,7 +253,7 @@ export default function Aktuellt({ postList }) {
           type="date"
           className="datepicker"
           required
-          value={FormatDate(new Date(Date.parse(endDate)))}
+          value={convertDate(new Date(Date.parse(endDate)))}
           onChange={(e) => setEndDate(new Date(e.target.value))}
         />
       </div>
@@ -367,24 +368,6 @@ export default function Aktuellt({ postList }) {
       </div>
     </div>
   );
-}
-
-//Hjälpfunktion för att visa upp vald publiceringsdatum på android.
-function FormatDate(dateObj) {
-  var month = "" + (dateObj.getMonth() + 1);
-  var day = "" + dateObj.getDate();
-  var year = dateObj.getFullYear();
-
-  if (month.length < 2) {
-    month = "0" + month;
-  }
-
-  if (day.length < 2) {
-    day = "0" + day;
-  }
-
-  var res = [year, month, day].join("-");
-  return res.includes("NaN") ? "" : res;
 }
 
 export async function getStaticProps() {
