@@ -18,6 +18,9 @@ Sektionens skyddsombud har tystnadsplikt och kan hjälpa dig om något inträffa
 - Försök vara lyhörd och förstå vilket beteende som upplevs kränkande och upphör genast med detta
 - Ta gärna kontakt med sektionens skyddsombud eller JML-nämnden för att få stöd
 
+### Om du letar skatt:
+- Så är det viktigt att följa sektionens styrdokument och praxis.
+
 ## Kontakt
 
 Sektionens skyddsombud når du via mail: [skyddsombud@cl-sektionen.se](mailto:skyddsombud@cl-sektionen.se). Du kan också skicka in en händelsebeskrivning som enbart når skyddsombudet via följande länk: [Anmälan om illabehandling](https://forms.gle/28p5Y6c4ToNe4K9t6). Om du gör anmälan via länken kan du välja att vara anonym.

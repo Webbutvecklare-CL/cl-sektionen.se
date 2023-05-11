@@ -73,3 +73,5 @@ Botho University arbetar aktivt för att vara hållbara. När vi var där kom 40
 Det här var en fantastisk (men ibland frustrerande) upplevelse, och jag rekommenderar alla studenter att utforska möjligheterna att uppleva en annan kultur. Jag är också väldigt glad att jag tog möjligheten att åka till Afrika, en världsdel jag aldrig har besökt tidigare. Jag kommer definitivt åka tillbaka och utforska mer!
 
 Hade jag kunnat ändra något med min resa så hade det varit att försöka komma in i mer studentsammanhang. Eftersom vi inte läste någon kurs utan bara gjorde datainsamling till examensarbetet var det svårt för oss att hitta andra studenter att umgås med.
+
+# En nämnd sitter på en av ledtrådarna!!
