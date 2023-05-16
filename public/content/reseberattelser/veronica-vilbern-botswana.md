@@ -79,6 +79,3 @@ Det största hindret för vår undersökning var nog att allt tog mycket längre
 Jag önskar att vi hade lyckats ta oss in mer i studentlivet på universitetet där vi var. Det kändes ofta som att vi två var lite isolerade från omvärlden och det hade varit roligt att faktiskt lära känna fler människor. Kanske hade vi då också kunnat få uppleva mer av staden och landet – det känns som att våra två månader knappt skrapade på ytan.
 
 Summa summarum var det en helt otrolig resa, med fantastiska upplevelser, magisk natur och supertrevliga människor. Det har varit så givande på så många plan och jag kan verkligen rekommendera den som är nyfiken att söka liknande stipendium och ge sig ut.
-
-
-# En nämnd sitter på en av ledtrådarna!

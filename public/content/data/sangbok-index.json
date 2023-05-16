@@ -28,7 +28,7 @@
     "href": "/cl_i_mitt_hjarta",
     "sida": "93",
     "kategori": "Visor om CL",
-    "hemlig": true
+    "hemlig": "true"
   },
   {
     "title": "Crassus vinsång",
@@ -429,7 +429,7 @@
     "href": "/magistratets_makt",
     "sida": "94",
     "kategori": "Visor om CL",
-    "hemlig": true
+    "hemlig": "true"
   },
   {
     "title": "Matlab",
@@ -501,7 +501,8 @@
     "title": "Osqviksägen",
     "href": "/osqviksagen",
     "sida": "91",
-    "kategori": "Visor om CL"
+    "kategori": "Visor om CL",
+    "hemlig": "true"
   },
   {
     "title": "Planksaft",
@@ -700,7 +701,7 @@
     "href": "/vi_kan_visa_en_varld",
     "sida": "95",
     "kategori": "Visor om CL",
-    "hemlig": true
+    "hemlig": "true"
   },
   {
     "title": "Vi ska supa",
