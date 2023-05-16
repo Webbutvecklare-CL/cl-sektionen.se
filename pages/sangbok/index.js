@@ -7,7 +7,7 @@ import TextHighlighter from "../../components/Highlighter";
 
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth) {
-  if (currentMonth < 6 || currentMonth > 9) {
+  if (currentMonth < 5 || currentMonth > 8) {
     return false;
   }
   return true;
@@ -123,9 +123,8 @@ export default function Sangbok({ sånger }) {
         <p>
           Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför
           sektionens 20-årsjubileum. Fysisk kopia av sångboken finns att köpa för 130 kr. Prata med
-          försäljningsansvarig
+          försäljningsansvarig!
         </p>
-        <p>Du skall söka efter en förlist sång. Du behöver ta en resa till Botswana.</p>
       </div>
 
       <div className="sångbok-wrapper">

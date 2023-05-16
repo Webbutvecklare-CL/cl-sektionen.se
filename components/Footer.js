@@ -31,29 +31,29 @@ export default function Navbar() {
           </div>
           <div id="quick-links" className="footer-col">
             <h3>Hitta snabbt</h3>
-            <Link href={"/for-foretag"}>För företag</Link>
             <Link href={"/om-oss"}>Om oss</Link>
-            <Link href={"/aktuellt"}>Aktuellt</Link>
             <Link href={"/kontakt"}>Kontakt</Link>
+            <Link href={"/for-foretag"}>För företag</Link>
+            <Link href={"/aktuellt"}>Aktuellt</Link>
             <Link href={"/hjalp-vid-illabehandling"}>Illabehandling</Link>
             <Link href={"/dokument"}>Dokument</Link>
             <Link href={"https://cl-sektionen.zyrosite.com"}>Gamla webbplatsen</Link>
           </div>
           <div id="sociallinks" className="footer-col">
-            <a style={{ color: "inherit" }} href="https://www.instagram.com/clsektionen/">
-              <i className="fa-brands fa-instagram"></i>
+            <a href="https://www.instagram.com/clsektionen/">
+              <i className="fa-brands fa-instagram" />
             </a>
-            <a style={{ color: "inherit" }} href="https://www.facebook.com/groups/2388999847/">
-              <i className="fa-brands fa-facebook"></i>
+            <a href="https://www.facebook.com/groups/2388999847/">
+              <i className="fa-brands fa-facebook" />
             </a>
-            <a style={{ color: "inherit" }} href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/">
-              <i className="fa-brands fa-github"></i>
+            <a href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/">
+              <i className="fa-brands fa-github" />
             </a>
-            <a style={{ color: "inherit"}} href="https://login.one.com/mail">
-              <i className="fa-solid fa-envelope"></i>
+            <a href="https://login.one.com/mail">
+              <i className="fa-solid fa-envelope" />
             </a>
-            <Link href="/personalrummet" style={{ color: "inherit" }}>
-              <i className="fa-solid fa-mug-hot"></i>
+            <Link href="/personalrummet">
+              <i className="fa-solid fa-mug-hot" />
             </Link>
           </div>
         </div>
