@@ -7,7 +7,7 @@ import TextHighlighter from "../../components/Highlighter";
 
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth) {
-  if (currentMonth < 6 || currentMonth > 9) {
+  if (currentMonth < 5 || currentMonth > 8) {
     return false;
   }
   return true;
