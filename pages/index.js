@@ -139,9 +139,9 @@ export default function Index({ contents, featured, infoList, eventList }) {
                 </Link>
               </section>
               <section>
-                <MarkdownRender mdData={contents["samarbeten"]} />
+                <MarkdownRender mdData={contents["for-studenter"]} />
                 <Link className="section-button" href={"/samarbeten"}>
-                  <button>Läs om våra samarbeten</button>
+                  <button>Aktiva samarbeten</button>
                 </Link>
               </section>
             </div>

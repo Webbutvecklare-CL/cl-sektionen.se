@@ -126,7 +126,7 @@ button:hover {
   height: auto;
 
   z-index: -1;
-  filter: brightness(85%) blur(8px);
+  filter: brightness(65%) blur(16px);
 }
 
 .body404page{
