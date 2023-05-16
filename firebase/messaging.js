@@ -1,6 +1,8 @@
-import { firestore, messaging } from "./clientApp";
+import { firestore, messaging, analytics } from "./clientApp";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { getToken } from "firebase/messaging";
+
+import { logEvent } from "firebase/analytics";
 
 const VAPID_KEY = process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY;
 
@@ -34,6 +36,8 @@ export async function saveMessagingDeviceToken(collection) {
       await updateDoc(tokenRef, {
         tokens: arrayUnion(fcmToken),
       });
+
+      logEvent(analytics, "notification_subscribe", { topic: collection });
 
       return fcmToken;
     } else {

@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }) {
 
     // Skapar en event listener på när sidan uppdateras och loggar då sidvisningen
     const logScreenEvent = (url) => {
-      logEvent(analytics, "screen_view", { firebase_screen: url });
+      logEvent(analytics, "screen_view", { screen_path: url });
     };
 
     router.events.on("routeChangeComplete", logScreenEvent);
