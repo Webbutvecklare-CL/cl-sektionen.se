@@ -121,12 +121,12 @@ export default function EditPost() {
       // Om det är en bild så ska den få lite särbehandling senare
       // Link ska aldrig uppdateras och sparas inte heller
       // Data som inte sparas i inlägget/dokumentet
-      const jumpKeys = ["image", "link", "publishInCalendar", "sendNotification"];
+      const jumpKeys = ["tags", "image", "link", "publishInCalendar", "sendNotification"];
       if (jumpKeys.includes(key)) {
         continue;
       }
 
-      if (data[key] !== prefill[key]) {
+      if (data[key] != prefill[key]) {
         // Datumen sparas som en string och måste göras om till firebase date
         if (key.includes("date") || key.includes("startDateTime") || key.includes("endDateTime")) {
           postData[key] = Timestamp.fromDate(new Date(data[key]));
@@ -134,6 +134,10 @@ export default function EditPost() {
           postData[key] = data[key];
         }
       }
+    }
+
+    if (JSON.stringify(data.tags) != JSON.stringify(prefill.tags)) {
+      postData.tags = data.tags;
     }
 
     const postRef = doc(firestore, "posts", postId);
@@ -215,7 +219,7 @@ export default function EditPost() {
       console.error(error);
     }
 
-    logEvent(analytics, "post_update", { updated_keys: Object.keys(data) });
+    logEvent(analytics, "post_update", { updated_keys: Object.keys(postData) });
   };
 
   // Om man klickar på enter

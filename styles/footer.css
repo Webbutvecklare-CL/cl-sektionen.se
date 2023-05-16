@@ -50,6 +50,10 @@ footer div img {
   font-size: 2.5rem;
 }
 
+#sociallinks a {
+  color: white;
+}
+
 #karta {
   float: right;
   flex-grow: 100;
