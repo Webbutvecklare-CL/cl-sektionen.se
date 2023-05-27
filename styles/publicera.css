@@ -257,34 +257,35 @@ kunna ändra färgen på texten om strong inte ändras */
 /* Info box / Tooltip  */
 .infobox-container {
   display: inline;
+  margin-left: 0.4rem;
 }
 
 .infobox {
+  position: absolute;
   visibility: hidden;
-  width: 0;
-  height: 0;
+  z-index: 1;
   background-color: var(--clr4);
   color: #fff;
+  max-width: 20rem;
   padding: 0.6rem;
   border-radius: 6px;
   overflow: hidden;
 
-  transition: all 0.2s linear;
-  /* transition: all .82s cubic-bezier(0.74, 0.04, 0.64, 2.36); */
+  transition: all 0.3s ease-in-out;
 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
   opacity: 0;
+
+  transform: translateX(-0.4rem);
 }
 
 .infobox-container:hover > .infobox {
   visibility: visible;
-  margin-left: 1rem;
-  width: auto;
-  height: auto;
-  max-width: 20rem;
-  max-height: 20rem;
 
   opacity: 1;
+  transform: translate(0px);
+}
+
+.infobox-container i::before {
+  padding-right: 1rem;
+  height: 0.8rem;
 }

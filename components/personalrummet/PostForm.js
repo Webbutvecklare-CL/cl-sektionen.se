@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
-import TextField from "./TextField";
+import TextField from "./form components/TextField";
+import InfoBox from "./form components/InfoBox";
+import Label from "./form components/Label";
 import { create_id } from "../../utils/postUtils";
 import { useAuth } from "../../context/AuthContext";
 
@@ -227,19 +229,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   };
 
   // Komponenter
-  const RequiredStar = () => {
-    return <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>;
-  };
-
-  const Label = ({ children, required }) => {
-    return (
-      <label>
-        {children}
-        {required ? <RequiredStar /> : ""}
-      </label>
-    );
-  };
-
   const ImageInput = () => {
     return (
       <>
@@ -358,14 +347,11 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             {userData?.permission === "admin" && (
               <>
                 <Label>
-                  Nämnd:{" "}
-                  <div className="infobox-container">
-                    <i className="fa-regular fa-circle-question fa-xs"> </i>
-                    <span className="infobox">
-                      Lägger du upp ett inlägg åt en annan nämnd kan du ändra så att de senare kan
-                      redigera det. Denna funktionen finns endast för dig som har admin-behörighet.
-                    </span>
-                  </div>
+                  Nämnd:
+                  <InfoBox
+                    text="Lägger du upp ett inlägg åt en annan nämnd kan du ändra så att de senare kan
+                      redigera det. Denna funktionen finns endast för dig som har admin-behörighet."
+                  />
                 </Label>
                 <select
                   onChange={(e) => {
@@ -426,13 +412,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
             {/* URL */}
             <Label>
-              Url:{" "}
-              <div className="infobox-container">
-                <i className="fa-regular fa-circle-question fa-xs"> </i>
-                <span className="infobox">
-                  Länken måste vara unik och får bara innehålla a-z, 0-9 samt &quot;-&quot;.
-                </span>
-              </div>
+              Url:
+              <InfoBox text='Länken måste vara unik och får bara innehålla a-z, 0-9 samt "-".' />
             </Label>
             <input
               disabled={editMode || tags.StyM || tags.SM}
