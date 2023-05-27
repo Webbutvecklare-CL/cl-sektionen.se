@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CommitteeInfo from "../components/CommitteeInfo";
 import { getContentData } from "../utils/contents";
+import { board, committees, trustees, associations } from "../constants/committees-data";
 
-export default function Fortroendevalda({ descriptions, committeesData, contacts }) {
+export default function Fortroendevalda({ descriptions, contacts }) {
   // Descriptions - Objekt med alla nämndbeskrivningar
   // Contacts - Objekt med alla namn och mail till förtroendevalda
   // CommitteeData - namn, icon och id till varje nämnd - används i menyn
@@ -42,22 +43,22 @@ export default function Fortroendevalda({ descriptions, committeesData, contacts
       <div className="förtroendevalda_wrapper">
         <nav className="nämnder_nav">
           <ul id="nämnder_nav_ul">
-            <NavTab data={committeesData.board} />
+            <NavTab data={board} />
 
             <h2>Nämnder</h2>
-            {committeesData.committees.map((committee, idx) => {
+            {committees.map((committee, idx) => {
               return <NavTab data={committee} key={idx} />;
             })}
             <br />
 
             <h2>Övriga förtroendevalda</h2>
-            {committeesData.trustees.map((trustee, idx) => {
+            {trustees.map((trustee, idx) => {
               return <NavTab data={trustee} key={idx} />;
             })}
             <br />
 
             <h2>Sektionsföreningar</h2>
-            {committeesData.associations.map((association, idx) => {
+            {associations.map((association, idx) => {
               return <NavTab data={association} key={idx} />;
             })}
           </ul>
@@ -76,13 +77,11 @@ export default function Fortroendevalda({ descriptions, committeesData, contacts
 
 export async function getStaticProps() {
   const descriptions = getContentData("fortroendevalda");
-  const committeesData = JSON.parse(getContentData("data")["committees-data"]);
   const contacts = csvTOJSON(getContentData("data")["fortroendevalda"]);
 
   return {
     props: {
       descriptions,
-      committeesData,
       contacts,
     },
   };
