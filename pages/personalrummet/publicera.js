@@ -44,6 +44,7 @@ export default function Publicera({ calendarID }) {
         tags: [],
         publishDate: today,
         author: all_committee_ids[userData.committee].name,
+        authorCommittee: userData.committee,
       });
     }
   }, [userData, today]);
@@ -90,7 +91,7 @@ export default function Publicera({ calendarID }) {
       author: data.author,
       publishDate: Timestamp.fromDate(new Date()),
       tags: data.tags,
-      committee: !userData.permission === "admin" ? userData.committee : data.authorCommittee, // Länkar inlägget med nämnden
+      committee: userData.permission === "admin" ? data.authorCommittee : userData.committee, // Länkar inlägget med nämnden
       creator: userData.uid, // Länkar inlägget till användaren
       type: data.type,
       visibility: data.visibility,
@@ -129,6 +130,7 @@ export default function Publicera({ calendarID }) {
         // Hoppar ner och rensar formuläret osv
       } catch (err) {
         setError("Inlägget uppladdat men inte bilden");
+        // Lägg till: Fråga användaren om de vill ändå skicka notis jadajada eller ta bort inlägget
         setIsPending(false);
         console.log(err);
         return;

@@ -19,11 +19,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [tags, setTags] = useState(prefill.tags);
   const [startDateTime, setStartDateTime] = useState(prefill.startDateTime);
   const [endDateTime, setEndDateTime] = useState(prefill.endDateTime);
-  // const [publishDate, setPublishDate] = useState(prefill.publishDate);
   const [visibility, setVisibility] = useState(prefill.visibility);
   const [meetingNumber, setMeetingNumber] = useState(1);
   const author = useRef(null);
-  const [authorCommittee, setAuthorCommittee] = useState("");
+  const [authorCommittee, setAuthorCommittee] = useState(prefill.authorCommittee);
   const [link, setLink] = useState(prefill.link);
 
   const [error, setError] = useState("");
@@ -55,6 +54,11 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       author.current.value = prefill.author;
     }
   }, [prefill.author, author]);
+
+  // Uppdaterar författare input med prefill
+  useEffect(() => {
+    setAuthorCommittee(prefill.authorCommittee);
+  }, [prefill.authorCommittee]);
 
   // Om det är ett SM eller StyM så uppdatera länken efter typ och mötes nummer
   useEffect(() => {
@@ -135,7 +139,13 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
 
     // Image check
-    // TODO
+    if (image.size > 0.8 * 1024 * 1024) {
+      return "Filstorleken på bilden får inte vara större än 0.8 MB";
+    }
+    const available_formats = ["jpeg", "jpg", "webp", "avif", "png", "gif"];
+    if (!available_formats.includes(image.type.split("/")[1])) {
+      return "Filformatet på bilden måste vara något av följande: " + available_formats.join(" ");
+    }
 
     //Kollar start- och sluttider
     try {
@@ -241,6 +251,12 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                 className="fa-regular fa-trash-can"
                 onClick={() => setImage({ name: undefined, url: undefined })}
               />
+            </div>
+            <div className="image-meta">
+              <p>
+                <span>Format: {image.type.split("/")[1]}</span>
+                <span>Storlek: {Math.round((image.size / 1024) * 10) / 10} kB</span>
+              </p>
             </div>
             <p>
               <i>Så här kommer bilden se ut i flödet</i>

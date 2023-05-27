@@ -60,6 +60,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
     // Gör en verifiering att användaren vill ta bort inlägget
     // Ta bort inlägget
     console.log("Ta bort inlägg");
+    console.log("TODO");
   };
 
   return (
