@@ -4,7 +4,7 @@ import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import BackButton from "../../components/BackButton";
 
-function Sang({ content }) {
+export default function Sang({ content }) {
   return (
     <div id="contentbody">
       <article className="sång">
@@ -14,7 +14,6 @@ function Sang({ content }) {
     </div>
   );
 }
-export default Sang;
 
 export async function getStaticProps(context) {
   // Skickar med filnamnet som en prop vilket gör att next kan serverside rendera alla reseberättelser

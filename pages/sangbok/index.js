@@ -30,7 +30,7 @@ export default function Sangbok({ sånger }) {
     } else {
       setSortedSongs([...sånger].sort((a, b) => a.title.localeCompare(b.title, "sv")));
     }
-  }, [sort]);
+  }, [sort, sånger]);
 
   const [search, setSearch] = useState("");
   const currentMonth = new Date().getMonth();
@@ -82,10 +82,12 @@ export default function Sangbok({ sånger }) {
   });
 
   const SångLänk = ({ sång }) => {
-    return sång.hemlig && HideDate(currentMonth) ? (
-      ""
-    ) : (
-      <Link href={`sangbok${sång.href}`} className="sånglänk">
+    // Döljer bla majjelåtar under vår/sommar
+    if (sång.hemlig && HideDate(currentMonth)) {
+      return "";
+    }
+    return (
+      <Link href={`/sangbok${sång.href}`} className="sånglänk" referrerPolicy="hej">
         <div>
           <span className="sångtitel">
             <TextHighlighter search={search} text={sång.title} />

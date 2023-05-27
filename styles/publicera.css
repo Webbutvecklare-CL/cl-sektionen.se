@@ -30,6 +30,7 @@
 
 .create input,
 .create textarea,
+.create select,
 .create .image-file {
   width: 100%;
   padding: 6px 10px;
@@ -138,9 +139,36 @@ kunna ändra färgen på texten om strong inte ändras */
   background-color: var(--clr3);
 }
 
+.create .image-meta p {
+  display: flex;
+  gap: 1rem;
+  font-size: 16px;
+}
+
 /* Förhandsvisning bild */
 .create #frame {
   object-fit: cover;
+}
+
+/* Nämnd select */
+.create select {
+  margin-bottom: 1rem;
+  margin-top: 10px;
+  padding: 6px 6px;
+}
+
+.create select:focus {
+  box-shadow: none;
+  outline: solid 1px var(--clgra);
+}
+
+.create select option:checked {
+  background-color: var(--clr1);
+}
+
+.create select:before {
+  background-color: #92534d;
+  content: "asd";
 }
 
 /* Calender input */
@@ -235,29 +263,35 @@ kunna ändra färgen på texten om strong inte ändras */
 /* Info box / Tooltip  */
 .infobox-container {
   display: inline;
+  margin-left: 0.4rem;
 }
 
 .infobox {
+  position: absolute;
   visibility: hidden;
-  width: 0;
-  height: 0;
+  z-index: 1;
   background-color: var(--clr4);
   color: #fff;
+  max-width: 20rem;
   padding: 0.6rem;
   border-radius: 6px;
   overflow: hidden;
 
-  transition: all 0.1s linear;
-  /* transition: all .82s cubic-bezier(0.74, 0.04, 0.64, 2.36); */
+  transition: all 0.3s ease-in-out;
 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
+  opacity: 0;
+
+  transform: translateX(-0.4rem);
 }
 
 .infobox-container:hover > .infobox {
   visibility: visible;
-  margin-left: 1rem;
-  width: 16rem;
-  height: 3rem;
+
+  opacity: 1;
+  transform: translate(0px);
+}
+
+.infobox-container i::before {
+  padding-right: 1rem;
+  height: 0.8rem;
 }
