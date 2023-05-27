@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 import TextField from "./TextField";
 import { create_id } from "../../utils/postUtils";
+import { useAuth } from "../../context/AuthContext";
 
 // Taggar som kan väljas
 import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
+import { all_committees } from "../../constants/committees-data";
 
 export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [title, setTitle] = useState(prefill.title);
-  const [subtitle, setSubtitle] = useState(prefill.subtitle);
+  const subtitle = useRef(null);
   const [image, setImage] = useState(prefill.image);
-  const [body, setBody] = useState(prefill.body);
+  const body = useRef(null);
   const [tags, setTags] = useState(prefill.tags);
   const [startDateTime, setStartDateTime] = useState(prefill.startDateTime);
   const [endDateTime, setEndDateTime] = useState(prefill.endDateTime);
   // const [publishDate, setPublishDate] = useState(prefill.publishDate);
   const [visibility, setVisibility] = useState(prefill.visibility);
   const [meetingNumber, setMeetingNumber] = useState(1);
-  const [author, setAuthor] = useState(prefill.author);
+  const author = useRef(null);
+  const [authorCommittee, setAuthorCommittee] = useState("");
   const [link, setLink] = useState(prefill.link);
 
   const [error, setError] = useState("");
 
   const [type, setType] = useState("");
-  const [publishInCalendar, setPublishInCalendar] = useState(false);
-  const [sendNotification, setSendNotification] = useState(true);
+  const publishInCalendar = useRef(null);
+  const sendNotification = useRef(null);
+
+  const { userData } = useAuth();
 
   // Sätter typ och tags från prefill
   useEffect(() => {
@@ -44,8 +49,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
   // Uppdaterar författare input med prefill
   useEffect(() => {
-    setAuthor(prefill.author);
-  }, [prefill.author]);
+    if (author.current) {
+      author.current.value = prefill.author;
+    }
+  }, [prefill.author, author]);
 
   // Om det är ett SM eller StyM så uppdatera länken efter typ och mötes nummer
   useEffect(() => {
@@ -82,17 +89,17 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
     let formData = {
       title,
-      subtitle,
+      subtitle: subtitle.current.value,
       image,
-      body,
-      author,
-      // publishDate,
+      body: body.current.value,
+      author: author.current.value,
+      authorCommittee,
       visibility,
       tags: selectedTags,
       type,
       link,
-      publishInCalendar,
-      sendNotification,
+      publishInCalendar: publishInCalendar?.current?.checked,
+      sendNotification: sendNotification?.current?.checked,
     };
 
     // Om det är ett event skickar vi med start- och sluttid
@@ -113,29 +120,20 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (title.length < 3) {
       return "Titeln ska minst vara 3 tecken lång.";
     }
-    if (subtitle.length > 120) {
+    if (subtitle.current.value.length > 120) {
       return "Subtiteln får max vara 120 tecken lång.";
     }
 
-    if (body.length < 3) {
+    if (body.current.value.length < 3) {
       return "Du måste ange en text med minst 3 tecken.";
     }
 
-    if (author.length < 2) {
+    if (author.current.value.length < 2) {
       return "Du måste ange en författare med minst 2 tecken.";
     }
 
-    // try {
-    //   if (editMode) {
-    //     if (new Date(publishDate) <= new Date(prefill.publishDate)) {
-    //       return "Du kan inte ange ett tidigare publiceringsdatum än det tidigare.";
-    //     }
-    //   } else if (new Date(publishDate) <= new Date().setHours(0, 0, 0, 0)) {
-    //     return "Du kan inte ange ett tidigare publiceringsdatum än idag.";
-    //   }
-    // } catch {
-    //   return "Publiceringsdatumet måste vara på formen åååå-mm-dd";
-    // }
+    // Image check
+    // TODO
 
     //Kollar start- och sluttider
     try {
@@ -226,23 +224,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     } else {
       setLink(create_id(txt));
     }
-  };
-
-  // Rensa formuläret
-  const clear_form = () => {
-    // Nollställ allt
-    setTitle("");
-    setSubtitle("");
-    setImage("");
-    setBody("");
-    setTags([]);
-    setPublishDate("");
-    setAuthor("");
-
-    document.querySelectorAll(".tag").forEach((elm) => {
-      elm.classList.remove("selected");
-    });
-    document.querySelector("input[type=file]").value = "";
   };
 
   // Komponenter
@@ -353,24 +334,54 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             )}
 
             <Label required>Titel:</Label>
-            <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input
+              type="text"
+              required
+              value={title}
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
 
             <Label>Undertitel:</Label>
-            <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
+            <input type="text" ref={subtitle} defaultValue={prefill.subtitle} />
 
             <Label>Bild:</Label>
             <ImageInput />
 
             <Label required>Inlägg:</Label>
-            <TextField value={body} onChange={setBody} />
+            <TextField _ref={body} value={prefill.body} />
 
             <Label required>Författare:</Label>
-            <input
-              type="text"
-              required
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-            />
+            <input type="text" required ref={author} defaultValue={prefill.author} />
+
+            {userData?.permission === "admin" && (
+              <>
+                <Label>
+                  Nämnd:{" "}
+                  <div className="infobox-container">
+                    <i className="fa-regular fa-circle-question fa-xs"> </i>
+                    <span className="infobox">
+                      Lägger du upp ett inlägg åt en annan nämnd kan du ändra så att de senare kan
+                      redigera det. Denna funktionen finns endast för dig som har admin-behörighet.
+                    </span>
+                  </div>
+                </Label>
+                <select
+                  onChange={(e) => {
+                    setAuthorCommittee(e.target.value);
+                  }}
+                  defaultValue={userData.committee}>
+                  {all_committees.map((committee, idx) => {
+                    return (
+                      <option value={committee.id} key={idx}>
+                        {committee.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </>
+            )}
 
             {type === "event" && (
               <>
@@ -439,8 +450,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                   <input
                     id="calendar"
                     type="checkbox"
-                    checked={publishInCalendar}
-                    onChange={() => setPublishInCalendar(!publishInCalendar)}
+                    ref={publishInCalendar}
+                    defaultChecked={false}
                   />
                 </div>
               </>
@@ -450,12 +461,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               <>
                 <div className="calender-input">
                   <label htmlFor="notis">Skicka notis (Test):</label>
-                  <input
-                    id="notis"
-                    type="checkbox"
-                    checked={sendNotification}
-                    onChange={() => setSendNotification(!sendNotification)}
-                  />
+                  <input id="notis" type="checkbox" ref={sendNotification} defaultChecked={true} />
                 </div>
               </>
             )}

@@ -1,11 +1,14 @@
 // Används för att kunna skriva rich text vilket gör att man kan formatera texten
 // Målet är att WYSIWYG - What you see is what you get. Dvs så man formaterar det
 // så kommer det se ut när det är publicerat.
+
+import { useState } from "react";
+
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 
-export default function TextField({ value, onChange }) {
+export default function TextField({ _ref, defaultValue }) {
   // Quill toolbar stuff
   let modules = {
     toolbar: [
@@ -32,13 +35,19 @@ export default function TextField({ value, onChange }) {
     "color",
   ];
 
+  const [value, setValue] = useState(defaultValue);
+
   return (
     <ReactQuill
       theme="snow"
       modules={modules}
       formats={formats}
+      required
+      ref={_ref}
       value={value}
-      onChange={onChange}
-      required></ReactQuill>
+      onChange={(value) => {
+        setValue(value);
+        _ref.current.value = value;
+      }}></ReactQuill>
   );
 }

@@ -14,6 +14,8 @@ import { validateLink } from "../../utils/postUtils";
 import { reauthenticate } from "../../utils/authUtils";
 import { revalidate, sendNotification } from "../../utils/server";
 
+import { all_committee_ids } from "../../constants/committees-data";
+
 export default function Publicera({ calendarID }) {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
   const router = useRouter();
@@ -41,7 +43,7 @@ export default function Publicera({ calendarID }) {
         body: "",
         tags: [],
         publishDate: today,
-        author: userData.committee,
+        author: all_committee_ids[userData.committee].name,
       });
     }
   }, [userData, today]);
@@ -88,7 +90,7 @@ export default function Publicera({ calendarID }) {
       author: data.author,
       publishDate: Timestamp.fromDate(new Date()),
       tags: data.tags,
-      committee: userData.committee, // Länkar inlägget med nämnden
+      committee: !userData.permission === "admin" ? userData.committee : data.authorCommittee, // Länkar inlägget med nämnden
       creator: userData.uid, // Länkar inlägget till användaren
       type: data.type,
       visibility: data.visibility,

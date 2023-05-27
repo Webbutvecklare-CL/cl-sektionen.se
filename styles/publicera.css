@@ -30,6 +30,7 @@
 
 .create input,
 .create textarea,
+.create select,
 .create .image-file {
   width: 100%;
   padding: 6px 10px;
@@ -143,6 +144,27 @@ kunna ändra färgen på texten om strong inte ändras */
   object-fit: cover;
 }
 
+/* Nämnd select */
+.create select {
+  margin-bottom: 1rem;
+  margin-top: 10px;
+  padding: 6px 6px;
+}
+
+.create select:focus {
+  box-shadow: none;
+  outline: solid 1px var(--clgra);
+}
+
+.create select option:checked {
+  background-color: var(--clr1);
+}
+
+.create select:before {
+  background-color: #92534d;
+  content: "asd";
+}
+
 /* Calender input */
 .create .calender-input {
   display: flex;
@@ -247,17 +269,22 @@ kunna ändra färgen på texten om strong inte ändras */
   border-radius: 6px;
   overflow: hidden;
 
-  transition: all 0.1s linear;
+  transition: all 0.2s linear;
   /* transition: all .82s cubic-bezier(0.74, 0.04, 0.64, 2.36); */
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
+  opacity: 0;
 }
 
 .infobox-container:hover > .infobox {
   visibility: visible;
   margin-left: 1rem;
-  width: 16rem;
-  height: 3rem;
+  width: auto;
+  height: auto;
+  max-width: 20rem;
+  max-height: 20rem;
+
+  opacity: 1;
 }
