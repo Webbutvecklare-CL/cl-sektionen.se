@@ -1,8 +1,4 @@
 import Image from "next/image";
-import JanScheffel from "../public/media/img/hedersmedlemmar/Jan_Scheffel_2013.jpg";
-import HansThunberg from "../public/media/img/hedersmedlemmar/thunberg.jpg";
-import MikaelCronhjort from "../public/media/img/hedersmedlemmar/Mikael-Cronhjort.jpg";
-import LindaKann from "../public/media/img/hedersmedlemmar/lk.jpg";
 
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
@@ -41,54 +37,39 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
     );
   };
 
+  const Hedersmedlem = ({ nameId, year }) => {
+    let name = nameId.replace("_", " ");
+    return (
+      <div id={nameId} className="hedersmedlem" onClick={() => stateUpdater(nameId)}>
+        <div className="imgdiv">
+          <Image
+            src={`/media/img/hedersmedlemmar/${nameId}.webp`}
+            width={200}
+            height={200}
+            alt={`Bild på hedersmedlem ${name}`}
+          />
+        </div>
+        <h2>{name}</h2>
+        <h3>{year}</h3>
+      </div>
+    );
+  };
+
   return (
     <div id="contentbody">
       <div className="hedersmedlemmar">
         <h1>Hedersmedlemmar</h1>
         <MarkdownRender mdData={contents["hedersmedlemmar-info"]} />
         <div id="hedersmedlemmar-shelf">
-          <div
-            id="Jan-Scheffel"
-            className="hedersmedlem"
-            onClick={() => stateUpdater("Jan-Scheffel")}>
-            <div className="imgdiv">
-              <Image src={JanScheffel} alt="Jan Scheffel" />
-            </div>
-            <h2>Jan Scheffel</h2>
-            <h3>2014</h3>
-          </div>
-          <div
-            id="Hans-Thunberg"
-            className="hedersmedlem"
-            onClick={() => stateUpdater("Hans-Thunberg")}>
-            <div className="imgdiv">
-              <Image src={HansThunberg} alt="Hans Thunberg" />
-            </div>
-            <h2>Hans Thunberg</h2>
-            <h3>2014</h3>
-          </div>
-          <div
-            id="Mikael-Cronhjort"
-            className="hedersmedlem"
-            onClick={(e) => stateUpdater("Mikael-Cronhjort")}>
-            <div className="imgdiv">
-              <Image src={MikaelCronhjort} alt="Mikael Cronhjort" />
-            </div>
-            <h2>Mikael Cronhjort</h2>
-            <h3>2020</h3>
-          </div>
-          <div id="Linda-Kann" className="hedersmedlem" onClick={() => stateUpdater("Linda-Kann")}>
-            <div className="imgdiv">
-              <Image src={LindaKann} alt="Linda Kann" />
-            </div>
-            <h2>Linda Kann</h2>
-            <h3>2022</h3>
-          </div>
+          <Hedersmedlem nameId={"Jan_Scheffel"} year={2014} />
+          <Hedersmedlem nameId={"Hans_Thunberg"} year={2014} />
+          <Hedersmedlem nameId={"Mikael_Cronhjort"} year={2020} />
+          <Hedersmedlem nameId={"Linda_Kann"} year={2022} />
         </div>
         <div>
           {selectedMember && (
             <div className="motivering">
-              <h2>Motivering för {selectedMember.replace("-", " ")}</h2>
+              <h2>Motivering för {selectedMember.replace("_", " ")}</h2>
               <MarkdownRender mdData={contents[selectedMember]} />
             </div>
           )}
@@ -132,7 +113,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
 }
 
 export async function getStaticProps() {
-  const contents = getContentData("hedersmedlemmar");
+  const contents = getContentData("hedersutmarkelser");
   const hedersordenText = getContentData("data")["hedersorden"];
 
   // Gör om md/text-filen hedersorden till JSON
@@ -163,6 +144,6 @@ export async function getStaticProps() {
     props: {
       contents,
       hedersorden,
-    }, // will be passed to the page component as props
+    },
   };
 }
