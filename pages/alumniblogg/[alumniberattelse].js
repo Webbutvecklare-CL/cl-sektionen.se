@@ -7,7 +7,7 @@ import BackButton from "../../components/BackButton";
 export default function Alumniberattelse({ content }) {
   return (
     <div id="contentbody">
-      <article>
+      <article className="alumniblogg">
         <div className="article-head">
           <BackButton page={"alumniblogg"}>Alumniblogg</BackButton>
         </div>

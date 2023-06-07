@@ -1,5 +1,7 @@
 # Malin Engquist - Bästa examensarbetet 2018
 
+<span>Publicerad 2019</span>
+
 _Malin Engquist började CL 2013 och gick ut CL 2018 där hon skrev sitt exjobb under vårterminen vilket hon även fick pris för nu i år. Priset var för bästa examensarbete inom kompetensutveckling och lärande med stöd av digitala medier. Jag, Anna Moustakas, fick chansen att intervjua henne om hennes exjobb. Nedan följer intervjun._
 
 **_Berätta lite om priset och ditt exjobb._**  

@@ -1,5 +1,7 @@
 # Victor Dahlberg
 
+<span>Publicerad 2019</span>
+
 _En tankeställare kring vad kunskap är i ett mycket intressant inlägg nedan från vår alumn Victor Dahlberg._
 
 _God läsning!_

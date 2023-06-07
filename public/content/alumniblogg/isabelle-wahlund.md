@@ -1,5 +1,7 @@
 # Isabelle Wahlund
 
+<span>Publicerad 2019</span>
+
 _Som nyexaminerad CL-student jobbar hon med Sveriges just nu största infrastrukturprojekt, förbifart Stockholm. Hon är projektingenjör och håller koll på allt från budgetar och tidsplaner, till att sammankalla olika experter för att lösa deras tekniska problem. Låt mig presentera alumn Isabelle Wahlund!_
 
 _God läsning!_
@@ -8,4 +10,4 @@ Hej! Som nog de flesta nyexaminerade är, var jag livrädd när jag skulle ta st
 
 Ofta jobbar man också som junior med en senior, så att man kan växa in i rollen. Det tekniska jag behöver kunna i mitt jobb (herregud jag jobbar ju med bergtunnlar, hur gick det till?) är experterna mer än glada att få prata om! Jag tror faktiskt det bor en oslipad lärare i många ingenjörer, som aldrig fick chansen att uppleva CL. Jag har ärligt talat aldrig fått några negativa reaktioner när jag berättat om min utbildning, snarare positiva och förvånade. Oftast får jag höra; vilken bra kombination! Men något som jag också, tyvärr, tror kommer med CL förutom de två (egentligen många fler såklart) valmöjligheterna är en lite splittrad målbild. Jag känner att någonstans i mitt hjärta finns ju en väldigt stor plats för undervisning, elever och läraryrket. När och hur jag fullföljer det kallet får framtiden utvisa, men ett som är säkert är att det är något jag måste få arbeta med innan duvmatning,, bridge och boule. Tur att jag har några år på mig! Jag ser arbetslivet lite grann som ett bananskal och lite grann som en godisbutik, ibland får man bara halka med, jobba på och se var man hamnar, och ibland får man aktivt se till att själv plocka ur godbitarna! Hälsningar, CL-PING(lan) Isabelle
 
-Ps. Om du vill veta mer om vad jag gör eller så, är du mer än välkommen att kontakta mig! Pras har mina kontaktuppgifter.
+Ps. Om du vill veta mer om vad jag gör eller så, är du mer än välkommen att kontakta mig!

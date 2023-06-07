@@ -1,5 +1,7 @@
 # Erik Evers
 
+<span>Publicerad 2019</span>
+
 _En alumn som jobbat med ledarskap efter examen på både ett storföretag med 49 tusen anställda och ett mindre expanderande företag. Han berättar om sin resa och den ångest som man ofta kan känna i relation till studier och arbete. Här kommer ett inlägg från alumn Erik Evers!_
 
 När jag fick frågan om att skriva en artikel kring min karriär blev jag först smickrad. Vill någon verkligen veta hur det har gått för mig och varför jag har lyckats. Har jag lyckats? Vad är att lyckas? Genast går tankarna över från att vara smickrad till en ångestkänsla. Vad är intressant att veta? Varför skulle någon vilja läsa om vad jag har åstadkommit? Ångest är något som många ofta tampas med men sällan pratar om att de har.

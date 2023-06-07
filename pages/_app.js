@@ -12,6 +12,7 @@ import "/styles/aktuellt.css";
 import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
+import "/styles/alumniblogg.css";
 import "/styles/personalrummet.css";
 import "/styles/hedersorden.css";
 import "/styles/TV.css";
