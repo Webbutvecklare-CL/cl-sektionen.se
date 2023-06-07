@@ -7,7 +7,6 @@ import { board, committees, trustees, associations } from "../constants/committe
 export default function Fortroendevalda({ descriptions, contacts }) {
   // Descriptions - Objekt med alla nämndbeskrivningar
   // Contacts - Objekt med alla namn och mail till förtroendevalda
-  // CommitteeData - namn, icon och id till varje nämnd - används i menyn
 
   const router = useRouter();
   const [selectedCommittee, setSelectedCommittee] = useState("ctyrelsen");
