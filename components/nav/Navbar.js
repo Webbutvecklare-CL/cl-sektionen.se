@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import NavItem from "./NavItem";
 import NavSubItem from "./NavSubItem";
 import Image from "next/image";
-import NavLogo from "../../public/media/grafik/CL-Logo_NAV_White.png";
+import NavLogo from "../../public/media/grafik/CL-Logo_Nav_White.webp";
 import { useRouter } from "next/router";
 
 //Att lägga till nya sidor:
@@ -132,7 +132,14 @@ export default function Navbar() {
           setActiveSubIdx(-1);
         }}>
         <Link href="/">
-          <Image src={NavLogo} alt="CL logo, navigation" id="navlogo" className="nav__item" />
+          <Image
+            src={NavLogo}
+            width={80}
+            height={80}
+            alt="CL logo, navigation"
+            id="navlogo"
+            className="nav__item"
+          />
         </Link>
       </div>
     );

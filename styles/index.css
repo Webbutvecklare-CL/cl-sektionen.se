@@ -6,7 +6,7 @@
   overflow: hidden;
   position: relative;
   transform: translateX(-1%);
-  background-image: url("../public/media/bildspel/cl15jub.jpg");
+  background-image: url("../public/media/bildspel/cl15jub.webp");
   background-position: center;
   background-position-y: 0;
   background-repeat: no-repeat;
@@ -22,7 +22,7 @@
 
 .sektionslogga-vitt {
   max-width: 1000px;
-  width: 80%;
+  width: 87%;
   height: min-content;
   filter: drop-shadow(5px 5px 5px #222);
 }
