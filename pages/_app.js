@@ -18,6 +18,7 @@ import "/styles/TV.css";
 import "/styles/sangbok.css";
 import "/styles/kontakt.css";
 import "/styles/ordbok.css";
+import "/styles/fontawesome-all.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";
 import Footer from "../components/Footer";
@@ -82,7 +83,7 @@ export default function App({ Component, pageProps }) {
           name="keywords"
           content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"
         />
-        <meta name="author" content="Armin Baymani" />
+        <meta name="author" content="Armin Baymani & Jesper Svensson" />
         <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
       </Head>
       <AuthContextProvider>

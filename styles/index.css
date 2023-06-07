@@ -70,6 +70,7 @@
 
 .om .sektionslogga {
   width: calc(100% - 20px);
+  margin-top: 0.8rem;
 }
 
 .no-margin-line {
