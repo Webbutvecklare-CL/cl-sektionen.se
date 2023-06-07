@@ -51,7 +51,7 @@ export default function Post({ postData, postId }) {
     <div id="contentbody">
       <article className="post">
         <div className="article-head">
-          <BackButton />
+          <BackButton page={"aktuellt"}>Aktuellt</BackButton>
         </div>
         <div className="head">
           <div className="image-container">

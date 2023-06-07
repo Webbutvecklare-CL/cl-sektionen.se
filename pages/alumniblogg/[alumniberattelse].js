@@ -9,7 +9,7 @@ export default function Alumniberattelse({ content }) {
     <div id="contentbody">
       <article>
         <div className="article-head">
-          <BackButton />
+          <BackButton page={"alumniblogg"}>Alumniblogg</BackButton>
         </div>
         <MarkdownRender mdData={content} />
       </article>
