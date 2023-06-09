@@ -9,7 +9,7 @@ export default function Reseberattelse({ content }) {
     <div id="contentbody">
       <article className="rese">
         <div className="article-head">
-          <BackButton />
+          <BackButton page={"reseberattelser"}>Reseberättelser</BackButton>
         </div>
         <MarkdownRender mdData={content} />
       </article>

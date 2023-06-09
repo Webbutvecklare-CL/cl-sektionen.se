@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.png";
+import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.webp";
 import React, { useEffect, useState } from "react";
 import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
@@ -28,11 +28,14 @@ export default function Index({ contents, featured, infoList, eventList }) {
 
   return (
     <div>
+      <h1 className="hidden-title">Sektionen för Civilingenjör & Lärare</h1>
       <div className="index-bg">
         <div className="image-container">
           <Image
             src={Sidhuvud_inv}
-            alt="sektionslogga, sidhuvud vitt"
+            placeholder="blur"
+            sizes="(max-width: 500px) 400px, 1000px"
+            alt='"Sektionen för Civilingenjör & Lärare" skrivet med en fin font'
             className="sektionslogga-vitt"
           />
         </div>
@@ -105,7 +108,9 @@ export default function Index({ contents, featured, infoList, eventList }) {
             src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"
             sandbox="allow-scripts allow-same-origin allow-top-navigation"
             height="400px"
-            width="100%"></iframe>
+            width="100%"
+            loading="lazy"
+          />
           <GråttAgenda className="agenda-vy" />
           <br />
           <GråttKalender />

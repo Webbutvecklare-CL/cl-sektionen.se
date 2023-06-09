@@ -8,7 +8,7 @@ export default function Sang({ content }) {
   return (
     <div id="contentbody">
       <article className="sång">
-        <BackButton />
+        <BackButton page={"sangbok"}>Sångboken</BackButton>
         <MarkdownRender mdData={content} />
       </article>
     </div>

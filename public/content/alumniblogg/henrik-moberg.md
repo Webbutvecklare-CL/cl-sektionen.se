@@ -1,5 +1,7 @@
 # Henrik Moberg
 
+<span>Publicerad 2019</span>
+
 _Genom en bred kompetens från programmet Civilingenjör & Lärare har följande alumn hoppat både fram och tillbaka i tanken och också fram och tillbaka mellan flera intressanta jobb. Jobben har varit kopplade till pedagogik och lärande, men inte nödvändigtvis i den traditionella gymnasielärarrollen. Låt oss presentera alumn Henrik Moberg!_
 
 _God läsning!_

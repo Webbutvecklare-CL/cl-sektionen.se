@@ -13,10 +13,16 @@ function HideDate(currentMonth) {
   return true;
 }
 
-export default function Sangbok({ sånger }) {
+
+export default function Sangbok({ sånger, index }) {
   const [sortedSongs, setSortedSongs] = useState(
     [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
   );
+
+  const contentindex = new Map(Object.entries(index))
+  const [fulltextSearchResults, setFulltextSearchResults] = useState([])
+  const [searchFullText, setSearchFullText] = useState(false)
+
   const [sort, setSort] = useState("pageNr");
   const sortBy = (e) => {
     setSort(e.target.value);
@@ -52,6 +58,35 @@ export default function Sangbok({ sånger }) {
       document.removeEventListener("mousedown", focusSearchHandler);
     };
   });
+
+  //WIP
+  useEffect(() => {
+    const sanitizeExpression = /[#_:.,*|/\"\'\\!?()[\]\{\}+’´']/gm
+    const wordsArray = search.replaceAll(sanitizeExpression, "").trim().split(" ")
+    
+    //console.log(wordsArray)
+    var results = contentindex.has(wordsArray[0])?
+    contentindex.get(wordsArray[0]).split(" ") : [];
+
+    if (results){
+      for (var i = 1; i < wordsArray.length; i++) {
+        const word = wordsArray[i];
+        
+        // Check if the key exists in the hashmap
+        if (contentindex.has(word)) {
+          var newRes = contentindex.get(word).split(" ");
+          results = results.filter((elem) =>
+            newRes.includes(elem)
+          ) 
+        } else {
+          results = []
+          break
+        }
+      }
+    } 
+    //console.log(results)
+    setFulltextSearchResults(results)
+  }, [search, searchFullText]);
 
   const panelref = useRef();
   //Stänger filterpanelen om man trycker utanför
@@ -191,6 +226,16 @@ export default function Sangbok({ sånger }) {
             />
             <span className="filteroption">Sortera på kategori</span>
           </label>
+          <label>
+            <input
+              type="checkbox"
+              name="filters"
+              checked={searchFullText}
+              onChange={() => setSearchFullText(!searchFullText)}
+              className="filterbutton"
+            />
+            <span className="filteroption">Sök i sångtext <i>(experimentell!)</i></span>
+          </label>
         </section>
 
         {sortedSongs
@@ -198,7 +243,8 @@ export default function Sangbok({ sånger }) {
             (sång) =>
               search === "" ||
               sång.title.toLowerCase().includes(search.toLowerCase()) ||
-              sång.altSearch?.some((title) => title.toLowerCase().includes(search.toLowerCase()))
+              sång.altSearch?.some((title) => title.toLowerCase().includes(search.toLowerCase())) ||
+              (searchFullText && fulltextSearchResults.some((elem) => elem.includes(sång.href.slice(-1))))
           )
           .map((sång) => (
             <SångLänk key={sång.href} sång={sång} />
@@ -210,8 +256,9 @@ export default function Sangbok({ sånger }) {
 
 export async function getStaticProps() {
   var sånger = JSON.parse(readFileSync(`public/content/data/sangbok-index.json`));
+  var index = JSON.parse(readFileSync(`public/content/data/sangbok-content-index.json`));
 
   return {
-    props: { sånger },
+    props: { sånger, index },
   };
 }

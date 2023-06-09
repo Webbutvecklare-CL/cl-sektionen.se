@@ -36,8 +36,12 @@ messaging.onBackgroundMessage((payload) => {
       body: notification.body,
       icon: notification.icon || "/media/grafik/favicon/android-chrome-512x512.png",
       image: notification.image,
+      tag: notification.tag || "",
       data: { link: notification.link },
     };
+    if (notification.tag) {
+      options.renotify = true;
+    }
     self.registration.showNotification(title, options);
   }
 });

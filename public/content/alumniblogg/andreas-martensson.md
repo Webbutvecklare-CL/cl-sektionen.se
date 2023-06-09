@@ -1,5 +1,7 @@
 # Andreas Mårtensson
 
+<span>Publicerad 2019</span>
+
 _Visst kan man ibland känna att man inte har tillräckligt med kompetens och tveka på att man faktiskt har det som krävs. Förbereder vårs studier oss för arbetslivet? Denna alumn skiner lite ljus i mörkret när han berättar om hur han med det som utbildningen givit honom blev trygg i sin arbetsroll och kände att han faktiskt hade det som krävdes. Andreas Mårtensson, månadens alumn._
 
 _God läsning!_
@@ -14,6 +16,6 @@ Charmen med vår utbildning är att den är så utspridd över hela det akademis
 
 Men yrket är inte alltid roligt, det är jobbigt att sätta F och vissa undervisningsgrupper kan ibland ta mer energi än ge energi; och låt oss inte börja prata om hur vissa föräldrar kan vara. Men läraryrket handlar inte om att ha kul och vara omtyckt, det handlar om att göra det som är bäst för eleverna. Och ibland innebär det att sätta ett F så eleverna får läsa om kursen och lära sig innehållet på nytt för att klara av framtida studier. Ibland innebär det att på allvar informera en elev att hen inte kan uttrycka sig på ett visst sätt i skolmiljön. Men om du som lärare hela tiden har den inställningen att göra det som är bäst för eleverna, så kommer du att få den respekten du förtjänar i klassrummet och allt som läraryrket innebär blir bara roligare för varje dag som går.
 
-Om jag fick göra om något med mina fem år på Civilingenjör och Lärare, så skulle det vara att engagera mig. Tyvärr, och jag menar verkligen tyvärr, så var jag inte speciellt delaktig i någon av föreningarna som CLek eller Clubbwästeriet. Jag vill bara blir klar med utbildningen och börja jobba. Det ångrar jag idag. Nästa år fyller jag 27 år och det hade inte spelat någon roll om jag var kvar på KTH till långt efter 30. Självklart ska ni ta studierna seriöst, men känn inte att ni inte hinner med något annat än just studierna. Det kommer alltid att behövas lärare så ni har inte bråttom.
+Om jag fick göra om något med mina fem år på Civilingenjör och Lärare, så skulle det vara att engagera mig. Tyvärr, och jag menar verkligen tyvärr, så var jag inte speciellt delaktig i någon av föreningarna som CLek eller CLubbWästeriet. Jag vill bara blir klar med utbildningen och börja jobba. Det ångrar jag idag. Nästa år fyller jag 27 år och det hade inte spelat någon roll om jag var kvar på KTH till långt efter 30. Självklart ska ni ta studierna seriöst, men känn inte att ni inte hinner med något annat än just studierna. Det kommer alltid att behövas lärare så ni har inte bråttom.
 
 – Andreas Mårtensson CL12

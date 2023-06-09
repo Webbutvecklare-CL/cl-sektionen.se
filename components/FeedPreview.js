@@ -7,7 +7,7 @@ import { convertDate } from "../utils/convertDate";
 import { analytics } from "../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 
-import bg from "../public/media/img/KTHcover.jpg";
+import bg from "../public/media/img/Post_Placeholder.webp";
 
 export default function FeedPreview({ posts }) {
   return (
@@ -26,7 +26,7 @@ export default function FeedPreview({ posts }) {
                   {post.image && (
                     <Image src={post.image} width={240} height={200} alt="Post image" />
                   )}
-                  {!post.image && <Image src={bg} alt="Bakgrundsbild KTH" />}
+                  {!post.image && <Image src={bg} placeholder="blur" alt="Bakgrundsbild KTH" />}
                 </div>
                 <div className="post-meta">
                   <h2>{post.title}</h2>

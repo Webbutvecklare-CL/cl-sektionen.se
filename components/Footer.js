@@ -1,13 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.png";
+import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
+// import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
 
 export default function Navbar() {
   return (
     <footer>
       <div id="footerinfo">
-        <Image src={CL_logo_stor} alt="CL logo, stor" className="footer_logo" />
+        <Image
+          src={CL_logo_stor}
+          alt="CL logo, stor"
+          sizes="(max-width: 800px) 90vw, 432px"
+          className="footer_logo"
+        />
         <div className="footer-row">
           <div id="footerinfotext" className="footer-col">
             <h3>Organisationsnummer</h3>802420-8491
@@ -64,7 +70,8 @@ export default function Navbar() {
         frameBorder="0"
         scrolling="no"
         marginHeight="0"
-        marginWidth="0"></iframe>
+        marginWidth="0"
+      />
     </footer>
   );
 }

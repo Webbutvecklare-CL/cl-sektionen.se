@@ -11,7 +11,7 @@ export default function Praxis({ content }) {
     <div id="contentbody">
       <article className="rese">
         <div className="article-head">
-          <BackButton />
+          <BackButton page={"dokument"}>Dokument</BackButton>
         </div>
         <MarkdownRender mdData={content} />
       </article>
