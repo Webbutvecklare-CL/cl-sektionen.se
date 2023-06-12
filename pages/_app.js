@@ -19,6 +19,7 @@ import "/styles/TV.css";
 import "/styles/sangbok.css";
 import "/styles/kontakt.css";
 import "/styles/ordbok.css";
+import "/styles/components.css";
 import "/styles/fontawesome-all.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";
