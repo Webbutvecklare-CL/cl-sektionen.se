@@ -14,7 +14,7 @@
   font-size: 1.2rem;
   font-weight: 600;
 
-  padding: 0.7rem 1rem 0.7rem 1rem;
+  padding: 0.7rem 1rem;
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
   margin: -1px auto 0 auto;
@@ -28,9 +28,7 @@
     rgba(255, 255, 255, 1) 35%,
     rgba(255, 255, 255, 1) 100%
   );
-}
 
-.sånglänk:hover {
   transform: scale(1.01);
   transition: 0.2s;
 }
