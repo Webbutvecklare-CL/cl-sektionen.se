@@ -52,6 +52,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
 
   return (
     <div>
+      <h1 className="hidden-title">Sektionen för Civilingenjör & Lärare</h1>
       <div className="index-bg">
         <div className="image-container">
           <Image
