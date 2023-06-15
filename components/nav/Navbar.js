@@ -41,7 +41,7 @@ const MENU_LIST = [
       { text: "Alumniblogg", href: "/alumniblogg" },
       { text: "Reseberättelser", href: "/reseberattelser" },
       // { text: "Studiebevakning", href: "/studiebevakning" },
-      // { text: "Valbara kurser", href: "/valbara-kurser" },
+      { text: "Valbara kurser", href: "/valbara-kurser" },
     ],
   },
   {

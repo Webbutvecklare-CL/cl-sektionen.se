@@ -19,6 +19,8 @@ import "/styles/TV.css";
 import "/styles/sangbok.css";
 import "/styles/kontakt.css";
 import "/styles/ordbok.css";
+import "/styles/components.css";
+import "/styles/valbara-kurser.css";
 import "/styles/fontawesome-all.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";
@@ -73,19 +75,36 @@ export default function App({ Component, pageProps }) {
     return <Component {...pageProps} />;
   }
 
+  const description =
+    "Sektionen för Civilingenjör & Lärare representerar och stödjer studenter på programmet för Civilingenjör och Lärare samt studenter som läser KPU.";
+  const cl_banner = "https://cl-sektionen.se/media/grafik/CL Banner.webp";
   return (
     <div>
       <Head>
         <title>Sektionen för Civilingenjör och Lärare</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
-        <meta name="description" content="Sektionen för Civilingenjör och Lärare" />
+        <meta name="description" content={description} />
         <meta
           name="keywords"
           content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"
         />
         <meta name="author" content="Armin Baymani & Jesper Svensson" />
-        <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.cl-sektionen.se/" />
+        <meta property="og:title" content="Sektionen för Civilingenjör och Lärare" />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={cl_banner} />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.cl-sektionen.se/" />
+        <meta property="twitter:title" content="Sektionen för Civilingenjör och Lärare" />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={cl_banner} />
       </Head>
       <AuthContextProvider>
         <Component {...pageProps} />

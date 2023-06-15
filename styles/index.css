@@ -1,4 +1,4 @@
-.hidden-title{
+.hidden-title {
   display: block;
   height: 0;
   padding: 0;
@@ -114,6 +114,7 @@
 }
 
 .sektionskal_månad_och_bokningar {
+  margin-top: 2rem;
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
@@ -147,6 +148,15 @@
 
 .gråttan.månad {
   display: none;
+}
+
+.calendar-subscription {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.calendar-subscription p {
+  padding: 0;
 }
 
 @media screen and (max-width: 1000px) {

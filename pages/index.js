@@ -6,6 +6,8 @@ import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
 import GråttKalender from "../components/GråttKalender";
 import FeaturedPostPreview from "../components/FeaturedPostPreview";
+import Card from "../components/Card";
+import CopyButton from "../components/CopyButton";
 
 // För text rendering
 import MarkdownRender from "../components/MarkdownRender";
@@ -24,6 +26,28 @@ export default function Index({ contents, featured, infoList, eventList }) {
       logEvent(analytics, "view_om");
     }
     setOpen(!open);
+  };
+
+  const sektionskalender_id =
+    "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com";
+  const grattankalender_id = "konsumclw%40gmail.com";
+
+  const CalendarSubscription = ({ calendar_id, children }) => {
+    return (
+      <div className="calendar-subscription">
+        <p>{children}</p>
+        <Card link={`webcal://calendar.google.com/calendar/ical/${calendar_id}/public/basic.ics`}>
+          iCal <i className="fa-brands fa-apple" />
+        </Card>
+        <Card
+          link={`https://calendar.google.com/calendar/render?cid=https://calendar.google.com/calendar/ical/${calendar_id}/public/basic.ics`}>
+          Google Kalender <i className="fa-brands fa-android" />
+        </Card>
+        <CopyButton text={calendar_id}>
+          Kopiera kalender id <i className="fa-regular fa-copy" />
+        </CopyButton>
+      </div>
+    );
   };
 
   return (
@@ -86,18 +110,12 @@ export default function Index({ contents, featured, infoList, eventList }) {
         </section>
         <hr />
         <h2>Kalender</h2>
-        <p>
-          <b>Psst!!</b> Du kan exportera sektionens kalendrar för att komma åt dem enklare.
-          <br />
-          <a href="https://calendar.google.com/calendar/embed?src=c_5sqhb0om2kmti770g06qqknfik%40group.calendar.google.com&ctz=Europe%2FBerlin">
-            Tryck här <i className="fa-solid fa-arrow-up-right-from-square" />
-          </a>
-          &nbsp;för att exportera <strong>Sektionskalendern</strong>.<br />
-          <a href="https://calendar.google.com/calendar/u/0/embed?height=700&wkst=2&bgcolor=%23616161&ctz=Europe/Stockholm&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&mode=MONTH&src=MDA4Z3BsM3M3ODd0ZTZqaGlwazU3MjljNmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=a29uc3VtY2x3QGdtYWlsLmNvbQ&color=%237CB342&color=%23AD1457&pli=1">
-            Tryck här <i className="fa-solid fa-arrow-up-right-from-square" />
-          </a>
-          &nbsp;för att exportera <strong>Gråttkalendern</strong>.
-        </p>
+        <CalendarSubscription id={sektionskalender_id}>
+          Prenumerera på <strong>Sektionskalendern</strong>:
+        </CalendarSubscription>
+        <CalendarSubscription id={grattankalender_id}>
+          Prenumerera på <strong>Gråttankalendern</strong>:
+        </CalendarSubscription>
         <section className="sektionskal_månad_och_bokningar">
           <iframe
             className="open-web-calendar månad"
