@@ -77,7 +77,7 @@ export default function App({ Component, pageProps }) {
 
   const description =
     "Sektionen för Civilingenjör & Lärare representerar och stödjer studenter på programmet för Civilingenjör och Lärare samt studenter som läser KPU.";
-  const cl_banner = "https://cl-sektionen-se-git-dev-webbutvecklare-cl.vercel.app/media/grafik/CL Banner.webp";
+  const cl_banner = "https://cl-sektionen.se/media/grafik/CL Banner.webp";
   return (
     <div>
       <Head>
