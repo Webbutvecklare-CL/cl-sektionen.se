@@ -12,7 +12,7 @@ export default function Custom404() {
         <span className="error-description">Sidan kunde inte hittas</span>
       </div>
       <div className="error-back-link">
-        <BackButton />
+        <BackButton>Startsidan</BackButton>
       </div>
     </div>
   );

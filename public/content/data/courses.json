@@ -1,0 +1,133 @@
+[
+  {
+    "specialization": ["teda"],
+    "type": "Matte",
+    "id": "DD2350",
+    "name": "Algoritmer, datastrukturer och komplexitet",
+    "short": "ADK",
+    "hp": 9.5,
+    "comments": [
+      "Det finns tyvärr inga kommentarer. Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+    ]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "DD2395",
+    "name": "Datasäkerhet",
+    "short": "Dsäk",
+    "hp": 6.0,
+    "comments": [
+      "Det finns tyvärr inga kommentarer. Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+    ]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "SF2520",
+    "name": "Tillämpade numeriska metoder",
+    "short": "",
+    "hp": 7.5,
+    "comments": [
+      "Svår kurs och fortsättning till nummen. Handlar mestadels om diffekvationer och att lösa de med komplexa algoritmer. Väldigt värt att läsa om man är intresserad av att koppla data med matte. Börja med labbarna så tidigt som möjligt och gå gärna på \"excercise lectures\". Kursboken är väldigt bra, dock dyr. Wikipedias sidor kring vissa koncept är faktiskt väldigt värdefulla",
+      "Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+    ]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "DT2140",
+    "name": "Multimodala interaktioner och gränssnitt",
+    "short": "",
+    "hp": 7.5,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "DD2417",
+    "name": "Språkteknologi",
+    "short": "",
+    "hp": 7.5,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "SF2718",
+    "name": "Matematik för kemister",
+    "short": "",
+    "hp": 6.0,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "EN2720",
+    "name": "Etisk hackning",
+    "short": "",
+    "hp": 7.5,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "ID1200",
+    "name": "Operativsystem",
+    "short": "",
+    "hp": 6.0,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "DD1396",
+    "name": "Parallellprogrammering i introduktion till datalogi",
+    "short": "",
+    "hp": 3.0,
+    "comments": [
+      "Man får programmera i Go",
+      "Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+    ]
+  },
+  {
+    "specialization": ["teda"],
+    "id": "DD2424",
+    "name": "Djupinlärning i Data Science",
+    "short": "",
+    "hp": 7.5,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["make"],
+    "id": "DD1320",
+    "name": "Tillämpad datalogi",
+    "short": "",
+    "hp": 6.0,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["make"],
+    "id": "CK2130 tidigare KE2130",
+    "name": "Hållbar produktion av material och bränslen",
+    "short": "",
+    "hp": 7.5,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["make"],
+    "id": "KD1270",
+    "name": "Organisk kemi, grundläggande koncept och praktik 2",
+    "short": "",
+    "hp": 7.5,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },
+  {
+    "specialization": ["mafy"],
+    "id": "SH2007",
+    "name": "Research Methodology in Physics",
+    "short": "",
+    "hp": 3.0,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  },  
+  {
+    "specialization": ["temi"],
+    "id": "MJ2659",
+    "name": "Teknik och ekosystem, större kurs",
+    "short": "",
+    "hp": 7.5,
+    "comments": ["Har du läst kursen? Skicka in en kommentar i formuläret nedan."]
+  }
+]

@@ -1,6 +1,6 @@
 #rättigheter strong,
-h2,
-h1 span {
+#rättigheter h2,
+#rättigheter h1 span {
   color: var(--clr5);
 }
 

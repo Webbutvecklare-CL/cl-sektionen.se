@@ -46,6 +46,7 @@ p strong {
 
 h2 {
   margin-bottom: 0.5rem;
+  color: var(--clr5);
 }
 
 #contentbody iframe {

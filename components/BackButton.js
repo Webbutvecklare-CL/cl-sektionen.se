@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Router from "next/router";
 import React from "react";
 
-export default function BackButton({ page, children }) {
+export default function BackButton({ page = "", children }) {
   const router = useRouter();
 
   function handleBackClick() {
