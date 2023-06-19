@@ -139,12 +139,21 @@ kunna ändra färgen på texten om strong inte ändras */
   background-color: var(--clr3);
 }
 
-.create .image-meta p {
+.create .image-meta {
   display: flex;
   gap: 1rem;
   font-size: 16px;
 }
 
+.create .image-meta .error {
+  color: var(--clr2);
+  font-weight: bold;
+}
+
+.create .image-meta .accepted {
+  color: green;
+  font-weight: bold;
+}
 /* Förhandsvisning bild */
 .create #frame {
   object-fit: cover;

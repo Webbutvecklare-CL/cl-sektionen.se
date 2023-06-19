@@ -240,6 +240,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
   // Komponenter
   const ImageInput = () => {
+    const available_formats = ["jpeg", "jpg", "webp", "avif", "png", "gif"];
     return (
       <>
         {image.name && (
@@ -253,10 +254,16 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               />
             </div>
             <div className="image-meta">
-              <p>
-                <span>Format: {image.type.split("/")[1]}</span>
-                <span>Storlek: {Math.round((image.size / 1024) * 10) / 10} kB</span>
-              </p>
+              <span
+                className={`image-format ${
+                  available_formats.includes(image.type.split("/")[1]) ? "accepted" : "error"
+                }`}>
+                Format: {image.type.split("/")[1]}
+              </span>
+              <span
+                className={`image-size ${image.size < 0.8 * 1024 * 1024 ? "accepted" : "error"}`}>
+                Storlek: {Math.round((image.size / 1024) * 10) / 10} kB
+              </span>
             </div>
             <p>
               <i>Så här kommer bilden se ut i flödet</i>
