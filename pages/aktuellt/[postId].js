@@ -2,6 +2,7 @@ import { React } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import CustomHead from "../../components/CustomHead";
 import parse from "html-react-parser";
 import { firestore } from "../../firebase/clientApp";
 import {
@@ -48,30 +49,38 @@ export default function Post({ postData, postId }) {
   }
 
   return (
-    <div id="contentbody">
-      <article className="post">
-        <div className="article-head">
-          <BackButton page={"aktuellt"}>Aktuellt</BackButton>
-        </div>
-        <div className="head">
-          <div className="image-container">
-            {postData.image && (
-              <Image src={postData.image} width={400} height={400} alt="Post bild" />
-            )}
+    <>
+      <CustomHead
+        metaTitle={`${postData.author} | Sektionen för Civilingenjör och Lärare`}
+        description={postData.title}
+        image={postData.image || "https://www.cl-sektionen.se/media/img/Post_Placeholder.webp"}
+        url={"https://www.cl-sektionen.se/aktuellt/" + postId}
+      />
+      <div id="contentbody">
+        <article className="post">
+          <div className="article-head">
+            <BackButton page={"aktuellt"}>Aktuellt</BackButton>
           </div>
-          <div className="info">
-            <h1 className="title">{postData.title}</h1>
-            <h2>{postData.subtitle}</h2>
-            <p className="meta">
-              Publicerad {getDate(postData.publishDate)} av {postData.author}
-            </p>
+          <div className="head">
+            <div className="image-container">
+              {postData.image && (
+                <Image src={postData.image} width={400} height={400} alt="Post bild" />
+              )}
+            </div>
+            <div className="info">
+              <h1 className="title">{postData.title}</h1>
+              <h2>{postData.subtitle}</h2>
+              <p className="meta">
+                Publicerad {getDate(postData.publishDate)} av {postData.author}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <hr />
-        <div>{parse(postData.body)}</div>
-      </article>
-    </div>
+          <hr />
+          <div>{parse(postData.body)}</div>
+        </article>
+      </div>
+    </>
   );
 }
 
