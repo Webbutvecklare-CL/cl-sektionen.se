@@ -72,6 +72,7 @@ export default function App({ Component, pageProps }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Gör så att TV routen inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
     return <Component {...pageProps} />;
   }
