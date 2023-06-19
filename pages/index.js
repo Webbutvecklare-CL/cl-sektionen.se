@@ -6,8 +6,7 @@ import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
 import GråttKalender from "../components/GråttKalender";
 import FeaturedPostPreview from "../components/FeaturedPostPreview";
-import Card from "../components/Card";
-import CopyButton from "../components/CopyButton";
+import CalendarSubscription from "../components/CalendarSubscription";
 
 // För text rendering
 import MarkdownRender from "../components/MarkdownRender";
@@ -31,24 +30,6 @@ export default function Index({ contents, featured, infoList, eventList }) {
   const sektionskalender_id =
     "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com";
   const grattankalender_id = "konsumclw%40gmail.com";
-
-  const CalendarSubscription = ({ calendar_id, children }) => {
-    return (
-      <div className="calendar-subscription">
-        <p>{children}</p>
-        <Card link={`webcal://calendar.google.com/calendar/ical/${calendar_id}/public/basic.ics`}>
-          iCal <i className="fa-brands fa-apple" />
-        </Card>
-        <Card
-          link={`https://calendar.google.com/calendar/render?cid=https://calendar.google.com/calendar/ical/${calendar_id}/public/basic.ics`}>
-          Google Kalender <i className="fa-brands fa-android" />
-        </Card>
-        <CopyButton text={calendar_id}>
-          Kopiera kalender id <i className="fa-regular fa-copy" />
-        </CopyButton>
-      </div>
-    );
-  };
 
   return (
     <div>
