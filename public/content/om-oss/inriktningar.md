@@ -1,6 +1,6 @@
 ## Inriktningar
 
-Oavsett vilken inriktning som du väljer kommer du läsa flera matte- och pedagogikkurser tillsammans med de andra i din klass. Du kommer även att få välja ett antal valfria kurser i 4:an och 5:an inom inom din inriktning, kolla in [valbara kurser](/valbara-kurser) för att få veta mer om dem.
+Oavsett vilken inriktning som du väljer kommer du läsa flera matte- och pedagogikkurser tillsammans med de andra i din klass. Du kommer även att få välja ett antal valfria kurser i 4:an och 5:an inom inom din inriktning, kolla in [valbara kurser](/valbara-kurser) för att få veta mer om dem. Om du vill veta vilka kurser varje inriktning läser och när kan du kolla in den senaste [utbildningsplanen på kth.se](https://www.kth.se/student/kurser/program/CLGYM). Där kan du även klicka in på respektive kurs för att veta vad de handlar om.
 
 <h3 id="mafy">MAFY</h3>
 
@@ -8,11 +8,14 @@ Inriktningen Matematik och Fysik är avsedd för studenter som vill bli lärare 
 
 Exempel på kurser du läser:
 
-- Klassisk mekanik
-- Termodynamik och statistisk fysik
-- Elektromagnetism
-- Matematisk analys
-- Algebra och geometri
+- Termodynamik
+- Klassisk fysik
+- Mekanik
+- Modern fysik
+- Vektoranalys
+- Teoretisk fysik
+- Fysikens matematiska metoder
+- Teoretisk elektroteknik
 
 <h3 id="make">MAKE</h3>
 
@@ -20,11 +23,12 @@ Inriktningen Matematik och Kemi är avsedd för studenter som vill bli lärare i
 
 Exempel på kurser du läser:
 
-- Kemi och kemisk reaktivitet
-- Termodinamik och kinetik
-- Fysikalisk kemi
 - Organisk kemi
-- Matematik för kemi
+- Kemisk analys
+- Termodynamik
+- Molekylär struktur
+- Kemisk dynamik
+
 <h3 id="temi">TEMI</h3>
 
 Inriktningen Matematik och Teknik med specialisering mot energi och miljö är avsedd för studenter som vill arbeta inom energi- och miljösektorn. Den betonar på att ge studenterna en förståelse för teknik och hur den kan tillämpas för att lösa energi- och miljörelaterade problem. Den inkluderar också kunskaper om hållbar utveckling och hur man undervisar dessa ämnen på ett effektivt sätt.
