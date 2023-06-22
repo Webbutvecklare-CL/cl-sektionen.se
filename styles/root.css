@@ -15,6 +15,13 @@ html {
   font-family: "EB Garamond", serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* För att hindra sidoscroll på iOS Safari */
+body {
+  position: relative;
+  overflow-x: hidden;
 }
 
 p {
@@ -25,6 +32,12 @@ h1 {
   font-size: 2rem;
   color: #1d1d1f;
   margin-top: 1rem;
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--clr5);
 }
 
 h3 {
