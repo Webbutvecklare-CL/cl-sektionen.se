@@ -15,15 +15,21 @@ footer div img {
   width: 90%;
 }
 
-.footer_logo {
+footer .footer_logo {
   height: auto;
 }
 
-#footerinfo {
+footer #footerinfo {
   max-width: 30rem;
 }
 
-.footer-row {
+footer #footerinfotext p {
+  padding: 0;
+  color: white;
+  font-size: 1rem;
+}
+
+footer .footer-row {
   /* background-color: grey; */
   display: flex;
   gap: 1rem;
@@ -31,18 +37,18 @@ footer div img {
   justify-content: space-between;
 }
 
-#quick-links {
+footer #quick-links {
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
 }
 
-#quick-links a {
+footer #quick-links a {
   color: white;
   font-size: 1rem;
 }
 
-#sociallinks {
+footer #sociallinks {
   padding-top: 0.6rem;
   display: flex;
   flex-direction: column;
@@ -50,11 +56,11 @@ footer div img {
   font-size: 2.5rem;
 }
 
-#sociallinks a {
+footer #sociallinks a {
   color: white;
 }
 
-#karta {
+footer #karta {
   float: right;
   flex-grow: 100;
   overflow: hidden;
@@ -65,42 +71,42 @@ footer div img {
     width: 100%;
     display: inline-block;
   }
-  #footerinfo {
+  footer #footerinfo {
     max-width: none;
   }
 
-  .footer-row {
+  footer .footer-row {
     padding: 1rem 2rem;
   }
 
-  #karta {
+  footer #karta {
     width: 100%;
     height: 400px;
   }
 }
 
 @media screen and (max-width: 520px) {
-  .footer-row {
+  footer .footer-row {
     gap: 0;
     flex-direction: column;
     align-items: center;
     padding: 0rem 0rem;
   }
-  .footer-col {
+  footer .footer-col {
     margin: auto;
     text-align: center;
   }
 
-  #quick-links {
+  footer #quick-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 
-  #quick-links h3 {
+  footer #quick-links h3 {
     grid-column: 1 / -1;
   }
 
-  #sociallinks {
+  footer #sociallinks {
     margin: 1rem 0;
     flex-direction: row;
     justify-content: space-between;
