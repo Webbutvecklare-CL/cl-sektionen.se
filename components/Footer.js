@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
-// import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
 
 export default function Navbar() {
   return (
@@ -16,24 +15,27 @@ export default function Navbar() {
         />
         <div className="footer-row">
           <div id="footerinfotext" className="footer-col">
-            <h3>Organisationsnummer</h3>802420-8491
-            <br />
-            <h3>Bankgiro</h3>
-            Huvudsektionen: 251-5310
-            <br />
-            ClubWästeriet: 5160-8172
-            <br />
-            Mottagningen: 5160-8206
-            <h3>Faktureringsadress</h3>
-            Sektionen för Civilingenjör och Lärare
-            <br />
-            Drottning Kristinas väg 15
-            <br />
-            100 44 Stockholm
-            <h3>Leveransadress</h3>
-            Osquars backe 8
-            <br />
-            114 28 Stockholm
+            <div>
+              <h3>Organisationsnummer</h3>
+              <p>802420-8491</p>
+            </div>
+            <div>
+              <h3>Bankgiro</h3>
+              <p>Huvudsektionen: 251-5310</p>
+              <p>ClubWästeriet: 5160-8172</p>
+              <p>Mottagningen: 5160-8206</p>
+            </div>
+            <div>
+              <h3>Faktureringsadress</h3>
+              <p>Sektionen för Civilingenjör och Lärare</p>
+              <p>Drottning Kristinas väg 15</p>
+              <p>100 44 Stockholm</p>
+            </div>
+            <div>
+              <h3>Leveransadress</h3>
+              <p>Osquars backe 8</p>
+              <p>114 28 Stockholm</p>
+            </div>
           </div>
           <div id="quick-links" className="footer-col">
             <h3>Hitta snabbt</h3>

@@ -33,6 +33,7 @@ import { analytics } from "../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 import { onMessage, getMessaging, isSupported } from "firebase/messaging";
 import { useEffect } from "react";
+import CustomHead from "../components/CustomHead";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -71,6 +72,7 @@ export default function App({ Component, pageProps }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Gör så att TV routen inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
     return <Component {...pageProps} />;
   }
@@ -81,11 +83,11 @@ export default function App({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>Sektionen för Civilingenjör och Lärare</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
+        <title key="title">Sektionen för Civilingenjör och Lärare</title>
         <meta charSet="utf-8" />
+        <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
-        <meta name="description" content={description} />
+        <meta name="description" content={description} key="desc" />
         <meta
           name="keywords"
           content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"
@@ -93,19 +95,18 @@ export default function App({ Component, pageProps }) {
         <meta name="author" content="Armin Baymani & Jesper Svensson" />
 
         {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.cl-sektionen.se/" />
-        <meta property="og:title" content="Sektionen för Civilingenjör och Lärare" />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={cl_banner} />
+        <meta property="og:type" content="website" key="og-type" />
 
         {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.cl-sektionen.se/" />
-        <meta property="twitter:title" content="Sektionen för Civilingenjör och Lärare" />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={cl_banner} />
+        <meta property="twitter:card" content="summary_large_image" key="tw-card" />
       </Head>
+      {/* För att få en snygg banner när man dela länken i sociala medier */}
+      <CustomHead
+        metaTitle={"Sektionen för Civilingenjör och Lärare"}
+        description={description}
+        image={cl_banner}
+        url={"https://www.cl-sektionen.se/"}
+      />
       <AuthContextProvider>
         <Component {...pageProps} />
       </AuthContextProvider>

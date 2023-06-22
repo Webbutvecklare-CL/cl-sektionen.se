@@ -71,12 +71,12 @@
 .om {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  column-gap: 2rem;
 }
 
 .om .sektionslogga {
   width: calc(100% - 20px);
-  margin-top: 0.8rem;
+  height: auto;
 }
 
 .no-margin-line {

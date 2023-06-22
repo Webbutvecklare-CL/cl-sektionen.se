@@ -15,7 +15,7 @@ export default function CommitteeInfo({ committee, description, contact }) {
     "clw": ["Mandatperiod 2022.05.01 - 2023.04.30"],
     "valberedningen": ["Mandatperiod 2022.05.01 - 2023.04.30"],
     "revisorer": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "fanborg": ["Mandatperiod 2023.02.01 - 2023.01.31"],
+    "fanborg": ["Mandatperiod 2023.02.01 - 2024.01.31"],
     "kf": ["Mandatperiod 2022.07.01 - 2023.06.31"],
     "enskilda": ["Mandatperiod 2023.01.01 - 2023.12.31"],
     "clek": [],

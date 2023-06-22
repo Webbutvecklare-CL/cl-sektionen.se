@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CalendarSubscription from "../components/CalendarSubscription";
 
 function Kalender() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -6,28 +7,19 @@ function Kalender() {
     setActiveIdx(index);
   }
 
+  const sektionskalender_id =
+    "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com";
+  const grattankalender_id = "konsumclw%40gmail.com";
+
   return (
     <div id="contentbody">
       <h1>Sektionskalendern och gråttbokningar</h1>
-      <p>
-        Här kan du se både vad som händer i Gråttan och event som sektionen anordnar. Du kan även
-        klicka dig in på eventen för att se detaljer kring det. Om du är intresserad av att boka
-        sektionslokalen kan du enkelt göra detta genom att maila lokalansvarig på:
-        <br />
-        <strong>lokalnamnden@cl-sektionen.se</strong>
-      </p>
-      <p>
-        <b>Psst!!</b> Du kan exportera sektionens kalendrar för att komma åt dem enklare.
-        <br />
-        <a href="https://calendar.google.com/calendar/embed?src=c_5sqhb0om2kmti770g06qqknfik%40group.calendar.google.com&ctz=Europe%2FBerlin">
-          Tryck här <i className="fa-solid fa-arrow-up-right-from-square" />
-        </a>
-        &nbsp;för att exportera <strong>Sektionskalendern</strong>.<br />
-        <a href="https://calendar.google.com/calendar/u/0/embed?height=700&wkst=2&bgcolor=%23616161&ctz=Europe/Stockholm&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&mode=MONTH&src=MDA4Z3BsM3M3ODd0ZTZqaGlwazU3MjljNmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=a29uc3VtY2x3QGdtYWlsLmNvbQ&color=%237CB342&color=%23AD1457&pli=1">
-          Tryck här <i className="fa-solid fa-arrow-up-right-from-square" />
-        </a>
-        &nbsp;för att exportera <strong>Gråttkalendern</strong>.
-      </p>
+      <CalendarSubscription id={sektionskalender_id}>
+        Prenumerera på <strong>Sektionskalendern</strong>:
+      </CalendarSubscription>
+      <CalendarSubscription id={grattankalender_id}>
+        Prenumerera på <strong>Gråttankalendern</strong>:
+      </CalendarSubscription>
 
       <div className="tabs-wrapper">
         <button

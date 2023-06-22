@@ -11,6 +11,6 @@ Sektionen genomgick en ombildning 2011 och består idag av fyra inriktningar: (_
 - Matematik och Data
 - Matematik och Kemi
 
-Utbildningen integrerar matematik, teknik och naturvetenskap med pedagogik och didaktik. Första läsåret är gemensamt för alla studenter och inriktningen väljs till andra läsåret under våren första året. Programmet innefattar två VFU-perioder (Verksamhetsförlagd Utbildning) på en skola, en kortare första terminen i ettan och en längre andra terminen i fyran. Utbildningen är utformad så att ämneskunskaper och pedagogiska och didaktiska kunnande motsvarar de krav som ställs på en ämneslärare.
+Utbildningen integrerar matematik, teknik och naturvetenskap med pedagogik och didaktik. Första läsåret är gemensamt för alla studenter och inriktningen väljs till andra läsåret under våren första året. Programmet innefattar tre VFU-kurser (Verksamhetsförlagd Utbildning); en kortare i ettan på en skola, en inom informella lärandemiljöer och en längre i fyran på en gymnasieskola. Utbildningen är utformad så att ämneskunskaper och pedagogiska och didaktiska kunnande motsvarar de krav som ställs på en ämneslärare.
 
 Civilingenjör och lärare är ett program som är anpassat efter näringslivets ökade efterfrågan av ingenjörer med kunskap om lärande och som kan kommunicera teknik och naturvetenskap.
