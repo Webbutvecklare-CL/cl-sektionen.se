@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.webp";
+import Sidhuvud_black from "../public/media/grafik/Sidhuvud.webp";
 import React, { useEffect, useState } from "react";
 import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
@@ -51,6 +52,8 @@ export default function Index({ contents, featured, infoList, eventList }) {
           <section className="om">
             <section>
               <MarkdownRender mdData={contents["om-sektionen"]} />
+
+              <Image src={Sidhuvud_black} alt="sektionslogga, sidhuvud" className="sektionslogga" />
             </section>
             <section>
               <MarkdownRender mdData={contents["om-programmet"]} />
