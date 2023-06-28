@@ -44,6 +44,7 @@ function Kalender() {
         style={{ display: activeIdx === 0 ? "block" : "none" }}>
         <h1 className="kal_titel">Sektionskalendern</h1>
         <iframe
+          title="Sektionskalender månadsvy"
           id="open-web-calendar"
           style={{
             background:
@@ -54,7 +55,8 @@ function Kalender() {
           scrolling="no"
           frameBorder="0"
           height="750px"
-          width="100%"></iframe>
+          width="100%"
+        />
       </div>
       <div
         id="gråttkal"
@@ -62,6 +64,7 @@ function Kalender() {
         style={{ display: activeIdx === 1 ? "block" : "none" }}>
         <h1 className="kal_titel">Gråttans kalender</h1>
         <iframe
+          title="Gråttbokningar månadsvy"
           id="open-web-calendar"
           style={{
             background:
@@ -72,7 +75,8 @@ function Kalender() {
           scrolling="no"
           frameBorder="0"
           height="750px"
-          width="100%"></iframe>
+          width="100%"
+        />
       </div>
     </div>
   );

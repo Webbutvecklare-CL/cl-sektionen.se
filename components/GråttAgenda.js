@@ -3,6 +3,7 @@ const GråttAgenda = () => {
     <div className="mini_kalender kalender_tab gråttagenda_wrapper agenda-vy">
       <h1 className="kal_titel">Gråttbokningar</h1>
       <iframe
+        title="Gråttbokningar agenda vy kommande dagar"
         className="open-web-calendar agenda"
         style={{
           background:

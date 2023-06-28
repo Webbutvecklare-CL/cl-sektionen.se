@@ -134,8 +134,8 @@ export default function Navbar() {
         <Link href="/">
           <Image
             src={NavLogo}
-            width={80}
-            height={80}
+            width={48}
+            height={48}
             alt="CL logo, navigation"
             id="navlogo"
             className="nav__item"
@@ -150,6 +150,7 @@ export default function Navbar() {
       <div id="navburgirmenu">
         <button
           onClick={burgirToggle}
+          aria-label={`${navBurgirOpen ? "Stäng" : "Öppna"} navigationsmenyn`}
           className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
       </div>
     );
