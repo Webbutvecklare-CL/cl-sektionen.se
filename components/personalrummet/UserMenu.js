@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import React, { useEffect, useState } from "react";
 
-import { getDocs, collection, query, where, orderBy, limit } from "firebase/firestore";
+import { getDocs, collection, query, where, orderBy, limit, or } from "firebase/firestore";
 import { firestore } from "../../firebase/clientApp";
 import { updateUser } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
@@ -22,6 +22,7 @@ export default function UserMenu() {
   const [userUpdateStatus, setUserUpdateStatus] = useState("");
 
   const { user, userData, logOut } = useAuth();
+  const userCommitteeName = all_committees.find(namnd => namnd.id == userData.committee).name;
   const router = useRouter();
 
   // Rensa error om man byter meny
@@ -41,9 +42,14 @@ export default function UserMenu() {
     console.log("getDoc - Committee Query");
     const postRef = collection(firestore, "posts");
 
+    //Or allows committee name as publisher. i.e "Näringslivsnämnden" instead of "naringslivsnamnden"
+    //Removing this means old posts will not show up in feed
+    //It's likely slightly more efficient to split this up as 2 separate queries but then "limit" will break.
     const committeeQuery = query(
       postRef,
-      where("committee", "==", userData.committee),
+      or(
+        where("committee", "==", userData.committee),
+        where("committee", "==", userCommitteeName)),
       orderBy("publishDate", "desc"),
       limit(5)
     );
@@ -99,7 +105,7 @@ export default function UserMenu() {
         <p>
           Välkommen {userData.displayName}!
           <br />
-          Nedanför kan du se {all_committees.find(namnd => namnd.id == userData.committee).name}s senaste inlägg.
+          Nedanför kan du se {userCommitteeName}s senaste inlägg.
         </p>
         {userData.permission === "moderator" && (
           <p>
