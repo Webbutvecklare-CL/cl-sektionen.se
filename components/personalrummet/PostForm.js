@@ -389,7 +389,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                   onChange={(e) => {
                     setAuthorCommittee(e.target.value);
                   }}
-                  defaultValue={userData.committee}>
+                  defaultValue={prefill.committee || userData.committee}>
                   {all_committees.map((committee, idx) => {
                     return (
                       <option value={committee.id} key={idx}>

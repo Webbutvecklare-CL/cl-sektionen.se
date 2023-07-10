@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 
 import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
@@ -8,6 +8,7 @@ import { analytics, firestore, storage } from "../../../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 
 import PostForm from "../../../components/personalrummet/PostForm";
+import { useAuth } from "../../../context/AuthContext";
 
 import { revalidate } from "../../../utils/server";
 
@@ -15,6 +16,8 @@ export default function EditPost() {
   // Hämtar id från länken om det finns
   const router = useRouter();
   const { id } = router.query;
+
+  const { userData } = useAuth();
 
   // Input och "ren" id
   const [postLink, setPostLink] = useState("");
@@ -70,8 +73,8 @@ export default function EditPost() {
             body: postData.body,
             tags: postData.tags,
             author: postData.author,
+            committee: postData.committee,
             link: pid,
-            // publishDate: postData.publishDate.toDate().toLocaleDateString("sv"),
             visibility: postData.visibility,
           };
 
@@ -121,7 +124,14 @@ export default function EditPost() {
       // Om det är en bild så ska den få lite särbehandling senare
       // Link ska aldrig uppdateras och sparas inte heller
       // Data som inte sparas i inlägget/dokumentet
-      const jumpKeys = ["tags", "image", "link", "publishInCalendar", "sendNotification"];
+      const jumpKeys = [
+        "tags",
+        "image",
+        "link",
+        "publishInCalendar",
+        "sendNotification",
+        "authorCommittee",
+      ];
       if (jumpKeys.includes(key)) {
         continue;
       }
@@ -139,6 +149,9 @@ export default function EditPost() {
     if (JSON.stringify(data.tags) != JSON.stringify(prefill.tags)) {
       postData.tags = data.tags;
     }
+
+    postData.committee =
+      userData.permission === "admin" ? data.authorCommittee : userData.committee;
 
     const postRef = doc(firestore, "posts", postId);
 
