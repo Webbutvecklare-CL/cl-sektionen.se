@@ -143,7 +143,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       return "Filstorleken på bilden får inte vara större än 0.8 MB";
     }
     const available_formats = ["jpeg", "jpg", "webp", "avif", "png", "gif"];
-    if (!available_formats.includes(image.type.split("/")[1])) {
+    if (!available_formats.includes(image.name.split(".")[1].toLowerCase())) {
       return "Filformatet på bilden måste vara något av följande: " + available_formats.join(" ");
     }
 
@@ -256,9 +256,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             <div className="image-meta">
               <span
                 className={`image-format ${
-                  available_formats.includes(image.type.split("/")[1]) ? "accepted" : "error"
+                  available_formats.includes(image.name.split(".")[1].toLowerCase()) ? "accepted" : "error"
                 }`}>
-                Format: {image.type.split("/")[1]}
+                Format: {image.name.split(".")[1].toLowerCase()}
               </span>
               <span
                 className={`image-size ${image.size < 0.8 * 1024 * 1024 ? "accepted" : "error"}`}>
