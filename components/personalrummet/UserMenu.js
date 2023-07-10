@@ -10,6 +10,7 @@ import { useAuth } from "../../context/AuthContext";
 import CommitteeFeed from "./CommitteeFeed";
 import MarkdownRender from "../MarkdownRender";
 import ErrorPage from "../ErrorPage";
+import { all_committees } from "../../constants/committees-data";
 
 export default function UserMenu() {
   const [menuSelect, setMenuSelect] = useState("senaste");
@@ -98,7 +99,7 @@ export default function UserMenu() {
         <p>
           Välkommen {userData.displayName}!
           <br />
-          Nedanför kan du se {userData.committee}s senaste inlägg.
+          Nedanför kan du se {all_committees.find(namnd => namnd.id == userData.committee).name}s senaste inlägg.
         </p>
         {userData.permission === "moderator" && (
           <p>
