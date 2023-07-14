@@ -1,3 +1,6 @@
+// Skript för att bygga en fil som innehåller miljövariabler för serviceworker
+// Körs automatiskt vid npm run build och npm run dev
+
 require("dotenv").config(); // make sure you have '.env' file in pwd
 const fs = require("fs");
 
