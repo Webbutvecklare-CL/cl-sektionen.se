@@ -45,7 +45,6 @@ export default function App({ Component, pageProps }) {
     isSupported().then((yes) => {
       if (!yes) {
         console.log("Notiser stödjs inte på din enhet eller webbläsare.");
-        alert("Notiser stödjs inte på din enhet eller webbläsare.");
         return;
       }
 
