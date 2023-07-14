@@ -13,6 +13,9 @@ export default function Firebase() {
   const handleSubscribe = async (topic) => {
     const res = await saveMessagingDeviceToken(topic);
     if (res.message) {
+      alert(
+        "Det gick inte att prenumerera på notiser.\n\nDu nekade tillåtelse eller så stödjs inte notiser på din enhet eller webbläsare."
+      );
       setResult("Något gick fel");
     } else {
       setResult("Du prenumererar nu på " + topic);
