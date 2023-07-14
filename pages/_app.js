@@ -45,6 +45,7 @@ export default function App({ Component, pageProps }) {
     isSupported().then((yes) => {
       if (!yes) {
         console.log("Notiser stödjs inte på din enhet eller webbläsare.");
+        alert("Notiser stödjs inte på din enhet eller webbläsare.");
         return;
       }
 
@@ -85,14 +86,22 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title key="title">Sektionen för Civilingenjör och Lärare</title>
         <meta charSet="utf-8" />
-        <link rel="shortcut icon" type="image/x-icon" href="/media/grafik/favicon/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="/media/icons/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
         <meta name="description" content={description} key="desc" />
+        <meta name="format-detection" content="telephone=no" />
         <meta
           name="keywords"
           content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"
         />
         <meta name="author" content="Armin Baymani & Jesper Svensson" />
+
+        {/* För PWA */}
+        <link rel="manifest" href="/manifest.json" />
+        <link href="media/icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+        <link href="media/icons/favicon-192x192.png" rel="icon" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="media/icons/icon-180x180.png"></link>
+        <meta name="theme-color" content="#FF0000" />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" key="og-type" />
