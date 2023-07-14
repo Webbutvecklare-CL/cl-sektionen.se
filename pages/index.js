@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.webp";
 import Sidhuvud_black from "../public/media/grafik/Sidhuvud.webp";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
 import GråttKalender from "../components/GråttKalender";
@@ -102,6 +102,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
         </CalendarSubscription>
         <section className="sektionskal_månad_och_bokningar">
           <iframe
+            title="Sektionskalender månadsvy"
             className="open-web-calendar månad"
             style={{
               background:
@@ -125,7 +126,9 @@ export default function Index({ contents, featured, infoList, eventList }) {
               <h1>Hjälp vid illabehandling</h1>
               <MarkdownRender mdData={contents["hjalp-vid-illabehandling"]} />
               <Link className="section-button" href={"/hjalp-vid-illabehandling"}>
-                <button>Mer information</button>
+                <button aria-label="Öppna sidan med mer information om illabehandling">
+                  Mer information
+                </button>
               </Link>
             </section>
           </div>
@@ -142,13 +145,17 @@ export default function Index({ contents, featured, infoList, eventList }) {
               <section>
                 <MarkdownRender mdData={contents["for-foretag"]} />
                 <Link className="section-button" href={"/for-foretag"}>
-                  <button>Mer information och produktkatalog</button>
+                  <button aria-label="Öppna sidan med mer information om CL för företag">
+                    Mer information och produktkatalog
+                  </button>
                 </Link>
               </section>
               <section>
                 <MarkdownRender mdData={contents["for-studenter"]} />
                 <Link className="section-button" href={"/samarbeten"}>
-                  <button>Aktiva samarbeten</button>
+                  <button aria-label="Öppna sidan med mer information vad våra samarbetspartners erbjuder våra medlemmar">
+                    Aktiva samarbeten
+                  </button>
                 </Link>
               </section>
             </div>

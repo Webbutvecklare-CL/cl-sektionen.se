@@ -77,6 +77,7 @@ export default function Dokument({ contents }) {
       </div>
       <h2>Styrdokument</h2>
       <iframe
+        title="Styrdokument"
         src="https://drive.google.com/embeddedfolderview?id=1Nwg-S7C0YZ0FAeoQtQoQs2NpAcB9Jacb#grid"
         style={{
           width: "100%",
@@ -89,6 +90,7 @@ export default function Dokument({ contents }) {
         Protokoll och handlingar från <a href="#rättigheter">SM och StyM</a>
       </h2>
       <iframe
+        title="Protokoll och handlingar från SM och StyM"
         src="https://drive.google.com/embeddedfolderview?id=1TNcYNzvTLvmr-IKdY9TG6rW_0h-QFVGX#grid"
         style={{
           width: "100%",

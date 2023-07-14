@@ -3,6 +3,7 @@ const GråttKalender = () => {
     <div className="mini_kalender kalender_tab gråttan månad">
       <h1 className="kal_titel">Gråttbokningar</h1>
       <iframe
+        title="Gråttbokningar månadsvy"
         id="open-web-calendar månad"
         className="open-web-calendar"
         style={{

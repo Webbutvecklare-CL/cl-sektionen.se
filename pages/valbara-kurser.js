@@ -114,8 +114,9 @@ export default function Valbarakurser({ contents, courses }) {
           src="https://docs.google.com/forms/d/e/1FAIpQLScxnTpEdIQW7FHF5aX6NX6b9riZQoU7ftxiZ3vOO_MEJXimRw/viewform?embedded=true"
           frameBorder="0"
           marginHeight="0"
-          marginWidth="0">
-          Läser in …
+          marginWidth="0"
+          loading="lazy">
+          Läser in…
         </iframe>
       </div>
     </div>

@@ -22,7 +22,7 @@ export default function UserMenu() {
   const [userUpdateStatus, setUserUpdateStatus] = useState("");
 
   const { user, userData, logOut } = useAuth();
-  const userCommitteeName = all_committees.find(namnd => namnd.id == userData.committee).name;
+  const userCommitteeName = all_committees.find((namnd) => namnd.id == userData.committee).name;
   const router = useRouter();
 
   // Rensa error om man byter meny
@@ -43,13 +43,15 @@ export default function UserMenu() {
     const postRef = collection(firestore, "posts");
 
     //Or allows committee name as publisher. i.e "Näringslivsnämnden" instead of "naringslivsnamnden"
-    //Removing this means old posts will not show up in feed
+    //Removing this means old test posts will not show up in feed
     //It's likely slightly more efficient to split this up as 2 separate queries but then "limit" will break.
     const committeeQuery = query(
       postRef,
       or(
         where("committee", "==", userData.committee),
-        where("committee", "==", userCommitteeName)),
+        where("committee", "==", userCommitteeName),
+        where("creator", "==", userData.uid)
+      ),
       orderBy("publishDate", "desc"),
       limit(5)
     );
@@ -68,7 +70,7 @@ export default function UserMenu() {
         console.error("Fel vid laddning av nämndinlägg:", err);
         setError("Det gick inte att hämta nämndens inlägg, vänligen kontakta webbansvariga.");
       });
-  }, [userData.committee]);
+  }, [userData.committee, userData.uid]);
 
   const handleUserUpdate = () => {
     setMenuSelect("update");
@@ -106,14 +108,20 @@ export default function UserMenu() {
           Välkommen {userData.displayName}!
           <br />
           Nedanför kan du se {userCommitteeName}s senaste inlägg.
+          {userData.permission === "admin" &&
+            " Du ser även de inlägg som du skapat åt andra nämnder."}
         </p>
         {userData.permission === "moderator" && (
           <p>
             Du kan skapa nya eller redigera tidigare inlägg. Om du ta bort ett inlägg från din nämnd
-            kan du arkivera det (Kommer i framtiden).
+            kan du arkivera det.
           </p>
         )}
-        {userData.permission === "admin" && <p>Du kan göra vad du vill.</p>}
+        {userData.permission === "admin" && (
+          <p>
+            Du kan ta bort inlägg, redigera alla inlägg, byta vilken nämnd inlägget tillhör m.m.
+          </p>
+        )}
       </div>
 
       {/*Knappar*/}

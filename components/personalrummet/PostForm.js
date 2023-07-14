@@ -15,14 +15,14 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [title, setTitle] = useState(prefill.title);
   const subtitle = useRef(null);
   const [image, setImage] = useState(prefill.image);
-  const body = useRef(null);
+  const body = useRef(prefill.body); // useRef för att useState gör att bilden laddas om varje gång man skriver
   const [tags, setTags] = useState(prefill.tags);
   const [startDateTime, setStartDateTime] = useState(prefill.startDateTime);
   const [endDateTime, setEndDateTime] = useState(prefill.endDateTime);
   const [visibility, setVisibility] = useState(prefill.visibility);
   const [meetingNumber, setMeetingNumber] = useState(1);
   const author = useRef(null);
-  const [authorCommittee, setAuthorCommittee] = useState(prefill.authorCommittee);
+  const [authorCommittee, setAuthorCommittee] = useState(prefill.authorCommittee); // Admins kan ändra vilken nämnd inlägget tillhör
   const [link, setLink] = useState(prefill.link);
 
   const [error, setError] = useState("");
@@ -62,18 +62,22 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
   // Om det är ett SM eller StyM så uppdatera länken efter typ och mötes nummer
   useEffect(() => {
+    if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
     if (tags["SM"]) {
       setLink(create_id({ number: meetingNumber }, "SM"));
     } else if (tags["StyM"]) {
       setLink(create_id({ number: meetingNumber }, "StyM"));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [meetingNumber, tags]);
 
   // Om det inte är ett SM eller StyM så uppdateras länken efter titeln
   useEffect(() => {
+    if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
     if (!(tags["SM"] || tags["StyM"])) {
       setLink(create_id(title));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [title, tags]);
 
   const handleSubmit = (e) => {
@@ -97,7 +101,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       title,
       subtitle: subtitle.current.value,
       image,
-      body: body.current.value,
+      body: body.current,
       author: author.current.value,
       authorCommittee,
       visibility,
@@ -130,7 +134,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       return "Subtiteln får max vara 120 tecken lång.";
     }
 
-    if (body.current.value.length < 3) {
+    if (body.current.length < 3 + 7) {
+      // + 7 för att de minsta taggarna är 7 tecken ""<p></p>"
       return "Du måste ange en text med minst 3 tecken.";
     }
 
@@ -139,12 +144,14 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
 
     // Image check
-    if (image.size > 0.8 * 1024 * 1024) {
-      return "Filstorleken på bilden får inte vara större än 0.8 MB";
-    }
-    const available_formats = ["jpeg", "jpg", "webp", "avif", "png", "gif"];
-    if (!available_formats.includes(image.name.split(".")[1].toLowerCase())) {
-      return "Filformatet på bilden måste vara något av följande: " + available_formats.join(" ");
+    if (image.name) {
+      if (image.size > 0.8 * 1024 * 1024) {
+        return "Filstorleken på bilden får inte vara större än 0.8 MB";
+      }
+      const available_formats = ["jpeg", "jpg", "webp", "avif", "png", "gif"];
+      if (!available_formats.includes(image.name.split(".")[1].toLowerCase())) {
+        return "Filformatet på bilden måste vara något av följande: " + available_formats.join(" ");
+      }
     }
 
     //Kollar start- och sluttider
@@ -256,7 +263,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             <div className="image-meta">
               <span
                 className={`image-format ${
-                  available_formats.includes(image.name.split(".")[1].toLowerCase()) ? "accepted" : "error"
+                  available_formats.includes(image.name.split(".")[1].toLowerCase())
+                    ? "accepted"
+                    : "error"
                 }`}>
                 Format: {image.name.split(".")[1].toLowerCase()}
               </span>
@@ -362,7 +371,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             <ImageInput />
 
             <Label required>Inlägg:</Label>
-            <TextField _ref={body} value={prefill.body} />
+            <TextField fieldRef={body} defaultValue={prefill.body} />
 
             <Label required>Författare:</Label>
             <input type="text" required ref={author} defaultValue={prefill.author} />
@@ -380,7 +389,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                   onChange={(e) => {
                     setAuthorCommittee(e.target.value);
                   }}
-                  defaultValue={userData.committee}>
+                  defaultValue={prefill.committee || userData.committee}>
                   {all_committees.map((committee, idx) => {
                     return (
                       <option value={committee.id} key={idx}>
