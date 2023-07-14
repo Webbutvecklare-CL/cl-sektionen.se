@@ -42,4 +42,9 @@ firestore.indexes.json
 firebase.json
 storage.rules
 
+# Skapas automatiskt vid build
 /public/swenv.js
+
+# Remove PWA service worker
+/public/sw.js*
+/public/workbox*

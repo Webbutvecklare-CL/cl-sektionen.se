@@ -2,7 +2,6 @@ import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
 export default function Kontakt({ contents }) {
-  console.log(contents);
   return (
     <div id="contentbody">
       <h1>Kontakt</h1>
