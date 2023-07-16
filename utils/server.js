@@ -1,5 +1,5 @@
 export function revalidate(page = "all", postId = "") {
-  const url = `/api/revalidate?secret=${"Y3c6e9a07c10d202b26345t8b22bf4044"}&page=${page}&postId=${postId}`;
+  const url = `/api/revalidate?secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}&page=${page}&postId=${postId}`;
   const headers = {
     "Content-Type": "application/json",
     "method": "GET",
