@@ -100,7 +100,7 @@ export default function App({ Component, pageProps }) {
         <link href="media/icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
         <link href="media/icons/favicon-192x192.png" rel="icon" type="image/png" sizes="192x192" />
         <link rel="apple-touch-icon" href="media/icons/icon-180x180.png"></link>
-        <meta name="theme-color" content="#FF0000" />
+        <meta name="theme-color" content="#d23022" />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" key="og-type" />
