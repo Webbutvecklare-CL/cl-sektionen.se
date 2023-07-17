@@ -5,12 +5,18 @@ import { sendNotification } from "../utils/server";
 
 import { useAuth } from "../context/AuthContext";
 
-export default function Firebase() {
+import styles from "../styles/firebasetest.module.css";
+
+export default function Firebasetest() {
   const [result, setResult] = useState("");
   const [debugText, setDebugText] = useState("");
-  const [notificationMessage, setNotificationMessage] = useState("");
 
-  const { userData } = useAuth();
+  const [type, setType] = useState("post");
+  const [postId, setPostId] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  const { userData, user } = useAuth();
 
   const handleSubscribe = async (topic) => {
     const res = await saveMessagingDeviceToken(topic);
@@ -27,7 +33,21 @@ export default function Firebase() {
   };
 
   const handleSendNotification = () => {
-    sendNotification(userData?.uid, notificationMessage);
+    let notificationMessage;
+    if (type == "post") {
+      notificationMessage = {
+        type: "post",
+        postId,
+      };
+    } else if (type == "custom") {
+      notificationMessage = {
+        type: "custom",
+        title,
+        body,
+      };
+    }
+
+    sendNotification(user, notificationMessage);
   };
 
   const testSupport = () => {
@@ -71,19 +91,63 @@ export default function Firebase() {
 
         {/* Skicka notis kan användas av inloggade */}
         {userData && (
-          <div>
+          <>
             <h3>Skicka notis</h3>
-            <textarea
-              type="textarea"
-              rows="1"
-              cols="30"
-              value={notificationMessage}
-              onChange={(e) => {
-                setNotificationMessage(e.target.value);
-              }}
-            />
-            <button onClick={handleSendNotification}>Skicka notis</button>
-          </div>
+            <div className={styles.sendPanel}>
+              <p>Vilken typ av notis vill du skicka?</p>
+              <div className={styles.typeSelect}>
+                <button
+                  onClick={() => {
+                    setType("post");
+                  }}>
+                  Inlägg
+                </button>
+                <button
+                  onClick={() => {
+                    setType("custom");
+                  }}>
+                  Anpassad
+                </button>
+              </div>
+              {type === "post" && (
+                <div>
+                  <p>Vilket inlägg vill du skicka notis om?</p>
+                  <input
+                    type="text"
+                    value={postId}
+                    onChange={(e) => {
+                      setPostId(e.target.value);
+                    }}
+                  />
+                </div>
+              )}
+              {type === "custom" && (
+                <div className={styles.message}>
+                  <p>Skriv in titel</p>
+                  <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                  />
+
+                  <p>Skriv in notistexten</p>
+                  <textarea
+                    type="textarea"
+                    rows="3"
+                    cols="30"
+                    value={body}
+                    onChange={(e) => {
+                      setBody(e.target.value);
+                    }}
+                  />
+                </div>
+              )}
+
+              <button onClick={handleSendNotification}>Skicka notis</button>
+            </div>
+          </>
         )}
       </article>
     </div>

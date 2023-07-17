@@ -158,7 +158,7 @@ export default function Publicera({ calendarID }) {
 
     // Skickar notis om valt
     if (data.sendNotification) {
-      sendNotification(userData?.uid, link);
+      sendNotification(user, { type: "post", postId: link });
     }
 
     setIsPending(false);

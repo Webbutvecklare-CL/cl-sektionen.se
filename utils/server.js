@@ -16,13 +16,14 @@ export function revalidate(page = "all", postId = "") {
     .catch((error) => console.error(error));
 }
 
-export function sendNotification(userId, postId) {
+export function sendNotification(user, data) {
   let options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": "Bearer " + user.accessToken,
     },
-    body: JSON.stringify({ userId, postId }),
+    body: JSON.stringify({ data }),
   };
   fetch(`/api/notifications`, options).then((res) => {
     if (res.ok) {

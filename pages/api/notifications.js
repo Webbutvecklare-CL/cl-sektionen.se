@@ -1,24 +1,5 @@
-import admin from "firebase-admin";
 import { FieldValue } from "firebase-admin/firestore";
-
-const serviceAccount = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT);
-
-// Admin initialization
-try {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  });
-  console.log("Initialized.");
-} catch (error) {
-  /*
-   * We skip the "already exists" message which is
-   * not an actual error when we're hot-reloading.
-   */
-  if (!/already exists/u.test(error.message)) {
-    console.error("Firebase admin initialization error", error.stack);
-    reject({ ok: false, tokens: 0, error });
-  }
-}
+import admin from "../../firebase/firebaseAdmin";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -27,17 +8,64 @@ export default async function handler(req, res) {
   }
   console.log("Received notification request with message:", req.body);
 
-  if (!req.body.userId || !req.body.postId) {
+  if (!req.body.data) {
     res.status(400).send({ message: "Felaktiga attribut i body." });
     return;
   }
 
-  let postData;
   try {
-    postData = await verifyRequest(req.body.userId, req.body.postId);
+    var { uid, permission } = await verifyUser(req, res);
   } catch (error) {
-    console.error(error);
-    res.status(400).send({ message: error });
+    console.error("Error validating user authentication:", error);
+    res.status(401).json({ error: "Invalid authentication token" });
+    return;
+  }
+
+  let topic;
+  let message;
+
+  if (req.body.data.type == "post") {
+    try {
+      const postData = await verifyRequest(uid, req.body.postId);
+
+      // Skapa payload objekt med all data
+      const payload = createPayload(postData);
+      topic = postData.type;
+      message = {
+        topic: "new_post",
+        ...payload,
+        collapseKey: "new_post",
+        fcmOptions: { analyticsLabel: "new_post" },
+      };
+    } catch (error) {
+      console.error(error);
+      res.status(400).send({ message: error });
+      return;
+    }
+  } else if (req.body.data.type == "custom") {
+    if (permission !== "admin") {
+      res.status(401).send({ message: "Du har inte tillåtelse att skicka anpassade notiser" });
+      return;
+    }
+    topic = "information";
+    const payload = {
+      data: {
+        title: req.body.data.title,
+        body: req.body.data.body,
+        image: req.body.data.image || "",
+        icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
+        tag: "Nyhet",
+        link: `/`,
+      },
+    };
+    message = {
+      topic: "custom",
+      ...payload,
+      collapseKey: "custom",
+      fcmOptions: { analyticsLabel: "custom" },
+    };
+  } else {
+    res.status(400).send({ message: "Felaktig typ av notis" });
     return;
   }
 
@@ -48,7 +76,7 @@ export default async function handler(req, res) {
 
   try {
     // Skickar notis till alla som följer eventuella taggar
-    let response = await sendNotification(postData);
+    let response = await sendNotification(topic, message);
     // Skickar tillbaka respons
     res
       .status(200)
@@ -60,27 +88,19 @@ export default async function handler(req, res) {
   return;
 }
 
-// Hjälp funktioner
+// Hjälpfunktioner
 
-async function sendNotification(data) {
+async function sendNotification(topic, message) {
   return new Promise(async (resolve, reject) => {
     // Hämtar alla tokens - de som ska få notisen
-    const tokens = await getTokens(data.type);
+    const tokens = await getTokens(topic);
 
     console.log(`Sending notification to ${tokens.length} devices`);
     if (tokens.length > 0) {
-      // Skapa payload objekt med all data
-      const payload = createPayload(data);
-      const message = {
-        topic: "new_post",
-        ...payload,
-        tokens: tokens,
-        collapseKey: "new_post",
-      };
-
+      message.tokens = tokens;
       try {
         // Send notifications to all tokens.
-        const response = await admin.messaging().sendMulticast(message);
+        const response = await admin.messaging().sendEachForMulticast(message);
         await cleanupTokens(response, tokens);
         console.log("Notifications have been sent and tokens cleaned up.");
         resolve({ ok: true, tokens: tokens.length });
@@ -197,5 +217,32 @@ function verifyRequest(userId, postId) {
       .catch((err) => {
         reject({ error: err });
       });
+  });
+}
+
+async function verifyUser(req, res) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { authorization } = req.headers;
+      if (!authorization) {
+        return res.status(401).json({ error: "Missing authorization header" });
+      }
+
+      const idToken = authorization.split("Bearer ")[1];
+      if (!idToken) {
+        return res.status(401).json({ error: "Invalid authorization header" });
+      }
+
+      const decodedToken = await admin.auth().verifyIdToken(idToken);
+      const { uid } = decodedToken;
+
+      // Kolla vilka rättigheter användaren har
+      const userDoc = await admin.firestore().collection("users").doc(uid).get();
+      const user = userDoc.data();
+
+      resolve({ uid, permission: user.permission });
+    } catch (error) {
+      reject(error);
+    }
   });
 }
