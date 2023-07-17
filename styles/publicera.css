@@ -29,7 +29,10 @@
 }
 
 .create input,
-.create textarea,
+.create textarea {
+  width: 100%;
+  margin: 10px 0;
+}
 .create select,
 .create .image-file {
   width: 100%;

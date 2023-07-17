@@ -1,0 +1,10 @@
+.inputPanel p {
+  padding: 0;
+  margin-bottom: 0.2rem;
+}
+
+.inputPanel input,
+.inputPanel textarea {
+  width: 300px;
+  margin-bottom: 1rem;
+}

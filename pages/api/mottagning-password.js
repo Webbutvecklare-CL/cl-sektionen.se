@@ -1,0 +1,72 @@
+import { serialize } from "cookie";
+import rateLimit from "../../utils/rate-limit";
+
+import admin from "../../firebase/firebaseAdmin";
+
+const limiter = rateLimit({
+  interval: 60 * 1000, // 60 seconds
+  uniqueTokenPerInterval: 500, // Max 500 users per second
+});
+
+// Tar emot inloggningsförsök från mottagningssidan och sätter en cookie om lösenordet är rätt
+export default async function handler(req, res) {
+  // Kollar om användaren försöker mer än 10 gånger per minut
+  try {
+    await limiter.check(res, 10, "CACHE_TOKEN"); // 10 requests per minute
+  } catch {
+    return res.status(429).json({ error: "Rate limit exceeded" });
+  }
+
+  if (req.method === "GET") {
+    return handleKeyReq(req, res);
+  } else if (req.method === "POST") {
+    if (req.body.type === "password") {
+      return handlePasswordReq(req, res);
+    } else {
+      return res.status(405).send("Type not declared or not allowed");
+    }
+  } else {
+    return res.status(405).send("Method not allowed");
+  }
+}
+
+function handlePasswordReq(req, res) {
+  const password = req.body.password;
+
+  if (process.env.MOTTAGNING_PASSWORD === password) {
+    const cookie = serialize("mottagning_key", process.env.NEXT_PUBLIC_MOTTAGNING_KEY, {
+      path: "/",
+      httpOnly: true,
+      //   maxAge: 60 * 60 * 24 * 7 // 1 week
+      maxAge: 20 * 20, // 20 sekunder
+    });
+    res.setHeader("Set-Cookie", cookie);
+    res
+      .status(200)
+      .json({ success: "Logged in", mottagning_key: process.env.NEXT_PUBLIC_MOTTAGNING_KEY });
+  } else {
+    res.status(401).json({ error: "Incorrect Password" });
+  }
+}
+
+async function handleKeyReq(req, res) {
+  const key = req.headers.mottagning_key;
+  if (key === process.env.NEXT_PUBLIC_MOTTAGNING_KEY) {
+    // Hämtar alla mottagningsposts
+    let posts = [];
+    const mottagningsPostsRef = admin.firestore().collection("mottagningsPosts");
+    try {
+      const postDocs = await mottagningsPostsRef.get();
+      postDocs.forEach((doc) => {
+        const data = doc.data();
+        posts.push(data);
+      });
+    } catch (err) {
+      console.log("Error getting documents", err);
+      return res.status(200).json({ error: "Kunde inte ladda inläggen" });
+    }
+    return res.status(200).json({ posts });
+  } else {
+    return res.status(401).json({ error: "Incorrect key" });
+  }
+}

@@ -141,11 +141,20 @@ export default function UserMenu() {
       </div>
       <div className="menu">
         <button className="redigera" onClick={() => router.push("personalrummet/redigera")}>
-          Redigera
+          Redigera inlägg
         </button>
         <button className="publicera" onClick={() => router.push("personalrummet/publicera")}>
-          Publicera
+          Publicera inlägg
         </button>
+        <button className="publicera" disabled onClick={() => router.push("personalrummet/tv")}>
+          Lägg upp på tv
+        </button>
+        {(userData.permission === "admin" ||
+          ["mottagningsnamnden", "naringslivsnamnden"].includes(userData.committee)) && (
+          <button className="publicera" onClick={() => router.push("personalrummet/tv")}>
+            Mottagning
+          </button>
+        )}
       </div>
       {menuSelect == "senaste" && (
         <div>
