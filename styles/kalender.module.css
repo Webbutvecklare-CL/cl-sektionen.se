@@ -82,6 +82,15 @@
   margin: unset;
 }
 
+.calendarSubscription {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.calendarSubscription p {
+  padding: 0;
+}
+
 @media screen and (max-width: 1000px) {
   .sektionskalMånadOchBokningar {
     display: block;
@@ -160,7 +169,7 @@
     border-radius: 0.2rem;
   }
 
-  .tabs-wrapper {
+  .tabsWrapper {
     margin-left: 1rem;
     display: flex;
     justify-content: left;

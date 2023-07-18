@@ -19,7 +19,8 @@ import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "fi
 import { logEvent } from "firebase/analytics";
 
 import styles from "../styles/index.module.css";
-import feed from "../styles/feed-preview.module.css";
+import feedStyles from "../styles/feed-preview.module.css";
+import calStyles from "../styles/kalender.module.css";
 
 export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
@@ -79,7 +80,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
           </button>
         </div>
         <section id={styles.happenings}>
-          <div className={feed.small}>
+          <div className={feedStyles.small}>
             {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
             <div>
               <h2>Senaste</h2>
@@ -110,7 +111,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
         <section className={styles.sektionskalMånadOchBokningar}>
           <iframe
             title="Sektionskalender månadsvy"
-            className="openWebCalendar månad"
+            className={`${calStyles.openWebCalendar} ${calStyles.månad}`}
             style={{
               background:
                 "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",

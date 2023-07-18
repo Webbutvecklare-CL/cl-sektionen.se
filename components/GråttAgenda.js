@@ -1,10 +1,13 @@
-const GråttAgenda = () => {
+import styles from "../styles/kalender.module.css";
+
+export default function GråttAgenda() {
   return (
-    <div className="miniKalender kalenderTab gråttagendaWrapper agendaVy">
-      <h1 className="kalTitel">Gråttbokningar</h1>
+    <div
+      className={`${styles.miniKalender} ${styles.kalenderTab} ${styles.gråttagendaWrapper} ${styles.agendaVy}`}>
+      <h1 className={styles.kalTitel}>Gråttbokningar</h1>
       <iframe
         title="Gråttbokningar agenda vy kommande dagar"
-        className="openWebCalendar agenda"
+        className={`${styles.openWebCalendar} ${styles.agenda}`}
         style={{
           background:
             "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
@@ -15,5 +18,4 @@ const GråttAgenda = () => {
       />
     </div>
   );
-};
-export default GråttAgenda;
+}
