@@ -28,3 +28,8 @@
   width: 300px;
   margin-bottom: 1rem;
 }
+
+.subscriptionMenu {
+  display: flex;
+  gap: 1rem;
+}

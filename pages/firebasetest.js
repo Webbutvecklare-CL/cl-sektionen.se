@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { saveMessagingDeviceToken } from "../firebase/messaging"; // Filen
+import React, { useEffect, useState } from "react";
+import { saveMessagingDeviceToken, checkToken } from "../firebase/messaging"; // Filen
 import { isSupported } from "firebase/messaging"; // Biblioteket
 import { sendNotification } from "../utils/server";
 
@@ -56,6 +56,21 @@ export default function Firebasetest() {
     });
   };
 
+  const testToken = async () => {
+    const res = await checkToken();
+    if (res.error) {
+      console.error(res.error);
+      setDebugText("Ingen token fanns, ny behöver skapas");
+    } else {
+      console.log(res.token);
+      setDebugText(res.token.substring(0, 20) + "...");
+    }
+  };
+
+  useEffect(() => {
+    testToken();
+  }, []);
+
   return (
     <div id="contentbody">
       <article>
@@ -65,7 +80,7 @@ export default function Firebasetest() {
           få notiser ifrån, du kan välja båda. Om du är osäker på om din enhet stödjer notiser tryck
           på &quot;Kolla support&quot;.
         </p>
-        <div>
+        <div className={styles.subscriptionMenu}>
           <button
             onClick={() => {
               handleSubscribe("event");
@@ -75,14 +90,12 @@ export default function Firebasetest() {
           <button
             onClick={() => {
               handleSubscribe("information");
-            }}
-            style={{ marginLeft: "20px" }}>
+            }}>
             Notiser för information
           </button>
 
-          <button style={{ marginLeft: "20px" }} onClick={testSupport}>
-            Kolla support
-          </button>
+          <button onClick={testSupport}>Kolla support</button>
+          <button onClick={testToken}>Kolla Token</button>
         </div>
         <div style={{ marginTop: "20px" }}>
           <p>{result}</p>

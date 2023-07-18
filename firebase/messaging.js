@@ -49,3 +49,17 @@ export async function saveMessagingDeviceToken(collection) {
     return error;
   }
 }
+
+export async function checkToken() {
+  try {
+    const msg = await messaging();
+    const fcmToken = await getToken(msg, { vapidKey: VAPID_KEY });
+    if (fcmToken) {
+      return { token: fcmToken };
+    } else {
+      return { error: "No token", token: null };
+    }
+  } catch (error) {
+    return { error, token: null };
+  }
+}
