@@ -1,10 +1,10 @@
 const GråttAgenda = () => {
   return (
-    <div className="mini_kalender kalender_tab gråttagenda_wrapper agenda-vy">
-      <h1 className="kal_titel">Gråttbokningar</h1>
+    <div className="miniKalender kalenderTab gråttagendaWrapper agendaVy">
+      <h1 className="kalTitel">Gråttbokningar</h1>
       <iframe
         title="Gråttbokningar agenda vy kommande dagar"
-        className="open-web-calendar agenda"
+        className="openWebCalendar agenda"
         style={{
           background:
             "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",

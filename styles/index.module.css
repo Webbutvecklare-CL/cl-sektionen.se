@@ -1,12 +1,5 @@
-.hidden-title {
-  display: block;
-  height: 0;
-  padding: 0;
-  margin: 0;
-}
-
 /* Banner bild med logga och slogan */
-.index-bg {
+.indexBg {
   width: 102%;
   height: 300px;
   overflow: hidden;
@@ -26,23 +19,23 @@
   align-items: center;
 }
 
-.sektionslogga-vitt {
+.sektionsloggaVitt {
   max-width: 1000px;
   width: 87%;
   height: min-content;
   filter: drop-shadow(5px 5px 5px #222);
 }
 
-.image-container {
+.imageContainer {
   text-align: center;
 }
 
 @media screen and (max-width: 550px) {
-  .index-bg {
+  .indexBg {
     justify-content: space-evenly;
   }
 
-  .index-bg h1 {
+  .indexBg h1 {
     margin: 0 1rem;
     padding: 0;
     font-size: 2rem;
@@ -50,21 +43,21 @@
 }
 
 /* Content */
-.index_content {
+.indexContent {
   padding-top: 0 !important;
 }
 
-.om-container {
+.omContainer {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.2s ease-in-out;
 }
 
-.om-container.open {
+.omContainer.open {
   grid-template-rows: 1fr;
 }
 
-.om-container > * {
+.omContainer > * {
   overflow: hidden;
 }
 
@@ -79,18 +72,18 @@
   height: auto;
 }
 
-.no-margin-line {
+.noMarginLine {
   margin-top: -1px;
   margin-bottom: 0;
 }
 
-.visa_om_knapp_div {
+.visaOmKnappDiv {
   display: flex;
   justify-content: center;
   margin-bottom: -1rem;
 }
 
-.visa_om_knapp {
+.visaOmKnapp {
   background-color: var(--clr1);
   border-radius: 0 0 0.7rem 0.7rem;
 
@@ -99,12 +92,18 @@
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 }
 
-.aktuellt_innehåll {
+.aktuelltInnehåll {
   margin-bottom: 10px;
   border-radius: 0.3rem;
 }
 
-.event_innehåll {
+.feedWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.feedColumn {
   border-radius: 0.3rem;
 }
 
@@ -113,20 +112,7 @@
   margin-top: 0rem;
 }
 
-.sektionskal_månad_och_bokningar {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-.open-web-calendar.månad {
-  height: 570px;
-  margin: unset;
-}
-
-.resurser .section-button {
+.resurser .sectionButton {
   text-align: center;
   display: block;
   margin: 20px auto 10px auto;
@@ -136,55 +122,43 @@
   margin-bottom: 1rem;
 }
 
-.start-naringsliv {
+.startNaringsliv {
   display: grid;
   gap: 0px 2rem;
   grid-template-areas: ". .";
 }
 
-.start-naringsliv h2 {
+.startNaringsliv h2 {
   margin-top: 0px;
 }
 
-.gråttan.månad {
-  display: none;
-}
-
-.calendar-subscription {
+.calendarSubscription {
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
 
-.calendar-subscription p {
+.calendarSubscription p {
   padding: 0;
 }
 
+.sektionskalMånadOchBokningar {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1000px) {
-  .sektionskal_månad_och_bokningar {
+  .sektionskalMånadOchBokningar {
     display: block;
   }
+}
 
-  .open-web-calendar.månad {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .open-web-calendar.agenda {
-    height: 300px !important;
-    max-width: 450px !important;
-    min-width: 270px !important;
-  }
-
-  .gråttagenda_wrapper {
-    min-width: 280px !important;
-    margin: 1rem auto 0 auto;
-  }
-
-  .agenda-vy {
-    display: none;
-  }
-  .gråttan.månad {
-    display: block;
+@media screen and (max-width: 850px) {
+  .feedWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 }
 
@@ -194,7 +168,7 @@
     flex-wrap: wrap;
   }
 
-  .start-naringsliv {
+  .startNaringsliv {
     display: flex;
     flex-wrap: wrap;
     row-gap: 1.5rem;

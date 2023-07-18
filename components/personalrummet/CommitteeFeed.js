@@ -11,6 +11,9 @@ import { revalidate } from "../../utils/server";
 
 import bg from "../../public/media/img/KTHcover.jpg";
 
+import styles from "../../styles/personalrummet.module.css";
+import feed from "../../styles/feed-preview.module.css";
+
 export default function CommitteeFeed({ posts, permission = "" }) {
   // För att feedet ska uppdateras när man klickar på ex ögat
   const [postList, setPostList] = useState([]);
@@ -64,11 +67,11 @@ export default function CommitteeFeed({ posts, permission = "" }) {
   };
 
   return (
-    <div className="committee-feed feed-preview">
+    <div className={`${styles.committeeFeed} ${styles.preview} ${feed.preview}`}>
       {postList.map((post, idx) => {
         return (
-          <div className="post-wrapper" key={post.id} post-idx={idx}>
-            <div className="options">
+          <div className={`${styles.postWrapper} ${feed.postWrapper}`} key={post.id} post-idx={idx}>
+            <div className={styles.options}>
               <div>
                 <Link href={`/aktuellt/${post.id}`} target={"_blank"}>
                   <i className="fa-regular fa-solid fa-arrow-up-right-from-square"></i>
@@ -88,8 +91,8 @@ export default function CommitteeFeed({ posts, permission = "" }) {
               </div>
             </div>
             <Link href={`/personalrummet/redigera/${post.id}`}>
-              <div className="post-preview">
-                <div className="image">
+              <div className={`${styles.postPreview} ${feed.postPreview}`}>
+                <div className={feed.image}>
                   {post.image && (
                     <Image src={post.image} width={240} height={200} alt="Post image" />
                   )}
@@ -98,11 +101,11 @@ export default function CommitteeFeed({ posts, permission = "" }) {
                 <div>
                   <h2>{post.title}</h2>
                 </div>
-                <div className="post-content">
-                  <p className="subtitle">{post.subtitle}</p>
+                <div className={feed.postContent}>
+                  <p className={feed.subtitle}>{post.subtitle}</p>
                   {/* Parse för att formatera om html koden till html element
-                                  Sanitize för att göra det lite mer stilrent i previewn dvs inga styles*/}
-                  <div className="body">
+                                  Sanitize för att göra det lite mer stilrent i preview dvs inga styles*/}
+                  <div className={feed.body}>
                     <p>
                       {parse(
                         sanitizeHtml(post.body, {

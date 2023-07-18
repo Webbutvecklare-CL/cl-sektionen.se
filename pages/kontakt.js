@@ -1,11 +1,13 @@
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
+import styles from "../styles/kontakt.module.css";
+
 export default function Kontakt({ contents }) {
   return (
     <div id="contentbody">
       <h1>Kontakt</h1>
-      <div className="contact">
+      <div className={styles.contact}>
         <MarkdownRender mdData={contents["allman"]} />
         <MarkdownRender mdData={contents["naringsliv"]} />
         <MarkdownRender mdData={contents["skyddsombud"]} />

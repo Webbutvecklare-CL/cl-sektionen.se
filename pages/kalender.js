@@ -21,19 +21,19 @@ function Kalender() {
         Prenumerera på <strong>Gråttankalendern</strong>:
       </CalendarSubscription>
 
-      <div className="tabs-wrapper">
+      <div className="tabsWrapper">
         <button
           onClick={() => {
             setCalendar(0);
           }}
-          className={`kal-knapp sektionskalender ${activeIdx === 0 ? "active" : ""}`}>
+          className={`kalKnapp sektionskalender ${activeIdx === 0 ? "active" : ""}`}>
           Sektionskalender
         </button>
         <button
           onClick={() => {
             setCalendar(1);
           }}
-          className={`kal-knapp gråttkalender ${activeIdx === 1 ? "active" : ""}`}>
+          className={`kalKnapp gråttkalender ${activeIdx === 1 ? "active" : ""}`}>
           Gråttans kalender
         </button>
       </div>
