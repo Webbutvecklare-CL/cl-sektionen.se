@@ -70,7 +70,7 @@ export default function UserMenu() {
         console.error("Fel vid laddning av nämndinlägg:", err);
         setError("Det gick inte att hämta nämndens inlägg, vänligen kontakta webbansvariga.");
       });
-  }, [userData.committee, userData.uid]);
+  }, [userData.committee, userData.uid, userCommitteeName]);
 
   const handleUserUpdate = () => {
     setMenuSelect("update");
@@ -151,7 +151,7 @@ export default function UserMenu() {
         </button>
         {(userData.permission === "admin" ||
           ["mottagningsnamnden", "naringslivsnamnden"].includes(userData.committee)) && (
-          <button className="publicera" onClick={() => router.push("personalrummet/tv")}>
+          <button className="publicera" onClick={() => router.push("personalrummet/mottagning")}>
             Mottagning
           </button>
         )}
