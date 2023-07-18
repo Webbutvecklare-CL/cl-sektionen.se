@@ -1,24 +1,23 @@
 import { FieldValue } from "firebase-admin/firestore";
 import admin from "../../firebase/firebaseAdmin";
 
+import { verifyUser } from "../../utils/server";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    res.status(405).send({ message: "Only POST requests allowed" });
-    return;
+    return res.status(405).send({ message: "Only POST requests allowed" });
   }
   console.log("Received notification request with message:", req.body);
 
   if (!req.body.data) {
-    res.status(400).send({ message: "Felaktiga attribut i body." });
-    return;
+    return res.status(400).send({ message: "Felaktiga attribut i body." });
   }
 
   try {
     var { uid, permission } = await verifyUser(req, res);
   } catch (error) {
     console.error("Error validating user authentication:", error);
-    res.status(401).json({ error: "Invalid authentication token" });
-    return;
+    return res.status(401).json({ error: error.error });
   }
 
   let topic;
@@ -26,7 +25,7 @@ export default async function handler(req, res) {
 
   if (req.body.data.type == "post") {
     try {
-      const postData = await verifyRequest(uid, req.body.postId);
+      const postData = await verifyRequest(uid, req.body.data.postId);
 
       // Skapa payload objekt med all data
       const payload = createPayload(postData);
@@ -39,13 +38,13 @@ export default async function handler(req, res) {
       };
     } catch (error) {
       console.error(error);
-      res.status(400).send({ message: error });
-      return;
+      return res.status(400).send({ message: error });
     }
   } else if (req.body.data.type == "custom") {
     if (permission !== "admin") {
-      res.status(401).send({ message: "Du har inte tillåtelse att skicka anpassade notiser" });
-      return;
+      return res
+        .status(401)
+        .send({ message: "Du har inte tillåtelse att skicka anpassade notiser" });
     }
     topic = "information";
     const payload = {
@@ -65,8 +64,7 @@ export default async function handler(req, res) {
       fcmOptions: { analyticsLabel: "custom" },
     };
   } else {
-    res.status(400).send({ message: "Felaktig typ av notis" });
-    return;
+    return res.status(400).send({ message: "Felaktig typ av notis" });
   }
 
   // Typ lite oklart vad dessa headers gör
@@ -78,14 +76,13 @@ export default async function handler(req, res) {
     // Skickar notis till alla som följer eventuella taggar
     let response = await sendNotification(topic, message);
     // Skickar tillbaka respons
-    res
+    return res
       .status(200)
       .json({ message: `Notis skickat till ${response.tokens} enheter`, data: req.query.message });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: `Ett fel inträffade`, error });
+    return res.status(500).json({ message: `Ett fel inträffade`, error });
   }
-  return;
 }
 
 // Hjälpfunktioner
@@ -217,32 +214,5 @@ function verifyRequest(userId, postId) {
       .catch((err) => {
         reject({ error: err });
       });
-  });
-}
-
-async function verifyUser(req, res) {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const { authorization } = req.headers;
-      if (!authorization) {
-        return res.status(401).json({ error: "Missing authorization header" });
-      }
-
-      const idToken = authorization.split("Bearer ")[1];
-      if (!idToken) {
-        return res.status(401).json({ error: "Invalid authorization header" });
-      }
-
-      const decodedToken = await admin.auth().verifyIdToken(idToken);
-      const { uid } = decodedToken;
-
-      // Kolla vilka rättigheter användaren har
-      const userDoc = await admin.firestore().collection("users").doc(uid).get();
-      const user = userDoc.data();
-
-      resolve({ uid, permission: user.permission });
-    } catch (error) {
-      reject(error);
-    }
   });
 }

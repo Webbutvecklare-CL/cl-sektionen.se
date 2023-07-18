@@ -1,7 +1,15 @@
+import { verifyUser } from "../../utils/server";
+
 export default async function handler(req, res) {
   // Check for secret to confirm this is a valid request
-  if (req.query.secret !== process.env.REVALIDATE_TOKEN) {
+  if (req.query.secret !== process.env.NEXT_PUBLIC_REVALIDATE_TOKEN) {
     return res.status(401).json({ message: "Invalid token" });
+  }
+
+  try {
+    await verifyUser(req, res); // Verifierar att det är en inloggad användare
+  } catch (err) {
+    return res.status(401).json({ message: "Det gick inte att verifiera: " + err.error });
   }
 
   const page = req.query.page;
