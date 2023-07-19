@@ -1,17 +1,30 @@
-// För client sidan
-export function revalidate(page = "all", postId = "") {
-  const url = `/api/revalidate?secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}&page=${page}&postId=${postId}`;
-  const headers = {
-    "Content-Type": "application/json",
-    "method": "GET",
+/**
+ *
+ * @param {import("firebase/auth").User} user - User object from firebase
+ * @param {Object} pages - Path as attribute and a boolean as key if it should be revalidated (post path has the postId as true)
+ */
+export function revalidate(user, pages) {
+  const url = `/api/revalidate?secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}`;
+  let options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + user.accessToken,
+    },
+    body: JSON.stringify({ pages }),
   };
-  console.log("Sending revalidation request for " + page);
-  fetch(url, headers)
+  console.log("Sending revalidation request for " + JSON.stringify(pages));
+  fetch(url, options)
     .then((res) => {
       if (res.ok) {
-        console.log("Revalidation successful page: " + page);
+        res.json().then((data) => {
+          console.log("Revalidation successful pages: " + JSON.stringify(data.pages));
+        });
       } else {
         console.warn("Revalidation unsuccessful", res.statusText);
+        res.json().then((data) => {
+          console.error(data.message);
+        });
       }
     })
     .catch((error) => console.error(error));
@@ -35,40 +48,6 @@ export function sendNotification(user, data) {
       res.json().then((data) => {
         console.error(data);
       });
-    }
-  });
-}
-
-// För server api
-/**
- * Verifiera att användaren som gjorde requesten är inloggad och har rättigheter.
- * @param req Request object from Express
- * @param res Response object from Express
- * @returns Promise som resolvar med uid och permission om användaren finns i databasen, annars rejectar den med error
- */
-export async function verifyUser(req, res) {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const { authorization } = req.headers;
-      if (!authorization) {
-        reject({ error: "Missing authorization header" });
-      }
-
-      const idToken = authorization.split("Bearer ")[1];
-      if (!idToken) {
-        reject({ error: "Invalid authorization header" });
-      }
-
-      const decodedToken = await admin.auth().verifyIdToken(idToken);
-      const { uid } = decodedToken;
-
-      // Kolla vilka rättigheter användaren har
-      const userDoc = await admin.firestore().collection("users").doc(uid).get();
-      const user = userDoc.data();
-
-      resolve({ uid, permission: user.permission });
-    } catch (error) {
-      reject({ error });
     }
   });
 }

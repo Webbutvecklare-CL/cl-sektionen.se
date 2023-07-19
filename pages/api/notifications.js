@@ -1,7 +1,7 @@
 import { FieldValue } from "firebase-admin/firestore";
 import admin from "../../firebase/firebaseAdmin";
 
-import { verifyUser } from "../../utils/server";
+import { verifyUser } from "../../utils/apiUtils";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {

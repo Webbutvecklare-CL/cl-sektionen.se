@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
 
-import { firestore } from "../../firebase/clientApp";
+import { firestore, storage } from "../../firebase/clientApp";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { ref, listAll, deleteObject } from "firebase/storage";
 
+import { useAuth } from "../../context/AuthContext";
 import { revalidate } from "../../utils/server";
 
 import bg from "../../public/media/img/KTHcover.jpg";
@@ -17,6 +19,8 @@ import feed from "../../styles/feed-preview.module.css";
 export default function CommitteeFeed({ posts, permission = "" }) {
   // För att feedet ska uppdateras när man klickar på ex ögat
   const [postList, setPostList] = useState([]);
+
+  const { user } = useAuth();
 
   // För att postList ska få data när komponenten laddas in
   useEffect(() => {
@@ -49,8 +53,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
       // Försöker revalidate
       try {
         // Revalidate:ar hemsidan
-        revalidate("all");
-        revalidate("post", post.id);
+        revalidate(user, { index: true, aktuellt: true, post: post.id });
       } catch (error) {
         console.error("Fel vid revalidate:", error);
       }
@@ -59,11 +62,46 @@ export default function CommitteeFeed({ posts, permission = "" }) {
     }
   };
 
-  const handleDeletePost = () => {
-    // Gör en verifiering att användaren vill ta bort inlägget
+  const handleDeletePost = async (postId) => {
+    // Gör en verifiering att användaren vill ta bort inlägget - Gör med dialog ruta
+    alert("Är du säker på att du vill ta bort inlägget?");
+
     // Ta bort inlägget
-    console.log("Ta bort inlägg");
-    console.log("TODO");
+    const postRef = doc(firestore, "posts", postId);
+    try {
+      await deleteDoc(postRef);
+      console.log("Inlägget borttaget:", postId);
+    } catch (error) {
+      console.error("Det gick inte att ta bort inlägget", error);
+    }
+
+    try {
+      const folderRef = ref(storage, `posts/${postId}`);
+      const allImages = await listAll(folderRef);
+      allImages.items.forEach(async (itemRef) => {
+        await deleteObject(itemRef);
+        console.log("Bild borttagen:", itemRef.name);
+      });
+    } catch (error) {
+      console.error("Det gick inte att ta bort bilderna", error);
+      return;
+    }
+
+    // Uppdatera klienten utan att göra en ny get request
+    setPostList((prevState) => {
+      const posts = [...prevState];
+      const postIdx = posts.findIndex((post) => post.id === postId);
+      posts.splice(postIdx, 1);
+      return posts;
+    });
+
+    // Försöker revalidate
+    try {
+      // Revalidate:ar hemsidan
+      revalidate(user, { index: true, aktuellt: true, post: postId });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -84,7 +122,11 @@ export default function CommitteeFeed({ posts, permission = "" }) {
                 </div>
 
                 {permission === "admin" && (
-                  <div href={""} onClick={handleDeletePost}>
+                  <div
+                    href={""}
+                    onClick={() => {
+                      handleDeletePost(post.id);
+                    }}>
                     <i className="fa-regular fa-trash-can"></i>
                   </div>
                 )}
