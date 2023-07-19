@@ -20,10 +20,21 @@ export default function Document() {
 
         {/* För PWA */}
         <link rel="manifest" href="/manifest.json" />
-        <link href="media/icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
-        <link href="media/icons/favicon-192x192.png" rel="icon" type="image/png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="media/icons/icon-180x180.png"></link>
+        <link
+          href="media/icons/maskable-icon-192x192.png"
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+        />
+        <link
+          href="media/icons/maskable-icon-512x512.png"
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+        />
+        <link rel="apple-touch-icon" href="media/icons/maskable-icon-192x192.png"></link>
         <meta name="theme-color" content="#d23022" />
+        <meta name="background-color" content="#fafafa" />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" key="og-type" />
