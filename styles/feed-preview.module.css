@@ -198,10 +198,6 @@
   height: 150px;
 }
 
-.preview .postWrapper:hover .image {
-  height: 100%;
-}
-
 .preview .postWrapper:hover .postContent .body p {
   -webkit-line-clamp: 3;
 }

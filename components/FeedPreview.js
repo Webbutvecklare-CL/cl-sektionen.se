@@ -26,7 +26,7 @@ export default function FeedPreview({ posts }) {
               <div className={styles.postPreview}>
                 <div className={styles.image}>
                   {post.image && (
-                    <Image src={post.image} width={240} height={200} alt="Post image" />
+                    <Image src={post.image} width={120} height={100} alt="Post image" />
                   )}
                   {!post.image && <Image src={bg} placeholder="blur" alt="Bakgrundsbild KTH" />}
                 </div>
