@@ -16,7 +16,7 @@ import { revalidate, sendNotification } from "../../utils/server";
 
 import { all_committee_ids } from "../../constants/committees-data";
 
-import styles from "../../styles/personalrummet/publicera.module.css";
+// import styles from "../../styles/personalrummet/publicera.module.css";
 
 export default function Publicera({ calendarID }) {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
@@ -142,8 +142,7 @@ export default function Publicera({ calendarID }) {
     // Försöker revalidate
     try {
       // Revalidate:ar hemsidan
-      revalidate("all");
-      revalidate("post", link);
+      revalidate(user, { index: true, aktuellt: true, post: link });
     } catch (error) {
       console.error(error);
     }

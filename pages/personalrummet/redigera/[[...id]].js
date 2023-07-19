@@ -17,7 +17,7 @@ export default function EditPost() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { userData } = useAuth();
+  const { user, userData } = useAuth();
 
   // Input och "ren" id
   const [postLink, setPostLink] = useState("");
@@ -74,6 +74,7 @@ export default function EditPost() {
             tags: postData.tags,
             author: postData.author,
             committee: postData.committee,
+            authorCommittee: postData.committee,
             link: pid,
             visibility: postData.visibility,
           };
@@ -150,11 +151,12 @@ export default function EditPost() {
       postData.tags = data.tags;
     }
 
-    postData.committee =
-      userData.permission === "admin" ? data.authorCommittee : userData.committee;
+    const committee = userData.permission === "admin" ? data.authorCommittee : userData.committee;
+    if (committee != prefill.authorCommittee) {
+      postData.committee = committee;
+    }
 
     const postRef = doc(firestore, "posts", postId);
-
     try {
       await updateDoc(postRef, postData);
       console.log("Inlägget är uppdaterat!");
@@ -226,8 +228,7 @@ export default function EditPost() {
     // Försöker revalidate
     try {
       // Revalidate:ar hemsidan
-      revalidate("all");
-      revalidate("post", id);
+      revalidate(user, { index: true, aktuellt: true, post: postId });
     } catch (error) {
       console.error(error);
     }
