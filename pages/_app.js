@@ -107,9 +107,13 @@ export default function App({ Component, pageProps }) {
         image={cl_banner}
         url={"https://www.cl-sektionen.se/"}
       />
-      <AuthContextProvider>
-        <Component {...pageProps} />
-      </AuthContextProvider>
+      {/* AuthContext behövs inte utanför personalrummet */}
+      {!router.pathname.startsWith("/personalrummet") && <Component {...pageProps} />}
+      {router.pathname.startsWith("/personalrummet") && (
+        <AuthContextProvider>
+          <Component {...pageProps} />
+        </AuthContextProvider>
+      )}
       <Analytics />
       <Footer />
       <Navbar />
