@@ -10,6 +10,8 @@ import KTH_Night from "../public/media/TV/kth-night.jpg";
 
 import { getAllImages, getIsNight } from "../utils/tv";
 
+import styles from "../styles/tv.module.css";
+
 export default function TV() {
   const router = useRouter();
 
@@ -36,7 +38,7 @@ export default function TV() {
   }, []);
 
   return (
-    <div id="tv-content">
+    <div id={styles.tvContent}>
       <Slideshow
         images={listOfImages}
         default_image={isNight ? KTH_Night : KTH_Summer}

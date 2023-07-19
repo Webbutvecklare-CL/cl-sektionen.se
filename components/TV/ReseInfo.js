@@ -3,6 +3,11 @@ import React, { useEffect, useState } from "react";
 import Departures from "./Departures";
 import { getGr8anOpen } from "../../utils/tv";
 
+import styles from "../../styles/tv.module.css";
+
+import { PT_Sans } from "next/font/google";
+const pt_sans = PT_Sans({ subsets: ["latin"], weight: ["400", "700"] });
+
 export default function ReseInfo({ api_key }) {
   const [buses, setBuses] = useState([]);
   const [metros, setMetros] = useState([]);
@@ -64,7 +69,7 @@ export default function ReseInfo({ api_key }) {
   }, [api_key]);
 
   return (
-    <div className="reseinfo">
+    <div className={`${pt_sans.className} ${styles.reseinfo}`}>
       <div id={"buses"}>
         <h2>Bussar</h2>
         <Departures data={buses} />
@@ -77,9 +82,9 @@ export default function ReseInfo({ api_key }) {
         <h2>Roslagsbanan</h2>
         <Departures data={trams} />
       </div>
-      <div className="messages">
+      <div className={styles.messages}>
         <p>Uppdaterat: {lastUpdate}</p>
-        <div className="scroll-container">
+        <div className={styles.scrollContainer}>
           {(error || loading) && <p>{error} Försöker hämta reseinfo igen...</p>}
         </div>
       </div>

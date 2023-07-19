@@ -1,4 +1,4 @@
-#tv-content {
+#tvContent {
   display: flex;
   justify-content: space-between;
   background-color: var(--clr2);
@@ -29,7 +29,6 @@
 
 /* Reseinfo */
 .reseinfo {
-  font-family: "PT sans", sans-serif;
   width: 18vw;
   height: 100vh;
   background-color: var(--clgra);
@@ -48,7 +47,7 @@
   color: white;
 }
 
-.reseinfo .departure {
+.departure {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,20 +61,20 @@
   box-sizing: border-box;
 }
 
-.reseinfo .departure:nth-child(odd) {
+.departure:nth-child(odd) {
   background-color: #363636;
 }
 
-.reseinfo .destination {
+.destination {
   overflow-wrap: break-word;
 }
 
-.reseinfo .messages {
+.messages {
   width: 18rem;
   margin-top: 1.3rem;
 }
 
-.reseinfo .messages p {
+.messages p {
   font-size: 1.5rem;
   padding: 0;
   margin-bottom: 0;
@@ -83,14 +82,14 @@
 }
 
 /* För skrollande error text */
-.scroll-container {
+.scrollContainer {
   width: min-content;
   white-space: nowrap;
   height: 2rem;
   overflow: hidden;
 }
 
-.scroll-container {
+.scrollContainer {
   /* animation properties */
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
