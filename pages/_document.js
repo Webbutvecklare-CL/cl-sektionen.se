@@ -6,12 +6,18 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
         <link rel="shortcut icon" type="image/x-icon" href="/media/icons/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
         <meta name="format-detection" content="telephone=no" />
         <meta
           name="keywords"
           content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"
         />
+
+        {/* Fonts */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap"
+        />
+
         {/* För PWA */}
         <link rel="manifest" href="/manifest.json" />
         <link href="media/icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />

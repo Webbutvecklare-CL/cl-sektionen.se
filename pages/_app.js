@@ -75,6 +75,7 @@ export default function App({ Component, pageProps }) {
     <div>
       <Head>
         <title>Sektionen för Civilingenjör och Lärare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
       </Head>
       {/* För att få en snygg banner när man dela länken i sociala medier */}
       <CustomHead
