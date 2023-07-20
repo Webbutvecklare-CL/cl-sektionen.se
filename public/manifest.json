@@ -25,5 +25,8 @@
       "purpose": "maskable"
     }
   ],
-  "splash_pages": null
+  "splash_pages": null,
+  "fallbacks": {
+    "image": "/media/img/Post_Placeholder.webp"
+  }
 }
