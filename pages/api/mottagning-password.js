@@ -34,11 +34,12 @@ function handlePasswordReq(req, res) {
   const password = req.body.password;
 
   if (process.env.MOTTAGNING_PASSWORD === password) {
+    // Om ingen maxAge sätts så blir det en session cookie
     const cookie = serialize("mottagning_key", process.env.NEXT_PUBLIC_MOTTAGNING_KEY, {
       path: "/",
       httpOnly: true,
       //   maxAge: 60 * 60 * 24 * 7 // 1 week
-      maxAge: 20 * 20, // 20 sekunder
+      //   maxAge: 20 * 20, // 20 sekunder
     });
     res.setHeader("Set-Cookie", cookie);
     res
@@ -56,7 +57,7 @@ async function handleKeyReq(req, res) {
     let posts = [];
     const mottagningsPostsRef = admin.firestore().collection("mottagningsPosts");
     try {
-      const postDocs = await mottagningsPostsRef.get();
+      const postDocs = await mottagningsPostsRef.limit(40).get();
       postDocs.forEach((doc) => {
         const data = doc.data();
         posts.push(data);

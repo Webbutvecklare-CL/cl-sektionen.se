@@ -63,7 +63,7 @@ export default function Mottagning({ loggedIn, _posts }) {
       <h1>Välkommen till Mottagningssidan</h1>
       <p>
         Denna sidan är till för alla nyantagna som deltar eller funderar på att delta i
-        mottagningen. Här kommer aktuell information lägga ut under mottagningen.
+        mottagningen. Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
       </p>
       <p>
         Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått något

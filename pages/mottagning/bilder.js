@@ -1,11 +1,11 @@
 import BackButton from "../../components/BackButton";
 
-export default function Mottagning() {
+export default function Bilder() {
   return (
     <div id="contentbody">
       <BackButton page="mottagning">Mottagningssidan</BackButton>
       <div>
-        <p>Här finns schemat för mottagningen. Kanske kommer schemat kunna uppdateras?</p>
+        <p>Här hittar du en/flera länkar till alla bilder</p>
       </div>
     </div>
   );
