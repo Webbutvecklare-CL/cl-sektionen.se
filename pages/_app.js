@@ -59,9 +59,7 @@ export default function App({ Component, pageProps }) {
     return () => {
       router.events.off("routeChangeComplete", logScreenEvent);
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router]);
 
   // Gör så att TV routen inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
