@@ -101,7 +101,9 @@ export default function Aktuellt({ postList }) {
     } else {
       setFilterTags({});
     }
-  }, [type, filterTags]);
+    // Lägg inte till filterTags som dependency
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type]);
 
   const panelref = useRef();
   //Stänger filterpanelen om man trycker utanför
