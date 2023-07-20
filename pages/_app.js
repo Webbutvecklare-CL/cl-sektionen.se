@@ -51,6 +51,9 @@ export default function App({ Component, pageProps }) {
       logEvent(analytics, "screen_view", { screen_path: url });
     };
 
+    // Uppdatera PWA
+    updatePWA();
+
     router.events.on("routeChangeComplete", logScreenEvent);
     // Loggar förstasidan
     logScreenEvent("/");
@@ -59,9 +62,7 @@ export default function App({ Component, pageProps }) {
     return () => {
       router.events.off("routeChangeComplete", logScreenEvent);
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router]);
 
   // Gör så att TV routen inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
@@ -127,5 +128,19 @@ function messageListener(click_event) {
         click_event(message.link);
       }
     });
+  });
+}
+
+function updatePWA() {
+  const standalone =
+    navigator.standalone || window.matchMedia("(display-mode: standalone)").matches;
+  if (!standalone) {
+    return; // not standalone; no pull to refresh needed
+  }
+
+  PullToRefresh.init({
+    onRefresh() {
+      location.reload();
+    },
   });
 }
