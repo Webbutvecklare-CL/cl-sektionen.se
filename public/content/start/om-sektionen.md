@@ -1,4 +1,4 @@
-## Om sektionen test
+## Om sektionen
 
 <b>Sektionen</b> för Civilingenjör & Lärare (CL) är en ideell studentsektion under Tekniska Högskolans Studentkår och företräder studenter på KTH inom programmet Civilingenjör och lärare samt två utbildningar med kompletterande pedagogisk utbildning för den som redan har ämneskunskaper.
 
