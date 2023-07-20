@@ -1,4 +1,4 @@
-#hedersmedlemmar-shelf {
+#hedersmedlemmarShelf {
   display: grid;
   max-width: 850px;
   grid-template-columns: repeat(4, 1fr);
@@ -51,7 +51,7 @@
   );
 }
 
-.hedersmedlem .imgdiv {
+.imgdiv {
   margin: 0 auto;
   margin-top: 2rem;
   width: 75%;
@@ -60,7 +60,7 @@
   border-radius: 50%;
 }
 
-.hedersmedlem .imgdiv img {
+.imgdiv img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -73,9 +73,80 @@
 }
 
 @media screen and (max-width: 775px) {
-  #hedersmedlemmar-shelf {
+  #hedersmedlemmarShelf {
     max-width: 400px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+/* Hedersorden */
+
+.hedersorden ul.category {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  justify-content: flex-start;
+  scroll-margin: 6rem;
+}
+
+.hedersorden hr {
+  margin: 1rem 4rem 1rem;
+}
+
+#platina {
+  font-size: 1.3rem;
+}
+
+.nameTag:not(:last-child)::after {
+  margin: 0.5rem;
+  content: " ● ";
+}
+
+.year-list {
+  display: none;
+}
+
+.yearHeader {
+  display: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0rem;
+  font-size: large;
+}
+
+@media screen and (max-width: 600px) {
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .category li {
+    display: block;
+  }
+
+  .yearList > li:nth-child(2n) {
+    text-align: end;
+  }
+
+  .nameTag:not(:last-child)::after {
+    margin: 0 !important;
+    content: ",\00a0";
+  }
+
+  /* Tar bort alla , från namnet precis innan nytt år - Stödjs ej av firefox */
+  .nameTag:has(+ h3)::after {
+    content: none !important;
+  }
+
+  .yearHeader {
+    margin: 1rem 0 0 0;
+    width: 100%;
+    display: block;
+  }
+
+  .hedersorden li > span {
+    display: none;
   }
 }

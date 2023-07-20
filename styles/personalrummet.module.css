@@ -9,29 +9,29 @@
   flex-direction: row;
   gap: 2rem;
 }
-div.committee-feed.feed-preview {
+.committeeFeed.preview {
   display: flex !important;
   flex-direction: column;
   row-gap: 1rem;
 }
-.committee-feed .post-wrapper {
+.committeeFeed .postWrapper {
   display: flex;
 }
 
-.committee-feed .post-wrapper > a {
+.committeeFeed .postWrapper > a {
   flex-grow: 1; /* Gör så att man kan klicka på hela raden */
 }
 
-.committee-feed .post-wrapper:hover {
+.committeeFeed .postWrapper:hover {
   transform: none;
 }
 
-.committee-feed .post-preview {
+.committeeFeed .postPreview {
   transition: all 0.3s ease-in-out;
   height: 100%;
 }
 
-.committee-feed .post-wrapper .options > div {
+.committeeFeed .postWrapper .options > div {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -39,7 +39,7 @@ div.committee-feed.feed-preview {
   height: 100%;
 }
 
-.committee-feed .post-wrapper .options {
+.committeeFeed .postWrapper .options {
   visibility: hidden;
   margin: 0;
   width: 0rem;
@@ -49,24 +49,24 @@ div.committee-feed.feed-preview {
   color: var(--clr5) !important;
 }
 
-.committee-feed .post-wrapper:hover .options {
+.committeeFeed .postWrapper:hover .options {
   visibility: visible;
   width: 1rem;
   margin: 0 8px 0 3px;
   transform: translateX(0rem);
 }
 
-.committee-feed .post-wrapper .options i {
+.committeeFeed .postWrapper .options i {
   cursor: pointer;
   transition: 0.3s;
 }
 
-.committee-feed .post-wrapper .options i:hover {
+.committeeFeed .postWrapper .options i:hover {
   transform: scale(1.3);
 }
 
 @media only screen and (max-width: 500px) {
-  .committee-feed .post-wrapper .options {
+  .committeeFeed .postWrapper .options {
     visibility: visible;
     width: 1rem;
     margin: 0 8px 0 3px;

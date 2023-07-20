@@ -72,7 +72,7 @@ Sidan hostas på Vercel. Vercel kommer automatiskt bygga den nya versionen när 
 Du behöver även ha vissa environment variables. Skapa en fil som heter `.env.local`. Kopiera sedan i följande mall:
 
 ```python
-# Firebase
+# Firebase - du kan skapa din egna databas gratis kopiera därefter alla värden
 NEXT_PUBLIC_FIREBASE_API_KEY=
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=
@@ -80,11 +80,13 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
-NEXT_PUBLIC_FIREBASE_VAPID_KEY= # Behövs för notiser
-NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT= # Fråga Webbansvariga efter denna - används för notis api:et
+# Behövs för notiser
+NEXT_PUBLIC_FIREBASE_VAPID_KEY=
+# Fråga Webbansvariga efter denna - används för notis api:et
+NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT=
 
 # Väljs fritt för att verifiera att revalidation request är från en betrodd källa
-REVALIDATE_TOKEN=
+NEXT_PUBLIC_REVALIDATE_TOKEN=
 # Kommer från SL - går att få en egen gratis
 SL_API_KEY=
 # En random nyckel som används av TV:n för att inte spamma sönder vår api route
@@ -92,8 +94,16 @@ CL_API_KEY=
 # Länk till sektionskalendern kalender id för att publicera automatiskt
 CL_CALENDAR=
 
-# För att getStaticProps ska komma åt lokala filer
-DOMAIN=http://localhost:3000
+MOTTAGNING_PASSWORD=
+
+# Används bara i getServerSideProps eller api-routes, ska inte exponeras
+NEXT_PUBLIC_MOTTAGNING_KEY=
+
+# För att getStaticProps ska komma åt lokala filer (Protokoll innan men inget snedstreck i slutet)
+NEXT_PUBLIC_DOMAIN=http://localhost:3000
+
+# Stänger bla av PWA build när dev körs
+NODE_ENV=development
 ```
 
 Du behöver även en .env fil i mappen `functions` med följande innehåll:

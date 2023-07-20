@@ -4,20 +4,25 @@ import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 import { useState } from "react";
 
+import styles from "../styles/hedersutmarkelser.module.css";
+
 export default function Hedersmedlemmar({ contents, hedersorden }) {
   const [selectedMember, setSelectedMember] = useState();
   const stateUpdater = (member) => {
-    let rootNode = document.getElementById("hedersmedlemmar-shelf");
+    let rootNode = document.getElementById(styles.hedersmedlemmarShelf);
     setSelectedMember(member);
 
     for (let hedersmedlem of rootNode.childNodes) {
-      hedersmedlem.className = hedersmedlem.id === member ? "hedersmedlem active" : "hedersmedlem";
+      hedersmedlem.className =
+        hedersmedlem.id === member
+          ? `${styles.hedersmedlem} ${styles.active} `
+          : styles.hedersmedlem;
     }
   };
 
   const NameTag = ({ name, year }) => {
     return (
-      <li className="name-tag">
+      <li className={styles.nameTag}>
         {name}
         <span> - {year}</span>
       </li>
@@ -27,7 +32,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
   const NameList = ({ year, names }) => {
     return (
       <>
-        <h3 id={`platina-${year}`} className="year-header">
+        <h3 id={`platina-${year}`} className={styles.yearHeader}>
           {year}
         </h3>
         {names.map((name, idx) => {
@@ -40,8 +45,8 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
   const Hedersmedlem = ({ nameId, year }) => {
     let name = nameId.replace("_", " ");
     return (
-      <div id={nameId} className="hedersmedlem" onClick={() => stateUpdater(nameId)}>
-        <div className="imgdiv">
+      <div id={nameId} className={styles.hedersmedlem} onClick={() => stateUpdater(nameId)}>
+        <div className={styles.imgdiv}>
           <Image
             src={`/media/img/hedersmedlemmar/${nameId}.webp`}
             width={200}
@@ -57,10 +62,10 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
 
   return (
     <div id="contentbody">
-      <div className="hedersmedlemmar">
+      <div className={styles.hedersmedlemmar}>
         <h1>Hedersmedlemmar</h1>
         <MarkdownRender mdData={contents["hedersmedlemmar-info"]} />
-        <div id="hedersmedlemmar-shelf">
+        <div id={styles.hedersmedlemmarShelf}>
           <Hedersmedlem nameId={"Jan_Scheffel"} year={2014} />
           <Hedersmedlem nameId={"Hans_Thunberg"} year={2014} />
           <Hedersmedlem nameId={"Mikael_Cronhjort"} year={2020} />
@@ -68,7 +73,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
         </div>
         <div>
           {selectedMember && (
-            <div className="motivering">
+            <div className={styles.motivering}>
               <h2>Motivering för {selectedMember.replace("_", " ")}</h2>
               <MarkdownRender mdData={contents[selectedMember]} />
             </div>
@@ -76,11 +81,11 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
         </div>
       </div>
 
-      <div className="hedersorden">
+      <div className={styles.hedersorden}>
         <br />
         <h1>Hedersorden</h1>
         <h2>Platina</h2>
-        <ul id={"platina"} className="category">
+        <ul id={`${styles.platina}`} className={styles.category}>
           {/* Reverse för att åren ska hamna i fallande ordning */}
           {Object.keys(hedersorden.Platina)
             .reverse()
@@ -89,7 +94,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
             })}
         </ul>
         <h2>Guld</h2>
-        <ul id={"guld"} className="category">
+        <ul id={"guld"} className={styles.category}>
           {Object.keys(hedersorden.Guld)
             .reverse()
             .map((year) => {
@@ -97,7 +102,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
             })}
         </ul>
         <h2>Silver</h2>
-        <ul id={"silver"} className="category">
+        <ul id={"silver"} className={styles.category}>
           {Object.keys(hedersorden.Silver)
             .reverse()
             .map((year) => {

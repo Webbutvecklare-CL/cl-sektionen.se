@@ -1,44 +1,70 @@
-import admin from "firebase-admin";
 import { FieldValue } from "firebase-admin/firestore";
+import admin from "../../firebase/firebaseAdmin";
 
-const serviceAccount = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT);
-
-// Admin initialization
-try {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  });
-  console.log("Initialized.");
-} catch (error) {
-  /*
-   * We skip the "already exists" message which is
-   * not an actual error when we're hot-reloading.
-   */
-  if (!/already exists/u.test(error.message)) {
-    console.error("Firebase admin initialization error", error.stack);
-    reject({ ok: false, tokens: 0, error });
-  }
-}
+import { verifyUser } from "../../utils/apiUtils";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    res.status(405).send({ message: "Only POST requests allowed" });
-    return;
+    return res.status(405).send({ message: "Only POST requests allowed" });
   }
   console.log("Received notification request with message:", req.body);
 
-  if (!req.body.userId || !req.body.postId) {
-    res.status(400).send({ message: "Felaktiga attribut i body." });
-    return;
+  if (!req.body.data) {
+    return res.status(400).send({ message: "Felaktiga attribut i body." });
   }
 
-  let postData;
   try {
-    postData = await verifyRequest(req.body.userId, req.body.postId);
+    var { uid, permission } = await verifyUser(req, res);
   } catch (error) {
-    console.error(error);
-    res.status(400).send({ message: error });
-    return;
+    console.error("Error validating user authentication:", error);
+    return res.status(401).json({ error: error.error });
+  }
+
+  let topic;
+  let message;
+
+  if (req.body.data.type == "post") {
+    try {
+      const postData = await verifyRequest(uid, req.body.data.postId);
+
+      // Skapa payload objekt med all data
+      const payload = createPayload(postData);
+      topic = postData.type;
+      message = {
+        topic: "new_post",
+        ...payload,
+        collapseKey: "new_post",
+        fcmOptions: { analyticsLabel: "new_post" },
+      };
+    } catch (error) {
+      console.error(error);
+      return res.status(400).send({ message: error });
+    }
+  } else if (req.body.data.type == "custom") {
+    if (permission !== "admin") {
+      return res
+        .status(401)
+        .send({ message: "Du har inte tillåtelse att skicka anpassade notiser" });
+    }
+    topic = "information";
+    const payload = {
+      data: {
+        title: req.body.data.title,
+        body: req.body.data.body,
+        image: req.body.data.image || "",
+        icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
+        tag: "Nyhet",
+        link: `/`,
+      },
+    };
+    message = {
+      topic: "custom",
+      ...payload,
+      collapseKey: "custom",
+      fcmOptions: { analyticsLabel: "custom" },
+    };
+  } else {
+    return res.status(400).send({ message: "Felaktig typ av notis" });
   }
 
   // Typ lite oklart vad dessa headers gör
@@ -48,39 +74,30 @@ export default async function handler(req, res) {
 
   try {
     // Skickar notis till alla som följer eventuella taggar
-    let response = await sendNotification(postData);
+    let response = await sendNotification(topic, message);
     // Skickar tillbaka respons
-    res
+    return res
       .status(200)
       .json({ message: `Notis skickat till ${response.tokens} enheter`, data: req.query.message });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: `Ett fel inträffade`, error });
+    return res.status(500).json({ message: `Ett fel inträffade`, error });
   }
-  return;
 }
 
-// Hjälp funktioner
+// Hjälpfunktioner
 
-async function sendNotification(data) {
+async function sendNotification(topic, message) {
   return new Promise(async (resolve, reject) => {
     // Hämtar alla tokens - de som ska få notisen
-    const tokens = await getTokens(data.type);
+    const tokens = await getTokens(topic);
 
     console.log(`Sending notification to ${tokens.length} devices`);
     if (tokens.length > 0) {
-      // Skapa payload objekt med all data
-      const payload = createPayload(data);
-      const message = {
-        topic: "new_post",
-        ...payload,
-        tokens: tokens,
-        collapseKey: "new_post",
-      };
-
+      message.tokens = tokens;
       try {
         // Send notifications to all tokens.
-        const response = await admin.messaging().sendMulticast(message);
+        const response = await admin.messaging().sendEachForMulticast(message);
         await cleanupTokens(response, tokens);
         console.log("Notifications have been sent and tokens cleaned up.");
         resolve({ ok: true, tokens: tokens.length });

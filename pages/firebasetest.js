@@ -1,14 +1,22 @@
-import React, { useState } from "react";
-import { saveMessagingDeviceToken } from "../firebase/messaging";
+import React, { useEffect, useState } from "react";
+import { saveMessagingDeviceToken, checkToken } from "../firebase/messaging"; // Filen
+import { isSupported } from "firebase/messaging"; // Biblioteket
 import { sendNotification } from "../utils/server";
 
 import { useAuth } from "../context/AuthContext";
 
-export default function Firebase() {
-  const [result, setResult] = useState("");
-  const [notificationMessage, setNotificationMessage] = useState("");
+import styles from "../styles/firebasetest.module.css";
 
-  const { userData } = useAuth();
+export default function Firebasetest() {
+  const [result, setResult] = useState("");
+  const [debugText, setDebugText] = useState("");
+
+  const [type, setType] = useState("post");
+  const [postId, setPostId] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  const { userData, user } = useAuth();
 
   const handleSubscribe = async (topic) => {
     const res = await saveMessagingDeviceToken(topic);
@@ -17,49 +25,144 @@ export default function Firebase() {
         "Det gick inte att prenumerera på notiser.\n\nDu nekade tillåtelse eller så stödjs inte notiser på din enhet eller webbläsare."
       );
       setResult("Något gick fel");
+      setDebugText(res.message);
     } else {
       setResult("Du prenumererar nu på " + topic);
+      setDebugText("Token: " + res);
     }
   };
 
   const handleSendNotification = () => {
-    sendNotification(userData?.uid, notificationMessage);
+    let notificationMessage;
+    if (type == "post") {
+      notificationMessage = {
+        type: "post",
+        postId,
+      };
+    } else if (type == "custom") {
+      notificationMessage = {
+        type: "custom",
+        title,
+        body,
+      };
+    }
+
+    sendNotification(user, notificationMessage);
   };
+
+  const testSupport = () => {
+    isSupported().then((yes) => {
+      setDebugText(yes ? "Notiser stödjs" : "Notiser stödjs inte");
+    });
+  };
+
+  const testToken = async () => {
+    const res = await checkToken();
+    if (res.error) {
+      console.error(res.error);
+      setDebugText("Ingen token fanns, ny behöver skapas");
+    } else {
+      console.log(res.token);
+      setDebugText(res.token.substring(0, 20) + "...");
+    }
+  };
+
+  useEffect(() => {
+    testToken();
+  }, []);
 
   return (
     <div id="contentbody">
-      <h1>Firebase</h1>
-      <div>
-        <button
-          onClick={() => {
-            handleSubscribe("event");
-          }}>
-          Notiser för event
-        </button>
-        <button
-          onClick={() => {
-            handleSubscribe("information");
-          }}>
-          Notiser för news
-        </button>
-      </div>
-      <div>
-        <p>{result}</p>
-      </div>
+      <article>
+        <h1>Notis testar centrum</h1>
+        <p>
+          Här testar vi notiser. Om du vill vara med och testa kan du välja vilken kategori du vill
+          få notiser ifrån, du kan välja båda. Om du är osäker på om din enhet stödjer notiser tryck
+          på &quot;Kolla support&quot;.
+        </p>
+        <div className={styles.subscriptionMenu}>
+          <button
+            onClick={() => {
+              handleSubscribe("event");
+            }}>
+            Notiser för event
+          </button>
+          <button
+            onClick={() => {
+              handleSubscribe("information");
+            }}>
+            Notiser för information
+          </button>
 
-      <div>
-        <h3>Skicka notis</h3>
-        <input
-          type="textarea"
-          name=""
-          id=""
-          value={notificationMessage}
-          onChange={(e) => {
-            setNotificationMessage(e.target.value);
-          }}
-        />
-        <button onClick={handleSendNotification}>Skicka notis</button>
-      </div>
+          <button onClick={testSupport}>Kolla support</button>
+          <button onClick={testToken}>Kolla Token</button>
+        </div>
+        <div style={{ marginTop: "20px" }}>
+          <p>{result}</p>
+          <p>Debug: {debugText}</p>
+        </div>
+
+        {/* Skicka notis kan användas av inloggade */}
+        {userData && (
+          <>
+            <h3>Skicka notis</h3>
+            <div className={styles.sendPanel}>
+              <p>Vilken typ av notis vill du skicka?</p>
+              <div className={styles.typeSelect}>
+                <button
+                  onClick={() => {
+                    setType("post");
+                  }}>
+                  Inlägg
+                </button>
+                <button
+                  onClick={() => {
+                    setType("custom");
+                  }}>
+                  Anpassad
+                </button>
+              </div>
+              {type === "post" && (
+                <div>
+                  <p>Vilket inlägg vill du skicka notis om?</p>
+                  <input
+                    type="text"
+                    value={postId}
+                    onChange={(e) => {
+                      setPostId(e.target.value);
+                    }}
+                  />
+                </div>
+              )}
+              {type === "custom" && (
+                <div className={styles.message}>
+                  <p>Skriv in titel</p>
+                  <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                  />
+
+                  <p>Skriv in notistexten</p>
+                  <textarea
+                    type="textarea"
+                    rows="3"
+                    cols="30"
+                    value={body}
+                    onChange={(e) => {
+                      setBody(e.target.value);
+                    }}
+                  />
+                </div>
+              )}
+
+              <button onClick={handleSendNotification}>Skicka notis</button>
+            </div>
+          </>
+        )}
+      </article>
     </div>
   );
 }

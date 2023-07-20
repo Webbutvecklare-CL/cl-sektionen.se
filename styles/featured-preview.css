@@ -121,7 +121,7 @@
   margin-bottom: 0.5rem;
 }
 
-.inlägg_wrapper {
+.feedWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
@@ -169,7 +169,7 @@
 }
 
 @media screen and (max-width: 850px) {
-  .inlägg_wrapper {
+  .feedWrapper {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }

@@ -58,12 +58,11 @@
 }
 
 .filterPanel .datepicker {
-  font-family: inherit;
+  box-sizing: content-box;
+  display: inline-block;
   font-size: 0.9rem;
   border-radius: 0.3rem;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid lightgray;
-  background-color: #fff;
   padding: 0.3rem;
   width: 100px;
 }

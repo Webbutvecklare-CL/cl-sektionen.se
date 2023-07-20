@@ -1,11 +1,14 @@
-const GråttKalender = () => {
+import styles from "../styles/kalender.module.css";
+
+export default function GråttKalender() {
   return (
-    <div className="mini_kalender kalender_tab gråttan månad">
-      <h1 className="kal_titel">Gråttbokningar</h1>
+    <div
+      className={`${styles.miniKalender} ${styles.kalenderTab} ${styles.gråttan} ${styles.månad}`}>
+      <h1 className={styles.kalTitel}>Gråttbokningar</h1>
       <iframe
         title="Gråttbokningar månadsvy"
-        id="open-web-calendar månad"
-        className="open-web-calendar"
+        id={`${styles.openWebCalendar} ${styles.månad}`}
+        className={styles.openWebCalendar}
         style={{
           background:
             "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
@@ -18,5 +21,4 @@ const GråttKalender = () => {
       />
     </div>
   );
-};
-export default GråttKalender;
+}

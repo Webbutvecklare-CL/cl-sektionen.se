@@ -1,9 +1,11 @@
 import Card from "../components/Card";
 import CopyButton from "../components/CopyButton";
 
+import { calendarSubscription } from "../styles/kalender.module.css";
+
 export default function CalendarSubscription({ calendar_id, children }) {
   return (
-    <div className="calendar-subscription">
+    <div className={calendarSubscription}>
       <p>{children}</p>
       <Card link={`webcal://calendar.google.com/calendar/ical/${calendar_id}/public/basic.ics`}>
         iCal <i className="fa-brands fa-apple" />

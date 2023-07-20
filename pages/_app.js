@@ -1,26 +1,17 @@
 import "/styles/root.css";
-import "/styles/index.css";
 import "/styles/contents.css";
 import "/styles/nav.css";
 import "/styles/footer.css";
-import "/styles/kalender.css";
 import "/styles/dokument.css";
 import "/styles/fortroendevalda.css";
-import "/styles/hedersmedlemmar.css";
 import "/styles/publicera.css";
 import "/styles/aktuellt.css";
 import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
-import "/styles/alumniblogg.css";
-import "/styles/personalrummet.css";
-import "/styles/hedersorden.css";
-import "/styles/TV.css";
 import "/styles/sangbok.css";
-import "/styles/kontakt.css";
 import "/styles/ordbok.css";
 import "/styles/components.css";
-import "/styles/valbara-kurser.css";
 import "/styles/fontawesome-all.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";
@@ -83,30 +74,8 @@ export default function App({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title key="title">Sektionen för Civilingenjör och Lärare</title>
-        <meta charSet="utf-8" />
-        <link rel="shortcut icon" type="image/x-icon" href="/media/icons/favicon.ico" />
+        <title>Sektionen för Civilingenjör och Lärare</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
-        <meta name="description" content={description} key="desc" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta
-          name="keywords"
-          content="Clsektionen, CL-sektionen, cl-sektionen, Lärare, KTH, Student, CL"
-        />
-        <meta name="author" content="Armin Baymani & Jesper Svensson" />
-
-        {/* För PWA */}
-        <link rel="manifest" href="/manifest.json" />
-        <link href="media/icons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
-        <link href="media/icons/favicon-192x192.png" rel="icon" type="image/png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="media/icons/icon-180x180.png"></link>
-        <meta name="theme-color" content="#FF0000" />
-
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" key="og-type" />
-
-        {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" key="tw-card" />
       </Head>
       {/* För att få en snygg banner när man dela länken i sociala medier */}
       <CustomHead
@@ -115,9 +84,13 @@ export default function App({ Component, pageProps }) {
         image={cl_banner}
         url={"https://www.cl-sektionen.se/"}
       />
-      <AuthContextProvider>
-        <Component {...pageProps} />
-      </AuthContextProvider>
+      {/* AuthContext behövs inte utanför personalrummet */}
+      {!router.pathname.startsWith("/personalrummet") && <Component {...pageProps} />}
+      {router.pathname.startsWith("/personalrummet") && (
+        <AuthContextProvider>
+          <Component {...pageProps} />
+        </AuthContextProvider>
+      )}
       <Analytics />
       <Footer />
       <Navbar />

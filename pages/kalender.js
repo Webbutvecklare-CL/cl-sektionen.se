@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import CalendarSubscription from "../components/CalendarSubscription";
 
-function Kalender() {
+import styles from "../styles/kalender.module.css";
+
+export default function Kalender() {
   const [activeIdx, setActiveIdx] = useState(0);
   function setCalendar(index) {
     setActiveIdx(index);
@@ -21,31 +23,35 @@ function Kalender() {
         Prenumerera på <strong>Gråttankalendern</strong>:
       </CalendarSubscription>
 
-      <div className="tabs-wrapper">
+      <div className={styles.tabsWrapper}>
         <button
           onClick={() => {
             setCalendar(0);
           }}
-          className={`kal-knapp sektionskalender ${activeIdx === 0 ? "active" : ""}`}>
+          className={`${styles.kalKnapp} ${styles.sektionskalender} ${
+            activeIdx === 0 ? styles.active : ""
+          }`}>
           Sektionskalender
         </button>
         <button
           onClick={() => {
             setCalendar(1);
           }}
-          className={`kal-knapp gråttkalender ${activeIdx === 1 ? "active" : ""}`}>
+          className={`${styles.kalKnapp} ${styles.gråttkalender} ${
+            activeIdx === 1 ? styles.active : ""
+          }`}>
           Gråttans kalender
         </button>
       </div>
 
       <div
-        id="sektionskal"
-        className="kalender_tab"
+        id={styles.sektionskal}
+        className={styles.kalenderTab}
         style={{ display: activeIdx === 0 ? "block" : "none" }}>
-        <h1 className="kal_titel">Sektionskalendern</h1>
+        <h1 className={styles.kalTitel}>Sektionskalendern</h1>
         <iframe
           title="Sektionskalender månadsvy"
-          id="open-web-calendar"
+          id={`${styles.open} ${styles.web} ${styles.calendar}`}
           style={{
             background:
               "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
@@ -59,13 +65,13 @@ function Kalender() {
         />
       </div>
       <div
-        id="gråttkal"
-        className="kalender_tab"
+        id={styles.gråttkal}
+        className={styles.kalenderTab}
         style={{ display: activeIdx === 1 ? "block" : "none" }}>
-        <h1 className="kal_titel">Gråttans kalender</h1>
+        <h1 className={styles.kalTitel}>Gråttans kalender</h1>
         <iframe
           title="Gråttbokningar månadsvy"
-          id="open-web-calendar"
+          id={`${styles.open} ${styles.web} ${styles.calendar}`}
           style={{
             background:
               "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
@@ -81,4 +87,3 @@ function Kalender() {
     </div>
   );
 }
-export default Kalender;

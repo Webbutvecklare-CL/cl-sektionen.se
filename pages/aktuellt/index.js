@@ -10,6 +10,9 @@ import FeedPreview from "../../components/FeedPreview";
 //Ändra dessa för att lägga till och ta bort tags
 import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 
+// import styles from "../../styles/aktuellt.module.css";
+import feed from "../../styles/feed-preview.module.css";
+
 const PUBLISHERS = [
   "CtyreLsen",
   "Studienämnden",
@@ -98,7 +101,7 @@ export default function Aktuellt({ postList }) {
     } else {
       setFilterTags({});
     }
-  }, [type]);
+  }, [type, filterTags]);
 
   const panelref = useRef();
   //Stänger filterpanelen om man trycker utanför
@@ -315,7 +318,7 @@ export default function Aktuellt({ postList }) {
           </section>
 
           <section className="posts">
-            <div className="aktuelltsidan-contentwrapper">
+            <div className={`aktuelltsidan-contentwrapper ${feed.long}`}>
               <FeedPreview
                 posts={postList
                   .filter((post) => {
