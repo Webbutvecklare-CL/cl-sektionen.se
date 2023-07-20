@@ -25,6 +25,7 @@ import { logEvent } from "firebase/analytics";
 import { onMessage, getMessaging, isSupported } from "firebase/messaging";
 import { useEffect } from "react";
 import CustomHead from "../components/CustomHead";
+import CookieBanner from "../components/CookieBanner";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -92,6 +93,7 @@ export default function App({ Component, pageProps }) {
       <Analytics />
       <Footer />
       <Navbar />
+      <CookieBanner />
     </div>
   );
 }
