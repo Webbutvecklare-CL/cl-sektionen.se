@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/?v=1",
   "icons": [
     {
       "src": "media/icons/maskable-icon-192x192.png",
