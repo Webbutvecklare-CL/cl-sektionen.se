@@ -104,10 +104,10 @@ export default function Index({ contents, featured, infoList, eventList }) {
         </section>
         <hr />
         <h2>Kalender</h2>
-        <CalendarSubscription id={sektionskalender_id}>
+        <CalendarSubscription calendar_id={sektionskalender_id}>
           Prenumerera på <strong>Sektionskalendern</strong>:
         </CalendarSubscription>
-        <CalendarSubscription id={grattankalender_id}>
+        <CalendarSubscription calendar_id={grattankalender_id}>
           Prenumerera på <strong>Gråttankalendern</strong>:
         </CalendarSubscription>
         <section className={styles.sektionskalMånadOchBokningar}>
