@@ -1,6 +1,5 @@
 import "/styles/root.css";
 import "/styles/contents.css";
-import "/styles/footer.css";
 import "/styles/dokument.css";
 import "/styles/fortroendevalda.css";
 import "/styles/publicera.css";

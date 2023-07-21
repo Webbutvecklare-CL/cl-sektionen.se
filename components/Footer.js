@@ -3,20 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
 
+import styles from "../styles/footer.module.css";
+
 export default function Navbar() {
   return (
-    <footer>
-      <div id="footerinfo">
+    <footer id={styles.footer}>
+      <div id={styles.footerInfo}>
         <h1>
           <Image
             src={CL_logo_stor}
             alt="CL logo, stor"
             sizes="(max-width: 800px) 90vw, 432px"
-            className="footer_logo"
+            className={styles.footerLogo}
           />
         </h1>
-        <div className="footer-row">
-          <div id="footerinfotext" className="footer-col">
+        <div className={styles.footerRow}>
+          <div id={styles.footerInfoText} className={styles.footerCol}>
             <div>
               <h2>Organisationsnummer</h2>
               <p>802420-8491</p>
@@ -39,7 +41,7 @@ export default function Navbar() {
               <p>114 28 Stockholm</p>
             </div>
           </div>
-          <div id="quick-links" className="footer-col">
+          <div id={styles.quickLinks} className={styles.footerCol}>
             <h2>Hitta snabbt</h2>
             <Link href={"/om-oss"}>Om oss</Link>
             <Link href={"/kontakt"}>Kontakt</Link>
@@ -51,7 +53,7 @@ export default function Navbar() {
             <Link href={"https://cl-sektionen.zyrosite.com"}>Gamla webbplatsen</Link>
             <Link href={"/firebasetest"}>Notis test (Beta)</Link>
           </div>
-          <div id="sociallinks" className="footer-col">
+          <div id={styles.socialLinks} className={styles.footerCol}>
             <a href="https://www.instagram.com/clsektionen/" aria-label="CL-sektionens instagram">
               <i className="fa-brands fa-instagram" />
             </a>
@@ -76,7 +78,7 @@ export default function Navbar() {
       </div>
       <iframe
         title="Karta över Osquars backe 8"
-        id="karta"
+        id={styles.karta}
         src="https://maps.google.com/maps?q=osquars%20backe%208&t=&z=15&ie=UTF8&iwloc=&output=embed"
         frameBorder="0"
         scrolling="no"
