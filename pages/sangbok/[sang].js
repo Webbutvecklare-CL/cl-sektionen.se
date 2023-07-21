@@ -4,10 +4,12 @@ import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import BackButton from "../../components/BackButton";
 
+import styles from "../../styles/sangbok.module.css";
+
 export default function Sang({ content }) {
   return (
     <div id="contentbody">
-      <article className="sång">
+      <article className={styles.song}>
         <BackButton page={"sangbok"}>Sångboken</BackButton>
         <MarkdownRender mdData={content} />
       </article>

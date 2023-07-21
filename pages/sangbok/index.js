@@ -5,6 +5,9 @@ import { readFileSync } from "fs";
 import { logEvent } from "firebase/analytics";
 import TextHighlighter from "../../components/Highlighter";
 
+import styles from "../../styles/sangbok.module.css";
+import filterStyles from "../../styles/filter-panel.module.css";
+
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth) {
   if (currentMonth < 5 || currentMonth > 8) {
@@ -18,7 +21,6 @@ export default function Sangbok({ sånger, index }) {
     [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
   );
 
-  const contentindex = new Map(Object.entries(index));
   const [fulltextSearchResults, setFulltextSearchResults] = useState([]);
   const [searchFullText, setSearchFullText] = useState(false);
 
@@ -40,15 +42,15 @@ export default function Sangbok({ sånger, index }) {
   const [search, setSearch] = useState("");
   const currentMonth = new Date().getMonth();
 
-  const [filterPanelOpen, setfilterPanelOpen] = useState(false);
-  const [fokusSearchBar, setfokusSearchBar] = useState(false);
+  const [filterPanelOpen, setFilterPanelOpen] = useState(false);
+  const [fokusSearchBar, setFokusSearchBar] = useState(false);
 
   useEffect(() => {
     let focusSearchHandler = (e) => {
       if (!fokusSearchBar && e.target.className === "searchbar aktuellt") {
-        setfokusSearchBar(true);
+        setFokusSearchBar(true);
       } else if (fokusSearchBar && e.target.className !== "searchbar aktuellt") {
-        setfokusSearchBar(false);
+        setFokusSearchBar(false);
       }
     };
 
@@ -60,6 +62,7 @@ export default function Sangbok({ sånger, index }) {
 
   //WIP
   useEffect(() => {
+    const contentindex = new Map(Object.entries(index));
     const sanitizeExpression = /[#_:.,*|/\"\'\\!?()[\]\{\}+’´']/gm;
     const wordsArray = search.replaceAll(sanitizeExpression, "").trim().split(" ");
 
@@ -82,28 +85,28 @@ export default function Sangbok({ sånger, index }) {
     }
     //console.log(results)
     setFulltextSearchResults(results);
-  }, [search, searchFullText]);
+  }, [index, search, searchFullText]);
 
-  const panelref = useRef();
+  const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
-      if (panelref.current.contains(e.target)) {
+      if (panelRef.current.contains(e.target)) {
         return;
       }
-      if (e.target.className === "filterPanel mobile") {
+      if (e.target.className === filterStyles.panel + " mobile") {
         return;
       }
       if (e.target.className === "searchbar") {
         return;
       }
-      if (e.target.className === "sångbok-filter-knapp active") {
+      if (e.target.className === `${styles.songbookFilterButton} ${styles.active}`) {
         return;
       }
       if (e.target.className === "fa-solid fa-ellipsis") {
         return;
       }
-      setfilterPanelOpen(false);
+      setFilterPanelOpen(false);
     };
 
     document.addEventListener("mousedown", panelCloseHandler);
@@ -118,14 +121,14 @@ export default function Sangbok({ sånger, index }) {
       return "";
     }
     return (
-      <Link href={`/sangbok${sång.href}`} className="sånglänk" referrerPolicy="hej">
+      <Link href={`/sangbok${sång.href}`} className={styles.songLink} referrerPolicy="hej">
         <div>
-          <span className="sångtitel">
+          <span className={styles.songTitle}>
             <TextHighlighter search={search} text={sång.title} />
           </span>
-          <span className="sångsida">&nbsp; s.{sång.sida}</span>
+          <span className={styles.songPage}>&nbsp; s.{sång.sida}</span>
         </div>
-        <div className="sångkategori">&nbsp; {sång.kategori}</div>
+        <div className={styles.songCategory}>&nbsp; {sång.kategori}</div>
       </Link>
     );
   };
@@ -154,16 +157,16 @@ export default function Sangbok({ sånger, index }) {
       <div className="small-header">
         <h1 id="page-title">Sångbok</h1>
         <p>
-          Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför
-          sektionens 20-årsjubileum. Fysisk kopia av sångboken finns att köpa för 130 kr. Prata med
+          Nedan finner du samtliga sånger från sektionens officiella songbook som trycktes inför
+          sektionens 20-årsjubileum. Fysisk kopia av songbooken finns att köpa för 130 kr. Prata med
           försäljningsansvarig!
         </p>
       </div>
 
-      <div className="sångbok-wrapper">
-        <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
+      <div className={styles.songbookWrapper}>
+        <div className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
           <input
-            ref={panelref}
+            ref={panelRef}
             type="text"
             placeholder="Sök efter inlägg..."
             onChange={(e) => {
@@ -181,75 +184,83 @@ export default function Sangbok({ sånger, index }) {
             className="searchbar"
           />
           <button
-            ref={panelref}
-            className={`sångbok-filter-knapp ${filterPanelOpen ? "active" : ""}`}
-            onClick={() => setfilterPanelOpen(!filterPanelOpen)}>
+            ref={panelRef}
+            className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
+            onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
             <i className="fa-solid fa-ellipsis" />
           </button>
         </div>
 
         <section
-          ref={panelref}
-          className={`sångbok filterPanel ${filterPanelOpen ? "open" : "collapsed"}`}>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="pageNr"
-              checked={sort === "pageNr"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera på sidnummer</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="alphabetical"
-              checked={sort === "alphabetical"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera alfabetiskt</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="category"
-              checked={sort === "category"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera på kategori</span>
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="filters"
-              checked={searchFullText}
-              onChange={() => setSearchFullText(!searchFullText)}
-              className="filterbutton"
-            />
-            <span className="filteroption">
-              Sök i sångtext <i>(experimentell!)</i>
-            </span>
-          </label>
+          ref={panelRef}
+          className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
+            filterPanelOpen ? filterStyles.open : filterStyles.collapsed
+          }`}>
+          <div className={filterStyles.innerWrapper}>
+            <label>
+              <input
+                type="radio"
+                name="filters"
+                value="pageNr"
+                checked={sort === "pageNr"}
+                onChange={(e) => sortBy(e)}
+                className={filterStyles.filterInput}
+              />
+              <span className={filterStyles.filterOption}>Sortera på sidnummer</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="filters"
+                value="alphabetical"
+                checked={sort === "alphabetical"}
+                onChange={(e) => sortBy(e)}
+                className={filterStyles.filterInput}
+              />
+              <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="filters"
+                value="category"
+                checked={sort === "category"}
+                onChange={(e) => sortBy(e)}
+                className={filterStyles.filterInput}
+              />
+              <span className={filterStyles.filterOption}>Sortera på kategori</span>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="filters"
+                checked={searchFullText}
+                onChange={() => setSearchFullText(!searchFullText)}
+                className={filterStyles.filterInput}
+              />
+              <span className={filterStyles.filterOption}>
+                Sök i sångtext <i>(experimentell!)</i>
+              </span>
+            </label>
+          </div>
         </section>
 
-        {sortedSongs
-          .filter(
-            (sång) =>
-              search === "" ||
-              sång.title.toLowerCase().includes(search.toLowerCase()) ||
-              sång.altSearch?.some((title) => title.toLowerCase().includes(search.toLowerCase())) ||
-              (searchFullText &&
-                fulltextSearchResults.some((elem) => elem.includes(sång.href.slice(-1))))
-          )
-          .map((sång) => (
-            <SångLänk key={sång.href} sång={sång} />
-          ))}
+        <div>
+          {sortedSongs
+            .filter(
+              (sång) =>
+                search === "" ||
+                sång.title.toLowerCase().includes(search.toLowerCase()) ||
+                sång.altSearch?.some((title) =>
+                  title.toLowerCase().includes(search.toLowerCase())
+                ) ||
+                (searchFullText &&
+                  fulltextSearchResults.some((elem) => elem.includes(sång.href.slice(-1))))
+            )
+            .map((sång) => (
+              <SångLänk key={sång.href} sång={sång} />
+            ))}
+        </div>
       </div>
     </div>
   );

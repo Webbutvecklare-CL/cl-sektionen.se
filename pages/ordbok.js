@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import TextHighlighter from "../components/Highlighter";
 import { readFileSync } from "fs";
 
+import styles from "../styles/ordbok.module.css";
+import songStyles from "../styles/sangbok.module.css";
+import filterStyles from "../styles/filter-panel.module.css";
+
 function Ordbok({ ordbok }) {
   const [sortedOrdbok, setSortedOrdbok] = useState(
     [...ordbok].sort((a, b) => a.begrepp.localeCompare(b.begrepp, "sv"))
@@ -10,9 +14,9 @@ function Ordbok({ ordbok }) {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("alphabetical");
 
-  const [filterPanelOpen, setfilterPanelOpen] = useState(false);
-  const [fokusSearchBar, setfokusSearchBar] = useState(false);
-  const panelref = useRef();
+  const [filterPanelOpen, setFilterPanelOpen] = useState(false);
+  const [fokusSearchBar, setFokusSearchBar] = useState(false);
+  const panelRef = useRef();
 
   const sortBy = (e) => {
     setSort(e.target.value);
@@ -33,22 +37,22 @@ function Ordbok({ ordbok }) {
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
-      if (panelref.current.contains(e.target)) {
+      if (panelRef.current.contains(e.target)) {
         return;
       }
-      if (e.target.className === "filterPanel mobile") {
+      if (e.target.className === filterStyles.panel + " mobile") {
         return;
       }
       if (e.target.className === "searchbar") {
         return;
       }
-      if (e.target.className === "sångbok-filter-knapp active") {
+      if (e.target.className === `${filterStyles.filterOpen} ${filterStyles.active}`) {
         return;
       }
       if (e.target.className === "fa-solid fa-ellipsis") {
         return;
       }
-      setfilterPanelOpen(false);
+      setFilterPanelOpen(false);
     };
 
     document.addEventListener("mousedown", panelCloseHandler);
@@ -60,9 +64,9 @@ function Ordbok({ ordbok }) {
   useEffect(() => {
     let focusSearchHandler = (e) => {
       if (!fokusSearchBar && e.target.className === "searchbar") {
-        setfokusSearchBar(true);
+        setFokusSearchBar(true);
       } else if (fokusSearchBar && e.target.className !== "searchbar") {
-        setfokusSearchBar(false);
+        setFokusSearchBar(false);
       }
     };
 
@@ -74,15 +78,15 @@ function Ordbok({ ordbok }) {
 
   const Ord = ({ ord }) => {
     return (
-      <div className="ord">
+      <div className={styles.ord}>
         <div>
-          <span lang="sv" className="begrepp">
+          <span lang="sv" className={styles.begrepp}>
             <TextHighlighter search={search} text={ord.begrepp} />
           </span>
           <br />
-          <span className="kategori">{ord.kategori}</span>
+          <span className={styles.kategori}>{ord.kategori}</span>
         </div>
-        <p className="betydelse">
+        <p className={styles.betydelse}>
           <TextHighlighter search={search} text={ord.betydelse} />
         </p>
       </div>
@@ -98,10 +102,10 @@ function Ordbok({ ordbok }) {
           andra sammanhang på sektionen.
         </p>
       </div>
-      <div className="ordbok-wrapper">
-        <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
+      <div className={styles.ordbokWrapper}>
+        <div className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
           <input
-            ref={panelref}
+            ref={panelRef}
             type="text"
             placeholder="Sök efter inlägg..."
             onChange={(e) => {
@@ -113,37 +117,41 @@ function Ordbok({ ordbok }) {
             className="searchbar"
           />
           <button
-            ref={panelref}
-            className={`sångbok-filter-knapp ${filterPanelOpen ? "active" : ""}`}
-            onClick={() => setfilterPanelOpen(!filterPanelOpen)}>
+            ref={panelRef}
+            className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
+            onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
             <i className="fa-solid fa-ellipsis" />
           </button>
         </div>
         <section
-          ref={panelref}
-          className={`sångbok filterPanel ${filterPanelOpen ? "open" : "collapsed"}`}>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="alphabetical"
-              checked={sort === "alphabetical"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera alfabetiskt</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="category"
-              checked={sort === "category"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera på kategori</span>
-          </label>
+          ref={panelRef}
+          className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
+            filterPanelOpen ? filterStyles.open : filterStyles.collapsed
+          }`}>
+          <div className={filterStyles.innerWrapper}>
+            <label>
+              <input
+                type="radio"
+                name="filters"
+                value="alphabetical"
+                checked={sort === "alphabetical"}
+                onChange={(e) => sortBy(e)}
+                className={filterStyles.filterInput}
+              />
+              <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="filters"
+                value="category"
+                checked={sort === "category"}
+                onChange={(e) => sortBy(e)}
+                className={filterStyles.filterInput}
+              />
+              <span className={filterStyles.filterOption}>Sortera på kategori</span>
+            </label>
+          </div>
         </section>
 
         {sortedOrdbok

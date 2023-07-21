@@ -6,8 +6,6 @@ import "/styles/aktuellt.css";
 import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
-import "/styles/sangbok.css";
-import "/styles/ordbok.css";
 import "/styles/fontawesome-all.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";
