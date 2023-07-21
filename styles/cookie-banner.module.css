@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   background-color: #fff;
-  box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   z-index: 100000;
   font-size: 0.8rem;
   border-top: var(--clr1) 3px solid;

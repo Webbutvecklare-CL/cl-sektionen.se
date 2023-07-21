@@ -6,6 +6,8 @@ import Image from "next/image";
 import NavLogo from "../../public/media/grafik/CL-Logo_Nav_White.webp";
 import { useRouter } from "next/router";
 
+import styles from "../../styles/nav.module.css";
+
 //Att lägga till nya sidor:
 // 1. Se till att skapa sidan (se guide)
 
@@ -67,8 +69,8 @@ const MENU_STATES = ["fa-solid fa-bars", "fas fa-times"];
 //förord: läs på egen risk --Armin
 export default function Navbar() {
   const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
-  const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submeny
-  const [navBurgirOpen, setNavBurgirOpen] = useState(false); //för att öppna och stänga hamburgarmeny
+  const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submenu
+  const [navBurgerOpen, setNavBurgerOpen] = useState(false); //för att öppna och stänga hamburgarmeny
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
@@ -101,17 +103,19 @@ export default function Navbar() {
     window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
   }, []);
 
-  const burgirToggle = () => {
-    document.querySelector("#topnav").classList.toggle("topnav-active", !navBurgirOpen);
-    setNavBurgirOpen(!navBurgirOpen);
+  const burgerToggle = () => {
+    setNavBurgerOpen(!navBurgerOpen);
   };
 
   //för att stänga hamburgarmenyn om man klickar utanför---------------------
-  let menuref = useRef();
+  let menuRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if (!menuref.current.contains(e.target) && e.target.className != "nav__item fas fa-times") {
-        setNavBurgirOpen(false);
+      if (
+        !menuRef.current.contains(e.target) &&
+        e.target.className != styles.navItem + " fas fa-times"
+      ) {
+        setNavBurgerOpen(false);
       }
     };
 
@@ -137,8 +141,8 @@ export default function Navbar() {
             width={48}
             height={48}
             alt="CL logo, navigation"
-            id="navlogo"
-            className="nav__item"
+            id={styles.navLogo}
+            className={styles.navItem}
           />
         </Link>
       </div>
@@ -147,26 +151,28 @@ export default function Navbar() {
 
   const BurgerMenuButton = () => {
     return (
-      <div id="navburgirmenu">
+      <div id={styles.navBurgerMenu}>
         <button
-          onClick={burgirToggle}
-          aria-label={`${navBurgirOpen ? "Stäng" : "Öppna"} navigationsmenyn`}
-          className={`nav__item ${navBurgirOpen ? MENU_STATES[1] : MENU_STATES[0]}`}></button>
+          onClick={burgerToggle}
+          aria-label={`${navBurgerOpen ? "Stäng" : "Öppna"} navigationsmenyn`}
+          className={`${styles.navItem} ${
+            navBurgerOpen ? MENU_STATES[1] : MENU_STATES[0]
+          }`}></button>
       </div>
     );
   };
 
   const BurgerMenu = () => {
     return (
-      <div ref={menuref}>
-        {navBurgirOpen ? (
-          <div className="burgir__menu-list">
+      <div ref={menuRef}>
+        {navBurgerOpen ? (
+          <div className={styles.burgerMenuList}>
             {MENU_LIST.map((menu, idx) => (
               <div
                 key={menu.text}
-                className={`submenu_wrapper ${activeIdx === idx ? "active" : ""}`}>
+                className={`${styles.submenuWrapper} ${activeIdx === idx ? styles.active : ""}`}>
                 <div
-                  className="navitem_wrapper"
+                  className={styles.navItemWrapper}
                   onClick={() => {
                     activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
                     setActiveSubIdx(-1);
@@ -180,7 +186,7 @@ export default function Navbar() {
                       if (idx === activeIdx) {
                         setActiveIdx(idx);
                         setActiveSubIdx(s_idx);
-                        setNavBurgirOpen(false);
+                        setNavBurgerOpen(false);
                       }
                     }}>
                     <NavSubItem active={activeIdx === idx && activeSubIdx === s_idx} {...sb} />
@@ -198,10 +204,10 @@ export default function Navbar() {
 
   const WideScreenMenu = () => {
     return (
-      <div className="nav__menu-list">
+      <div className={styles.navMenuList}>
         {MENU_LIST.map((menu, idx) => (
-          <div key={menu.text} className="submenu_wrapper">
-            <div className="navitem_wrapper">
+          <div key={menu.text} className={styles.submenuWrapper}>
+            <div className={styles.navItemWrapper}>
               <NavItem active={activeIdx === idx} {...menu} />
             </div>
             {menu.submenu?.map((sb, s_idx) => (
@@ -223,12 +229,16 @@ export default function Navbar() {
   return (
     <header>
       <nav>
-        {/* Om man har scrollat på startsidan eller är på en annan sida är top nav röd */}
-        <div id="topnav" className={scrolled || router.pathname !== "/" ? "nav_scrolled" : ""}>
-          <div id="navmain">
-            <div className="homebutton-wrapper">
+        {/* Om man har scrollat på startsidan, är på en annan sida eller öppnat menyn är top nav röd */}
+        <div
+          id={styles.topNav}
+          className={
+            scrolled || router.pathname !== "/" || navBurgerOpen ? styles.navBarFilled : ""
+          }>
+          <div id={styles.navMain}>
+            <div className={styles.homeButtonWrapper}>
               <HomeButton />
-              <div className="current-Page">{currentPageTitle}</div>
+              <div className={styles.currentPage}>{currentPageTitle}</div>
             </div>
             <BurgerMenuButton />
             <WideScreenMenu />

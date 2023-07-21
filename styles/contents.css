@@ -80,6 +80,12 @@ ol {
   font-size: 18px;
 }
 
+@media screen and (max-width: 780px) {
+  #page-title {
+    display: none;
+  }
+}
+
 .article-head {
   height: 4rem;
   display: flex;
