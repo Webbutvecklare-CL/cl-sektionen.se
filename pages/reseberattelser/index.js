@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import styles from "../../styles/reseberattelser.module.css";
+
 export default function Reseberattelser() {
   const [activeContinent, setActiveContinent] = useState();
   const setContinent = (newContinent) => {
     activeContinent === newContinent ? setActiveContinent() : setActiveContinent(newContinent);
 
-    document.getElementById("scroll-node").scrollIntoView(false);
+    document.getElementById(styles.scrollNode).scrollIntoView(false);
   };
 
   //SVG bild av världen
@@ -109,8 +111,8 @@ export default function Reseberattelser() {
         växa så småningom! Förutom att läsa CL-studenters reseberättelser rekommenderar vi även att
         du kikar på de som publicerats på KTHs hemsida av studenter från andra program.
       </p>
-      <div className="worldmap">{worldMap()}</div>
-      <div id="scroll-node" />
+      <div className={styles.worldMap}>{worldMap()}</div>
+      <div id={styles.scrollNode} />
       {!activeContinent || activeContinent === "Nordamerika" ? (
         <div>
           <h2>Nordamerika</h2>
