@@ -1,14 +1,14 @@
-#rättigheter strong,
-#rättigheter h2,
-#rättigheter h1 span {
+#rights strong,
+#rights h2,
+#rights h1 span {
   color: var(--clr5);
 }
 
-#rättigheter p {
+#rights p {
   font-size: 1.2rem;
 }
 
-#rättigheter li {
+#rights li {
   font-size: 1.1rem;
 }
 
@@ -19,6 +19,6 @@
   flex-wrap: wrap;
 }
 
-.praxis-cards {
+.praxisCards {
   font-size: 1.4rem;
 }

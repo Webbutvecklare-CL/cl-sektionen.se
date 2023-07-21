@@ -1,6 +1,5 @@
 import "/styles/root.css";
 import "/styles/contents.css";
-import "/styles/dokument.css";
 import "/styles/fortroendevalda.css";
 import "/styles/publicera.css";
 import "/styles/aktuellt.css";
@@ -9,7 +8,6 @@ import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
 import "/styles/sangbok.css";
 import "/styles/ordbok.css";
-import "/styles/components.css";
 import "/styles/fontawesome-all.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";

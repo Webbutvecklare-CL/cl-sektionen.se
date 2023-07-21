@@ -3,6 +3,8 @@ import MarkdownRender from "../components/MarkdownRender";
 import Card from "../components/Card";
 import { getContentData } from "../utils/contents";
 
+import styles from "../styles/dokument.module.css";
+
 export default function Dokument({ contents }) {
   return (
     <div id="contentbody">
@@ -12,7 +14,7 @@ export default function Dokument({ contents }) {
         Har som syfte att samla viktig information som inte passar in i något av sektionens
         styrdokument. Notera att dessa är levande dokument.
       </p>
-      <div className="cards praxis-cards">
+      <div className={`${styles.cards} ${styles.praxisCards}`}>
         <Card link={"/praxis/alkoholservering"}>
           <i className="fa-solid fa-martini-glass" /> Rutiner för <b>alkoholservering</b>
         </Card>
@@ -28,7 +30,7 @@ export default function Dokument({ contents }) {
       </div>
 
       <h2>Blanketter, mallar och lathundar</h2>
-      <div className="cards">
+      <div className={styles.cards}>
         <Card link={"https://drive.google.com/file/d/1rOzE5IwIRqV0D89qd5f0i-CnTebz8Y3h/view"}>
           <i className="fa-regular fa-file-pdf" /> Utläggsblankett
         </Card>
@@ -98,7 +100,7 @@ export default function Dokument({ contents }) {
           border: "0",
           backgroundColor: "#F2F3F4",
         }}></iframe>
-      <section id="rättigheter">
+      <section id={`${styles.rights} rättigheter`}>
         <MarkdownRender mdData={contents["rattigheter"]} />
       </section>
     </div>
