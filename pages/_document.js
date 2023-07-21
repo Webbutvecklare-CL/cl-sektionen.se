@@ -32,7 +32,7 @@ export default function Document() {
           type="image/png"
           sizes="512x512"
         />
-        <link rel="apple-touch-icon" href="media/icons/maskable-icon-192x192.png"></link>
+        <link rel="apple-touch-icon" href="media/icons/maskable-icon-192x192.png" />
         <meta name="theme-color" content="#d23022" />
         <meta name="background-color" content="#fafafa" />
 
