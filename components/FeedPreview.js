@@ -21,7 +21,9 @@ export default function FeedPreview({ posts }) {
             <Link
               href={`/aktuellt/${post.id}`}
               onClick={() => {
-                logEvent(analytics, "post_click", { page: window.location.pathname });
+                if (analytics) {
+                  logEvent(analytics, "post_click", { page: window.location.pathname });
+                }
               }}>
               <div className={styles.postPreview}>
                 <div className={styles.image}>

@@ -23,14 +23,18 @@ import { AuthContextProvider } from "../context/AuthContext";
 import { analytics } from "../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 import { onMessage, getMessaging, isSupported } from "firebase/messaging";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CustomHead from "../components/CustomHead";
 import CookieBanner from "../components/CookieBanner";
 
+import { getCookie, setCookie } from "../utils/cookieUtils";
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+  const [cookiesAllowed, setCookiesAllowed] = useState(false);
 
-  // Körs första gången sidan laddas in
+  // Aktivera messageListener
   useEffect(() => {
     // När sidan laddas in startas en notis hanterare som hanterar foreground(webbläsaren i fokus) notiser
     // Vissa webbläsare stödjer inte foreground notiser (de flesta mobiler)
@@ -46,10 +50,15 @@ export default function App({ Component, pageProps }) {
 
       messageListener(click_event);
     });
+  }, [router]);
 
+  // Sätter en event listener på när användaren byter sida för att logga
+  useEffect(() => {
     // Skapar en event listener på när sidan uppdateras och loggar då sidvisningen
     const logScreenEvent = (url) => {
-      logEvent(analytics, "screen_view", { screen_path: url });
+      if (analytics) {
+        logEvent(analytics, "screen_view", { screen_path: url });
+      }
     };
 
     router.events.on("routeChangeComplete", logScreenEvent);
@@ -61,6 +70,43 @@ export default function App({ Component, pageProps }) {
       router.events.off("routeChangeComplete", logScreenEvent);
     };
   }, [router]);
+
+  useEffect(() => {
+    // Kollar om användaren har godkänt kakor
+    const allowCookies = getCookie("allowCookies");
+    if (allowCookies === "true") {
+      setCookiesAllowed(true);
+    } else if (allowCookies === "false") {
+      setCookiesAllowed(false);
+    } else {
+      // Om användaren inte har godkänt kakor visas cookie banner
+      setShowCookieBanner(true);
+    }
+  }, []);
+
+  const setCookieState = (value) => {
+    if (value) {
+      console.log("cookies allowed");
+      setCookie("allowCookies", "true", 365);
+      setCookiesAllowed(true);
+    }
+    if (!value) {
+      console.log("cookies not allowed");
+      setCookie("allowCookies", "false", 21);
+      setCookiesAllowed(false);
+
+      // Rensar existerande cookies
+      const cookies = document.cookie.split(";");
+      const requiredCookies = ["mottagning_key", "allowCookies"];
+      for (let cookie of cookies) {
+        const [name] = cookie.trim().split("=");
+        if (!requiredCookies.includes(name)) {
+          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+      }
+    }
+    setShowCookieBanner(false);
+  };
 
   // Gör så att TV routen inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
@@ -84,16 +130,22 @@ export default function App({ Component, pageProps }) {
         url={"https://www.cl-sektionen.se/"}
       />
       {/* AuthContext behövs inte utanför personalrummet */}
-      {!router.pathname.startsWith("/personalrummet") && <Component {...pageProps} />}
+      {!router.pathname.startsWith("/personalrummet") && (
+        <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
+      )}
       {router.pathname.startsWith("/personalrummet") && (
         <AuthContextProvider>
-          <Component {...pageProps} />
+          <Component
+            {...pageProps}
+            cookiesAllowed={cookiesAllowed}
+            setCookieState={setCookieState}
+          />
         </AuthContextProvider>
       )}
-      <Analytics />
       <Footer />
       <Navbar />
-      <CookieBanner />
+      {cookiesAllowed && <Analytics />}
+      {showCookieBanner && <CookieBanner setCookieState={setCookieState} />}
     </div>
   );
 }

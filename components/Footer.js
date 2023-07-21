@@ -47,6 +47,7 @@ export default function Navbar() {
             <Link href={"/aktuellt"}>Aktuellt</Link>
             <Link href={"/hjalp-vid-illabehandling"}>Illabehandling</Link>
             <Link href={"/dokument"}>Dokument</Link>
+            <Link href={"/kakor"}>Kakpolicy</Link>
             <Link href={"https://cl-sektionen.zyrosite.com"}>Gamla webbplatsen</Link>
             <Link href={"/firebasetest"}>Notis test (Beta)</Link>
           </div>

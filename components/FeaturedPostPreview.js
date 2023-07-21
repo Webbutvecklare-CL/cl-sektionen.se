@@ -16,7 +16,9 @@ export default function FeaturedPostPreview({ post }) {
         href={`/aktuellt/${post.id}`}
         key={post.id}
         onClick={() => {
-          logEvent(analytics, "post_click", { page: "featured" });
+          if (analytics) {
+            logEvent(analytics, "post_click", { page: "featured" });
+          }
         }}>
         <div className="post-preview featured">
           <div className="image">

@@ -1,25 +1,40 @@
+import Link from "next/link";
+
 import styles from "../styles/cookie-banner.module.css";
 
-export default function CookieBanner({ onDecline, onAccept }) {
+export default function CookieBanner({ setCookieState }) {
   return (
     <div className={styles.banner}>
       <div className={styles.content}>
-        <p>
-          För att vissa funktioner, som notiser och inloggning, ska gå att använda behöver vi spara
-          vissa kakor. Vi vill använda kakor för att förbättra webbplatsen och din
-          användarupplevelse.
+        <p className={styles.text}>
+          Vi använder kakor och liknande teknik för att ge dig en förbättrad upplevelse,
+          sammanställa statistik och för att viss nödvändig funktionalitet ska fungera på
+          webbplatsen. Vi lämnar aldrig ut information till tredjepart.{" "}
+          <Link href="/kakor">Läs mer om hur vi använder kakor</Link>
         </p>
         <div className={styles.menu}>
-          <button className="small" onClick={onDecline}>
-            Bara nödvändiga kakor
+          <button
+            className={`${styles.button} small`}
+            onClick={() => {
+              setCookieState(true);
+            }}>
+            Godkänn alla
           </button>
-          <button className="small" onClick={onAccept}>
-            Acceptera kakor
+          <button
+            className={`${styles.button} small`}
+            onClick={() => {
+              setCookieState(false);
+            }}>
+            Godkänn nödvändiga
           </button>
         </div>
       </div>
-      <button className={styles.close} onClick={onDecline}>
-        x
+      <button
+        className={styles.close}
+        onClick={() => {
+          setCookieState(false);
+        }}>
+        <i className="fa-solid fa-xmark"></i>
       </button>
     </div>
   );

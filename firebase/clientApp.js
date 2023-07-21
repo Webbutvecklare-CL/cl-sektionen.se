@@ -24,7 +24,14 @@ const firestore = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
 const messaging = async () => (await isSupported()) && getMessaging(app);
-// const analytics = isAnalyticsSupported().then((yes) => (yes ? getAnalytics(app) : null));
-const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
+
+const analyticsAllowed = () => {
+  if (typeof window !== "undefined") {
+    const cookiesAllowedObj = JSON.parse(localStorage.getItem("cookiesAllowed"));
+    return cookiesAllowedObj?.value;
+  }
+  return false;
+};
+const analytics = analyticsAllowed() ? getAnalytics(app) : null;
 
 export { app, firestore, storage, auth, messaging, analytics };

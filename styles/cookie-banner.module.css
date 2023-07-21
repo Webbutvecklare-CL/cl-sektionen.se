@@ -1,5 +1,5 @@
 .banner {
-  width: 100vw;
+  width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -9,19 +9,28 @@
   z-index: 100000;
   font-size: 0.8rem;
   border-top: var(--clr1) 3px solid;
+  margin: auto;
 }
 .content {
-  width: 80%;
+  padding: 1rem 2rem;
   margin: auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 1rem;
-  flex-wrap: wrap;
+  column-gap: 1rem;
 }
 
-.content button {
+.content p {
+  max-width: 770px;
+}
+
+.button {
   white-space: nowrap;
+}
+
+.button:last-child {
+  background-color: var(--clr4);
+  opacity: 0.85;
 }
 
 .menu {
@@ -32,15 +41,29 @@
   justify-content: center;
 }
 
+.menu * {
+  width: 100%;
+}
+
 .close {
   position: absolute;
-  top: 1rem;
-  right: 2rem;
-  width: 2rem;
-  height: 2rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 1rem;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.close i {
+  transform: scale(0.7);
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    flex-direction: column;
+  }
 }

@@ -171,7 +171,9 @@ export default function Sangbok({ sånger, index }) {
             }}
             onBlur={() => {
               // När användaren lämnar sökrutan
-              logEvent(analytics, "search", { search_term: search });
+              if (analytics) {
+                logEvent(analytics, "search", { search_term: search });
+              }
               if (["never gonna give you up", "spela en låt"].includes(search.toLowerCase())) {
                 playSong();
               }

@@ -27,7 +27,9 @@ export default function Index({ contents, featured, infoList, eventList }) {
   const toggleOm = () => {
     if (!open) {
       // Om vi går från stängd till öppen
-      logEvent(analytics, "view_om");
+      if (analytics) {
+        logEvent(analytics, "view_om");
+      }
     }
     setOpen(!open);
   };

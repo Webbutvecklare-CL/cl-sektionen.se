@@ -73,7 +73,7 @@ button.small {
 }
 
 button:hover {
-  background-color: var(--clr3);
+  background-color: var(--clr3) !important;
   transition: 0.2s;
 }
 

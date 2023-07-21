@@ -233,7 +233,9 @@ export default function EditPost() {
       console.error(error);
     }
 
-    logEvent(analytics, "post_update", { updated_keys: Object.keys(postData) });
+    if (analytics) {
+      logEvent(analytics, "post_update", { updated_keys: Object.keys(postData) });
+    }
   };
 
   // Om man klickar på enter

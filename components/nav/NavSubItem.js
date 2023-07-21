@@ -10,7 +10,9 @@ export default function NavSubItem({ text, href, active }) {
       className={`submenu_item ${active ? "active" : ""}`}
       onClick={() => {
         // När användaren klickar på en nav link
-        logEvent(analytics, "nav_click", { href });
+        if (analytics) {
+          logEvent(analytics, "nav_click", { href });
+        }
       }}>
       <p>{text}</p>
     </Link>

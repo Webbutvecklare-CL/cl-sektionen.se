@@ -37,7 +37,9 @@ export async function saveMessagingDeviceToken(collection) {
         tokens: arrayUnion(fcmToken),
       });
 
-      logEvent(analytics, "notification_subscribe", { topic: collection });
+      if (analytics) {
+        logEvent(analytics, "notification_subscribe", { topic: collection });
+      }
 
       return fcmToken;
     } else {

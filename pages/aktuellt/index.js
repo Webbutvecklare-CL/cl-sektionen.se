@@ -292,7 +292,9 @@ export default function Aktuellt({ postList }) {
               }}
               onBlur={() => {
                 // När användaren lämnar sökrutan
-                logEvent(analytics, "search", { search_term: search });
+                if (analytics) {
+                  logEvent(analytics, "search", { search_term: search });
+                }
               }}
               className="searchbar"
             />
