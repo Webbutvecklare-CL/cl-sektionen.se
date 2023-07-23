@@ -158,7 +158,7 @@ export default function CalendarViewer() {
               setCurrentWeek(currentWeek - 1);
             }
           }}>
-          Förra vecka
+          Förra
         </button>
         <h2>Vecka: {currentWeek + 33}</h2>
         <button
@@ -168,7 +168,7 @@ export default function CalendarViewer() {
               setCurrentWeek(currentWeek + 1);
             }
           }}>
-          Nästa vecka
+          Nästa
         </button>
       </div>
     );
