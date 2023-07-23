@@ -7,7 +7,7 @@ try {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
-  console.log("Initialized.");
+  console.log("Firebase Admin Initialized.");
 } catch (error) {
   /*
    * We skip the "already exists" message which is
