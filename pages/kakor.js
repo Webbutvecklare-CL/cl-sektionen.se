@@ -21,7 +21,7 @@ export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
   return (
     <div id="contentbody">
       <div className="small-header">
-        <h1 id="page-title">Kakpolicy</h1>
+        <h1>Kakpolicy</h1>
         <MarkdownRender mdData={contents["kakor"]} />
         <h2>Godkänn kakor</h2>
 
