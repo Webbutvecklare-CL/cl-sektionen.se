@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, forwardRef } from "react";
+import { useEffect, useState, useRef, forwardRef, use } from "react";
 
 import { getPublicEvents } from "../../utils/calendarUtils";
 
@@ -7,9 +7,12 @@ import styles from "../../styles/calendar-viewer.module.css";
 export default function CalendarViewer() {
   const [events, setEvents] = useState([]);
   const [weeksList, setWeeksList] = useState([]);
-  const gridRef = useRef(null);
   const [scale, setScale] = useState(48);
-  const [currentWeek, setCurrentWeek] = useState(0);
+  const [refDate, setRefDate] = useState(new Date("2023-08-14"));
+  const [nrOfDays, setNrOfDays] = useState(7);
+  const viewingHours = 16;
+
+  const types = { matteövning: {}, bästis: {}, lekpass: {}, nämndpass: {} };
 
   const calendar_id =
     "c_1351cc6b384ac29b6abd7b38136ebae1b08e383e3cc6299a3aa90303770f46ed@group.calendar.google.com";
@@ -18,11 +21,8 @@ export default function CalendarViewer() {
     const startMottagning = new Date("2023-08-14").toISOString();
     const endMottagning = new Date("2023-09-03").toISOString();
     const firstWeekM = new Date("2023-08-14");
-    const firstWeekS = new Date("2023-08-20");
     const secondWeekM = new Date("2023-08-21");
-    const secondWeekS = new Date("2023-08-27");
     const thirdWeekM = new Date("2023-08-28");
-    const thirdWeekS = new Date("2023-09-03");
 
     const query = {
       orderBy: "startTime",
@@ -32,25 +32,14 @@ export default function CalendarViewer() {
     };
     getPublicEvents(calendar_id, query).then((data) => {
       let weeks = [];
-      weeks.push(getEventListSpan(data, firstWeekM, firstWeekS));
-      weeks.push(getEventListSpan(data, secondWeekM, secondWeekS));
-      weeks.push(getEventListSpan(data, thirdWeekM, thirdWeekS));
+      weeks.push(getEventListSpan(data, firstWeekM, 7));
+      weeks.push(getEventListSpan(data, secondWeekM, 7));
+      weeks.push(getEventListSpan(data, thirdWeekM, 7));
       setWeeksList(weeks);
     });
   }, []);
 
-  useEffect(() => {
-    if (weeksList.length > 0) {
-      setEvents(weeksList[currentWeek]);
-    }
-  }, [weeksList, currentWeek]);
-
-  useEffect(() => {
-    // Scrolla till 8:00
-    gridRef.current?.scrollTo(0, scale * 8);
-  }, [scale, events]);
-
-  const EventBox = ({ event }) => {
+  const EventBox = ({ event, setInfoBoxData }) => {
     const start = new Date(event.start.dateTime);
     const end = new Date(event.end.dateTime);
 
@@ -59,43 +48,98 @@ export default function CalendarViewer() {
     const height = duration * scale;
 
     // Räkna ut starttiden
-    const reference = new Date(start.getFullYear(), start.getMonth(), start.getDate(), 0);
+    const reference = new Date(
+      start.getFullYear(),
+      start.getMonth(),
+      start.getDate(),
+      24 - viewingHours
+    );
     const startTime = (start - reference) / (3600 * 1000); // Till timmar
     const top = startTime * scale;
+
+    // Färg på eventet
+
     const posStyles = {
       height: `${height - 3}px`,
       top: `${top}px`,
     };
+
+    const eventClick = () => {
+      console.log("Event clicked");
+      console.log(event);
+      console.log(event.description?.split(/\n|<br>/));
+      setInfoBoxData({
+        top: top,
+        title: event.summary,
+        location: event.description?.split(/\n|<br>/)[0],
+        description: event.description?.split(/\n|<br>/)[1],
+        start: event.start.dateTime,
+        end: event.end.dateTime,
+      });
+    };
+
+    const desc = event.description;
+    let location = "Kolla med bästis";
+    if (desc?.split("Plats: ")[1]) {
+      location = desc.split("Plats: ")[1].substring(0, desc.indexOf("\n"));
+    }
+
     return (
-      <div className={styles.eventBox} style={posStyles}>
-        <p>{event.summary}</p>
-        {/* <p>{event.description}</p> */}
-        {/* <p>Start: {event.start.dateTime}</p>
-          <p>Slut: {event.end.dateTime}</p>
-          <p>Uppdaterad: {event.updated}</p> */}
+      <>
+        <div className={styles.eventBox} style={posStyles} onClick={eventClick}>
+          <div>
+            <p>{event.summary}</p>
+            <div className={styles.description}>
+              <p>Plats: {location}</p>
+              <p>{event.description}</p>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const EventInfoBox = ({ data, close }) => {
+    return (
+      <div
+        className={styles.eventInfoBox}
+        // style={{ top: `${0}px` }}
+        onClick={() => {
+          close();
+        }}>
+        <h2>{data.title}</h2>
+        <p>{data.location}</p>
+        <p>{data.description}</p>
+        <p>Start: {data.start.split("T")[1].substring(0, 5)}</p>
+        <p>Slut: {data.end.split("T")[1].substring(0, 5)}</p>
       </div>
     );
   };
 
-  const DayBox = ({ dayList }) => {
+  const DayBox = ({ dayList, setInfoBoxData }) => {
     return (
-      <div className={styles.dayBox}>
+      <div className={styles.dayBox} style={{ height: `${scale * viewingHours - 1}px` }}>
         {dayList?.map((event, index) => (
-          <EventBox event={event} key={index} />
+          <EventBox event={event} key={index} setInfoBoxData={setInfoBoxData} />
         ))}
       </div>
     );
   };
 
-  const Grid = forwardRef(function Grid({ events }, ref) {
-    const dayLists = weekToDayLists(events);
-
+  const Grid = ({ weeksList }) => {
+    const [infoBoxData, setInfoBoxData] = useState(null);
+    const [dayLists, setDayLists] = useState([]);
+    const [currentWeek, setCurrentWeek] = useState(0);
     const horizontalLines = [];
-    for (let i = 0; i < 24; i++) {
+
+    const gridRef = useRef(null);
+
+    for (let i = 24 - viewingHours; i < 24; i++) {
       horizontalLines.push(<div className={styles.horizontalLine} key={i} />);
     }
+
     const timeStamps = [<div className={styles.timeStamps} key={0}></div>];
-    for (let i = 1; i < 24; i++) {
+    for (let i = 25 - viewingHours; i < 24; i++) {
       timeStamps.push(
         <div className={styles.timeStamps} key={i}>
           <span>{i < 10 ? "0" + i : i}:00</span>
@@ -104,33 +148,98 @@ export default function CalendarViewer() {
       );
     }
 
-    return (
-      <div className={styles.grid} ref={ref}>
-        <div className={styles.timeLine}>{timeStamps}</div>
-        <div className={styles.lineContainer}>{horizontalLines}</div>
-        <DayBox dayList={dayLists[0]} />
-        <DayBox dayList={dayLists[1]} />
-        <DayBox dayList={dayLists[2]} />
-        <DayBox dayList={dayLists[3]} />
-        <DayBox dayList={dayLists[4]} />
-        <DayBox dayList={dayLists[5]} />
-        <DayBox dayList={dayLists[6]} />
-      </div>
-    );
-  });
+    const Menu = () => {
+      return (
+        <div className={styles.menu}>
+          <button
+            className="small"
+            disabled={currentWeek == 0}
+            onClick={() => {
+              if (currentWeek > 0) {
+                setCurrentWeek(currentWeek - 1);
+              }
+            }}>
+            <i className="fa-solid fa-angle-left" />
+          </button>
+          <h2>Vecka: {currentWeek + 33}</h2>
+          <button
+            className="small"
+            disabled={currentWeek == 2}
+            onClick={() => {
+              if (currentWeek < 2) {
+                setCurrentWeek(currentWeek + 1);
+              }
+            }}>
+            <i className="fa-solid fa-angle-right" />
+          </button>
+        </div>
+      );
+    };
 
-  const Header = () => {
+    useEffect(() => {
+      if (weeksList.length == 0) return;
+      setDayLists(eventListToDayLists(weeksList[currentWeek], nrOfDays));
+    }, [currentWeek, weeksList]);
+
+    return (
+      <>
+        <Menu />
+        <Header dayLists={dayLists} />
+        {infoBoxData && (
+          <div
+            className={styles.infoBoxOverlay}
+            onClick={() => {
+              setInfoBoxData(null);
+            }}>
+            <EventInfoBox
+              data={infoBoxData}
+              close={() => {
+                setInfoBoxData(null);
+              }}
+            />
+          </div>
+        )}
+        <div className={styles.grid} ref={gridRef}>
+          <div className={styles.timeLine}>{timeStamps}</div>
+
+          {
+            <>
+              <div className={styles.lineContainer}>{horizontalLines}</div>
+              <div className={styles.daysContainer}>
+                {dayLists.map((dayList, index) => {
+                  return <DayBox dayList={dayList} key={index} setInfoBoxData={setInfoBoxData} />;
+                })}
+              </div>
+            </>
+          }
+        </div>
+      </>
+    );
+  };
+
+  const Header = ({ dayLists }) => {
+    const getDate = (offset) => {
+      const tempDate = new Date(refDate);
+      tempDate.setDate(tempDate.getDate() + offset);
+      return { date: tempDate.getDate(), day: tempDate.getDay() };
+    };
+
+    const daysName = ["Sön", "Mån", "Tis", "Ons", "Tors", "Fre", "Lör"];
+
+    const headerItems = [];
+    for (let i = 0; i < dayLists.length; i++) {
+      const dayIdx = getDate(i).day;
+      headerItems.push(
+        <HeaderItem date={getDate(i).date} key={i}>
+          {daysName[dayIdx]}
+        </HeaderItem>
+      );
+    }
+
     return (
       <div className={styles.header}>
         <div />
-
-        <HeaderItem>Måndag</HeaderItem>
-        <HeaderItem>Tisdag</HeaderItem>
-        <HeaderItem>Onsdag</HeaderItem>
-        <HeaderItem>Torsdag</HeaderItem>
-        <HeaderItem>Fredag</HeaderItem>
-        <HeaderItem>Lördag</HeaderItem>
-        <HeaderItem>Söndag</HeaderItem>
+        {headerItems}
         <div>
           <span className={styles.headerSpacer} />
         </div>
@@ -138,38 +247,12 @@ export default function CalendarViewer() {
     );
   };
 
-  const HeaderItem = ({ children }) => {
+  const HeaderItem = ({ children, date }) => {
     return (
       <div className={styles.headerItem}>
         <span className={styles.headerDay}>{children}</span>
-        <span className={styles.headerDate}>{10}</span>
+        <span className={styles.headerDate}>{date}</span>
         <span className={styles.headerSpacer}></span>
-      </div>
-    );
-  };
-
-  const Menu = () => {
-    return (
-      <div className={styles.menu}>
-        <button
-          className="small"
-          onClick={() => {
-            if (currentWeek > 0) {
-              setCurrentWeek(currentWeek - 1);
-            }
-          }}>
-          Förra
-        </button>
-        <h2>Vecka: {currentWeek + 33}</h2>
-        <button
-          className="small"
-          onClick={() => {
-            if (currentWeek < 2) {
-              setCurrentWeek(currentWeek + 1);
-            }
-          }}>
-          Nästa
-        </button>
       </div>
     );
   };
@@ -180,10 +263,8 @@ export default function CalendarViewer() {
       style={{
         "--scale": `${scale}px`,
       }}>
-      <Menu />
-      <Header />
-      {events && <Grid events={events} ref={gridRef} />}
-      <input
+      {events && <Grid weeksList={weeksList} />}
+      {/* <input
         type="range"
         min="20"
         max="60"
@@ -191,8 +272,8 @@ export default function CalendarViewer() {
         name="scale"
         onChange={(e) => {
           setScale(e.target.value);
-        }}
-      />
+        }} 
+      />*/}
     </div>
   );
 }
@@ -215,8 +296,11 @@ async function getWeek(calendar_id, date) {
   return response;
 }
 
-function weekToDayLists(events) {
-  let days = [[], [], [], [], [], [], []];
+function eventListToDayLists(events, nrOfDays) {
+  let days = [];
+  for (let i = 0; i < nrOfDays; i++) {
+    days.push([]);
+  }
 
   // Event listan är och måste vara i ordning efter start tid/datum
   for (let event of events) {
@@ -236,9 +320,16 @@ function getWeekNumber(refDate) {
   return weekNo;
 }
 
-function getEventListSpan(eventList, startDate, endDate) {
-  let span = [];
+function getEventListSpan(eventList, startDate, endRef) {
+  let endDate = null;
+  if (typeof endRef === "number") {
+    endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + endRef);
+  } else {
+    endDate = endRef;
+  }
 
+  let span = [];
   for (let event of eventList) {
     const eventDate = new Date(event.start.dateTime);
     if (eventDate >= startDate && eventDate <= endDate) {

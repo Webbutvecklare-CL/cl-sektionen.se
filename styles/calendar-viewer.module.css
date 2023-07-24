@@ -1,4 +1,5 @@
 .calendarViewer {
+  position: relative;
   --hairline: rgb(218, 220, 224);
   padding: 1rem;
   background-color: white;
@@ -9,21 +10,57 @@
 .eventBox {
   position: absolute;
   border-radius: 5px;
-  background-color: #c05656;
+  background-color: var(--clr2);
   cursor: pointer;
   width: 100%;
-  display: block;
-  top: var(--top);
+  overflow: hidden;
+}
+
+.eventBox:hover {
+  background-color: var(--clr3);
+}
+
+.eventBox > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+  overflow: hidden;
+  height: calc(100% - 0.6rem);
 }
 
 .eventBox p {
+  margin-top: -2px;
   padding: 0;
+}
+
+.infoBoxOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventInfoBox {
+  position: relative;
+  top: 1.7rem;
+  background-color: white;
+  box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 80%;
+  height: min-content;
+  padding: 1rem;
+  border-radius: 0.3rem;
 }
 
 .dayBox {
   border-right: 1px solid var(--hairline);
   width: 100%;
-  height: calc(var(--scale) * 24);
   position: relative;
   display: block;
   overflow: hidden;
@@ -41,6 +78,12 @@
   background-color: #fff;
   overflow: hidden;
   overflow-y: scroll;
+}
+
+.daysContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
 }
 
 .lineContainer {
@@ -123,13 +166,17 @@
   margin: auto;
   margin-bottom: 1rem;
   padding: 0 2rem;
-  max-width: 300px;
+  max-width: 200px;
   font-size: 1rem;
   white-space: nowrap;
 }
 
 .menu h2 {
   margin: 0;
+}
+
+.menu button {
+  font-size: 1rem;
 }
 
 /* Header */
@@ -149,6 +196,8 @@
   flex-direction: column;
   width: 100%;
   word-break: break-all;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: -1px;
 }
 
 .headerSpacer {
@@ -162,6 +211,8 @@
   min-width: 2.6rem;
   height: inherit;
   border-right: none;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: -1px;
 }
 
 .header div:last-child {
@@ -169,4 +220,18 @@
   width: 0.44rem; /* Scrollbar width */
   height: 100%;
   background-color: #c05656;
+}
+
+@media screen and (max-width: 700px) {
+  .calendarViewer {
+    padding: 0.5rem;
+  }
+
+  .eventBox p {
+    font-size: smaller;
+  }
+
+  .eventBox .description {
+    display: none;
+  }
 }
