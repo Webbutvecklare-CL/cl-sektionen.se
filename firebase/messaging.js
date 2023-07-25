@@ -52,16 +52,18 @@ export async function saveMessagingDeviceToken(collection) {
   }
 }
 
-export async function checkToken() {
-  try {
-    const msg = await messaging();
-    const fcmToken = await getToken(msg, { vapidKey: VAPID_KEY });
-    if (fcmToken) {
-      return { token: fcmToken };
-    } else {
-      return { error: "No token", token: null };
+export async function getFCMToken() {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const msg = await messaging();
+      const fcmToken = await getToken(msg, { vapidKey: VAPID_KEY });
+      if (fcmToken) {
+        resolve(fcmToken);
+      } else {
+        reject({ error: "No token" });
+      }
+    } catch (error) {
+      reject(error);
     }
-  } catch (error) {
-    return { error, token: null };
-  }
+  });
 }

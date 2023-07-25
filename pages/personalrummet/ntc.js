@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { saveMessagingDeviceToken, checkToken } from "../firebase/messaging"; // Filen
+import { saveMessagingDeviceToken, getFCMToken } from "../../firebase/messaging"; // Filen
 import { isSupported } from "firebase/messaging"; // Biblioteket
-import { sendNotification } from "../utils/server";
+import { sendNotification } from "../../utils/server";
 
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
-import styles from "../styles/firebasetest.module.css";
+import NotificationModal from "../../components/NotificationModal";
 
-export default function Firebasetest() {
+import styles from "../../styles/ntc.module.css";
+
+export default function NTC() {
   const [result, setResult] = useState("");
   const [debugText, setDebugText] = useState("");
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const [type, setType] = useState("post");
   const [postId, setPostId] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [dryRun, setDryRun] = useState(false);
 
   const { userData, user } = useAuth();
 
@@ -38,12 +42,14 @@ export default function Firebasetest() {
       notificationMessage = {
         type: "post",
         postId,
+        dryRun,
       };
     } else if (type == "custom") {
       notificationMessage = {
         type: "custom",
         title,
         body,
+        dryRun,
       };
     }
 
@@ -57,24 +63,26 @@ export default function Firebasetest() {
   };
 
   const testToken = async () => {
-    const res = await checkToken();
-    if (res.error) {
-      console.error(res.error);
-      setDebugText("Ingen token fanns, ny behöver skapas");
-    } else {
-      console.log(res.token);
-      setDebugText(res.token.substring(0, 20) + "...");
-    }
+    isSupported().then(async (yes) => {
+      if (!yes) {
+        setDebugText("Notiser stödjs inte");
+        return;
+      }
+      try {
+        const token = await getFCMToken();
+        console.log(token);
+        setDebugText(token.substring(0, 20) + "...");
+      } catch (error) {
+        console.error(error);
+        setDebugText("Ingen token fanns, ny behöver skapas");
+      }
+    });
   };
-
-  useEffect(() => {
-    testToken();
-  }, []);
 
   return (
     <div id="contentbody">
       <article>
-        <h1>Notis testar centrum</h1>
+        <h1>NotisTestarCentrum</h1>
         <p>
           Här testar vi notiser. Om du vill vara med och testa kan du välja vilken kategori du vill
           få notiser ifrån, du kan välja båda. Om du är osäker på om din enhet stödjer notiser tryck
@@ -83,19 +91,23 @@ export default function Firebasetest() {
         <div className={styles.subscriptionMenu}>
           <button
             onClick={() => {
-              handleSubscribe("event");
+              setSettingsOpen(true);
             }}>
-            Notiser för event
-          </button>
-          <button
-            onClick={() => {
-              handleSubscribe("information");
-            }}>
-            Notiser för information
+            Öppna notis inställningar
           </button>
 
           <button onClick={testSupport}>Kolla support</button>
           <button onClick={testToken}>Kolla Token</button>
+          <button
+            onClick={() => {
+              if (Notification) {
+                setDebugText(Notification.permission);
+              } else {
+                setDebugText("Notification finns inte");
+              }
+            }}>
+            Kolla Permission
+          </button>
         </div>
         <div style={{ marginTop: "20px" }}>
           <p>{result}</p>
@@ -157,12 +169,27 @@ export default function Firebasetest() {
                   />
                 </div>
               )}
-
+              <label>
+                <input
+                  type="checkbox"
+                  value={dryRun}
+                  onChange={() => {
+                    setDryRun(!dryRun);
+                  }}
+                />
+                Dry run
+              </label>
               <button onClick={handleSendNotification}>Skicka notis</button>
             </div>
           </>
         )}
       </article>
+      <NotificationModal
+        show={settingsOpen}
+        handleClose={() => {
+          setSettingsOpen(false);
+        }}
+      />
     </div>
   );
 }

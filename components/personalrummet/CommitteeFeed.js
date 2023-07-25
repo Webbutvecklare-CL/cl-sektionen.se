@@ -112,13 +112,12 @@ export default function CommitteeFeed({ posts, permission = "" }) {
             <div className={styles.options}>
               <div>
                 <Link href={`/aktuellt/${post.id}`} target={"_blank"}>
-                  <i className="fa-regular fa-solid fa-arrow-up-right-from-square"></i>
+                  <i className="fa-regular fa-solid fa-arrow-up-right-from-square" />
                 </Link>
                 <div onClick={handleChangePublic}>
                   <i
-                    className={`fa-regular fa-eye${
-                      post.visibility !== "public" ? "-slash" : ""
-                    }`}></i>
+                    className={`fa-regular fa-eye${post.visibility !== "public" ? "-slash" : ""}`}
+                  />
                 </div>
 
                 {permission === "admin" && (
@@ -127,7 +126,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
                     onClick={() => {
                       handleDeletePost(post.id);
                     }}>
-                    <i className="fa-regular fa-trash-can"></i>
+                    <i className="fa-regular fa-trash-can" />
                   </div>
                 )}
               </div>
