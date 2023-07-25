@@ -85,19 +85,24 @@
   display: inline-block;
   text-align: center;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   color: var(--clr5);
+  cursor: pointer;
+}
+
+.feedItem span:hover {
+  color: var(--clr3);
+  transform: scale(1.06);
+}
+
+.feedItem a {
+  word-break: break-all;
 }
 
 /* Animation och öppnings styles */
 .expanding p {
   -webkit-line-clamp: unset;
   max-height: 20rem;
-  overflow-y: auto !important;
-}
-
-.expanded {
-  overflow-y: auto !important;
 }
 
 .closing {
