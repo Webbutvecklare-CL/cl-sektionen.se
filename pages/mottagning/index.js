@@ -16,6 +16,7 @@ export default function Mottagning({ loggedIn, _posts }) {
   const [loading, setLoading] = useState(false);
 
   const [showMenu, setShowMenu] = useState(loggedIn);
+  const [showWelcometext, setShowWelcometext] = useState(false);
   const [posts, setPosts] = useState(_posts);
 
   const redirectUrl = router.query.url;
@@ -77,13 +78,26 @@ export default function Mottagning({ loggedIn, _posts }) {
 
   return (
     <div id="contentbody">
-      <h1>Välkommen till Mottagningssidan</h1>
-      <p>
-      Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått något
-        mail hör av dig till{" "}
-        <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>. Denna sidan är till för alla nyantagna som deltar eller funderar på att delta i
-        mottagningen. Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
-      </p>
+      <h1>Mottagningssidan</h1>
+      <div className={`${styles.welcomePanel} ${showWelcometext? styles.active : ""}`}>
+        <p>
+          Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått något
+          mail hör av dig till{" "}
+          <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>. Denna sidan är till för alla nyantagna som deltar eller funderar på att delta i
+          mottagningen. Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
+        </p>
+      </div>
+      <button 
+        className={styles.showMoreButton}
+        onClick={() => setShowWelcometext(!showWelcometext)}
+      >
+        Visa 
+        {showWelcometext? " mindre " : " mer "} 
+        {showWelcometext ? 
+          <i className="fa-solid fa-angle-up"></i>
+          :<i className="fa-solid fa-angle-down"></i>
+        }
+      </button>
 
       {!showMenu && (
         <div id={styles.loginPanel}>
@@ -110,25 +124,21 @@ export default function Mottagning({ loggedIn, _posts }) {
       )}
       {showMenu && (
         <div className={styles.wrapper}>
-          <div className={styles.welcomePanel}>
+          <div className={styles.navPanel}>
             <div>
-              <h2>Välkommen till årets mottagning!</h2>
-              <p>
-                Under de olika flikarna hittar du information och resurser som rör årets mottagning.
-                I flödet nedanför kommer information komma ut löpande. Så håll utkik där för
-                schemaändringar, anmälningsformulär och övrig viktig information.
-              </p>
-              <p>Saknar du något på sidan? Säg till en bästis eller annan mottagare.</p>
+              <h2>Hitta på mottagningssidan</h2>
+              <p>Saknas något? Säg till en bästis eller annan mottagare.</p>
             </div>
             <div className={styles.nav}>
               <Link href={"mottagning/schema"}>Schema</Link>
               <Link href={"mottagning/bilder"}>Bilder</Link>
               <Link href={"mottagning/info"}>Info</Link>
               <Link href={"mottagning/kontakt"}>Kontakt</Link>
+              <Link href={""}>Adeptboken [pdf]</Link>
             </div>
           </div>
           <div className={styles.feedWrapper}>
-            <h2>Nyheter/Information</h2>
+            <h2>Mottagningsinfo</h2>
             <div className={styles.feed}>
               {posts && posts.map((item, index) => <FeedItem key={index} item={item} />)}
             </div>
