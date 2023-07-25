@@ -1,13 +1,7 @@
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.navPanel {
-  min-width: 400px;
-  flex: 1 1;
+  display: grid;
+  grid-template-columns: max(300px, 40%) 1fr;
+  gap: 1rem;
 }
 
 .nav {
@@ -60,7 +54,7 @@
 }
 
 .feedWrapper {
-  min-width: 50%;
+  width: 100%;
 }
 
 .feed {
@@ -167,6 +161,13 @@
 .cardList{
   display: grid;
   
+}
+@media screen and (max-width: 800px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
