@@ -6,6 +6,7 @@ export default function FeedItem({ item }) {
   const [expanding, setExpanding] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [maxHeight, setMaxHeight] = useState(null);
 
   const contentRef = useRef(null);
 
@@ -23,6 +24,13 @@ export default function FeedItem({ item }) {
     contentRef.current.addEventListener("transitionend", transitionend);
   }, [expanding, closing]);
 
+  useEffect(() => {
+    const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
+    if (contentRef.current.scrollHeight > 4.5 * rem) {
+      setMaxHeight(contentRef.current.scrollHeight);
+    }
+  }, []);
+
   return (
     <div
       className={`${feed_styles.feedItem} ${expanding ? feed_styles.expanding : ""}`}
@@ -35,10 +43,11 @@ export default function FeedItem({ item }) {
       <h3>{item.title}</h3>
       <p
         ref={contentRef}
-        className={`${closing ? feed_styles.closing : ""} ${expanded ? feed_styles.expanded : ""}`}>
+        style={expanding ? { maxHeight: maxHeight + "px" } : {}}
+        className={`${closing ? feed_styles.closing : ""}`}>
         {item.content}
       </p>
-      <span>{expanding ? "Visa mindre" : "Visa mer"}</span>
+      {maxHeight && <span>{expanding ? "Visa mindre" : "Visa mer"}</span>}
     </div>
   );
 }
