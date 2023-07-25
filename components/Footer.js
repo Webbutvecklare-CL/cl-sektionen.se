@@ -51,7 +51,7 @@ export default function Navbar() {
             <Link href={"/dokument"}>Dokument</Link>
             <Link href={"/kakor"}>Kakpolicy</Link>
             <Link href={"https://cl-sektionen.zyrosite.com"}>Gamla webbplatsen</Link>
-            <Link href={"/firebasetest"}>Notis test (Beta)</Link>
+            <Link href={"/personalrummet/ntc"}>NotisTestCenter (Beta)</Link>
           </div>
           <div id={styles.socialLinks} className={styles.footerCol}>
             <a href="https://www.instagram.com/clsektionen/" aria-label="CL-sektionens instagram">
