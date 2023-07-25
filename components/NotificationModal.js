@@ -13,7 +13,6 @@ export default function NotificationModal({ show, handleClose }) {
   const [information, setInformation] = useState(true);
   const [event, setEvent] = useState(true);
   const [mottagning, setMottagning] = useState(true);
-  const [topics, setTopics] = useState({});
 
   const [noSupport, setNoSupport] = useState(true);
 
@@ -68,6 +67,7 @@ export default function NotificationModal({ show, handleClose }) {
     setStep("settings");
     const notificationSettings = {
       lastUpdated: new Date(),
+      enabled: notificationsEnabled,
       types: {
         information,
         event,
@@ -76,7 +76,7 @@ export default function NotificationModal({ show, handleClose }) {
     };
 
     // Kolla att åtminstone en kategori är på
-    if (!information && !event && !mottagning) {
+    if ((!information && !event && !mottagning) || !notificationsEnabled) {
       setErrorText("Du måste välja åtminstone en kategori");
       return;
     }

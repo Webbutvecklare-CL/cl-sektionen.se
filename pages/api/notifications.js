@@ -2,7 +2,6 @@ import { FieldValue } from "firebase-admin/firestore";
 import admin from "../../firebase/firebaseAdmin";
 
 import { verifyUser } from "../../utils/apiUtils";
-import { rem } from "@mantine/core";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -140,7 +139,7 @@ async function getTokens(type) {
       const allTokensObj = allTokensDoc.data();
 
       Object.entries(allTokensObj).forEach(([token, settings]) => {
-        if (settings.types[type]) {
+        if (settings.enabled && settings.types[type]) {
           selectedTokens.add(token);
         }
       });
