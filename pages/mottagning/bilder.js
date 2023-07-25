@@ -5,7 +5,8 @@ export default function Bilder() {
     <div id="contentbody">
       <BackButton page="mottagning">Mottagningssidan</BackButton>
       <div>
-        <p>Här hittar du en/flera länkar till alla bilder</p>
+        <br/>
+        <p>Här hittar du länkar till alla mottagningsbilder. Tänk på att inte dela bilder på andra utan tillåtelse.</p>
         <h2>Första veckan</h2>
         <ul>
           <li>Måndag</li>

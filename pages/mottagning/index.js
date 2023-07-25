@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 import styles from "../../styles/mottagning/mottagning.module.css";
 
@@ -18,6 +19,22 @@ export default function Mottagning({ loggedIn, _posts }) {
   const [posts, setPosts] = useState(_posts);
 
   const redirectUrl = router.query.url;
+
+  const [fokusSearchBar, setfokusSearchBar] = useState(false);
+  useEffect(() => {
+    let focusSearchHandler = (e) => {
+      if (!fokusSearchBar && e.target.className === "searchbar") {
+        setfokusSearchBar(true);
+      } else if (fokusSearchBar && e.target.className !== "searchbar") {
+        setfokusSearchBar(false);
+      }
+    };
+
+    document.addEventListener("mousedown", focusSearchHandler);
+    return () => {
+      document.removeEventListener("mousedown", focusSearchHandler);
+    };
+  });
 
   const checkPassword = async () => {
     setLoading(true);
@@ -62,34 +79,32 @@ export default function Mottagning({ loggedIn, _posts }) {
     <div id="contentbody">
       <h1>Välkommen till Mottagningssidan</h1>
       <p>
-        Denna sidan är till för alla nyantagna som deltar eller funderar på att delta i
+      Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått något
+        mail hör av dig till{" "}
+        <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>. Denna sidan är till för alla nyantagna som deltar eller funderar på att delta i
         mottagningen. Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
       </p>
-      <p>
-        Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått något
-        mail hör av dig till{" "}
-        <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>.
-      </p>
-      <p>För att komma åt mottagningssidan behöver skriva in ditt hemliga kodord.</p>
 
       {!showMenu && (
         <div id={styles.loginPanel}>
           <h2>Ditt kodord</h2>
-          <div>
+          <div className={styles.inputField}>
             {error && <p className="">{error}</p>}
             {loading && <p className="">Laddar...</p>}
-            <div className={`${styles.inputGroup}`}>
+            <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
+                className={`searchbar`}
               />
-              <button className="btn" onClick={checkPassword}>
+              <button className={styles.inputSubmit} onClick={checkPassword}>
                 Logga in
               </button>
             </div>
+            <div className={styles.hint}>För att komma åt mottagningssidan behöver du skriva in kodordet. Den går att hitta i Adeptboken samt välkomstmejlet.</div>
           </div>
         </div>
       )}

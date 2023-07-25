@@ -23,6 +23,7 @@ const MENU_LIST = [
     text: "Aktuellt",
     submenu: [
       { text: "Info & Event", href: "/aktuellt" },
+      { text: "Mottagning", href: "/mottagning" },
       { text: "Kalender", href: "/kalender" },
     ],
   },

@@ -47,9 +47,9 @@ export default function Sangbok({ sånger, index }) {
 
   useEffect(() => {
     let focusSearchHandler = (e) => {
-      if (!fokusSearchBar && e.target.className === "searchbar aktuellt") {
+      if (!fokusSearchBar && e.target.className === "searchbar") {
         setFokusSearchBar(true);
-      } else if (fokusSearchBar && e.target.className !== "searchbar aktuellt") {
+      } else if (fokusSearchBar && e.target.className !== "searchbar") {
         setFokusSearchBar(false);
       }
     };
