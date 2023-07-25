@@ -75,3 +75,70 @@
   opacity: 1;
   transition: all 0.18s ease-in-out;
 }
+
+/* Toggle */
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.toggle span {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--clr5); /* Av */
+  padding: 5%;
+  transition: 0.3s;
+  border-radius: 0.75rem; /* Halva höjden */
+  box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Slider button */
+.toggle span:before {
+  position: relative;
+  z-index: 10;
+  content: "";
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle span:hover:before {
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);
+}
+
+.toggle input:checked + span {
+  background-color: var(--clr1); /* På */
+}
+
+.toggle input:checked + span:before {
+  transform: translateX(1.5rem);
+}
+
+.toggle strong {
+  position: absolute;
+  width: max-content;
+  left: 100%;
+  top: 0.1rem;
+  font-size: 1rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
