@@ -118,6 +118,9 @@ export default function Reseberattelser() {
           <h2>Nordamerika</h2>
           <ul>
             <li>
+              <Link href="/reseberattelser/anton-sundberg-usa">Anton Sundberg - USA</Link>
+            </li>
+            <li>
               <Link href="/reseberattelser/caroline-stejmar-kanada">Caroline Stejmar - Kanada</Link>
             </li>
             <li>
