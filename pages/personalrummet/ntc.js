@@ -22,20 +22,6 @@ export default function NTC() {
 
   const { userData, user } = useAuth();
 
-  const handleSubscribe = async (topic) => {
-    const res = await saveMessagingDeviceToken(topic);
-    if (res.message) {
-      alert(
-        "Det gick inte att prenumerera på notiser.\n\nDu nekade tillåtelse eller så stödjs inte notiser på din enhet eller webbläsare."
-      );
-      setResult("Något gick fel");
-      setDebugText(res.message);
-    } else {
-      setResult("Du prenumererar nu på " + topic);
-      setDebugText("Token: " + res);
-    }
-  };
-
   const handleSendNotification = () => {
     let notificationMessage;
     if (type == "post") {
