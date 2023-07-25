@@ -2,6 +2,7 @@ import { FieldValue } from "firebase-admin/firestore";
 import admin from "../../firebase/firebaseAdmin";
 
 import { verifyUser } from "../../utils/apiUtils";
+import { rem } from "@mantine/core";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -22,6 +23,7 @@ export default async function handler(req, res) {
 
   let topic;
   let message;
+  let dryRun = false;
 
   if (req.body.data.type == "post") {
     try {
@@ -46,6 +48,7 @@ export default async function handler(req, res) {
         .status(401)
         .send({ message: "Du har inte tillåtelse att skicka anpassade notiser" });
     }
+    dryRun = req.body.data.dryRun || false;
     topic = "information";
     const payload = {
       data: {
@@ -74,7 +77,8 @@ export default async function handler(req, res) {
 
   try {
     // Skickar notis till alla som följer eventuella taggar
-    let response = await sendNotification(topic, message);
+    let response = await sendNotification(topic, message, dryRun);
+
     // Skickar tillbaka respons
     return res
       .status(200)
@@ -87,7 +91,7 @@ export default async function handler(req, res) {
 
 // Hjälpfunktioner
 
-async function sendNotification(topic, message) {
+async function sendNotification(topic, message, dryRun = false) {
   return new Promise(async (resolve, reject) => {
     // Hämtar alla tokens - de som ska få notisen
     const tokens = await getTokens(topic);
@@ -97,9 +101,10 @@ async function sendNotification(topic, message) {
       message.tokens = tokens;
       try {
         // Send notifications to all tokens.
-        const response = await admin.messaging().sendEachForMulticast(message);
-        await cleanupTokens(response, tokens);
-        console.log("Notifications have been sent and tokens cleaned up.");
+        const response = await admin.messaging().sendEachForMulticast(message, dryRun);
+        console.log("Notifications have been sent");
+        const removedTokens = await cleanupTokens(response, tokens);
+        console.log("Removed", removedTokens.length, "invalid tokens");
         resolve({ ok: true, tokens: tokens.length });
       } catch (error) {
         console.error(
@@ -126,24 +131,26 @@ function createPayload(data) {
 }
 
 async function getTokens(type) {
-  const allTokens = new Set(); // Set dör att tokens inte ska räknas dubbelt
-  const fcmTokensCollection = admin.firestore().collection("fcmTokens");
+  const selectedTokens = new Set(); // Set gör att tokens inte ska räknas dubbelt
 
   return new Promise(async (resolve, reject) => {
-    if (type === "event") {
-      const eventTokenDoc = await fcmTokensCollection.doc("event").get();
-      const eventTokens = eventTokenDoc.data().tokens;
-      eventTokens.forEach((token) => allTokens.add(token));
+    try {
+      const fcmTokensCollection = admin.firestore().collection("fcmTokens");
+      const allTokensDoc = await fcmTokensCollection.doc("all").get();
+      const allTokensObj = allTokensDoc.data();
 
-      resolve(Array.from(allTokens));
-    } else if (type === "information") {
-      const infoTokenDoc = await fcmTokensCollection.doc("information").get();
-      const infoTokens = infoTokenDoc.data().tokens;
-      infoTokens.forEach((token) => allTokens.add(token));
+      Object.entries(allTokensObj).forEach(([token, settings]) => {
+        if (settings.types[type]) {
+          selectedTokens.add(token);
+        }
+      });
 
-      resolve(Array.from(allTokens));
-    } else {
-      reject("Wrong type");
+      resolve(Array.from(selectedTokens));
+
+      let removedTokens = await removeOldTokens(allTokensObj);
+      console.log("Removed", removedTokens.length, "old tokens");
+    } catch (error) {
+      reject(error);
     }
   });
 }
@@ -167,26 +174,42 @@ function cleanupTokens(response, tokens) {
         error.code === "messaging/registration-token-not-registered"
       ) {
         // Ta bort från alla prenumerationer struktur kommer förändras
-        const eventTokensRef = admin.firestore().collection("fcmTokens").doc("event");
-        const infoTokensRef = admin.firestore().collection("fcmTokens").doc("information");
+        const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
 
         // Tar bort ifrån event prenumerationen
         tokensDelete.push(
-          eventTokensRef.update({
-            tokens: FieldValue.arrayRemove(tokens[index]),
-          })
-        );
-
-        // Tar bort ifrån informations prenumerationen
-        tokensDelete.push(
-          infoTokensRef.update({
-            tokens: FieldValue.arrayRemove(tokens[index]),
+          allTokensRef.update({
+            [tokens[index] + ""]: FieldValue.delete(),
           })
         );
       }
     }
   });
   return Promise.all(tokensDelete);
+}
+
+// Remove old tokens
+function removeOldTokens(tokensData) {
+  const todayDate = new Date().getTime();
+  const maxTime = 1000 * 60 * 60 * 24 * 365; // 365 days in milliseconds
+
+  var removedTokens = [];
+
+  const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
+
+  Object.entries(tokensData).forEach(([token, settings]) => {
+    const lastUpdated = settings.lastUpdated.toDate().getTime();
+    if (todayDate - lastUpdated > maxTime) {
+      // Tar bort ifrån event prenumerationen
+      removedTokens.push(
+        allTokensRef.update({
+          [token]: FieldValue.delete(),
+        })
+      );
+    }
+  });
+
+  return Promise.all(removedTokens);
 }
 
 function verifyRequest(userId, postId) {
