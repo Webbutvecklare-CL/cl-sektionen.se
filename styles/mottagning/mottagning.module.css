@@ -164,6 +164,11 @@
   box-shadow: none;
 }
 
+.cardList{
+  display: grid;
+  
+}
+
 @media screen and (max-width: 500px) {
   .showMoreButton{
     display: block;
