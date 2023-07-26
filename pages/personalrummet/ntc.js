@@ -73,6 +73,7 @@ export default function NTC() {
           Här testar vi notiser. Om du vill vara med och testa kan du välja vilken kategori du vill
           få notiser ifrån, du kan välja båda. Om du är osäker på om din enhet stödjer notiser tryck
           på &quot;Kolla support&quot;.
+          <i className={`fa ${styles.faAppleShare}`} />
         </p>
         <div className={styles.subscriptionMenu}>
           <button
@@ -86,13 +87,25 @@ export default function NTC() {
           <button onClick={testToken}>Kolla Token</button>
           <button
             onClick={() => {
-              if (Notification) {
-                setDebugText(Notification.permission);
-              } else {
-                setDebugText("Notification finns inte");
-              }
+              isSupported().then(async (yes) => {
+                if (!yes) {
+                  setDebugText("Notiser stödjs inte");
+                  return;
+                }
+                if (Notification) {
+                  setDebugText(Notification.permission);
+                } else {
+                  setDebugText("Notification finns inte");
+                }
+              });
             }}>
             Kolla Permission
+          </button>
+          <button
+            onClick={() => {
+              setDebugText(navigator.userAgent);
+            }}>
+            Kolla device
           </button>
         </div>
         <div style={{ marginTop: "20px" }}>
