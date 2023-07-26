@@ -32,6 +32,19 @@ export default function FeedItem({ item }) {
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
+      if (contentRef.current.scrollHeight > 4.5 * rem) {
+        setMaxHeight(contentRef.current.scrollHeight);
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    return () => {
+     window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const urlify = (text) => {
     const urlRegex = /(([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.\]?[\w-]+)*\/?)/gm;
     const urls = text.match(urlRegex) || [];
