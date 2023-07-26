@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { getFCMToken } from "../firebase/messaging"; // Filen
 import { isSupported } from "firebase/messaging"; // Biblioteket
-import { doc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { firestore } from "../firebase/clientApp";
 
 import styles from "../styles/notification-modal.module.css";
@@ -35,12 +35,9 @@ export default function NotificationModal({ show, handleClose }) {
         return;
       }
 
-      if (Notification.permission !== "granted") {
-        setNotificationsEnabled(false);
-      }
-
       if (localStorage.getItem("notificationSettings")) {
         const notificationSettings = JSON.parse(localStorage.getItem("notificationSettings"));
+        setNotificationsEnabled(notificationSettings.enabled);
         setInformation(notificationSettings.types.information);
         setEvent(notificationSettings.types.event);
         setMottagning(notificationSettings.types.mottagning);
@@ -54,7 +51,7 @@ export default function NotificationModal({ show, handleClose }) {
     if (notificationsEnabled) {
       setInformation(true);
       setEvent(true);
-      setMottagning(false);
+      setMottagning(true);
     } else {
       setInformation(false);
       setEvent(false);
@@ -82,8 +79,15 @@ export default function NotificationModal({ show, handleClose }) {
     }
 
     // Kolla om användaren har accepterat notiser
-    if (Notification.permission !== "granted") {
-      // Visa användaren hur man gör
+    if (Notification.permission === "granted") {
+    } else if (Notification.permission === "denied") {
+      setSaving(true);
+      setStep("retry");
+      setWaitingText(
+        "Du har tidigare blockerat notiser. Du kan ändra detta i din webbläsares inställningar."
+      );
+    } else {
+      setWaitingText("Väntar på tillåtelse att skicka notiser");
     }
 
     // Fråga om notiser
@@ -96,19 +100,15 @@ export default function NotificationModal({ show, handleClose }) {
       token = await getFCMToken();
     } catch (error) {
       if (error.code === "messaging/permission-blocked") {
-        console.log("Användaren har blockerat notiser");
-        setErrorText(
-          "Du har blockerat notiser. Du kan ändra detta i din webbläsares inställningar."
+        setWaitingText(
+          "Tillåt notiser genom att klicka på låset i adressfältet eller i din webbläsares inställningar."
         );
+        console.log("Användaren har blockerat notiser");
       } else {
         console.error(error);
       }
       return;
     }
-    const size = new TextEncoder().encode(JSON.stringify(notificationSettings)).length;
-    const kiloBytes = size / 1024;
-    const megaBytes = kiloBytes / 1024;
-    console.log(megaBytes);
 
     // Spara i databasen
     setStep("server");
@@ -135,7 +135,10 @@ export default function NotificationModal({ show, handleClose }) {
     // Spara i localStorage
     setStep("local");
     setWaitingText("Sparar inställningar...");
-    localStorage.setItem("notificationSettings", JSON.stringify(notificationSettings));
+    localStorage.setItem(
+      "notificationSettings",
+      JSON.stringify({ token, ...notificationSettings })
+    );
 
     console.log("Inställningar sparade");
 
@@ -174,6 +177,7 @@ export default function NotificationModal({ show, handleClose }) {
           <div className={styles.waiting}>
             <p>{waitingText}</p>
             <p>{errorText}</p>
+
             <div className={styles.buttons}>
               <button
                 onClick={() => {
@@ -200,7 +204,7 @@ export default function NotificationModal({ show, handleClose }) {
                 Eventinlägg {event ? "på" : "av"}
               </Toggle>
               <Toggle toggled={mottagning} onClick={setMottagning}>
-                Mottagning {mottagning ? "på" : "av"}
+                Mottagningsnyheter {mottagning ? "på" : "av"}
               </Toggle>
             </div>
             <p>{errorText}</p>
