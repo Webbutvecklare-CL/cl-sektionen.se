@@ -113,6 +113,11 @@ export default function Mottagning({ loggedIn, _posts }) {
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    checkPassword();
+                  }
+                }}
                 className={`searchbar`}
               />
               <button className={styles.inputSubmit} onClick={checkPassword}>
