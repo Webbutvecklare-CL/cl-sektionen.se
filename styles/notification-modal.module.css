@@ -58,13 +58,14 @@
   position: relative;
 }
 .faAppleShare:before {
-  /* Apple */
+  /* Box */
   display: inline-block;
   font-weight: 400;
   transform: scaleY(0.9);
   content: "\f096";
 }
 .faAppleShare:after {
+  /* Arrow */
   position: absolute;
   top: -0.36rem;
   display: flex;
