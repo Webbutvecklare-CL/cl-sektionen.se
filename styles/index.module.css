@@ -100,7 +100,11 @@
 .feedWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+<<<<<<< HEAD
   gap: 0.5rem;
+=======
+  gap: 1rem;
+>>>>>>> f1c611bb3db4f68dd05923e1a67fda9ebd4bfe4c
 }
 
 .feedColumn {
