@@ -56,6 +56,7 @@ export default function NotificationBell({}) {
           <i className="fa-solid fa-bell" />
         </span>
       </div>
+
       {showNotificationSettings && (
         <NotificationModal
           show={showNotificationSettings}

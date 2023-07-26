@@ -152,10 +152,10 @@ export default function Mottagning({ loggedIn, _posts }) {
             </div>
           </div>
           <div className={styles.feedWrapper}>
-            <h2>
-              Mottagningsinfo
+            <div className={styles.feedHeader}>
+              <h2>Mottagningsinfo</h2>
               <NotificationBell />
-            </h2>
+            </div>
             <div className={styles.feed}>
               {posts && posts.map((item, index) => <FeedItem key={index} item={item} />)}
             </div>

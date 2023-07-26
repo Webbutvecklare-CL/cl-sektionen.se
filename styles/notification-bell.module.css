@@ -1,4 +1,5 @@
 .bell {
+  position: relative;
   margin-right: 2rem;
   cursor: pointer;
   color: var(--clr4);
@@ -8,7 +9,7 @@
   z-index: 100;
 }
 
-.bell:hover {
+.bell:hover i {
   color: var(--clr3);
   animation: shake 1.4s;
 }
