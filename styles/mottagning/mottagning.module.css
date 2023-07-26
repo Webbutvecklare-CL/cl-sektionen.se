@@ -18,9 +18,7 @@
   font-family: inherit;
   font-weight: 500;
   border-radius: 0.5rem;
-
-  box-shadow: 0px 0px .3rem rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0px 0px 0.3rem rgba(0, 0, 0, 0.1);
   padding: 1ch 1.5ch;
   background-color: var(--clr1);
 }
@@ -48,7 +46,7 @@
   box-shadow: none;
 }
 
-.hint{
+.hint {
   color: rgb(99, 99, 99);
   font-style: italic;
 }
@@ -146,26 +144,25 @@
   background-color: var(--clr4);
 }
 
-.showMoreButton{
+.showMoreButton {
   display: none;
   border-radius: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: .5rem;
+  padding: 0.5rem;
   color: var(--clr3);
   background-color: unset;
   font-size: 1rem;
   box-shadow: none;
 }
 
-.showMoreButton:hover{
+.showMoreButton:hover {
   background-color: unset !important;
   box-shadow: none;
 }
 
-.cardList{
+.cardList {
   display: grid;
-  
 }
 @media screen and (max-width: 800px) {
   .wrapper {
@@ -176,63 +173,57 @@
 }
 
 @media screen and (max-width: 500px) {
-  .showMoreButton{
+  .showMoreButton {
     display: block;
   }
 
-  .welcomePanel{
+  .welcomePanel {
     display: grid;
-    grid-template-rows: .5fr;
+    grid-template-rows: 0.5fr;
     transition: grid-template-rows 200ms;
     margin-bottom: -2rem; /*GIGA JANK*/
   }
 
-  .welcomePanel.active{
+  .welcomePanel.active {
     grid-template-rows: 1fr;
     transition: grid-template-rows 200ms;
     margin-bottom: 0;
   }
 
-  .welcomePanel > p{
+  .welcomePanel > p {
     position: relative;
     overflow: hidden;
   }
-  
+
   .welcomePanel > p:after {
     position: absolute;
-    bottom: 0;  
+    bottom: 0;
     left: 0;
     height: 100%;
     width: 100%;
     content: "";
-    background: linear-gradient(to top,
-       rgba(255,255,255, 1) 0%, 
-       rgba(255,255,255, 0) 170%
-    );
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 170%);
     pointer-events: none;
   }
 
   .welcomePanel.active > p:after {
     position: absolute;
-    bottom: 0;  
+    bottom: 0;
     left: 0;
     height: 0%;
     width: 100%;
     content: "";
-    background: linear-gradient(to top,
-       rgba(255,255,255, 1) 0%, 
-       rgba(255,255,255, 0) 170%
-    );
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 170%);
     pointer-events: none;
   }
-  
+
   .nav {
     justify-content: center;
     flex-direction: column;
-    row-gap: .2rem;
+    row-gap: 0.2rem;
   }
 
-  .nav a{
+  .nav a {
     font-size: 1.1rem;
   }
 
@@ -247,7 +238,7 @@
 
 /*GIGA JANK*/
 @media screen and (max-width: 360px) {
-  .welcomePanel{
+  .welcomePanel {
     margin-bottom: -4rem;
   }
 }

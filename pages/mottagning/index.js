@@ -79,24 +79,25 @@ export default function Mottagning({ loggedIn, _posts }) {
   return (
     <div id="contentbody">
       <h1>Mottagningssidan</h1>
-      <div className={`${styles.welcomePanel} ${showWelcometext? styles.active : ""}`}>
+      <div className={`${styles.welcomePanel} ${showWelcometext ? styles.active : ""}`}>
         <p>
-          Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått något
-          mail hör av dig till{" "}
-          <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>. Denna sidan är till för alla nyantagna som deltar eller funderar på att delta i
-          mottagningen. Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
+          Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått
+          något mail hör av dig till{" "}
+          <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>. Denna
+          sidan är till för alla nyantagna som deltar eller funderar på att delta i mottagningen.
+          Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
         </p>
       </div>
-      <button 
+      <button
         className={styles.showMoreButton}
-        onClick={() => setShowWelcometext(!showWelcometext)}
-      >
-        Visa 
-        {showWelcometext? " mindre " : " mer "} 
-        {showWelcometext ? 
+        onClick={() => setShowWelcometext(!showWelcometext)}>
+        Visa
+        {showWelcometext ? " mindre " : " mer "}
+        {showWelcometext ? (
           <i className="fa-solid fa-angle-up"></i>
-          :<i className="fa-solid fa-angle-down"></i>
-        }
+        ) : (
+          <i className="fa-solid fa-angle-down"></i>
+        )}
       </button>
 
       {!showMenu && (
@@ -118,7 +119,10 @@ export default function Mottagning({ loggedIn, _posts }) {
                 Logga in
               </button>
             </div>
-            <div className={styles.hint}>För att komma åt mottagningssidan behöver du skriva in kodordet. Den går att hitta i Adeptboken samt välkomstmejlet.</div>
+            <div className={styles.hint}>
+              För att komma åt mottagningssidan behöver du skriva in kodordet. Den går att hitta i
+              Adeptboken samt välkomstmejlet.
+            </div>
           </div>
         </div>
       )}
