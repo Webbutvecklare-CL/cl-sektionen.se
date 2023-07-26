@@ -146,20 +146,10 @@ export default function NotificationModal({ show, handleClose }) {
     // Spara i databasen
     setStep("server");
     setWaitingText("Sparar inställningar...");
-    // const fcmTokensRef = doc(firestore, `fcmTokens/${token}`);
-    var obj = {};
-    obj[token] = notificationSettings;
-    const fcmTokensRef = doc(firestore, `fcmTokens/all`);
-    try {
-      await updateDoc(
-        fcmTokensRef,
-        {
-          [`${token}`]: notificationSettings,
-        },
-        { merge: true }
-      );
 
-      //   await setDoc(fcmTokensRef, notificationSettings);
+    try {
+      const fcmTokensRef = doc(firestore, `fcmTokens/all`);
+      await updateDoc(fcmTokensRef, { [token]: notificationSettings }, { merge: true });
     } catch (error) {
       console.error(error);
       setErrorText("Något gick fel när inställningarna skulle sparas");
