@@ -14,9 +14,11 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { AuthContextProvider } from "../context/AuthContext";
 
-import { analytics } from "../firebase/clientApp";
+import { analytics, firestore } from "../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 import { onMessage, getMessaging, isSupported } from "firebase/messaging";
+import { doc, updateDoc } from "firebase/firestore";
+import { getFCMToken } from "../firebase/messaging"; // Filen
 import { useEffect, useState } from "react";
 import CustomHead from "../components/CustomHead";
 import CookieBanner from "../components/CookieBanner";
@@ -38,11 +40,26 @@ export default function App({ Component, pageProps }) {
         return;
       }
 
-      const click_event = (link) => {
-        router.push(link);
-      };
+      // Kollar om användaren prenumererar på notiser
+      const fcmTokenData = JSON.parse(localStorage.getItem("notificationSettings"));
+      if (fcmTokenData) {
+        // Användaren har tidigare sparat inställningar
 
-      messageListener(click_event);
+        if (Notification.permission === "granted") {
+          // Detta ska bara göras om användaren har tillåtit notiser och har en tokenData lagrat
+          updateTokenData(fcmTokenData);
+
+          // Aktiverar en event listener som lyssnar notiser
+          // Click event för när användaren klickar på notisen
+          messageListener((link) => {
+            router.push(link);
+          });
+        }
+      } else if (Notification.permission === "default") {
+        // Informerar användaren om att de kan prenumerera på notiser
+        // Visa en liten pop up som frågar/informera om notiser
+        // Svara de ja får de upp notis modal:en
+      }
     });
   }, [router]);
 
@@ -174,4 +191,38 @@ function messageListener(click_event) {
       }
     });
   });
+}
+
+async function updateTokenData(fcmTokenData) {
+  //Kollar om fcmToken är uppdaterad
+  const lastUpdated = new Date(fcmTokenData.lastUpdated).getTime();
+  const now = new Date().getTime();
+
+  const maxDiff = 1000 * 60 * 60 * 24 * 30; // 30 dagar
+  const timeDiff = now - lastUpdated;
+  const old = timeDiff > maxDiff;
+
+  if (old) {
+    // Kolla om den lagrade token är samma som om en ny hämtas
+    const newToken = await getFCMToken();
+
+    if (newToken !== fcmTokenData.token) {
+      // Invalid token - uppdatera med nya
+      console.log("New token created");
+      fcmTokenData.token = newToken;
+    }
+
+    // Uppdatera tokenData på firebase
+    try {
+      const token = fcmTokenData.token;
+      const fcmTokensRef = doc(firestore, `fcmTokens/all`);
+      await updateDoc(fcmTokensRef, { [token]: fcmTokenData }, { merge: true });
+    } catch (error) {
+      console.error(error);
+    }
+
+    // Sparar det uppdaterade fcmTokenData lokalt
+    fcmTokenData.lastUpdated = new Date();
+    localStorage.setItem("notificationSettings", JSON.stringify(fcmTokenData));
+  }
 }
