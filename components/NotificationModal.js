@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 import { getFCMToken } from "../firebase/messaging"; // Filen
 import { isSupported } from "firebase/messaging"; // Biblioteket
@@ -9,17 +10,33 @@ import styles from "../styles/notification-modal.module.css";
 import Toggle from "./Toggle";
 
 export default function NotificationModal({ show, handleClose }) {
+  const [noSupport, setNoSupport] = useState(true);
+
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [information, setInformation] = useState(true);
   const [event, setEvent] = useState(true);
   const [mottagning, setMottagning] = useState(true);
 
-  const [noSupport, setNoSupport] = useState(true);
-
   const [saving, setSaving] = useState(false);
   const [step, setStep] = useState("");
   const [waitingText, setWaitingText] = useState("");
   const [errorText, setErrorText] = useState("");
+
+  const [deviceType, setDeviceType] = useState("");
+
+  useEffect(() => {
+    if ("navigator" in window) {
+      if (/iPhone/i.test(navigator.userAgent)) {
+        setDeviceType("iPhone");
+      } else if (/android/i.test(navigator.userAgent)) {
+        setDeviceType("Android");
+      } else {
+        setDeviceType("other");
+      }
+    } else {
+      setDeviceType("other");
+    }
+  }, []);
 
   useEffect(() => {
     if (!show) {
@@ -27,13 +44,15 @@ export default function NotificationModal({ show, handleClose }) {
       return;
     }
 
+    // Kolla support innan den visar modal
     isSupported().then((yes) => {
-      setNoSupport(!yes);
-      document.querySelector("dialog").showModal();
-
       if (!yes) {
+        if (!document.querySelector("dialog").open) {
+          document.querySelector("dialog").showModal();
+        }
         return;
       }
+      setNoSupport(false);
 
       if (localStorage.getItem("notificationSettings")) {
         const notificationSettings = JSON.parse(localStorage.getItem("notificationSettings"));
@@ -43,6 +62,10 @@ export default function NotificationModal({ show, handleClose }) {
         setMottagning(notificationSettings.types.mottagning);
       } else {
         console.log("Inga inställningar hittades");
+      }
+
+      if (!document.querySelector("dialog").open) {
+        document.querySelector("dialog").showModal();
       }
     });
   }, [show]);
@@ -96,16 +119,26 @@ export default function NotificationModal({ show, handleClose }) {
     setStep("request");
     var token;
     try {
-      setWaitingText("Väntar på tillåtelse att skicka notiser");
+      setWaitingText(
+        "Väntar på tillåtelse att skicka notiser... Tillåt notiser genom att trycka på tillåt."
+      );
       token = await getFCMToken();
     } catch (error) {
       if (error.code === "messaging/permission-blocked") {
-        setWaitingText(
-          "Tillåt notiser genom att klicka på låset i adressfältet eller i din webbläsares inställningar."
-        );
+        if (Notification.permission === "denied") {
+          setWaitingText(
+            "Notiser är sedan tidigare avstängda. Tillåt notiser genom att klicka på låset i adressfältet eller i din webbläsares inställningar."
+          );
+        } else {
+          setWaitingText(
+            "Tillåt notiser genom att klicka på låset i adressfältet eller i din webbläsares inställningar."
+          );
+        }
+
         console.log("Användaren har blockerat notiser");
       } else {
         console.error(error);
+        setErrorText("Något gick fel när notiser skulle aktiveras");
       }
       return;
     }
@@ -151,7 +184,7 @@ export default function NotificationModal({ show, handleClose }) {
     setWaitingText("");
     setSaving(false);
     setStep("");
-    setNoSupport(false);
+    setNoSupport(true);
 
     handleClose();
   };
@@ -161,8 +194,35 @@ export default function NotificationModal({ show, handleClose }) {
       <dialog className={styles.modal}>
         <div className={styles.content}>
           <div>
-            <p>Din enhet stödjer inte notiser</p>
-            <button onClick={handleExit}>Avsluta</button>
+            <h1>Din enhet stödjer inte notiser</h1>
+            {deviceType === "Android" && (
+              <>
+                <p>För att motta notiser behöver du tillåta notiser i din webbläsare.</p>
+                <p>
+                  Om du inte kan göra det testa att använda Chrome eller Safari och lägg till
+                  webbplatsen på hemskärmen.
+                </p>
+              </>
+            )}
+            {["iPad", "iPhone"].includes(deviceType) && (
+              <>
+                <p>För att motta notiser behöver du spara webbplatsen på din hemskärm.</p>
+                <ul className={styles.instructions}>
+                  <li>
+                    Tryck på dela knappen{" "}
+                    <i className={`fa ${styles.faAppleShare}`} aria-hidden="true" />
+                  </li>
+                  <li>Scrolla ned</li>
+                  <li>
+                    Tryck på &quot;Lägg till på hemskärmen&quot;{" "}
+                    <i className="fa-regular fa-square-plus" />
+                  </li>
+                </ul>
+              </>
+            )}
+            <div className={styles.buttons}>
+              <button onClick={handleExit}>Stäng</button>
+            </div>
           </div>
         </div>
       </dialog>
@@ -173,6 +233,7 @@ export default function NotificationModal({ show, handleClose }) {
     <dialog className={styles.modal}>
       <div className={styles.content}>
         <h2>Notiscenter</h2>
+
         {saving && (
           <div className={styles.waiting}>
             <p>{waitingText}</p>
@@ -192,6 +253,10 @@ export default function NotificationModal({ show, handleClose }) {
 
         {!saving && (
           <div>
+            <p>
+              Här kan du välja vilka typer av notiser du vill få. Dina val sparas i din webbläsare,
+              läs mer i vår <Link href="/kakpolicy">kakpolicy</Link>.
+            </p>
             <div className={styles.settings}>
               <Toggle toggled={notificationsEnabled} onClick={setNotificationsEnabled}>
                 Notiser {notificationsEnabled ? "på" : "av"}
