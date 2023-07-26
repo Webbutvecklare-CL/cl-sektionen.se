@@ -24,10 +24,10 @@ export default function NotificationBell({}) {
         ) {
           setTimeout(() => {
             setShowHint(true);
-          }, 1000);
+          }, 2000);
           setTimeout(() => {
             setShowHint(false);
-          }, 6000);
+          }, 7000);
         }
       }
     });
@@ -46,7 +46,11 @@ export default function NotificationBell({}) {
           setShowNotificationSettings(true);
         }}>
         <span className={`${styles.hint} ${!showHint ? styles.hidden : ""}`}>
-          <span>Slå på notiser</span>
+          <span>
+            Missa inga meddelanden!
+            <br />
+            Slå på notiser!
+          </span>
         </span>
         <span>
           <i className="fa-solid fa-bell" />
