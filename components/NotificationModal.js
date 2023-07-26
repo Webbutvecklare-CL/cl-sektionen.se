@@ -222,7 +222,7 @@ export default function NotificationModal({ show, handleClose }) {
   return (
     <dialog className={styles.modal}>
       <div className={styles.content}>
-        <h2>Notiscenter</h2>
+        <h2>Notifikationsinställningar</h2>
 
         {saving && (
           <div className={styles.waiting}>

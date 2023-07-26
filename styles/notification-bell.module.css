@@ -1,0 +1,31 @@
+.bell {
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.bell:hover {
+  color: var(--clr3);
+  animation: shake 1.4s;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  4% {
+    transform: rotate(15deg);
+  }
+  8%,
+  24% {
+    transform: rotate(-18deg);
+  }
+  12%,
+  28% {
+    transform: rotate(18deg);
+  }
+
+  40%,
+  to {
+    transform: rotate(0deg);
+  }
+}

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import styles from "../../styles/mottagning/mottagning.module.css";
 
 import FeedItem from "../../components/mottagning/FeedItem";
+import NotificationBell from "../../components/NotificationBell";
 
 // Innehållet på mottagningssidan kan kommas åt via klienten (utöver github)
 // Därför ska inget känsligt innehåll vara inkodat här
@@ -147,7 +148,10 @@ export default function Mottagning({ loggedIn, _posts }) {
             </div>
           </div>
           <div className={styles.feedWrapper}>
-            <h2>Mottagningsinfo</h2>
+            <h2>
+              Mottagningsinfo
+              <NotificationBell />
+            </h2>
             <div className={styles.feed}>
               {posts && posts.map((item, index) => <FeedItem key={index} item={item} />)}
             </div>
