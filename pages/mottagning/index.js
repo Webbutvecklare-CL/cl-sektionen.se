@@ -71,8 +71,12 @@ export default function Mottagning({ loggedIn, _posts }) {
     } else {
       setShowMenu(true);
       const mottagning_key = await res.json().then((data) => data.mottagning_key);
-      const _posts = await getKeyResponse(mottagning_key);
-      setPosts(_posts);
+      try {
+        const _posts = await getKeyResponse(mottagning_key);
+        setPosts(_posts);
+      } catch (error) {
+        console.log(error);
+      }
     }
     setLoading(false);
   };
