@@ -35,9 +35,9 @@ export default function Mottagning() {
 
   const [posts, setPosts] = useState([]);
 
-  const { userData } = useAuth();
+  const { userData, user } = useAuth();
 
-  const uploadPost = () => {
+  const uploadPost = async () => {
     setIsPending(true);
     setMessage("");
 
@@ -57,21 +57,19 @@ export default function Mottagning() {
     };
 
     const mottagningsPostsRef = doc(collection(firestore, "mottagningsPosts"));
-
-    setDoc(mottagningsPostsRef, postData)
-      .then(console.log("Inlägget är publicerat!"))
-      .catch((err) => {
-        setError("Kunde inte ladda upp inlägget");
-        setIsPending(false);
-        alert("Kunde inte ladda upp inlägget");
-        console.error("Fel vid uppladdningen av inlägget: ", err);
-        return;
-      });
+    try {
+      await setDoc(mottagningsPostsRef, postData);
+      console.log("Inlägget är publicerat!");
+    } catch (error) {
+      setError("Kunde inte ladda upp inlägget");
+      setIsPending(false);
+      alert("Kunde inte ladda upp inlägget");
+      console.error("Fel vid uppladdningen av inlägget: ", err);
+      return;
+    }
 
     // Skickar notis om valt
-    // if (data.sendNotification) {
-    //   sendNotification(user, { type: "post", postId: link });
-    // }
+    sendNotification(user, { type: "mottagning", title, body: content });
 
     postData.id = mottagningsPostsRef.id;
     setPosts([postData, ...posts]);

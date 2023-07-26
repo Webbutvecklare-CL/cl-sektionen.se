@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: error.error });
   }
 
-  let topic;
+  let type;
   let message;
   let dryRun = false;
 
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
       // Skapa payload objekt med all data
       const payload = createPayload(postData);
-      topic = postData.type;
+      type = postData.type;
       message = {
         topic: "new_post",
         ...payload,
@@ -41,6 +41,24 @@ export default async function handler(req, res) {
       console.error(error);
       return res.status(400).send({ message: error });
     }
+  } else if (req.body.data.type == "mottagning") {
+    type = "mottagning";
+    dryRun = req.body.data.dryRun || false;
+    const payload = {
+      data: {
+        title: req.body.data.title,
+        body: req.body.data.body,
+        icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
+        tag: "Nyhet",
+        link: `/mottagning`,
+      },
+    };
+    message = {
+      topic: "mottagning",
+      ...payload,
+      collapseKey: "mottagning",
+      fcmOptions: { analyticsLabel: "mottagning" },
+    };
   } else if (req.body.data.type == "custom") {
     if (permission !== "admin") {
       return res
@@ -48,10 +66,10 @@ export default async function handler(req, res) {
         .send({ message: "Du har inte tillåtelse att skicka anpassade notiser" });
     }
     dryRun = req.body.data.dryRun || false;
-    topic = "information";
+    type = "information";
     const payload = {
       data: {
-        title: req.body.data.title,
+        title: "Mottagningen: " + req.body.data.title,
         body: req.body.data.body,
         image: req.body.data.image || "",
         icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
@@ -76,7 +94,7 @@ export default async function handler(req, res) {
 
   try {
     // Skickar notis till alla som följer eventuella taggar
-    let response = await sendNotification(topic, message, dryRun);
+    let response = await sendNotification(type, message, dryRun);
 
     // Skickar tillbaka respons
     return res
@@ -90,10 +108,10 @@ export default async function handler(req, res) {
 
 // Hjälpfunktioner
 
-async function sendNotification(topic, message, dryRun = false) {
+async function sendNotification(type, message, dryRun = false) {
   return new Promise(async (resolve, reject) => {
     // Hämtar alla tokens - de som ska få notisen
-    const tokens = await getTokens(topic);
+    const tokens = await getTokens(type);
 
     console.log(`Sending notification to ${tokens.length} devices`);
     if (tokens.length > 0) {
@@ -138,6 +156,8 @@ async function getTokens(type) {
       const allTokensDoc = await fcmTokensCollection.doc("all").get();
       const allTokensObj = allTokensDoc.data();
 
+      console.log("hej");
+
       Object.entries(allTokensObj).forEach(([token, settings]) => {
         if (settings.enabled && settings.types[type]) {
           selectedTokens.add(token);
@@ -145,9 +165,12 @@ async function getTokens(type) {
       });
 
       resolve(Array.from(selectedTokens));
-
-      let removedTokens = await removeOldTokens(allTokensObj);
-      console.log("Removed", removedTokens.length, "old tokens");
+      try {
+        let removedTokens = await removeOldTokens(allTokensObj);
+        console.log("Removed", removedTokens.length, "old tokens");
+      } catch (error) {
+        console.error("Something went wrong with removing old tokens", error);
+      }
     } catch (error) {
       reject(error);
     }
@@ -197,7 +220,7 @@ function removeOldTokens(tokensData) {
   const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
 
   Object.entries(tokensData).forEach(([token, settings]) => {
-    const lastUpdated = settings.lastUpdated.toDate().getTime();
+    const lastUpdated = new Date(settings.lastUpdated).getTime();
     if (todayDate - lastUpdated > maxTime) {
       // Tar bort ifrån event prenumerationen
       removedTokens.push(
