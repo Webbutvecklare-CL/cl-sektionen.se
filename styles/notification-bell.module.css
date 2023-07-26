@@ -6,11 +6,73 @@
   height: min-content;
   align-items: center;
   font-size: 1.5rem;
+  z-index: 100;
 }
 
 .bell:hover i {
   color: var(--clr3);
   animation: shake 1.4s;
+}
+
+.hint {
+  position: absolute;
+  width: auto;
+  padding: 0.5rem;
+  right: 100%;
+  top: -20%;
+  font-size: 1.2rem;
+  background-color: white;
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 0.4rem;
+  z-index: 999;
+  margin-right: 1rem;
+  border: var(--clr2) 2px solid;
+  transition: all 0.6s ease-in-out;
+}
+
+.hint span {
+  display: flex;
+  align-items: center;
+  transition: all 0.6s ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100px;
+}
+
+.hint::before {
+  content: "";
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  border: 0.8rem solid transparent;
+  border-bottom: 0.7rem solid var(--clr2);
+}
+
+.hint.hidden {
+  opacity: 0;
+}
+
+.hint.hidden span {
+  width: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .hint {
+    right: -150%;
+    top: -180%;
+  }
+
+  .hint::before {
+    content: "";
+    position: absolute;
+    right: 10%;
+    top: 130%;
+    transform: translateY(-50%);
+    border: 0.8rem solid transparent;
+    border-top: 0.7rem solid var(--clr2);
+    /* z-index: -1; */
+  }
 }
 
 @keyframes shake {
