@@ -55,11 +55,6 @@
   width: 100%;
 }
 
-.feedHeader {
-  display: flex;
-  justify-content: space-between;
-}
-
 .feedWrapper h2 {
   display: flex;
   justify-content: space-between;
