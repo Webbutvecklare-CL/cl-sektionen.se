@@ -67,19 +67,11 @@
 }
 
 .feedItem {
+  position: relative;
   border-radius: 0.25rem !important;
+  background-color: white;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 1rem;
-}
-
-.feedItem.expanding{
-  display: grid;
-  grid-template-rows: 2rem 0fr;
-  transition: grid-template-rows 200ms;
-}
-
-.feedItem.expanding.expanded{
-  grid-template-rows: 2rem 1fr;
 }
 
 .feedItem h3 {
@@ -87,12 +79,17 @@
   padding-top: 0;
 }
 
-.feedItem.expanding p{
-  min-height: 4rem;
-}
-
 .feedItem p {
-  overflow: hidden !important;
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.5rem;
+  padding-bottom: 0;
+  overflow-y: hidden;
+  max-height: 4.5rem;
+
+  transition: all 1s ease-in-out;
 }
 
 .feedItem span {
@@ -114,7 +111,15 @@
 }
 
 /* Animation och öppnings styles */
+.expanding p {
+  -webkit-line-clamp: unset;
+  max-height: 20rem;
+}
 
+.closing {
+  -webkit-line-clamp: unset !important;
+  max-height: 4.5rem;
+}
 
 /* Scrollbar */
 .feedItem p::-webkit-scrollbar {
@@ -159,11 +164,6 @@
 .showMoreButton:hover {
   background-color: unset !important;
   box-shadow: none;
-}
-
-.item{
-  display: grid;
-  max-height: 1000px;
 }
 
 .cardList {
