@@ -8,10 +8,10 @@ import Link from "next/link";
 import styles from "../../styles/calendar-viewer.module.css";
 
 export default function CalendarViewer() {
+  const startDay = new Date(new Date("2023-08-14").setHours(0, 0, 0, 0));
   const [events, setEvents] = useState([]);
   const [weeksList, setWeeksList] = useState([]);
   const [scale, setScale] = useState(48);
-  const [refDate, setRefDate] = useState(new Date("2023-08-14"));
   const [nrOfDays, setNrOfDays] = useState(7);
   const viewingHours = 16;
 
@@ -36,7 +36,7 @@ export default function CalendarViewer() {
 
   useEffect(() => {
     const startMottagning = new Date("2023-08-14").toISOString();
-    const endMottagning = new Date("2023-09-03").toISOString();
+    const endMottagning = new Date("2023-09-04").toISOString();
     const firstWeekM = new Date("2023-08-14");
     const secondWeekM = new Date("2023-08-21");
     const thirdWeekM = new Date("2023-08-28");
@@ -53,6 +53,7 @@ export default function CalendarViewer() {
       weeks.push(getEventListSpan(data, secondWeekM, 7));
       weeks.push(getEventListSpan(data, thirdWeekM, 7));
       setWeeksList(weeks);
+      setEvents(data);
     });
   }, []);
 
@@ -88,7 +89,7 @@ export default function CalendarViewer() {
     const color = types[id]?.color || "var(--clr2)";
 
     const eventClick = () => {
-      console.log(values);
+      console.log(id);
       setInfoBoxData({
         top: top,
         title: event.summary,
@@ -154,6 +155,8 @@ export default function CalendarViewer() {
     const [infoBoxData, setInfoBoxData] = useState(null);
     const [dayLists, setDayLists] = useState([]);
     const [currentWeek, setCurrentWeek] = useState(0);
+    const [refDate, setRefDate] = useState(new Date("2023-08-14"));
+
     const horizontalLines = [];
 
     const gridRef = useRef(null);
@@ -185,7 +188,7 @@ export default function CalendarViewer() {
             }}>
             <i className="fa-solid fa-angle-left" />
           </button>
-          <h2>Vecka: {currentWeek + 33}</h2>
+          <h2>Vecka: {getWeekNumber(refDate)}</h2>
           <button
             className="small"
             disabled={currentWeek == 2}
@@ -201,14 +204,20 @@ export default function CalendarViewer() {
     };
 
     useEffect(() => {
-      if (weeksList.length == 0) return;
-      setDayLists(eventListToDayLists(weeksList[currentWeek], nrOfDays));
-    }, [currentWeek, weeksList]);
+      setRefDate((prevDate) => {
+        return new Date(prevDate.setDate(startDay.getDate() + nrOfDays * currentWeek));
+      });
+    }, [currentWeek]);
+
+    useEffect(() => {
+      const selectedEvents = getEventListSpan(events, refDate, nrOfDays); // Här hämtas eventen för den valda tidsperioden
+      setDayLists(eventListToDayLists(selectedEvents, nrOfDays, refDate.getDay() || 7)); // Här delas eventen upp i dagar
+    }, [refDate]);
 
     return (
       <>
         <Menu />
-        <Header dayLists={dayLists} />
+        <Header dayLists={dayLists} refDate={refDate} />
         {infoBoxData && (
           <div
             className={styles.infoBoxOverlay}
@@ -241,7 +250,7 @@ export default function CalendarViewer() {
     );
   };
 
-  const Header = ({ dayLists }) => {
+  const Header = ({ dayLists, refDate }) => {
     const getDate = (offset) => {
       const tempDate = new Date(refDate);
       tempDate.setDate(tempDate.getDate() + offset);
@@ -287,7 +296,7 @@ export default function CalendarViewer() {
       style={{
         "--scale": `${scale}px`,
       }}>
-      {events && <Grid weeksList={weeksList} />}
+      <Grid weeksList={weeksList} />
     </div>
   );
 }
@@ -310,7 +319,7 @@ async function getWeek(calendar_id, date) {
   return response;
 }
 
-function eventListToDayLists(events, nrOfDays) {
+function eventListToDayLists(events, nrOfDays, startWeekDay = 1) {
   let days = [];
   for (let i = 0; i < nrOfDays; i++) {
     days.push([]);
@@ -320,7 +329,13 @@ function eventListToDayLists(events, nrOfDays) {
   for (let event of events) {
     const date = new Date(event.start.dateTime);
     const weekDay = date.getDay() == 0 ? 7 : date.getDay();
-    days[weekDay - 1].push(event);
+    var idx = weekDay - startWeekDay;
+    if (idx < 0) {
+      // Om den valda tidsperioden överlappar två veckor
+      // Lägg till en vecka så det blir positivt
+      idx = idx + startWeekDay;
+    }
+    days[idx].push(event);
   }
 
   return days;
