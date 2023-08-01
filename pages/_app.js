@@ -125,7 +125,7 @@ export default function App({ Component, pageProps }) {
   }
 
   const description =
-    "Sektionen för Civilingenjör & Lärare representerar och stödjer studenter på programmet för Civilingenjör och Lärare samt studenter som läser KPU.";
+    "Sektionen för Civilingenjör & Lärare representerar och stödjer studenter på programmet för Civilingenjör och Lärare samt studenter som läser KPU vid KTH.";
   const cl_banner = "https://cl-sektionen.se/media/grafik/CL Banner.webp";
   return (
     <div>
