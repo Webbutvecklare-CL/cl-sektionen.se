@@ -1,6 +1,9 @@
-import { useEffect, useState, useRef, forwardRef, use } from "react";
+import React, { useEffect, useState, useRef, forwardRef, use } from "react";
+
+import HTMLString from "react-html-string";
 
 import { getPublicEvents } from "../../utils/calendarUtils";
+import Link from "next/link";
 
 import styles from "../../styles/calendar-viewer.module.css";
 
@@ -12,7 +15,21 @@ export default function CalendarViewer() {
   const [nrOfDays, setNrOfDays] = useState(7);
   const viewingHours = 16;
 
-  const types = { matteövning: {}, bästis: {}, lekpass: {}, nämndpass: {} };
+  const types = {
+    mtp: { color: "#FFD966", name: "Matteövning" },
+    bst: { color: "#E69138", name: "Bästis" },
+    atp: { color: "#1170C6", name: "Aktivitet" },
+    ndp: { color: "#E06666", name: "Nämndpass" },
+    ifp: { color: "#E69138", name: "Informationspass" },
+    lc: { color: "#EFB6B6", name: "Lunch" },
+    oq: { color: "#587B49", name: "Osqvik" },
+    gq: { color: "#25AEAE", name: "Gasque" },
+    bfp: { color: "#25AEAE", name: "Bakishäng" },
+    gsk: { color: "#6AA84F", name: "Gyckelskola" },
+    tkp: { color: "#A4C2F4", name: "THS och KTH" },
+    dsp: { color: "#76A5AF", name: "Dubbelspexet" },
+    gqw: { color: "#45818E", name: "Dubbel gasque" },
+  };
 
   const calendar_id =
     "c_1351cc6b384ac29b6abd7b38136ebae1b08e383e3cc6299a3aa90303770f46ed@group.calendar.google.com";
@@ -57,41 +74,44 @@ export default function CalendarViewer() {
     const startTime = (start - reference) / (3600 * 1000); // Till timmar
     const top = startTime * scale;
 
-    // Färg på eventet
-
+    // Positionen för eventet
     const posStyles = {
       height: `${height - 3}px`,
       top: `${top}px`,
     };
 
+    const values = event.description.split(/\n|<br>/);
+    const location = values[0].substring(7) || "Kolla med bästis";
+    const desc = values[1].substring(13);
+    const id = values[2].substring(4);
+
+    const color = types[id]?.color || "var(--clr2)";
+
     const eventClick = () => {
-      console.log("Event clicked");
-      console.log(event);
-      console.log(event.description?.split(/\n|<br>/));
+      console.log(values);
       setInfoBoxData({
         top: top,
         title: event.summary,
-        location: event.description?.split(/\n|<br>/)[0],
-        description: event.description?.split(/\n|<br>/)[1],
+        location,
+        description: desc,
         start: event.start.dateTime,
         end: event.end.dateTime,
       });
     };
 
-    const desc = event.description;
-    let location = "Kolla med bästis";
-    if (desc?.split("Plats: ")[1]) {
-      location = desc.split("Plats: ")[1].substring(0, desc.indexOf("\n"));
-    }
-
     return (
       <>
-        <div className={styles.eventBox} style={posStyles} onClick={eventClick}>
+        <div
+          className={styles.eventBox}
+          style={{ ...posStyles, backgroundColor: color }}
+          onClick={eventClick}>
           <div>
             <p>{event.summary}</p>
             <div className={styles.description}>
-              <p>Plats: {location}</p>
-              <p>{event.description}</p>
+              <p>
+                Plats: <HTMLString html={location} />
+              </p>
+              {/* <p>{desc}</p> */}
             </div>
           </div>
         </div>
@@ -108,8 +128,12 @@ export default function CalendarViewer() {
           close();
         }}>
         <h2>{data.title}</h2>
-        <p>{data.location}</p>
-        <p>{data.description}</p>
+        <p>
+          Plats: <HTMLString html={data.location} />
+        </p>
+        <p>
+          <HTMLString html={data.description} />
+        </p>
         <p>Start: {data.start.split("T")[1].substring(0, 5)}</p>
         <p>Slut: {data.end.split("T")[1].substring(0, 5)}</p>
       </div>
@@ -264,16 +288,6 @@ export default function CalendarViewer() {
         "--scale": `${scale}px`,
       }}>
       {events && <Grid weeksList={weeksList} />}
-      {/* <input
-        type="range"
-        min="20"
-        max="60"
-        value={scale}
-        name="scale"
-        onChange={(e) => {
-          setScale(e.target.value);
-        }} 
-      />*/}
     </div>
   );
 }
@@ -338,3 +352,37 @@ function getEventListSpan(eventList, startDate, endRef) {
   }
   return span;
 }
+
+const urlify = (text) => {
+  const urlRegex = /(([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.\]?[\w-]+)*\/?)/gm;
+  const urls = text.match(urlRegex) || [];
+
+  let strings = [];
+  let newStrings = [, text];
+  for (let i = 0; i < urls.length; i++) {
+    const url = urls[i];
+    newStrings = newStrings[1].split(url);
+    strings.push(newStrings[0]);
+  }
+  strings.push(newStrings[1]);
+
+  return (
+    <>
+      {strings.map((string, idx) => {
+        return (
+          //React fragment för att kunna sätta en key
+          <React.Fragment key={idx}>
+            {idx > 0 && (
+              <Link
+                href={!urls[idx - 1].includes("//") ? "https://" + urls[idx - 1] : urls[idx - 1]}
+                target="_blank">
+                {urls[idx - 1]}
+              </Link>
+            )}
+            {string}
+          </React.Fragment>
+        );
+      })}
+    </>
+  );
+};
