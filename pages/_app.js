@@ -177,7 +177,8 @@ function messageListener(click_event) {
     const title = message.title;
     const options = {
       body: message.body,
-      icon: message.icon || "/media/grafik/favicon/android-chrome-512x512.png",
+      icon: message.icon || "/media/icons/icon-512x512.png",
+      badge: "media/icons/badge-330x330.webp", // Lite icon som visas på "Android Chrome"
       image: message.image,
       link: message.link,
     };
