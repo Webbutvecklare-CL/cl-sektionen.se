@@ -51,8 +51,8 @@ export default function Post({ postData, postId }) {
   return (
     <>
       <CustomHead
-        metaTitle={`${postData.author} | Sektionen för Civilingenjör och Lärare`}
-        description={postData.title}
+        metaTitle={`${postData.title} | ${postData.author}`}
+        description={postData.subtitle}
         image={postData.image || "https://www.cl-sektionen.se/media/img/Post_Placeholder.webp"}
         url={"https://www.cl-sektionen.se/aktuellt/" + postId}
       />
