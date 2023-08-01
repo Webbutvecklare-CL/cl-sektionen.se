@@ -13,7 +13,7 @@ export default function Info() {
         description={
           "Här finns viktig information och tips till dig som ska börja på programmet Civilingenjör och lärare."
         }
-        url={"https://www.cl-sektionen.se/mottagning/schema"}
+        url={"https://www.cl-sektionen.se/mottagning/info"}
       />
       <div id="contentbody">
         <article>
