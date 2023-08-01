@@ -1,0 +1,26 @@
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.contact div {
+  flex: 1;
+}
+
+.contact h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 1000px) {
+  .contact {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact div {
+    flex: 1;
+    max-width: unset;
+  }
+}
