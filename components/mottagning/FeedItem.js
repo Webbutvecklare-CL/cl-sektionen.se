@@ -38,10 +38,10 @@ export default function FeedItem({ item }) {
       if (contentRef.current.scrollHeight > 4.5 * rem) {
         setMaxHeight(contentRef.current.scrollHeight);
       }
-    }
-    window.addEventListener('resize', handleResize);
+    };
+    window.addEventListener("resize", handleResize);
     return () => {
-     window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
