@@ -1,6 +1,6 @@
 .bell {
   position: relative;
-  margin-right: 2rem;
+  margin-right: 0.5rem;
   cursor: pointer;
   color: var(--clr4);
   height: min-content;
