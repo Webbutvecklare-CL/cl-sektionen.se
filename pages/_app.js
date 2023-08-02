@@ -11,7 +11,6 @@ import dynamic from "next/dynamic";
 const { Analytics } = dynamic(() => import("@vercel/analytics/react"), { ssr: false });
 
 // Firebase
-import { onMessage, getMessaging, isSupported } from "firebase/messaging";
 import { doc, updateDoc } from "firebase/firestore";
 import { getFCMToken } from "../firebase/messaging"; // Filen
 
@@ -19,7 +18,8 @@ import { getFCMToken } from "../firebase/messaging"; // Filen
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const { AuthContextProvider } = dynamic(() => import("../context/AuthContext"), { ssr: false });
+// const { AuthContextProvider } = dynamic(() => import("../context/AuthContext"), { ssr: false });
+import { AuthContextProvider } from "../context/AuthContext";
 import { getCookie, setCookie } from "../utils/cookieUtils";
 
 // Komponenter
@@ -38,33 +38,7 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     // När sidan laddas in startas en notis hanterare som hanterar foreground(webbläsaren i fokus) notiser
     // Vissa webbläsare stödjer inte foreground notiser (de flesta mobiler)
-    isSupported().then((yes) => {
-      if (!yes) {
-        console.log("Notiser stödjs inte på din enhet eller webbläsare.");
-        return;
-      }
-
-      // Kollar om användaren prenumererar på notiser
-      const fcmTokenData = JSON.parse(localStorage.getItem("notificationSettings"));
-      if (fcmTokenData) {
-        // Användaren har tidigare sparat inställningar
-
-        if (Notification.permission === "granted") {
-          // Detta ska bara göras om användaren har tillåtit notiser och har en tokenData lagrat
-          updateTokenData(fcmTokenData);
-
-          // Aktiverar en event listener som lyssnar notiser
-          // Click event för när användaren klickar på notisen
-          messageListener((link) => {
-            router.push(link);
-          });
-        }
-      } else if (Notification.permission === "default") {
-        // Informerar användaren om att de kan prenumerera på notiser
-        // Visa en liten pop up som frågar/informera om notiser
-        // Svara de ja får de upp notis modal:en
-      }
-    });
+    mountMessagingListener(router);
   }, [router]);
 
   // Sätter en event listener på när användaren byter sida för att logga
@@ -153,7 +127,7 @@ export default function App({ Component, pageProps }) {
       {!router.pathname.startsWith("/personalrummet") && (
         <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
       )}
-      {router.pathname.startsWith("/personalrummet") && AuthContextProvider && (
+      {router.pathname.startsWith("/personalrummet") && (
         <AuthContextProvider>
           <Component
             {...pageProps}
@@ -170,7 +144,39 @@ export default function App({ Component, pageProps }) {
   );
 }
 
-function messageListener(click_event) {
+async function mountMessagingListener(router) {
+  const { isSupported } = await import("firebase/messaging");
+  isSupported().then((yes) => {
+    if (!yes) {
+      console.log("Notiser stödjs inte på din enhet eller webbläsare.");
+      return;
+    }
+
+    // Kollar om användaren prenumererar på notiser
+    const fcmTokenData = JSON.parse(localStorage.getItem("notificationSettings"));
+    if (fcmTokenData) {
+      // Användaren har tidigare sparat inställningar
+
+      if (Notification.permission === "granted") {
+        // Detta ska bara göras om användaren har tillåtit notiser och har en tokenData lagrat
+        updateTokenData(fcmTokenData);
+
+        // Aktiverar en event listener som lyssnar notiser
+        // Click event för när användaren klickar på notisen
+        messageListener((link) => {
+          router.push(link);
+        });
+      }
+    } else if (Notification.permission === "default") {
+      // Informerar användaren om att de kan prenumerera på notiser
+      // Visa en liten pop up som frågar/informera om notiser
+      // Svara de ja får de upp notis modal:en
+    }
+  });
+}
+
+async function messageListener(click_event) {
+  const { onMessage, getMessaging } = await import("firebase/messaging");
   const messaging = getMessaging();
 
   // This will fire when a message is received while the app is in the foreground.
