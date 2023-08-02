@@ -90,6 +90,7 @@
   width: 120px;
   font-size: 1rem;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  justify-content: center;
 }
 
 .aktuelltInnehåll {
@@ -116,6 +117,8 @@
   text-align: center;
   display: block;
   margin: 20px auto 10px auto;
+  width: fit-content;
+  text-decoration: none;
 }
 
 .resurser h1 {

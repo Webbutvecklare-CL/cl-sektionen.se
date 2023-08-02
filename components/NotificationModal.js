@@ -6,7 +6,10 @@ import { isSupported } from "firebase/messaging"; // Biblioteket
 import { doc, updateDoc } from "firebase/firestore";
 import { firestore } from "../firebase/clientApp";
 
-import { fa, regular, squarePlus } from "../styles/fontawesome.module.css";
+import { fa } from "../styles/fontawesome.module.css"; // För att ios dela ikonen ska fungera
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
+
 import styles from "../styles/notification-modal.module.css";
 import Toggle from "./Toggle";
 
@@ -206,7 +209,7 @@ export default function NotificationModal({ show, handleClose }) {
                   <li>Scrolla ned</li>
                   <li>
                     Tryck på &quot;Lägg till på hemskärmen&quot;{" "}
-                    <i className={`${regular} ${squarePlus}`} />
+                    <FontAwesomeIcon icon={faSquarePlus} />
                   </li>
                 </ul>
               </>

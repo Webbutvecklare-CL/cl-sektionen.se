@@ -22,7 +22,8 @@ import { logEvent } from "firebase/analytics";
 import styles from "../styles/index.module.css";
 import feedStyles from "../styles/feed-preview.module.css";
 import calStyles from "../styles/kalender.module.css";
-import { solid, angleUp, angleDown } from "../styles/fontawesome.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
@@ -77,7 +78,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
           <button
             className={`${styles.visaOmKnapp} ${open ? styles.btnOpen : ""}`}
             onClick={toggleOm}>
-            Om CL <i className={`${solid} ${open ? angleUp : angleDown}`} />
+            Om CL <FontAwesomeIcon icon={open ? faAngleUp : faAngleDown} />
           </button>
         </div>
         <section id={styles.happenings}>

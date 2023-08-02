@@ -6,8 +6,10 @@ import CustomHead from "../../components/CustomHead";
 import TextHighlighter from "../../components/Highlighter";
 
 import styles from "../../styles/sangbok.module.css";
-import { solid, ellipsis, volumeXmark } from "../../styles/fontawesome.module.css";
 import filterStyles from "../../styles/filter-panel.module.css";
+import { solid, ellipsis, volumeXmark } from "../../styles/fontawesome.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth) {

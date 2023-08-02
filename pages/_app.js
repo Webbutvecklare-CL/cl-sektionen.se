@@ -7,6 +7,11 @@ import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
 import "/styles/fontawesome-fonts.css";
+
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+
 import dynamic from "next/dynamic";
 const { Analytics } = dynamic(() => import("@vercel/analytics/react"), { ssr: false });
 

@@ -1,9 +1,10 @@
-import { regular, circleQuestion, xs } from "../../../styles/fontawesome.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 
 export default function InfoBox({ text }) {
   return (
     <div className="infobox-container">
-      <i className={`${regular} ${circleQuestion} ${xs}`} />
+      <FontAwesomeIcon icon={faCircleQuestion} size="sm" />
       <span className="infobox">{text}</span>
     </div>
   );

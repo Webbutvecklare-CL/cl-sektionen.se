@@ -56,12 +56,12 @@
   transform: translateX(0rem);
 }
 
-.committeeFeed .postWrapper .options i {
+.committeeFeed .postWrapper .options svg {
   cursor: pointer;
   transition: 0.3s;
 }
 
-.committeeFeed .postWrapper .options i:hover {
+.committeeFeed .postWrapper .options svg:hover {
   transform: scale(1.3);
 }
 

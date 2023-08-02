@@ -140,6 +140,12 @@
   background-color: var(--clr3);
 }
 
+.type-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .create .type-container button {
   margin-top: 1rem;
   margin-right: 2rem;
@@ -310,7 +316,8 @@
   transform: translate(0px);
 }
 
-.infobox-container i::before {
+.infobox-container svg {
+  transform: scale(1.1);
   padding-right: 1rem;
   height: 0.8rem;
 }

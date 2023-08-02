@@ -100,12 +100,14 @@
   background-color: var(--clr4) !important;
 }
 
-.navItem i {
+.navItem svg {
+  font-size: 1.1rem;
   transition: 0.5s;
   transform: rotate(0deg);
 }
-.burgerMenuList .submenuWrapper.active .navItem i,
-.navMenuList .submenuWrapper:hover .navItem i {
+
+.burgerMenuList .submenuWrapper.active .navItem svg,
+.navMenuList .submenuWrapper:hover .navItem svg {
   transform: rotate(180deg);
 }
 

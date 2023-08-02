@@ -7,7 +7,8 @@ import NavLogo from "../../public/media/grafik/CL-Logo_Nav_White.webp";
 import { useRouter } from "next/router";
 
 import styles from "../../styles/nav.module.css";
-import { solid, bars, fas, times } from "../../styles/fontawesome.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 //Att lägga till nya sidor:
 // 1. Se till att skapa sidan (se guide)
@@ -66,8 +67,6 @@ const MENU_LIST = [
   },
 ];
 
-const MENU_STATES = [`${solid} ${bars}`, `${fas} ${times}`];
-
 //förord: läs på egen risk --Armin
 export default function Navbar() {
   const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
@@ -113,19 +112,16 @@ export default function Navbar() {
   let menuRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if (
-        !menuRef.current.contains(e.target) &&
-        e.target.className != `${styles.navitem} ${fas} ${times}`
-      ) {
+      if (!menuRef.current.contains(e.target)) {
         setNavBurgerOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handler);
-    document.addEventListener("touchstart", handler);
+    document.ontouchend = handler;
     return () => {
       document.removeEventListener("mousedown", handler);
-      document.removeEventListener("touchstart", handler);
+      document.ontouchend = null;
     };
   });
   //-------------------------------------------------------------------------
@@ -157,9 +153,9 @@ export default function Navbar() {
         <button
           onClick={burgerToggle}
           aria-label={`${navBurgerOpen ? "Stäng" : "Öppna"} navigationsmenyn`}
-          className={`${styles.navItem} ${
-            navBurgerOpen ? MENU_STATES[1] : MENU_STATES[0]
-          }`}></button>
+          className={`${styles.navItem} menuButton`}>
+          <FontAwesomeIcon icon={navBurgerOpen ? faTimes : faBars} />
+        </button>
       </div>
     );
   };

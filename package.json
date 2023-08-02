@@ -11,6 +11,11 @@
     "prettier:fix": "npm run prettier -- --write"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mantine/core": "^6.0.16",
     "@mantine/hooks": "^6.0.16",
     "@mantine/tiptap": "^6.0.16",

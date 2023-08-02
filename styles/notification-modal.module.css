@@ -50,7 +50,8 @@
   color: var(--clgra);
 }
 
-.content i {
+.content i,
+.content svg {
   margin-left: 0.1rem;
   transform: translateY(0.1rem);
 }

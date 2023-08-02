@@ -6,7 +6,8 @@ import { getPublicEvents } from "../../utils/calendarUtils";
 import Link from "next/link";
 
 import styles from "../../styles/calendar-viewer.module.css";
-import { solid, angleLeft, angleRight } from "../../styles/fontawesome.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function CalendarViewer() {
   const startDay = new Date(new Date("2023-08-14").setHours(0, 0, 0, 0));
@@ -186,7 +187,7 @@ export default function CalendarViewer() {
                 setCurrentWeek(currentWeek - 1);
               }
             }}>
-            <i className={`${solid} ${angleLeft}`} />
+            <FontAwesomeIcon icon={faAngleLeft} />
           </button>
           <h2>Vecka: {getWeekNumber(refDate)}</h2>
           <button
@@ -197,7 +198,7 @@ export default function CalendarViewer() {
                 setCurrentWeek(currentWeek + 1);
               }
             }}>
-            <i className={`${solid} ${angleRight}`} />
+            <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
       );

@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-import { fa, arrowLeft } from "../styles/fontawesome.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function BackButton({ page = "", children }) {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function BackButton({ page = "", children }) {
 
   return (
     <button className="back-button" onClick={handleBackClick}>
-      <i className={`${fa} ${arrowLeft}`} aria-hidden="true" /> {children}
+      <FontAwesomeIcon icon={faArrowLeft} /> {children}
     </button>
   );
 }
