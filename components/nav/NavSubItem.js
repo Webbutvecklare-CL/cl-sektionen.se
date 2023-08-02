@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { analytics } from "../../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 
 import {
@@ -13,8 +12,10 @@ export default function NavSubItem({ text, href, active }) {
     <Link
       href={href}
       className={`${submenuItemStyles} ${active ? activeStyles : ""}`}
-      onClick={() => {
+      onClick={async () => {
         // När användaren klickar på en nav link
+        const { getAnalytics } = await import("../../firebase/clientApp");
+        const analytics = await getAnalytics();
         if (analytics) {
           logEvent(analytics, "nav_click", { href });
         }

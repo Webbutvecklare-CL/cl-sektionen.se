@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { analytics } from "../../firebase/clientApp";
 import { useEffect, useRef, useState } from "react";
 import { readFileSync } from "fs";
 import { logEvent } from "firebase/analytics";
@@ -180,8 +179,10 @@ export default function Sangbok({ sånger, index }) {
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
-              onBlur={() => {
+              onBlur={async () => {
                 // När användaren lämnar sökrutan
+                const { getAnalytics } = await import("../../firebase/clientApp");
+                const analytics = await getAnalytics();
                 if (analytics) {
                   logEvent(analytics, "search", { search_term: search });
                 }

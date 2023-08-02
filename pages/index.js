@@ -14,20 +14,22 @@ import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
 //Firebase stuff
-import { firestore, analytics } from "../firebase/clientApp";
+import { firestore } from "../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
 
 import styles from "../styles/index.module.css";
 import feedStyles from "../styles/feed-preview.module.css";
 import calStyles from "../styles/kalender.module.css";
-import { regular, solid, angleUp, angleDown } from "../styles/fontawesome.module.css";
+import { solid, angleUp, angleDown } from "../styles/fontawesome.module.css";
 
 export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
-  const toggleOm = () => {
+  const toggleOm = async () => {
     if (!open) {
       // Om vi går från stängd till öppen
+      const { getAnalytics } = await import("../firebase/clientApp");
+      const analytics = await getAnalytics();
       if (analytics) {
         logEvent(analytics, "view_om");
       }

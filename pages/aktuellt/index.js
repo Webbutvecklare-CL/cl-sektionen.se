@@ -299,8 +299,10 @@ export default function Aktuellt({ postList }) {
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
-              onBlur={() => {
+              onBlur={async () => {
                 // När användaren lämnar sökrutan
+                const { getAnalytics } = await import("../../firebase/clientApp");
+                const analytics = await getAnalytics();
                 if (analytics) {
                   logEvent(analytics, "search", { search_term: search });
                 }

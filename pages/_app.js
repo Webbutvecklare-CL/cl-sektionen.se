@@ -7,23 +7,27 @@ import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
 import "/styles/fontawesome-fonts.css";
-import { Analytics } from "@vercel/analytics/react";
-import Navbar from "../components/nav/Navbar";
-import Footer from "../components/Footer";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { AuthContextProvider } from "../context/AuthContext";
+import dynamic from "next/dynamic";
+const { Analytics } = dynamic(() => import("@vercel/analytics/react"), { ssr: false });
 
-import { analytics, firestore } from "../firebase/clientApp";
-import { logEvent } from "firebase/analytics";
+// Firebase
 import { onMessage, getMessaging, isSupported } from "firebase/messaging";
 import { doc, updateDoc } from "firebase/firestore";
 import { getFCMToken } from "../firebase/messaging"; // Filen
+
+// React
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
+import { AuthContextProvider } from "../context/AuthContext";
+import { getCookie, setCookie } from "../utils/cookieUtils";
+
+// Komponenter
+import Navbar from "../components/nav/Navbar";
+import Footer from "../components/Footer";
+import Head from "next/head";
 import CustomHead from "../components/CustomHead";
 import CookieBanner from "../components/CookieBanner";
-
-import { getCookie, setCookie } from "../utils/cookieUtils";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -66,24 +70,29 @@ export default function App({ Component, pageProps }) {
   // Sätter en event listener på när användaren byter sida för att logga
   useEffect(() => {
     // Skapar en event listener på när sidan uppdateras och loggar då sidvisningen
-    const logScreenEvent = (url) => {
-      if (analytics) {
-        logEvent(analytics, "screen_view", { screen_path: url });
-      }
-    };
+    if (cookiesAllowed) {
+      const logScreenEvent = async (url) => {
+        const { getAnalytics } = await import("../firebase/clientApp");
+        const analytics = await getAnalytics();
+        if (analytics) {
+          const { logEvent } = await import("firebase/analytics");
+          logEvent(analytics, "screen_view", { screen_path: url });
+        }
+      };
 
-    router.events.on("routeChangeComplete", logScreenEvent);
-    // Loggar förstasidan
-    logScreenEvent("/");
+      router.events.on("routeChangeComplete", logScreenEvent);
+      // Loggar förstasidan
+      logScreenEvent("/");
 
-    //Remove Event Listener after un-mount
-    return () => {
-      router.events.off("routeChangeComplete", logScreenEvent);
-    };
-  }, [router]);
+      //Remove Event Listener after un-mount
+      return () => {
+        router.events.off("routeChangeComplete", logScreenEvent);
+      };
+    }
+  }, [router, cookiesAllowed]);
 
+  // Kollar om användaren har godkänt kakor
   useEffect(() => {
-    // Kollar om användaren har godkänt kakor
     const allowCookies = getCookie("allowCookies");
     if (allowCookies === "true") {
       setCookiesAllowed(true);
@@ -155,7 +164,7 @@ export default function App({ Component, pageProps }) {
       )}
       <Footer />
       <Navbar />
-      {cookiesAllowed && <Analytics />}
+      {cookiesAllowed && Analytics && <Analytics />}
       {showCookieBanner && <CookieBanner setCookieState={setCookieState} />}
     </div>
   );
@@ -199,7 +208,8 @@ async function updateTokenData(fcmTokenData) {
   const lastUpdated = new Date(fcmTokenData.lastUpdated).getTime();
   const now = new Date().getTime();
 
-  const maxDiff = 1000 * 60 * 60 * 24 * 30; // 30 dagar
+  //   const maxDiff = 1000 * 60 * 60 * 24 * 30; // 30 dagar
+  const maxDiff = 1000 * 20; // 30 dagar
   const timeDiff = now - lastUpdated;
   const old = timeDiff > maxDiff;
 
@@ -215,6 +225,7 @@ async function updateTokenData(fcmTokenData) {
 
     // Uppdatera tokenData på firebase
     try {
+      const { firestore } = await import("../firebase/clientApp");
       const token = fcmTokenData.token;
       const fcmTokensRef = doc(firestore, `fcmTokens/all`);
       await updateDoc(fcmTokensRef, { [token]: fcmTokenData }, { merge: true });

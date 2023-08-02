@@ -2,12 +2,10 @@ import { useState } from "react";
 
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
-import { setCookie } from "../utils/cookieUtils";
 
 import { button as buttonStyles } from "../styles/cookie-banner.module.css";
 
 export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
-  console.log(cookiesAllowed);
   const menuStyles = {
     display: "flex",
     flexDirection: "row",

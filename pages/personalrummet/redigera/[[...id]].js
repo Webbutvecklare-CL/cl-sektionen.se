@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
-import { analytics, firestore, storage } from "../../../firebase/clientApp";
+import { firestore, storage } from "../../../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 
 import PostForm from "../../../components/personalrummet/PostForm";
@@ -233,6 +233,8 @@ export default function EditPost() {
       console.error(error);
     }
 
+    const { getAnalytics } = await import("../../../firebase/clientApp");
+    const analytics = await getAnalytics();
     if (analytics) {
       logEvent(analytics, "post_update", { updated_keys: Object.keys(postData) });
     }
