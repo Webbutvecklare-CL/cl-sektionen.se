@@ -229,7 +229,8 @@ export default function Mottagning() {
           value={content}
           onChange={(e) => {
             setContent(e.target.value);
-          }}></textarea>
+          }}
+        />
         {!editing && <button onClick={uploadPost}>Ladda upp</button>}
         {editing && (
           <div className={styles.menu}>

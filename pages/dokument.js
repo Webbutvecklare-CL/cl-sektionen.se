@@ -110,7 +110,8 @@ export default function Dokument({ contents }) {
             height: "600px",
             border: "0",
             backgroundColor: "#F2F3F4",
-          }}></iframe>
+          }}
+        />
         <br />
         <h2>
           Protokoll och handlingar från <a href="#rättigheter">SM och StyM</a>
@@ -123,7 +124,8 @@ export default function Dokument({ contents }) {
             height: "600px",
             border: "0",
             backgroundColor: "#F2F3F4",
-          }}></iframe>
+          }}
+        />
         <section id={`${styles.rights} rättigheter`}>
           <MarkdownRender mdData={contents["rattigheter"]} />
         </section>

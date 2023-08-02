@@ -165,7 +165,7 @@ export default function CalendarViewer() {
       horizontalLines.push(<div className={styles.horizontalLine} key={i} />);
     }
 
-    const timeStamps = [<div className={styles.timeStamps} key={0}></div>];
+    const timeStamps = [<div className={styles.timeStamps} key={0} />];
     for (let i = 25 - viewingHours; i < 24; i++) {
       timeStamps.push(
         <div className={styles.timeStamps} key={i}>
@@ -285,7 +285,7 @@ export default function CalendarViewer() {
       <div className={styles.headerItem}>
         <span className={styles.headerDay}>{children}</span>
         <span className={styles.headerDate}>{date}</span>
-        <span className={styles.headerSpacer}></span>
+        <span className={styles.headerSpacer} />
       </div>
     );
   };
