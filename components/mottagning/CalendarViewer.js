@@ -89,7 +89,6 @@ export default function CalendarViewer() {
     const color = types[id]?.color || "var(--clr2)";
 
     const eventClick = () => {
-      console.log(id);
       setInfoBoxData({
         top: top,
         title: event.summary,
