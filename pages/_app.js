@@ -19,7 +19,7 @@ import { getFCMToken } from "../firebase/messaging"; // Filen
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import { AuthContextProvider } from "../context/AuthContext";
+const { AuthContextProvider } = dynamic(() => import("../context/AuthContext"), { ssr: false });
 import { getCookie, setCookie } from "../utils/cookieUtils";
 
 // Komponenter
@@ -153,7 +153,7 @@ export default function App({ Component, pageProps }) {
       {!router.pathname.startsWith("/personalrummet") && (
         <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
       )}
-      {router.pathname.startsWith("/personalrummet") && (
+      {router.pathname.startsWith("/personalrummet") && AuthContextProvider && (
         <AuthContextProvider>
           <Component
             {...pageProps}
