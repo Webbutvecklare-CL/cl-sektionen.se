@@ -2,7 +2,7 @@ import CustomHead from "../../components/CustomHead";
 import BackButton from "../../components/BackButton";
 import Card from "../../components/Card";
 import styles from "../../styles/mottagning/mottagning.module.css";
-import { regular, image } from "../styles/fontawesome.module.css";
+import { regular, image } from "../../styles/fontawesome.module.css";
 
 export default function Bilder() {
   return (
