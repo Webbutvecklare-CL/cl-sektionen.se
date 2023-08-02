@@ -6,7 +6,7 @@
   backdrop-filter: blur(4px);
   overflow: visible;
   transition: 0.2s ease-in-out;
-  z-index: 10000; /*fixar så att nav alltid är längst upp*/
+  z-index: 10000000; /*fixar så att nav alltid är längst upp*/
 }
 
 .burgerMenuList,
@@ -127,6 +127,7 @@
   right: 0px;
   background-color: var(--clr2);
   box-shadow: -0.2rem 0.2rem 0.3rem -0.1rem rgba(0, 0, 0, 0.25);
+  z-index: 1000000;
 }
 
 .burgerMenuList .navItem {
