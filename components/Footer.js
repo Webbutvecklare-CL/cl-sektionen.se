@@ -4,6 +4,15 @@ import Link from "next/link";
 import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
 
 import styles from "../styles/footer.module.css";
+import {
+  brands,
+  solid,
+  instagram,
+  facebook,
+  github,
+  envelope,
+  mugHot,
+} from "../styles/fontawesome.module.css";
 
 export default function Navbar() {
   return (
@@ -55,23 +64,23 @@ export default function Navbar() {
           </div>
           <div id={styles.socialLinks} className={styles.footerCol}>
             <a href="https://www.instagram.com/clsektionen/" aria-label="CL-sektionens instagram">
-              <i className="fa-brands fa-instagram" />
+              <i className={`${brands} ${instagram}`} />
             </a>
             <a
               href="https://www.facebook.com/groups/2388999847/"
               aria-label="CL-sektionens Facebooksida">
-              <i className="fa-brands fa-facebook" />
+              <i className={`${brands} ${facebook}`} />
             </a>
             <a
               href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/"
               aria-label="CL-sektionens GitHub">
-              <i className="fa-brands fa-github" />
+              <i className={`${brands} ${github}`} />
             </a>
             <a href="https://login.one.com/mail" aria-label="Mailsida för förtroendevalda">
-              <i className="fa-solid fa-envelope" />
+              <i className={`${solid} ${envelope}`} />
             </a>
             <Link href="/personalrummet" aria-label="Personalrummet för förtroendevalda">
-              <i className="fa-solid fa-mug-hot" />
+              <i className={`${solid} ${mugHot}`} />
             </Link>
           </div>
         </div>

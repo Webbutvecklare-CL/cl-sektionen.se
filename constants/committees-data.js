@@ -1,87 +1,107 @@
+import {
+  solid,
+  gavel,
+  book,
+  sackDollar,
+  heart,
+  appleWhole,
+  personRunning,
+  house,
+  wineGlass,
+  fishFins,
+  scaleBalanced,
+  flag,
+  section,
+  otter,
+  dice,
+  masksTheater,
+  arrowTrendUp,
+} from "../styles/fontawesome.module.css";
+
 const board = {
   name: "CtyreLsen",
-  icon: "fa-solid fa-gavel",
+  icon: `${solid} ${gavel}`,
   id: "ctyrelsen",
 };
 
 const committees = [
   {
     name: "Studienämnden",
-    icon: "fa-solid fa-book",
+    icon: `${solid} ${book}`,
     id: "studienamnden",
   },
   {
     name: "Näringslivsnämnden",
-    icon: "fa-solid fa-sack-dollar",
+    icon: `${solid} ${sackDollar}`,
     id: "naringslivsnamnden",
   },
   {
     name: "Mottagningsnämnden",
-    icon: "fa-solid fa-heart",
+    icon: `${solid} ${heart}`,
     id: "mottagningsnamnden",
   },
   {
     name: "JML-nämnden",
-    icon: "fa-solid fa-apple-whole",
+    icon: `${solid} ${appleWhole}`,
     id: "jml-namnden",
   },
   {
     name: "Aktivitetsnämnden",
-    icon: "fa-solid fa-person-running",
+    icon: `${solid} ${personRunning}`,
     id: "aktivitetsnamnden",
   },
   {
     name: "Lokalnämnden",
-    icon: "fa-solid fa-house",
+    icon: `${solid} ${house}`,
     id: "lokalnamnden",
   },
   {
     name: "CLubWästeriet",
-    icon: "fa-solid fa-wine-glass",
+    icon: `${solid} ${wineGlass}`,
     id: "clw",
   },
   {
     name: "Valberedningen",
-    icon: "fa-solid fa-fish-fins",
+    icon: `${solid} ${fishFins}`,
     id: "valberedningen",
   },
 ];
 const trustees = [
   {
     name: "Revisorer",
-    icon: "fa-solid fa-scale-balanced",
+    icon: `${solid} ${scaleBalanced}`,
     id: "revisorer",
   },
   {
     name: "Fanborg",
-    icon: "fa-solid fa-flag",
+    icon: `${solid} ${flag}`,
     id: "fanborg",
   },
   {
     name: "Kårfullmäktigedelegation",
-    icon: "fa-solid fa-section",
+    icon: `${solid} ${section}`,
     id: "kf",
   },
   {
     name: "Enskilda",
-    icon: "fa-solid fa-otter",
+    icon: `${solid} ${otter}`,
     id: "enskilda",
   },
 ];
 const associations = [
   {
     name: "CLek",
-    icon: "fa-solid fa-dice",
+    icon: `${solid} ${dice}`,
     id: "clek",
   },
   {
     name: "Dubbelspexet",
-    icon: "fa-solid fa-masks-theater",
+    icon: `${solid} ${masksTheater}`,
     id: "dubbelspexet",
   },
   {
     name: "CLak",
-    icon: "fa-solid fa-arrow-trend-up",
+    icon: `${solid} ${arrowTrendUp}`,
     id: "clak",
   },
 ];

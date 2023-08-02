@@ -2,6 +2,7 @@ import CustomHead from "../../components/CustomHead";
 import BackButton from "../../components/BackButton";
 import Card from "../../components/Card";
 import styles from "../../styles/mottagning/mottagning.module.css";
+import { regular, image } from "../styles/fontawesome.module.css";
 
 export default function Bilder() {
   return (
@@ -25,37 +26,37 @@ export default function Bilder() {
             <h2>Första veckan v.33</h2>
             <div className={styles.cardList}>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Måndag, 2023-08-14
+                <i className={`${regular} ${image}`} /> Måndag, 2023-08-14
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Tisdag, 2023-08-15
+                <i className={`${regular} ${image}`} /> Tisdag, 2023-08-15
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Onsdag, 2023-08-16
+                <i className={`${regular} ${image}`} /> Onsdag, 2023-08-16
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Torsdag, 2023-08-17
+                <i className={`${regular} ${image}`} /> Torsdag, 2023-08-17
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Fredag, 2023-08-18
+                <i className={`${regular} ${image}`} /> Fredag, 2023-08-18
               </Card>
             </div>
             <h2>Andra veckan v.34</h2>
             <div className={styles.cardList}>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Måndag, 2023-08-21
+                <i className={`${regular} ${image}`} /> Måndag, 2023-08-21
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Tisdag, 2023-08-22
+                <i className={`${regular} ${image}`} /> Tisdag, 2023-08-22
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Onsdag, 2023-08-23
+                <i className={`${regular} ${image}`} /> Onsdag, 2023-08-23
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Torsdag, 2023-08-24
+                <i className={`${regular} ${image}`} /> Torsdag, 2023-08-24
               </Card>
               <Card link={""}>
-                <i className="fa-regular fa-image" /> Fredag, 2023-08-25
+                <i className={`${regular} ${image}`} /> Fredag, 2023-08-25
               </Card>
             </div>
           </div>

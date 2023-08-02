@@ -1,4 +1,4 @@
-# Enskilda poster <i class="fa-solid fa-otter" ></i>
+# Enskilda poster
 
 ### Talman
 

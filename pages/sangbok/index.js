@@ -7,6 +7,7 @@ import CustomHead from "../../components/CustomHead";
 import TextHighlighter from "../../components/Highlighter";
 
 import styles from "../../styles/sangbok.module.css";
+import { solid, ellipsis, volumeXmark } from "../../styles/fontawesome.module.css";
 import filterStyles from "../../styles/filter-panel.module.css";
 
 //göm majjelåtar mellan månad 6 och 9
@@ -104,7 +105,7 @@ export default function Sangbok({ sånger, index }) {
       if (e.target.className === `${styles.songbookFilterButton} ${styles.active}`) {
         return;
       }
-      if (e.target.className === "fa-solid fa-ellipsis") {
+      if (e.target.className === `${solid}  ${ellipsis}`) {
         return;
       }
       setFilterPanelOpen(false);
@@ -149,7 +150,7 @@ export default function Sangbok({ sånger, index }) {
       muteButton.remove();
     });
     muteButton.classList.add("muteButton");
-    muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"/>';
+    muteButton.innerHTML = `<i class="${solid} ${volumeXmark}"/>`;
     document.querySelector("div.inputfält").appendChild(muteButton);
   };
 
@@ -194,7 +195,7 @@ export default function Sangbok({ sånger, index }) {
               ref={panelRef}
               className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
               onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
-              <i className="fa-solid fa-ellipsis" />
+              <i className={`${solid}  ${ellipsis}`} />
             </button>
           </div>
 

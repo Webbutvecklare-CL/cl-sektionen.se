@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import styles from "../styles/cookie-banner.module.css";
+import { solid, xmark } from "../styles/fontawesome.module.css";
 
 export default function CookieBanner({ setCookieState }) {
   return (
@@ -34,7 +35,7 @@ export default function CookieBanner({ setCookieState }) {
         onClick={() => {
           setCookieState(false);
         }}>
-        <i className="fa-solid fa-xmark"></i>
+        <i className={`${solid} ${xmark}`} />
       </button>
     </div>
   );

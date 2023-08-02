@@ -6,6 +6,7 @@ import { isSupported } from "firebase/messaging"; // Biblioteket
 import { doc, updateDoc } from "firebase/firestore";
 import { firestore } from "../firebase/clientApp";
 
+import { fa, regular, squarePlus } from "../styles/fontawesome.module.css";
 import styles from "../styles/notification-modal.module.css";
 import Toggle from "./Toggle";
 
@@ -200,12 +201,12 @@ export default function NotificationModal({ show, handleClose }) {
                 <ul className={styles.instructions}>
                   <li>
                     Tryck på dela knappen{" "}
-                    <i className={`fa ${styles.faAppleShare}`} aria-hidden="true" />
+                    <i className={`${fa} ${styles.faAppleShare}`} aria-hidden="true" />
                   </li>
                   <li>Scrolla ned</li>
                   <li>
                     Tryck på &quot;Lägg till på hemskärmen&quot;{" "}
-                    <i className="fa-regular fa-square-plus" />
+                    <i className={`${regular} ${squarePlus}`} />
                   </li>
                 </ul>
               </>

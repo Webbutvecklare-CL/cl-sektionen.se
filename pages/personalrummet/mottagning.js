@@ -21,6 +21,7 @@ import Modal from "../../components/Modal";
 
 import styles from "../../styles/personalrummet/mottagning.module.css";
 import { feed as feed_style } from "../../styles/mottagning/mottagning.module.css";
+import { solid, regular, trashCan, pen } from "../../styles/fontawesome.module.css";
 
 export default function Mottagning() {
   const [title, setTitle] = useState("");
@@ -259,13 +260,13 @@ export default function Mottagning() {
                 onClick={() => {
                   editPost(item);
                 }}>
-                <i className="fa-solid fa-pen" />
+                <i className={`${solid} ${pen}`} />
               </span>
               <span
                 onClick={() => {
                   deletePost(item.id);
                 }}>
-                <i className="fa-regular fa-trash-can" />
+                <i className={`${regular} ${trashCan}`} />
               </span>
             </div>
             <FeedItem item={item} key={index} />

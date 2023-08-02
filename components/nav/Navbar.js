@@ -7,6 +7,7 @@ import NavLogo from "../../public/media/grafik/CL-Logo_Nav_White.webp";
 import { useRouter } from "next/router";
 
 import styles from "../../styles/nav.module.css";
+import { solid, bars, fas, times } from "../../styles/fontawesome.module.css";
 
 //Att lägga till nya sidor:
 // 1. Se till att skapa sidan (se guide)
@@ -65,7 +66,7 @@ const MENU_LIST = [
   },
 ];
 
-const MENU_STATES = ["fa-solid fa-bars", "fas fa-times"];
+const MENU_STATES = [`${solid} ${bars}`, `${fas} ${times}`];
 
 //förord: läs på egen risk --Armin
 export default function Navbar() {
@@ -114,7 +115,7 @@ export default function Navbar() {
     let handler = (e) => {
       if (
         !menuRef.current.contains(e.target) &&
-        e.target.className != styles.navItem + " fas fa-times"
+        e.target.className != `${styles.navitem} ${fas} ${times}`
       ) {
         setNavBurgerOpen(false);
       }

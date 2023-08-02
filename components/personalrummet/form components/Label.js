@@ -1,8 +1,10 @@
-const RequiredStar = () => {
-  return <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>;
-};
+import { solid, starOfLife, rotate90 } from "../../../styles/fontawesome.module.css";
 
 export default function Label({ children, required }) {
+  const RequiredStar = () => {
+    return <i className={`${solid} ${starOfLife} ${rotate90} required`} />;
+  };
+
   return (
     <label>
       {children}

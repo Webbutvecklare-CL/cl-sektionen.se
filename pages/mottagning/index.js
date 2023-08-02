@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import styles from "../../styles/mottagning/mottagning.module.css";
-
 import CustomHead from "../../components/CustomHead";
+
+import styles from "../../styles/mottagning/mottagning.module.css";
+import { solid, angleDown, angleUp } from "../../styles/fontawesome.module.css";
 
 import FeedItem from "../../components/mottagning/FeedItem";
 import NotificationBell from "../../components/NotificationBell";
@@ -106,11 +107,7 @@ export default function Mottagning({ loggedIn, _posts }) {
           onClick={() => setShowWelcometext(!showWelcometext)}>
           Visa
           {showWelcometext ? " mindre " : " mer "}
-          {showWelcometext ? (
-            <i className="fa-solid fa-angle-up"></i>
-          ) : (
-            <i className="fa-solid fa-angle-down"></i>
-          )}
+          <i className={`${solid} ${showWelcometext ? angleUp : angleDown}`} />
         </button>
 
         {!showMenu && (

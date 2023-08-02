@@ -6,7 +6,7 @@ import "/styles/aktuellt.css";
 import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
-import "/styles/fontawesome-all.min.css";
+import "/styles/fontawesome-fonts.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/nav/Navbar";
 import Footer from "../components/Footer";

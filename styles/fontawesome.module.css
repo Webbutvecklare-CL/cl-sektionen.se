@@ -66,42 +66,42 @@
   font-size: 10em;
 }
 .fa2xs {
-  font-size: 0fa625em;
-  line-height: 0fa1em;
-  vertical-align: 0fa225em;
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
 }
 .xs {
-  font-size: 0fa75em;
+  font-size: 0.75em;
   line-height: 0.08333em;
-  vertical-align: 0fa125em;
+  vertical-align: 0.125em;
 }
 .sm {
-  font-size: 0fa875em;
+  font-size: 0.875em;
   line-height: 0.07143em;
   vertical-align: 0.05357em;
 }
 .lg {
-  font-size: 1fa25em;
+  font-size: 1.25em;
   line-height: 0.05em;
   vertical-align: -0.075em;
 }
 .xl {
-  font-size: 1fa5em;
+  font-size: 1.5em;
   line-height: 0.04167em;
-  vertical-align: -0fa125em;
+  vertical-align: -0.125em;
 }
 .fa2xl {
   font-size: 2em;
   line-height: 0.03125em;
-  vertical-align: -0fa1875em;
+  vertical-align: -0.1875em;
 }
 .fw {
   text-align: center;
-  width: 1fa25em;
+  width: 1.25em;
 }
 .ul {
   list-style-type: none;
-  margin-left: var(--fa-li-margin, 2fa5em);
+  margin-left: var(--fa-li-margin, 2.5em);
   padding-left: 0;
 }
 .ul > li {
@@ -115,17 +115,17 @@
   line-height: inherit;
 }
 .border {
-  border-radius: var(--fa-border-radius, 0fa1em);
+  border-radius: var(--fa-border-radius, 0.1em);
   border: var(--fa-border-width, 0.08em) var(--fa-border-style, solid) var(--fa-border-color, #eee);
-  padding: var(--fa-border-padding, 0fa2em 0fa25em 0fa15em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
 }
 .pullLeft {
   float: left;
-  margin-right: var(--fa-pull-margin, 0fa3em);
+  margin-right: var(--fa-pull-margin, 0.3em);
 }
 .pull-right {
   float: right;
-  margin-left: var(--fa-pull-margin, 0fa3em);
+  margin-left: var(--fa-pull-margin, 0.3em);
 }
 .beat {
   -webkit-animation-name: beat;
@@ -152,19 +152,16 @@
   animation-duration: var(--fa-animation-duration, 1s);
   -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
   animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(
-    --fa-animation-timing,
-    cubic-bezier(0fa28, 0fa84, 0fa42, 1)
-  );
-  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0fa28, 0fa84, 0fa42, 1));
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
 }
 .fade {
   -webkit-animation-name: fade;
   animation-name: fade;
   -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
   animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0fa4, 0, 0fa6, 1));
-  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0fa4, 0, 0fa6, 1));
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
 }
 .beatFade,
 .fade {
@@ -180,8 +177,8 @@
   animation-name: beatFade;
   -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
   animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0fa4, 0, 0fa6, 1));
-  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0fa4, 0, 0fa6, 1));
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
 }
 .flip {
   -webkit-animation-name: flip;
@@ -267,8 +264,8 @@
     transform: scale(1);
   }
   45% {
-    -webkit-transform: scale(var(--beat-scale, 1fa25));
-    transform: scale(var(--beat-scale, 1fa25));
+    -webkit-transform: scale(var(--beat-scale, 1.25));
+    transform: scale(var(--beat-scale, 1.25));
   }
 }
 @keyframes beat {
@@ -278,8 +275,8 @@
     transform: scale(1);
   }
   45% {
-    -webkit-transform: scale(var(--beat-scale, 1fa25));
-    transform: scale(var(--beat-scale, 1fa25));
+    -webkit-transform: scale(var(--beat-scale, 1.25));
+    transform: scale(var(--beat-scale, 1.25));
   }
 }
 @-webkit-keyframes bounce {
@@ -288,26 +285,26 @@
     transform: scale(1) translateY(0);
   }
   10% {
-    -webkit-transform: scale(var(--bounce-start-scale-x, 1fa1), var(--bounce-start-scale-y, 0fa9))
+    -webkit-transform: scale(var(--bounce-start-scale-x, 1.1), var(--bounce-start-scale-y, 0.9))
       translateY(0);
-    transform: scale(var(--bounce-start-scale-x, 1fa1), var(--bounce-start-scale-y, 0fa9))
+    transform: scale(var(--bounce-start-scale-x, 1.1), var(--bounce-start-scale-y, 0.9))
       translateY(0);
   }
   30% {
-    -webkit-transform: scale(var(--bounce-jump-scale-x, 0fa9), var(--bounce-jump-scale-y, 1fa1))
-      translateY(var(--bounce-height, -0fa5em));
-    transform: scale(var(--bounce-jump-scale-x, 0fa9), var(--bounce-jump-scale-y, 1fa1))
-      translateY(var(--bounce-height, -0fa5em));
+    -webkit-transform: scale(var(--bounce-jump-scale-x, 0.9), var(--bounce-jump-scale-y, 1.1))
+      translateY(var(--bounce-height, -0.5em));
+    transform: scale(var(--bounce-jump-scale-x, 0.9), var(--bounce-jump-scale-y, 1.1))
+      translateY(var(--bounce-height, -0.5em));
   }
   50% {
-    -webkit-transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0fa95))
+    -webkit-transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0.95))
       translateY(0);
-    transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0fa95))
+    transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0.95))
       translateY(0);
   }
   57% {
-    -webkit-transform: scale(1) translateY(var(--bounce-rebound, -0fa125em));
-    transform: scale(1) translateY(var(--bounce-rebound, -0fa125em));
+    -webkit-transform: scale(1) translateY(var(--bounce-rebound, -0.125em));
+    transform: scale(1) translateY(var(--bounce-rebound, -0.125em));
   }
   64% {
     -webkit-transform: scale(1) translateY(0);
@@ -324,26 +321,26 @@
     transform: scale(1) translateY(0);
   }
   10% {
-    -webkit-transform: scale(var(--bounce-start-scale-x, 1fa1), var(--bounce-start-scale-y, 0fa9))
+    -webkit-transform: scale(var(--bounce-start-scale-x, 1.1), var(--bounce-start-scale-y, 0.9))
       translateY(0);
-    transform: scale(var(--bounce-start-scale-x, 1fa1), var(--bounce-start-scale-y, 0fa9))
+    transform: scale(var(--bounce-start-scale-x, 1.1), var(--bounce-start-scale-y, 0.9))
       translateY(0);
   }
   30% {
-    -webkit-transform: scale(var(--bounce-jump-scale-x, 0fa9), var(--bounce-jump-scale-y, 1fa1))
-      translateY(var(--bounce-height, -0fa5em));
-    transform: scale(var(--bounce-jump-scale-x, 0fa9), var(--bounce-jump-scale-y, 1fa1))
-      translateY(var(--bounce-height, -0fa5em));
+    -webkit-transform: scale(var(--bounce-jump-scale-x, 0.9), var(--bounce-jump-scale-y, 1.1))
+      translateY(var(--bounce-height, -0.5em));
+    transform: scale(var(--bounce-jump-scale-x, 0.9), var(--bounce-jump-scale-y, 1.1))
+      translateY(var(--bounce-height, -0.5em));
   }
   50% {
-    -webkit-transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0fa95))
+    -webkit-transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0.95))
       translateY(0);
-    transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0fa95))
+    transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0.95))
       translateY(0);
   }
   57% {
-    -webkit-transform: scale(1) translateY(var(--bounce-rebound, -0fa125em));
-    transform: scale(1) translateY(var(--bounce-rebound, -0fa125em));
+    -webkit-transform: scale(1) translateY(var(--bounce-rebound, -0.125em));
+    transform: scale(1) translateY(var(--bounce-rebound, -0.125em));
   }
   64% {
     -webkit-transform: scale(1) translateY(0);
@@ -356,38 +353,38 @@
 }
 @-webkit-keyframes fade {
   50% {
-    opacity: var(--fade-opacity, 0fa4);
+    opacity: var(--fade-opacity, 0.4);
   }
 }
 @keyframes fade {
   50% {
-    opacity: var(--fade-opacity, 0fa4);
+    opacity: var(--fade-opacity, 0.4);
   }
 }
 @-webkit-keyframes beatFade {
   0%,
   to {
-    opacity: var(--beatFade-opacity, 0fa4);
+    opacity: var(--beatFade-opacity, 0.4);
     -webkit-transform: scale(1);
     transform: scale(1);
   }
   50% {
     opacity: 1;
-    -webkit-transform: scale(var(--beatFade-scale, 1fa125));
-    transform: scale(var(--beatFade-scale, 1fa125));
+    -webkit-transform: scale(var(--beatFade-scale, 1.125));
+    transform: scale(var(--beatFade-scale, 1.125));
   }
 }
 @keyframes beatFade {
   0%,
   to {
-    opacity: var(--beatFade-opacity, 0fa4);
+    opacity: var(--beatFade-opacity, 0.4);
     -webkit-transform: scale(1);
     transform: scale(1);
   }
   50% {
     opacity: 1;
-    -webkit-transform: scale(var(--beatFade-scale, 1fa125));
-    transform: scale(var(--beatFade-scale, 1fa125));
+    -webkit-transform: scale(var(--beatFade-scale, 1.125));
+    transform: scale(var(--beatFade-scale, 1.125));
   }
 }
 @-webkit-keyframes flip {
@@ -5316,11 +5313,6 @@
   white-space: nowrap;
   border-width: 0;
 }
-:host,
-:root {
-  --fa-style-family-brands: "Font Awesome 6 Brands";
-  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-}
 @font-face {
   font-family: "Font Awesome 6 Brands";
   font-style: normal;
@@ -6754,10 +6746,6 @@
   content: "\f3f6";
 }
 
-:host,
-:root {
-  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
-}
 @font-face {
   font-family: "Font Awesome 6 Free";
   font-style: normal;
@@ -6771,11 +6759,6 @@
 .regular,
 .far {
   font-weight: 400;
-}
-:host,
-:root {
-  --fa-style-family-classic: "Font Awesome 6 Free";
-  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
 }
 @font-face {
   font-family: "Font Awesome 6 Free";

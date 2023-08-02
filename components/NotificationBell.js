@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import styles from "../styles/notification-bell.module.css";
+import { solid, bell } from "../styles/fontawesome.module.css";
 import NotificationModal from "./NotificationModal";
 import { isSupported } from "firebase/messaging";
 
@@ -53,7 +54,7 @@ export default function NotificationBell({}) {
           </span>
         </span>
         <span>
-          <i className="fa-solid fa-bell" />
+          <i className={`${solid} ${bell}`} />
         </span>
       </div>
 

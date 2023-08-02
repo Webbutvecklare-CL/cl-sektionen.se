@@ -15,6 +15,14 @@ import bg from "../../public/media/img/KTHcover.jpg";
 
 import styles from "../../styles/personalrummet.module.css";
 import feed from "../../styles/feed-preview.module.css";
+import {
+  solid,
+  regular,
+  trashCan,
+  arrowUpRightFromSquare,
+  eye,
+  eyeSlash,
+} from "../../styles/fontawesome.module.css";
 
 export default function CommitteeFeed({ posts, permission = "" }) {
   // För att feedet ska uppdateras när man klickar på ex ögat
@@ -112,12 +120,10 @@ export default function CommitteeFeed({ posts, permission = "" }) {
             <div className={styles.options}>
               <div>
                 <Link href={`/aktuellt/${post.id}`} target={"_blank"}>
-                  <i className="fa-regular fa-solid fa-arrow-up-right-from-square" />
+                  <i className={`${solid} ${arrowUpRightFromSquare}`} />
                 </Link>
                 <div onClick={handleChangePublic}>
-                  <i
-                    className={`fa-regular fa-eye${post.visibility !== "public" ? "-slash" : ""}`}
-                  />
+                  <i className={`${regular} ${post.visibility !== "public" ? eyeSlash : eye}`} />
                 </div>
 
                 {permission === "admin" && (
@@ -126,7 +132,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
                     onClick={() => {
                       handleDeletePost(post.id);
                     }}>
-                    <i className="fa-regular fa-trash-can" />
+                    <i className={`${regular} ${trashCan}`} />
                   </div>
                 )}
               </div>

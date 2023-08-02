@@ -1,18 +1,18 @@
-.aktuellt-wrapper {
+.aktuelltWrapper {
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 0.5rem;
   margin-top: 2rem;
 }
 
-.aktuelltsidan-contentwrapper .feed-preview {
+.aktuelltsidanContentWrapper .feedPreview {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 110px;
   gap: 0.5rem;
 }
 
-.filter-knapp,
+.filterButton,
 .filterPanel.mobile {
   display: none;
 }
@@ -53,11 +53,11 @@
   background-color: var(--clr3);
 }
 
-.publiceringsdatum-wrapper {
+.publiceringsdatumWrapper {
   margin-bottom: 1rem;
 }
 
-.filterPanel .datepicker {
+.filterPanel .datePicker {
   box-sizing: content-box;
   display: inline-block;
   font-size: 0.9rem;
@@ -67,7 +67,7 @@
   width: 100px;
 }
 
-.filterPanel .Committeepicker {
+.filterPanel .committeePicker {
   font-family: inherit;
   font-size: 1rem;
   border-radius: 0.3rem;
@@ -107,7 +107,7 @@ button.tag {
 }
 
 @media screen and (max-width: 900px) {
-  .aktuellt-wrapper {
+  .aktuelltWrapper {
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 2rem;
@@ -117,7 +117,7 @@ button.tag {
     display: none;
   }
 
-  .filter-knapp {
+  .filterButton {
     display: block;
     color: #c0c0c0;
     padding-top: calc(0.45rem - 1px);
@@ -128,12 +128,12 @@ button.tag {
     border-radius: 0;
   }
 
-  .filter-knapp:hover {
+  .filterButton:hover {
     color: #fff;
     background-color: var(--clr2);
   }
 
-  .filter-knapp.active {
+  .filterButton.active {
     color: #fff;
     background-color: var(--clr4);
   }
@@ -174,7 +174,7 @@ button.tag {
 
 /*________________________*/
 
-.feed-container {
+.feedContainer {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -184,7 +184,7 @@ button.tag {
   background-color: #fefefe;
 }
 
-.post-list {
+.postList {
   width: 450%;
   min-width: 480px;
   margin: 2% 1%;

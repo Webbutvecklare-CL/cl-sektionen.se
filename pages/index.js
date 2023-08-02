@@ -21,6 +21,7 @@ import { logEvent } from "firebase/analytics";
 import styles from "../styles/index.module.css";
 import feedStyles from "../styles/feed-preview.module.css";
 import calStyles from "../styles/kalender.module.css";
+import { regular, solid, angleUp, angleDown } from "../styles/fontawesome.module.css";
 
 export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
@@ -73,12 +74,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
           <button
             className={`${styles.visaOmKnapp} ${open ? styles.btnOpen : ""}`}
             onClick={toggleOm}>
-            Om CL{" "}
-            {open ? (
-              <i className="fa-solid fa-angle-up"></i>
-            ) : (
-              <i className="fa-solid fa-angle-down"></i>
-            )}
+            Om CL <i className={`${solid} ${open ? angleUp : angleDown}`} />
           </button>
         </div>
         <section id={styles.happenings}>
