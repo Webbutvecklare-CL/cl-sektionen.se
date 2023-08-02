@@ -52,3 +52,4 @@ yarn-error.log*
 # Remove PWA service worker
 /public/sw.js*
 /public/workbox*
+/public/fallback*
