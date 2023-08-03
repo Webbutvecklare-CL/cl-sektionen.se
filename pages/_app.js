@@ -6,24 +6,29 @@ import "/styles/aktuellt.css";
 import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
-import "/styles/fontawesome-all.min.css";
-import { Analytics } from "@vercel/analytics/react";
+import "/styles/fontawesome-fonts.css";
+
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+
+import dynamic from "next/dynamic";
+const { Analytics } = dynamic(() => import("@vercel/analytics/react"), { ssr: false });
+
+// React
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
+// const { AuthContextProvider } = dynamic(() => import("../context/AuthContext"), { ssr: false });
+import { AuthContextProvider } from "../context/AuthContext";
+import { getCookie, setCookie } from "../utils/cookieUtils";
+
+// Komponenter
 import Navbar from "../components/nav/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { AuthContextProvider } from "../context/AuthContext";
-
-import { analytics, firestore } from "../firebase/clientApp";
-import { logEvent } from "firebase/analytics";
-import { onMessage, getMessaging, isSupported } from "firebase/messaging";
-import { doc, updateDoc } from "firebase/firestore";
-import { getFCMToken } from "../firebase/messaging"; // Filen
-import { useEffect, useState } from "react";
 import CustomHead from "../components/CustomHead";
 import CookieBanner from "../components/CookieBanner";
-
-import { getCookie, setCookie } from "../utils/cookieUtils";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -34,56 +39,35 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     // När sidan laddas in startas en notis hanterare som hanterar foreground(webbläsaren i fokus) notiser
     // Vissa webbläsare stödjer inte foreground notiser (de flesta mobiler)
-    isSupported().then((yes) => {
-      if (!yes) {
-        console.log("Notiser stödjs inte på din enhet eller webbläsare.");
-        return;
-      }
-
-      // Kollar om användaren prenumererar på notiser
-      const fcmTokenData = JSON.parse(localStorage.getItem("notificationSettings"));
-      if (fcmTokenData) {
-        // Användaren har tidigare sparat inställningar
-
-        if (Notification.permission === "granted") {
-          // Detta ska bara göras om användaren har tillåtit notiser och har en tokenData lagrat
-          updateTokenData(fcmTokenData);
-
-          // Aktiverar en event listener som lyssnar notiser
-          // Click event för när användaren klickar på notisen
-          messageListener((link) => {
-            router.push(link);
-          });
-        }
-      } else if (Notification.permission === "default") {
-        // Informerar användaren om att de kan prenumerera på notiser
-        // Visa en liten pop up som frågar/informera om notiser
-        // Svara de ja får de upp notis modal:en
-      }
-    });
+    mountMessagingListener(router);
   }, [router]);
 
   // Sätter en event listener på när användaren byter sida för att logga
   useEffect(() => {
     // Skapar en event listener på när sidan uppdateras och loggar då sidvisningen
-    const logScreenEvent = (url) => {
-      if (analytics) {
-        logEvent(analytics, "screen_view", { screen_path: url });
-      }
-    };
+    if (cookiesAllowed) {
+      const logScreenEvent = async (url) => {
+        const { getAnalytics } = await import("../firebase/clientApp");
+        const analytics = await getAnalytics();
+        if (analytics) {
+          const { logEvent } = await import("firebase/analytics");
+          logEvent(analytics, "screen_view", { screen_path: url });
+        }
+      };
 
-    router.events.on("routeChangeComplete", logScreenEvent);
-    // Loggar förstasidan
-    logScreenEvent("/");
+      router.events.on("routeChangeComplete", logScreenEvent);
+      // Loggar förstasidan
+      logScreenEvent("/");
 
-    //Remove Event Listener after un-mount
-    return () => {
-      router.events.off("routeChangeComplete", logScreenEvent);
-    };
-  }, [router]);
+      //Remove Event Listener after un-mount
+      return () => {
+        router.events.off("routeChangeComplete", logScreenEvent);
+      };
+    }
+  }, [router, cookiesAllowed]);
 
+  // Kollar om användaren har godkänt kakor
   useEffect(() => {
-    // Kollar om användaren har godkänt kakor
     const allowCookies = getCookie("allowCookies");
     if (allowCookies === "true") {
       setCookiesAllowed(true);
@@ -125,7 +109,7 @@ export default function App({ Component, pageProps }) {
   }
 
   const description =
-    "Sektionen för Civilingenjör & Lärare representerar och stödjer studenter på programmet för Civilingenjör och Lärare samt studenter som läser KPU.";
+    "Sektionen för Civilingenjör & Lärare representerar och stödjer studenter på programmet för Civilingenjör och Lärare samt studenter som läser KPU vid KTH.";
   const cl_banner = "https://cl-sektionen.se/media/grafik/CL Banner.webp";
   return (
     <div>
@@ -155,13 +139,45 @@ export default function App({ Component, pageProps }) {
       )}
       <Footer />
       <Navbar />
-      {cookiesAllowed && <Analytics />}
+      {cookiesAllowed && Analytics && <Analytics />}
       {showCookieBanner && <CookieBanner setCookieState={setCookieState} />}
     </div>
   );
 }
 
-function messageListener(click_event) {
+async function mountMessagingListener(router) {
+  const { isSupported } = await import("firebase/messaging");
+  isSupported().then((yes) => {
+    if (!yes) {
+      console.log("Notiser stödjs inte på din enhet eller webbläsare.");
+      return;
+    }
+
+    // Kollar om användaren prenumererar på notiser
+    const fcmTokenData = JSON.parse(localStorage.getItem("notificationSettings"));
+    if (fcmTokenData) {
+      // Användaren har tidigare sparat inställningar
+
+      if (Notification.permission === "granted") {
+        // Detta ska bara göras om användaren har tillåtit notiser och har en tokenData lagrat
+        updateTokenData(fcmTokenData);
+
+        // Aktiverar en event listener som lyssnar notiser
+        // Click event för när användaren klickar på notisen
+        messageListener((link) => {
+          router.push(link);
+        });
+      }
+    } else if (Notification.permission === "default") {
+      // Informerar användaren om att de kan prenumerera på notiser
+      // Visa en liten pop up som frågar/informera om notiser
+      // Svara de ja får de upp notis modal:en
+    }
+  });
+}
+
+async function messageListener(click_event) {
+  const { onMessage, getMessaging } = await import("firebase/messaging");
   const messaging = getMessaging();
 
   // This will fire when a message is received while the app is in the foreground.
@@ -177,7 +193,8 @@ function messageListener(click_event) {
     const title = message.title;
     const options = {
       body: message.body,
-      icon: message.icon || "/media/grafik/favicon/android-chrome-512x512.png",
+      icon: message.icon || "/media/icons/icon-512x512.png",
+      badge: "media/icons/badge-330x330.webp", // Lite icon som visas på "Android Chrome"
       image: message.image,
       link: message.link,
     };
@@ -198,12 +215,14 @@ async function updateTokenData(fcmTokenData) {
   const lastUpdated = new Date(fcmTokenData.lastUpdated).getTime();
   const now = new Date().getTime();
 
-  const maxDiff = 1000 * 60 * 60 * 24 * 30; // 30 dagar
+  //   const maxDiff = 1000 * 60 * 60 * 24 * 30; // 30 dagar
+  const maxDiff = 1000 * 20; // 30 dagar
   const timeDiff = now - lastUpdated;
   const old = timeDiff > maxDiff;
 
   if (old) {
     // Kolla om den lagrade token är samma som om en ny hämtas
+    const { getFCMToken } = await import("../firebase/messaging");
     const newToken = await getFCMToken();
 
     if (newToken !== fcmTokenData.token) {
@@ -214,6 +233,8 @@ async function updateTokenData(fcmTokenData) {
 
     // Uppdatera tokenData på firebase
     try {
+      const { firestore } = await import("../firebase/clientApp");
+      const { doc, updateDoc } = await import("firebase/firestore");
       const token = fcmTokenData.token;
       const fcmTokensRef = doc(firestore, `fcmTokens/all`);
       await updateDoc(fcmTokensRef, { [token]: fcmTokenData }, { merge: true });

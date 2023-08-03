@@ -3,7 +3,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
+import CustomHead from "../../components/CustomHead";
+
 import styles from "../../styles/mottagning/mottagning.module.css";
+import { solid, angleDown, angleUp } from "../../styles/fontawesome.module.css";
 
 import FeedItem from "../../components/mottagning/FeedItem";
 import NotificationBell from "../../components/NotificationBell";
@@ -55,7 +58,7 @@ export default function Mottagning({ loggedIn, _posts }) {
       if (res.status === 429) {
         setError("För många försök, försök igen senare");
       } else if (res.status === 401) {
-        setError("Fel lösenord");
+        setError(`Fel lösenord! Du har ${res.headers.get("X-RateLimit-Remaining")} försök kvar.`);
       } else {
         console.log(res);
         setError("Något gick fel");
@@ -82,87 +85,90 @@ export default function Mottagning({ loggedIn, _posts }) {
   };
 
   return (
-    <div id="contentbody">
-      <h1>Mottagningssidan</h1>
-      <div className={`${styles.welcomePanel} ${showWelcometext ? styles.active : ""}`}>
-        <p>
-          Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått
-          något mail hör av dig till{" "}
-          <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>. Denna
-          sidan är till för alla nyantagna som deltar eller funderar på att delta i mottagningen.
-          Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
-        </p>
-      </div>
-      <button
-        className={styles.showMoreButton}
-        onClick={() => setShowWelcometext(!showWelcometext)}>
-        Visa
-        {showWelcometext ? " mindre " : " mer "}
-        {showWelcometext ? (
-          <i className="fa-solid fa-angle-up"></i>
-        ) : (
-          <i className="fa-solid fa-angle-down"></i>
-        )}
-      </button>
+    <>
+      <CustomHead
+        metaTitle={`Mottagningssidan | Sektionen för Civilingenjör och Lärare`}
+        description={"Här hittar du all information och nyheter för mottagningen."}
+        url={"https://www.cl-sektionen.se/mottagning/"}
+      />
+      <div id="contentbody">
+        <h1>Mottagningssidan</h1>
+        <div className={`${styles.welcomePanel} ${showWelcometext ? styles.active : ""}`}>
+          <p>
+            Är du nyantagen? Du kommer få mer information via mail inom kort. Om du inte har fått
+            något mail hör av dig till{" "}
+            <a href="mailto:mottagningen@cl-sektionen.se">mottagningen@cl-sektionen.se</a>. Denna
+            sidan är till för alla nyantagna som deltar eller funderar på att delta i mottagningen.
+            Här kommer aktuell information läggas upp kontinuerligt under mottagningen.
+          </p>
+        </div>
+        <button
+          className={styles.showMoreButton}
+          onClick={() => setShowWelcometext(!showWelcometext)}>
+          Visa
+          {showWelcometext ? " mindre " : " mer "}
+          <i className={`${solid} ${showWelcometext ? angleUp : angleDown}`} />
+        </button>
 
-      {!showMenu && (
-        <div id={styles.loginPanel}>
-          <h2>Ditt kodord</h2>
-          <div className={styles.inputField}>
-            {error && <p className="">{error}</p>}
-            {loading && <p className="">Laddar...</p>}
-            <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    checkPassword();
-                  }
-                }}
-                className={`searchbar`}
-              />
-              <button className={styles.inputSubmit} onClick={checkPassword}>
-                Logga in
-              </button>
-            </div>
-            <div className={styles.hint}>
-              För att komma åt mottagningssidan behöver du skriva in kodordet. Den går att hitta i
-              Adeptboken samt välkomstmejlet.
-            </div>
-          </div>
-        </div>
-      )}
-      {showMenu && (
-        <div className={styles.wrapper}>
-          <div className={styles.navPanel}>
-            <div>
-              <h2>Hitta på mottagningssidan</h2>
-              <p>Saknas något? Säg till en bästis eller annan mottagare.</p>
-            </div>
-            <div className={styles.nav}>
-              <Link href={"mottagning/schema"}>Schema</Link>
-              <Link href={"mottagning/bilder"}>Bilder</Link>
-              <Link href={"mottagning/info"}>Infodump</Link>
-              <Link href={"mottagning/kontakt"}>Kontakt</Link>
-              <Link href={""}>Adeptboken [pdf]</Link>
+        {!showMenu && (
+          <div id={styles.loginPanel}>
+            <h2>Ditt kodord</h2>
+            <div className={styles.inputField}>
+              {error && <p className="">{error}</p>}
+              {loading && <p className="">Laddar...</p>}
+              <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      checkPassword();
+                    }
+                  }}
+                  className={`searchbar`}
+                />
+                <button className={styles.inputSubmit} onClick={checkPassword}>
+                  Logga in
+                </button>
+              </div>
+              <div className={styles.hint}>
+                För att komma åt mottagningssidan behöver du skriva in kodordet. Den går att hitta i
+                Adeptboken samt välkomstmejlet.
+              </div>
             </div>
           </div>
-          <div className={styles.feedWrapper}>
-            <div className={styles.feedHeader}>
-              <h2>Mottagningsinfo</h2>
-              <NotificationBell />
+        )}
+        {showMenu && (
+          <div className={styles.wrapper}>
+            <div className={styles.navPanel}>
+              <div>
+                <h2>Hitta på mottagningssidan</h2>
+                <p>Saknas något? Säg till en bästis eller annan mottagare.</p>
+              </div>
+              <div className={styles.nav}>
+                <Link href={"mottagning/schema"}>Schema</Link>
+                <Link href={"mottagning/bilder"}>Bilder</Link>
+                <Link href={"mottagning/info"}>Infodump</Link>
+                <Link href={"mottagning/kontakt"}>Kontakt</Link>
+                <Link href={""}>Adeptboken [pdf]</Link>
+              </div>
             </div>
-            <div className={styles.feed}>
-              {posts && posts.map((item, index) => <FeedItem key={index} item={item} />)}
+            <div className={styles.feedWrapper}>
+              <div className={styles.feedHeader}>
+                <h2>Mottagningsinfo</h2>
+                <NotificationBell />
+              </div>
+              <div className={styles.feed}>
+                {posts && posts.map((item, index) => <FeedItem key={index} item={item} />)}
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

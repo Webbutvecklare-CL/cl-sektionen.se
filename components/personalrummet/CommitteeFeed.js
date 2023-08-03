@@ -16,6 +16,10 @@ import bg from "../../public/media/img/KTHcover.jpg";
 import styles from "../../styles/personalrummet.module.css";
 import feed from "../../styles/feed-preview.module.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+
 export default function CommitteeFeed({ posts, permission = "" }) {
   // För att feedet ska uppdateras när man klickar på ex ögat
   const [postList, setPostList] = useState([]);
@@ -112,12 +116,10 @@ export default function CommitteeFeed({ posts, permission = "" }) {
             <div className={styles.options}>
               <div>
                 <Link href={`/aktuellt/${post.id}`} target={"_blank"}>
-                  <i className="fa-regular fa-solid fa-arrow-up-right-from-square" />
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 </Link>
                 <div onClick={handleChangePublic}>
-                  <i
-                    className={`fa-regular fa-eye${post.visibility !== "public" ? "-slash" : ""}`}
-                  />
+                  <FontAwesomeIcon icon={post.visibility !== "public" ? faEyeSlash : faEye} />
                 </div>
 
                 {permission === "admin" && (
@@ -126,7 +128,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
                     onClick={() => {
                       handleDeletePost(post.id);
                     }}>
-                    <i className="fa-regular fa-trash-can" />
+                    <FontAwesomeIcon icon={faTrashCan} />
                   </div>
                 )}
               </div>

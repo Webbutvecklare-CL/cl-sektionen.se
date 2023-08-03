@@ -1,4 +1,4 @@
-import { firestore, messaging, analytics } from "./clientApp";
+import { firestore, messaging } from "./clientApp";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { getToken } from "firebase/messaging";
 
@@ -37,6 +37,8 @@ export async function saveMessagingDeviceToken(collection) {
         tokens: arrayUnion(fcmToken),
       });
 
+      const { getAnalytics } = await import("../firebase/clientApp");
+      const analytics = await getAnalytics();
       if (analytics) {
         logEvent(analytics, "notification_subscribe", { topic: collection });
       }

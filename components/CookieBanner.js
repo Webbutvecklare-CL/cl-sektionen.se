@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import styles from "../styles/cookie-banner.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function CookieBanner({ setCookieState }) {
   return (
@@ -34,7 +36,7 @@ export default function CookieBanner({ setCookieState }) {
         onClick={() => {
           setCookieState(false);
         }}>
-        <i className="fa-solid fa-xmark"></i>
+        <FontAwesomeIcon icon={faXmark} />
       </button>
     </div>
   );

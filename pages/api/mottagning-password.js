@@ -34,12 +34,18 @@ function handlePasswordReq(req, res) {
   const password = req.body.password;
 
   if (process.env.MOTTAGNING_PASSWORD === password) {
+    let maxAge;
+    if (req.cookies?.allowCookies === "true") {
+      maxAge = process.env.NODE_ENV === "development" ? 60 : 60 * 60 * 24 * 14; // 60 sekunder eller 2 veckor
+    } else {
+      maxAge = undefined; // Blir en session cookie
+    }
+
     // Om ingen maxAge sätts så blir det en session cookie
     const cookie = serialize("mottagning_key", process.env.NEXT_PUBLIC_MOTTAGNING_KEY, {
       path: "/",
       httpOnly: true,
-      //   maxAge: 60 * 60 * 24 * 7 // 1 week
-      //   maxAge: 20 * 20, // 20 sekunder
+      maxAge: maxAge,
     });
     res.setHeader("Set-Cookie", cookie);
     res

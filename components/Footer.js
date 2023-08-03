@@ -5,6 +5,10 @@ import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
 
 import styles from "../styles/footer.module.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faMugHot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 export default function Navbar() {
   return (
     <footer id={styles.footer}>
@@ -55,23 +59,23 @@ export default function Navbar() {
           </div>
           <div id={styles.socialLinks} className={styles.footerCol}>
             <a href="https://www.instagram.com/clsektionen/" aria-label="CL-sektionens instagram">
-              <i className="fa-brands fa-instagram" />
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a
               href="https://www.facebook.com/groups/2388999847/"
               aria-label="CL-sektionens Facebooksida">
-              <i className="fa-brands fa-facebook" />
+              <FontAwesomeIcon icon={faFacebook} />
             </a>
             <a
               href="https://github.com/Webbutvecklare-CL/cl-sektionen.se/"
               aria-label="CL-sektionens GitHub">
-              <i className="fa-brands fa-github" />
+              <FontAwesomeIcon icon={faGithub} />
             </a>
             <a href="https://login.one.com/mail" aria-label="Mailsida för förtroendevalda">
-              <i className="fa-solid fa-envelope" />
+              <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <Link href="/personalrummet" aria-label="Personalrummet för förtroendevalda">
-              <i className="fa-solid fa-mug-hot" />
+              <FontAwesomeIcon icon={faMugHot} />
             </Link>
           </div>
         </div>

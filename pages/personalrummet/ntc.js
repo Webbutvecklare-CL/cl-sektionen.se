@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { saveMessagingDeviceToken, getFCMToken } from "../../firebase/messaging"; // Filen
+import React, { useState } from "react";
+import { getFCMToken } from "../../firebase/messaging"; // Filen
 import { isSupported } from "firebase/messaging"; // Biblioteket
 import { sendNotification } from "../../utils/server";
 

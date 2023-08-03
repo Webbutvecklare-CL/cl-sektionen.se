@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       const postData = await verifyRequest(uid, req.body.data.postId);
 
       // Skapa payload objekt med all data
-      const payload = createPayload(postData);
+      const payload = createPostPayload(postData);
       type = postData.type;
       message = {
         topic: "new_post",
@@ -134,13 +134,13 @@ async function sendNotification(type, message, dryRun = false) {
   });
 }
 
-function createPayload(data) {
+function createPostPayload(data) {
   return {
     data: {
-      title: `${data.committee} publicerade ${data.type == "event" ? "ett event" : "ett inlägg"}`,
+      title: `${data.author} publicerade ett ${data.type == "event" ? "event" : "inlägg"}`,
       body: `${data.title}`,
       image: data.image || "",
-      icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
+      icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
       tag: "Nytt inlägg",
       link: `/aktuellt/${data.id}`,
     },

@@ -11,6 +11,17 @@ import { useAuth } from "../../context/AuthContext";
 import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 import { all_committees } from "../../constants/committees-data";
 
+import styles from "../../styles/personalrummet/publicera.module.css";
+import {
+  solid,
+  regular,
+  trashCan,
+  eye,
+  eyeSlash,
+  starOfLife,
+  rotate90,
+} from "../../styles/fontawesome.module.css";
+
 export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [title, setTitle] = useState(prefill.title);
   const subtitle = useRef(null);
@@ -256,7 +267,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
               {image.name}{" "}
               <i
-                className="fa-regular fa-trash-can"
+                className={`${regular} ${trashCan}`}
                 onClick={() => setImage({ name: undefined, url: undefined })}
               />
             </div>
@@ -317,7 +328,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               <>
                 <label>
                   Kategorier:
-                  <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
+                  <i className={`${solid} ${starOfLife} ${rotate90} ${styles.required}`} />
                 </label>
                 <div className="tag-container">
                   <div className="tag-selector">
@@ -337,7 +348,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                     <div className="meeting-input">
                       <label>
                         Mötes nummer:
-                        <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>
+                        <i className={`${solid} ${starOfLife} ${rotate90} ${styles.required}`} />
                       </label>
                       <input
                         required
@@ -433,7 +444,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               <div
                 className={`visibility-button ${visibility === "public" ? "active" : ""}`}
                 onClick={() => setVisibility(visibility === "public" ? "private" : "public")}>
-                <i className={`fa-regular fa-eye${visibility !== "public" ? "-slash" : ""}`}></i>
+                <i className={`${regular} ${visibility !== "public" ? eyeSlash : eye}`} />
               </div>
               <p>
                 {visibility === "public"
@@ -479,7 +490,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               </>
             )}
 
-            <button className="submit">{editMode ? "Uppdatera" : "Publicera"}</button>
+            <button className={styles.submitButton}>{editMode ? "Uppdatera" : "Publicera"}</button>
           </div>
         )}
       </form>

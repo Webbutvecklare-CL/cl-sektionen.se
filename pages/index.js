@@ -1,8 +1,10 @@
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.webp";
 import Sidhuvud_black from "../public/media/grafik/Sidhuvud.webp";
-import React, { useState } from "react";
+
+// Komponenter
 import FeedPreview from "../components/FeedPreview";
 import GråttAgenda from "../components/GråttAgenda";
 import GråttKalender from "../components/GråttKalender";
@@ -14,19 +16,22 @@ import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
 //Firebase stuff
-import { firestore, analytics } from "../firebase/clientApp";
-import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
 
+// Styles
 import styles from "../styles/index.module.css";
 import feedStyles from "../styles/feed-preview.module.css";
 import calStyles from "../styles/kalender.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
-  const toggleOm = () => {
+  const toggleOm = async () => {
     if (!open) {
       // Om vi går från stängd till öppen
+      const { getAnalytics } = await import("../firebase/clientApp");
+      const analytics = await getAnalytics();
       if (analytics) {
         logEvent(analytics, "view_om");
       }
@@ -73,12 +78,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
           <button
             className={`${styles.visaOmKnapp} ${open ? styles.btnOpen : ""}`}
             onClick={toggleOm}>
-            Om CL{" "}
-            {open ? (
-              <i className="fa-solid fa-angle-up"></i>
-            ) : (
-              <i className="fa-solid fa-angle-down"></i>
-            )}
+            Om CL <FontAwesomeIcon icon={open ? faAngleUp : faAngleDown} />
           </button>
         </div>
         <section id={styles.happenings}>
@@ -180,6 +180,12 @@ export default function Index({ contents, featured, infoList, eventList }) {
 export async function getStaticProps() {
   let infoList = [];
   let eventList = [];
+
+  // Importera firestore
+  const { firestore } = await import("../firebase/clientApp");
+  const { collection, query, where, orderBy, limit, Timestamp, getDocs } = await import(
+    "firebase/firestore"
+  );
 
   // Aktuellt
   const todayDate = new Date().toLocaleString("sv-SE").substring(0, 16);

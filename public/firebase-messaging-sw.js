@@ -34,7 +34,8 @@ messaging.onBackgroundMessage((payload) => {
     const title = notification.title;
     const options = {
       body: notification.body,
-      icon: notification.icon || "/media/grafik/favicon/android-chrome-512x512.png",
+      icon: notification.icon || "/media/icons/icon-512x512.png",
+      badge: "media/icons/badge-330x330.webp", // Lite icon som visas på "Android Chrome"
       image: notification.image,
       tag: notification.tag || "",
       data: { link: notification.link },

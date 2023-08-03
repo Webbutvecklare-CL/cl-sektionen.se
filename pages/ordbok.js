@@ -5,6 +5,7 @@ import { readFileSync } from "fs";
 import styles from "../styles/ordbok.module.css";
 import songStyles from "../styles/sangbok.module.css";
 import filterStyles from "../styles/filter-panel.module.css";
+import { solid, ellipsis } from "../styles/fontawesome.module.css";
 
 function Ordbok({ ordbok }) {
   const [sortedOrdbok, setSortedOrdbok] = useState(
@@ -49,7 +50,7 @@ function Ordbok({ ordbok }) {
       if (e.target.className === `${filterStyles.filterOpen} ${filterStyles.active}`) {
         return;
       }
-      if (e.target.className === "fa-solid fa-ellipsis") {
+      if (e.target.className === `${solid} ${ellipsis}`) {
         return;
       }
       setFilterPanelOpen(false);
@@ -120,7 +121,7 @@ function Ordbok({ ordbok }) {
             ref={panelRef}
             className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
             onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
-            <i className="fa-solid fa-ellipsis" />
+            <i className={`${solid} ${ellipsis}`} />
           </button>
         </div>
         <section

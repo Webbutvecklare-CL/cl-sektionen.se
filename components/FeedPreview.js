@@ -4,7 +4,6 @@ import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
 import { convertDate } from "../utils/convertDate";
 
-import { analytics } from "../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 
 import bg from "../public/media/img/Post_Placeholder.webp";
@@ -20,7 +19,9 @@ export default function FeedPreview({ posts }) {
           <div className={styles.postWrapper} key={post.id}>
             <Link
               href={`/aktuellt/${post.id}`}
-              onClick={() => {
+              onClick={async () => {
+                const { getAnalytics } = await import("../firebase/clientApp");
+                const analytics = await getAnalytics();
                 if (analytics) {
                   logEvent(analytics, "post_click", { page: window.location.pathname });
                 }

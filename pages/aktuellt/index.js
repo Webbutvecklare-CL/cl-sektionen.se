@@ -10,7 +10,16 @@ import FeedPreview from "../../components/FeedPreview";
 //Ändra dessa för att lägga till och ta bort tags
 import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 
-// import styles from "../../styles/aktuellt.module.css";
+import styles from "../../styles/aktuellt.module.css";
+import {
+  solid,
+  ellipsis,
+  filter,
+  arrowDownWideShort,
+  pencil,
+  tags,
+  calendarDays,
+} from "../../styles/fontawesome.module.css";
 import feed from "../../styles/feed-preview.module.css";
 
 const PUBLISHERS = [
@@ -121,7 +130,7 @@ export default function Aktuellt({ postList }) {
       if (e.target.className === "filter-knapp active") {
         return;
       }
-      if (e.target.className === "fa-solid fa-ellipsis") {
+      if (e.target.className === `${solid}  ${ellipsis}`) {
         return;
       }
       setfilterPanelOpen(false);
@@ -155,7 +164,7 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-filter" /> Inläggstyp
+          <i className={`${solid} ${filter}`} /> Inläggstyp
         </h3>
         <button
           className={`${type["information"] ? "selected" : ""}`}
@@ -178,7 +187,7 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-arrow-down-wide-short" /> Sortera
+          <i className={`${solid} ${arrowDownWideShort}`} /> Sortera
         </h3>
         <button className={sortNewestFirst ? "selected" : ""} onClick={() => toggleSort()}>
           Nyast först
@@ -191,7 +200,7 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-pencil" /> Publicerad av
+          <i className={`${solid} ${pencil}`} /> Publicerad av
         </h3>
         <select
           className="Committeepicker"
@@ -216,7 +225,7 @@ export default function Aktuellt({ postList }) {
     return (
       <div>
         <h3>
-          <i className="fa-solid fa-tags" /> Kategorier
+          <i className={`${solid} ${tags}`} /> Kategorier
         </h3>
         <div className="tag-container">
           <div className="tag-selector">
@@ -240,7 +249,7 @@ export default function Aktuellt({ postList }) {
     return (
       <div className="publiceringsdatum-wrapper">
         <h3>
-          <i className="fa-solid fa-calendar-days" /> Publiceringsdatum
+          <i className={`${solid} ${calendarDays}`} /> Publiceringsdatum
         </h3>
         <strong>Från&nbsp;</strong>
         <input
@@ -290,8 +299,10 @@ export default function Aktuellt({ postList }) {
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
-              onBlur={() => {
+              onBlur={async () => {
                 // När användaren lämnar sökrutan
+                const { getAnalytics } = await import("../../firebase/clientApp");
+                const analytics = await getAnalytics();
                 if (analytics) {
                   logEvent(analytics, "search", { search_term: search });
                 }
@@ -302,7 +313,7 @@ export default function Aktuellt({ postList }) {
               ref={panelref}
               className={`filter-knapp ${filterPanelOpen ? "active" : ""}`}
               onClick={() => setfilterPanelOpen(!filterPanelOpen)}>
-              <i className="fa-solid fa-ellipsis" />
+              <i className={`${solid}  ${ellipsis}`} />
             </button>
           </div>
 
