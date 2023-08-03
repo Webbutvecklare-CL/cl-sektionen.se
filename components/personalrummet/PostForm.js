@@ -12,15 +12,10 @@ import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 import { all_committees } from "../../constants/committees-data";
 
 import styles from "../../styles/personalrummet/publicera.module.css";
-import {
-  solid,
-  regular,
-  trashCan,
-  eye,
-  eyeSlash,
-  starOfLife,
-  rotate90,
-} from "../../styles/fontawesome.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan, faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { faStarOfLife } from "@fortawesome/free-solid-svg-icons";
 
 export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [title, setTitle] = useState(prefill.title);
@@ -266,8 +261,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             <div className="image-file">
               {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
               {image.name}{" "}
-              <i
-                className={`${regular} ${trashCan}`}
+              <FontAwesomeIcon
+                icon={faTrashCan}
                 onClick={() => setImage({ name: undefined, url: undefined })}
               />
             </div>
@@ -328,7 +323,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               <>
                 <label>
                   Kategorier:
-                  <i className={`${solid} ${starOfLife} ${rotate90} ${styles.required}`} />
+                  <FontAwesomeIcon icon={faStarOfLife} rotation={90} className={styles.required} />
                 </label>
                 <div className="tag-container">
                   <div className="tag-selector">
@@ -348,7 +343,11 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                     <div className="meeting-input">
                       <label>
                         Mötes nummer:
-                        <i className={`${solid} ${starOfLife} ${rotate90} ${styles.required}`} />
+                        <FontAwesomeIcon
+                          icon={faStarOfLife}
+                          rotation={90}
+                          className={styles.required}
+                        />
                       </label>
                       <input
                         required
@@ -444,7 +443,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               <div
                 className={`visibility-button ${visibility === "public" ? "active" : ""}`}
                 onClick={() => setVisibility(visibility === "public" ? "private" : "public")}>
-                <i className={`${regular} ${visibility !== "public" ? eyeSlash : eye}`} />
+                <FontAwesomeIcon icon={visibility !== "public" ? faEyeSlash : faEye} />
               </div>
               <p>
                 {visibility === "public"

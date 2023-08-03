@@ -1,14 +1,15 @@
-import { solid, starOfLife, rotate90 } from "../../../styles/fontawesome.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStarOfLife } from "@fortawesome/free-solid-svg-icons";
+
+import styles from "../../../styles/personalrummet/publicera.module.css";
 
 export default function Label({ children, required }) {
-  const RequiredStar = () => {
-    return <i className={`${solid} ${starOfLife} ${rotate90} required`} />;
-  };
-
   return (
     <label>
       {children}
-      {required ? <RequiredStar /> : ""}
+      {required && (
+        <FontAwesomeIcon icon={faStarOfLife} rotation={90} className={styles.required} />
+      )}
     </label>
   );
 }

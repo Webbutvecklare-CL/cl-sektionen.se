@@ -6,7 +6,9 @@ import { useEffect } from "react";
 import CustomHead from "../../components/CustomHead";
 
 import styles from "../../styles/mottagning/mottagning.module.css";
-import { solid, angleDown, angleUp } from "../../styles/fontawesome.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 import FeedItem from "../../components/mottagning/FeedItem";
 import NotificationBell from "../../components/NotificationBell";
@@ -107,7 +109,7 @@ export default function Mottagning({ loggedIn, _posts }) {
           onClick={() => setShowWelcometext(!showWelcometext)}>
           Visa
           {showWelcometext ? " mindre " : " mer "}
-          <i className={`${solid} ${showWelcometext ? angleUp : angleDown}`} />
+          <FontAwesomeIcon icon={showWelcometext ? faAngleUp : faAngleDown} />
         </button>
 
         {!showMenu && (

@@ -4,7 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 
 import styles from "../styles/valbara-kurser.module.css";
-import { solid, angleLeft, angleRight, angleDown, angleUp } from "../styles/fontawesome.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faAngleDown,
+  faAngleUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Valbarakurser({ contents, courses }) {
   const CommentCarousel = ({ comments }) => {
@@ -27,9 +34,9 @@ export default function Valbarakurser({ contents, courses }) {
 
     return (
       <div className={styles.commentWrapper}>
-        <i className={`${solid}  ${angleLeft}`} onClick={goLeft} />
+        <FontAwesomeIcon icon={faAngleLeft} onClick={goLeft} />
         <div className={styles.comment}>{comments[commentIdx]}</div>
-        <i className={`${solid}  ${angleRight}`} onClick={goRight} />
+        <FontAwesomeIcon icon={faAngleRight} onClick={goRight} />
       </div>
     );
   };
@@ -44,7 +51,7 @@ export default function Valbarakurser({ contents, courses }) {
             setShowDetails(!showDetails);
           }}>
           {course.id} | {course.name}{" "}
-          <i className={`${solid}  ${showDetails ? angleUp : angleDown}`} />
+          <FontAwesomeIcon icon={showDetails ? faAngleUp : faAngleDown} />
         </div>
         <div className={styles.detailsWrapper}>
           <div style={{ overflow: "hidden" }}>

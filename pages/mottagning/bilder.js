@@ -2,7 +2,9 @@ import CustomHead from "../../components/CustomHead";
 import BackButton from "../../components/BackButton";
 import Card from "../../components/Card";
 import styles from "../../styles/mottagning/mottagning.module.css";
-import { regular, image } from "../../styles/fontawesome.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImage } from "@fortawesome/free-regular-svg-icons";
 
 export default function Bilder() {
   return (
@@ -26,37 +28,37 @@ export default function Bilder() {
             <h2>Första veckan v.33</h2>
             <div className={styles.cardList}>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Måndag, 2023-08-14
+                <FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-14
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Tisdag, 2023-08-15
+                <FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-15
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Onsdag, 2023-08-16
+                <FontAwesomeIcon icon={faImage} /> Onsdag, 2023-08-16
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Torsdag, 2023-08-17
+                <FontAwesomeIcon icon={faImage} /> Torsdag, 2023-08-17
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Fredag, 2023-08-18
+                <FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-18
               </Card>
             </div>
             <h2>Andra veckan v.34</h2>
             <div className={styles.cardList}>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Måndag, 2023-08-21
+                <FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-21
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Tisdag, 2023-08-22
+                <FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-22
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Onsdag, 2023-08-23
+                <FontAwesomeIcon icon={faImage} /> Onsdag, 2023-08-23
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Torsdag, 2023-08-24
+                <FontAwesomeIcon icon={faImage} /> Torsdag, 2023-08-24
               </Card>
               <Card link={""}>
-                <i className={`${regular} ${image}`} /> Fredag, 2023-08-25
+                <FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-25
               </Card>
             </div>
           </div>

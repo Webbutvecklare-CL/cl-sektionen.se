@@ -217,7 +217,7 @@
   margin: 2rem 0rem;
 }
 
-.imageFile i {
+.imageFile svg {
   margin-left: 1rem;
   cursor: pointer;
 }

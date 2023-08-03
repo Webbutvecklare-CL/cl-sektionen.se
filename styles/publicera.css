@@ -16,7 +16,7 @@
     box-shadow: none;
   }
 
-  .tag-selector {
+  .create .tag-selector {
     background-color: #fff !important;
   }
 }
@@ -223,12 +223,16 @@
   margin: 2rem 0rem;
 }
 
-.create .image-file i {
-  margin-left: 1rem;
+.create .image-file svg {
+  margin-left: 0.5rem;
   cursor: pointer;
 }
 
-.create i.required {
+.create .image-file svg:hover {
+  color: var(--clr4);
+}
+
+.create svg.required {
   color: var(--clr1);
   margin-left: 0.2rem;
   scale: 70%;
@@ -277,11 +281,11 @@
   border: 2px solid var(--clr2);
 }
 
-.create .visibility-input .visibility-button i {
+.create .visibility-input .visibility-button svg {
   width: 30px;
 }
 
-.create .visibility-input .visibility-button:hover i {
+.create .visibility-input .visibility-button:hover svg {
   transform: scale(1.2);
 }
 

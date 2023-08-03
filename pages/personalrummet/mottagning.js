@@ -21,7 +21,10 @@ import Modal from "../../components/Modal";
 
 import styles from "../../styles/personalrummet/mottagning.module.css";
 import { feed as feed_style } from "../../styles/mottagning/mottagning.module.css";
-import { solid, regular, trashCan, pen } from "../../styles/fontawesome.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 export default function Mottagning() {
   const [title, setTitle] = useState("");
@@ -261,13 +264,13 @@ export default function Mottagning() {
                 onClick={() => {
                   editPost(item);
                 }}>
-                <i className={`${solid} ${pen}`} />
+                <FontAwesomeIcon icon={faPen} />
               </span>
               <span
                 onClick={() => {
                   deletePost(item.id);
                 }}>
-                <i className={`${regular} ${trashCan}`} />
+                <FontAwesomeIcon icon={faTrashCan} />
               </span>
             </div>
             <FeedItem item={item} key={index} />
