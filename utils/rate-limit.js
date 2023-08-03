@@ -4,7 +4,7 @@ import LRU from "lru-cache";
 export default function rateLimit(options) {
   const tokenCache = new LRU({
     max: options?.uniqueTokenPerInterval || 500,
-    ttl: options?.interval || 60000,
+    maxAge: options?.interval || 60000,
   });
 
   return {
