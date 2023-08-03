@@ -151,6 +151,6 @@ Inget du kan förbereda dig på samma sätt till, men det är bra att ha åldern
 
 Något som förvånade mig kraftigt efter hur van jag blivit med hur det är på KTH var bristen av mikrovågsugnar på campus. Efter att ha frågat runt så lyckades jag hitta 2 stycken på hela campus! Den ena var i ett öppet lärarrum i keramik-byggnaden, och den andra var i samhällsbyggs-byggnaden, 2 våningar under marken. Som tur var hade jag lyckats designa mitt schema så att jag alltid började efter lunch eller slutade före, så jag löste det genom att äta hemma bara.
 
-Det är klokt att ha med sig lite kontanter, iallafall på nya platser. Ibland behövs det för att komma in på barer, och att ha som backup ifall ens kort skulle fungera - vilket hände mig strax efter landning när vi skulle köpa mat och tågbiljett i Chicago. Min boendedeposition var också bara i kontanter.
+Det är klokt att ha med sig lite kontanter, iallafall på nya platser. Ibland behövs det för att komma in på barer, och att ha som backup ifall ens kort inte skulle fungera - vilket hände mig strax efter landning när vi skulle köpa mat och tågbiljett i Chicago. Min boendedeposition var också bara i kontanter.
 
 Sist vill jag nog bara säga att ifall du är intresserad av att åka på utbyte så tycker jag att du borde! Jag kände mig väldigt självständig tiden jag var borta, och det var många saker som jag fick lösa på egen hand. Att jag växt som person från att ha varit borta en termin är det ingen tvekan om.

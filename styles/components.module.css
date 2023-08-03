@@ -103,7 +103,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--clr5); /* Av */
+  background: rgb(200, 200, 200); /* Av */
   padding: 5%;
   transition: 0.3s;
   border-radius: 0.75rem; /* Halva höjden */

@@ -19,6 +19,8 @@ function HideDate(currentMonth) {
   return true;
 }
 
+// 2023-08-04, Tar bort alternativet för fulltext-search då jag inte har hunnit göra klart det. -Armin
+
 export default function Sangbok({ sånger, index }) {
   const [sortedSongs, setSortedSongs] = useState(
     [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
@@ -234,7 +236,7 @@ export default function Sangbok({ sånger, index }) {
                   />
                   <span className={filterStyles.filterOption}>Sortera på kategori</span>
                 </label>
-                <label>
+                {/* <label>
                   <input
                     type="checkbox"
                     name="filters"
@@ -245,7 +247,7 @@ export default function Sangbok({ sånger, index }) {
                   <span className={filterStyles.filterOption}>
                     Sök i sångtext <i>(experimentell!)</i>
                   </span>
-                </label>
+                </label> */}
               </div>
             </section>
           </div>
