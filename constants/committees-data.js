@@ -1,107 +1,106 @@
 import {
-  solid,
-  gavel,
-  book,
-  sackDollar,
-  heart,
-  appleWhole,
-  personRunning,
-  house,
-  wineGlass,
-  fishFins,
-  scaleBalanced,
-  flag,
-  section,
-  otter,
-  dice,
-  masksTheater,
-  arrowTrendUp,
-} from "../styles/fontawesome.module.css";
+  faGavel,
+  faBook,
+  faSackDollar,
+  faHeart,
+  faAppleWhole,
+  faPersonRunning,
+  faHouse,
+  faWineGlass,
+  faFishFins,
+  faScaleBalanced,
+  faFlag,
+  faSection,
+  faOtter,
+  faDice,
+  faMasksTheater,
+  faArrowTrendUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 const board = {
   name: "CtyreLsen",
-  icon: `${solid} ${gavel}`,
+  icon: faGavel,
   id: "ctyrelsen",
 };
 
 const committees = [
   {
     name: "Studienämnden",
-    icon: `${solid} ${book}`,
+    icon: faBook,
     id: "studienamnden",
   },
   {
     name: "Näringslivsnämnden",
-    icon: `${solid} ${sackDollar}`,
+    icon: faSackDollar,
     id: "naringslivsnamnden",
   },
   {
     name: "Mottagningsnämnden",
-    icon: `${solid} ${heart}`,
+    icon: faHeart,
     id: "mottagningsnamnden",
   },
   {
     name: "JML-nämnden",
-    icon: `${solid} ${appleWhole}`,
+    icon: faAppleWhole,
     id: "jml-namnden",
   },
   {
     name: "Aktivitetsnämnden",
-    icon: `${solid} ${personRunning}`,
+    icon: faPersonRunning,
     id: "aktivitetsnamnden",
   },
   {
     name: "Lokalnämnden",
-    icon: `${solid} ${house}`,
+    icon: faHouse,
     id: "lokalnamnden",
   },
   {
     name: "CLubWästeriet",
-    icon: `${solid} ${wineGlass}`,
+    icon: faWineGlass,
     id: "clw",
   },
   {
     name: "Valberedningen",
-    icon: `${solid} ${fishFins}`,
+    icon: faFishFins,
     id: "valberedningen",
   },
 ];
 const trustees = [
   {
     name: "Revisorer",
-    icon: `${solid} ${scaleBalanced}`,
+    icon: faScaleBalanced,
     id: "revisorer",
   },
   {
     name: "Fanborg",
-    icon: `${solid} ${flag}`,
+    icon: faFlag,
     id: "fanborg",
   },
   {
     name: "Kårfullmäktigedelegation",
-    icon: `${solid} ${section}`,
+    icon: faSection,
     id: "kf",
   },
   {
     name: "Enskilda",
-    icon: `${solid} ${otter}`,
+    icon: faOtter,
     id: "enskilda",
   },
 ];
 const associations = [
   {
     name: "CLek",
-    icon: `${solid} ${dice}`,
+    icon: faDice,
     id: "clek",
   },
   {
     name: "Dubbelspexet",
-    icon: `${solid} ${masksTheater}`,
+    icon: faMasksTheater,
     id: "dubbelspexet",
   },
   {
     name: "CLak",
-    icon: `${solid} ${arrowTrendUp}`,
+    icon: faArrowTrendUp,
     id: "clak",
   },
 ];

@@ -1,4 +1,4 @@
-.förtroendevalda_wrapper {
+.fortroendevaldaWrapper {
   padding-top: 2rem;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -6,40 +6,40 @@
   column-gap: 1rem;
 }
 
-.nämnder_nav {
+.committeeNav {
   background-color: rgb(247, 247, 247);
   max-width: fit-content;
   border-radius: 0.3rem;
   overflow: hidden;
 }
 
-.nämnder_nav h2 {
+.committeeNav h2 {
   padding-left: 1rem;
 }
 
-.nämnder_nav ul {
+.committeeNav ul {
   list-style-type: none;
   padding-inline-start: 0;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.nämnder_nav ul li {
+.committeeNav ul li {
   padding: 0.5rem 1rem 0.5rem 1.4rem;
   font-size: 1.3rem;
 }
 
-.nämnder_nav ul li:hover {
+.committeeNav ul li:hover {
   transform: scale(106%);
   transition: 0.1s;
   background-color: rgb(211, 211, 211);
 }
 
-#förtroendevalda_content {
+#fortroendevaldaContent {
   scroll-margin-top: 75px;
 }
 
-#förtroendevalda_content h1 {
+#fortroendevaldaContent h1 {
   color: var(--clr5);
   margin-top: 0;
 }
@@ -52,17 +52,17 @@
   color: black;
 }
 
-.nämnder_nav li i {
+.committeeNav li svg {
   width: 1.6rem;
 }
 
-.nämnder_nav .active {
+.committeeNav .active {
   text-align: center;
   background-color: var(--clr4) !important;
   color: white;
 }
 
-.mandat_period {
+.mandatePeriod {
   display: block;
   color: grey;
   font-size: 1.1rem;
@@ -70,13 +70,13 @@
 }
 
 @media screen and (max-width: 650px) {
-  .förtroendevalda_wrapper {
+  .fortroendevaldaWrapper {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     row-gap: 1rem;
   }
 
-  .nämnder_nav {
+  .committeeNav {
     max-width: 100%;
   }
 }

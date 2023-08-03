@@ -1,5 +1,7 @@
 import MarkdownRender from "./MarkdownRender";
 
+import styles from "../styles/fortroendevalda.module.css";
+
 export default function CommitteeInfo({ committee, description, contact }) {
   const mandatperioder = {
     "ctyrelsen": ["Mandatperiod 2023.01.01 - 2023.12.31"],
@@ -28,14 +30,14 @@ export default function CommitteeInfo({ committee, description, contact }) {
       <MarkdownRender mdData={description} />
       {mandatperioder[committee].map((period, idx) => {
         return (
-          <span className="mandat_period" key={idx}>
+          <span className={styles.mandatePeriod} key={idx}>
             {period}
           </span>
         );
       })}
       <br />
-      <section className="nämnd_namnochkontakt">
-        <div className="poster">
+      <section>
+        <div className={styles.poster}>
           {contact.trustees.map((trustee, idx) => {
             return (
               <p key={idx}>
