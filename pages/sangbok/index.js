@@ -7,7 +7,7 @@ import TextHighlighter from "../../components/Highlighter";
 
 import styles from "../../styles/sangbok.module.css";
 import filterStyles from "../../styles/filter-panel.module.css";
-import { solid, ellipsis, volumeXmark } from "../../styles/fontawesome.module.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
@@ -20,7 +20,6 @@ function HideDate(currentMonth) {
 }
 
 export default function Sangbok({ sånger, index }) {
-  const [musicPlaying, setMusicPlaying] = useState(false);
   const [sortedSongs, setSortedSongs] = useState(
     [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
   );
@@ -154,10 +153,9 @@ export default function Sangbok({ sånger, index }) {
           </p>
         </div>
 
-        <div className={styles.songbookWrapper} ref={panelRef}>
-          <div className={filterStyles.panelWrapper}>
-            <div
-              className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
+        <div className={styles.songbookWrapper}>
+          <div className={filterStyles.panelWrapper} ref={panelRef}>
+            <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
               <input
                 type="text"
                 placeholder="Sök efter inlägg..."
@@ -181,8 +179,10 @@ export default function Sangbok({ sånger, index }) {
                 className={`${filterStyles.filterOpen} ${
                   filterPanelOpen ? filterStyles.active : ""
                 }`}
-                onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
-                <FontAwesomeIcon icon={faEllipsis} className="buttonIcon" />
+                onClick={() => {
+                  setFilterPanelOpen(!filterPanelOpen);
+                }}>
+                <FontAwesomeIcon icon={faEllipsis} />
               </button>
               {audio && (
                 <button
@@ -197,7 +197,7 @@ export default function Sangbok({ sånger, index }) {
             </div>
 
             <section
-              className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
+              className={`${filterStyles.panel} ${
                 filterPanelOpen ? filterStyles.open : filterStyles.collapsed
               }`}>
               <div className={filterStyles.innerWrapper}>

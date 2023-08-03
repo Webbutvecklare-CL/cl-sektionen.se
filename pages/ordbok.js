@@ -94,7 +94,7 @@ function Ordbok({ ordbok }) {
       </div>
       <div className={styles.ordbokWrapper}>
         <div className={filterStyles.panelWrapper} ref={panelRef}>
-          <div className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
+          <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
             <input
               type="text"
               placeholder="Sök efter inlägg..."
@@ -113,7 +113,7 @@ function Ordbok({ ordbok }) {
             </button>
           </div>
           <section
-            className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
+            className={`${filterStyles.panel} ${
               filterPanelOpen ? filterStyles.open : filterStyles.collapsed
             }`}>
             <div className={filterStyles.innerWrapper}>

@@ -12,80 +12,6 @@
   gap: 0.5rem;
 }
 
-.filter-knapp,
-.filterPanel.mobile {
-  display: none;
-}
-
-.filterPanel {
-  background-color: #fefefe;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 0.2rem;
-}
-
-.filterPanel.open {
-  overflow: hidden;
-  max-height: 1500px;
-  transition: max-height 0.35s ease-in-out;
-}
-
-.filterPanel.collapsed {
-  max-height: 0;
-  transition: max-height 0.15s ease-out;
-  overflow: hidden;
-}
-
-.filterPanel.wide {
-  border-radius: 0.3rem;
-  height: fit-content;
-  padding: 0 0.5rem 0 0.5rem;
-}
-
-.filterPanel button {
-  background-color: #888;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
-  padding: 0.4rem;
-  margin: 0.2rem;
-}
-
-.filterPanel button.selected {
-  background-color: var(--clr3);
-}
-
-.publiceringsdatum-wrapper {
-  margin-bottom: 1rem;
-}
-
-.filterPanel .datepicker {
-  box-sizing: content-box;
-  display: inline-block;
-  font-size: 0.9rem;
-  border-radius: 0.3rem;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-  padding: 0.3rem;
-  width: 100px;
-}
-
-.filterPanel .Committeepicker {
-  font-family: inherit;
-  font-size: 1rem;
-  border-radius: 0.3rem;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid lightgray;
-  background-color: #fff;
-  padding: 0.3rem;
-}
-
-.filterPanel i {
-  font-size: 1rem;
-}
-
-.filterPanel h2 {
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
 button.tag {
   padding: 0.3rem !important;
 }
@@ -113,62 +39,8 @@ button.tag {
     margin-top: 2rem;
   }
 
-  .filterPanel.wide {
-    display: none;
-  }
-
-  .filter-knapp {
-    display: block;
-    color: #c0c0c0;
-    padding-top: calc(0.45rem - 1px);
-    padding-bottom: calc(0.45rem - 1px);
-    font-size: 1.5rem;
-    box-shadow: none;
-    background-color: #fefefe;
-    border-radius: 0;
-  }
-
-  .filter-knapp:hover {
-    color: #fff;
-    background-color: var(--clr2);
-  }
-
-  .filter-knapp.active {
-    color: #fff;
-    background-color: var(--clr4);
-  }
-
-  .filterPanel.mobile {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem 0 0.5rem 0;
-    padding: 0 0.5rem 0 0.5rem;
-    width: calc(100% - 1rem);
-  }
-
-  .typ_o_sort_wrapper {
-    display: grid;
-    grid-template-columns: 155px 1fr;
-    gap: 0.5rem;
-    justify-items: start;
-  }
-
-  .date_and_committee_wrapper {
-    display: grid;
-    grid-template-columns: 155px 1fr;
-    justify-items: start;
-    gap: 1rem;
-  }
-
   .posts {
     margin-top: 0;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .date_and_committee_wrapper {
-    grid-template-columns: 1fr;
-    grid-template-rows: 120px 100px;
   }
 }
 
