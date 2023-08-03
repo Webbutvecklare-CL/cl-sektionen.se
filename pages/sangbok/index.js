@@ -20,6 +20,7 @@ function HideDate(currentMonth) {
 }
 
 export default function Sangbok({ sånger, index }) {
+  const [musicPlaying, setMusicPlaying] = useState(false);
   const [sortedSongs, setSortedSongs] = useState(
     [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
   );
@@ -94,22 +95,10 @@ export default function Sangbok({ sånger, index }) {
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
-      if (panelRef.current.contains(e.target)) {
-        return;
+      const clickOnPanel = e.composedPath().includes(panelRef.current);
+      if (!clickOnPanel) {
+        setFilterPanelOpen(false);
       }
-      if (e.target.className === filterStyles.panel + " mobile") {
-        return;
-      }
-      if (e.target.className === "searchbar") {
-        return;
-      }
-      if (e.target.className === `${styles.songbookFilterButton} ${styles.active}`) {
-        return;
-      }
-      if (e.target.className === `${solid}  ${ellipsis}`) {
-        return;
-      }
-      setFilterPanelOpen(false);
     };
 
     document.addEventListener("mousedown", panelCloseHandler);
@@ -136,23 +125,16 @@ export default function Sangbok({ sånger, index }) {
     );
   };
 
-  var audio;
+  const [audio, setAudio] = useState(null);
   const playSong = () => {
     if (audio) {
       audio.pause();
-      const btn = document.querySelector(".muteButton");
-      if (btn) btn.remove();
+      setAudio(null);
+      return;
     }
-    audio = new Audio("/media/ljud/Rick Astley - Never Gonna Give You Up.mp3");
-    audio.play();
-    const muteButton = document.createElement("button");
-    muteButton.addEventListener("click", (e) => {
-      audio.pause();
-      muteButton.remove();
-    });
-    muteButton.classList.add("muteButton");
-    muteButton.innerHTML = `<i class="${solid} ${volumeXmark}"/>`;
-    document.querySelector("div.inputfält").appendChild(muteButton);
+    const newAudio = new Audio("/media/ljud/Rick Astley - Never Gonna Give You Up.mp3");
+    setAudio(newAudio);
+    newAudio.play();
   };
 
   return (
@@ -172,89 +154,101 @@ export default function Sangbok({ sånger, index }) {
           </p>
         </div>
 
-        <div className={styles.songbookWrapper}>
-          <div className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
-            <input
-              ref={panelRef}
-              type="text"
-              placeholder="Sök efter inlägg..."
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-              onBlur={async () => {
-                // När användaren lämnar sökrutan
-                const { getAnalytics } = await import("../../firebase/clientApp");
-                const analytics = await getAnalytics();
-                if (analytics) {
-                  logEvent(analytics, "search", { search_term: search });
-                }
-                if (["never gonna give you up", "spela en låt"].includes(search.toLowerCase())) {
-                  playSong();
-                }
-              }}
-              className="searchbar"
-            />
-            <button
-              ref={panelRef}
-              className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
-              onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
-              <i className={`${solid}  ${ellipsis}`} />
-            </button>
-          </div>
-
-          <section
-            ref={panelRef}
-            className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
-              filterPanelOpen ? filterStyles.open : filterStyles.collapsed
-            }`}>
-            <div className={filterStyles.innerWrapper}>
-              <label>
-                <input
-                  type="radio"
-                  name="filters"
-                  value="pageNr"
-                  checked={sort === "pageNr"}
-                  onChange={(e) => sortBy(e)}
-                  className={filterStyles.filterInput}
-                />
-                <span className={filterStyles.filterOption}>Sortera på sidnummer</span>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="filters"
-                  value="alphabetical"
-                  checked={sort === "alphabetical"}
-                  onChange={(e) => sortBy(e)}
-                  className={filterStyles.filterInput}
-                />
-                <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="filters"
-                  value="category"
-                  checked={sort === "category"}
-                  onChange={(e) => sortBy(e)}
-                  className={filterStyles.filterInput}
-                />
-                <span className={filterStyles.filterOption}>Sortera på kategori</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="filters"
-                  checked={searchFullText}
-                  onChange={() => setSearchFullText(!searchFullText)}
-                  className={filterStyles.filterInput}
-                />
-                <span className={filterStyles.filterOption}>
-                  Sök i sångtext <i>(experimentell!)</i>
-                </span>
-              </label>
+        <div className={styles.songbookWrapper} ref={panelRef}>
+          <div className={filterStyles.panelWrapper}>
+            <div
+              className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
+              <input
+                type="text"
+                placeholder="Sök efter inlägg..."
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                onBlur={async () => {
+                  // När användaren lämnar sökrutan
+                  const { getAnalytics } = await import("../../firebase/clientApp");
+                  const analytics = await getAnalytics();
+                  if (analytics) {
+                    logEvent(analytics, "search", { search_term: search });
+                  }
+                  if (["never gonna give you up", "spela en låt"].includes(search.toLowerCase())) {
+                    playSong();
+                  }
+                }}
+                className="searchbar"
+              />
+              <button
+                className={`${filterStyles.filterOpen} ${
+                  filterPanelOpen ? filterStyles.active : ""
+                }`}
+                onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
+                <FontAwesomeIcon icon={faEllipsis} className="buttonIcon" />
+              </button>
+              {audio && (
+                <button
+                  className="muteButton"
+                  onClick={() => {
+                    audio.pause();
+                    setAudio(null);
+                  }}>
+                  <FontAwesomeIcon icon={faVolumeMute} size="sm" />
+                </button>
+              )}
             </div>
-          </section>
+
+            <section
+              className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
+                filterPanelOpen ? filterStyles.open : filterStyles.collapsed
+              }`}>
+              <div className={filterStyles.innerWrapper}>
+                <label>
+                  <input
+                    type="radio"
+                    name="filters"
+                    value="pageNr"
+                    checked={sort === "pageNr"}
+                    onChange={(e) => sortBy(e)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>Sortera på sidnummer</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="filters"
+                    value="alphabetical"
+                    checked={sort === "alphabetical"}
+                    onChange={(e) => sortBy(e)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="filters"
+                    value="category"
+                    checked={sort === "category"}
+                    onChange={(e) => sortBy(e)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>Sortera på kategori</span>
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="filters"
+                    checked={searchFullText}
+                    onChange={() => setSearchFullText(!searchFullText)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>
+                    Sök i sångtext <i>(experimentell!)</i>
+                  </span>
+                </label>
+              </div>
+            </section>
+          </div>
 
           <div>
             {sortedSongs

@@ -1,3 +1,7 @@
+.panelWrapper {
+  display: block;
+}
+
 .panel {
   display: grid;
   background-color: #fefefe;
@@ -34,8 +38,12 @@
   border-radius: 0;
 }
 
+.smallPanel .filterOpen:hover {
+  color: white;
+}
+
 .smallPanel .filterOpen.active {
-  color: #fff;
+  color: white;
   background-color: var(--clr4);
 }
 

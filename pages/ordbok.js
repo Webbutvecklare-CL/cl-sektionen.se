@@ -3,9 +3,10 @@ import TextHighlighter from "../components/Highlighter";
 import { readFileSync } from "fs";
 
 import styles from "../styles/ordbok.module.css";
-import songStyles from "../styles/sangbok.module.css";
 import filterStyles from "../styles/filter-panel.module.css";
-import { solid, ellipsis } from "../styles/fontawesome.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 function Ordbok({ ordbok }) {
   const [sortedOrdbok, setSortedOrdbok] = useState(
@@ -17,7 +18,6 @@ function Ordbok({ ordbok }) {
 
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [fokusSearchBar, setFokusSearchBar] = useState(false);
-  const panelRef = useRef();
 
   const sortBy = (e) => {
     setSort(e.target.value);
@@ -35,32 +35,21 @@ function Ordbok({ ordbok }) {
     }
   }, [ordbok, sort]);
 
+  const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
-      if (panelRef.current.contains(e.target)) {
-        return;
+      const clickOnPanel = e.composedPath().includes(panelRef.current);
+      if (!clickOnPanel) {
+        setFilterPanelOpen(false);
       }
-      if (e.target.className === filterStyles.panel + " mobile") {
-        return;
-      }
-      if (e.target.className === "searchbar") {
-        return;
-      }
-      if (e.target.className === `${filterStyles.filterOpen} ${filterStyles.active}`) {
-        return;
-      }
-      if (e.target.className === `${solid} ${ellipsis}`) {
-        return;
-      }
-      setFilterPanelOpen(false);
     };
 
     document.addEventListener("mousedown", panelCloseHandler);
     return () => {
       document.removeEventListener("mousedown", panelCloseHandler);
     };
-  }, []);
+  });
 
   useEffect(() => {
     let focusSearchHandler = (e) => {
@@ -104,56 +93,55 @@ function Ordbok({ ordbok }) {
         </p>
       </div>
       <div className={styles.ordbokWrapper}>
-        <div className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
-          <input
-            ref={panelRef}
-            type="text"
-            placeholder="Sök efter inlägg..."
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            onBlur={() => {
-              // När användaren lämnar sökrutan
-            }}
-            className="searchbar"
-          />
-          <button
-            ref={panelRef}
-            className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
-            onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
-            <i className={`${solid} ${ellipsis}`} />
-          </button>
-        </div>
-        <section
-          ref={panelRef}
-          className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
-            filterPanelOpen ? filterStyles.open : filterStyles.collapsed
-          }`}>
-          <div className={filterStyles.innerWrapper}>
-            <label>
-              <input
-                type="radio"
-                name="filters"
-                value="alphabetical"
-                checked={sort === "alphabetical"}
-                onChange={(e) => sortBy(e)}
-                className={filterStyles.filterInput}
-              />
-              <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="filters"
-                value="category"
-                checked={sort === "category"}
-                onChange={(e) => sortBy(e)}
-                className={filterStyles.filterInput}
-              />
-              <span className={filterStyles.filterOption}>Sortera på kategori</span>
-            </label>
+        <div className={filterStyles.panelWrapper} ref={panelRef}>
+          <div className={`inputfält ${fokusSearchBar ? "active" : ""} ${filterStyles.smallPanel}`}>
+            <input
+              type="text"
+              placeholder="Sök efter inlägg..."
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              onBlur={() => {
+                // När användaren lämnar sökrutan
+              }}
+              className="searchbar"
+            />
+            <button
+              className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
+              onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
+              <FontAwesomeIcon icon={faEllipsis} className="buttonIcon" />
+            </button>
           </div>
-        </section>
+          <section
+            className={`${filterStyles.smallPanel} ${filterStyles.panel} ${
+              filterPanelOpen ? filterStyles.open : filterStyles.collapsed
+            }`}>
+            <div className={filterStyles.innerWrapper}>
+              <label>
+                <input
+                  type="radio"
+                  name="filters"
+                  value="alphabetical"
+                  checked={sort === "alphabetical"}
+                  onChange={(e) => sortBy(e)}
+                  className={filterStyles.filterInput}
+                />
+                <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="filters"
+                  value="category"
+                  checked={sort === "category"}
+                  onChange={(e) => sortBy(e)}
+                  className={filterStyles.filterInput}
+                />
+                <span className={filterStyles.filterOption}>Sortera på kategori</span>
+              </label>
+            </div>
+          </section>
+        </div>
 
         {sortedOrdbok
           .filter(
