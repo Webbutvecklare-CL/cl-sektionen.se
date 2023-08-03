@@ -58,7 +58,7 @@ export default function Mottagning({ loggedIn, _posts }) {
       if (res.status === 429) {
         setError("För många försök, försök igen senare");
       } else if (res.status === 401) {
-        setError("Fel lösenord");
+        setError(`Fel lösenord! Du har ${res.headers.get("X-RateLimit-Remaining")} försök kvar.`);
       } else {
         console.log(res);
         setError("Något gick fel");
