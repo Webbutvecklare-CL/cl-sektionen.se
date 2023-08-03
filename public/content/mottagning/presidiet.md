@@ -2,7 +2,7 @@
 
 Presidiet är ytterst ansvariga för CL-sektionens mottagning.
 
-### Mottagningsansvarig - Oskar Ekström
+### Mottagningsansvarig - Oscar Ekström
 
 Tel: 070 882 08 23  
 Mail: mottagningen@cl-sektionen.se
