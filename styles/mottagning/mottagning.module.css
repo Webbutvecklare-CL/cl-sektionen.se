@@ -185,7 +185,7 @@
 
   .welcomePanel {
     display: grid;
-    grid-template-rows: 0.5fr;
+    grid-template-rows: 0.6fr;
     transition: grid-template-rows 200ms;
     margin-bottom: -2rem; /*GIGA JANK*/
   }
@@ -208,7 +208,7 @@
     height: 100%;
     width: 100%;
     content: "";
-    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 170%);
+    background: linear-gradient(to top, rgba(250, 250, 250, 1) 10%, rgba(250, 250, 250, .2) 150%);
     pointer-events: none;
   }
 
