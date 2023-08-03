@@ -15,10 +15,6 @@ config.autoAddCss = false;
 import dynamic from "next/dynamic";
 const { Analytics } = dynamic(() => import("@vercel/analytics/react"), { ssr: false });
 
-// Firebase
-import { doc, updateDoc } from "firebase/firestore";
-import { getFCMToken } from "../firebase/messaging"; // Filen
-
 // React
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -226,6 +222,7 @@ async function updateTokenData(fcmTokenData) {
 
   if (old) {
     // Kolla om den lagrade token är samma som om en ny hämtas
+    const { getFCMToken } = await import("../firebase/messaging");
     const newToken = await getFCMToken();
 
     if (newToken !== fcmTokenData.token) {
@@ -237,6 +234,7 @@ async function updateTokenData(fcmTokenData) {
     // Uppdatera tokenData på firebase
     try {
       const { firestore } = await import("../firebase/clientApp");
+      const { doc, updateDoc } = await import("firebase/firestore");
       const token = fcmTokenData.token;
       const fcmTokensRef = doc(firestore, `fcmTokens/all`);
       await updateDoc(fcmTokensRef, { [token]: fcmTokenData }, { merge: true });
