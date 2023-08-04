@@ -1,29 +1,4 @@
-/* Aktuellt feed */
-
 /* Post preview dvs varje länk */
-.post-wrapper {
-  padding: 5px !important;
-  border-radius: 0.1rem !important;
-  background-color: white;
-  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden !important;
-  transition: 0.1s ease-in-out;
-  height: 100px;
-}
-
-.post-wrapper:hover,
-.post-wrapper:focus {
-  overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    rgb(255, 235, 235) 10%,
-    rgba(255, 255, 255, 1) 45%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  transform: scale(1) translateY(-20px);
-  transition: 0.1s ease-in-out;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
-}
 
 .post-preview {
   height: 100%;
@@ -73,106 +48,6 @@
   margin-top: 0px;
 }
 
-.feed-preview * {
-  text-decoration: none;
-  border-radius: 0.1rem !important;
-}
-
-.feed-preview .post-preview {
-  margin: 0;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
-  gap: 0 0.5rem;
-  grid-template-areas:
-    "image meta"
-    "image content";
-}
-
-.feed-preview div.image {
-  width: 120px;
-  height: 100%;
-  grid-area: image;
-  /* overflow: hidden; */
-}
-
-.feed-preview div.image img {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.feed-preview .post-meta {
-  grid-area: meta;
-  overflow: hidden;
-  color: black;
-  gap: 0.5rem;
-  width: 100%;
-  height: 50px;
-}
-
-.feed-preview .post-meta div {
-  gap: 0.5rem;
-}
-
-.feed-preview .post-meta p {
-  padding: 0px;
-  margin: 0px;
-  padding-top: 0.3rem;
-  font-size: 1rem;
-}
-
-.feed-preview .post-content {
-  grid-area: content;
-  height: 100%;
-}
-
-.feed-preview .post-preview h2 {
-  margin-top: 0;
-  font-size: 1.2rem;
-  display: -webkit-box;
-  overflow: hidden;
-  white-space: nowrap;
-  max-width: 30rem;
-}
-
-.feed-preview p.subtitle {
-  font-size: 1rem;
-  display: inline;
-}
-
-.feed-preview .post-preview .subtitle {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-}
-
-.feed-preview .post-preview .body p {
-  all: unset;
-  width: 100%;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  color: #1d1d1f;
-  font-size: 1rem;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-}
-
-.feed-preview .post-preview .body strong {
-  color: #1d1d1f;
-}
-
-.aktuellt_innehåll .feed-preview {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 110px);
-  gap: 0.5rem;
-}
-
 @media screen and (max-width: 550px) {
   .feed-preview .post-preview {
     width: 100% - 3rem;
@@ -180,21 +55,4 @@
       "image meta"
       "image content";
   }
-}
-
-.feed-preview .post-wrapper * {
-  transition: all 0.1s;
-  -webkit-transition: all 0.1s;
-}
-
-.feed-preview .post-wrapper:hover {
-  height: 150px;
-}
-
-.feed-preview .post-wrapper:hover .image {
-  height: 100%;
-}
-
-.feed-preview .post-wrapper:hover .post-content .body p {
-  -webkit-line-clamp: 3;
 }

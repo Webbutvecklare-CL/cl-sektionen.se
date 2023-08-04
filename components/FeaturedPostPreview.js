@@ -5,6 +5,8 @@ import Image from "next/image";
 import { convertDate } from "../utils/convertDate";
 import bg from "../public/media/img/KTHcover.jpg";
 
+import feedStyles from "../styles/feed-preview.module.css";
+
 import { logEvent } from "firebase/analytics";
 
 export default function FeaturedPostPreview({ post }) {
