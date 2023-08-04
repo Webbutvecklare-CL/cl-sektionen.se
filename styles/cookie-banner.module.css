@@ -26,6 +26,7 @@
 
 .button {
   white-space: nowrap;
+  justify-content: center;
 }
 
 .button:last-child {
@@ -58,7 +59,7 @@
   align-items: center;
 }
 
-.close i {
+.close svg {
   transform: scale(0.7);
 }
 
