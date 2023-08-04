@@ -9,11 +9,12 @@ import FeedPreview from "../../components/FeedPreview";
 
 //Ändra dessa för att lägga till och ta bort tags
 import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
+import { all_committees } from "../../constants/committees-data";
 
 import styles from "../../styles/aktuellt.module.css";
 import feed from "../../styles/feed-preview.module.css";
-
 import filterStyles from "../../styles/filter-panel.module.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEllipsis,
@@ -23,27 +24,6 @@ import {
   faTags,
   faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
-
-const PUBLISHERS = [
-  "CtyreLsen",
-  "Studienämnden",
-  "Näringslivsnämnden",
-  "Mottagningsnämnden",
-  "JML-nämnden",
-  "Aktivitetsnämnden",
-  "Lokalnämnden",
-  "CLubWästeriet",
-  "Valberedningen",
-  "Revisor",
-  "Fanborg",
-  "Kårfullmäktige",
-  "Talman",
-  "Försäljningsansvarig",
-  "Idrottsansvarig",
-  "CLek",
-  "Dubbelspexet",
-  "CLak",
-];
 
 export default function Aktuellt({ postList }) {
   const [currentpage, setcurrentPage] = useState(1);
@@ -206,10 +186,10 @@ export default function Aktuellt({ postList }) {
             setPublisher(e.target.value);
           }}>
           <option value={""}>Alla</option>
-          {PUBLISHERS.map((publisher) => {
+          {all_committees.map((committee) => {
             return (
-              <option key={publisher} value={publisher}>
-                {publisher}
+              <option key={committee.id} value={committee.id}>
+                {committee.name}
               </option>
             );
           })}
