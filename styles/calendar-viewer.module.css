@@ -63,6 +63,31 @@
   border-radius: 0.3rem;
 }
 
+.eventInfoBox .close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr1);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+.eventInfoBox .close:hover {
+  background-color: var(--clr3);
+}
+
+.eventInfoBox .close svg {
+  transform: scale(0.8);
+}
+
 .dayBox {
   border-right: 1px solid var(--hairline);
   width: 100%;

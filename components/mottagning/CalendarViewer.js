@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import styles from "../../styles/calendar-viewer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function CalendarViewer() {
   const startDay = new Date(new Date("2023-08-14").setHours(0, 0, 0, 0));
@@ -130,14 +130,21 @@ export default function CalendarViewer() {
           close();
         }}>
         <h2>{data.title}</h2>
-        <p>
-          Plats: <HTMLString html={data.location} />
-        </p>
-        <p>
-          <HTMLString html={data.description} />
-        </p>
-        <p>Start: {data.start.split("T")[1].substring(0, 5)}</p>
-        <p>Slut: {data.end.split("T")[1].substring(0, 5)}</p>
+        <div>
+          <p>
+            Plats: <HTMLString html={data.location} />
+          </p>
+          <p>
+            <HTMLString html={data.description} />
+          </p>
+          <div className={styles.eventInfoTime}>
+            <p>Start: {data.start.split("T")[1].substring(0, 5)}</p>
+            <p>Slut: {data.end.split("T")[1].substring(0, 5)}</p>
+          </div>
+        </div>
+        <div className={styles.close}>
+          <FontAwesomeIcon icon={faXmark} />
+        </div>
       </div>
     );
   };
