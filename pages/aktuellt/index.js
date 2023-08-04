@@ -1,4 +1,4 @@
-import { firestore, analytics } from "../../firebase/clientApp";
+import { firestore } from "../../firebase/clientApp";
 import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
 import { convertDate } from "../../utils/convertDate";
@@ -255,7 +255,7 @@ export default function Aktuellt({ postList }) {
   return (
     <div id="contentbody">
       <h1>Sök bland alla Nyheter</h1>
-      <div className="aktuellt-wrapper">
+      <div className={styles.aktuelltWrapper}>
         {/*filterpanel för widescreen*/}
         <section className={`${filterStyles.panel} ${filterStyles.wide}`}>
           <h2>Filtrera inlägg</h2>
@@ -266,11 +266,12 @@ export default function Aktuellt({ postList }) {
           <DatumPanel />
         </section>
 
-        <div className="sök-och-content-wrapper">
+        <div>
           <div className={`${filterStyles.panelWrapper} ${filterStyles.smallPanel}`} ref={panelRef}>
             <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
               <input
                 type="text"
+                className="searchbar"
                 placeholder="Sök efter inlägg..."
                 onChange={(e) => {
                   setSearch(e.target.value);
@@ -283,7 +284,6 @@ export default function Aktuellt({ postList }) {
                     logEvent(analytics, "search", { search_term: search });
                   }
                 }}
-                className="searchbar"
               />
               <button
                 className={`${filterStyles.filterOpen} ${
@@ -317,8 +317,8 @@ export default function Aktuellt({ postList }) {
           </div>
 
           {/* Alla inlägg */}
-          <section className="posts">
-            <div className={`aktuelltsidan-contentwrapper ${feed.long}`}>
+          <section className={styles.posts}>
+            <div className={feed.long}>
               <FeedPreview
                 posts={postList
                   .filter((post) => {
@@ -354,8 +354,8 @@ export default function Aktuellt({ postList }) {
               />
             </div>
             <button
-              className={`ladda-fler ${
-                currentpage * itemsperpage < postList.length ? "ok" : "nope"
+              className={`${styles.loadMore} ${
+                currentpage * itemsperpage >= postList.length && styles.nope
               }`}
               onClick={
                 currentpage * itemsperpage < postList.length
