@@ -70,10 +70,18 @@
   color: white;
 }
 
-#karta {
+.frameHolder {
   float: right;
   flex-grow: 100;
   overflow: hidden;
+}
+
+.frameHolder iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -90,7 +98,7 @@
     padding: 1rem 2rem;
   }
 
-  #karta {
+  .frameHolder {
     width: 100%;
     height: 400px;
   }

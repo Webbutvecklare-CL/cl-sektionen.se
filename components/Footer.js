@@ -9,6 +9,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faMugHot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
+import dynamic from "next/dynamic";
+const MapsFrame = dynamic(() => import("./MapsFrame"), { ssr: false });
+
 export default function Navbar() {
   return (
     <footer id={styles.footer}>
@@ -80,16 +83,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <iframe
-        title="Karta över Osquars backe 8"
-        id={styles.karta}
-        src="https://maps.google.com/maps?q=osquars%20backe%208&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        frameBorder="0"
-        scrolling="no"
-        marginHeight="0"
-        marginWidth="0"
-        loading="lazy"
-      />
+      <div className={styles.frameHolder}>
+        <MapsFrame />
+      </div>
     </footer>
   );
 }
