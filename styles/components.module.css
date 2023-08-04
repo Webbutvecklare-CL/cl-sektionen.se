@@ -23,8 +23,7 @@
   transition: 0.1s ease-in-out;
 }
 
-.linkCard svg,
-.linkCard i {
+.linkCard svg {
   color: var(--clr3);
 }
 

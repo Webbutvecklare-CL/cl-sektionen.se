@@ -271,11 +271,11 @@
   border: 2px solid var(--clr2);
 }
 
-.visibilityInput .visibilityButton i {
+.visibilityInput .visibilityButton svg {
   width: 30px;
 }
 
-.visibilityInput .visibilityButton:hover i {
+.visibilityInput .visibilityButton:hover svg {
   transform: scale(1.2);
 }
 
