@@ -65,16 +65,14 @@ export default function NotificationModal({ show, handleClose }) {
 
     // Kolla support innan den visar modal
     isSupported().then((yes) => {
-      if (!yes) {
-        if (!document.querySelector("dialog").open) {
-          document.querySelector("dialog").showModal();
-        }
-        return;
-      }
-      setNoSupport(false);
-
       if (!document.querySelector("dialog").open) {
         document.querySelector("dialog").showModal();
+      }
+      if (yes) {
+        // Enheten stödjer inte notiser
+        setNoSupport(false);
+      } else {
+        setNoSupport(true);
       }
     });
   }, [show]);
