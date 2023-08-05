@@ -64,6 +64,7 @@ export default function Tv() {
     if (!date) {
       return "Du måste ange ett datum";
     }
+    // 2 siffror / 2 siffror
     if (!date.match(/^\d{2}\/\d{2}$/)) {
       return "Datumet måste vara i formatet DD/MM";
     }

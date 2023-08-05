@@ -17,9 +17,7 @@ import { menu } from "../../styles/personalrummet.module.css";
 export default function UserMenu() {
   const [menuSelect, setMenuSelect] = useState("senaste");
   const [error, setError] = useState("");
-  const [committeePosts, setCommitteePosts] = useState([
-    // { id: "s", title: "Test", subtitle: "", author: "Test person" },
-  ]);
+  const [committeePosts, setCommitteePosts] = useState([]);
 
   const [userUpdateStatus, setUserUpdateStatus] = useState("");
 
@@ -127,6 +125,7 @@ export default function UserMenu() {
       </div>
 
       {/*Knappar*/}
+      <h2>Navigera</h2>
       <div className={menu}>
         <button id="senaste" onClick={() => setMenuSelect("senaste")}>
           Senaste inläggen
@@ -137,14 +136,14 @@ export default function UserMenu() {
         <button id="how-to" onClick={() => setMenuSelect("how-to")}>
           HOW-TO
         </button>
+        <button onClick={() => router.push("personalrummet/tv")}>NCT</button>
         <button onClick={() => logOut()}>Logga ut</button>
       </div>
+      <h2>Hantera</h2>
       <div className={menu}>
         <button onClick={() => router.push("personalrummet/redigera")}>Redigera inlägg</button>
         <button onClick={() => router.push("personalrummet/publicera")}>Publicera inlägg</button>
-        <button onClick={() => router.push("personalrummet/tv")} disabled>
-          Lägg upp på tv
-        </button>
+        <button onClick={() => router.push("personalrummet/tv")}>Lägg upp på tv</button>
         {/* Bara de som kan göra inlägg på mottagningssidan får upp detta alternativet */}
         {(userData.permission === "admin" ||
           ["mottagningsnamnden", "naringslivsnamnden"].includes(userData.committee)) && (

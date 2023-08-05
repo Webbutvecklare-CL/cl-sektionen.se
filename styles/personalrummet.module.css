@@ -4,10 +4,12 @@
 }
 
 .menu {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  row-gap: 0.5rem;
+  flex-wrap: wrap;
 }
 .committeeFeed.preview {
   display: flex !important;
@@ -71,5 +73,13 @@
     width: 1rem;
     margin: 0 8px 0 3px;
     transform: translateX(0rem);
+  }
+
+  .menu button {
+    padding: 0.5rem;
+  }
+
+  .menu {
+    gap: 0.5rem;
   }
 }
