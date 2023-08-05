@@ -18,15 +18,15 @@ export default function CalendarViewer() {
   const viewingHours = 16;
 
   const types = {
-    mtp: { color: "#FFD966", name: "Matteövning" },
-    bst: { color: "#E69138", name: "Bästis" },
-    atp: { color: "#1170C6", name: "Aktivitet" },
+    mtp: { color: "#AA8DF7", name: "Matteövning" },
+    bst: { color: "#FE9900", name: "Bästis" },
+    atp: { color: "#116FC6", name: "Aktivitet" },
     ndp: { color: "#E06666", name: "Nämndpass" },
-    ifp: { color: "#E69138", name: "Informationspass" },
+    ifp: { color: "#FE9900", name: "Informationspass" },
     lc: { color: "#EFB6B6", name: "Lunch" },
     oq: { color: "#587B49", name: "Osqvik" },
     gq: { color: "#25AEAE", name: "Gasque" },
-    bfp: { color: "#25AEAE", name: "Bakishäng" },
+    bfp: { color: "#674FA7", name: "Bakishäng" },
     gsk: { color: "#6AA84F", name: "Gyckelskola" },
     tkp: { color: "#A4C2F4", name: "THS och KTH" },
     dsp: { color: "#76A5AF", name: "Dubbelspexet" },
