@@ -213,8 +213,8 @@ async function updateTokenData(fcmTokenData) {
   const lastUpdated = new Date(fcmTokenData.lastUpdated).getTime();
   const now = new Date().getTime();
 
-  //   const maxDiff = 1000 * 60 * 60 * 24 * 30; // 30 dagar
-  const maxDiff = 1000 * 20; // 30 dagar
+  //   const maxDiff = 1000 * 20; // 20 sekunder
+  const maxDiff = 1000 * 60 * 60 * 24 * 30; // 30 dagar
   const timeDiff = now - lastUpdated;
   const old = timeDiff > maxDiff;
 
@@ -223,10 +223,19 @@ async function updateTokenData(fcmTokenData) {
     const { getFCMToken } = await import("../firebase/messaging");
     const newToken = await getFCMToken();
 
+    // Kollar token har ändrats sen den sparades
     if (newToken !== fcmTokenData.token) {
       // Invalid token - uppdatera med nya
-      console.log("New token created");
       fcmTokenData.token = newToken;
+    }
+
+    // Stänger av mottagningsnotiser om användaren prenumererade
+    // innan 1 oktober och det är efter 1 oktober
+    const dateLimit = new Date("2023-10-01");
+    const now = new Date();
+    dateLimit.setFullYear(now.getFullYear());
+    if (new Date(fcmTokenData.lastUpdated) < dateLimit && now > dateLimit) {
+      fcmTokenData.types.mottagning = false;
     }
 
     // Uppdatera tokenData på firebase
