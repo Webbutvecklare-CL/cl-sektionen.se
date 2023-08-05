@@ -1,7 +1,7 @@
-import GråttAgenda from "../components/GråttAgenda";
-import GråttKalender from "../components/GråttKalender";
+import GråttAgenda from "./GråttAgenda";
+import GråttKalender from "./GråttKalender";
 
-import calStyles from "../styles/kalender.module.css";
+import calStyles from "../../styles/kalender.module.css";
 
 export default function CalendarsWrapper() {
   return (
@@ -23,22 +23,5 @@ export default function CalendarsWrapper() {
       <br />
       <GråttKalender />
     </>
-  );
-}
-
-export function CalendarLoader() {
-  return (
-    <div className={calStyles.loader}>
-      <div>
-        <p>Laddar kalendrar...</p>
-      </div>
-      <div
-        className={`${calStyles.miniKalender} ${calStyles.kalenderTab} ${calStyles.gråttan} ${calStyles.månad}`}>
-        <h1 className={calStyles.kalTitel}></h1>
-        <div>
-          <p>Laddar kalendrar...</p>
-        </div>
-      </div>
-    </div>
   );
 }

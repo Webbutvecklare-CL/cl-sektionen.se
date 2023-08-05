@@ -7,12 +7,12 @@ import Sidhuvud_black from "../public/media/grafik/Sidhuvud.webp";
 // Komponenter
 import FeedPreview from "../components/FeedPreview";
 import FeaturedPostPreview from "../components/FeaturedPostPreview";
-import CalendarSubscription from "../components/CalendarSubscription";
+import CalendarSubscription from "../components/calendar/CalendarSubscription";
 
 // Gör att kalendrarna laddas in efter användaren kommit in på sidan - för att snabba upp laddningstiden
 import dynamic from "next/dynamic";
-import { CalendarLoader } from "../components/CalendarsWrapper";
-const CalendarsWrapper = dynamic(() => import("../components/CalendarsWrapper"), {
+import CalendarLoader from "../components/calendar/CalendarLoader";
+const CalendarsWrapper = dynamic(() => import("../components/calendar/CalendarsWrapper"), {
   ssr: false,
   loading: () => <CalendarLoader />,
 });

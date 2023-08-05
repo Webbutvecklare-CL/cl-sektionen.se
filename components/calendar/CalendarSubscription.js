@@ -1,7 +1,7 @@
-import Card from "../components/Card";
-import CopyButton from "../components/CopyButton";
+import Card from "../Card";
+import CopyButton from "../CopyButton";
 
-import { calendarSubscription } from "../styles/kalender.module.css";
+import { calendarSubscription } from "../../styles/kalender.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAndroid, faApple } from "@fortawesome/free-brands-svg-icons";
