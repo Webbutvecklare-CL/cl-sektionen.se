@@ -1,21 +1,19 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { validateAccountCheck } from "../utils/authUtils";
 import { app } from "../firebase/clientApp";
-import { validateAccountCheck, createUser } from "../utils/authUtils";
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const AuthContext = createContext({});
-const auth = getAuth(app);
 
 export const useAuth = () => useContext(AuthContext);
 
-export const AuthContextProvider = ({ children }) => {
-  const testUser = { displayName: "Test User", committee: "Testnämnden" };
+export function Provider({ children }) {
   const [user, setUser] = useState({}); // Sparar google user uppgifter
   const [userData, setUserData] = useState(); // Sparar data som finns på firebase under /user/{uid}
   const [userAccessToken, setUserAccessToken] = useState(); // Användarens access token för google api
   const [signingIn, setSigningIn] = useState(true);
 
   useEffect(() => {
+    const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -58,11 +56,15 @@ export const AuthContextProvider = ({ children }) => {
     console.log("Försöker logga ut");
     setUser();
     setUserData();
+    const { app } = await import("../firebase/clientApp");
+    const { getAuth, signOut } = await import("firebase/auth");
+    const auth = getAuth(app);
     await signOut(auth);
   };
 
   const signUp = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
+      const { createUser } = await import("../utils/authUtils");
       createUser(user)
         .then(() => {
           resolve();
@@ -91,4 +93,4 @@ export const AuthContextProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
+}

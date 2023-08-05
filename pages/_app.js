@@ -11,14 +11,12 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
 import dynamic from "next/dynamic";
-const { Analytics } = dynamic(() => import("@vercel/analytics/react"), { ssr: false });
+const { Analytics } = dynamic(() => import("@vercel/analytics/react"));
 
 // React
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-// const { AuthContextProvider } = dynamic(() => import("../context/AuthContext"), { ssr: false });
-import { AuthContextProvider } from "../context/AuthContext";
 import { getCookie, setCookie } from "../utils/cookieUtils";
 
 // Komponenter
@@ -101,6 +99,33 @@ export default function App({ Component, pageProps }) {
     setShowCookieBanner(false);
   };
 
+  // För att det ska laddas in dynamiskt. Går säkert lösa bättre
+  const AuthContextWrapper = () => {
+    const [AuthContext, setAuthContext] = useState(null);
+    useEffect(() => {
+      const AuthContextProvider = import("../context/AuthContext");
+      AuthContextProvider.then((module) => {
+        setAuthContext(module);
+      });
+    }, []);
+
+    if (AuthContext) {
+      return (
+        <AuthContext.Provider>
+          <Component
+            {...pageProps}
+            cookiesAllowed={cookiesAllowed}
+            setCookieState={setCookieState}
+          />
+        </AuthContext.Provider>
+      );
+    } else {
+      return (
+        <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
+      );
+    }
+  };
+
   // Gör så att TV routen inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
     return <Component {...pageProps} />;
@@ -126,15 +151,7 @@ export default function App({ Component, pageProps }) {
       {!router.pathname.startsWith("/personalrummet") && (
         <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
       )}
-      {router.pathname.startsWith("/personalrummet") && (
-        <AuthContextProvider>
-          <Component
-            {...pageProps}
-            cookiesAllowed={cookiesAllowed}
-            setCookieState={setCookieState}
-          />
-        </AuthContextProvider>
-      )}
+      {router.pathname.startsWith("/personalrummet") && <AuthContextWrapper />}
       <Footer />
       <Navbar />
       {cookiesAllowed && Analytics && <Analytics />}
