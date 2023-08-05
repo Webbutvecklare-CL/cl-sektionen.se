@@ -1,11 +1,11 @@
 import { React } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import CustomHead from "../../components/CustomHead";
 import parse from "html-react-parser";
-import { firestore } from "../../firebase/clientApp";
+import { app } from "../../firebase/clientApp";
 import {
+  getFirestore,
   doc,
   getDoc,
   collection,
@@ -16,14 +16,16 @@ import {
   Timestamp,
   getDocs,
 } from "firebase/firestore";
+const firestore = getFirestore(app);
+
 import BackButton from "../../components/BackButton";
+
+import styles from "../../styles/aktuellt.module.css";
 
 export default function Post({ postData, postId }) {
   const getDate = (date) => {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
-
-  const router = useRouter();
 
   // 404 sida - om det saknas ett inlägg till den angivna länken
   if (!postData) {
@@ -51,26 +53,26 @@ export default function Post({ postData, postId }) {
   return (
     <>
       <CustomHead
-        metaTitle={`${postData.author} | Sektionen för Civilingenjör och Lärare`}
-        description={postData.title}
+        metaTitle={`${postData.title} | ${postData.author}`}
+        description={postData.subtitle}
         image={postData.image || "https://www.cl-sektionen.se/media/img/Post_Placeholder.webp"}
         url={"https://www.cl-sektionen.se/aktuellt/" + postId}
       />
       <div id="contentbody">
-        <article className="post">
+        <article className={styles.post}>
           <div className="article-head">
             <BackButton page={"aktuellt"}>Aktuellt</BackButton>
           </div>
-          <div className="head">
-            <div className="image-container">
+          <div className={styles.head}>
+            <div className={styles.imageContainer}>
               {postData.image && (
                 <Image src={postData.image} width={400} height={400} alt="Post bild" />
               )}
             </div>
-            <div className="info">
-              <h1 className="title">{postData.title}</h1>
+            <div className={styles.info}>
+              <h1 className={styles.title}>{postData.title}</h1>
               <h2>{postData.subtitle}</h2>
-              <p className="meta">
+              <p className={styles.meta}>
                 Publicerad {getDate(postData.publishDate)} av {postData.author}
               </p>
             </div>

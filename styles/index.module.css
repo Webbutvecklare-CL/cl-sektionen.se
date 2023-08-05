@@ -1,0 +1,171 @@
+/* Banner bild med logga och slogan */
+.indexBg {
+  width: 102%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  transform: translateX(-1%);
+  background-image: url("../public/media/bildspel/cl15jub-wide.webp");
+  background-position: center;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: brightness(120%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sektionsloggaVitt {
+  max-width: 1000px;
+  width: 87%;
+  height: min-content;
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+.imageContainer {
+  text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+  .indexBg {
+    justify-content: space-evenly;
+    background-image: url("../public/media/bildspel/cl15jub-small.webp");
+  }
+
+  .indexBg h1 {
+    margin: 0 1rem;
+    padding: 0;
+    font-size: 2rem;
+  }
+}
+
+/* Content */
+.indexContent {
+  padding-top: 0 !important;
+}
+
+.omContainer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.2s ease-in-out;
+}
+
+.omContainer.open {
+  grid-template-rows: 1fr;
+}
+
+.omContainer > * {
+  overflow: hidden;
+}
+
+.om {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+}
+
+.om .sektionslogga {
+  width: calc(100% - 20px);
+  height: auto;
+}
+
+.noMarginLine {
+  margin-top: -1px;
+  margin-bottom: 0;
+}
+
+.visaOmKnappDiv {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -1rem;
+}
+
+.visaOmKnapp {
+  background-color: var(--clr1);
+  border-radius: 0 0 0.7rem 0.7rem;
+
+  width: 120px;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  justify-content: center;
+}
+
+.aktuelltInnehåll {
+  margin-bottom: 10px;
+  border-radius: 0.3rem;
+}
+
+.feedWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.feedColumn {
+  border-radius: 0.3rem;
+}
+
+#happenings h2 {
+  text-align: left;
+  margin-top: 0rem;
+}
+
+.resurser .sectionButton {
+  text-align: center;
+  display: block;
+  margin: 20px auto 10px auto;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.resurser h1 {
+  margin-bottom: 1rem;
+}
+
+.startNaringsliv {
+  display: grid;
+  gap: 0px 2rem;
+  grid-template-areas: ". .";
+}
+
+.startNaringsliv h2 {
+  margin-top: 0px;
+}
+
+.sektionskalMånadOchBokningar {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .sektionskalMånadOchBokningar {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .feedWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .om {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .startNaringsliv {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
+}

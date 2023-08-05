@@ -1,28 +1,43 @@
-export function revalidate(page = "all", postId = "") {
-  const url = `/api/revalidate?secret=${"Y3c6e9a07c10d202b26345t8b22bf4044"}&page=${page}&postId=${postId}`;
-  const headers = {
-    "Content-Type": "application/json",
-    "method": "GET",
+/**
+ *
+ * @param {import("firebase/auth").User} user - User object from firebase
+ * @param {Object} pages - Path as attribute and a boolean as key if it should be revalidated (post path has the postId as true)
+ */
+export function revalidate(user, pages) {
+  const url = `/api/revalidate?secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}`;
+  let options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + user.accessToken,
+    },
+    body: JSON.stringify({ pages }),
   };
-  console.log("Sending revalidation request for " + page);
-  fetch(url, headers)
+  console.log("Sending revalidation request for " + JSON.stringify(pages));
+  fetch(url, options)
     .then((res) => {
       if (res.ok) {
-        console.log("Revalidation successful page: " + page);
+        res.json().then((data) => {
+          console.log("Revalidation successful pages: " + JSON.stringify(data.pages));
+        });
       } else {
         console.warn("Revalidation unsuccessful", res.statusText);
+        res.json().then((data) => {
+          console.error(data.message);
+        });
       }
     })
     .catch((error) => console.error(error));
 }
 
-export function sendNotification(userId, postId) {
+export function sendNotification(user, data) {
   let options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": "Bearer " + user.accessToken,
     },
-    body: JSON.stringify({ userId, postId }),
+    body: JSON.stringify({ data }),
   };
   fetch(`/api/notifications`, options).then((res) => {
     if (res.ok) {

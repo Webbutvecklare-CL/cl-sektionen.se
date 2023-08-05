@@ -5,7 +5,8 @@ import Image from "next/image";
 import { convertDate } from "../utils/convertDate";
 import bg from "../public/media/img/KTHcover.jpg";
 
-import { analytics } from "../firebase/clientApp";
+import feedStyles from "../styles/feed-preview.module.css";
+
 import { logEvent } from "firebase/analytics";
 
 export default function FeaturedPostPreview({ post }) {
@@ -15,8 +16,12 @@ export default function FeaturedPostPreview({ post }) {
       <Link
         href={`/aktuellt/${post.id}`}
         key={post.id}
-        onClick={() => {
-          logEvent(analytics, "post_click", { page: "featured" });
+        onClick={async () => {
+          const { getAnalytics } = await import("../firebase/clientApp");
+          const analytics = await getAnalytics();
+          if (analytics) {
+            logEvent(analytics, "post_click", { page: "featured" });
+          }
         }}>
         <div className="post-preview featured">
           <div className="image">

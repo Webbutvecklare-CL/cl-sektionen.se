@@ -4,10 +4,12 @@ import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import BackButton from "../../components/BackButton";
 
+import styles from "../../styles/reseberattelser.module.css";
+
 export default function Reseberattelse({ content }) {
   return (
     <div id="contentbody">
-      <article className="rese">
+      <article className={styles.rese}>
         <div className="article-head">
           <BackButton page={"reseberattelser"}>Reseberättelser</BackButton>
         </div>

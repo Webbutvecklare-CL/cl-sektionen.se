@@ -1,0 +1,85 @@
+#personalrummet p {
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.menu {
+  /* margin: 1rem 0; */
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  row-gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.committeeFeed.preview {
+  display: flex !important;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.committeeFeed .postWrapper {
+  display: flex;
+}
+
+.committeeFeed .postWrapper > a {
+  flex-grow: 1; /* Gör så att man kan klicka på hela raden */
+}
+
+.committeeFeed .postWrapper:hover {
+  transform: none;
+}
+
+.committeeFeed .postPreview {
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+}
+
+.committeeFeed .postWrapper .options > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.committeeFeed .postWrapper .options {
+  visibility: hidden;
+  margin: 0;
+  width: 0rem;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-1.5rem);
+  color: var(--clr5) !important;
+}
+
+.committeeFeed .postWrapper:hover .options {
+  visibility: visible;
+  width: 1rem;
+  margin: 0 8px 0 3px;
+  transform: translateX(0rem);
+}
+
+.committeeFeed .postWrapper .options svg {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.committeeFeed .postWrapper .options svg:hover {
+  transform: scale(1.3);
+}
+
+@media only screen and (max-width: 500px) {
+  .committeeFeed .postWrapper .options {
+    visibility: visible;
+    width: 1rem;
+    margin: 0 8px 0 3px;
+    transform: translateX(0rem);
+  }
+
+  .menu button {
+    padding: 0.5rem;
+  }
+
+  .menu {
+    gap: 0.5rem;
+  }
+}

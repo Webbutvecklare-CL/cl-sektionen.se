@@ -1,0 +1,6566 @@
+/*!
+ * Font Awesome Free 6.fa2.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.fa1, Code: MIT License)
+ * Copyright 2022 Fonticons, Inc.
+ */
+.fa {
+  font-family: var(--fa-style-family, "Font Awesome 6 Free");
+  font-weight: var(--fa-style, 900);
+}
+.fa,
+.brands,
+.classic,
+.regular,
+.sharp,
+.solid,
+.fab,
+.far,
+.fas {
+  -moz-osx-font-smoothing: grayscale;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+.classic,
+.regular,
+.solid,
+.far,
+.fas {
+  font-family: "Font Awesome 6 Free";
+}
+.brands,
+.fab {
+  font-family: "Font Awesome 6 Brands";
+}
+.fa1x {
+  font-size: 1em;
+}
+.fa2x {
+  font-size: 2em;
+}
+.fa3x {
+  font-size: 3em;
+}
+.fa4x {
+  font-size: 4em;
+}
+.fa5x {
+  font-size: 5em;
+}
+.fa6x {
+  font-size: 6em;
+}
+.fa7x {
+  font-size: 7em;
+}
+.fa8x {
+  font-size: 8em;
+}
+.fa9x {
+  font-size: 9em;
+}
+.fa10x {
+  font-size: 10em;
+}
+.fa2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+.xs {
+  font-size: 0.75em;
+  line-height: 0.08333em;
+  vertical-align: 0.125em;
+}
+.sm {
+  font-size: 0.875em;
+  line-height: 0.07143em;
+  vertical-align: 0.05357em;
+}
+.lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+.xl {
+  font-size: 1.5em;
+  line-height: 0.04167em;
+  vertical-align: -0.125em;
+}
+.fa2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+.fw {
+  text-align: center;
+  width: 1.25em;
+}
+.ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.ul > li {
+  position: relative;
+}
+.li {
+  left: calc(var(--fa-li-width, 2em) * -1);
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+.border {
+  border-radius: var(--fa-border-radius, 0.1em);
+  border: var(--fa-border-width, 0.08em) var(--fa-border-style, solid) var(--fa-border-color, #eee);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+.pullLeft {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+.pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+.beat {
+  animation-name: beat;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+.bounce {
+  animation-name: bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+.fade {
+  animation-name: fade;
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+.beatFade,
+.fade {
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+}
+.beatFade {
+  animation-name: beatFade;
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+.flip {
+  animation-name: flip;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+.shake {
+  animation-name: shake;
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+.shake,
+.spin {
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+}
+.spin {
+  animation-name: spin;
+  animation-duration: var(--fa-animation-duration, 2s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+.spinReverse {
+  --fa-animation-direction: reverse;
+}
+.pulse,
+.spinPulse {
+  animation-name: spin;
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+@media (prefers-reduced-motion: reduce) {
+  .beat,
+  .beatFade,
+  .bounce,
+  .fade,
+  .flip,
+  .pulse,
+  .shake,
+  .spin,
+  .spinPulse {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+
+@keyframes beat {
+  0%,
+  90% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(var(--beat-scale, 1.25));
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  10% {
+    transform: scale(var(--bounce-start-scale-x, 1.1), var(--bounce-start-scale-y, 0.9))
+      translateY(0);
+  }
+  30% {
+    transform: scale(var(--bounce-jump-scale-x, 0.9), var(--bounce-jump-scale-y, 1.1))
+      translateY(var(--bounce-height, -0.5em));
+  }
+  50% {
+    transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0.95))
+      translateY(0);
+  }
+  57% {
+    transform: scale(1) translateY(var(--bounce-rebound, -0.125em));
+  }
+  64% {
+    transform: scale(1) translateY(0);
+  }
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fade {
+  50% {
+    opacity: var(--fade-opacity, 0.4);
+  }
+}
+
+@keyframes beatFade {
+  0%,
+  to {
+    opacity: var(--beatFade-opacity, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(var(--beatFade-scale, 1.125));
+  }
+}
+
+@keyframes flip {
+  50% {
+    transform: rotate3d(
+      var(--flip-x, 0),
+      var(--flip-y, 1),
+      var(--flip-z, 0),
+      var(--flip-angle, -180deg)
+    );
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  4% {
+    transform: rotate(15deg);
+  }
+  8%,
+  24% {
+    transform: rotate(-18deg);
+  }
+  12%,
+  28% {
+    transform: rotate(18deg);
+  }
+  16% {
+    transform: rotate(-22deg);
+  }
+  20% {
+    transform: rotate(22deg);
+  }
+  32% {
+    transform: rotate(-12deg);
+  }
+  36% {
+    transform: rotate(12deg);
+  }
+  40%,
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+/* Icons */
+.rotate90 {
+  transform: rotate(90deg);
+}
+.rotate180 {
+  transform: rotate(180deg);
+}
+.rotate270 {
+  transform: rotate(270deg);
+}
+.flipHorizontal {
+  transform: scaleX(-1);
+}
+.flipVertical {
+  transform: scaleY(-1);
+}
+.flipBoth,
+.flipHorizontal.flipVertical {
+  transform: scale(-1);
+}
+.rotateBy {
+  transform: rotate(var(--fa-rotate-angle, none));
+}
+.stack {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2 fa5em;
+}
+.stack1X,
+.stack2X {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: var(--fa-stack-z-index, auto);
+}
+.stack1X {
+  line-height: inherit;
+}
+.stack2X {
+  font-size: 2em;
+}
+.inverse {
+  color: var(--fa-inverse, #fff);
+}
+.fa0:before {
+  content: "\30";
+}
+.fa1:before {
+  content: "\31";
+}
+.fa2:before {
+  content: "\32";
+}
+.fa3:before {
+  content: "\33";
+}
+.fa4:before {
+  content: "\34";
+}
+.fa5:before {
+  content: "\35";
+}
+.fa6:before {
+  content: "\36";
+}
+.fa7:before {
+  content: "\37";
+}
+.fa8:before {
+  content: "\38";
+}
+.fa9:before {
+  content: "\39";
+}
+.fillDrip:before {
+  content: "\f576";
+}
+.arrowsToCircle:before {
+  content: "\e4bd";
+}
+.chevronCircleRight:before,
+.circleChevronRight:before {
+  content: "\f138";
+}
+.at:before {
+  content: "\40";
+}
+.trashAlt:before,
+.trashCan:before {
+  content: "\f2ed";
+}
+.textHeight:before {
+  content: "\f034";
+}
+.userTimes:before,
+.userXmark:before {
+  content: "\f235";
+}
+.stethoscope:before {
+  content: "\f0f1";
+}
+.commentAlt:before,
+.message:before {
+  content: "\f27a";
+}
+.info:before {
+  content: "\f129";
+}
+.compressAlt:before,
+.downLeftAndUpRightToCenter:before {
+  content: "\f422";
+}
+.explosion:before {
+  content: "\e4e9";
+}
+.fileAlt:before,
+.fileLines:before,
+.fileText:before {
+  content: "\f15c";
+}
+.waveSquare:before {
+  content: "\f83e";
+}
+.ring:before {
+  content: "\f70b";
+}
+.buildingUn:before {
+  content: "\e4d9";
+}
+.diceThree:before {
+  content: "\f527";
+}
+.calendarAlt:before,
+.calendarDays:before {
+  content: "\f073";
+}
+.anchorCircleCheck:before {
+  content: "\e4aa";
+}
+.buildingCircleArrowRight:before {
+  content: "\e4d1";
+}
+.volleyballBall:before,
+.volleyball:before {
+  content: "\f45f";
+}
+.arrowsUpToLine:before {
+  content: "\e4c2";
+}
+.sortDesc:before,
+.sortDown:before {
+  content: "\f0dd";
+}
+.circleMinus:before,
+.minusCircle:before {
+  content: "\f056";
+}
+.doorOpen:before {
+  content: "\f52b";
+}
+.rightFromBracket:before,
+.signOutAlt:before {
+  content: "\f2f5";
+}
+.atom:before {
+  content: "\f5d2";
+}
+.soap:before {
+  content: "\e06e";
+}
+.heartMusicCameraBolt:before,
+.icons:before {
+  content: "\f86d";
+}
+.microphoneAltSlash:before,
+.microphoneLinesSlash:before {
+  content: "\f539";
+}
+.bridgeCircleCheck:before {
+  content: "\e4c9";
+}
+.pumpMedical:before {
+  content: "\e06a";
+}
+.fingerprint:before {
+  content: "\f577";
+}
+.handPointRight:before {
+  content: "\f0a4";
+}
+.magnifyingGlassLocation:before,
+.searchLocation:before {
+  content: "\f689";
+}
+.forwardStep:before,
+.stepForward:before {
+  content: "\f051";
+}
+.faceSmileBeam:before,
+.smileBeam:before {
+  content: "\f5b8";
+}
+.flagCheckered:before {
+  content: "\f11e";
+}
+.footballBall:before,
+.football:before {
+  content: "\f44e";
+}
+.schoolCircleExclamation:before {
+  content: "\e56c";
+}
+.crop:before {
+  content: "\f125";
+}
+.angleDoubleDown:before,
+.anglesDown:before {
+  content: "\f103";
+}
+.usersRectangle:before {
+  content: "\e594";
+}
+.peopleRoof:before {
+  content: "\e537";
+}
+.peopleLine:before {
+  content: "\e534";
+}
+.beerMugEmpty:before,
+.beer:before {
+  content: "\f0fc";
+}
+.diagramPredecessor:before {
+  content: "\e477";
+}
+.arrowUpLong:before,
+.longArrowUp:before {
+  content: "\f176";
+}
+.burn:before,
+.fireFlameSimple:before {
+  content: "\f46a";
+}
+.male:before,
+.person:before {
+  content: "\f183";
+}
+.laptop:before {
+  content: "\f109";
+}
+.fileCsv:before {
+  content: "\f6dd";
+}
+.menorah:before {
+  content: "\f676";
+}
+.truckPlane:before {
+  content: "\e58f";
+}
+.recordVinyl:before {
+  content: "\f8d9";
+}
+.faceGrinStars:before,
+.grinStars:before {
+  content: "\f587";
+}
+.bong:before {
+  content: "\f55c";
+}
+.pastafarianism:before,
+.spaghettiMonsterFlying:before {
+  content: "\f67b";
+}
+.arrowDownUpAcrossLine:before {
+  content: "\e4af";
+}
+.spoon:before,
+.utensilSpoon:before {
+  content: "\f2e5";
+}
+.jarWheat:before {
+  content: "\e517";
+}
+.envelopesBulk:before,
+.mailBulk:before {
+  content: "\f674";
+}
+.fileCircleExclamation:before {
+  content: "\e4eb";
+}
+.circleH:before,
+.hospitalSymbol:before {
+  content: "\f47e";
+}
+.pager:before {
+  content: "\f815";
+}
+.addressBook:before,
+.contactBook:before {
+  content: "\f2b9";
+}
+.strikethrough:before {
+  content: "\f0cc";
+}
+.k:before {
+  content: "\4b";
+}
+.landmarkFlag:before {
+  content: "\e51c";
+}
+.pencilAlt:before,
+.pencil:before {
+  content: "\f303";
+}
+.backward:before {
+  content: "\f04a";
+}
+.caretRight:before {
+  content: "\f0da";
+}
+.comments:before {
+  content: "\f086";
+}
+.fileClipboard:before,
+.paste:before {
+  content: "\f0ea";
+}
+.codePullRequest:before {
+  content: "\e13c";
+}
+.clipboardList:before {
+  content: "\f46d";
+}
+.truckLoading:before,
+.truckRampBox:before {
+  content: "\f4de";
+}
+.userCheck:before {
+  content: "\f4fc";
+}
+.vialVirus:before {
+  content: "\e597";
+}
+.sheetPlastic:before {
+  content: "\e571";
+}
+.blog:before {
+  content: "\f781";
+}
+.userNinja:before {
+  content: "\f504";
+}
+.personArrowUpFromLine:before {
+  content: "\e539";
+}
+.scrollTorah:before,
+.torah:before {
+  content: "\f6a0";
+}
+.broomBall:before,
+.quidditchBroomBall:before,
+.quidditch:before {
+  content: "\f458";
+}
+.toggleOff:before {
+  content: "\f204";
+}
+.archive:before,
+.boxArchive:before {
+  content: "\f187";
+}
+.personDrowning:before {
+  content: "\e545";
+}
+.arrowDown91:before,
+.sortNumericDesc:before,
+.sortNumericDownAlt:before {
+  content: "\f886";
+}
+.faceGrinTongueSquint:before,
+.grinTongueSquint:before {
+  content: "\f58a";
+}
+.sprayCan:before {
+  content: "\f5bd";
+}
+.truckMonster:before {
+  content: "\f63b";
+}
+.w:before {
+  content: "\57";
+}
+.earthAfrica:before,
+.globeAfrica:before {
+  content: "\f57c";
+}
+.rainbow:before {
+  content: "\f75b";
+}
+.circleNotch:before {
+  content: "\f1ce";
+}
+.tabletAlt:before,
+.tabletScreenButton:before {
+  content: "\f3fa";
+}
+.paw:before {
+  content: "\f1b0";
+}
+.cloud:before {
+  content: "\f0c2";
+}
+.trowelBricks:before {
+  content: "\e58a";
+}
+.faceFlushed:before,
+.flushed:before {
+  content: "\f579";
+}
+.hospitalUser:before {
+  content: "\f80d";
+}
+.tentArrowLeftRight:before {
+  content: "\e57f";
+}
+.gavel:before,
+.legal:before {
+  content: "\f0e3";
+}
+.binoculars:before {
+  content: "\f1e5";
+}
+.microphoneSlash:before {
+  content: "\f131";
+}
+.boxTissue:before {
+  content: "\e05b";
+}
+.motorcycle:before {
+  content: "\f21c";
+}
+.bellConcierge:before,
+.conciergeBell:before {
+  content: "\f562";
+}
+.penRuler:before,
+.pencilRuler:before {
+  content: "\f5ae";
+}
+.peopleArrowsLeftRight:before,
+.peopleArrows:before {
+  content: "\e068";
+}
+.marsAndVenusBurst:before {
+  content: "\e523";
+}
+.caretSquareRight:before,
+.squareCaretRight:before {
+  content: "\f152";
+}
+.cut:before,
+.scissors:before {
+  content: "\f0c4";
+}
+
+.sunPlantWilt:before {
+  content: "\e57a";
+}
+.toiletsPortable:before {
+  content: "\e584";
+}
+.hockeyPuck:before {
+  content: "\f453";
+}
+.table:before {
+  content: "\f0ce";
+}
+.magnifyingGlassArrowRight:before {
+  content: "\e521";
+}
+.digitalTachograph:before,
+.tachographDigital:before {
+  content: "\f566";
+}
+.usersSlash:before {
+  content: "\e073";
+}
+.clover:before {
+  content: "\e139";
+}
+.mailReply:before,
+.reply:before {
+  content: "\f3e5";
+}
+.starAndCrescent:before {
+  content: "\f699";
+}
+.houseFire:before {
+  content: "\e50c";
+}
+.minusSquare:before,
+.squareMinus:before {
+  content: "\f146";
+}
+.helicopter:before {
+  content: "\f533";
+}
+.compass:before {
+  content: "\f14e";
+}
+.caretSquareDown:before,
+.squareCaretDown:before {
+  content: "\f150";
+}
+.fileCircleQuestion:before {
+  content: "\e4ef";
+}
+.laptopCode:before {
+  content: "\f5fc";
+}
+.swatchbook:before {
+  content: "\f5c3";
+}
+.prescriptionBottle:before {
+  content: "\f485";
+}
+.bars:before,
+.navicon:before {
+  content: "\f0c9";
+}
+.peopleGroup:before {
+  content: "\e533";
+}
+.hourglass3:before,
+.hourglassEnd:before {
+  content: "\f253";
+}
+.heartBroken:before,
+.heartCrack:before {
+  content: "\f7a9";
+}
+.externalLinkSquareAlt:before,
+.squareUpRight:before {
+  content: "\f360";
+}
+.faceKissBeam:before,
+.kissBeam:before {
+  content: "\f597";
+}
+.film:before {
+  content: "\f008";
+}
+.rulerHorizontal:before {
+  content: "\f547";
+}
+.peopleRobbery:before {
+  content: "\e536";
+}
+.lightbulb:before {
+  content: "\f0eb";
+}
+.caretLeft:before {
+  content: "\f0d9";
+}
+.circleExclamation:before,
+.exclamationCircle:before {
+  content: "\f06a";
+}
+.schoolCircleXmark:before {
+  content: "\e56d";
+}
+.arrowRightFromBracket:before,
+.signOut:before {
+  content: "\f08b";
+}
+.chevronCircleDown:before,
+.circleChevronDown:before {
+  content: "\f13a";
+}
+.unlockAlt:before,
+.unlockKeyhole:before {
+  content: "\f13e";
+}
+.cloudShowersHeavy:before {
+  content: "\f740";
+}
+.headphonesAlt:before,
+.headphonesSimple:before {
+  content: "\f58f";
+}
+.sitemap:before {
+  content: "\f0e8";
+}
+.circleDollarToSlot:before,
+.donate:before {
+  content: "\f4b9";
+}
+.memory:before {
+  content: "\f538";
+}
+.roadSpikes:before {
+  content: "\e568";
+}
+.fireBurner:before {
+  content: "\e4f1";
+}
+.flag:before {
+  content: "\f024";
+}
+.hanukiah:before {
+  content: "\f6e6";
+}
+.feather:before {
+  content: "\f52d";
+}
+.volumeDown:before,
+.volumeLow:before {
+  content: "\f027";
+}
+.commentSlash:before {
+  content: "\f4b3";
+}
+.cloudSunRain:before {
+  content: "\f743";
+}
+.compress:before {
+  content: "\f066";
+}
+.wheatAlt:before,
+.wheatAwn:before {
+  content: "\e2cd";
+}
+.ankh:before {
+  content: "\f644";
+}
+.handsHoldingChild:before {
+  content: "\e4fa";
+}
+.asterisk:before {
+  content: "\2a";
+}
+.checkSquare:before,
+.squareCheck:before {
+  content: "\f14a";
+}
+.pesetaSign:before {
+  content: "\e221";
+}
+.header:before,
+.heading:before {
+  content: "\f1dc";
+}
+.ghost:before {
+  content: "\f6e2";
+}
+.listSquares:before,
+.list:before {
+  content: "\f03a";
+}
+.phoneSquareAlt:before,
+.squarePhoneFlip:before {
+  content: "\f87b";
+}
+.cartPlus:before {
+  content: "\f217";
+}
+.gamepad:before {
+  content: "\f11b";
+}
+.circleDot:before,
+.dotCircle:before {
+  content: "\f192";
+}
+.dizzy:before,
+.faceDizzy:before {
+  content: "\f567";
+}
+.egg:before {
+  content: "\f7fb";
+}
+.houseMedicalCircleXmark:before {
+  content: "\e513";
+}
+.campground:before {
+  content: "\f6bb";
+}
+.folderPlus:before {
+  content: "\f65e";
+}
+.futbolBall:before,
+.futbol:before,
+.soccerBall:before {
+  content: "\f1e3";
+}
+.paintBrush:before,
+.paintbrush:before {
+  content: "\f1fc";
+}
+.lock:before {
+  content: "\f023";
+}
+.gasPump:before {
+  content: "\f52f";
+}
+.hotTubPerson:before,
+.hotTub:before {
+  content: "\f593";
+}
+.mapLocation:before,
+.mapMarked:before {
+  content: "\f59f";
+}
+.houseFloodWater:before {
+  content: "\e50e";
+}
+.tree:before {
+  content: "\f1bb";
+}
+.bridgeLock:before {
+  content: "\e4cc";
+}
+.sackDollar:before {
+  content: "\f81d";
+}
+.edit:before,
+.penToSquare:before {
+  content: "\f044";
+}
+.carSide:before {
+  content: "\f5e4";
+}
+.shareAlt:before,
+.shareNodes:before {
+  content: "\f1e0";
+}
+.heartCircleMinus:before {
+  content: "\e4ff";
+}
+.hourglass2:before,
+.hourglassHalf:before {
+  content: "\f252";
+}
+.microscope:before {
+  content: "\f610";
+}
+.sink:before {
+  content: "\e06d";
+}
+.bagShopping:before,
+.shoppingBag:before {
+  content: "\f290";
+}
+.arrowDownZA:before,
+.sortAlphaDesc:before,
+.sortAlphaDownAlt:before {
+  content: "\f881";
+}
+.mitten:before {
+  content: "\f7b5";
+}
+.personRays:before {
+  content: "\e54d";
+}
+.users:before {
+  content: "\f0c0";
+}
+.eyeSlash:before {
+  content: "\f070";
+}
+.flaskVial:before {
+  content: "\e4f3";
+}
+.handPaper:before,
+.hand:before {
+  content: "\f256";
+}
+.om:before {
+  content: "\f679";
+}
+.worm:before {
+  content: "\e599";
+}
+.houseCircleXmark:before {
+  content: "\e50b";
+}
+.plug:before {
+  content: "\f1e6";
+}
+.chevronUp:before {
+  content: "\f077";
+}
+.handSpock:before {
+  content: "\f259";
+}
+.stopwatch:before {
+  content: "\f2f2";
+}
+.faceKiss:before,
+.kiss:before {
+  content: "\f596";
+}
+.bridgeCircleXmark:before {
+  content: "\e4cb";
+}
+.faceGrinTongue:before,
+.grinTongue:before {
+  content: "\f589";
+}
+.chessBishop:before {
+  content: "\f43a";
+}
+.faceGrinWink:before,
+.grinWink:before {
+  content: "\f58c";
+}
+.deaf:before,
+.deafness:before,
+.earDeaf:before,
+.hardOfHearing:before {
+  content: "\f2a4";
+}
+.roadCircleCheck:before {
+  content: "\e564";
+}
+.diceFive:before {
+  content: "\f523";
+}
+.rssSquare:before,
+.squareRss:before {
+  content: "\f143";
+}
+.landMineOn:before {
+  content: "\e51b";
+}
+.iCursor:before {
+  content: "\f246";
+}
+.stamp:before {
+  content: "\f5bf";
+}
+.stairs:before {
+  content: "\e289";
+}
+.i:before {
+  content: "\49";
+}
+.hryvniaSign:before,
+.hryvnia:before {
+  content: "\f6f2";
+}
+.pills:before {
+  content: "\f484";
+}
+.faceGrinWide:before,
+.grinAlt:before {
+  content: "\f581";
+}
+.tooth:before {
+  content: "\f5c9";
+}
+.v:before {
+  content: "\56";
+}
+.bicycle:before {
+  content: "\f206";
+}
+.rodAsclepius:before,
+.rodSnake:before,
+.staffAesculapius:before,
+.staffSnake:before {
+  content: "\e579";
+}
+.headSideCoughSlash:before {
+  content: "\e062";
+}
+.ambulance:before,
+.truckMedical:before {
+  content: "\f0f9";
+}
+.wheatAwnCircleExclamation:before {
+  content: "\e598";
+}
+.snowman:before {
+  content: "\f7d0";
+}
+.mortarPestle:before {
+  content: "\f5a7";
+}
+.roadBarrier:before {
+  content: "\e562";
+}
+.school:before {
+  content: "\f549";
+}
+.igloo:before {
+  content: "\f7ae";
+}
+.joint:before {
+  content: "\f595";
+}
+.angleRight:before {
+  content: "\f105";
+}
+.horse:before {
+  content: "\f6f0";
+}
+.q:before {
+  content: "\51";
+}
+.g:before {
+  content: "\47";
+}
+.notesMedical:before {
+  content: "\f481";
+}
+.temperature2:before,
+.temperatureHalf:before,
+.thermometer2:before,
+.thermometerHalf:before {
+  content: "\f2c9";
+}
+.dongSign:before {
+  content: "\e169";
+}
+.capsules:before {
+  content: "\f46b";
+}
+.pooBolt:before,
+.pooStorm:before {
+  content: "\f75a";
+}
+.faceFrownOpen:before,
+.frownOpen:before {
+  content: "\f57a";
+}
+.handPointUp:before {
+  content: "\f0a6";
+}
+.moneyBill:before {
+  content: "\f0d6";
+}
+.bookmark:before {
+  content: "\f02e";
+}
+.alignJustify:before {
+  content: "\f039";
+}
+.umbrellaBeach:before {
+  content: "\f5ca";
+}
+.helmetUn:before {
+  content: "\e503";
+}
+.bullseye:before {
+  content: "\f140";
+}
+.bacon:before {
+  content: "\f7e5";
+}
+.handPointDown:before {
+  content: "\f0a7";
+}
+.arrowUpFromBracket:before {
+  content: "\e09a";
+}
+.folderBlank:before,
+.folder:before {
+  content: "\f07b";
+}
+.fileMedicalAlt:before,
+.fileWaveform:before {
+  content: "\f478";
+}
+.radiation:before {
+  content: "\f7b9";
+}
+.chartSimple:before {
+  content: "\e473";
+}
+.marsStroke:before {
+  content: "\f229";
+}
+.vial:before {
+  content: "\f492";
+}
+.dashboard:before,
+.gaugeMed:before,
+.gauge:before,
+.tachometerAltAverage:before {
+  content: "\f624";
+}
+.magicWandSparkles:before,
+.wandMagicSparkles:before {
+  content: "\e2ca";
+}
+.e:before {
+  content: "\45";
+}
+.penAlt:before,
+.penClip:before {
+  content: "\f305";
+}
+.bridgeCircleExclamation:before {
+  content: "\e4ca";
+}
+.user:before {
+  content: "\f007";
+}
+.schoolCircleCheck:before {
+  content: "\e56b";
+}
+.dumpster:before {
+  content: "\f793";
+}
+.shuttleVan:before,
+.vanShuttle:before {
+  content: "\f5b6";
+}
+.buildingUser:before {
+  content: "\e4da";
+}
+.caretSquareLeft:before,
+.squareCaretLeft:before {
+  content: "\f191";
+}
+.highlighter:before {
+  content: "\f591";
+}
+.key:before {
+  content: "\f084";
+}
+.bullhorn:before {
+  content: "\f0a1";
+}
+.globe:before {
+  content: "\f0ac";
+}
+.synagogue:before {
+  content: "\f69b";
+}
+.personHalfDress:before {
+  content: "\e548";
+}
+.roadBridge:before {
+  content: "\e563";
+}
+.locationArrow:before {
+  content: "\f124";
+}
+.c:before {
+  content: "\43";
+}
+.tabletButton:before {
+  content: "\f10a";
+}
+.buildingLock:before {
+  content: "\e4d6";
+}
+.pizzaSlice:before {
+  content: "\f818";
+}
+.moneyBillWave:before {
+  content: "\f53a";
+}
+.areaChart:before,
+.chartArea:before {
+  content: "\f1fe";
+}
+.houseFlag:before {
+  content: "\e50d";
+}
+.personCircleMinus:before {
+  content: "\e540";
+}
+.ban:before,
+.cancel:before {
+  content: "\f05e";
+}
+.cameraRotate:before {
+  content: "\e0d8";
+}
+.airFreshener:before,
+.sprayCanSparkles:before {
+  content: "\f5d0";
+}
+.star:before {
+  content: "\f005";
+}
+.repeat:before {
+  content: "\f363";
+}
+.cross:before {
+  content: "\f654";
+}
+.box:before {
+  content: "\f466";
+}
+.venusMars:before {
+  content: "\f228";
+}
+.arrowPointer:before,
+.mousePointer:before {
+  content: "\f245";
+}
+.expandArrowsAlt:before,
+.maximize:before {
+  content: "\f31e";
+}
+.chargingStation:before {
+  content: "\f5e7";
+}
+.shapes:before,
+.triangleCircleSquare:before {
+  content: "\f61f";
+}
+.random:before,
+.shuffle:before {
+  content: "\f074";
+}
+.personRunning:before,
+.running:before {
+  content: "\f70c";
+}
+.mobileRetro:before {
+  content: "\e527";
+}
+.gripLinesVertical:before {
+  content: "\f7a5";
+}
+.spider:before {
+  content: "\f717";
+}
+.handsBound:before {
+  content: "\e4f9";
+}
+.fileInvoiceDollar:before {
+  content: "\f571";
+}
+.planeCircleExclamation:before {
+  content: "\e556";
+}
+.xRay:before {
+  content: "\f497";
+}
+.spellCheck:before {
+  content: "\f891";
+}
+.slash:before {
+  content: "\f715";
+}
+.computerMouse:before,
+.mouse:before {
+  content: "\f8cc";
+}
+.arrowRightToBracket:before,
+.signIn:before {
+  content: "\f090";
+}
+.shopSlash:before,
+.storeAltSlash:before {
+  content: "\e070";
+}
+.server:before {
+  content: "\f233";
+}
+.virusCovidSlash:before {
+  content: "\e4a9";
+}
+.shopLock:before {
+  content: "\e4a5";
+}
+.hourglass1:before,
+.hourglassStart:before {
+  content: "\f251";
+}
+.blenderPhone:before {
+  content: "\f6b6";
+}
+.buildingWheat:before {
+  content: "\e4db";
+}
+.personBreastfeeding:before {
+  content: "\e53a";
+}
+.rightToBracket:before,
+.signInAlt:before {
+  content: "\f2f6";
+}
+.venus:before {
+  content: "\f221";
+}
+.passport:before {
+  content: "\f5ab";
+}
+.heartPulse:before,
+.heartbeat:before {
+  content: "\f21e";
+}
+.peopleCarryBox:before,
+.peopleCarry:before {
+  content: "\f4ce";
+}
+.temperatureHigh:before {
+  content: "\f769";
+}
+.microchip:before {
+  content: "\f2db";
+}
+.crown:before {
+  content: "\f521";
+}
+.weightHanging:before {
+  content: "\f5cd";
+}
+.xmarksLines:before {
+  content: "\e59a";
+}
+.filePrescription:before {
+  content: "\f572";
+}
+.weightScale:before,
+.weight:before {
+  content: "\f496";
+}
+.userFriends:before,
+.userGroup:before {
+  content: "\f500";
+}
+.arrowUpAZ:before,
+.sortAlphaUp:before {
+  content: "\f15e";
+}
+.chessKnight:before {
+  content: "\f441";
+}
+.faceLaughSquint:before,
+.laughSquint:before {
+  content: "\f59b";
+}
+.wheelchair:before {
+  content: "\f193";
+}
+.arrowCircleUp:before,
+.circleArrowUp:before {
+  content: "\f0aa";
+}
+.toggleOn:before {
+  content: "\f205";
+}
+.personWalking:before,
+.walking:before {
+  content: "\f554";
+}
+.l:before {
+  content: "\4c";
+}
+.fire:before {
+  content: "\f06d";
+}
+.bedPulse:before,
+.procedures:before {
+  content: "\f487";
+}
+.shuttleSpace:before,
+.spaceShuttle:before {
+  content: "\f197";
+}
+.faceLaugh:before,
+.laugh:before {
+  content: "\f599";
+}
+.folderOpen:before {
+  content: "\f07c";
+}
+.heartCirclePlus:before {
+  content: "\e500";
+}
+.codeFork:before {
+  content: "\e13b";
+}
+.city:before {
+  content: "\f64f";
+}
+.microphoneAlt:before,
+.microphoneLines:before {
+  content: "\f3c9";
+}
+.pepperHot:before {
+  content: "\f816";
+}
+.unlock:before {
+  content: "\f09c";
+}
+.colonSign:before {
+  content: "\e140";
+}
+.headset:before {
+  content: "\f590";
+}
+.storeSlash:before {
+  content: "\e071";
+}
+.roadCircleXmark:before {
+  content: "\e566";
+}
+.userMinus:before {
+  content: "\f503";
+}
+.marsStrokeUp:before,
+.marsStrokeV:before {
+  content: "\f22a";
+}
+.champagneGlasses:before,
+.glassCheers:before {
+  content: "\f79f";
+}
+.clipboard:before {
+  content: "\f328";
+}
+.houseCircleExclamation:before {
+  content: "\e50a";
+}
+.fileArrowUp:before,
+.fileUpload:before {
+  content: "\f574";
+}
+.wifi3:before,
+.wifiStrong:before,
+.wifi:before {
+  content: "\f1eb";
+}
+.bath:before,
+.bathtub:before {
+  content: "\f2cd";
+}
+.underline:before {
+  content: "\f0cd";
+}
+.userEdit:before,
+.userPen:before {
+  content: "\f4ff";
+}
+.signature:before {
+  content: "\f5b7";
+}
+.stroopwafel:before {
+  content: "\f551";
+}
+.bold:before {
+  content: "\f032";
+}
+.anchorLock:before {
+  content: "\e4ad";
+}
+.buildingNgo:before {
+  content: "\e4d7";
+}
+.manatSign:before {
+  content: "\e1d5";
+}
+.notEqual:before {
+  content: "\f53e";
+}
+.borderStyle:before,
+.borderTopLeft:before {
+  content: "\f853";
+}
+.mapLocationDot:before,
+.mapMarkedAlt:before {
+  content: "\f5a0";
+}
+.jedi:before {
+  content: "\f669";
+}
+.poll:before,
+.squarePollVertical:before {
+  content: "\f681";
+}
+.mugHot:before {
+  content: "\f7b6";
+}
+.batteryCar:before,
+.carBattery:before {
+  content: "\f5df";
+}
+.gift:before {
+  content: "\f06b";
+}
+.diceTwo:before {
+  content: "\f528";
+}
+.chessQueen:before {
+  content: "\f445";
+}
+.glasses:before {
+  content: "\f530";
+}
+.chessBoard:before {
+  content: "\f43c";
+}
+.buildingCircleCheck:before {
+  content: "\e4d2";
+}
+.personChalkboard:before {
+  content: "\e53d";
+}
+.marsStrokeH:before,
+.marsStrokeRight:before {
+  content: "\f22b";
+}
+.handBackFist:before,
+.handRock:before {
+  content: "\f255";
+}
+.caretSquareUp:before,
+.squareCaretUp:before {
+  content: "\f151";
+}
+.cloudShowersWater:before {
+  content: "\e4e4";
+}
+.barChart:before,
+.chartBar:before {
+  content: "\f080";
+}
+.handsBubbles:before,
+.handsWash:before {
+  content: "\e05e";
+}
+.lessThanEqual:before {
+  content: "\f537";
+}
+.train:before {
+  content: "\f238";
+}
+.eyeLowVision:before,
+.lowVision:before {
+  content: "\f2a8";
+}
+.crow:before {
+  content: "\f520";
+}
+.sailboat:before {
+  content: "\e445";
+}
+.windowRestore:before {
+  content: "\f2d2";
+}
+.plusSquare:before,
+.squarePlus:before {
+  content: "\f0fe";
+}
+.toriiGate:before {
+  content: "\f6a1";
+}
+.frog:before {
+  content: "\f52e";
+}
+.bucket:before {
+  content: "\e4cf";
+}
+.image:before {
+  content: "\f03e";
+}
+.microphone:before {
+  content: "\f130";
+}
+.cow:before {
+  content: "\f6c8";
+}
+.caretUp:before {
+  content: "\f0d8";
+}
+.screwdriver:before {
+  content: "\f54a";
+}
+.folderClosed:before {
+  content: "\e185";
+}
+.houseTsunami:before {
+  content: "\e515";
+}
+.squareNfi:before {
+  content: "\e576";
+}
+.arrowUpFromGroundWater:before {
+  content: "\e4b5";
+}
+.glassMartiniAlt:before,
+.martiniGlass:before {
+  content: "\f57b";
+}
+.rotateBack:before,
+.rotateBackward:before,
+.rotateLeft:before,
+.undoAlt:before {
+  content: "\f2ea";
+}
+.columns:before,
+.tableColumns:before {
+  content: "\f0db";
+}
+.lemon:before {
+  content: "\f094";
+}
+.headSideMask:before {
+  content: "\e063";
+}
+.handshake:before {
+  content: "\f2b5";
+}
+.gem:before {
+  content: "\f3a5";
+}
+.dollyBox:before,
+.dolly:before {
+  content: "\f472";
+}
+.smoking:before {
+  content: "\f48d";
+}
+.compressArrowsAlt:before,
+.minimize:before {
+  content: "\f78c";
+}
+.monument:before {
+  content: "\f5a6";
+}
+.snowplow:before {
+  content: "\f7d2";
+}
+.angleDoubleRight:before,
+.anglesRight:before {
+  content: "\f101";
+}
+.cannabis:before {
+  content: "\f55f";
+}
+.circlePlay:before,
+.playCircle:before {
+  content: "\f144";
+}
+.tablets:before {
+  content: "\f490";
+}
+.ethernet:before {
+  content: "\f796";
+}
+.eur:before,
+.euroSign:before,
+.euro:before {
+  content: "\f153";
+}
+.chair:before {
+  content: "\f6c0";
+}
+.checkCircle:before,
+.circleCheck:before {
+  content: "\f058";
+}
+.circleStop:before,
+.stopCircle:before {
+  content: "\f28d";
+}
+.compassDrafting:before,
+.draftingCompass:before {
+  content: "\f568";
+}
+.plateWheat:before {
+  content: "\e55a";
+}
+.icicles:before {
+  content: "\f7ad";
+}
+.personShelter:before {
+  content: "\e54f";
+}
+.neuter:before {
+  content: "\f22c";
+}
+.idBadge:before {
+  content: "\f2c1";
+}
+.marker:before {
+  content: "\f5a1";
+}
+.faceLaughBeam:before,
+.laughBeam:before {
+  content: "\f59a";
+}
+.helicopterSymbol:before {
+  content: "\e502";
+}
+.universalAccess:before {
+  content: "\f29a";
+}
+.chevronCircleUp:before,
+.circleChevronUp:before {
+  content: "\f139";
+}
+.lariSign:before {
+  content: "\e1c8";
+}
+.volcano:before {
+  content: "\f770";
+}
+.personWalkingDashedLineArrowRight:before {
+  content: "\e553";
+}
+.gbp:before,
+.poundSign:before,
+.sterlingSign:before {
+  content: "\f154";
+}
+.viruses:before {
+  content: "\e076";
+}
+.squarePersonConfined:before {
+  content: "\e577";
+}
+.userTie:before {
+  content: "\f508";
+}
+.arrowDownLong:before,
+.longArrowDown:before {
+  content: "\f175";
+}
+.tentArrowDownToLine:before {
+  content: "\e57e";
+}
+.certificate:before {
+  content: "\f0a3";
+}
+.mailReplyAll:before,
+.replyAll:before {
+  content: "\f122";
+}
+.suitcase:before {
+  content: "\f0f2";
+}
+.personSkating:before,
+.skating:before {
+  content: "\f7c5";
+}
+.filterCircleDollar:before,
+.funnelDollar:before {
+  content: "\f662";
+}
+.cameraRetro:before {
+  content: "\f083";
+}
+.arrowCircleDown:before,
+.circleArrowDown:before {
+  content: "\f0ab";
+}
+.arrowRightToFile:before,
+.fileImport:before {
+  content: "\f56f";
+}
+.externalLinkSquare:before,
+.squareArrowUpRight:before {
+  content: "\f14c";
+}
+.boxOpen:before {
+  content: "\f49e";
+}
+.scroll:before {
+  content: "\f70e";
+}
+.spa:before {
+  content: "\f5bb";
+}
+.locationPinLock:before {
+  content: "\e51f";
+}
+.pause:before {
+  content: "\f04c";
+}
+.hillAvalanche:before {
+  content: "\e507";
+}
+.temperature0:before,
+.temperatureEmpty:before,
+.thermometer0:before,
+.thermometerEmpty:before {
+  content: "\f2cb";
+}
+.bomb:before {
+  content: "\f1e2";
+}
+.registered:before {
+  content: "\f25d";
+}
+.addressCard:before,
+.contactCard:before,
+.vcard:before {
+  content: "\f2bb";
+}
+.balanceScaleRight:before,
+.scaleUnbalancedFlip:before {
+  content: "\f516";
+}
+.subscript:before {
+  content: "\f12c";
+}
+.diamondTurnRight:before,
+.directions:before {
+  content: "\f5eb";
+}
+.burst:before {
+  content: "\e4dc";
+}
+.houseLaptop:before,
+.laptopHouse:before {
+  content: "\e066";
+}
+.faceTired:before,
+.tired:before {
+  content: "\f5c8";
+}
+.moneyBills:before {
+  content: "\e1f3";
+}
+.smog:before {
+  content: "\f75f";
+}
+.crutch:before {
+  content: "\f7f7";
+}
+.cloudArrowUp:before,
+.cloudUploadAlt:before,
+.cloudUpload:before {
+  content: "\f0ee";
+}
+.palette:before {
+  content: "\f53f";
+}
+.arrowsTurnRight:before {
+  content: "\e4c0";
+}
+.vest:before {
+  content: "\e085";
+}
+.ferry:before {
+  content: "\e4ea";
+}
+.arrowsDownToPeople:before {
+  content: "\e4b9";
+}
+.seedling:before,
+.sprout:before {
+  content: "\f4d8";
+}
+.arrowsAltH:before,
+.leftRight:before {
+  content: "\f337";
+}
+.boxesPacking:before {
+  content: "\e4c7";
+}
+.arrowCircleLeft:before,
+.circleArrowLeft:before {
+  content: "\f0a8";
+}
+.groupArrowsRotate:before {
+  content: "\e4f6";
+}
+.bowlFood:before {
+  content: "\e4c6";
+}
+.candyCane:before {
+  content: "\f786";
+}
+.arrowDownWideShort:before,
+.sortAmountAsc:before,
+.sortAmountDown:before {
+  content: "\f160";
+}
+.cloudBolt:before,
+.thunderstorm:before {
+  content: "\f76c";
+}
+.removeFormat:before,
+.textSlash:before {
+  content: "\f87d";
+}
+.faceSmileWink:before,
+.smileWink:before {
+  content: "\f4da";
+}
+.fileWord:before {
+  content: "\f1c2";
+}
+.filePowerpoint:before {
+  content: "\f1c4";
+}
+.arrowsH:before,
+.arrowsLeftRight:before {
+  content: "\f07e";
+}
+.houseLock:before {
+  content: "\e510";
+}
+.cloudArrowDown:before,
+.cloudDownloadAlt:before,
+.cloudDownload:before {
+  content: "\f0ed";
+}
+.children:before {
+  content: "\e4e1";
+}
+.blackboard:before,
+.chalkboard:before {
+  content: "\f51b";
+}
+.userAltSlash:before,
+.userLargeSlash:before {
+  content: "\f4fa";
+}
+.envelopeOpen:before {
+  content: "\f2b6";
+}
+.handshakeAltSlash:before,
+.handshakeSimpleSlash:before {
+  content: "\e05f";
+}
+.mattressPillow:before {
+  content: "\e525";
+}
+.guaraniSign:before {
+  content: "\e19a";
+}
+.arrowsRotate:before,
+.refresh:before,
+.sync:before {
+  content: "\f021";
+}
+.fireExtinguisher:before {
+  content: "\f134";
+}
+.cruzeiroSign:before {
+  content: "\e152";
+}
+.greaterThanEqual:before {
+  content: "\f532";
+}
+.shieldAlt:before,
+.shieldHalved:before {
+  content: "\f3ed";
+}
+.atlas:before,
+.bookAtlas:before {
+  content: "\f558";
+}
+.virus:before {
+  content: "\e074";
+}
+.envelopeCircleCheck:before {
+  content: "\e4e8";
+}
+.layerGroup:before {
+  content: "\f5fd";
+}
+.arrowsToDot:before {
+  content: "\e4be";
+}
+.archway:before {
+  content: "\f557";
+}
+.heartCircleCheck:before {
+  content: "\e4fd";
+}
+.houseChimneyCrack:before,
+.houseDamage:before {
+  content: "\f6f1";
+}
+.fileArchive:before,
+.fileZipper:before {
+  content: "\f1c6";
+}
+.square:before {
+  content: "\f0c8";
+}
+.glassMartini:before,
+.martiniGlassEmpty:before {
+  content: "\f000";
+}
+.couch:before {
+  content: "\f4b8";
+}
+.cediSign:before {
+  content: "\e0df";
+}
+.italic:before {
+  content: "\f033";
+}
+.church:before {
+  content: "\f51d";
+}
+.commentsDollar:before {
+  content: "\f653";
+}
+.democrat:before {
+  content: "\f747";
+}
+.z:before {
+  content: "\5a";
+}
+.personSkiing:before,
+.skiing:before {
+  content: "\f7c9";
+}
+.roadLock:before {
+  content: "\e567";
+}
+.a:before {
+  content: "\41";
+}
+.temperatureArrowDown:before,
+.temperatureDown:before {
+  content: "\e03f";
+}
+.featherAlt:before,
+.featherPointed:before {
+  content: "\f56b";
+}
+.p:before {
+  content: "\50";
+}
+.snowflake:before {
+  content: "\f2dc";
+}
+.newspaper:before {
+  content: "\f1ea";
+}
+.ad:before,
+.rectangleAd:before {
+  content: "\f641";
+}
+.arrowCircleRight:before,
+.circleArrowRight:before {
+  content: "\f0a9";
+}
+.filterCircleXmark:before {
+  content: "\e17b";
+}
+.locust:before {
+  content: "\e520";
+}
+.sort:before,
+.unsorted:before {
+  content: "\f0dc";
+}
+.list12:before,
+.listNumeric:before,
+.listOl:before {
+  content: "\f0cb";
+}
+.personDressBurst:before {
+  content: "\e544";
+}
+.moneyCheckAlt:before,
+.moneyCheckDollar:before {
+  content: "\f53d";
+}
+.vectorSquare:before {
+  content: "\f5cb";
+}
+.breadSlice:before {
+  content: "\f7ec";
+}
+.language:before {
+  content: "\f1ab";
+}
+.faceKissWinkHeart:before,
+.kissWinkHeart:before {
+  content: "\f598";
+}
+.filter:before {
+  content: "\f0b0";
+}
+.question:before {
+  content: "\3f";
+}
+.fileSignature:before {
+  content: "\f573";
+}
+.arrowsAlt:before,
+.upDownLeftRight:before {
+  content: "\f0b2";
+}
+.houseChimneyUser:before {
+  content: "\e065";
+}
+.handHoldingHeart:before {
+  content: "\f4be";
+}
+.puzzlePiece:before {
+  content: "\f12e";
+}
+.moneyCheck:before {
+  content: "\f53c";
+}
+.starHalfAlt:before,
+.starHalfStroke:before {
+  content: "\f5c0";
+}
+.code:before {
+  content: "\f121";
+}
+.glassWhiskey:before,
+.whiskeyGlass:before {
+  content: "\f7a0";
+}
+.buildingCircleExclamation:before {
+  content: "\e4d3";
+}
+.magnifyingGlassChart:before {
+  content: "\e522";
+}
+.arrowUpRightFromSquare:before,
+.externalLink:before {
+  content: "\f08e";
+}
+.cubesStacked:before {
+  content: "\e4e6";
+}
+.krw:before,
+.wonSign:before,
+.won:before {
+  content: "\f159";
+}
+.virusCovid:before {
+  content: "\e4a8";
+}
+.australSign:before {
+  content: "\e0a9";
+}
+.f:before {
+  content: "\46";
+}
+.leaf:before {
+  content: "\f06c";
+}
+.road:before {
+  content: "\f018";
+}
+.cab:before,
+.taxi:before {
+  content: "\f1ba";
+}
+.personCirclePlus:before {
+  content: "\e541";
+}
+.chartPie:before,
+.pieChart:before {
+  content: "\f200";
+}
+.boltLightning:before {
+  content: "\e0b7";
+}
+.sackXmark:before {
+  content: "\e56a";
+}
+.fileExcel:before {
+  content: "\f1c3";
+}
+.fileContract:before {
+  content: "\f56c";
+}
+.fishFins:before {
+  content: "\e4f2";
+}
+.buildingFlag:before {
+  content: "\e4d5";
+}
+.faceGrinBeam:before,
+.grinBeam:before {
+  content: "\f582";
+}
+.objectUngroup:before {
+  content: "\f248";
+}
+.poop:before {
+  content: "\f619";
+}
+.locationPin:before,
+.mapMarker:before {
+  content: "\f041";
+}
+.kaaba:before {
+  content: "\f66b";
+}
+.toiletPaper:before {
+  content: "\f71e";
+}
+.hardHat:before,
+.hatHard:before,
+.helmetSafety:before {
+  content: "\f807";
+}
+.eject:before {
+  content: "\f052";
+}
+.arrowAltCircleRight:before,
+.circleRight:before {
+  content: "\f35a";
+}
+.planeCircleCheck:before {
+  content: "\e555";
+}
+.faceRollingEyes:before,
+.mehRollingEyes:before {
+  content: "\f5a5";
+}
+.objectGroup:before {
+  content: "\f247";
+}
+.chartLine:before,
+.lineChart:before {
+  content: "\f201";
+}
+.maskVentilator:before {
+  content: "\e524";
+}
+.arrowRight:before {
+  content: "\f061";
+}
+.mapSigns:before,
+.signsPost:before {
+  content: "\f277";
+}
+.cashRegister:before {
+  content: "\f788";
+}
+.personCircleQuestion:before {
+  content: "\e542";
+}
+.h:before {
+  content: "\48";
+}
+.tarp:before {
+  content: "\e57b";
+}
+.screwdriverWrench:before,
+.tools:before {
+  content: "\f7d9";
+}
+.arrowsToEye:before {
+  content: "\e4bf";
+}
+.plugCircleBolt:before {
+  content: "\e55b";
+}
+.heart:before {
+  content: "\f004";
+}
+.marsAndVenus:before {
+  content: "\f224";
+}
+.homeUser:before,
+.houseUser:before {
+  content: "\e1b0";
+}
+.dumpsterFire:before {
+  content: "\f794";
+}
+.houseCrack:before {
+  content: "\e3b1";
+}
+.cocktail:before,
+.martiniGlassCitrus:before {
+  content: "\f561";
+}
+.faceSurprise:before,
+.surprise:before {
+  content: "\f5c2";
+}
+.bottleWater:before {
+  content: "\e4c5";
+}
+.circlePause:before,
+.pauseCircle:before {
+  content: "\f28b";
+}
+.toiletPaperSlash:before {
+  content: "\e072";
+}
+.appleAlt:before,
+.appleWhole:before {
+  content: "\f5d1";
+}
+.kitchenSet:before {
+  content: "\e51a";
+}
+.r:before {
+  content: "\52";
+}
+.temperature1:before,
+.temperatureQuarter:before,
+.thermometer1:before,
+.thermometerQuarter:before {
+  content: "\f2ca";
+}
+.cube:before {
+  content: "\f1b2";
+}
+.bitcoinSign:before {
+  content: "\e0b4";
+}
+.shieldDog:before {
+  content: "\e573";
+}
+.solarPanel:before {
+  content: "\f5ba";
+}
+.lockOpen:before {
+  content: "\f3c1";
+}
+.elevator:before {
+  content: "\e16d";
+}
+.moneyBillTransfer:before {
+  content: "\e528";
+}
+.moneyBillTrendUp:before {
+  content: "\e529";
+}
+.houseFloodWaterCircleArrowRight:before {
+  content: "\e50f";
+}
+.pollH:before,
+.squarePollHorizontal:before {
+  content: "\f682";
+}
+.circle:before {
+  content: "\f111";
+}
+.backwardFast:before,
+.fastBackward:before {
+  content: "\f049";
+}
+.recycle:before {
+  content: "\f1b8";
+}
+.userAstronaut:before {
+  content: "\f4fb";
+}
+.planeSlash:before {
+  content: "\e069";
+}
+.trademark:before {
+  content: "\f25c";
+}
+.basketballBall:before,
+.basketball:before {
+  content: "\f434";
+}
+.satelliteDish:before {
+  content: "\f7c0";
+}
+.arrowAltCircleUp:before,
+.circleUp:before {
+  content: "\f35b";
+}
+.mobileAlt:before,
+.mobileScreenButton:before {
+  content: "\f3cd";
+}
+.volumeHigh:before,
+.volumeUp:before {
+  content: "\f028";
+}
+.usersRays:before {
+  content: "\e593";
+}
+.wallet:before {
+  content: "\f555";
+}
+.clipboardCheck:before {
+  content: "\f46c";
+}
+.fileAudio:before {
+  content: "\f1c7";
+}
+.burger:before,
+.hamburger:before {
+  content: "\f805";
+}
+.wrench:before {
+  content: "\f0ad";
+}
+.bugs:before {
+  content: "\e4d0";
+}
+.rupeeSign:before,
+.rupee:before {
+  content: "\f156";
+}
+.fileImage:before {
+  content: "\f1c5";
+}
+.circleQuestion:before,
+.questionCircle:before {
+  content: "\f059";
+}
+.planeDeparture:before {
+  content: "\f5b0";
+}
+.handshakeSlash:before {
+  content: "\e060";
+}
+.bookBookmark:before {
+  content: "\e0bb";
+}
+.codeBranch:before {
+  content: "\f126";
+}
+.hatCowboy:before {
+  content: "\f8c0";
+}
+.bridge:before {
+  content: "\e4c8";
+}
+.phoneAlt:before,
+.phoneFlip:before {
+  content: "\f879";
+}
+.truckFront:before {
+  content: "\e2b7";
+}
+.cat:before {
+  content: "\f6be";
+}
+.anchorCircleExclamation:before {
+  content: "\e4ab";
+}
+.truckField:before {
+  content: "\e58d";
+}
+.route:before {
+  content: "\f4d7";
+}
+.clipboardQuestion:before {
+  content: "\e4e3";
+}
+.panorama:before {
+  content: "\e209";
+}
+.commentMedical:before {
+  content: "\f7f5";
+}
+.teethOpen:before {
+  content: "\f62f";
+}
+.fileCircleMinus:before {
+  content: "\e4ed";
+}
+.tags:before {
+  content: "\f02c";
+}
+.wineGlass:before {
+  content: "\f4e3";
+}
+.fastForward:before,
+.forwardFast:before {
+  content: "\f050";
+}
+.faceMehBlank:before,
+.mehBlank:before {
+  content: "\f5a4";
+}
+.parking:before,
+.squareParking:before {
+  content: "\f540";
+}
+.houseSignal:before {
+  content: "\e012";
+}
+.barsProgress:before,
+.tasksAlt:before {
+  content: "\f828";
+}
+.faucetDrip:before {
+  content: "\e006";
+}
+.cartFlatbed:before,
+.dollyFlatbed:before {
+  content: "\f474";
+}
+.banSmoking:before,
+.smokingBan:before {
+  content: "\f54d";
+}
+.terminal:before {
+  content: "\f120";
+}
+.mobileButton:before {
+  content: "\f10b";
+}
+.houseMedicalFlag:before {
+  content: "\e514";
+}
+.basketShopping:before,
+.shoppingBasket:before {
+  content: "\f291";
+}
+.tape:before {
+  content: "\f4db";
+}
+.busAlt:before,
+.busSimple:before {
+  content: "\f55e";
+}
+.eye:before {
+  content: "\f06e";
+}
+.faceSadCry:before,
+.sadCry:before {
+  content: "\f5b3";
+}
+.audioDescription:before {
+  content: "\f29e";
+}
+.personMilitaryToPerson:before {
+  content: "\e54c";
+}
+.fileShield:before {
+  content: "\e4f0";
+}
+.userSlash:before {
+  content: "\f506";
+}
+.pen:before {
+  content: "\f304";
+}
+.towerObservation:before {
+  content: "\e586";
+}
+.fileCode:before {
+  content: "\f1c9";
+}
+.signal5:before,
+.signalPerfect:before,
+.signal:before {
+  content: "\f012";
+}
+.bus:before {
+  content: "\f207";
+}
+.heartCircleXmark:before {
+  content: "\e501";
+}
+.homeLg:before,
+.houseChimney:before {
+  content: "\e3af";
+}
+.windowMaximize:before {
+  content: "\f2d0";
+}
+.faceFrown:before,
+.frown:before {
+  content: "\f119";
+}
+.prescription:before {
+  content: "\f5b1";
+}
+.shop:before,
+.storeAlt:before {
+  content: "\f54f";
+}
+.floppyDisk:before,
+.save:before {
+  content: "\f0c7";
+}
+.vihara:before {
+  content: "\f6a7";
+}
+.balanceScaleLeft:before,
+.scaleUnbalanced:before {
+  content: "\f515";
+}
+.sortAsc:before,
+.sortUp:before {
+  content: "\f0de";
+}
+.commentDots:before,
+.commenting:before {
+  content: "\f4ad";
+}
+.plantWilt:before {
+  content: "\e5aa";
+}
+.diamond:before {
+  content: "\f219";
+}
+.faceGrinSquint:before,
+.grinSquint:before {
+  content: "\f585";
+}
+.handHoldingDollar:before,
+.handHoldingUsd:before {
+  content: "\f4c0";
+}
+.bacterium:before {
+  content: "\e05a";
+}
+.handPointer:before {
+  content: "\f25a";
+}
+.drumSteelpan:before {
+  content: "\f56a";
+}
+.handScissors:before {
+  content: "\f257";
+}
+.handsPraying:before,
+.prayingHands:before {
+  content: "\f684";
+}
+.arrowRightRotate:before,
+.arrowRotateForward:before,
+.arrowRotateRight:before,
+.redo:before {
+  content: "\f01e";
+}
+.biohazard:before {
+  content: "\f780";
+}
+.locationCrosshairs:before,
+.location:before {
+  content: "\f601";
+}
+.marsDouble:before {
+  content: "\f227";
+}
+.childDress:before {
+  content: "\e59c";
+}
+.usersBetweenLines:before {
+  content: "\e591";
+}
+.lungsVirus:before {
+  content: "\e067";
+}
+.faceGrinTears:before,
+.grinTears:before {
+  content: "\f588";
+}
+.phone:before {
+  content: "\f095";
+}
+.calendarTimes:before,
+.calendarXmark:before {
+  content: "\f273";
+}
+.childReaching:before {
+  content: "\e59d";
+}
+.headSideVirus:before {
+  content: "\e064";
+}
+.userCog:before,
+.userGear:before {
+  content: "\f4fe";
+}
+.arrowUp19:before,
+.sortNumericUp:before {
+  content: "\f163";
+}
+.doorClosed:before {
+  content: "\f52a";
+}
+.shieldVirus:before {
+  content: "\e06c";
+}
+.diceSix:before {
+  content: "\f526";
+}
+.mosquitoNet:before {
+  content: "\e52c";
+}
+.bridgeWater:before {
+  content: "\e4ce";
+}
+.personBooth:before {
+  content: "\f756";
+}
+.textWidth:before {
+  content: "\f035";
+}
+.hatWizard:before {
+  content: "\f6e8";
+}
+.penFancy:before {
+  content: "\f5ac";
+}
+.digging:before,
+.personDigging:before {
+  content: "\f85e";
+}
+.trash:before {
+  content: "\f1f8";
+}
+.gaugeSimpleMed:before,
+.gaugeSimple:before,
+.tachometerAverage:before {
+  content: "\f629";
+}
+.bookMedical:before {
+  content: "\f7e6";
+}
+.poo:before {
+  content: "\f2fe";
+}
+.quoteRightAlt:before,
+.quoteRight:before {
+  content: "\f10e";
+}
+.shirt:before,
+.tShirt:before,
+.tshirt:before {
+  content: "\f553";
+}
+.cubes:before {
+  content: "\f1b3";
+}
+.divide:before {
+  content: "\f529";
+}
+.tengeSign:before,
+.tenge:before {
+  content: "\f7d7";
+}
+.headphones:before {
+  content: "\f025";
+}
+.handsHolding:before {
+  content: "\f4c2";
+}
+.handsClapping:before {
+  content: "\e1a8";
+}
+.republican:before {
+  content: "\f75e";
+}
+.arrowLeft:before {
+  content: "\f060";
+}
+.personCircleXmark:before {
+  content: "\e543";
+}
+.ruler:before {
+  content: "\f545";
+}
+.alignLeft:before {
+  content: "\f036";
+}
+.diceD6:before {
+  content: "\f6d1";
+}
+.restroom:before {
+  content: "\f7bd";
+}
+.j:before {
+  content: "\4a";
+}
+.usersViewfinder:before {
+  content: "\e595";
+}
+.fileVideo:before {
+  content: "\f1c8";
+}
+.externalLinkAlt:before,
+.upRightFromSquare:before {
+  content: "\f35d";
+}
+.tableCells:before,
+.th:before {
+  content: "\f00a";
+}
+.filePdf:before {
+  content: "\f1c1";
+}
+.bible:before,
+.bookBible:before {
+  content: "\f647";
+}
+.o:before {
+  content: "\4f";
+}
+.medkit:before,
+.suitcaseMedical:before {
+  content: "\f0fa";
+}
+.userSecret:before {
+  content: "\f21b";
+}
+.otter:before {
+  content: "\f700";
+}
+.female:before,
+.personDress:before {
+  content: "\f182";
+}
+.commentDollar:before {
+  content: "\f651";
+}
+.briefcaseClock:before,
+.businessTime:before {
+  content: "\f64a";
+}
+.tableCellsLarge:before,
+.thLarge:before {
+  content: "\f009";
+}
+.bookTanakh:before,
+.tanakh:before {
+  content: "\f827";
+}
+.phoneVolume:before,
+.volumeControlPhone:before {
+  content: "\f2a0";
+}
+.hatCowboySide:before {
+  content: "\f8c1";
+}
+.clipboardUser:before {
+  content: "\f7f3";
+}
+.child:before {
+  content: "\f1ae";
+}
+.liraSign:before {
+  content: "\f195";
+}
+.satellite:before {
+  content: "\f7bf";
+}
+.planeLock:before {
+  content: "\e558";
+}
+.tag:before {
+  content: "\f02b";
+}
+.comment:before {
+  content: "\f075";
+}
+.birthdayCake:before,
+.cakeCandles:before,
+.cake:before {
+  content: "\f1fd";
+}
+.envelope:before {
+  content: "\f0e0";
+}
+.angleDoubleUp:before,
+.anglesUp:before {
+  content: "\f102";
+}
+.paperclip:before {
+  content: "\f0c6";
+}
+.arrowRightToCity:before {
+  content: "\e4b3";
+}
+.ribbon:before {
+  content: "\f4d6";
+}
+.lungs:before {
+  content: "\f604";
+}
+.arrowUp91:before,
+.sortNumericUpAlt:before {
+  content: "\f887";
+}
+.litecoinSign:before {
+  content: "\e1d3";
+}
+.borderNone:before {
+  content: "\f850";
+}
+.circleNodes:before {
+  content: "\e4e2";
+}
+.parachuteBox:before {
+  content: "\f4cd";
+}
+.indent:before {
+  content: "\f03c";
+}
+.truckFieldUn:before {
+  content: "\e58e";
+}
+.hourglassEmpty:before,
+.hourglass:before {
+  content: "\f254";
+}
+.mountain:before {
+  content: "\f6fc";
+}
+.userDoctor:before,
+.userMd:before {
+  content: "\f0f0";
+}
+.circleInfo:before,
+.infoCircle:before {
+  content: "\f05a";
+}
+.cloudMeatball:before {
+  content: "\f73b";
+}
+.cameraAlt:before,
+.camera:before {
+  content: "\f030";
+}
+.squareVirus:before {
+  content: "\e578";
+}
+.meteor:before {
+  content: "\f753";
+}
+.carOn:before {
+  content: "\e4dd";
+}
+.sleigh:before {
+  content: "\f7cc";
+}
+.arrowDown19:before,
+.sortNumericAsc:before,
+.sortNumericDown:before {
+  content: "\f162";
+}
+.handHoldingDroplet:before,
+.handHoldingWater:before {
+  content: "\f4c1";
+}
+.water:before {
+  content: "\f773";
+}
+.calendarCheck:before {
+  content: "\f274";
+}
+.braille:before {
+  content: "\f2a1";
+}
+.prescriptionBottleAlt:before,
+.prescriptionBottleMedical:before {
+  content: "\f486";
+}
+.landmark:before {
+  content: "\f66f";
+}
+.truck:before {
+  content: "\f0d1";
+}
+.crosshairs:before {
+  content: "\f05b";
+}
+.personCane:before {
+  content: "\e53c";
+}
+.tent:before {
+  content: "\e57d";
+}
+.vestPatches:before {
+  content: "\e086";
+}
+.checkDouble:before {
+  content: "\f560";
+}
+.arrowDownAZ:before,
+.sortAlphaAsc:before,
+.sortAlphaDown:before {
+  content: "\f15d";
+}
+.moneyBillWheat:before {
+  content: "\e52a";
+}
+.cookie:before {
+  content: "\f563";
+}
+.arrowLeftRotate:before,
+.arrowRotateBack:before,
+.arrowRotateBackward:before,
+.arrowRotateLeft:before,
+.undo:before {
+  content: "\f0e2";
+}
+.hardDrive:before,
+.hdd:before {
+  content: "\f0a0";
+}
+.faceGrinSquintTears:before,
+.grinSquintTears:before {
+  content: "\f586";
+}
+.dumbbell:before {
+  content: "\f44b";
+}
+.listAlt:before,
+.rectangleList:before {
+  content: "\f022";
+}
+.tarpDroplet:before {
+  content: "\e57c";
+}
+.houseMedicalCircleCheck:before {
+  content: "\e511";
+}
+.personSkiingNordic:before,
+.skiingNordic:before {
+  content: "\f7ca";
+}
+.calendarPlus:before {
+  content: "\f271";
+}
+.planeArrival:before {
+  content: "\f5af";
+}
+.arrowAltCircleLeft:before,
+.circleLeft:before {
+  content: "\f359";
+}
+.subway:before,
+.trainSubway:before {
+  content: "\f239";
+}
+.chartGantt:before {
+  content: "\e0e4";
+}
+.indianRupeeSign:before,
+.indianRupee:before,
+.inr:before {
+  content: "\e1bc";
+}
+.cropAlt:before,
+.cropSimple:before {
+  content: "\f565";
+}
+.moneyBill1:before,
+.moneyBillAlt:before {
+  content: "\f3d1";
+}
+.leftLong:before,
+.longArrowAltLeft:before {
+  content: "\f30a";
+}
+.dna:before {
+  content: "\f471";
+}
+.virusSlash:before {
+  content: "\e075";
+}
+.minus:before,
+.subtract:before {
+  content: "\f068";
+}
+.childRifle:before {
+  content: "\e4e0";
+}
+.chess:before {
+  content: "\f439";
+}
+.arrowLeftLong:before,
+.longArrowLeft:before {
+  content: "\f177";
+}
+.plugCircleCheck:before {
+  content: "\e55c";
+}
+.streetView:before {
+  content: "\f21d";
+}
+.francSign:before {
+  content: "\e18f";
+}
+.volumeOff:before {
+  content: "\f026";
+}
+.americanSignLanguageInterpreting:before,
+.aslInterpreting:before,
+.handsAmericanSignLanguageInterpreting:before,
+.handsAslInterpreting:before {
+  content: "\f2a3";
+}
+.cog:before,
+.gear:before {
+  content: "\f013";
+}
+.dropletSlash:before,
+.tintSlash:before {
+  content: "\f5c7";
+}
+.mosque:before {
+  content: "\f678";
+}
+.mosquito:before {
+  content: "\e52b";
+}
+.starOfDavid:before {
+  content: "\f69a";
+}
+.personMilitaryRifle:before {
+  content: "\e54b";
+}
+.cartShopping:before,
+.shoppingCart:before {
+  content: "\f07a";
+}
+.vials:before {
+  content: "\f493";
+}
+.plugCirclePlus:before {
+  content: "\e55f";
+}
+.placeOfWorship:before {
+  content: "\f67f";
+}
+.gripVertical:before {
+  content: "\f58e";
+}
+.arrowTurnUp:before,
+.levelUp:before {
+  content: "\f148";
+}
+.u:before {
+  content: "\55";
+}
+.squareRootAlt:before,
+.squareRootVariable:before {
+  content: "\f698";
+}
+.clockFour:before,
+.clock:before {
+  content: "\f017";
+}
+.backwardStep:before,
+.stepBackward:before {
+  content: "\f048";
+}
+.pallet:before {
+  content: "\f482";
+}
+.faucet:before {
+  content: "\e005";
+}
+.baseballBatBall:before {
+  content: "\f432";
+}
+.s:before {
+  content: "\53";
+}
+.timeline:before {
+  content: "\e29c";
+}
+.keyboard:before {
+  content: "\f11c";
+}
+.caretDown:before {
+  content: "\f0d7";
+}
+.clinicMedical:before,
+.houseChimneyMedical:before {
+  content: "\f7f2";
+}
+.temperature3:before,
+.temperatureThreeQuarters:before,
+.thermometer3:before,
+.thermometerThreeQuarters:before {
+  content: "\f2c8";
+}
+.mobileAndroidAlt:before,
+.mobileScreen:before {
+  content: "\f3cf";
+}
+.planeUp:before {
+  content: "\e22d";
+}
+.piggyBank:before {
+  content: "\f4d3";
+}
+.battery3:before,
+.batteryHalf:before {
+  content: "\f242";
+}
+.mountainCity:before {
+  content: "\e52e";
+}
+.coins:before {
+  content: "\f51e";
+}
+.khanda:before {
+  content: "\f66d";
+}
+.slidersH:before,
+.sliders:before {
+  content: "\f1de";
+}
+.folderTree:before {
+  content: "\f802";
+}
+.networkWired:before {
+  content: "\f6ff";
+}
+.mapPin:before {
+  content: "\f276";
+}
+.hamsa:before {
+  content: "\f665";
+}
+.centSign:before {
+  content: "\e3f5";
+}
+.flask:before {
+  content: "\f0c3";
+}
+.personPregnant:before {
+  content: "\e31e";
+}
+.wandSparkles:before {
+  content: "\f72b";
+}
+.ellipsisV:before,
+.ellipsisVertical:before {
+  content: "\f142";
+}
+.ticket:before {
+  content: "\f145";
+}
+.powerOff:before {
+  content: "\f011";
+}
+.longArrowAltRight:before,
+.rightLong:before {
+  content: "\f30b";
+}
+.flagUsa:before {
+  content: "\f74d";
+}
+.laptopFile:before {
+  content: "\e51d";
+}
+.teletype:before,
+.tty:before {
+  content: "\f1e4";
+}
+.diagramNext:before {
+  content: "\e476";
+}
+.personRifle:before {
+  content: "\e54e";
+}
+.houseMedicalCircleExclamation:before {
+  content: "\e512";
+}
+.closedCaptioning:before {
+  content: "\f20a";
+}
+.hiking:before,
+.personHiking:before {
+  content: "\f6ec";
+}
+.venusDouble:before {
+  content: "\f226";
+}
+.images:before {
+  content: "\f302";
+}
+.calculator:before {
+  content: "\f1ec";
+}
+.peoplePulling:before {
+  content: "\e535";
+}
+.n:before {
+  content: "\4e";
+}
+.cableCar:before,
+.tram:before {
+  content: "\f7da";
+}
+.cloudRain:before {
+  content: "\f73d";
+}
+.buildingCircleXmark:before {
+  content: "\e4d4";
+}
+.ship:before {
+  content: "\f21a";
+}
+.arrowsDownToLine:before {
+  content: "\e4b8";
+}
+.download:before {
+  content: "\f019";
+}
+.faceGrin:before,
+.grin:before {
+  content: "\f580";
+}
+.backspace:before,
+.deleteLeft:before {
+  content: "\f55a";
+}
+.eyeDropperEmpty:before,
+.eyeDropper:before,
+.eyedropper:before {
+  content: "\f1fb";
+}
+.fileCircleCheck:before {
+  content: "\e5a0";
+}
+.forward:before {
+  content: "\f04e";
+}
+.mobileAndroid:before,
+.mobilePhone:before,
+.mobile:before {
+  content: "\f3ce";
+}
+.faceMeh:before,
+.meh:before {
+  content: "\f11a";
+}
+.alignCenter:before {
+  content: "\f037";
+}
+.bookDead:before,
+.bookSkull:before {
+  content: "\f6b7";
+}
+.driversLicense:before,
+.idCard:before {
+  content: "\f2c2";
+}
+.dedent:before,
+.outdent:before {
+  content: "\f03b";
+}
+.heartCircleExclamation:before {
+  content: "\e4fe";
+}
+.homeAlt:before,
+.homeLgAlt:before,
+.home:before,
+.house:before {
+  content: "\f015";
+}
+.calendarWeek:before {
+  content: "\f784";
+}
+.laptopMedical:before {
+  content: "\f812";
+}
+.b:before {
+  content: "\42";
+}
+.fileMedical:before {
+  content: "\f477";
+}
+.diceOne:before {
+  content: "\f525";
+}
+.kiwiBird:before {
+  content: "\f535";
+}
+.arrowRightArrowLeft:before,
+.exchange:before {
+  content: "\f0ec";
+}
+.redoAlt:before,
+.rotateForward:before,
+.rotateRight:before {
+  content: "\f2f9";
+}
+.cutlery:before,
+.utensils:before {
+  content: "\f2e7";
+}
+.arrowUpWideShort:before,
+.sortAmountUp:before {
+  content: "\f161";
+}
+.millSign:before {
+  content: "\e1ed";
+}
+.bowlRice:before {
+  content: "\e2eb";
+}
+.skull:before {
+  content: "\f54c";
+}
+.broadcastTower:before,
+.towerBroadcast:before {
+  content: "\f519";
+}
+.truckPickup:before {
+  content: "\f63c";
+}
+.longArrowAltUp:before,
+.upLong:before {
+  content: "\f30c";
+}
+.stop:before {
+  content: "\f04d";
+}
+.codeMerge:before {
+  content: "\f387";
+}
+.upload:before {
+  content: "\f093";
+}
+.hurricane:before {
+  content: "\f751";
+}
+.mound:before {
+  content: "\e52d";
+}
+.toiletPortable:before {
+  content: "\e583";
+}
+.compactDisc:before {
+  content: "\f51f";
+}
+.fileArrowDown:before,
+.fileDownload:before {
+  content: "\f56d";
+}
+.caravan:before {
+  content: "\f8ff";
+}
+.shieldCat:before {
+  content: "\e572";
+}
+.bolt:before,
+.zap:before {
+  content: "\f0e7";
+}
+.glassWater:before {
+  content: "\e4f4";
+}
+.oilWell:before {
+  content: "\e532";
+}
+.vault:before {
+  content: "\e2c5";
+}
+.mars:before {
+  content: "\f222";
+}
+.toilet:before {
+  content: "\f7d8";
+}
+.planeCircleXmark:before {
+  content: "\e557";
+}
+.cny:before,
+.jpy:before,
+.rmb:before,
+.yenSign:before,
+.yen:before {
+  content: "\f157";
+}
+.rouble:before,
+.rub:before,
+.rubleSign:before,
+.ruble:before {
+  content: "\f158";
+}
+.sun:before {
+  content: "\f185";
+}
+.guitar:before {
+  content: "\f7a6";
+}
+.faceLaughWink:before,
+.laughWink:before {
+  content: "\f59c";
+}
+.horseHead:before {
+  content: "\f7ab";
+}
+.boreHole:before {
+  content: "\e4c3";
+}
+.industry:before {
+  content: "\f275";
+}
+.arrowAltCircleDown:before,
+.circleDown:before {
+  content: "\f358";
+}
+.arrowsTurnToDots:before {
+  content: "\e4c1";
+}
+.florinSign:before {
+  content: "\e184";
+}
+.arrowDownShortWide:before,
+.sortAmountDesc:before,
+.sortAmountDownAlt:before {
+  content: "\f884";
+}
+.lessThan:before {
+  content: "\3c";
+}
+.angleDown:before {
+  content: "\f107";
+}
+.carTunnel:before {
+  content: "\e4de";
+}
+.headSideCough:before {
+  content: "\e061";
+}
+.gripLines:before {
+  content: "\f7a4";
+}
+.thumbsDown:before {
+  content: "\f165";
+}
+.userLock:before {
+  content: "\f502";
+}
+.arrowRightLong:before,
+.longArrowRight:before {
+  content: "\f178";
+}
+.anchorCircleXmark:before {
+  content: "\e4ac";
+}
+.ellipsisH:before,
+.ellipsis:before {
+  content: "\f141";
+}
+.chessPawn:before {
+  content: "\f443";
+}
+.firstAid:before,
+.kitMedical:before {
+  content: "\f479";
+}
+.personThroughWindow:before {
+  content: "\e5a9";
+}
+.toolbox:before {
+  content: "\f552";
+}
+.handsHoldingCircle:before {
+  content: "\e4fb";
+}
+.bug:before {
+  content: "\f188";
+}
+.creditCardAlt:before,
+.creditCard:before {
+  content: "\f09d";
+}
+.automobile:before,
+.car:before {
+  content: "\f1b9";
+}
+.handHoldingHand:before {
+  content: "\e4f7";
+}
+.bookOpenReader:before,
+.bookReader:before {
+  content: "\f5da";
+}
+.mountainSun:before {
+  content: "\e52f";
+}
+.arrowsLeftRightToLine:before {
+  content: "\e4ba";
+}
+.diceD20:before {
+  content: "\f6cf";
+}
+.truckDroplet:before {
+  content: "\e58c";
+}
+.fileCircleXmark:before {
+  content: "\e5a1";
+}
+.temperatureArrowUp:before,
+.temperatureUp:before {
+  content: "\e040";
+}
+.medal:before {
+  content: "\f5a2";
+}
+.bed:before {
+  content: "\f236";
+}
+.hSquare:before,
+.squareH:before {
+  content: "\f0fd";
+}
+.podcast:before {
+  content: "\f2ce";
+}
+.temperature4:before,
+.temperatureFull:before,
+.thermometer4:before,
+.thermometerFull:before {
+  content: "\f2c7";
+}
+.bell:before {
+  content: "\f0f3";
+}
+.superscript:before {
+  content: "\f12b";
+}
+.plugCircleXmark:before {
+  content: "\e560";
+}
+.starOfLife:before {
+  content: "\f621";
+}
+.phoneSlash:before {
+  content: "\f3dd";
+}
+.paintRoller:before {
+  content: "\f5aa";
+}
+.handsHelping:before,
+.handshakeAngle:before {
+  content: "\f4c4";
+}
+.locationDot:before,
+.mapMarkerAlt:before {
+  content: "\f3c5";
+}
+.file:before {
+  content: "\f15b";
+}
+.greaterThan:before {
+  content: "\3e";
+}
+.personSwimming:before,
+.swimmer:before {
+  content: "\f5c4";
+}
+.arrowDown:before {
+  content: "\f063";
+}
+.droplet:before,
+.tint:before {
+  content: "\f043";
+}
+.eraser:before {
+  content: "\f12d";
+}
+.earthAmerica:before,
+.earthAmericas:before,
+.earth:before,
+.globeAmericas:before {
+  content: "\f57d";
+}
+.personBurst:before {
+  content: "\e53b";
+}
+.dove:before {
+  content: "\f4ba";
+}
+.battery0:before,
+.batteryEmpty:before {
+  content: "\f244";
+}
+.socks:before {
+  content: "\f696";
+}
+.inbox:before {
+  content: "\f01c";
+}
+.section:before {
+  content: "\e447";
+}
+.gaugeHigh:before,
+.tachometerAltFast:before,
+.tachometerAlt:before {
+  content: "\f625";
+}
+.envelopeOpenText:before {
+  content: "\f658";
+}
+.hospitalAlt:before,
+.hospitalWide:before,
+.hospital:before {
+  content: "\f0f8";
+}
+.wineBottle:before {
+  content: "\f72f";
+}
+.chessRook:before {
+  content: "\f447";
+}
+.barsStaggered:before,
+.reorder:before,
+.stream:before {
+  content: "\f550";
+}
+.dharmachakra:before {
+  content: "\f655";
+}
+.hotdog:before {
+  content: "\f80f";
+}
+.blind:before,
+.personWalkingWithCane:before {
+  content: "\f29d";
+}
+.drum:before {
+  content: "\f569";
+}
+.iceCream:before {
+  content: "\f810";
+}
+.heartCircleBolt:before {
+  content: "\e4fc";
+}
+.fax:before {
+  content: "\f1ac";
+}
+.paragraph:before {
+  content: "\f1dd";
+}
+.checkToSlot:before,
+.voteYea:before {
+  content: "\f772";
+}
+.starHalf:before {
+  content: "\f089";
+}
+.boxesAlt:before,
+.boxesStacked:before,
+.boxes:before {
+  content: "\f468";
+}
+.chain:before,
+.link:before {
+  content: "\f0c1";
+}
+.assistiveListeningSystems:before,
+.earListen:before {
+  content: "\f2a2";
+}
+.treeCity:before {
+  content: "\e587";
+}
+.play:before {
+  content: "\f04b";
+}
+.font:before {
+  content: "\f031";
+}
+.rupiahSign:before {
+  content: "\e23d";
+}
+.magnifyingGlass:before,
+.search:before {
+  content: "\f002";
+}
+.pingPongPaddleBall:before,
+.tableTennisPaddleBall:before,
+.tableTennis:before {
+  content: "\f45d";
+}
+.diagnoses:before,
+.personDotsFromLine:before {
+  content: "\f470";
+}
+.trashCanArrowUp:before,
+.trashRestoreAlt:before {
+  content: "\f82a";
+}
+.nairaSign:before {
+  content: "\e1f6";
+}
+.cartArrowDown:before {
+  content: "\f218";
+}
+.walkieTalkie:before {
+  content: "\f8ef";
+}
+.fileEdit:before,
+.filePen:before {
+  content: "\f31c";
+}
+.receipt:before {
+  content: "\f543";
+}
+.penSquare:before,
+.pencilSquare:before,
+.squarePen:before {
+  content: "\f14b";
+}
+.suitcaseRolling:before {
+  content: "\f5c1";
+}
+.personCircleExclamation:before {
+  content: "\e53f";
+}
+.chevronDown:before {
+  content: "\f078";
+}
+.battery5:before,
+.batteryFull:before,
+.battery:before {
+  content: "\f240";
+}
+.skullCrossbones:before {
+  content: "\f714";
+}
+.codeCompare:before {
+  content: "\e13a";
+}
+.listDots:before,
+.listUl:before {
+  content: "\f0ca";
+}
+.schoolLock:before {
+  content: "\e56f";
+}
+.towerCell:before {
+  content: "\e585";
+}
+.downLong:before,
+.longArrowAltDown:before {
+  content: "\f309";
+}
+.rankingStar:before {
+  content: "\e561";
+}
+.chessKing:before {
+  content: "\f43f";
+}
+.personHarassing:before {
+  content: "\e549";
+}
+.brazilianRealSign:before {
+  content: "\e46c";
+}
+.landmarkAlt:before,
+.landmarkDome:before {
+  content: "\f752";
+}
+.arrowUp:before {
+  content: "\f062";
+}
+.television:before,
+.tvAlt:before,
+.tv:before {
+  content: "\f26c";
+}
+.shrimp:before {
+  content: "\e448";
+}
+.listCheck:before,
+.tasks:before {
+  content: "\f0ae";
+}
+.jugDetergent:before {
+  content: "\e519";
+}
+.circleUser:before,
+.userCircle:before {
+  content: "\f2bd";
+}
+.userShield:before {
+  content: "\f505";
+}
+.wind:before {
+  content: "\f72e";
+}
+.carBurst:before,
+.carCrash:before {
+  content: "\f5e1";
+}
+.y:before {
+  content: "\59";
+}
+.personSnowboarding:before,
+.snowboarding:before {
+  content: "\f7ce";
+}
+.shippingFast:before,
+.truckFast:before {
+  content: "\f48b";
+}
+.fish:before {
+  content: "\f578";
+}
+.userGraduate:before {
+  content: "\f501";
+}
+.adjust:before,
+.circleHalfStroke:before {
+  content: "\f042";
+}
+.clapperboard:before {
+  content: "\e131";
+}
+.circleRadiation:before,
+.radiationAlt:before {
+  content: "\f7ba";
+}
+.baseballBall:before,
+.baseball:before {
+  content: "\f433";
+}
+.jetFighterUp:before {
+  content: "\e518";
+}
+.diagramProject:before,
+.projectDiagram:before {
+  content: "\f542";
+}
+.copy:before {
+  content: "\f0c5";
+}
+.volumeMute:before,
+.volumeTimes:before,
+.volumeXmark:before {
+  content: "\f6a9";
+}
+.handSparkles:before {
+  content: "\e05d";
+}
+.gripHorizontal:before,
+.grip:before {
+  content: "\f58d";
+}
+.shareFromSquare:before,
+.shareSquare:before {
+  content: "\f14d";
+}
+.gun:before {
+  content: "\e19b";
+}
+.phoneSquare:before,
+.squarePhone:before {
+  content: "\f098";
+}
+.add:before,
+.plus:before {
+  content: "\2b";
+}
+.expand:before {
+  content: "\f065";
+}
+.computer:before {
+  content: "\e4e5";
+}
+.close:before,
+.multiply:before,
+.remove:before,
+.times:before,
+.xmark:before {
+  content: "\f00d";
+}
+.arrowsUpDownLeftRight:before,
+.arrows:before {
+  content: "\f047";
+}
+.chalkboardTeacher:before,
+.chalkboardUser:before {
+  content: "\f51c";
+}
+.pesoSign:before {
+  content: "\e222";
+}
+.buildingShield:before {
+  content: "\e4d8";
+}
+.baby:before {
+  content: "\f77c";
+}
+.usersLine:before {
+  content: "\e592";
+}
+.quoteLeftAlt:before,
+.quoteLeft:before {
+  content: "\f10d";
+}
+.tractor:before {
+  content: "\f722";
+}
+.trashArrowUp:before,
+.trashRestore:before {
+  content: "\f829";
+}
+.arrowDownUpLock:before {
+  content: "\e4b0";
+}
+.linesLeaning:before {
+  content: "\e51e";
+}
+.rulerCombined:before {
+  content: "\f546";
+}
+.copyright:before {
+  content: "\f1f9";
+}
+.equals:before {
+  content: "\3d";
+}
+.blender:before {
+  content: "\f517";
+}
+.teeth:before {
+  content: "\f62e";
+}
+.ils:before,
+.shekelSign:before,
+.shekel:before,
+.sheqelSign:before,
+.sheqel:before {
+  content: "\f20b";
+}
+.map:before {
+  content: "\f279";
+}
+.rocket:before {
+  content: "\f135";
+}
+.photoFilm:before,
+.photoVideo:before {
+  content: "\f87c";
+}
+.folderMinus:before {
+  content: "\f65d";
+}
+.store:before {
+  content: "\f54e";
+}
+.arrowTrendUp:before {
+  content: "\e098";
+}
+.plugCircleMinus:before {
+  content: "\e55e";
+}
+.signHanging:before,
+.sign:before {
+  content: "\f4d9";
+}
+.bezierCurve:before {
+  content: "\f55b";
+}
+.bellSlash:before {
+  content: "\f1f6";
+}
+.tabletAndroid:before,
+.tablet:before {
+  content: "\f3fb";
+}
+.schoolFlag:before {
+  content: "\e56e";
+}
+.fill:before {
+  content: "\f575";
+}
+.angleUp:before {
+  content: "\f106";
+}
+.drumstickBite:before {
+  content: "\f6d7";
+}
+.hollyBerry:before {
+  content: "\f7aa";
+}
+.chevronLeft:before {
+  content: "\f053";
+}
+.bacteria:before {
+  content: "\e059";
+}
+.handLizard:before {
+  content: "\f258";
+}
+.disease:before {
+  content: "\f7fa";
+}
+.briefcaseMedical:before {
+  content: "\f469";
+}
+.genderless:before {
+  content: "\f22d";
+}
+.chevronRight:before {
+  content: "\f054";
+}
+.retweet:before {
+  content: "\f079";
+}
+.carAlt:before,
+.carRear:before {
+  content: "\f5de";
+}
+.pumpSoap:before {
+  content: "\e06b";
+}
+.videoSlash:before {
+  content: "\f4e2";
+}
+.battery2:before,
+.batteryQuarter:before {
+  content: "\f243";
+}
+.radio:before {
+  content: "\f8d7";
+}
+.babyCarriage:before,
+.carriageBaby:before {
+  content: "\f77d";
+}
+.trafficLight:before {
+  content: "\f637";
+}
+.thermometer:before {
+  content: "\f491";
+}
+.vrCardboard:before {
+  content: "\f729";
+}
+.handMiddleFinger:before {
+  content: "\f806";
+}
+.percent:before,
+.percentage:before {
+  content: "\25";
+}
+.truckMoving:before {
+  content: "\f4df";
+}
+.glassWaterDroplet:before {
+  content: "\e4f5";
+}
+.display:before {
+  content: "\e163";
+}
+.faceSmile:before,
+.smile:before {
+  content: "\f118";
+}
+.thumbTack:before,
+.thumbtack:before {
+  content: "\f08d";
+}
+.trophy:before {
+  content: "\f091";
+}
+.personPraying:before,
+.pray:before {
+  content: "\f683";
+}
+.hammer:before {
+  content: "\f6e3";
+}
+.handPeace:before {
+  content: "\f25b";
+}
+.rotate:before,
+.syncAlt:before {
+  content: "\f2f1";
+}
+.spinner:before {
+  content: "\f110";
+}
+.robot:before {
+  content: "\f544";
+}
+.peace:before {
+  content: "\f67c";
+}
+.cogs:before,
+.gears:before {
+  content: "\f085";
+}
+.warehouse:before {
+  content: "\f494";
+}
+.arrowUpRightDots:before {
+  content: "\e4b7";
+}
+.splotch:before {
+  content: "\f5bc";
+}
+.faceGrinHearts:before,
+.grinHearts:before {
+  content: "\f584";
+}
+.diceFour:before {
+  content: "\f524";
+}
+.simCard:before {
+  content: "\f7c4";
+}
+.transgenderAlt:before,
+.transgender:before {
+  content: "\f225";
+}
+.mercury:before {
+  content: "\f223";
+}
+.arrowTurnDown:before,
+.levelDown:before {
+  content: "\f149";
+}
+.personFallingBurst:before {
+  content: "\e547";
+}
+.award:before {
+  content: "\f559";
+}
+.ticketAlt:before,
+.ticketSimple:before {
+  content: "\f3ff";
+}
+.building:before {
+  content: "\f1ad";
+}
+.angleDoubleLeft:before,
+.anglesLeft:before {
+  content: "\f100";
+}
+.qrcode:before {
+  content: "\f029";
+}
+.clockRotateLeft:before,
+.history:before {
+  content: "\f1da";
+}
+.faceGrinBeamSweat:before,
+.grinBeamSweat:before {
+  content: "\f583";
+}
+.arrowRightFromFile:before,
+.fileExport:before {
+  content: "\f56e";
+}
+.shieldBlank:before,
+.shield:before {
+  content: "\f132";
+}
+.arrowUpShortWide:before,
+.sortAmountUpAlt:before {
+  content: "\f885";
+}
+.houseMedical:before {
+  content: "\e3b2";
+}
+.golfBallTee:before,
+.golfBall:before {
+  content: "\f450";
+}
+.chevronCircleLeft:before,
+.circleChevronLeft:before {
+  content: "\f137";
+}
+.houseChimneyWindow:before {
+  content: "\e00d";
+}
+.penNib:before {
+  content: "\f5ad";
+}
+.tentArrowTurnLeft:before {
+  content: "\e580";
+}
+.tents:before {
+  content: "\e582";
+}
+.magic:before,
+.wandMagic:before {
+  content: "\f0d0";
+}
+.dog:before {
+  content: "\f6d3";
+}
+.carrot:before {
+  content: "\f787";
+}
+.moon:before {
+  content: "\f186";
+}
+.wineGlassAlt:before,
+.wineGlassEmpty:before {
+  content: "\f5ce";
+}
+.cheese:before {
+  content: "\f7ef";
+}
+.yinYang:before {
+  content: "\f6ad";
+}
+.music:before {
+  content: "\f001";
+}
+.codeCommit:before {
+  content: "\f386";
+}
+.temperatureLow:before {
+  content: "\f76b";
+}
+.biking:before,
+.personBiking:before {
+  content: "\f84a";
+}
+.broom:before {
+  content: "\f51a";
+}
+.shieldHeart:before {
+  content: "\e574";
+}
+.gopuram:before {
+  content: "\f664";
+}
+.earthOceania:before,
+.globeOceania:before {
+  content: "\e47b";
+}
+.squareXmark:before,
+.timesSquare:before,
+.xmarkSquare:before {
+  content: "\f2d3";
+}
+.hashtag:before {
+  content: "\23";
+}
+.expandAlt:before,
+.upRightAndDownLeftFromCenter:before {
+  content: "\f424";
+}
+.oilCan:before {
+  content: "\f613";
+}
+.t:before {
+  content: "\54";
+}
+.hippo:before {
+  content: "\f6ed";
+}
+.chartColumn:before {
+  content: "\e0e3";
+}
+.infinity:before {
+  content: "\f534";
+}
+.vialCircleCheck:before {
+  content: "\e596";
+}
+.personArrowDownToLine:before {
+  content: "\e538";
+}
+.voicemail:before {
+  content: "\f897";
+}
+.fan:before {
+  content: "\f863";
+}
+.personWalkingLuggage:before {
+  content: "\e554";
+}
+.arrowsAltV:before,
+.upDown:before {
+  content: "\f338";
+}
+.cloudMoonRain:before {
+  content: "\f73c";
+}
+.calendar:before {
+  content: "\f133";
+}
+.trailer:before {
+  content: "\e041";
+}
+.bahai:before,
+.haykal:before {
+  content: "\f666";
+}
+.sdCard:before {
+  content: "\f7c2";
+}
+.dragon:before {
+  content: "\f6d5";
+}
+.shoePrints:before {
+  content: "\f54b";
+}
+.circlePlus:before,
+.plusCircle:before {
+  content: "\f055";
+}
+.faceGrinTongueWink:before,
+.grinTongueWink:before {
+  content: "\f58b";
+}
+.handHolding:before {
+  content: "\f4bd";
+}
+.plugCircleExclamation:before {
+  content: "\e55d";
+}
+.chainBroken:before,
+.chainSlash:before,
+.linkSlash:before,
+.unlink:before {
+  content: "\f127";
+}
+.clone:before {
+  content: "\f24d";
+}
+.personWalkingArrowLoopLeft:before {
+  content: "\e551";
+}
+.arrowUpZA:before,
+.sortAlphaUpAlt:before {
+  content: "\f882";
+}
+.fireAlt:before,
+.fireFlameCurved:before {
+  content: "\f7e4";
+}
+.tornado:before {
+  content: "\f76f";
+}
+.fileCirclePlus:before {
+  content: "\e494";
+}
+.bookQuran:before,
+.quran:before {
+  content: "\f687";
+}
+.anchor:before {
+  content: "\f13d";
+}
+.borderAll:before {
+  content: "\f84c";
+}
+.angry:before,
+.faceAngry:before {
+  content: "\f556";
+}
+.cookieBite:before {
+  content: "\f564";
+}
+.arrowTrendDown:before {
+  content: "\e097";
+}
+.feed:before,
+.rss:before {
+  content: "\f09e";
+}
+.drawPolygon:before {
+  content: "\f5ee";
+}
+.balanceScale:before,
+.scaleBalanced:before {
+  content: "\f24e";
+}
+.gaugeSimpleHigh:before,
+.tachometerFast:before,
+.tachometer:before {
+  content: "\f62a";
+}
+.shower:before {
+  content: "\f2cc";
+}
+.desktopAlt:before,
+.desktop:before {
+  content: "\f390";
+}
+.m:before {
+  content: "\4d";
+}
+.tableList:before,
+.thList:before {
+  content: "\f00b";
+}
+.commentSms:before,
+.sms:before {
+  content: "\f7cd";
+}
+.book:before {
+  content: "\f02d";
+}
+.userPlus:before {
+  content: "\f234";
+}
+.check:before {
+  content: "\f00c";
+}
+.battery4:before,
+.batteryThreeQuarters:before {
+  content: "\f241";
+}
+.houseCircleCheck:before {
+  content: "\e509";
+}
+.angleLeft:before {
+  content: "\f104";
+}
+.diagramSuccessor:before {
+  content: "\e47a";
+}
+.truckArrowRight:before {
+  content: "\e58b";
+}
+.arrowsSplitUpAndLeft:before {
+  content: "\e4bc";
+}
+.fistRaised:before,
+.handFist:before {
+  content: "\f6de";
+}
+.cloudMoon:before {
+  content: "\f6c3";
+}
+.briefcase:before {
+  content: "\f0b1";
+}
+.personFalling:before {
+  content: "\e546";
+}
+.imagePortrait:before,
+.portrait:before {
+  content: "\f3e0";
+}
+.userTag:before {
+  content: "\f507";
+}
+.rug:before {
+  content: "\e569";
+}
+.earthEurope:before,
+.globeEurope:before {
+  content: "\f7a2";
+}
+.cartFlatbedSuitcase:before,
+.luggageCart:before {
+  content: "\f59d";
+}
+.rectangleTimes:before,
+.rectangleXmark:before,
+.timesRectangle:before,
+.windowClose:before {
+  content: "\f410";
+}
+.bahtSign:before {
+  content: "\e0ac";
+}
+.bookOpen:before {
+  content: "\f518";
+}
+.bookJournalWhills:before,
+.journalWhills:before {
+  content: "\f66a";
+}
+.handcuffs:before {
+  content: "\e4f8";
+}
+.exclamationTriangle:before,
+.triangleExclamation:before,
+.warning:before {
+  content: "\f071";
+}
+.database:before {
+  content: "\f1c0";
+}
+.arrowTurnRight:before,
+.mailForward:before,
+.share:before {
+  content: "\f064";
+}
+.bottleDroplet:before {
+  content: "\e4c4";
+}
+.maskFace:before {
+  content: "\e1d7";
+}
+.hillRockslide:before {
+  content: "\e508";
+}
+.exchangeAlt:before,
+.rightLeft:before {
+  content: "\f362";
+}
+.paperPlane:before {
+  content: "\f1d8";
+}
+.roadCircleExclamation:before {
+  content: "\e565";
+}
+.dungeon:before {
+  content: "\f6d9";
+}
+.alignRight:before {
+  content: "\f038";
+}
+.moneyBill1Wave:before,
+.moneyBillWaveAlt:before {
+  content: "\f53b";
+}
+.lifeRing:before {
+  content: "\f1cd";
+}
+.hands:before,
+.signLanguage:before,
+.signing:before {
+  content: "\f2a7";
+}
+.calendarDay:before {
+  content: "\f783";
+}
+.ladderWater:before,
+.swimmingPool:before,
+.waterLadder:before {
+  content: "\f5c5";
+}
+.arrowsUpDown:before,
+.arrowsV:before {
+  content: "\f07d";
+}
+.faceGrimace:before,
+.grimace:before {
+  content: "\f57f";
+}
+.wheelchairAlt:before,
+.wheelchairMove:before {
+  content: "\e2ce";
+}
+.levelDownAlt:before,
+.turnDown:before {
+  content: "\f3be";
+}
+.personWalkingArrowRight:before {
+  content: "\e552";
+}
+.envelopeSquare:before,
+.squareEnvelope:before {
+  content: "\f199";
+}
+.dice:before {
+  content: "\f522";
+}
+.bowlingBall:before {
+  content: "\f436";
+}
+.brain:before {
+  content: "\f5dc";
+}
+.bandAid:before,
+.bandage:before {
+  content: "\f462";
+}
+.calendarMinus:before {
+  content: "\f272";
+}
+.circleXmark:before,
+.timesCircle:before,
+.xmarkCircle:before {
+  content: "\f057";
+}
+.gifts:before {
+  content: "\f79c";
+}
+.hotel:before {
+  content: "\f594";
+}
+.earthAsia:before,
+.globeAsia:before {
+  content: "\f57e";
+}
+.idCardAlt:before,
+.idCardClip:before {
+  content: "\f47f";
+}
+.magnifyingGlassPlus:before,
+.searchPlus:before {
+  content: "\f00e";
+}
+.thumbsUp:before {
+  content: "\f164";
+}
+.userClock:before {
+  content: "\f4fd";
+}
+.allergies:before,
+.handDots:before {
+  content: "\f461";
+}
+.fileInvoice:before {
+  content: "\f570";
+}
+.windowMinimize:before {
+  content: "\f2d1";
+}
+.coffee:before,
+.mugSaucer:before {
+  content: "\f0f4";
+}
+.brush:before {
+  content: "\f55d";
+}
+.mask:before {
+  content: "\f6fa";
+}
+.magnifyingGlassMinus:before,
+.searchMinus:before {
+  content: "\f010";
+}
+.rulerVertical:before {
+  content: "\f548";
+}
+.userAlt:before,
+.userLarge:before {
+  content: "\f406";
+}
+.trainTram:before {
+  content: "\e5b4";
+}
+.userNurse:before {
+  content: "\f82f";
+}
+.syringe:before {
+  content: "\f48e";
+}
+.cloudSun:before {
+  content: "\f6c4";
+}
+.stopwatch20:before {
+  content: "\e06f";
+}
+.squareFull:before {
+  content: "\f45c";
+}
+.magnet:before {
+  content: "\f076";
+}
+.jar:before {
+  content: "\e516";
+}
+.noteSticky:before,
+.stickyNote:before {
+  content: "\f249";
+}
+.bugSlash:before {
+  content: "\e490";
+}
+.arrowUpFromWaterPump:before {
+  content: "\e4b6";
+}
+.bone:before {
+  content: "\f5d7";
+}
+.userInjured:before {
+  content: "\f728";
+}
+.faceSadTear:before,
+.sadTear:before {
+  content: "\f5b4";
+}
+.plane:before {
+  content: "\f072";
+}
+.tentArrowsDown:before {
+  content: "\e581";
+}
+.exclamation:before {
+  content: "\21";
+}
+.arrowsSpin:before {
+  content: "\e4bb";
+}
+.print:before {
+  content: "\f02f";
+}
+.try:before,
+.turkishLiraSign:before,
+.turkishLira:before {
+  content: "\e2bb";
+}
+.dollarSign:before,
+.dollar:before,
+.usd:before {
+  content: "\24";
+}
+.x:before {
+  content: "\58";
+}
+.magnifyingGlassDollar:before,
+.searchDollar:before {
+  content: "\f688";
+}
+.usersCog:before,
+.usersGear:before {
+  content: "\f509";
+}
+.personMilitaryPointing:before {
+  content: "\e54a";
+}
+.bank:before,
+.buildingColumns:before,
+.institution:before,
+.museum:before,
+.university:before {
+  content: "\f19c";
+}
+.umbrella:before {
+  content: "\f0e9";
+}
+.trowel:before {
+  content: "\e589";
+}
+.d:before {
+  content: "\44";
+}
+.stapler:before {
+  content: "\e5af";
+}
+.masksTheater:before,
+.theaterMasks:before {
+  content: "\f630";
+}
+.kipSign:before {
+  content: "\e1c4";
+}
+.handPointLeft:before {
+  content: "\f0a5";
+}
+.handshakeAlt:before,
+.handshakeSimple:before {
+  content: "\f4c6";
+}
+.fighterJet:before,
+.jetFighter:before {
+  content: "\f0fb";
+}
+.shareAltSquare:before,
+.squareShareNodes:before {
+  content: "\f1e1";
+}
+.barcode:before {
+  content: "\f02a";
+}
+.plusMinus:before {
+  content: "\e43c";
+}
+.videoCamera:before,
+.video:before {
+  content: "\f03d";
+}
+.graduationCap:before,
+.mortarBoard:before {
+  content: "\f19d";
+}
+.handHoldingMedical:before {
+  content: "\e05c";
+}
+.personCircleCheck:before {
+  content: "\e53e";
+}
+.levelUpAlt:before,
+.turnUp:before {
+  content: "\f3bf";
+}
+.srOnly,
+.srOnlyFocusable:not(:focus),
+.srOnly,
+.srOnlyFocusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.fa2.0/webfonts/fa-brands-400.woff2)
+      format("woff2"),
+    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.fa2.0/webfonts/fa-brands-400.ttf)
+      format("truetype");
+}
+.brands,
+.fab {
+  font-weight: 400;
+}
+.monero:before {
+  content: "\f3d0";
+}
+.hooli:before {
+  content: "\f427";
+}
+.yelp:before {
+  content: "\f1e9";
+}
+.ccVisa:before {
+  content: "\f1f0";
+}
+.lastfm:before {
+  content: "\f202";
+}
+.shopware:before {
+  content: "\f5b5";
+}
+.creativeCommonsNc:before {
+  content: "\f4e8";
+}
+.aws:before {
+  content: "\f375";
+}
+.redhat:before {
+  content: "\f7bc";
+}
+.yoast:before {
+  content: "\f2b1";
+}
+.cloudflare:before {
+  content: "\e07d";
+}
+.ups:before {
+  content: "\f7e0";
+}
+.wpexplorer:before {
+  content: "\f2de";
+}
+.dyalog:before {
+  content: "\f399";
+}
+.bity:before {
+  content: "\f37a";
+}
+.stackpath:before {
+  content: "\f842";
+}
+.buysellads:before {
+  content: "\f20d";
+}
+.firstOrder:before {
+  content: "\f2b0";
+}
+.modx:before {
+  content: "\f285";
+}
+.guilded:before {
+  content: "\e07e";
+}
+.vnv:before {
+  content: "\f40b";
+}
+.jsSquare:before,
+.squareJs:before {
+  content: "\f3b9";
+}
+.microsoft:before {
+  content: "\f3ca";
+}
+.qq:before {
+  content: "\f1d6";
+}
+.orcid:before {
+  content: "\f8d2";
+}
+.java:before {
+  content: "\f4e4";
+}
+.invision:before {
+  content: "\f7b0";
+}
+.creativeCommonsPdAlt:before {
+  content: "\f4ed";
+}
+.centercode:before {
+  content: "\f380";
+}
+.glideG:before {
+  content: "\f2a6";
+}
+.drupal:before {
+  content: "\f1a9";
+}
+.hireAHelper:before {
+  content: "\f3b0";
+}
+.creativeCommonsBy:before {
+  content: "\f4e7";
+}
+.unity:before {
+  content: "\e049";
+}
+.whmcs:before {
+  content: "\f40d";
+}
+.rocketchat:before {
+  content: "\f3e8";
+}
+.vk:before {
+  content: "\f189";
+}
+.untappd:before {
+  content: "\f405";
+}
+.mailchimp:before {
+  content: "\f59e";
+}
+.css3Alt:before {
+  content: "\f38b";
+}
+.redditSquare:before,
+.squareReddit:before {
+  content: "\f1a2";
+}
+.vimeoV:before {
+  content: "\f27d";
+}
+.contao:before {
+  content: "\f26d";
+}
+.squareFontAwesome:before {
+  content: "\e5ad";
+}
+.deskpro:before {
+  content: "\f38f";
+}
+.sistrix:before {
+  content: "\f3ee";
+}
+.instagramSquare:before,
+.squareInstagram:before {
+  content: "\e055";
+}
+
+.edge:before {
+  content: "\f282";
+}
+
+.snapchatSquare:before,
+.squareSnapchat:before {
+  content: "\f2ad";
+}
+.googlePlusG:before {
+  content: "\f0d5";
+}
+.artstation:before {
+  content: "\f77a";
+}
+.markdown:before {
+  content: "\f60f";
+}
+.sourcetree:before {
+  content: "\f7d3";
+}
+.googlePlus:before {
+  content: "\f2b3";
+}
+.diaspora:before {
+  content: "\f791";
+}
+.foursquare:before {
+  content: "\f180";
+}
+.stackOverflow:before {
+  content: "\f16c";
+}
+.githubAlt:before {
+  content: "\f113";
+}
+.phoenixSquadron:before {
+  content: "\f511";
+}
+.pagelines:before {
+  content: "\f18c";
+}
+.algolia:before {
+  content: "\f36c";
+}
+.redRiver:before {
+  content: "\f3e3";
+}
+.creativeCommonsSa:before {
+  content: "\f4ef";
+}
+.safari:before {
+  content: "\f267";
+}
+.google:before {
+  content: "\f1a0";
+}
+.fontAwesomeAlt:before,
+.squareFontAwesomeStroke:before {
+  content: "\f35c";
+}
+.atlassian:before {
+  content: "\f77b";
+}
+.linkedinIn:before {
+  content: "\f0e1";
+}
+.digitalOcean:before {
+  content: "\f391";
+}
+.nimblr:before {
+  content: "\f5a8";
+}
+.chromecast:before {
+  content: "\f838";
+}
+.evernote:before {
+  content: "\f839";
+}
+.hackerNews:before {
+  content: "\f1d4";
+}
+.creativeCommonsSampling:before {
+  content: "\f4f0";
+}
+.adversal:before {
+  content: "\f36a";
+}
+.creativeCommons:before {
+  content: "\f25e";
+}
+.watchmanMonitoring:before {
+  content: "\e087";
+}
+.fonticons:before {
+  content: "\f280";
+}
+.weixin:before {
+  content: "\f1d7";
+}
+.shirtsinbulk:before {
+  content: "\f214";
+}
+.codepen:before {
+  content: "\f1cb";
+}
+.gitAlt:before {
+  content: "\f841";
+}
+.lyft:before {
+  content: "\f3c3";
+}
+.rev:before {
+  content: "\f5b2";
+}
+.windows:before {
+  content: "\f17a";
+}
+.wizardsOfTheCoast:before {
+  content: "\f730";
+}
+.squareViadeo:before,
+.viadeoSquare:before {
+  content: "\f2aa";
+}
+.meetup:before {
+  content: "\f2e0";
+}
+.centos:before {
+  content: "\f789";
+}
+.adn:before {
+  content: "\f170";
+}
+.cloudsmith:before {
+  content: "\f384";
+}
+.piedPiperAlt:before {
+  content: "\f1a8";
+}
+.dribbbleSquare:before,
+.squareDribbble:before {
+  content: "\f397";
+}
+.codiepie:before {
+  content: "\f284";
+}
+.node:before {
+  content: "\f419";
+}
+.mix:before {
+  content: "\f3cb";
+}
+.steam:before {
+  content: "\f1b6";
+}
+.ccApplePay:before {
+  content: "\f416";
+}
+.scribd:before {
+  content: "\f28a";
+}
+.openid:before {
+  content: "\f19b";
+}
+.instalod:before {
+  content: "\e081";
+}
+.expeditedssl:before {
+  content: "\f23e";
+}
+.sellcast:before {
+  content: "\f2da";
+}
+.squareTwitter:before,
+.twitterSquare:before {
+  content: "\f081";
+}
+.rProject:before {
+  content: "\f4f7";
+}
+.delicious:before {
+  content: "\f1a5";
+}
+.freebsd:before {
+  content: "\f3a4";
+}
+.vuejs:before {
+  content: "\f41f";
+}
+.accusoft:before {
+  content: "\f369";
+}
+.ioxhost:before {
+  content: "\f208";
+}
+.fonticonsFi:before {
+  content: "\f3a2";
+}
+.appStore:before {
+  content: "\f36f";
+}
+.ccMastercard:before {
+  content: "\f1f1";
+}
+.itunesNote:before {
+  content: "\f3b5";
+}
+.golang:before {
+  content: "\e40f";
+}
+.kickstarter:before {
+  content: "\f3bb";
+}
+.grav:before {
+  content: "\f2d6";
+}
+.weibo:before {
+  content: "\f18a";
+}
+.uncharted:before {
+  content: "\e084";
+}
+.firstdraft:before {
+  content: "\f3a1";
+}
+.squareYoutube:before,
+.youtubeSquare:before {
+  content: "\f431";
+}
+.wikipediaW:before {
+  content: "\f266";
+}
+.rendact:before,
+.wpressr:before {
+  content: "\f3e4";
+}
+.angellist:before {
+  content: "\f209";
+}
+.galacticRepublic:before {
+  content: "\f50c";
+}
+.nfcDirectional:before {
+  content: "\e530";
+}
+.skype:before {
+  content: "\f17e";
+}
+.joget:before {
+  content: "\f3b7";
+}
+.fedora:before {
+  content: "\f798";
+}
+.stripeS:before {
+  content: "\f42a";
+}
+.meta:before {
+  content: "\e49b";
+}
+.laravel:before {
+  content: "\f3bd";
+}
+.hotjar:before {
+  content: "\f3b1";
+}
+.bluetoothB:before {
+  content: "\f294";
+}
+.stickerMule:before {
+  content: "\f3f7";
+}
+.creativeCommonsZero:before {
+  content: "\f4f3";
+}
+.hips:before {
+  content: "\f452";
+}
+.behance:before {
+  content: "\f1b4";
+}
+.reddit:before {
+  content: "\f1a1";
+}
+.discord:before {
+  content: "\f392";
+}
+.chrome:before {
+  content: "\f268";
+}
+.appStoreIos:before {
+  content: "\f370";
+}
+.ccDiscover:before {
+  content: "\f1f2";
+}
+.wpbeginner:before {
+  content: "\f297";
+}
+.confluence:before {
+  content: "\f78d";
+}
+.mdb:before {
+  content: "\f8ca";
+}
+.dochub:before {
+  content: "\f394";
+}
+.accessibleIcon:before {
+  content: "\f368";
+}
+.ebay:before {
+  content: "\f4f4";
+}
+.amazon:before {
+  content: "\f270";
+}
+.unsplash:before {
+  content: "\e07c";
+}
+.yarn:before {
+  content: "\f7e3";
+}
+.squareSteam:before,
+.steamSquare:before {
+  content: "\f1b7";
+}
+.fa500px:before {
+  content: "\f26e";
+}
+.squareVimeo:before,
+.vimeoSquare:before {
+  content: "\f194";
+}
+.asymmetrik:before {
+  content: "\f372";
+}
+.fontAwesomeFlag:before,
+.fontAwesomeLogoFull:before,
+.fontAwesome:before {
+  content: "\f2b4";
+}
+.gratipay:before {
+  content: "\f184";
+}
+.apple:before {
+  content: "\f179";
+}
+.hive:before {
+  content: "\e07f";
+}
+.gitkraken:before {
+  content: "\f3a6";
+}
+.keybase:before {
+  content: "\f4f5";
+}
+.applePay:before {
+  content: "\f415";
+}
+.padlet:before {
+  content: "\e4a0";
+}
+.amazonPay:before {
+  content: "\f42c";
+}
+.githubSquare:before,
+.squareGithub:before {
+  content: "\f092";
+}
+.stumbleupon:before {
+  content: "\f1a4";
+}
+.fedex:before {
+  content: "\f797";
+}
+.phoenixFramework:before {
+  content: "\f3dc";
+}
+.shopify:before {
+  content: "\e057";
+}
+.neos:before {
+  content: "\f612";
+}
+.hackerrank:before {
+  content: "\f5f7";
+}
+.researchgate:before {
+  content: "\f4f8";
+}
+.swift:before {
+  content: "\f8e1";
+}
+.angular:before {
+  content: "\f420";
+}
+.speakap:before {
+  content: "\f3f3";
+}
+.angrycreative:before {
+  content: "\f36e";
+}
+.yCombinator:before {
+  content: "\f23b";
+}
+.empire:before {
+  content: "\f1d1";
+}
+.envira:before {
+  content: "\f299";
+}
+.gitlabSquare:before,
+.squareGitlab:before {
+  content: "\e5ae";
+}
+.studiovinari:before {
+  content: "\f3f8";
+}
+.piedPiper:before {
+  content: "\f2ae";
+}
+.wordpress:before {
+  content: "\f19a";
+}
+.productHunt:before {
+  content: "\f288";
+}
+.firefox:before {
+  content: "\f269";
+}
+.linode:before {
+  content: "\f2b8";
+}
+.goodreads:before {
+  content: "\f3a8";
+}
+.odnoklassnikiSquare:before,
+.squareOdnoklassniki:before {
+  content: "\f264";
+}
+.jsfiddle:before {
+  content: "\f1cc";
+}
+.sith:before {
+  content: "\f512";
+}
+.themeisle:before {
+  content: "\f2b2";
+}
+.page4:before {
+  content: "\f3d7";
+}
+.hashnode:before {
+  content: "\e499";
+}
+.react:before {
+  content: "\f41b";
+}
+.ccPaypal:before {
+  content: "\f1f4";
+}
+.squarespace:before {
+  content: "\f5be";
+}
+.ccStripe:before {
+  content: "\f1f5";
+}
+.creativeCommonsShare:before {
+  content: "\f4f2";
+}
+.bitcoin:before {
+  content: "\f379";
+}
+.keycdn:before {
+  content: "\f3ba";
+}
+.opera:before {
+  content: "\f26a";
+}
+.itchIo:before {
+  content: "\f83a";
+}
+.umbraco:before {
+  content: "\f8e8";
+}
+.galacticSenate:before {
+  content: "\f50d";
+}
+.ubuntu:before {
+  content: "\f7df";
+}
+.draft2digital:before {
+  content: "\f396";
+}
+.stripe:before {
+  content: "\f429";
+}
+.houzz:before {
+  content: "\f27c";
+}
+.gg:before {
+  content: "\f260";
+}
+.dhl:before {
+  content: "\f790";
+}
+.pinterestSquare:before,
+.squarePinterest:before {
+  content: "\f0d3";
+}
+.xing:before {
+  content: "\f168";
+}
+.blackberry:before {
+  content: "\f37b";
+}
+.creativeCommonsPd:before {
+  content: "\f4ec";
+}
+.playstation:before {
+  content: "\f3df";
+}
+.quinscape:before {
+  content: "\f459";
+}
+.less:before {
+  content: "\f41d";
+}
+.bloggerB:before {
+  content: "\f37d";
+}
+.opencart:before {
+  content: "\f23d";
+}
+.vine:before {
+  content: "\f1ca";
+}
+.paypal:before {
+  content: "\f1ed";
+}
+.gitlab:before {
+  content: "\f296";
+}
+.typo3:before {
+  content: "\f42b";
+}
+.redditAlien:before {
+  content: "\f281";
+}
+.yahoo:before {
+  content: "\f19e";
+}
+.dailymotion:before {
+  content: "\e052";
+}
+.affiliatetheme:before {
+  content: "\f36b";
+}
+.piedPiperPp:before {
+  content: "\f1a7";
+}
+.bootstrap:before {
+  content: "\f836";
+}
+.odnoklassniki:before {
+  content: "\f263";
+}
+.nfcSymbol:before {
+  content: "\e531";
+}
+.ethereum:before {
+  content: "\f42e";
+}
+.speakerDeck:before {
+  content: "\f83c";
+}
+.creativeCommonsNcEu:before {
+  content: "\f4e9";
+}
+.patreon:before {
+  content: "\f3d9";
+}
+.avianex:before {
+  content: "\f374";
+}
+.ello:before {
+  content: "\f5f1";
+}
+.gofore:before {
+  content: "\f3a7";
+}
+.bimobject:before {
+  content: "\f378";
+}
+.facebookF:before {
+  content: "\f39e";
+}
+.googlePlusSquare:before,
+.squareGooglePlus:before {
+  content: "\f0d4";
+}
+.mandalorian:before {
+  content: "\f50f";
+}
+.firstOrderAlt:before {
+  content: "\f50a";
+}
+.osi:before {
+  content: "\f41a";
+}
+.googleWallet:before {
+  content: "\f1ee";
+}
+.dAndDBeyond:before {
+  content: "\f6ca";
+}
+.periscope:before {
+  content: "\f3da";
+}
+.fulcrum:before {
+  content: "\f50b";
+}
+.cloudscale:before {
+  content: "\f383";
+}
+.forumbee:before {
+  content: "\f211";
+}
+.mizuni:before {
+  content: "\f3cc";
+}
+.schlix:before {
+  content: "\f3ea";
+}
+.squareXing:before,
+.xingSquare:before {
+  content: "\f169";
+}
+.bandcamp:before {
+  content: "\f2d5";
+}
+.wpforms:before {
+  content: "\f298";
+}
+.cloudversify:before {
+  content: "\f385";
+}
+.usps:before {
+  content: "\f7e1";
+}
+.megaport:before {
+  content: "\f5a3";
+}
+.magento:before {
+  content: "\f3c4";
+}
+.spotify:before {
+  content: "\f1bc";
+}
+.optinMonster:before {
+  content: "\f23c";
+}
+.fly:before {
+  content: "\f417";
+}
+.aviato:before {
+  content: "\f421";
+}
+.itunes:before {
+  content: "\f3b4";
+}
+.cuttlefish:before {
+  content: "\f38c";
+}
+.blogger:before {
+  content: "\f37c";
+}
+.flickr:before {
+  content: "\f16e";
+}
+.viber:before {
+  content: "\f409";
+}
+.soundcloud:before {
+  content: "\f1be";
+}
+.digg:before {
+  content: "\f1a6";
+}
+.tencentWeibo:before {
+  content: "\f1d5";
+}
+.symfony:before {
+  content: "\f83d";
+}
+.maxcdn:before {
+  content: "\f136";
+}
+.etsy:before {
+  content: "\f2d7";
+}
+.facebookMessenger:before {
+  content: "\f39f";
+}
+.audible:before {
+  content: "\f373";
+}
+.thinkPeaks:before {
+  content: "\f731";
+}
+.bilibili:before {
+  content: "\e3d9";
+}
+.erlang:before {
+  content: "\f39d";
+}
+.cottonBureau:before {
+  content: "\f89e";
+}
+.dashcube:before {
+  content: "\f210";
+}
+.fa42Group:before,
+.innosoft:before {
+  content: "\e080";
+}
+.stackExchange:before {
+  content: "\f18d";
+}
+.elementor:before {
+  content: "\f430";
+}
+.piedPiperSquare:before,
+.squarePiedPiper:before {
+  content: "\e01e";
+}
+.creativeCommonsNd:before {
+  content: "\f4eb";
+}
+.palfed:before {
+  content: "\f3d8";
+}
+.superpowers:before {
+  content: "\f2dd";
+}
+.resolving:before {
+  content: "\f3e7";
+}
+.xbox:before {
+  content: "\f412";
+}
+.searchengin:before {
+  content: "\f3eb";
+}
+.tiktok:before {
+  content: "\e07b";
+}
+.facebookSquare:before,
+.squareFacebook:before {
+  content: "\f082";
+}
+.renren:before {
+  content: "\f18b";
+}
+.linux:before {
+  content: "\f17c";
+}
+.glide:before {
+  content: "\f2a5";
+}
+.linkedin:before {
+  content: "\f08c";
+}
+.hubspot:before {
+  content: "\f3b2";
+}
+.deploydog:before {
+  content: "\f38e";
+}
+.twitch:before {
+  content: "\f1e8";
+}
+.ravelry:before {
+  content: "\f2d9";
+}
+.mixer:before {
+  content: "\e056";
+}
+.lastfmSquare:before,
+.squareLastfm:before {
+  content: "\f203";
+}
+.vimeo:before {
+  content: "\f40a";
+}
+.mendeley:before {
+  content: "\f7b3";
+}
+.uniregistry:before {
+  content: "\f404";
+}
+.figma:before {
+  content: "\f799";
+}
+.creativeCommonsRemix:before {
+  content: "\f4ee";
+}
+.ccAmazonPay:before {
+  content: "\f42d";
+}
+.dropbox:before {
+  content: "\f16b";
+}
+.instagram:before {
+  content: "\f16d";
+}
+.cmplid:before {
+  content: "\e360";
+}
+.facebook:before {
+  content: "\f09a";
+}
+.gripfire:before {
+  content: "\f3ac";
+}
+.jediOrder:before {
+  content: "\f50e";
+}
+.uikit:before {
+  content: "\f403";
+}
+.fortAwesomeAlt:before {
+  content: "\f3a3";
+}
+.phabricator:before {
+  content: "\f3db";
+}
+.ussunnah:before {
+  content: "\f407";
+}
+.earlybirds:before {
+  content: "\f39a";
+}
+.tradeFederation:before {
+  content: "\f513";
+}
+.autoprefixer:before {
+  content: "\f41c";
+}
+.whatsapp:before {
+  content: "\f232";
+}
+.slideshare:before {
+  content: "\f1e7";
+}
+.googlePlay:before {
+  content: "\f3ab";
+}
+.viadeo:before {
+  content: "\f2a9";
+}
+.line:before {
+  content: "\f3c0";
+}
+.googleDrive:before {
+  content: "\f3aa";
+}
+.servicestack:before {
+  content: "\f3ec";
+}
+.simplybuilt:before {
+  content: "\f215";
+}
+.bitbucket:before {
+  content: "\f171";
+}
+.imdb:before {
+  content: "\f2d8";
+}
+.deezer:before {
+  content: "\e077";
+}
+.raspberryPi:before {
+  content: "\f7bb";
+}
+.jira:before {
+  content: "\f7b1";
+}
+.docker:before {
+  content: "\f395";
+}
+.screenpal:before {
+  content: "\e570";
+}
+.bluetooth:before {
+  content: "\f293";
+}
+.gitter:before {
+  content: "\f426";
+}
+.dAndD:before {
+  content: "\f38d";
+}
+.microblog:before {
+  content: "\e01a";
+}
+.ccDinersClub:before {
+  content: "\f24c";
+}
+.ggCircle:before {
+  content: "\f261";
+}
+.piedPiperHat:before {
+  content: "\f4e5";
+}
+.kickstarterK:before {
+  content: "\f3bc";
+}
+.yandex:before {
+  content: "\f413";
+}
+.readme:before {
+  content: "\f4d5";
+}
+.html5:before {
+  content: "\f13b";
+}
+.sellsy:before {
+  content: "\f213";
+}
+.sass:before {
+  content: "\f41e";
+}
+.wirsindhandwerk:before,
+.wsh:before {
+  content: "\e2d0";
+}
+.buromobelexperte:before {
+  content: "\f37f";
+}
+.salesforce:before {
+  content: "\f83b";
+}
+.octopusDeploy:before {
+  content: "\e082";
+}
+.medapps:before {
+  content: "\f3c6";
+}
+.ns8:before {
+  content: "\f3d5";
+}
+.pinterestP:before {
+  content: "\f231";
+}
+.apper:before {
+  content: "\f371";
+}
+.fortAwesome:before {
+  content: "\f286";
+}
+.waze:before {
+  content: "\f83f";
+}
+.ccJcb:before {
+  content: "\f24b";
+}
+.snapchatGhost:before,
+.snapchat:before {
+  content: "\f2ab";
+}
+.fantasyFlightGames:before {
+  content: "\f6dc";
+}
+.rust:before {
+  content: "\e07a";
+}
+.wix:before {
+  content: "\f5cf";
+}
+.behanceSquare:before,
+.squareBehance:before {
+  content: "\f1b5";
+}
+.supple:before {
+  content: "\f3f9";
+}
+.rebel:before {
+  content: "\f1d0";
+}
+.css3:before {
+  content: "\f13c";
+}
+.staylinked:before {
+  content: "\f3f5";
+}
+.kaggle:before {
+  content: "\f5fa";
+}
+.spaceAwesome:before {
+  content: "\e5ac";
+}
+.deviantart:before {
+  content: "\f1bd";
+}
+.cpanel:before {
+  content: "\f388";
+}
+.goodreadsG:before {
+  content: "\f3a9";
+}
+.gitSquare:before,
+.squareGit:before {
+  content: "\f1d2";
+}
+.squareTumblr:before,
+.tumblrSquare:before {
+  content: "\f174";
+}
+.trello:before {
+  content: "\f181";
+}
+.creativeCommonsNcJp:before {
+  content: "\f4ea";
+}
+.getPocket:before {
+  content: "\f265";
+}
+.perbyte:before {
+  content: "\e083";
+}
+.grunt:before {
+  content: "\f3ad";
+}
+.weebly:before {
+  content: "\f5cc";
+}
+.connectdevelop:before {
+  content: "\f20e";
+}
+.leanpub:before {
+  content: "\f212";
+}
+.blackTie:before {
+  content: "\f27e";
+}
+.themeco:before {
+  content: "\f5c6";
+}
+.python:before {
+  content: "\f3e2";
+}
+.android:before {
+  content: "\f17b";
+}
+.bots:before {
+  content: "\e340";
+}
+.freeCodeCamp:before {
+  content: "\f2c5";
+}
+.hornbill:before {
+  content: "\f592";
+}
+.js:before {
+  content: "\f3b8";
+}
+.ideal:before {
+  content: "\e013";
+}
+.git:before {
+  content: "\f1d3";
+}
+.dev:before {
+  content: "\f6cc";
+}
+.sketch:before {
+  content: "\f7c6";
+}
+.yandexInternational:before {
+  content: "\f414";
+}
+.ccAmex:before {
+  content: "\f1f3";
+}
+.uber:before {
+  content: "\f402";
+}
+.github:before {
+  content: "\f09b";
+}
+.php:before {
+  content: "\f457";
+}
+.alipay:before {
+  content: "\f642";
+}
+.youtube:before {
+  content: "\f167";
+}
+.skyatlas:before {
+  content: "\f216";
+}
+.firefoxBrowser:before {
+  content: "\e007";
+}
+.replyd:before {
+  content: "\f3e6";
+}
+.suse:before {
+  content: "\f7d6";
+}
+.jenkins:before {
+  content: "\f3b6";
+}
+.twitter:before {
+  content: "\f099";
+}
+.rockrms:before {
+  content: "\f3e9";
+}
+.pinterest:before {
+  content: "\f0d2";
+}
+.buffer:before {
+  content: "\f837";
+}
+.npm:before {
+  content: "\f3d4";
+}
+.yammer:before {
+  content: "\f840";
+}
+.btc:before {
+  content: "\f15a";
+}
+.dribbble:before {
+  content: "\f17d";
+}
+.stumbleuponCircle:before {
+  content: "\f1a3";
+}
+.internetExplorer:before {
+  content: "\f26b";
+}
+.telegramPlane:before,
+.telegram:before {
+  content: "\f2c6";
+}
+.oldRepublic:before {
+  content: "\f510";
+}
+.squareWhatsapp:before,
+.whatsappSquare:before {
+  content: "\f40c";
+}
+.nodeJs:before {
+  content: "\f3d3";
+}
+.edgeLegacy:before {
+  content: "\e078";
+}
+.slackHash:before,
+.slack:before {
+  content: "\f198";
+}
+.medrt:before {
+  content: "\f3c8";
+}
+.usb:before {
+  content: "\f287";
+}
+.tumblr:before {
+  content: "\f173";
+}
+.vaadin:before {
+  content: "\f408";
+}
+.quora:before {
+  content: "\f2c4";
+}
+.reacteurope:before {
+  content: "\f75d";
+}
+.mediumM:before,
+.medium:before {
+  content: "\f23a";
+}
+.amilia:before {
+  content: "\f36d";
+}
+.mixcloud:before {
+  content: "\f289";
+}
+.flipboard:before {
+  content: "\f44d";
+}
+.viacoin:before {
+  content: "\f237";
+}
+.criticalRole:before {
+  content: "\f6c9";
+}
+.sitrox:before {
+  content: "\e44a";
+}
+.discourse:before {
+  content: "\f393";
+}
+.joomla:before {
+  content: "\f1aa";
+}
+.mastodon:before {
+  content: "\f4f6";
+}
+.airbnb:before {
+  content: "\f834";
+}
+.wolfPackBattalion:before {
+  content: "\f514";
+}
+.buyNLarge:before {
+  content: "\f8a6";
+}
+.gulp:before {
+  content: "\f3ae";
+}
+.creativeCommonsSamplingPlus:before {
+  content: "\f4f1";
+}
+.strava:before {
+  content: "\f428";
+}
+.ember:before {
+  content: "\f423";
+}
+.canadianMapleLeaf:before {
+  content: "\f785";
+}
+.teamspeak:before {
+  content: "\f4f9";
+}
+.pushed:before {
+  content: "\f3e1";
+}
+.wordpressSimple:before {
+  content: "\f411";
+}
+.nutritionix:before {
+  content: "\f3d6";
+}
+.wodu:before {
+  content: "\e088";
+}
+.googlePay:before {
+  content: "\e079";
+}
+.intercom:before {
+  content: "\f7af";
+}
+.zhihu:before {
+  content: "\f63f";
+}
+.korvue:before {
+  content: "\f42f";
+}
+.pix:before {
+  content: "\e43a";
+}
+.steamSymbol:before {
+  content: "\f3f6";
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.fa2.0/webfonts/fa-regular-400.woff2)
+      format("woff2"),
+    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.fa2.0/webfonts/fa-regular-400.ttf)
+      format("truetype");
+}
+.regular,
+.far {
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.fa2.0/webfonts/fa-solid-900.woff2)
+      format("woff2"),
+    url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.fa2.0/webfonts/fa-solid-900.ttf)
+      format("truetype");
+}
+.solid,
+.fas {
+  font-weight: 900;
+}

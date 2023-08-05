@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "../../styles/alumniblogg.module.css";
 export default function Alumniblogg() {
   return (
     <div id="contentbody">
@@ -9,7 +10,7 @@ export default function Alumniblogg() {
         med och hur det är på deras arbetsplats, vad de gör på fritiden idag, och om livet i
         allmänhet.
       </p>
-      <ul className="alumniblogg">
+      <ul className={styles.alumniblogg}>
         <li>
           <Link href="/alumniblogg/mollie-wejdenstolpe">Mollie Wejdenstolpe CL13 Data</Link>
         </li>

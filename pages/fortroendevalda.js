@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import CommitteeInfo from "../components/CommitteeInfo";
 import { getContentData } from "../utils/contents";
 import { board, committees, trustees, associations } from "../constants/committees-data";
+
+// Komponenter
+import CommitteeInfo from "../components/CommitteeInfo";
+import CustomHead from "../components/CustomHead";
+
+import styles from "../styles/fortroendevalda.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Fortroendevalda({ descriptions, contacts }) {
   // Descriptions - Objekt med alla nämndbeskrivningar
@@ -15,13 +22,13 @@ export default function Fortroendevalda({ descriptions, contacts }) {
   useEffect(() => {
     const urlSelect = router.asPath.split("#")[1] || "ctyrelsen";
     setSelectedCommittee(urlSelect);
-    document.getElementById("förtroendevalda_content").scrollIntoView();
-  }, []);
+    document.getElementById(styles.fortroendevaldaContent).scrollIntoView();
+  }, [router.asPath]);
 
   // När en användare väljer en nämnd uppdateras url:en och vilken nämnd som visas
   const stateUpdater = (committee) => {
     router.replace("#" + committee);
-    document.getElementById("förtroendevalda_content").scrollIntoView();
+    document.getElementById(styles.fortroendevaldaContent).scrollIntoView();
     setSelectedCommittee(committee);
   };
 
@@ -30,47 +37,54 @@ export default function Fortroendevalda({ descriptions, contacts }) {
     return (
       <li
         // id={data.id}
-        className={selectedCommittee === data.id ? "active" : ""}
+        className={selectedCommittee === data.id ? styles.active : ""}
         onClick={() => stateUpdater(data.id)}>
-        <i className={data.icon} /> {data.name}
+        <FontAwesomeIcon icon={data.icon} /> {data.name}
       </li>
     );
   };
 
   return (
-    <div id="contentbody">
-      <div className="förtroendevalda_wrapper">
-        <nav className="nämnder_nav">
-          <ul id="nämnder_nav_ul">
-            <NavTab data={board} />
+    <>
+      <CustomHead
+        metaTitle={`Förtroendevalda | Sektionen för Civilingenjör och Lärare`}
+        description={"Här hittar du kontaktuppgifter till styrelsen och övriga förtroendevalda."}
+        url={"https://www.cl-sektionen.se/fortroendevalda"}
+      />
+      <div id="contentbody">
+        <div className={styles.fortroendevaldaWrapper}>
+          <nav className={styles.committeeNav}>
+            <ul>
+              <NavTab data={board} />
 
-            <h2>Nämnder</h2>
-            {committees.map((committee, idx) => {
-              return <NavTab data={committee} key={idx} />;
-            })}
-            <br />
+              <h2>Nämnder</h2>
+              {committees.map((committee, idx) => {
+                return <NavTab data={committee} key={idx} />;
+              })}
+              <br />
 
-            <h2>Övriga förtroendevalda</h2>
-            {trustees.map((trustee, idx) => {
-              return <NavTab data={trustee} key={idx} />;
-            })}
-            <br />
+              <h2>Övriga förtroendevalda</h2>
+              {trustees.map((trustee, idx) => {
+                return <NavTab data={trustee} key={idx} />;
+              })}
+              <br />
 
-            <h2>Sektionsföreningar</h2>
-            {associations.map((association, idx) => {
-              return <NavTab data={association} key={idx} />;
-            })}
-          </ul>
-        </nav>
-        <div id="förtroendevalda_content">
-          <CommitteeInfo
-            committee={selectedCommittee}
-            description={descriptions[selectedCommittee]}
-            contact={contacts[selectedCommittee]}
-          />
+              <h2>Sektionsföreningar</h2>
+              {associations.map((association, idx) => {
+                return <NavTab data={association} key={idx} />;
+              })}
+            </ul>
+          </nav>
+          <div id={styles.fortroendevaldaContent}>
+            <CommitteeInfo
+              committee={selectedCommittee}
+              description={descriptions[selectedCommittee]}
+              contact={contacts[selectedCommittee]}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

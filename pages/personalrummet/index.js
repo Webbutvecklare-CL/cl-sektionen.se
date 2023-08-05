@@ -1,15 +1,16 @@
 import Login from "../../components/personalrummet/Login";
-
 import UserMenu from "../../components/personalrummet/UserMenu";
 
 import { useAuth } from "../../context/AuthContext";
+
+import { personalrummet } from "../../styles/personalrummet.module.css";
 
 export default function Personalrummet() {
   const { userData, signingIn } = useAuth();
 
   return (
     <div id="contentbody">
-      <div id="personalrummet">
+      <div id={personalrummet}>
         <h1>Personalrummet</h1>
 
         {signingIn && <p>Försöker logga in!</p>}

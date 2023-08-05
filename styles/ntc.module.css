@@ -1,0 +1,55 @@
+.sendPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min-content;
+}
+
+.sendPanel p {
+  margin: 0;
+  padding: 0;
+}
+
+.typeSelect {
+  display: flex;
+  gap: 1rem;
+}
+
+.typeSelect p {
+  margin-top: 1rem;
+}
+
+.typeSelect button {
+  padding: 6px 10px;
+}
+
+.sendPanel input,
+.sendPanel textarea {
+  width: 300px;
+  margin-bottom: 1rem;
+}
+
+.sendPanel label {
+  display: flex;
+  align-items: center;
+}
+
+.sendPanel input[type="checkbox"] {
+  width: min-content;
+  height: min-content;
+  margin: 0;
+  margin-right: 1rem;
+  outline: none;
+}
+
+.subscriptionMenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.subscriptionMenu button {
+  flex-grow: 1;
+  flex-basis: 0;
+  white-space: pre-wrap;
+}

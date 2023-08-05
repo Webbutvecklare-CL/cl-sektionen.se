@@ -2,8 +2,19 @@ import { useRouter } from "next/router";
 
 import React, { useEffect, useState } from "react";
 
-import { getDocs, collection, query, where, orderBy, limit, or } from "firebase/firestore";
-import { firestore } from "../../firebase/clientApp";
+import { app } from "../../firebase/clientApp";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+  orderBy,
+  limit,
+  or,
+} from "firebase/firestore";
+const firestore = getFirestore(app);
+
 import { updateUser } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
 
@@ -12,12 +23,12 @@ import MarkdownRender from "../MarkdownRender";
 import ErrorPage from "../ErrorPage";
 import { all_committees } from "../../constants/committees-data";
 
+import { menu } from "../../styles/personalrummet.module.css";
+
 export default function UserMenu() {
   const [menuSelect, setMenuSelect] = useState("senaste");
   const [error, setError] = useState("");
-  const [committeePosts, setCommitteePosts] = useState([
-    // { id: "s", title: "Test", subtitle: "", author: "Test person" },
-  ]);
+  const [committeePosts, setCommitteePosts] = useState([]);
 
   const [userUpdateStatus, setUserUpdateStatus] = useState("");
 
@@ -28,10 +39,10 @@ export default function UserMenu() {
   // Rensa error om man byter meny
   useEffect(() => {
     setError("");
-    document.querySelectorAll(".menu button").forEach((elem) => {
+    document.querySelectorAll(`.${menu} button`).forEach((elem) => {
       elem.style.backgroundColor = null;
     });
-    document.querySelector(`.${menuSelect}`).style.backgroundColor = "var(--clr3)";
+    document.querySelector(`#${menuSelect}`).style.backgroundColor = "var(--clr3)";
   }, [menuSelect]);
 
   // Hämtar de senaste inläggen nämnden skapat
@@ -70,7 +81,7 @@ export default function UserMenu() {
         console.error("Fel vid laddning av nämndinlägg:", err);
         setError("Det gick inte att hämta nämndens inlägg, vänligen kontakta webbansvariga.");
       });
-  }, [userData.committee, userData.uid]);
+  }, [userData.committee, userData.uid, userCommitteeName]);
 
   const handleUserUpdate = () => {
     setMenuSelect("update");
@@ -125,27 +136,30 @@ export default function UserMenu() {
       </div>
 
       {/*Knappar*/}
-      <div className="menu">
-        <button className="senaste" onClick={() => setMenuSelect("senaste")}>
+      <h2>Navigera</h2>
+      <div className={menu}>
+        <button id="senaste" onClick={() => setMenuSelect("senaste")}>
           Senaste inläggen
         </button>
-        <button className="update" onClick={handleUserUpdate}>
+        <button id="update" onClick={handleUserUpdate}>
           Uppdatera uppgifter
         </button>
-        <button className="how-to" onClick={() => setMenuSelect("how-to")}>
+        <button id="how-to" onClick={() => setMenuSelect("how-to")}>
           HOW-TO
         </button>
-        <button className="how-to" onClick={() => logOut()}>
-          Logga ut
-        </button>
+        <button onClick={() => router.push("personalrummet/tv")}>NCT</button>
+        <button onClick={() => logOut()}>Logga ut</button>
       </div>
-      <div className="menu">
-        <button className="redigera" onClick={() => router.push("personalrummet/redigera")}>
-          Redigera
-        </button>
-        <button className="publicera" onClick={() => router.push("personalrummet/publicera")}>
-          Publicera
-        </button>
+      <h2>Hantera</h2>
+      <div className={menu}>
+        <button onClick={() => router.push("personalrummet/redigera")}>Redigera inlägg</button>
+        <button onClick={() => router.push("personalrummet/publicera")}>Publicera inlägg</button>
+        <button onClick={() => router.push("personalrummet/tv")}>Lägg upp på tv</button>
+        {/* Bara de som kan göra inlägg på mottagningssidan får upp detta alternativet */}
+        {(userData.permission === "admin" ||
+          ["mottagningsnamnden", "naringslivsnamnden"].includes(userData.committee)) && (
+          <button onClick={() => router.push("personalrummet/mottagning")}>Mottagning</button>
+        )}
       </div>
       {menuSelect == "senaste" && (
         <div>

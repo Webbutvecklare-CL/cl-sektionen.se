@@ -4,10 +4,13 @@ import React, { useEffect, useState } from "react";
 
 import PostForm from "../../components/personalrummet/PostForm";
 
-import { doc, setDoc, Timestamp, updateDoc } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { firestore, storage } from "../../firebase/clientApp";
+import { getFirestore, doc, setDoc, Timestamp, updateDoc } from "firebase/firestore";
+import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { app } from "../../firebase/clientApp";
 import { useAuth } from "../../context/AuthContext";
+
+const storage = getStorage(app);
+const firestore = getFirestore(app);
 
 import { createEvent } from "../../utils/calendarUtils";
 import { validateLink } from "../../utils/postUtils";
@@ -15,6 +18,8 @@ import { reauthenticate } from "../../utils/authUtils";
 import { revalidate, sendNotification } from "../../utils/server";
 
 import { all_committee_ids } from "../../constants/committees-data";
+
+// import styles from "../../styles/personalrummet/publicera.module.css";
 
 export default function Publicera({ calendarID }) {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
@@ -140,8 +145,7 @@ export default function Publicera({ calendarID }) {
     // Försöker revalidate
     try {
       // Revalidate:ar hemsidan
-      revalidate("all");
-      revalidate("post", link);
+      revalidate(user, { index: true, aktuellt: true, post: link });
     } catch (error) {
       console.error(error);
     }
@@ -158,7 +162,7 @@ export default function Publicera({ calendarID }) {
 
     // Skickar notis om valt
     if (data.sendNotification) {
-      sendNotification(userData?.uid, link);
+      sendNotification(user, { type: "post", postId: link });
     }
 
     setIsPending(false);

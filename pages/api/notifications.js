@@ -1,44 +1,90 @@
-import admin from "firebase-admin";
 import { FieldValue } from "firebase-admin/firestore";
+import admin from "../../firebase/firebaseAdmin";
 
-const serviceAccount = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT);
-
-// Admin initialization
-try {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  });
-  console.log("Initialized.");
-} catch (error) {
-  /*
-   * We skip the "already exists" message which is
-   * not an actual error when we're hot-reloading.
-   */
-  if (!/already exists/u.test(error.message)) {
-    console.error("Firebase admin initialization error", error.stack);
-    reject({ ok: false, tokens: 0, error });
-  }
-}
+import { verifyUser } from "../../utils/apiUtils";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    res.status(405).send({ message: "Only POST requests allowed" });
-    return;
+    return res.status(405).send({ message: "Only POST requests allowed" });
   }
   console.log("Received notification request with message:", req.body);
 
-  if (!req.body.userId || !req.body.postId) {
-    res.status(400).send({ message: "Felaktiga attribut i body." });
-    return;
+  if (!req.body.data) {
+    return res.status(400).send({ message: "Felaktiga attribut i body." });
   }
 
-  let postData;
   try {
-    postData = await verifyRequest(req.body.userId, req.body.postId);
+    var { uid, permission } = await verifyUser(req, res);
   } catch (error) {
-    console.error(error);
-    res.status(400).send({ message: error });
-    return;
+    console.error("Error validating user authentication:", error);
+    return res.status(401).json({ error: error.error });
+  }
+
+  let type;
+  let message;
+  let dryRun = false;
+
+  if (req.body.data.type == "post") {
+    try {
+      const postData = await verifyRequest(uid, req.body.data.postId);
+
+      // Skapa payload objekt med all data
+      const payload = createPostPayload(postData);
+      type = postData.type;
+      message = {
+        topic: "new_post",
+        ...payload,
+        collapseKey: "new_post",
+        fcmOptions: { analyticsLabel: "new_post" },
+      };
+    } catch (error) {
+      console.error(error);
+      return res.status(400).send({ message: error });
+    }
+  } else if (req.body.data.type == "mottagning") {
+    type = "mottagning";
+    dryRun = req.body.data.dryRun || false;
+    const payload = {
+      data: {
+        title: req.body.data.title,
+        body: req.body.data.body,
+        icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
+        tag: "Nyhet",
+        link: `/mottagning`,
+      },
+    };
+    message = {
+      topic: "mottagning",
+      ...payload,
+      collapseKey: "mottagning",
+      fcmOptions: { analyticsLabel: "mottagning" },
+    };
+  } else if (req.body.data.type == "custom") {
+    if (permission !== "admin") {
+      return res
+        .status(401)
+        .send({ message: "Du har inte tillåtelse att skicka anpassade notiser" });
+    }
+    dryRun = req.body.data.dryRun || false;
+    type = "information";
+    const payload = {
+      data: {
+        title: "Mottagningen: " + req.body.data.title,
+        body: req.body.data.body,
+        image: req.body.data.image || "",
+        icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
+        tag: "Nyhet",
+        link: `/`,
+      },
+    };
+    message = {
+      topic: "custom",
+      ...payload,
+      collapseKey: "custom",
+      fcmOptions: { analyticsLabel: "custom" },
+    };
+  } else {
+    return res.status(400).send({ message: "Felaktig typ av notis" });
   }
 
   // Typ lite oklart vad dessa headers gör
@@ -48,41 +94,34 @@ export default async function handler(req, res) {
 
   try {
     // Skickar notis till alla som följer eventuella taggar
-    let response = await sendNotification(postData);
+    let response = await sendNotification(type, message, dryRun);
+
     // Skickar tillbaka respons
-    res
+    return res
       .status(200)
       .json({ message: `Notis skickat till ${response.tokens} enheter`, data: req.query.message });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: `Ett fel inträffade`, error });
+    return res.status(500).json({ message: `Ett fel inträffade`, error });
   }
-  return;
 }
 
-// Hjälp funktioner
+// Hjälpfunktioner
 
-async function sendNotification(data) {
+async function sendNotification(type, message, dryRun = false) {
   return new Promise(async (resolve, reject) => {
     // Hämtar alla tokens - de som ska få notisen
-    const tokens = await getTokens(data.type);
+    const tokens = await getTokens(type);
 
     console.log(`Sending notification to ${tokens.length} devices`);
     if (tokens.length > 0) {
-      // Skapa payload objekt med all data
-      const payload = createPayload(data);
-      const message = {
-        topic: "new_post",
-        ...payload,
-        tokens: tokens,
-        collapseKey: "new_post",
-      };
-
+      message.tokens = tokens;
       try {
         // Send notifications to all tokens.
-        const response = await admin.messaging().sendMulticast(message);
-        await cleanupTokens(response, tokens);
-        console.log("Notifications have been sent and tokens cleaned up.");
+        const response = await admin.messaging().sendEachForMulticast(message, dryRun);
+        console.log("Notifications have been sent");
+        const removedTokens = await cleanupTokens(response, tokens);
+        console.log("Removed", removedTokens.length, "invalid tokens");
         resolve({ ok: true, tokens: tokens.length });
       } catch (error) {
         console.error(
@@ -95,13 +134,13 @@ async function sendNotification(data) {
   });
 }
 
-function createPayload(data) {
+function createPostPayload(data) {
   return {
     data: {
-      title: `${data.committee} publicerade ${data.type == "event" ? "ett event" : "ett inlägg"}`,
+      title: `${data.author} publicerade ett ${data.type == "event" ? "event" : "inlägg"}`,
       body: `${data.title}`,
       image: data.image || "",
-      icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
+      icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
       tag: "Nytt inlägg",
       link: `/aktuellt/${data.id}`,
     },
@@ -109,24 +148,31 @@ function createPayload(data) {
 }
 
 async function getTokens(type) {
-  const allTokens = new Set(); // Set dör att tokens inte ska räknas dubbelt
-  const fcmTokensCollection = admin.firestore().collection("fcmTokens");
+  const selectedTokens = new Set(); // Set gör att tokens inte ska räknas dubbelt
 
   return new Promise(async (resolve, reject) => {
-    if (type === "event") {
-      const eventTokenDoc = await fcmTokensCollection.doc("event").get();
-      const eventTokens = eventTokenDoc.data().tokens;
-      eventTokens.forEach((token) => allTokens.add(token));
+    try {
+      const fcmTokensCollection = admin.firestore().collection("fcmTokens");
+      const allTokensDoc = await fcmTokensCollection.doc("all").get();
+      const allTokensObj = allTokensDoc.data();
 
-      resolve(Array.from(allTokens));
-    } else if (type === "information") {
-      const infoTokenDoc = await fcmTokensCollection.doc("information").get();
-      const infoTokens = infoTokenDoc.data().tokens;
-      infoTokens.forEach((token) => allTokens.add(token));
+      console.log("hej");
 
-      resolve(Array.from(allTokens));
-    } else {
-      reject("Wrong type");
+      Object.entries(allTokensObj).forEach(([token, settings]) => {
+        if (settings.enabled && settings.types[type]) {
+          selectedTokens.add(token);
+        }
+      });
+
+      resolve(Array.from(selectedTokens));
+      try {
+        let removedTokens = await removeOldTokens(allTokensObj);
+        console.log("Removed", removedTokens.length, "old tokens");
+      } catch (error) {
+        console.error("Something went wrong with removing old tokens", error);
+      }
+    } catch (error) {
+      reject(error);
     }
   });
 }
@@ -150,26 +196,42 @@ function cleanupTokens(response, tokens) {
         error.code === "messaging/registration-token-not-registered"
       ) {
         // Ta bort från alla prenumerationer struktur kommer förändras
-        const eventTokensRef = admin.firestore().collection("fcmTokens").doc("event");
-        const infoTokensRef = admin.firestore().collection("fcmTokens").doc("information");
+        const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
 
         // Tar bort ifrån event prenumerationen
         tokensDelete.push(
-          eventTokensRef.update({
-            tokens: FieldValue.arrayRemove(tokens[index]),
-          })
-        );
-
-        // Tar bort ifrån informations prenumerationen
-        tokensDelete.push(
-          infoTokensRef.update({
-            tokens: FieldValue.arrayRemove(tokens[index]),
+          allTokensRef.update({
+            [tokens[index] + ""]: FieldValue.delete(),
           })
         );
       }
     }
   });
   return Promise.all(tokensDelete);
+}
+
+// Remove old tokens
+function removeOldTokens(tokensData) {
+  const todayDate = new Date().getTime();
+  const maxTime = 1000 * 60 * 60 * 24 * 365; // 365 days in milliseconds
+
+  var removedTokens = [];
+
+  const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
+
+  Object.entries(tokensData).forEach(([token, settings]) => {
+    const lastUpdated = new Date(settings.lastUpdated).getTime();
+    if (todayDate - lastUpdated > maxTime) {
+      // Tar bort ifrån event prenumerationen
+      removedTokens.push(
+        allTokensRef.update({
+          [token]: FieldValue.delete(),
+        })
+      );
+    }
+  });
+
+  return Promise.all(removedTokens);
 }
 
 function verifyRequest(userId, postId) {

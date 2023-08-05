@@ -1,5 +1,12 @@
 import { useState } from "react";
 import Card from "./Card";
+
+import {
+  copyButton as copyButtonStyles,
+  toolTipText as toolTipTextStyles,
+  showing as showingStyles,
+} from "../styles/components.module.css";
+
 export default function CopyButton({ text, children }) {
   const [result, setResult] = useState("");
   const [showing, setShowing] = useState(false);
@@ -24,8 +31,8 @@ export default function CopyButton({ text, children }) {
     }, 3000);
   };
   return (
-    <div className="copy-button">
-      <span className={`tooltiptext ${showing ? "showing" : ""}`}>{result}</span>
+    <div className={copyButtonStyles}>
+      <span className={`${toolTipTextStyles} ${showing ? showingStyles : ""}`}>{result}</span>
       <Card action={handle_click}>{children}</Card>
     </div>
   );

@@ -1,19 +1,18 @@
-function getPublicEvents(calendarId) {
+function getPublicEvents(calendarId, query = {}) {
+  const key = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
+  const queryString = `key=${key}&${new URLSearchParams(query).toString()}`;
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?${queryString}`;
   return new Promise((resolve, reject) => {
-    fetch(
-      `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${process.env.NEXT_PUBLIC_FIREBASE_API_KEY}`,
-      {
-        method: "GET",
-        headers: {},
-      }
-    )
+    fetch(url, { method: "GET" })
       .then((res) => {
         if (res.ok) {
           res.json().then((data) => {
             resolve(data.items);
           });
         } else {
-          reject(res.statusText);
+          res.json().then((data) => {
+            reject(data.error);
+          });
         }
       })
       .catch((err) => reject(err));

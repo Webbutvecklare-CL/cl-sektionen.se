@@ -1,0 +1,87 @@
+.modal {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 1rem;
+  width: fit-content;
+  max-width: 500px;
+}
+
+.modal h1 {
+  margin: 0;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.content {
+  all: unset;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: min-content;
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+.settings h3 {
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.instructions {
+  list-style: numbers;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  color: #1d1d1f;
+}
+
+.content i,
+.content svg {
+  margin-left: 0.1rem;
+  transform: translateY(0.1rem);
+}
+
+.faAppleShare {
+  position: relative;
+}
+.faAppleShare:before {
+  /* Box */
+  display: inline-block;
+  font-weight: 400;
+  transform: scaleY(0.9);
+  content: "\f096";
+}
+.faAppleShare:after {
+  /* Arrow */
+  position: absolute;
+  top: -0.36rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  text-align: center;
+  background-color: white;
+  width: 50%;
+  transform: translateX(50%) scale(0.8, 0.8);
+  content: "\f176";
+  transition: all 0.1s ease-in-out;
+}
+
+.faAppleShare:hover:after {
+  top: -0.5rem;
+}

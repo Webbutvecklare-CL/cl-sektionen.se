@@ -1,0 +1,205 @@
+/* Aktuellt feed */
+
+/* Post preview dvs varje länk */
+.postWrapper {
+  padding: 5px !important;
+  border-radius: 0.1rem !important;
+  background-color: white;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden !important;
+  transition: 0.1s ease-in-out;
+  height: 100px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .postWrapper:hover,
+  .postWrapper:focus {
+    overflow: hidden;
+    background: linear-gradient(
+      90deg,
+      rgb(255, 235, 235) 10%,
+      rgba(255, 255, 255, 1) 45%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    transform: scale(1) translateY(-20px);
+    transition: 0.1s ease-in-out;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .preview .postWrapper:hover {
+    height: 150px;
+  }
+
+  .preview .postWrapper:hover .postContent .body p {
+    -webkit-line-clamp: 3;
+  }
+}
+
+.postPreview {
+  height: 100%;
+}
+.postPreview h2 {
+  font-size: 1.5rem;
+  color: #1d1d1f;
+  margin-bottom: 2px;
+}
+
+.postPreview h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 6px 0px;
+}
+
+.postPreview p.meta {
+  font-size: 1.1rem;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  color: #1d1d1f;
+}
+
+.postPreview p.subtitle {
+  font-size: 1.2rem;
+  color: var(--clr5);
+  padding: 0;
+  margin-bottom: 0rem;
+}
+
+.postPreview div.body p {
+  padding: 0;
+  color: #333;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.postPreview a {
+  text-decoration: none;
+  height: 100px;
+}
+
+.postPreview hr {
+  margin-top: 0px;
+}
+
+.preview * {
+  text-decoration: none;
+  border-radius: 0.1rem !important;
+}
+
+.preview .postPreview {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 0 0.5rem;
+  grid-template-areas:
+    "image meta"
+    "image content";
+}
+
+.preview div.image {
+  width: 120px;
+  height: 100%;
+  grid-area: image;
+  /* overflow: hidden; */
+}
+
+.preview div.image img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.preview .postMeta {
+  grid-area: meta;
+  overflow: hidden;
+  color: black;
+  gap: 0.5rem;
+  width: 100%;
+  height: 50px;
+}
+
+.preview .postMeta div {
+  gap: 0.5rem;
+}
+
+.preview .postMeta p {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 0.3rem;
+  font-size: 1rem;
+}
+
+.preview .postContent {
+  grid-area: content;
+  height: 100%;
+}
+
+.preview .postPreview h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 30rem;
+}
+
+.preview p.subtitle {
+  font-size: 1rem;
+  display: inline;
+}
+
+.preview .postPreview .subtitle {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.preview .postPreview .body p {
+  all: unset;
+  width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  color: #1d1d1f;
+  font-size: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.preview .postPreview .body strong {
+  color: #1d1d1f;
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.small .preview {
+  grid-template-rows: repeat(4, 110px);
+}
+
+.long .preview {
+  grid-auto-rows: 110px;
+}
+
+@media screen and (max-width: 550px) {
+  .preview .postPreview {
+    width: 100% - 3rem;
+    grid-template-areas:
+      "image meta"
+      "image content";
+  }
+}
+
+.preview .postWrapper * {
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}

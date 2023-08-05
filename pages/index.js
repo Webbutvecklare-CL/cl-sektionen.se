@@ -1,29 +1,46 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.webp";
 import Sidhuvud_black from "../public/media/grafik/Sidhuvud.webp";
-import React, { useState } from "react";
+
+// Komponenter
 import FeedPreview from "../components/FeedPreview";
-import GråttAgenda from "../components/GråttAgenda";
-import GråttKalender from "../components/GråttKalender";
 import FeaturedPostPreview from "../components/FeaturedPostPreview";
-import CalendarSubscription from "../components/CalendarSubscription";
+import CalendarSubscription from "../components/calendar/CalendarSubscription";
+
+// Gör att kalendrarna laddas in efter användaren kommit in på sidan - för att snabba upp laddningstiden
+import dynamic from "next/dynamic";
+import CalendarLoader from "../components/calendar/CalendarLoader";
+const CalendarsWrapper = dynamic(() => import("../components/calendar/CalendarsWrapper"), {
+  ssr: false,
+  loading: () => <CalendarLoader />,
+});
 
 // För text rendering
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
 
 //Firebase stuff
-import { firestore, analytics } from "../firebase/clientApp";
-import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
+
+// Styles
+import styles from "../styles/index.module.css";
+import feedStyles from "../styles/feed-preview.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Index({ contents, featured, infoList, eventList }) {
   const [open, setOpen] = useState(false);
-  const toggleOm = () => {
+  const toggleOm = async () => {
     if (!open) {
       // Om vi går från stängd till öppen
-      logEvent(analytics, "view_om");
+      const { getAnalytics } = await import("../firebase/clientApp");
+      const analytics = await getAnalytics();
+      if (analytics) {
+        logEvent(analytics, "view_om");
+      }
     }
     setOpen(!open);
   };
@@ -34,56 +51,55 @@ export default function Index({ contents, featured, infoList, eventList }) {
 
   return (
     <div>
-      <h1 className="hidden-title">Sektionen för Civilingenjör & Lärare</h1>
-      <div className="index-bg">
-        <div className="image-container">
+      <div className={styles.indexBg}>
+        <div className={styles.imageContainer}>
           <Image
             src={Sidhuvud_inv}
             placeholder="blur"
             sizes="(max-width: 500px) 400px, 1000px"
             alt='"Sektionen för Civilingenjör & Lärare" skrivet med en fin font'
-            className="sektionslogga-vitt"
+            className={styles.sektionsloggaVitt}
           />
         </div>
       </div>
-      <div className="bg_bottom_cover"></div>
-      <div id="contentbody" className="index_content">
-        <div className={`om-container ${open ? "open" : "collapsed"}`}>
-          <section className="om">
+      <div id="contentbody" className={styles.indexContent}>
+        <div className={`${styles.omContainer} ${open ? styles.open : styles.collapsed}`}>
+          <section className={styles.om}>
             <section>
               <MarkdownRender mdData={contents["om-sektionen"]} />
 
-              <Image src={Sidhuvud_black} alt="sektionslogga, sidhuvud" className="sektionslogga" />
+              <Image
+                src={Sidhuvud_black}
+                alt="sektionslogga, sidhuvud"
+                className={styles.sektionslogga}
+              />
             </section>
             <section>
               <MarkdownRender mdData={contents["om-programmet"]} />
             </section>
           </section>
         </div>
-        <hr className="no-margin-line" />
-        <div className="visa_om_knapp_div">
-          <button className={`visa_om_knapp ${open ? "btn-open" : ""}`} onClick={toggleOm}>
-            Om CL{" "}
-            {open ? (
-              <i className="fa-solid fa-angle-up"></i>
-            ) : (
-              <i className="fa-solid fa-angle-down"></i>
-            )}
+        <hr className={styles.noMarginLine} />
+        <div className={styles.visaOmKnappDiv}>
+          <button
+            className={`${styles.visaOmKnapp} ${open ? styles.btnOpen : ""}`}
+            onClick={toggleOm}>
+            Om CL <FontAwesomeIcon icon={open ? faAngleUp : faAngleDown} />
           </button>
         </div>
-        <section id="happenings">
-          <div className="aktuellt_innehåll">
+        <section id={styles.happenings}>
+          <div className={feedStyles.small}>
             {/*Om det finns något i post listan så visas de i FeedPreview komponenten*/}
             <div>
               <h2>Senaste</h2>
               {featured && <FeaturedPostPreview post={featured} />}
-              <div className="inlägg_wrapper">
-                <div className="event_innehåll">
+              <div className={styles.feedWrapper}>
+                <div className={styles.feedColumn}>
                   <h2>Information</h2>
                   {infoList.length > 0 && <FeedPreview posts={infoList} />}
                   {!infoList.length > 0 && <p>Inlägg saknas</p>}
                 </div>
-                <div className="event_innehåll">
+                <div className={styles.feedColumn}>
                   <h2>Event</h2>
                   {eventList.length > 0 && <FeedPreview posts={eventList} />}
                   {!eventList.length > 0 && <p>Inlägg saknas</p>}
@@ -94,38 +110,23 @@ export default function Index({ contents, featured, infoList, eventList }) {
         </section>
         <hr />
         <h2>Kalender</h2>
-        <CalendarSubscription id={sektionskalender_id}>
+        <CalendarSubscription calendar_id={sektionskalender_id}>
           Prenumerera på <strong>Sektionskalendern</strong>:
         </CalendarSubscription>
-        <CalendarSubscription id={grattankalender_id}>
+        <CalendarSubscription calendar_id={grattankalender_id}>
           Prenumerera på <strong>Gråttankalendern</strong>:
         </CalendarSubscription>
-        <section className="sektionskal_månad_och_bokningar">
-          <iframe
-            title="Sektionskalender månadsvy"
-            className="open-web-calendar månad"
-            style={{
-              background:
-                "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
-            }}
-            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"
-            sandbox="allow-scripts allow-same-origin allow-top-navigation"
-            height="400px"
-            width="100%"
-            loading="lazy"
-          />
-          <GråttAgenda className="agenda-vy" />
-          <br />
-          <GråttKalender />
+        <section className={styles.sektionskalMånadOchBokningar}>
+          <CalendarsWrapper />
         </section>
         <hr />
-        <section className="resurser">
+        <section className={styles.resurser}>
           <div>
             <section>
               <br />
               <h1>Hjälp vid illabehandling</h1>
               <MarkdownRender mdData={contents["hjalp-vid-illabehandling"]} />
-              <Link className="section-button" href={"/hjalp-vid-illabehandling"}>
+              <Link className={styles.sectionButton} href={"/hjalp-vid-illabehandling"}>
                 <button aria-label="Öppna sidan med mer information om illabehandling">
                   Mer information
                 </button>
@@ -141,10 +142,10 @@ export default function Index({ contents, featured, infoList, eventList }) {
           <div>
             <br />
             <h1>Näringsliv</h1>
-            <div className="start-naringsliv">
+            <div className={styles.startNaringsliv}>
               <section>
                 <MarkdownRender mdData={contents["for-foretag"]} />
-                <Link className="section-button" href={"/for-foretag"}>
+                <Link className={styles.sectionButton} href={"/for-foretag"}>
                   <button aria-label="Öppna sidan med mer information om CL för företag">
                     Mer information och produktkatalog
                   </button>
@@ -152,7 +153,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
               </section>
               <section>
                 <MarkdownRender mdData={contents["for-studenter"]} />
-                <Link className="section-button" href={"/samarbeten"}>
+                <Link className={styles.sectionButton} href={"/samarbeten"}>
                   <button aria-label="Öppna sidan med mer information vad våra samarbetspartners erbjuder våra medlemmar">
                     Aktiva samarbeten
                   </button>
@@ -170,6 +171,12 @@ export default function Index({ contents, featured, infoList, eventList }) {
 export async function getStaticProps() {
   let infoList = [];
   let eventList = [];
+
+  // Importera firestore
+  const { app } = await import("../firebase/clientApp");
+  const { getFirestore, collection, query, where, orderBy, limit, Timestamp, getDocs } =
+    await import("firebase/firestore");
+  const firestore = getFirestore(app);
 
   // Aktuellt
   const todayDate = new Date().toLocaleString("sv-SE").substring(0, 16);

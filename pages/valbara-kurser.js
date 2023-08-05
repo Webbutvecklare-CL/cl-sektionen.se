@@ -3,6 +3,16 @@ import { getContentData } from "../utils/contents";
 import { useState } from "react";
 import Link from "next/link";
 
+import styles from "../styles/valbara-kurser.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faAngleDown,
+  faAngleUp,
+} from "@fortawesome/free-solid-svg-icons";
+
 export default function Valbarakurser({ contents, courses }) {
   const CommentCarousel = ({ comments }) => {
     const [commentIdx, setCommentIdx] = useState(0);
@@ -23,10 +33,10 @@ export default function Valbarakurser({ contents, courses }) {
     };
 
     return (
-      <div className="comment-wrapper">
-        <i className={`fa-solid fa-angle-left`} onClick={goLeft} />
-        <div className="comment">{comments[commentIdx]}</div>
-        <i className={`fa-solid fa-angle-right`} onClick={goRight} />
+      <div className={styles.commentWrapper}>
+        <FontAwesomeIcon icon={faAngleLeft} onClick={goLeft} />
+        <div className={styles.comment}>{comments[commentIdx]}</div>
+        <FontAwesomeIcon icon={faAngleRight} onClick={goRight} />
       </div>
     );
   };
@@ -34,19 +44,19 @@ export default function Valbarakurser({ contents, courses }) {
   const Course = ({ course }) => {
     const [showDetails, setShowDetails] = useState(false);
     return (
-      <div className={`course  ${showDetails ? "expanded" : ""}`}>
+      <div className={`${styles.course}  ${showDetails && styles.expanded}`}>
         <div
-          className="title"
+          className={styles.title}
           onClick={() => {
             setShowDetails(!showDetails);
           }}>
           {course.id} | {course.name}{" "}
-          <i className={`fa-solid fa-angle-${showDetails ? "up" : "down"}`} />
+          <FontAwesomeIcon icon={showDetails ? faAngleUp : faAngleDown} />
         </div>
-        <div className={`details-wrapper`}>
+        <div className={styles.detailsWrapper}>
           <div style={{ overflow: "hidden" }}>
             <div>
-              <p className="details">
+              <p className={styles.details}>
                 <span>HP: {course.hp}</span> <span>Smeknamn: {course.short}</span>
                 <span>
                   <Link
@@ -68,7 +78,7 @@ export default function Valbarakurser({ contents, courses }) {
 
   const CourseList = ({ list }) => {
     return (
-      <div className="course-list">
+      <div className={styles.courseList}>
         {list.map((course, i) => {
           return <Course course={course} key={i} />;
         })}
@@ -77,8 +87,8 @@ export default function Valbarakurser({ contents, courses }) {
   };
 
   return (
-    <div id="contentbody" className="elective-courses">
-      <div className="small-header">
+    <div id="contentbody" className={styles.electiveCourses}>
+      <div className={"small-header"}>
         <h1 id="page-title">Valbara kurser</h1>
         <MarkdownRender mdData={contents["valbara-kurser"]} />
       </div>
@@ -107,7 +117,7 @@ export default function Valbarakurser({ contents, courses }) {
         })}
       />
 
-      <div id="kursformulär" className="form-wrapper">
+      <div id="kursformulär" className={styles.formWrapper}>
         <h2>Kursformulär</h2>
         <iframe
           title="kursformulär"

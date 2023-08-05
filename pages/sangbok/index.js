@@ -1,9 +1,15 @@
 import Link from "next/link";
-import { analytics } from "../../firebase/clientApp";
 import { useEffect, useRef, useState } from "react";
 import { readFileSync } from "fs";
 import { logEvent } from "firebase/analytics";
+import CustomHead from "../../components/CustomHead";
 import TextHighlighter from "../../components/Highlighter";
+
+import styles from "../../styles/sangbok.module.css";
+import filterStyles from "../../styles/filter-panel.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 //göm majjelåtar mellan månad 6 och 9
 function HideDate(currentMonth) {
@@ -13,12 +19,13 @@ function HideDate(currentMonth) {
   return true;
 }
 
+// 2023-08-04, Tar bort alternativet för fulltext-search då jag inte har hunnit göra klart det. -Armin
+
 export default function Sangbok({ sånger, index }) {
   const [sortedSongs, setSortedSongs] = useState(
     [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
   );
 
-  const contentindex = new Map(Object.entries(index));
   const [fulltextSearchResults, setFulltextSearchResults] = useState([]);
   const [searchFullText, setSearchFullText] = useState(false);
 
@@ -40,15 +47,15 @@ export default function Sangbok({ sånger, index }) {
   const [search, setSearch] = useState("");
   const currentMonth = new Date().getMonth();
 
-  const [filterPanelOpen, setfilterPanelOpen] = useState(false);
-  const [fokusSearchBar, setfokusSearchBar] = useState(false);
+  const [filterPanelOpen, setFilterPanelOpen] = useState(false);
+  const [fokusSearchBar, setFokusSearchBar] = useState(false);
 
   useEffect(() => {
     let focusSearchHandler = (e) => {
-      if (!fokusSearchBar && e.target.className === "searchbar aktuellt") {
-        setfokusSearchBar(true);
-      } else if (fokusSearchBar && e.target.className !== "searchbar aktuellt") {
-        setfokusSearchBar(false);
+      if (!fokusSearchBar && e.target.className === "searchbar") {
+        setFokusSearchBar(true);
+      } else if (fokusSearchBar && e.target.className !== "searchbar") {
+        setFokusSearchBar(false);
       }
     };
 
@@ -60,6 +67,7 @@ export default function Sangbok({ sånger, index }) {
 
   //WIP
   useEffect(() => {
+    const contentindex = new Map(Object.entries(index));
     const sanitizeExpression = /[#_:.,*|/\"\'\\!?()[\]\{\}+’´']/gm;
     const wordsArray = search.replaceAll(sanitizeExpression, "").trim().split(" ");
 
@@ -82,28 +90,16 @@ export default function Sangbok({ sånger, index }) {
     }
     //console.log(results)
     setFulltextSearchResults(results);
-  }, [search, searchFullText]);
+  }, [index, search, searchFullText]);
 
-  const panelref = useRef();
+  const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
     let panelCloseHandler = (e) => {
-      if (panelref.current.contains(e.target)) {
-        return;
+      const clickOnPanel = e.composedPath().includes(panelRef.current);
+      if (!clickOnPanel) {
+        setFilterPanelOpen(false);
       }
-      if (e.target.className === "filterPanel mobile") {
-        return;
-      }
-      if (e.target.className === "searchbar") {
-        return;
-      }
-      if (e.target.className === "sångbok-filter-knapp active") {
-        return;
-      }
-      if (e.target.className === "fa-solid fa-ellipsis") {
-        return;
-      }
-      setfilterPanelOpen(false);
     };
 
     document.addEventListener("mousedown", panelCloseHandler);
@@ -118,138 +114,163 @@ export default function Sangbok({ sånger, index }) {
       return "";
     }
     return (
-      <Link href={`/sangbok${sång.href}`} className="sånglänk" referrerPolicy="hej">
+      <Link href={`/sangbok${sång.href}`} className={styles.songLink} referrerPolicy="hej">
         <div>
-          <span className="sångtitel">
+          <span className={styles.songTitle}>
             <TextHighlighter search={search} text={sång.title} />
           </span>
-          <span className="sångsida">&nbsp; s.{sång.sida}</span>
+          <span className={styles.songPage}>&nbsp; s.{sång.sida}</span>
         </div>
-        <div className="sångkategori">&nbsp; {sång.kategori}</div>
+        <div className={styles.songCategory}>&nbsp; {sång.kategori}</div>
       </Link>
     );
   };
 
-  var audio;
+  const [audio, setAudio] = useState(null);
   const playSong = () => {
     if (audio) {
       audio.pause();
-      const btn = document.querySelector(".muteButton");
-      if (btn) btn.remove();
+      setAudio(null);
+      return;
     }
-    audio = new Audio("/media/ljud/Rick Astley - Never Gonna Give You Up.mp3");
-    audio.play();
-    const muteButton = document.createElement("button");
-    muteButton.addEventListener("click", (e) => {
-      audio.pause();
-      muteButton.remove();
-    });
-    muteButton.classList.add("muteButton");
-    muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"/>';
-    document.querySelector("div.inputfält").appendChild(muteButton);
+    const newAudio = new Audio("/media/ljud/Rick Astley - Never Gonna Give You Up.mp3");
+    setAudio(newAudio);
+    newAudio.play();
   };
 
   return (
-    <div id="contentbody">
-      <div className="small-header">
-        <h1 id="page-title">Sångbok</h1>
-        <p>
-          Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför
-          sektionens 20-årsjubileum. Fysisk kopia av sångboken finns att köpa för 130 kr. Prata med
-          försäljningsansvarig!
-        </p>
-      </div>
-
-      <div className="sångbok-wrapper">
-        <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
-          <input
-            ref={panelref}
-            type="text"
-            placeholder="Sök efter inlägg..."
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            onBlur={() => {
-              // När användaren lämnar sökrutan
-              logEvent(analytics, "search", { search_term: search });
-              if (["never gonna give you up", "spela en låt"].includes(search.toLowerCase())) {
-                playSong();
-              }
-            }}
-            className="searchbar"
-          />
-          <button
-            ref={panelref}
-            className={`sångbok-filter-knapp ${filterPanelOpen ? "active" : ""}`}
-            onClick={() => setfilterPanelOpen(!filterPanelOpen)}>
-            <i className="fa-solid fa-ellipsis" />
-          </button>
+    <>
+      <CustomHead
+        metaTitle={`Sångbok | Sektionen för Civilingenjör och Lärare`}
+        description={"Sektionens digitala sångbok."}
+        url={"https://www.cl-sektionen.se/songbok"}
+      />
+      <div id="contentbody">
+        <div className="small-header">
+          <h1 id="page-title">Sångbok</h1>
+          <p>
+            Nedan finner du samtliga sånger från sektionens officiella songbook som trycktes inför
+            sektionens 20-årsjubileum. Fysisk kopia av songbooken finns att köpa för 130 kr. Prata
+            med försäljningsansvarig!
+          </p>
         </div>
 
-        <section
-          ref={panelref}
-          className={`sångbok filterPanel ${filterPanelOpen ? "open" : "collapsed"}`}>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="pageNr"
-              checked={sort === "pageNr"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera på sidnummer</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="alphabetical"
-              checked={sort === "alphabetical"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera alfabetiskt</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="filters"
-              value="category"
-              checked={sort === "category"}
-              onChange={(e) => sortBy(e)}
-              className="filterbutton"
-            />
-            <span className="filteroption">Sortera på kategori</span>
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="filters"
-              checked={searchFullText}
-              onChange={() => setSearchFullText(!searchFullText)}
-              className="filterbutton"
-            />
-            <span className="filteroption">
-              Sök i sångtext <i>(experimentell!)</i>
-            </span>
-          </label>
-        </section>
+        <div className={styles.songbookWrapper}>
+          <div className={filterStyles.panelWrapper} ref={panelRef}>
+            <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
+              <input
+                type="text"
+                placeholder="Sök efter inlägg..."
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                onBlur={async () => {
+                  // När användaren lämnar sökrutan
+                  const { getAnalytics } = await import("../../firebase/clientApp");
+                  const analytics = await getAnalytics();
+                  if (analytics) {
+                    logEvent(analytics, "search", { search_term: search });
+                  }
+                  if (["never gonna give you up", "spela en låt"].includes(search.toLowerCase())) {
+                    playSong();
+                  }
+                }}
+                className="searchbar"
+              />
+              <button
+                className={`${filterStyles.filterOpen} ${
+                  filterPanelOpen ? filterStyles.active : ""
+                }`}
+                onClick={() => {
+                  setFilterPanelOpen(!filterPanelOpen);
+                }}>
+                <FontAwesomeIcon icon={faEllipsis} />
+              </button>
+              {audio && (
+                <button
+                  className="muteButton"
+                  onClick={() => {
+                    audio.pause();
+                    setAudio(null);
+                  }}>
+                  <FontAwesomeIcon icon={faVolumeMute} size="sm" />
+                </button>
+              )}
+            </div>
 
-        {sortedSongs
-          .filter(
-            (sång) =>
-              search === "" ||
-              sång.title.toLowerCase().includes(search.toLowerCase()) ||
-              sång.altSearch?.some((title) => title.toLowerCase().includes(search.toLowerCase())) ||
-              (searchFullText &&
-                fulltextSearchResults.some((elem) => elem.includes(sång.href.slice(-1))))
-          )
-          .map((sång) => (
-            <SångLänk key={sång.href} sång={sång} />
-          ))}
+            <section
+              className={`${filterStyles.panel} ${
+                filterPanelOpen ? filterStyles.open : filterStyles.collapsed
+              }`}>
+              <div className={filterStyles.innerWrapper}>
+                <label>
+                  <input
+                    type="radio"
+                    name="filters"
+                    value="pageNr"
+                    checked={sort === "pageNr"}
+                    onChange={(e) => sortBy(e)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>Sortera på sidnummer</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="filters"
+                    value="alphabetical"
+                    checked={sort === "alphabetical"}
+                    onChange={(e) => sortBy(e)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="filters"
+                    value="category"
+                    checked={sort === "category"}
+                    onChange={(e) => sortBy(e)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>Sortera på kategori</span>
+                </label>
+                {/* <label>
+                  <input
+                    type="checkbox"
+                    name="filters"
+                    checked={searchFullText}
+                    onChange={() => setSearchFullText(!searchFullText)}
+                    className={filterStyles.filterInput}
+                  />
+                  <span className={filterStyles.filterOption}>
+                    Sök i sångtext <i>(experimentell!)</i>
+                  </span>
+                </label> */}
+              </div>
+            </section>
+          </div>
+
+          <div>
+            {sortedSongs
+              .filter(
+                (sång) =>
+                  search === "" ||
+                  sång.title.toLowerCase().includes(search.toLowerCase()) ||
+                  sång.altSearch?.some((title) =>
+                    title.toLowerCase().includes(search.toLowerCase())
+                  ) ||
+                  (searchFullText &&
+                    fulltextSearchResults.some((elem) => elem.includes(sång.href.slice(-1))))
+              )
+              .map((sång) => (
+                <SångLänk key={sång.href} sång={sång} />
+              ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

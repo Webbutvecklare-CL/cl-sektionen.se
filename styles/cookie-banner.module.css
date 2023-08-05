@@ -1,0 +1,70 @@
+.banner {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  z-index: 100000;
+  font-size: 0.8rem;
+  border-top: var(--clr1) 3px solid;
+  margin: auto;
+}
+.content {
+  padding: 1rem 2rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.content p {
+  max-width: 770px;
+}
+
+.button {
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.button:last-child {
+  background-color: var(--clr4);
+  opacity: 0.85;
+}
+
+.menu {
+  display: flex;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu * {
+  width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close svg {
+  transform: scale(0.7);
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    flex-direction: column;
+  }
+}

@@ -1,6 +1,7 @@
-import { firestore, messaging, analytics } from "./clientApp";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { app, messaging } from "./clientApp";
 import { getToken } from "firebase/messaging";
+import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
+const firestore = getFirestore(app);
 
 import { logEvent } from "firebase/analytics";
 
@@ -37,7 +38,11 @@ export async function saveMessagingDeviceToken(collection) {
         tokens: arrayUnion(fcmToken),
       });
 
-      logEvent(analytics, "notification_subscribe", { topic: collection });
+      const { getAnalytics } = await import("../firebase/clientApp");
+      const analytics = await getAnalytics();
+      if (analytics) {
+        logEvent(analytics, "notification_subscribe", { topic: collection });
+      }
 
       return fcmToken;
     } else {
@@ -48,4 +53,20 @@ export async function saveMessagingDeviceToken(collection) {
     console.error("Unable to get messaging token.", error);
     return error;
   }
+}
+
+export async function getFCMToken() {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const msg = await messaging();
+      const fcmToken = await getToken(msg, { vapidKey: VAPID_KEY });
+      if (fcmToken) {
+        resolve(fcmToken);
+      } else {
+        reject({ error: "No token" });
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });
 }

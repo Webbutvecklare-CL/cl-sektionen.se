@@ -4,39 +4,44 @@ import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
 import { convertDate } from "../utils/convertDate";
 
-import { analytics } from "../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 
 import bg from "../public/media/img/Post_Placeholder.webp";
 
+import styles from "../styles/feed-preview.module.css";
+
 export default function FeedPreview({ posts }) {
   return (
-    <div className="feed-preview">
+    <div className={styles.preview}>
       {posts.map((post) => {
         const date = new Date(post.publishDate["seconds"] * 1000);
         return (
-          <div className="post-wrapper" key={post.id}>
+          <div className={styles.postWrapper} key={post.id}>
             <Link
               href={`/aktuellt/${post.id}`}
-              onClick={() => {
-                logEvent(analytics, "post_click", { page: window.location.pathname });
+              onClick={async () => {
+                const { getAnalytics } = await import("../firebase/clientApp");
+                const analytics = await getAnalytics();
+                if (analytics) {
+                  logEvent(analytics, "post_click", { page: window.location.pathname });
+                }
               }}>
-              <div className="post-preview">
-                <div className="image">
+              <div className={styles.postPreview}>
+                <div className={styles.image}>
                   {post.image && (
-                    <Image src={post.image} width={240} height={200} alt="Post image" />
+                    <Image src={post.image} width={120} height={100} alt="Post image" />
                   )}
                   {!post.image && <Image src={bg} placeholder="blur" alt="Bakgrundsbild KTH" />}
                 </div>
-                <div className="post-meta">
+                <div className={styles.postMeta}>
                   <h2>{post.title}</h2>
                   {post.author} {convertDate(date)}
                 </div>
-                <div className="post-content">
-                  <p className="subtitle">{post.subtitle}</p>
+                <div className={styles.postContent}>
+                  <p className={styles.subtitle}>{post.subtitle}</p>
                   {/* Parse för att formatera om html koden till html element
                                         Sanitize för att göra det lite mer stilrent i previewn dvs inga styles*/}
-                  <div className="body">
+                  <div className={styles.body}>
                     <p>
                       {parse(
                         sanitizeHtml(post.body, {

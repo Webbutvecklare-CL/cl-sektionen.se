@@ -16,7 +16,7 @@
     box-shadow: none;
   }
 
-  .tag-selector {
+  .create .tag-selector {
     background-color: #fff !important;
   }
 }
@@ -29,7 +29,10 @@
 }
 
 .create input,
-.create textarea,
+.create textarea {
+  width: 100%;
+  margin: 10px 0;
+}
 .create select,
 .create .image-file {
   width: 100%;
@@ -137,6 +140,12 @@
   background-color: var(--clr3);
 }
 
+.type-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .create .type-container button {
   margin-top: 1rem;
   margin-right: 2rem;
@@ -214,12 +223,16 @@
   margin: 2rem 0rem;
 }
 
-.create i.fa-trash-can {
-  margin-left: 1rem;
+.create .image-file svg {
+  margin-left: 0.5rem;
   cursor: pointer;
 }
 
-.create i.required {
+.create .image-file svg:hover {
+  color: var(--clr4);
+}
+
+.create svg.required {
   color: var(--clr1);
   margin-left: 0.2rem;
   scale: 70%;
@@ -268,11 +281,11 @@
   border: 2px solid var(--clr2);
 }
 
-.create .visibility-input .visibility-button i {
+.create .visibility-input .visibility-button svg {
   width: 30px;
 }
 
-.create .visibility-input .visibility-button:hover i {
+.create .visibility-input .visibility-button:hover svg {
   transform: scale(1.2);
 }
 
@@ -307,7 +320,8 @@
   transform: translate(0px);
 }
 
-.infobox-container i::before {
+.infobox-container svg {
+  transform: scale(1.1);
   padding-right: 1rem;
   height: 0.8rem;
 }

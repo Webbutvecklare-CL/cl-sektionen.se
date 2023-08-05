@@ -1,0 +1,111 @@
+.electiveCourses h2 {
+  max-width: 833px;
+  display: block;
+  margin: 1rem auto 0.5rem;
+}
+
+.courseList {
+  display: flex;
+  flex-direction: column;
+  max-width: 833px;
+  margin: 0 auto;
+}
+.course {
+  display: flex;
+  flex-direction: column;
+
+  width: auto;
+
+  font-size: 1.2rem;
+
+  padding: 0.7rem 1rem;
+  background-color: white;
+  border: 1px solid rgb(230, 230, 230);
+  margin-top: -1px;
+}
+
+.course:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 0, 26, 0.1) 0%,
+    rgba(255, 255, 255, 1) 35%,
+    rgba(255, 255, 255, 1) 100%
+  );
+
+  transform: scale(1.01);
+  transition: 0.2s;
+}
+
+.course.expanded {
+  background: none;
+  background-color: #f5f5f5 !important;
+  transform: none;
+
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.course .title {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  /* color: var(--clr5); */
+  /* font-weight: 600; */
+  cursor: pointer;
+}
+
+.course .detailsWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease-in-out;
+}
+
+.course.expanded .detailsWrapper {
+  grid-template-rows: 1fr;
+}
+
+.course .details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 1.4rem;
+  row-gap: 0.4rem;
+}
+
+.course .commentWrapper {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-top: 1rem;
+  /* border: 1px solid rgb(230, 230, 230); */
+}
+
+.course .commentWrapper svg:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 300ms ease;
+}
+
+.course .comment {
+  width: 80%;
+  height: max-content;
+  overflow: hidden;
+}
+
+.formWrapper {
+  max-width: 833px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.formWrapper iframe {
+  display: block;
+  width: 100%;
+  height: 800px;
+  max-width: 640px;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+}

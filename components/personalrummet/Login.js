@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { googleLogin } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
 
-import { GoogleAuthProvider } from "firebase/auth";
-
 import ErrorPage from "../ErrorPage";
 
 export default function Login() {
@@ -21,6 +19,8 @@ export default function Login() {
         const res = await googleLogin();
 
         // Provar att spara accessToken
+
+        const { GoogleAuthProvider } = await import("firebase/auth");
         const credential = GoogleAuthProvider.credentialFromResult(res);
         if (credential) {
           console.log("Token sparad");

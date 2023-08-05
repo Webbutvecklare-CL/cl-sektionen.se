@@ -1,10 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApp, getApps } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
-import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth";
+import { getAnalytics, isSupported as analyticsIsSupported } from "firebase/analytics";
+
 import { getMessaging, isSupported } from "firebase/messaging";
+
+import { getCookie } from "../utils/cookieUtils";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,11 +20,19 @@ const firebaseConfig = {
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-const firestore = getFirestore(app);
-const storage = getStorage(app);
-const auth = getAuth(app);
 const messaging = async () => (await isSupported()) && getMessaging(app);
-// const analytics = isAnalyticsSupported().then((yes) => (yes ? getAnalytics(app) : null));
-const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
+const analyticsAllowed = () => {
+  if (typeof window !== "undefined") {
+    return getCookie("allowCookies") === "true";
+  }
+  return false;
+};
 
-export { app, firestore, storage, auth, messaging, analytics };
+const getValidAnalytics = async () => {
+  if (analyticsAllowed() && (await analyticsIsSupported())) {
+    return getAnalytics(app);
+  }
+  return null;
+};
+
+export { app, messaging, getValidAnalytics as getAnalytics };

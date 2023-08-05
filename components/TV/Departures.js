@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import styles from "../../styles/tv.module.css";
 
 export default function Departures({ data }) {
   return (
-    <div className="departures">
+    <div className={styles.departures}>
       {data.map((departure, i) => {
         return (
-          <div className="departure" key={i}>
-            <div className="line">{departure.LineNumber}</div>
-            <div className="destination">{departure.Destination}</div>
-            <div className="display-time">{departure.DisplayTime}</div>
+          <div className={styles.departure} key={i}>
+            <div className={styles.line}>{departure.LineNumber}</div>
+            <div className={styles.destination}>{departure.Destination}</div>
+            <div className={styles.displayTime}>{departure.DisplayTime}</div>
           </div>
         );
       })}

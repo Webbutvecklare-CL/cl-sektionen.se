@@ -2,10 +2,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
-import { analytics, firestore, storage } from "../../../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
+import { getFirestore, doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
+import { getStorage, getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
+import { app } from "../../../firebase/clientApp";
+const storage = getStorage(app);
+const firestore = getFirestore(app);
 
 import PostForm from "../../../components/personalrummet/PostForm";
 import { useAuth } from "../../../context/AuthContext";
@@ -17,7 +19,7 @@ export default function EditPost() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { userData } = useAuth();
+  const { user, userData } = useAuth();
 
   // Input och "ren" id
   const [postLink, setPostLink] = useState("");
@@ -74,6 +76,7 @@ export default function EditPost() {
             tags: postData.tags,
             author: postData.author,
             committee: postData.committee,
+            authorCommittee: postData.committee,
             link: pid,
             visibility: postData.visibility,
           };
@@ -150,11 +153,12 @@ export default function EditPost() {
       postData.tags = data.tags;
     }
 
-    postData.committee =
-      userData.permission === "admin" ? data.authorCommittee : userData.committee;
+    const committee = userData.permission === "admin" ? data.authorCommittee : userData.committee;
+    if (committee != prefill.authorCommittee) {
+      postData.committee = committee;
+    }
 
     const postRef = doc(firestore, "posts", postId);
-
     try {
       await updateDoc(postRef, postData);
       console.log("Inlägget är uppdaterat!");
@@ -226,13 +230,16 @@ export default function EditPost() {
     // Försöker revalidate
     try {
       // Revalidate:ar hemsidan
-      revalidate("all");
-      revalidate("post", id);
+      revalidate(user, { index: true, aktuellt: true, post: postId });
     } catch (error) {
       console.error(error);
     }
 
-    logEvent(analytics, "post_update", { updated_keys: Object.keys(postData) });
+    const { getAnalytics } = await import("../../../firebase/clientApp");
+    const analytics = await getAnalytics();
+    if (analytics) {
+      logEvent(analytics, "post_update", { updated_keys: Object.keys(postData) });
+    }
   };
 
   // Om man klickar på enter

@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FastAverageColor } from "fast-average-color";
 
+import styles from "../../styles/tv.module.css";
+
 export default function Slideshow({ images, default_image, speed = 8000 }) {
   const fac = new FastAverageColor();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Uppdaterar bakgrundsfärgen när currentIndex ändras
   useEffect(() => {
-    const container = document.querySelector(".slideshow"); // Elementet där bakgrundsfärgen sätts
+    const container = document.querySelector(`.${styles.slideshow}`); // Elementet där bakgrundsfärgen sätts
 
     // Kollar om det finns någon bild annars tar den bort bakgrunden
     if ((!images && !default_image) || !container.querySelector("img")) {
@@ -54,14 +56,14 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
   // Visa en default bild om det inte finns några bilder eller om det blivit ett problem
   if (!images || typeof images == "string" || images.length < 1) {
     return (
-      <div className="slideshow">
+      <div className={styles.slideshow}>
         {default_image && <Image src={default_image} alt="Standard bakgrund!" />}
       </div>
     );
   }
 
   return (
-    <div className="slideshow">
+    <div className={styles.slideshow}>
       {images.length > 0 && (
         // eslint-disable-next-line @next/next/no-img-element
         <img crossOrigin="anonymous" src={`${images[currentIndex]}`} alt="Bild" />

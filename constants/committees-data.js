@@ -1,87 +1,106 @@
+import {
+  faGavel,
+  faBook,
+  faSackDollar,
+  faHeart,
+  faAppleWhole,
+  faPersonRunning,
+  faHouse,
+  faWineGlass,
+  faFishFins,
+  faScaleBalanced,
+  faFlag,
+  faSection,
+  faOtter,
+  faDice,
+  faMasksTheater,
+  faArrowTrendUp,
+} from "@fortawesome/free-solid-svg-icons";
+
 const board = {
   name: "CtyreLsen",
-  icon: "fa-solid fa-gavel",
+  icon: faGavel,
   id: "ctyrelsen",
 };
 
 const committees = [
   {
     name: "Studienämnden",
-    icon: "fa-solid fa-book",
+    icon: faBook,
     id: "studienamnden",
   },
   {
     name: "Näringslivsnämnden",
-    icon: "fa-solid fa-sack-dollar",
+    icon: faSackDollar,
     id: "naringslivsnamnden",
   },
   {
     name: "Mottagningsnämnden",
-    icon: "fa-solid fa-heart",
+    icon: faHeart,
     id: "mottagningsnamnden",
   },
   {
     name: "JML-nämnden",
-    icon: "fa-solid fa-apple-whole",
+    icon: faAppleWhole,
     id: "jml-namnden",
   },
   {
     name: "Aktivitetsnämnden",
-    icon: "fa-solid fa-person-running",
+    icon: faPersonRunning,
     id: "aktivitetsnamnden",
   },
   {
     name: "Lokalnämnden",
-    icon: "fa-solid fa-house",
+    icon: faHouse,
     id: "lokalnamnden",
   },
   {
     name: "CLubWästeriet",
-    icon: "fa-solid fa-wine-glass",
+    icon: faWineGlass,
     id: "clw",
   },
   {
     name: "Valberedningen",
-    icon: "fa-solid fa-fish-fins",
+    icon: faFishFins,
     id: "valberedningen",
   },
 ];
 const trustees = [
   {
     name: "Revisorer",
-    icon: "fa-solid fa-scale-balanced",
+    icon: faScaleBalanced,
     id: "revisorer",
   },
   {
     name: "Fanborg",
-    icon: "fa-solid fa-flag",
+    icon: faFlag,
     id: "fanborg",
   },
   {
     name: "Kårfullmäktigedelegation",
-    icon: "fa-solid fa-section",
+    icon: faSection,
     id: "kf",
   },
   {
     name: "Enskilda",
-    icon: "fa-solid fa-otter",
+    icon: faOtter,
     id: "enskilda",
   },
 ];
 const associations = [
   {
     name: "CLek",
-    icon: "fa-solid fa-dice",
+    icon: faDice,
     id: "clek",
   },
   {
     name: "Dubbelspexet",
-    icon: "fa-solid fa-masks-theater",
+    icon: faMasksTheater,
     id: "dubbelspexet",
   },
   {
     name: "CLak",
-    icon: "fa-solid fa-arrow-trend-up",
+    icon: faArrowTrendUp,
     id: "clak",
   },
 ];

@@ -1,12 +1,15 @@
-const RequiredStar = () => {
-  return <i className="fa-solid fa-star-of-life fa-rotate-90 required"></i>;
-};
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStarOfLife } from "@fortawesome/free-solid-svg-icons";
+
+import styles from "../../../styles/personalrummet/publicera.module.css";
 
 export default function Label({ children, required }) {
   return (
     <label>
       {children}
-      {required ? <RequiredStar /> : ""}
+      {required && (
+        <FontAwesomeIcon icon={faStarOfLife} rotation={90} className={styles.required} />
+      )}
     </label>
   );
 }
