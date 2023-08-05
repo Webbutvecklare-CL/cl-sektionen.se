@@ -1,3 +1,33 @@
+.loader {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 21px;
+}
+
+.loader > div {
+  border-radius: 0.2rem;
+  background-color: white;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 570px;
+  flex-grow: 1;
+}
+
+.loader .miniKalender > div {
+  height: 570px;
+}
+
+.loader p {
+  width: fit-content;
+  padding: 0;
+}
+
 .kalenderTab {
   background-color: var(--clr1);
   border-radius: 0 0 0.2rem 0.2rem;
@@ -92,6 +122,15 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .loader {
+    flex-direction: column;
+  }
+
+  .loader > div {
+    width: 100%;
+    margin: 0 auto;
+  }
+
   .sektionskalMånadOchBokningar {
     display: block;
   }

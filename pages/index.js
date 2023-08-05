@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.webp";
@@ -6,10 +6,16 @@ import Sidhuvud_black from "../public/media/grafik/Sidhuvud.webp";
 
 // Komponenter
 import FeedPreview from "../components/FeedPreview";
-import GråttAgenda from "../components/GråttAgenda";
-import GråttKalender from "../components/GråttKalender";
 import FeaturedPostPreview from "../components/FeaturedPostPreview";
 import CalendarSubscription from "../components/CalendarSubscription";
+
+// Gör att kalendrarna laddas in efter användaren kommit in på sidan - för att snabba upp laddningstiden
+import dynamic from "next/dynamic";
+import { CalendarLoader } from "../components/CalendarsWrapper";
+const CalendarsWrapper = dynamic(() => import("../components/CalendarsWrapper"), {
+  ssr: false,
+  loading: () => <CalendarLoader />,
+});
 
 // För text rendering
 import MarkdownRender from "../components/MarkdownRender";
@@ -21,7 +27,7 @@ import { logEvent } from "firebase/analytics";
 // Styles
 import styles from "../styles/index.module.css";
 import feedStyles from "../styles/feed-preview.module.css";
-import calStyles from "../styles/kalender.module.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -111,22 +117,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
           Prenumerera på <strong>Gråttankalendern</strong>:
         </CalendarSubscription>
         <section className={styles.sektionskalMånadOchBokningar}>
-          <iframe
-            title="Sektionskalender månadsvy"
-            className={`${calStyles.openWebCalendar} ${calStyles.månad}`}
-            style={{
-              background:
-                "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
-            }}
-            src="https://kalendern-cl.vercel.app/calendar.html?url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fical%2Fc_5sqhb0om2kmti770g06qqknfik%2540group.calendar.google.com%2Fpublic%2Fbasic.ics&amp;language=sv&amp;tab=month"
-            sandbox="allow-scripts allow-same-origin allow-top-navigation"
-            height="400px"
-            width="100%"
-            loading="lazy"
-          />
-          <GråttAgenda className={"agendaVy"} />
-          <br />
-          <GråttKalender />
+          <CalendarsWrapper />
         </section>
         <hr />
         <section className={styles.resurser}>
