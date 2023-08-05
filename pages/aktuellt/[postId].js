@@ -3,8 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import CustomHead from "../../components/CustomHead";
 import parse from "html-react-parser";
-import { firestore } from "../../firebase/clientApp";
+import { app } from "../../firebase/clientApp";
 import {
+  getFirestore,
   doc,
   getDoc,
   collection,
@@ -15,6 +16,8 @@ import {
   Timestamp,
   getDocs,
 } from "firebase/firestore";
+const firestore = getFirestore(app);
+
 import BackButton from "../../components/BackButton";
 
 import styles from "../../styles/aktuellt.module.css";

@@ -3,8 +3,9 @@ import Link from "next/link";
 
 import { getFCMToken } from "../firebase/messaging"; // Filen
 import { isSupported } from "firebase/messaging"; // Biblioteket
-import { doc, updateDoc } from "firebase/firestore";
-import { firestore } from "../firebase/clientApp";
+import { getFirestore, doc, updateDoc } from "firebase/firestore";
+import { app } from "../firebase/clientApp";
+const firestore = getFirestore(app);
 
 import { fa } from "../styles/fontawesome.module.css"; // För att ios dela ikonen ska fungera
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

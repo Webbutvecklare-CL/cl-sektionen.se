@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import sanitizeHtml from "sanitize-html";
 
-import { firestore, storage } from "../../firebase/clientApp";
-import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { ref, listAll, deleteObject } from "firebase/storage";
+import { app } from "../../firebase/clientApp";
+import { getFirestore, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { getStorage, ref, listAll, deleteObject } from "firebase/storage";
+const storage = getStorage(app);
+const firestore = getFirestore(app);
 
 import { useAuth } from "../../context/AuthContext";
 import { revalidate } from "../../utils/server";

@@ -1,9 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApp, getApps } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 import { getAnalytics, isSupported as analyticsIsSupported } from "firebase/analytics";
-import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth";
+
 import { getMessaging, isSupported } from "firebase/messaging";
 
 import { getCookie } from "../utils/cookieUtils";
@@ -22,9 +20,6 @@ const firebaseConfig = {
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-const firestore = getFirestore(app);
-const storage = getStorage(app);
-const auth = getAuth(app);
 const messaging = async () => (await isSupported()) && getMessaging(app);
 const analyticsAllowed = () => {
   if (typeof window !== "undefined") {
@@ -40,4 +35,4 @@ const getValidAnalytics = async () => {
   return null;
 };
 
-export { app, firestore, storage, auth, messaging, getValidAnalytics as getAnalytics };
+export { app, messaging, getValidAnalytics as getAnalytics };

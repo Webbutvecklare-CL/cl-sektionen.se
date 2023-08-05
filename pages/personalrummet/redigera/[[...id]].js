@@ -2,10 +2,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
-import { firestore, storage } from "../../../firebase/clientApp";
 import { logEvent } from "firebase/analytics";
+import { getFirestore, doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
+import { getStorage, getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
+import { app } from "../../../firebase/clientApp";
+const storage = getStorage(app);
+const firestore = getFirestore(app);
 
 import PostForm from "../../../components/personalrummet/PostForm";
 import { useAuth } from "../../../context/AuthContext";

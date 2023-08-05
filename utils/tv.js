@@ -1,5 +1,6 @@
-import { storage } from "../firebase/clientApp";
-import { ref, getDownloadURL, listAll } from "firebase/storage";
+import { app } from "../firebase/clientApp";
+import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+const storage = getStorage(app);
 
 async function getAllImages() {
   // returnerar ett promise så att vi kan invänta resultatet

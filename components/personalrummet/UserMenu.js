@@ -2,8 +2,19 @@ import { useRouter } from "next/router";
 
 import React, { useEffect, useState } from "react";
 
-import { getDocs, collection, query, where, orderBy, limit, or } from "firebase/firestore";
-import { firestore } from "../../firebase/clientApp";
+import { app } from "../../firebase/clientApp";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+  orderBy,
+  limit,
+  or,
+} from "firebase/firestore";
+const firestore = getFirestore(app);
+
 import { updateUser } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
 

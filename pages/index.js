@@ -173,10 +173,10 @@ export async function getStaticProps() {
   let eventList = [];
 
   // Importera firestore
-  const { firestore } = await import("../firebase/clientApp");
-  const { collection, query, where, orderBy, limit, Timestamp, getDocs } = await import(
-    "firebase/firestore"
-  );
+  const { app } = await import("../firebase/clientApp");
+  const { getFirestore, collection, query, where, orderBy, limit, Timestamp, getDocs } =
+    await import("firebase/firestore");
+  const firestore = getFirestore(app);
 
   // Aktuellt
   const todayDate = new Date().toLocaleString("sv-SE").substring(0, 16);

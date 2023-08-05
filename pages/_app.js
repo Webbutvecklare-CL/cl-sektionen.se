@@ -240,8 +240,9 @@ async function updateTokenData(fcmTokenData) {
 
     // Uppdatera tokenData på firebase
     try {
-      const { firestore } = await import("../firebase/clientApp");
-      const { doc, updateDoc } = await import("firebase/firestore");
+      const { app } = await import("../firebase/clientApp");
+      const { getFirestore, doc, updateDoc } = await import("firebase/firestore");
+      const firestore = getFirestore(app);
       const token = fcmTokenData.token;
       const fcmTokensRef = doc(firestore, `fcmTokens/all`);
       await updateDoc(fcmTokensRef, { [token]: fcmTokenData }, { merge: true });

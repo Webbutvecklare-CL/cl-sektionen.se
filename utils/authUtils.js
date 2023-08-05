@@ -1,6 +1,7 @@
-import { firestore } from "../firebase/clientApp";
-import { getDoc, setDoc, doc, updateDoc } from "firebase/firestore";
+import { app } from "../firebase/clientApp";
+import { getFirestore, getDoc, setDoc, doc, updateDoc } from "firebase/firestore";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+const firestore = getFirestore(app);
 
 function googleLogin() {
   const provider = new GoogleAuthProvider();

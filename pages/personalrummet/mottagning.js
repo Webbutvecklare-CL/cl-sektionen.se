@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import {
+  getFirestore,
   doc,
   collection,
   setDoc,
@@ -11,8 +12,9 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { firestore } from "../../firebase/clientApp";
+import { app } from "../../firebase/clientApp";
 import { useAuth } from "../../context/AuthContext";
+const firestore = getFirestore(app);
 
 import { sendNotification } from "../../utils/server";
 

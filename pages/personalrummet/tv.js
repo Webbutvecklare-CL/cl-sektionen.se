@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { storage } from "../../firebase/clientApp";
+import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { app } from "../../firebase/clientApp";
+const storage = getStorage(app);
 
 import { useAuth } from "../../context/AuthContext";
 

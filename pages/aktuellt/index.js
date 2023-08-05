@@ -1,6 +1,16 @@
-import { firestore } from "../../firebase/clientApp";
-import { collection, query, where, orderBy, limit, Timestamp, getDocs } from "firebase/firestore";
+import { app } from "../../firebase/clientApp";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  orderBy,
+  limit,
+  getDocs,
+} from "firebase/firestore";
 import { logEvent } from "firebase/analytics";
+const firestore = getFirestore(app);
+
 import { convertDate } from "../../utils/convertDate";
 
 import { useState, useRef, useEffect } from "react";
