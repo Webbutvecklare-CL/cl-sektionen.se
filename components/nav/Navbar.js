@@ -1,10 +1,11 @@
-import Link from "next/link";
-import React, { useState, useEffect, useRef } from "react";
-import NavItem from "./NavItem";
-import NavSubItem from "./NavSubItem";
-import Image from "next/image";
-import NavLogo from "../../public/media/grafik/CL-Logo_Nav_White.webp";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+import NavItem from "./NavItem";
+
+import NavSubItem from "./NavSubItem";
+import NavLogo from "../../public/media/grafik/CL-Logo_Nav_White.webp";
 
 import styles from "../../styles/nav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
