@@ -5,7 +5,7 @@
   overflow: hidden;
   position: relative;
   transform: translateX(-1%);
-  background-image: url("../public/media/bildspel/cl15jub.webp");
+  background-image: url("../public/media/bildspel/cl15jub-wide.webp");
   background-position: center;
   background-position-y: 0;
   background-repeat: no-repeat;
@@ -33,6 +33,7 @@
 @media screen and (max-width: 550px) {
   .indexBg {
     justify-content: space-evenly;
+    background-image: url("../public/media/bildspel/cl15jub-small.webp");
   }
 
   .indexBg h1 {
