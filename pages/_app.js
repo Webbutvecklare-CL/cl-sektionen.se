@@ -120,13 +120,11 @@ export default function App({ Component, pageProps }) {
         </AuthContext.Provider>
       );
     } else {
-      return (
-        <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
-      );
+      return <p>Laddar...</p>;
     }
   };
 
-  // Gör så att TV routen inter får massa annat skit som inte behövs typ meta tags, footer osv
+  // Gör så att TV route:n inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
     return <Component {...pageProps} />;
   }
