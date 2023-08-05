@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CalendarSubscription from "../components/CalendarSubscription";
+import CalendarSubscription from "../components/calendar/CalendarSubscription";
 
 import styles from "../styles/kalender.module.css";
 
