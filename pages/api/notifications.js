@@ -46,10 +46,10 @@ export default async function handler(req, res) {
     dryRun = req.body.data.dryRun || false;
     const payload = {
       data: {
-        title: req.body.data.title,
+        title: "Mottagningen: " + req.body.data.title,
         body: req.body.data.body,
-        icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
-        tag: "Nyhet",
+        icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
+        tag: "Mottagning",
         link: `/mottagning`,
       },
     };
@@ -69,11 +69,11 @@ export default async function handler(req, res) {
     type = "information";
     const payload = {
       data: {
-        title: "Mottagningen: " + req.body.data.title,
+        title: req.body.data.title,
         body: req.body.data.body,
         image: req.body.data.image || "",
-        icon: "/media/grafik/favicon/android-chrome-512x512.png", // kanske alla nämnders loggor här
-        tag: "Nyhet",
+        icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
+        tag: "Anpassad",
         link: `/`,
       },
     };

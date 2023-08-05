@@ -55,6 +55,7 @@ export default function NotificationModal({ show, handleClose }) {
       setNotificationsEnabled(settings.enabled);
       setShowBell(settings.showBell);
       if (settings.types) {
+        console.log(settings.types.event);
         setInformation(settings.types.information);
         setEvent(settings.types.event);
         setMottagning(settings.types.mottagning);
@@ -78,11 +79,7 @@ export default function NotificationModal({ show, handleClose }) {
   }, [show]);
 
   useEffect(() => {
-    if (notificationsEnabled) {
-      setInformation(true);
-      setEvent(true);
-      setMottagning(true);
-    } else {
+    if (!notificationsEnabled) {
       setInformation(false);
       setEvent(false);
       setMottagning(false);
@@ -103,8 +100,8 @@ export default function NotificationModal({ show, handleClose }) {
       },
     };
 
-    // Kolla att åtminstone en kategori är på
-    if ((!information && !event && !mottagning) || !notificationsEnabled) {
+    // Kolla att åtminstone en kategori är på om notiser är på
+    if (!information && !event && !mottagning && notificationsEnabled) {
       setErrorText("Du måste välja åtminstone en kategori");
       return;
     }
