@@ -34,6 +34,7 @@ import {
   faTags,
   faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
+import NotificationBell from "../../components/NotificationBell";
 
 export default function Aktuellt({ postList }) {
   const [currentpage, setcurrentPage] = useState(1);
@@ -264,7 +265,10 @@ export default function Aktuellt({ postList }) {
   // eller vill söka som bara lägger till de nya i newsList/eventList
   return (
     <div id="contentbody">
-      <h1>Sök bland alla Nyheter</h1>
+      <div className={styles.header}>
+        <h1>Sök bland alla Nyheter</h1>
+        <NotificationBell />
+      </div>
       <div className={styles.aktuelltWrapper}>
         {/*filterpanel för widescreen*/}
         <section className={`${filterStyles.panel} ${filterStyles.wide}`}>

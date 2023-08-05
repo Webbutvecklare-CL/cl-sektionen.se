@@ -13,6 +13,8 @@ config.autoAddCss = false;
 import dynamic from "next/dynamic";
 const { Analytics } = dynamic(() => import("@vercel/analytics/react"));
 
+const NotificationBell = dynamic(() => import("../components/NotificationBell"), { ssr: false });
+
 // React
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -133,7 +135,7 @@ export default function App({ Component, pageProps }) {
     "Sektionen för Civilingenjör & Lärare representerar och stödjer studenter på programmet för Civilingenjör och Lärare samt studenter som läser KPU vid KTH.";
   const cl_banner = "https://cl-sektionen.se/media/grafik/CL Banner.webp";
   return (
-    <div>
+    <>
       <Head>
         <title>Sektionen för Civilingenjör och Lärare</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
@@ -150,11 +152,15 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
       )}
       {router.pathname.startsWith("/personalrummet") && <AuthContextWrapper />}
+
+      <NotificationBell hideIfNoSupport floating messageOptions={{ delay: 2000 }} />
+
       <Footer />
       <Navbar />
+
       {cookiesAllowed && Analytics && <Analytics />}
       {showCookieBanner && <CookieBanner setCookieState={setCookieState} />}
-    </div>
+    </>
   );
 }
 

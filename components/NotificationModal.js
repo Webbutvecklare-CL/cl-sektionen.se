@@ -18,6 +18,7 @@ export default function NotificationModal({ show, handleClose }) {
   const [noSupport, setNoSupport] = useState(true);
 
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+  const [showBell, setShowBell] = useState(true);
   const [information, setInformation] = useState(true);
   const [event, setEvent] = useState(true);
   const [mottagning, setMottagning] = useState(true);
@@ -49,6 +50,19 @@ export default function NotificationModal({ show, handleClose }) {
       return;
     }
 
+    const settings = JSON.parse(localStorage.getItem("notificationSettings"));
+    if (settings) {
+      setNotificationsEnabled(settings.enabled);
+      setShowBell(settings.showBell);
+      if (settings.types) {
+        setInformation(settings.types.information);
+        setEvent(settings.types.event);
+        setMottagning(settings.types.mottagning);
+      }
+    } else {
+      console.log("Inga inställningar hittades");
+    }
+
     // Kolla support innan den visar modal
     isSupported().then((yes) => {
       if (!yes) {
@@ -58,16 +72,6 @@ export default function NotificationModal({ show, handleClose }) {
         return;
       }
       setNoSupport(false);
-
-      if (localStorage.getItem("notificationSettings")) {
-        const notificationSettings = JSON.parse(localStorage.getItem("notificationSettings"));
-        setNotificationsEnabled(notificationSettings.enabled);
-        setInformation(notificationSettings.types.information);
-        setEvent(notificationSettings.types.event);
-        setMottagning(notificationSettings.types.mottagning);
-      } else {
-        console.log("Inga inställningar hittades");
-      }
 
       if (!document.querySelector("dialog").open) {
         document.querySelector("dialog").showModal();
@@ -93,6 +97,7 @@ export default function NotificationModal({ show, handleClose }) {
     const notificationSettings = {
       lastUpdated: new Date(),
       enabled: notificationsEnabled,
+      showBell,
       types: {
         information,
         event,
@@ -184,6 +189,11 @@ export default function NotificationModal({ show, handleClose }) {
     handleClose();
   };
 
+  const hideBell = () => {
+    localStorage.setItem("notificationSettings", JSON.stringify({ showBell }));
+    handleExit();
+  };
+
   if (noSupport) {
     return (
       <dialog className={styles.modal}>
@@ -215,7 +225,15 @@ export default function NotificationModal({ show, handleClose }) {
                 </ul>
               </>
             )}
+            <h3>Flytande klocka:</h3>
+            <Toggle toggled={showBell} onClick={setShowBell}>
+              Visar {showBell ? "" : "inte"} klockan
+            </Toggle>
+            <p>
+              Klockan finns även på <Link href={"/aktuellt"}>Info & Event</Link>
+            </p>
             <div className={styles.buttons}>
+              <button onClick={hideBell}>Spara val</button>
               <button onClick={handleExit}>Stäng</button>
             </div>
           </div>
@@ -266,6 +284,13 @@ export default function NotificationModal({ show, handleClose }) {
               <Toggle toggled={mottagning} onClick={setMottagning}>
                 Mottagningsnyheter {mottagning ? "på" : "av"}
               </Toggle>
+              <h3>Flytande klocka:</h3>
+              <Toggle toggled={showBell} onClick={setShowBell}>
+                Visar {showBell ? "" : "inte"} klockan
+              </Toggle>
+              <p>
+                Klockan finns även på <Link href={"/aktuellt"}>Info & Event</Link>
+              </p>
             </div>
             <p>{errorText}</p>
             <div className={styles.buttons}>

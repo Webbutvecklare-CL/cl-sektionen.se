@@ -30,6 +30,7 @@
   gap: 0.5rem;
   width: min-content;
   padding: 1rem;
+  white-space: nowrap;
 }
 
 .settings h3 {
@@ -47,7 +48,7 @@
   list-style: numbers;
   padding-left: 1rem;
   font-size: 1.2rem;
-  color: var(--clgra);
+  color: #1d1d1f;
 }
 
 .content i,
