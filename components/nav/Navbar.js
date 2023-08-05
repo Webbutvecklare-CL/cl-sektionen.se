@@ -111,15 +111,17 @@ export default function Navbar() {
 
   //för att stänga hamburgarmenyn om man klickar utanför---------------------
   let menuRef = useRef();
+  let buttonRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if (!menuRef.current.contains(e.target)) {
+      if (!menuRef.current && e.target !== buttonRef.current.contains(e.target)) {
         setNavBurgerOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handler);
     document.ontouchend = handler;
+
     return () => {
       document.removeEventListener("mousedown", handler);
       document.ontouchend = null;
@@ -152,6 +154,7 @@ export default function Navbar() {
     return (
       <div id={styles.navBurgerMenu}>
         <button
+          ref={buttonRef}
           onClick={burgerToggle}
           aria-label={`${navBurgerOpen ? "Stäng" : "Öppna"} navigationsmenyn`}
           className={`${styles.navItem} menuButton`}>
