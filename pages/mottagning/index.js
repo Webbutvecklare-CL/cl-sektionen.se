@@ -155,7 +155,9 @@ export default function Mottagning({ loggedIn, _posts }) {
                 <Link href={"mottagning/bilder"}>Bilder</Link>
                 <Link href={"mottagning/info"}>Info-dump</Link>
                 <Link href={"mottagning/kontakt"}>Kontakt</Link>
-                <Link href={""}>Adeptboken [pdf]</Link>
+                <Link href={"/resources/mottagning/adeptboken-2023.pdf"} target="_blank">
+                  Adeptboken [pdf]
+                </Link>
               </div>
             </div>
             <div className={styles.feedWrapper}>
