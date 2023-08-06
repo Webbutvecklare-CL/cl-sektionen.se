@@ -20,6 +20,7 @@ import { sendNotification } from "../../utils/server";
 
 import FeedItem from "../../components/mottagning/FeedItem";
 import Modal from "../../components/Modal";
+import BackButton from "../../components/BackButton";
 
 import styles from "../../styles/personalrummet/mottagning.module.css";
 import { feed as feed_style } from "../../styles/mottagning/mottagning.module.css";
@@ -214,8 +215,19 @@ export default function Mottagning() {
     });
   }, []);
 
+  if (!user) {
+    return (
+      <div id="contentbody">
+        <BackButton page="/personalrummet">Personalrummet</BackButton>
+        <h1>Personalrummet - Mottagning</h1>
+        <p>Du måste vara inloggad för att använda denna sidan!</p>
+      </div>
+    );
+  }
+
   return (
     <div id="contentbody">
+      <BackButton page="/personalrummet">Personalrummet</BackButton>
       <h1>Personalrummet - Mottagning</h1>
       <h2>Ladda upp nytt inlägg</h2>
       <div className={styles.inputPanel}>

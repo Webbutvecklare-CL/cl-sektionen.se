@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, forwardRef, use } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import HTMLString from "react-html-string";
 
@@ -9,7 +9,7 @@ import styles from "../../styles/calendar-viewer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-export default function CalendarViewer() {
+export default function CalendarViewer({ calendar_id }) {
   const startDay = new Date(new Date("2023-08-14").setHours(0, 0, 0, 0));
   const [events, setEvents] = useState([]);
   const [weeksList, setWeeksList] = useState([]);
@@ -33,9 +33,6 @@ export default function CalendarViewer() {
     gqw: { color: "#45818E", name: "Dubbel gasque" },
   };
 
-  const calendar_id =
-    "c_1351cc6b384ac29b6abd7b38136ebae1b08e383e3cc6299a3aa90303770f46ed@group.calendar.google.com";
-
   useEffect(() => {
     const startMottagning = new Date("2023-08-14").toISOString();
     const endMottagning = new Date("2023-09-04").toISOString();
@@ -57,7 +54,7 @@ export default function CalendarViewer() {
       setWeeksList(weeks);
       setEvents(data);
     });
-  }, []);
+  }, [calendar_id]);
 
   const EventBox = ({ event, setInfoBoxData }) => {
     const start = new Date(event.start.dateTime);
