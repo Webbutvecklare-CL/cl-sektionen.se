@@ -109,6 +109,18 @@ export default function Index({ contents, featured, infoList, eventList }) {
           </div>
         </section>
         <hr />
+        <div>
+            <section className={styles.resurser}>
+              <h1>Ny student</h1>
+              <MarkdownRender mdData={contents["ny-student"]} />
+              <Link className={styles.sectionButton} href={"/mottagning"}>
+                <button aria-label="Öppna mottagningssidan">
+                  Mottagningssidan
+                </button>
+              </Link>
+            </section>
+        </div>
+        <hr />
         <h2>Kalender</h2>
         <CalendarSubscription calendar_id={sektionskalender_id}>
           Prenumerera på <strong>Sektionskalendern</strong>:
@@ -131,12 +143,6 @@ export default function Index({ contents, featured, infoList, eventList }) {
                   Mer information
                 </button>
               </Link>
-            </section>
-          </div>
-          <div>
-            <section>
-              <h1>Ny student</h1>
-              <MarkdownRender mdData={contents["ny-student"]} />
             </section>
           </div>
           <div>
