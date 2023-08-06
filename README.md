@@ -82,7 +82,9 @@ NEXT_PUBLIC_FIREBASE_APP_ID=
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
 # Behövs för notiser
 NEXT_PUBLIC_FIREBASE_VAPID_KEY=
-# Fråga Webbansvariga efter denna - används för notis api:et
+
+# Fråga Webbansvariga efter denna - används i api rotes
+# Finns i Project Settings > Service Account > Generate New Private Key
 NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT=
 
 # Väljs fritt för att verifiera att revalidation request är från en betrodd källa
