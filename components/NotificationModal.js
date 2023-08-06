@@ -106,6 +106,17 @@ export default function NotificationModal({ show, handleClose }) {
       return;
     }
 
+    if (!notificationsEnabled) {
+      setStep("local");
+      setWaitingText("Sparar inställningar...");
+      localStorage.setItem(
+        "notificationSettings",
+        JSON.stringify({ token, ...notificationSettings })
+      );
+      handleExit();
+      return;
+    }
+
     // Kolla om användaren har accepterat notiser
     if (Notification.permission === "granted") {
     } else if (Notification.permission === "denied") {
