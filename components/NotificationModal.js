@@ -106,6 +106,17 @@ export default function NotificationModal({ show, handleClose }) {
       return;
     }
 
+    if (!notificationsEnabled) {
+      setStep("local");
+      setWaitingText("Sparar inställningar...");
+      localStorage.setItem(
+        "notificationSettings",
+        JSON.stringify({ token, ...notificationSettings })
+      );
+      handleExit();
+      return;
+    }
+
     // Kolla om användaren har accepterat notiser
     if (Notification.permission === "granted") {
     } else if (Notification.permission === "denied") {
@@ -189,6 +200,22 @@ export default function NotificationModal({ show, handleClose }) {
     handleExit();
   };
 
+  const BellSetting = () => {
+    return (
+      <>
+        <h3>Notifikations ikonen:</h3>
+        <Toggle toggled={showBell} onClick={setShowBell}>
+          Visar {showBell ? "" : "inte"} klockan
+        </Toggle>
+        <p>
+          Denna inställningen ändra synligheten av ringklockan i nedre högra hörnet.
+          <br />
+          Klockan finns även på <Link href={"/aktuellt"}>Info & Event</Link>
+        </p>
+      </>
+    );
+  };
+
   if (noSupport) {
     return (
       <dialog className={styles.modal}>
@@ -220,13 +247,7 @@ export default function NotificationModal({ show, handleClose }) {
                 </ul>
               </>
             )}
-            <h3>Flytande klocka:</h3>
-            <Toggle toggled={showBell} onClick={setShowBell}>
-              Visar {showBell ? "" : "inte"} klockan
-            </Toggle>
-            <p>
-              Klockan finns även på <Link href={"/aktuellt"}>Info & Event</Link>
-            </p>
+            <BellSetting />
             <div className={styles.buttons}>
               <button onClick={hideBell}>Spara val</button>
               <button onClick={handleExit}>Stäng</button>
@@ -279,13 +300,8 @@ export default function NotificationModal({ show, handleClose }) {
               <Toggle toggled={mottagning} onClick={setMottagning}>
                 Mottagningsnyheter {mottagning ? "på" : "av"}
               </Toggle>
-              <h3>Flytande klocka:</h3>
-              <Toggle toggled={showBell} onClick={setShowBell}>
-                Visar {showBell ? "" : "inte"} klockan
-              </Toggle>
-              <p>
-                Klockan finns även på <Link href={"/aktuellt"}>Info & Event</Link>
-              </p>
+
+              <BellSetting />
             </div>
             <p>{errorText}</p>
             <div className={styles.buttons}>
