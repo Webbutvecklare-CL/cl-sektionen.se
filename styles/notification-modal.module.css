@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: min-content;
+  width: fit-content;
   padding: 1rem;
   white-space: nowrap;
 }
@@ -36,6 +36,10 @@
 .settings h3 {
   margin: 0;
   margin-top: 0.5rem;
+}
+
+.settings p {
+  white-space: pre-wrap;
 }
 
 .buttons {

@@ -469,7 +469,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             {!editMode && type === "event" && (
               <>
                 <div className="calender-input">
-                  <label htmlFor="calendar">Lägg till i sektionskalendern (beta):</label>
+                  <label htmlFor="calendar">Lägg till i sektionskalendern:</label>
                   <input
                     id="calendar"
                     type="checkbox"
@@ -483,7 +483,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             {!editMode && (
               <>
                 <div className="calender-input">
-                  <label htmlFor="notis">Skicka notis (Test):</label>
+                  <label htmlFor="notis">Skicka notis:</label>
                   <input id="notis" type="checkbox" ref={sendNotification} defaultChecked={true} />
                 </div>
               </>
