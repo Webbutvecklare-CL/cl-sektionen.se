@@ -19,11 +19,10 @@ export default function Schema() {
           <h1>Mottagning - Schema</h1>
         </div>
         <div>
-          <CalendarViewer calendar_id={calendar_id} />
-
           <CalendarSubscription calendar_id={calendar_id}>
             <h3>Lägg till i din egna kalender:</h3>
           </CalendarSubscription>
+          <CalendarViewer calendar_id={calendar_id} />
         </div>
       </div>
     </>
