@@ -149,8 +149,8 @@ export default function Sangbok({ sånger, index }) {
         <div className="small-header">
           <h1 id="page-title">Sångbok</h1>
           <p>
-            Nedan finner du samtliga sånger från sektionens officiella songbook som trycktes inför
-            sektionens 20-årsjubileum. Fysisk kopia av songbooken finns att köpa för 130 kr. Prata
+            Nedan finner du samtliga sånger från sektionens officiella sångbok som trycktes inför
+            sektionens 20-årsjubileum. Fysisk kopia av sångboken finns att köpa för 130 kr. Prata
             med försäljningsansvarig!
           </p>
         </div>
