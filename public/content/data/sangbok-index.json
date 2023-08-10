@@ -244,7 +244,8 @@
     "title": "Gräv ur tundran",
     "href": "/grav_ur_tundran",
     "sida": "67",
-    "kategori": "Nubbevisor"
+    "kategori": "Nubbevisor",
+    "hemlig": "true"
   },
   {
     "title": "Gums visa",
@@ -298,7 +299,8 @@
     "title": "Imperial punsch",
     "href": "/imperial_punsch",
     "sida": "74",
-    "kategori": "Punschvisor"
+    "kategori": "Punschvisor",
+    "hemlig": "true"
   },
   {
     "title": "Imperial system",
