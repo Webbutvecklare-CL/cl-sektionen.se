@@ -31,6 +31,9 @@ export default function CalendarViewer({ calendar_id }) {
     tkp: { color: "#A4C2F4", name: "THS och KTH" },
     dsp: { color: "#76A5AF", name: "Dubbelspexet" },
     gqw: { color: "#45818E", name: "Dubbel gasque" },
+    perspen: { color: "#3393CC", name: "SF1662" },
+    iv: { color: "#4DB24F", name: "ED1100" },
+    prosam: { color: "#B85DCE", name: "LT1401" },
   };
 
   useEffect(() => {
