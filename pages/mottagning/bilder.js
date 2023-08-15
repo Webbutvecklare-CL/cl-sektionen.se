@@ -27,7 +27,7 @@ export default function Bilder() {
             </p>
             <h2>Första veckan v.33</h2>
             <div className={styles.cardList}>
-              <Card link={""}>
+              <Card link={"https://photos.app.goo.gl/8maHuv2cABXBNeUNA"} newTab>
                 <FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-14
               </Card>
               <Card link={""}>
