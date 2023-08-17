@@ -13,7 +13,6 @@ export default async function handler(req, res) {
   // Kollar om användaren försöker mer än 10 gånger per minut
   try {
     const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-    console.log(ip);
     await limiter.check(res, 10, ip); // 10 requests per minute per ip
   } catch {
     return res.status(429).json({ error: "Rate limit exceeded" });
