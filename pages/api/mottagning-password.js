@@ -12,7 +12,8 @@ const limiter = rateLimit({
 export default async function handler(req, res) {
   // Kollar om användaren försöker mer än 10 gånger per minut
   try {
-    await limiter.check(res, 10, "CACHE_TOKEN"); // 10 requests per minute
+    const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    await limiter.check(res, 10, ip); // 10 requests per minute per ip
   } catch {
     return res.status(429).json({ error: "Rate limit exceeded" });
   }
