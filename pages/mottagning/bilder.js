@@ -30,7 +30,7 @@ export default function Bilder() {
               <Card link={"https://photos.app.goo.gl/8maHuv2cABXBNeUNA"} newTab>
                 <FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-14
               </Card>
-              <Card link={""}>
+              <Card link={"https://photos.app.goo.gl/TJZzN87HctV96Xak7"} newTab>
                 <FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-15
               </Card>
               <Card link={""}>
