@@ -110,15 +110,13 @@ export default function Index({ contents, featured, infoList, eventList }) {
         </section>
         <hr />
         <div>
-            <section className={styles.resurser}>
-              <h1>Ny student</h1>
-              <MarkdownRender mdData={contents["ny-student"]} />
-              <Link className={styles.sectionButton} href={"/mottagning"}>
-                <button aria-label="Öppna mottagningssidan">
-                  Mottagningssidan
-                </button>
-              </Link>
-            </section>
+          <section className={styles.resurser}>
+            <h1>Ny student</h1>
+            <MarkdownRender mdData={contents["ny-student"]} />
+            <Link className={styles.sectionButton} href={"/mottagning"}>
+              <button aria-label="Öppna mottagningssidan">Mottagningssidan</button>
+            </Link>
+          </section>
         </div>
         <hr />
         <h2>Kalender</h2>
