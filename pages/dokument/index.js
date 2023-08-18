@@ -1,10 +1,10 @@
 import React from "react";
-import CustomHead from "../components/CustomHead";
-import MarkdownRender from "../components/MarkdownRender";
-import Card from "../components/Card";
-import { getContentData } from "../utils/contents";
+import CustomHead from "../../components/CustomHead";
+import MarkdownRender from "../../components/MarkdownRender";
+import Card from "../../components/Card";
+import { getContentData } from "../../utils/contents";
 
-import styles from "../styles/dokument.module.css";
+import styles from "../../styles/dokument.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf, faFileLines } from "@fortawesome/free-regular-svg-icons";
@@ -32,16 +32,16 @@ export default function Dokument({ contents }) {
           styrdokument. Notera att dessa är levande dokument.
         </p>
         <div className={`${styles.cards} ${styles.praxisCards}`}>
-          <Card link={"/praxis/alkoholservering"}>
+          <Card link={"/dokument/alkoholservering"}>
             <FontAwesomeIcon icon={faMartiniGlass} /> Rutiner för <b>alkoholservering</b>
           </Card>
-          <Card link={"/praxis/lokalbokning"}>
+          <Card link={"/dokument/lokalbokning"}>
             <FontAwesomeIcon icon={faHouse} /> Praxis för <b>lokalbokning</b>
           </Card>
-          <Card link={"/praxis/personuppgifter"}>
+          <Card link={"/dokument/personuppgifter"}>
             <FontAwesomeIcon icon={faAddressCard} /> Hantering av <b>personuppgifter</b>
           </Card>
-          <Card link={"/praxis/utlagg"}>
+          <Card link={"/dokument/utlagg"}>
             <FontAwesomeIcon icon={faFileInvoiceDollar} /> Praxis för <b>utlägg</b>
           </Card>
         </div>
