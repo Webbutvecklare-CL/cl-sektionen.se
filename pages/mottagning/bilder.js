@@ -33,13 +33,13 @@ export default function Bilder() {
               <Card link={"https://photos.app.goo.gl/TJZzN87HctV96Xak7"} newTab>
                 <FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-15
               </Card>
-              <Card link={""}>
+              <Card link={"https://photos.app.goo.gl/H4wX5JnpFFLwxo41A"} newTab>
                 <FontAwesomeIcon icon={faImage} /> Onsdag, 2023-08-16
               </Card>
-              <Card link={""}>
+              <Card link={"https://photos.app.goo.gl/YCGcjZQSnSBjEaeQA"} newTab>
                 <FontAwesomeIcon icon={faImage} /> Torsdag, 2023-08-17
               </Card>
-              <Card link={""}>
+              <Card link={"https://photos.app.goo.gl/zkyNhJtZwUrGk3zz9"} newTab>
                 <FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-18
               </Card>
             </div>
