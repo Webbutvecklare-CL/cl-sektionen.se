@@ -1,7 +1,6 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: max(300px, 40%) 1fr;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav {
@@ -155,7 +154,7 @@
   border-radius: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.5rem;
+  padding: 0;
   color: var(--clr3);
   background-color: unset;
   font-size: 1rem;
@@ -187,7 +186,7 @@
     display: grid;
     grid-template-rows: 0.6fr;
     transition: grid-template-rows 200ms;
-    margin-bottom: -2rem; /*GIGA JANK*/
+    margin-bottom: -2.5rem; /*GIGA JANK*/
   }
 
   .welcomePanel.active {
@@ -196,9 +195,14 @@
     margin-bottom: 0;
   }
 
+  .welcomePanel.active + button {
+    padding: 0.5rem;
+  }
+
   .welcomePanel > p {
     position: relative;
     overflow: hidden;
+    padding: 0;
   }
 
   .welcomePanel > p:after {
@@ -211,7 +215,9 @@
     background: linear-gradient(to top, rgba(250, 250, 250, 1) 10%, rgba(250, 250, 250, 0.2) 150%);
     pointer-events: none;
   }
-
+  .welcomePanel.active > p {
+    padding-bottom: 0.75rem;
+  }
   .welcomePanel.active > p:after {
     position: absolute;
     bottom: 0;
@@ -226,7 +232,7 @@
   .nav {
     justify-content: center;
     flex-direction: column;
-    row-gap: 0.2rem;
+    row-gap: 0.4rem;
   }
 
   .nav a {
