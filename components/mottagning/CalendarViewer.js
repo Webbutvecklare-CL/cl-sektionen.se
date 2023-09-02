@@ -12,7 +12,6 @@ import { faAngleLeft, faAngleRight, faXmark } from "@fortawesome/free-solid-svg-
 export default function CalendarViewer({ calendar_id }) {
   const startDay = new Date(new Date("2023-08-14").setHours(0, 0, 0, 0));
   const [events, setEvents] = useState([]);
-  const [weeksList, setWeeksList] = useState([]);
   const [scale, setScale] = useState(48);
   const [nrOfDays, setNrOfDays] = useState(7);
   const viewingHours = 16;
@@ -39,9 +38,6 @@ export default function CalendarViewer({ calendar_id }) {
   useEffect(() => {
     const startMottagning = new Date("2023-08-14").toISOString();
     const endMottagning = new Date("2023-09-04").toISOString();
-    const firstWeekM = new Date("2023-08-14");
-    const secondWeekM = new Date("2023-08-21");
-    const thirdWeekM = new Date("2023-08-28");
 
     const query = {
       orderBy: "startTime",
@@ -50,11 +46,6 @@ export default function CalendarViewer({ calendar_id }) {
       timeMax: endMottagning,
     };
     getPublicEvents(calendar_id, query).then((data) => {
-      let weeks = [];
-      weeks.push(getEventListSpan(data, firstWeekM, 7));
-      weeks.push(getEventListSpan(data, secondWeekM, 7));
-      weeks.push(getEventListSpan(data, thirdWeekM, 7));
-      setWeeksList(weeks);
       setEvents(data);
     });
   }, [calendar_id]);
@@ -159,11 +150,11 @@ export default function CalendarViewer({ calendar_id }) {
     );
   };
 
-  const Grid = ({ weeksList }) => {
+  const Grid = () => {
     const [infoBoxData, setInfoBoxData] = useState(null);
     const [dayLists, setDayLists] = useState([]);
     const [currentWeek, setCurrentWeek] = useState(0);
-    const [refDate, setRefDate] = useState(new Date("2023-08-14"));
+    const [refDate, setRefDate] = useState(new Date());
 
     const horizontalLines = [];
 
@@ -304,7 +295,7 @@ export default function CalendarViewer({ calendar_id }) {
       style={{
         "--scale": `${scale}px`,
       }}>
-      <Grid weeksList={weeksList} />
+      <Grid />
     </div>
   );
 }

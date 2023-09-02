@@ -20,7 +20,7 @@ export default function Schema() {
         </div>
         <div>
           <CalendarSubscription calendar_id={calendar_id}>
-            <h3>Lägg till i din egna kalender:</h3>
+            <strong>Lägg till i din egna kalender:</strong>
           </CalendarSubscription>
           <CalendarViewer calendar_id={calendar_id} />
         </div>
