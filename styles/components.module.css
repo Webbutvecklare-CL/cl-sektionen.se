@@ -23,8 +23,14 @@
   transition: 0.1s ease-in-out;
 }
 
+.linkCard[disabled] {
+  background-color: lightgray !important;
+  cursor: not-allowed !important;
+}
+
 .linkCard svg {
   color: var(--clr3);
+  margin-right: 0.3rem;
 }
 
 .linkCard a {
