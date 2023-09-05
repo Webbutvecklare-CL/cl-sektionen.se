@@ -1,5 +1,10 @@
 # Platina
 
+## 2023
+Armin Baymani
+Mikael Lundvist
+Felix Alin
+
 ## 2022
 
 Felicia Rosenberg
@@ -33,6 +38,14 @@ Niclas Lund
 
 # Guld
 
+## 2023
+Anton Sundberg
+Emil Rapp
+Emelie Selinder
+Rafael Quick
+Frida Andersson
+Marcus Andersson
+
 ## 2022
 
 Nima Mehrabadi
@@ -41,7 +54,7 @@ Armin Baymani
 Erik Åman
 Nicole Polis
 Christoffer Nilsson
-Mikael Lundqvist
+Mikael Lundvist
 
 ## 2021
 
@@ -170,6 +183,13 @@ Anna Johansson
 Martin Pettersson
 
 # Silver
+
+## 2023
+Maja Rosén
+Armin Baymani
+Jesper Svensson 
+Frida Sundberg
+Gustav Heldt
 
 ## 2022
 
