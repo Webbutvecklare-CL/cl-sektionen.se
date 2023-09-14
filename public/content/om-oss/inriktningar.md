@@ -1,5 +1,3 @@
-## Inriktningar
-
 Oavsett vilken inriktning som du väljer kommer du läsa flera matte- och pedagogikkurser tillsammans med de andra i din klass. Du kommer även att få välja ett antal valfria kurser i 4:an och 5:an inom inom din inriktning, kolla in [valbara kurser](/valbara-kurser) för att få veta mer om dem. Om du vill veta vilka kurser varje inriktning läser och när kan du kolla in den senaste [utbildningsplanen på kth.se](https://www.kth.se/student/kurser/program/CLGYM). Där kan du även klicka in på respektive kurs för att veta vad de handlar om.
 
 <h3 id="mafy">MAFY</h3>
