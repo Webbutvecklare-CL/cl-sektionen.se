@@ -1,6 +1,6 @@
 ## Sektionen
 
-Sektionen för Civilingenjör & Lärare är en ideell studentsektion under Tekniska Högskolan Studentkår och företräder alla som studerar på programmen för Civilingenjör och Lärare samt Kompletterande Pedagogisk Utbildning (KPU) på KTH.
+Sektionen för Civilingenjör & Lärare är en ideell studentsektion under Tekniska Högskolan Studentkår (THS) och företräder alla som studerar på programmen för Civilingenjör och Lärare samt Kompletterande Pedagogisk Utbildning (KPU) på KTH.
 
 Sektionen syfte är att värna om alla programstuderandes studietid. Detta gör vi genom att bedriva utbildningsbevakning, näringslivsaktiviteter och nämndarbete så att studietiden på KTH blir så bra som möjligt. Sektionens verksamhet är uppdelad i ett antal nämnder och övriga förtroendevalda samt en sektionsstyrelse. Nämndernas verksamheter har olika syften, bland annat utbildningsbevakning, studiesociala frågor och evenemang. Mer information om styrelsen, nämnderna och övriga förtroendevalda hittar du om klickar runt på webbplatsen.
 
