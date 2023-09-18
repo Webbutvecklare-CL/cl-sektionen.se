@@ -15,6 +15,8 @@ import {
   faDice,
   faMasksTheater,
   faArrowTrendUp,
+  faCartShopping,
+  faBasketball,
 } from "@fortawesome/free-solid-svg-icons";
 
 const board = {
@@ -87,6 +89,13 @@ const trustees = [
     id: "enskilda",
   },
 ];
+
+const individuals = [
+  { name: "Talman", icon: faGavel, id: "talman" },
+  { name: "Försäljningsansvarig", icon: faCartShopping, id: "forsaljningsansvarig" },
+  { name: "Idrottsansvarig", icon: faBasketball, id: "idrottsansvarig" },
+];
+
 const associations = [
   {
     name: "CLek",
@@ -105,7 +114,7 @@ const associations = [
   },
 ];
 
-const all_committees = [board, ...committees, ...trustees, ...associations];
+const all_committees = [board, ...committees, ...trustees, ...individuals, ...associations];
 
 var all_committee_ids = {};
 all_committee_ids[board.id] = board;
