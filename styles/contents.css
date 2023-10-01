@@ -121,3 +121,10 @@ ol {
   max-width: 833px;
   margin: auto;
 }
+
+.lastUpdated {
+  display: block;
+  color: grey;
+  font-size: 1.1rem;
+  text-align: center;
+}
