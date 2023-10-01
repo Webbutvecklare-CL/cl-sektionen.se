@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getContentData } from "../utils/contents";
+import { getValues } from "../utils/sheetsUtils";
 import { board, committees, trustees, associations } from "../constants/committees-data";
 
 // Komponenter
@@ -11,9 +12,11 @@ import styles from "../styles/fortroendevalda.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Fortroendevalda({ descriptions, contacts }) {
+export default function Fortroendevalda({ descriptions, contactsList }) {
   // Descriptions - Objekt med alla nämndbeskrivningar
-  // Contacts - Objekt med alla namn och mail till förtroendevalda
+  // contactsList - Objekt med alla namn och mail till förtroendevalda
+
+  console.log(contactsList);
 
   const router = useRouter();
   const [selectedCommittee, setSelectedCommittee] = useState("ctyrelsen");
@@ -79,10 +82,11 @@ export default function Fortroendevalda({ descriptions, contacts }) {
             <CommitteeInfo
               committee={selectedCommittee}
               description={descriptions[selectedCommittee]}
-              contact={contacts[selectedCommittee]}
+              contact={contactsList[selectedCommittee]}
             />
           </div>
         </div>
+        <span class="lastUpdated">Senast uppdaterad: 2023-10-02</span>
       </div>
     </>
   );
@@ -90,53 +94,66 @@ export default function Fortroendevalda({ descriptions, contacts }) {
 
 export async function getStaticProps() {
   const descriptions = getContentData("fortroendevalda");
-  const contacts = csvTOJSON(getContentData("data")["fortroendevalda"]);
+
+  let contactsList = {};
+  try {
+    // Hämtar all data från ett google spreadsheet
+    // https://docs.google.com/spreadsheets/d/15vKkR2bmo36amKvxoGEwhiALw0sj1ZSPUCXxzYvMDh0/
+    const data = await getValues(process.env.COMMITTEES_SHEET_ID, "A2:E91");
+
+    // Strukturera data och skapa objekt för varje nämnd
+    contactsList = getContactsList(data);
+  } catch (error) {
+    console.error("Något fel skedde vid hämtningen av data från google spreadsheet!");
+    console.error(error);
+  }
 
   return {
     props: {
       descriptions,
-      contacts,
+      contactsList,
     },
   };
 }
 
-function csvTOJSON(csvStream) {
-  csvStream += "\n"; // Lägger till ett blanksteg/ny rad i slutet
+function getContactsList(data) {
+  let contactsList = {}; // Objekt med alla nämnder en nämnd ser ut på följande sätt:
+  // 'namnd-id': {id: namnd-id, mail: '', period: '', trustees: [/*Nämndens förtroendevalda*/]}
 
-  let rows = csvStream.split(/\r?\n/); // Plockar ut alla rader
-
-  let committees = [];
-  let lastBreak = 0; // Senaste tomma raden = ',,,,'
-  for (let i = 0; i < rows.length; i++) {
-    let row = rows[i];
-    // Alla nämner är avskilda med en tom rad kolla även om det är slut på listan
-    if (row == ",,,," || i == rows.length - 1) {
-      committees.push(rows.slice(lastBreak + 1, i)); // +1 för att ta bort rubrikraden och den tomma raden
-      lastBreak = i;
+  let committeeHolder = null;
+  let i = 0;
+  while (i < data.length) {
+    let row = data[i];
+    i++;
+    if (row.length < 1) {
+      // Mellan varje nämnd finns en tom rad dvs raden(listan) kommer vara tom
+      contactsList[committeeHolder.id] = committeeHolder; // Lägger till den föregående nämnden
+      committeeHolder = null; // Rensar holder objektet
+    } else if (!committeeHolder) {
+      // Om holder objektet är tomt så blev det precis resnat
+      // Då är nästa rad informations raden för den nämnden
+      // || null för att det vissa celler inte har värden och
+      // blir knas med JSON.parse annars
+      committeeHolder = {
+        id: row[0].toLowerCase(),
+        mail: row[1] || null,
+        period: row[4] || null,
+        trustees: [],
+      };
+    } else {
+      // Om inget av ovanstående så är det en rad med en förtroendevald
+      // Spara varje person i en lista för nämndens förtroendevalda
+      committeeHolder.trustees.push({
+        position: row[0] || null,
+        mail: row[1] || null,
+        name: row[2] || null,
+        year: row[3] || null,
+      });
     }
   }
 
-  let contactsData = {};
-  committees.forEach((committee) => {
-    const committeeData = committee[0].split(","); // Nämnd informationen
-    const committeeId = committeeData[0].toLowerCase(); // Id som används i komponenten
-    contactsData[committeeId] = { mail: committeeData[1], period: committeeData[4] };
+  // Lägger till sista nämnden i listan
+  contactsList[committeeHolder.id] = committeeHolder;
 
-    // Skapa lista med alla poster för nämnden
-    let trustees = [];
-    const trusteesRows = committee.splice(1); // Raderna med förtroendevalda
-    trusteesRows.forEach((trustee) => {
-      const trusteeData = trustee.split(",");
-      trustees.push({
-        position: trusteeData[0],
-        mail: trusteeData[1],
-        name: trusteeData[2],
-        year: trusteeData[3],
-      });
-    });
-
-    // Lägger till de förtroendevalda i nämnd objektet
-    contactsData[committeeId]["trustees"] = trustees;
-  });
-  return contactsData;
+  return contactsList;
 }
