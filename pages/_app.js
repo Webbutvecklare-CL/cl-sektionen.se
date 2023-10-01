@@ -15,6 +15,8 @@ const { Analytics } = dynamic(() => import("@vercel/analytics/react"));
 
 const NotificationBell = dynamic(() => import("../components/NotificationBell"), { ssr: false });
 
+const PersonalrummetLayout = dynamic(() => import("@/layouts/PersonalrummetLayout"));
+
 // React
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -101,31 +103,6 @@ export default function App({ Component, pageProps }) {
     setShowCookieBanner(false);
   };
 
-  // För att det ska laddas in dynamiskt. Går säkert lösa bättre
-  const AuthContextWrapper = () => {
-    const [AuthContext, setAuthContext] = useState(null);
-    useEffect(() => {
-      const AuthContextProvider = import("../context/AuthContext");
-      AuthContextProvider.then((module) => {
-        setAuthContext(module);
-      });
-    }, []);
-
-    if (AuthContext) {
-      return (
-        <AuthContext.Provider>
-          <Component
-            {...pageProps}
-            cookiesAllowed={cookiesAllowed}
-            setCookieState={setCookieState}
-          />
-        </AuthContext.Provider>
-      );
-    } else {
-      return <p>Laddar...</p>;
-    }
-  };
-
   // Gör så att TV route:n inter får massa annat skit som inte behövs typ meta tags, footer osv
   if (router.pathname.includes("/TV")) {
     return <Component {...pageProps} />;
@@ -151,8 +128,15 @@ export default function App({ Component, pageProps }) {
       {!router.pathname.startsWith("/personalrummet") && (
         <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
       )}
-      {router.pathname.startsWith("/personalrummet") && <AuthContextWrapper />}
-
+      {router.pathname.startsWith("/personalrummet") && (
+        <PersonalrummetLayout>
+          <Component
+            {...pageProps}
+            cookiesAllowed={cookiesAllowed}
+            setCookieState={setCookieState}
+          />
+        </PersonalrummetLayout>
+      )}
       <NotificationBell hideIfNoSupport floating messageOptions={{ delay: 2000 }} />
 
       <Footer />
