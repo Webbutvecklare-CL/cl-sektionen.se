@@ -69,22 +69,24 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   // Om det är ett SM eller StyM så uppdatera länken efter typ och mötes nummer
   useEffect(() => {
     if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
+    if (type !== "event") return; // Om det inte är ett event kan länken va vad som
     if (tags["SM"]) {
       setLink(create_id({ number: meetingNumber }, "SM"));
     } else if (tags["StyM"]) {
       setLink(create_id({ number: meetingNumber }, "StyM"));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [meetingNumber, tags]);
+  }, [meetingNumber, tags, type, editMode]);
 
   // Om det inte är ett SM eller StyM så uppdateras länken efter titeln
   useEffect(() => {
     if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
-    if (!(tags["SM"] || tags["StyM"])) {
-      setLink(create_id(title));
+
+    if ((tags["SM"] || tags["StyM"]) && type === "event") {
+      // Om det är ett SM / StyM event då ska det va en speciell länk
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [title, tags]);
+    setLink(create_id(title));
+  }, [title, tags, type, editMode]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -179,8 +181,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     let tag = e.target.innerHTML;
     let selected = e.target.classList.contains("selected");
 
-    // Om det är SM eller StyM ska alla andra tagga rensas
-    if (tag === "SM" || tag === "StyM") {
+    // Om det är SM eller StyM ska alla andra tagga rensas om det är ett event
+    if ((tag === "SM" || tag === "StyM") && type === "event") {
       setTags((tags) => {
         // Sätter alla andra taggar till false
         Object.keys(tags).forEach((key) => {
@@ -195,7 +197,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
 
     // Rensar link input om SM eller StyM var valda tidigare
-    if (tags["SM"] || tags["StyM"]) {
+    if ((tags["SM"] || tags["StyM"]) && type === "event") {
       setLink("");
     }
 
@@ -339,7 +341,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                       );
                     })}
                   </div>
-                  {(tags["SM"] || tags["StyM"]) && (
+                  {(tags["SM"] || tags["StyM"]) && type === "event" && (
                     <div className="meeting-input">
                       <label>
                         Mötes nummer:
@@ -358,6 +360,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                         width="100px"
                         onChange={(e) => setMeetingNumber(e.target.value)}
                       />
+                      <InfoBox text="För event inlägg är SM och StyM taggarna reserverade enbart för eventinlägget för just det SM:et" />
                     </div>
                   )}
                 </div>
@@ -457,8 +460,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               Url:
               <InfoBox text='Länken måste vara unik och får bara innehålla a-z, 0-9 samt "-".' />
             </Label>
+            {/* Avstängd om det är SM / StyM event */}
             <input
-              disabled={editMode || tags.StyM || tags.SM}
+              disabled={editMode || ((tags.StyM || tags.SM) && type === "event")}
               type="text"
               value={link}
               placeholder={"Ex: sm-1-23 ger länken /aktuellt/sm-1-23"}
