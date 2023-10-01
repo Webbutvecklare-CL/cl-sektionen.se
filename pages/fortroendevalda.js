@@ -16,8 +16,6 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
   // Descriptions - Objekt med alla nämndbeskrivningar
   // contactsList - Objekt med alla namn och mail till förtroendevalda
 
-  console.log(contactsList);
-
   const router = useRouter();
   const [selectedCommittee, setSelectedCommittee] = useState("ctyrelsen");
 
