@@ -110,11 +110,16 @@ export default function Navbar() {
   };
 
   //för att stänga hamburgarmenyn om man klickar utanför---------------------
-  let menuRef = useRef();
-  let buttonRef = useRef();
+  let navbarRef = useRef();
+  let burgerMenuRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if (!menuRef.current && e.target !== buttonRef.current.contains(e.target)) {
+
+      // Kollar om elementet som användaren tryckte på finns i navbar eller burgerMenu
+      const pressOnNavBar = navbarRef.current.contains(e.target);
+      const pressOnBurgerMenu = burgerMenuRef.current.contains(e.target);
+
+      if (!pressOnBurgerMenu && !pressOnNavBar) {
         setNavBurgerOpen(false);
       }
     };
@@ -154,7 +159,6 @@ export default function Navbar() {
     return (
       <div id={styles.navBurgerMenu}>
         <button
-          ref={buttonRef}
           onClick={burgerToggle}
           aria-label={`${navBurgerOpen ? "Stäng" : "Öppna"} navigationsmenyn`}
           className={`${styles.navItem} menuButton`}>
@@ -166,7 +170,7 @@ export default function Navbar() {
 
   const BurgerMenu = () => {
     return (
-      <div ref={menuRef}>
+      <div ref={burgerMenuRef}>
         {navBurgerOpen ? (
           <div className={styles.burgerMenuList}>
             {MENU_LIST.map((menu, idx) => (
@@ -233,6 +237,7 @@ export default function Navbar() {
       <nav>
         {/* Om man har scrollat på startsidan, är på en annan sida eller öppnat menyn är top nav röd */}
         <div
+          ref={navbarRef}
           id={styles.topNav}
           className={
             scrolled || router.pathname !== "/" || navBurgerOpen ? styles.navBarFilled : ""
