@@ -275,8 +275,8 @@ export default function Sangbok({ sånger, index }) {
 }
 
 export async function getStaticProps() {
-  var sånger = JSON.parse(readFileSync(`public/content/data/sangbok-index.json`));
-  var index = JSON.parse(readFileSync(`public/content/data/sangbok-content-index.json`));
+  var sånger = JSON.parse(readFileSync(`content/data/sangbok-index.json`));
+  var index = JSON.parse(readFileSync(`content/data/sangbok-content-index.json`));
 
   return {
     props: { sånger, index },

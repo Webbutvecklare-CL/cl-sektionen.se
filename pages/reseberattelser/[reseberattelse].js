@@ -25,7 +25,7 @@ export async function getStaticProps(context) {
 
   // Hämtar all text
   const content = readFileSync(
-    `public/content/reseberattelser/${params.reseberattelse}.md`,
+    `content/reseberattelser/${params.reseberattelse}.md`,
     "utf8"
   );
 
@@ -36,7 +36,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   // Hämtar alla filnamn från mappen med blogginläggen
-  const PATH = join(process.cwd(), "public/content/reseberattelser");
+  const PATH = join(process.cwd(), "content/reseberattelser");
   const paths = readdirSync(PATH)
     .map((path) => path.replace(/\.mdx?$/, ""))
     .map((blogid) => ({ params: { reseberattelse: blogid } }));

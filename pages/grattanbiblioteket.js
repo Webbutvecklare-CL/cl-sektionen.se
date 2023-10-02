@@ -8,13 +8,13 @@ import filterStyles from "../styles/filter-panel.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
-function Ordbok({ ordbok }) {
-  const [sortedOrdbok, setSortedOrdbok] = useState(
-    [...ordbok].sort((a, b) => a.begrepp.localeCompare(b.begrepp, "sv"))
+export default function Gråttanbiblioteket({ booklist }) {
+  const [sortedBooklist, setSortedBooklist] = useState(
+    [...booklist].sort((a, b) => a.title.localeCompare(b.title, "sv"))
   );
 
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("alphabetical");
+  const [sort, setSort] = useState("title");
 
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [fokusSearchBar, setFokusSearchBar] = useState(false);
@@ -24,16 +24,16 @@ function Ordbok({ ordbok }) {
   };
 
   useEffect(() => {
-    if (sort === "category") {
-      setSortedOrdbok(
-        [...ordbok]
-          .sort((a, b) => a.begrepp.localeCompare(b.begrepp, "sv"))
-          .sort((a, b) => a.kategori.localeCompare(b.kategori, "sv"))
+    if (sort === "title") {
+      setSortedBooklist(
+        [...booklist]
+          .sort((a, b) => a.title.localeCompare(b.title, "sv"))
+          .sort((a, b) => a.author.localeCompare(b.author, "sv"))
       );
-    } else {
-      setSortedOrdbok([...ordbok].sort((a, b) => a.begrepp.localeCompare(b.begrepp, "sv")));
+    } else if (sort === "author") {
+      setSortedBooklist([...booklist].sort((a, b) => a.author.localeCompare(b.author, "sv")));
     }
-  }, [ordbok, sort]);
+  }, [booklist, sort]);
 
   const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
@@ -66,18 +66,19 @@ function Ordbok({ ordbok }) {
     };
   }, [fokusSearchBar]);
 
-  const Ord = ({ ord }) => {
+  const Book = ({ book }) => {
+    console.log(book);
     return (
       <div className={styles.ord}>
         <div>
           <span lang="sv" className={styles.begrepp}>
-            <TextHighlighter search={search} text={ord.begrepp} />
+            <TextHighlighter search={search} text={book.title} />
           </span>
           <br />
-          <span className={styles.kategori}>{ord.kategori}</span>
+          <span className={styles.kategori}>{book.iban}</span>
         </div>
         <p className={styles.betydelse}>
-          <TextHighlighter search={search} text={ord.betydelse} />
+          <TextHighlighter search={search} text={book.author} />
         </p>
       </div>
     );
@@ -86,10 +87,11 @@ function Ordbok({ ordbok }) {
   return (
     <div id="contentbody">
       <div className="small-header">
-        <h1 id="page-title">Ordbok</h1>
+        <h1 id="page-title">Gråttanbiblioteket</h1>
         <p>
-          Följande är en lista över krångliga begrepp och förkortningar som kan dyka upp på SM eller
-          andra sammanhang på sektionen.
+          Här kan du se vilka böcker som finns i gråttanbiblioteket. Observera att det kan finnas
+          fler böcker än de som r med i listan. Saknar du en bok, hör av dig till studienämnden och
+          önska bok.
         </p>
       </div>
       <div className={styles.ordbokWrapper}>
@@ -100,9 +102,6 @@ function Ordbok({ ordbok }) {
               placeholder="Sök efter inlägg..."
               onChange={(e) => {
                 setSearch(e.target.value);
-              }}
-              onBlur={() => {
-                // När användaren lämnar sökrutan
               }}
               className="searchbar"
             />
@@ -121,49 +120,48 @@ function Ordbok({ ordbok }) {
                 <input
                   type="radio"
                   name="filters"
-                  value="alphabetical"
-                  checked={sort === "alphabetical"}
+                  value="author"
+                  checked={sort === "författare"}
                   onChange={(e) => sortBy(e)}
                   className={filterStyles.filterInput}
                 />
-                <span className={filterStyles.filterOption}>Sortera alfabetiskt</span>
+                <span className={filterStyles.filterOption}>Sortera efter författare</span>
               </label>
               <label>
                 <input
                   type="radio"
                   name="filters"
-                  value="category"
-                  checked={sort === "category"}
+                  value="title"
+                  checked={sort === "titel"}
                   onChange={(e) => sortBy(e)}
                   className={filterStyles.filterInput}
                 />
-                <span className={filterStyles.filterOption}>Sortera på kategori</span>
+                <span className={filterStyles.filterOption}>Sortera efter titel</span>
               </label>
             </div>
           </section>
         </div>
 
-        {sortedOrdbok
+        {sortedBooklist
           .filter(
-            (ord) =>
+            (book) =>
               search === "" ||
-              ord.begrepp.toLowerCase().includes(search.toLowerCase()) ||
-              ord.betydelse.toLowerCase().includes(search.toLowerCase()) ||
-              ord.kategori.toLowerCase().includes(search.toLowerCase())
+              book.title.toLowerCase().includes(search.toLowerCase()) ||
+              book.iban.toLowerCase().includes(search.toLowerCase()) ||
+              book.författare.toLowerCase().includes(search.toLowerCase())
           )
-          .map((ord) => {
-            return <Ord key={ord.begrepp} ord={ord} />;
+          .map((book) => {
+            return <Book key={book.iban} book={book} />;
           })}
       </div>
     </div>
   );
 }
-export default Ordbok;
 
 export async function getStaticProps() {
-  var ordbok = JSON.parse(readFileSync(`content/data/ordbok.json`));
+  var booklist = JSON.parse(readFileSync(`content/data/grattanbiblioteket.json`));
 
   return {
-    props: { ordbok },
+    props: { booklist },
   };
 }

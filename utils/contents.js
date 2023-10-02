@@ -4,9 +4,9 @@ import path from "path";
 export function getContentData(page) {
   let contents = {};
 
-  readdirSync(`public/content/${page}`).forEach((fileName) => {
+  readdirSync(`content/${page}`).forEach((fileName) => {
     // process.cwd() är för att skit ska fungera
-    const fullPath = path.join(process.cwd(), `public/content/${page}/${fileName}`);
+    const fullPath = path.join(process.cwd(), `content/${page}/${fileName}`);
 
     // Läser in textdata och lägger till i contents
     contents[fileName.split(".")[0]] = readFileSync(fullPath, "utf8");

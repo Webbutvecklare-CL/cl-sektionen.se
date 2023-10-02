@@ -30,10 +30,10 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  const content = readFileSync(`public/content/sangbok/${params.sang}.md`, "utf8");
+  const content = readFileSync(`content/sangbok/${params.sang}.md`, "utf8");
 
   // Hämtar sång data från json
-  const songsDataFile = readFileSync(`public/content/data/sangbok-index.json`, "utf8");
+  const songsDataFile = readFileSync(`content/data/sangbok-index.json`, "utf8");
   const songsList = JSON.parse(songsDataFile);
 
   const songData = songsList.find((song) => song.href === `/${params.sang}`);
@@ -45,7 +45,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   // Hämtar alla filnamn från mappen med alla sånger
-  const PATH = join(process.cwd(), "public/content/sangbok");
+  const PATH = join(process.cwd(), "content/sangbok");
   const paths = readdirSync(PATH)
     .map((path) => path.replace(/\.mdx?$/, ""))
     .map((sangid) => ({ params: { sang: sangid } }));
