@@ -155,6 +155,9 @@ export default function UserMenu() {
         <button onClick={() => router.push("personalrummet/redigera")}>Redigera inlägg</button>
         <button onClick={() => router.push("personalrummet/publicera")}>Publicera inlägg</button>
         <button onClick={() => router.push("personalrummet/tv")}>Lägg upp på tv</button>
+        {userData.permission === "admin" && (
+          <button onClick={() => router.push("personalrummet/tv/admin")}>TV Admin</button>
+        )}
         {/* Bara de som kan göra inlägg på mottagningssidan får upp detta alternativet */}
         {(userData.permission === "admin" ||
           ["mottagningsnamnden", "naringslivsnamnden"].includes(userData.committee)) && (
