@@ -24,7 +24,7 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  const content = readFileSync(`public/content/dokument/${params.dokument}.md`, "utf8");
+  const content = readFileSync(`content/dokument/${params.dokument}.md`, "utf8");
 
   return {
     props: { dokument: params.dokument, content: JSON.parse(JSON.stringify(content)) }, // will be passed to the page component as props
@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   // Hämtar alla filnamn från mappen med blogginläggen
-  const PATH = join(process.cwd(), "public/content/dokument");
+  const PATH = join(process.cwd(), "content/dokument");
   const paths = readdirSync(PATH)
     .map((path) => path.replace(/\.mdx?$/, ""))
     .map((id) => ({ params: { dokument: id } }));

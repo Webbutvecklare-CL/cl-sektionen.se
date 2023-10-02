@@ -2,39 +2,35 @@ import MarkdownRender from "./MarkdownRender";
 
 import styles from "../styles/fortroendevalda.module.css";
 
-export default function CommitteeInfo({ committee, description, contact }) {
-  const mandatperioder = {
-    "ctyrelsen": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "studienamnden": [
-      "Mandatperiod 2023.01.01 - 2023.12.31",
-      "Utbytesansvarig 2022.05.01 - 2023.04.30",
-    ],
-    "naringslivsnamnden": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "mottagningsnamnden": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "jml-namnden": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "aktivitetsnamnden": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "lokalnamnden": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "clw": ["Mandatperiod 2022.05.01 - 2023.04.30"],
-    "valberedningen": ["Mandatperiod 2022.05.01 - 2023.04.30"],
-    "revisorer": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "fanborg": ["Mandatperiod 2023.02.01 - 2024.01.31"],
-    "kf": ["Mandatperiod 2022.07.01 - 2023.06.31"],
-    "enskilda": ["Mandatperiod 2023.01.01 - 2023.12.31"],
-    "clek": [],
-    "dubbelspexet": [],
-    "clak": [],
+export default function CommitteeInfo({ description, contact }) {
+  const MandatePeriod = ({ contact }) => {
+    if (!contact.period) return null;
+    let periods = contact.period.split(";");
+    let elementList = []; // Varje element är en mandatperiod
+
+    // Lägger till första mandat perioden, första ska vara generell för nämnden
+    elementList.push(
+      <span className={styles.mandatePeriod} key={0}>
+        Mandatperiod {periods.shift()}
+      </span>
+    );
+
+    // Om det finns fler så läggs de också till
+    periods.forEach((period, idx) => {
+      elementList.push(
+        <span className={styles.mandatePeriod} key={idx + 1}>
+          {period}
+        </span>
+      );
+    });
+
+    return elementList;
   };
 
   return (
     <div>
       <MarkdownRender mdData={description} />
-      {mandatperioder[committee].map((period, idx) => {
-        return (
-          <span className={styles.mandatePeriod} key={idx}>
-            {period}
-          </span>
-        );
-      })}
+      <MandatePeriod contact={contact} />
       <br />
       <section>
         <div className={styles.poster}>

@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  const content = readFileSync(`public/content/alumniblogg/${params.alumniberattelse}.md`, "utf8");
+  const content = readFileSync(`content/alumniblogg/${params.alumniberattelse}.md`, "utf8");
 
   return {
     props: {
@@ -34,7 +34,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   // Hämtar alla filnamn från mappen med blogginläggen
-  const PATH = join(process.cwd(), "public/content/alumniblogg");
+  const PATH = join(process.cwd(), "content/alumniblogg");
   const paths = readdirSync(PATH)
     .map((path) => path.replace(/\.mdx?$/, ""))
     .map((blogid) => ({ params: { alumniberattelse: blogid } }));

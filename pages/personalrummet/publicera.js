@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 import PostForm from "../../components/personalrummet/PostForm";
+import BackButton from "@/components/BackButton";
 
 import { getFirestore, doc, setDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -209,10 +210,8 @@ export default function Publicera({ calendarID }) {
 
   return (
     <div id="contentbody">
+      <BackButton page="personalrummet">Personalrummet</BackButton>
       <h1>Personalrummet - Publicera</h1>
-      <button type="button" onClick={() => router.back()}>
-        Tillbaka
-      </button>
       {userData && !successLink && (
         <div className="create">
           <PostForm onSubmit={handleSubmit} prefill={prefillData} buttonText={"Skapa"} />

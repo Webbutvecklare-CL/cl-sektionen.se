@@ -10,6 +10,7 @@ const storage = getStorage(app);
 const firestore = getFirestore(app);
 
 import PostForm from "../../../components/personalrummet/PostForm";
+import BackButton from "@/components/BackButton";
 import { useAuth } from "../../../context/AuthContext";
 
 import { revalidate } from "../../../utils/server";
@@ -252,10 +253,8 @@ export default function EditPost() {
 
   return (
     <div id="contentbody">
+      <BackButton page="personalrummet">Personalrummet</BackButton>
       <h1>Personalrummet - Redigera</h1>
-      <button type="button" onClick={() => router.push("/personalrummet")}>
-        Tillbaka
-      </button>
       {!success && (
         <div className="create">
           {!prefill && (
