@@ -4,6 +4,7 @@
     "paths": {
       "@/styles/*": ["styles/*"],
       "@/components/*": ["components/*"],
+      "@/content/*": ["content/*"],
       "@/firebase/*": ["firebase/*"],
       "@/utils/*": ["utils/*"],
       "@/context/*": ["context/*"],
