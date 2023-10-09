@@ -8,24 +8,29 @@ export default function Definition({ term, text, children }) {
 
   useEffect(() => {
     function handleResize() {
+      // Vänstra respektive högra kantens koordinater
       let { left, right } = tooltipRef.current.getBoundingClientRect();
 
-      let offset = 0;
-      if (left < 0) {
-        offset = left - 30;
-      } else if (right > window.innerWidth) {
-        offset = right - window.innerWidth + 30;
+      let oldValue = tooltipRef.current.style.getPropertyValue("--offset");
+      let offset = parseInt(oldValue.substring(0, oldValue.length - 2)) || 0;
+
+      // Om utanför så beräknas offseten plus extra marginal
+      let newOffset = 0;
+      const margin = 30;
+      if (left + offset < margin) {
+        newOffset = left + offset - margin;
+      } else if (right + offset > window.innerWidth - margin * 2) {
+        newOffset = right + offset - window.innerWidth + margin * 2;
+      } else {
+        return;
       }
-      tooltipRef.current.style.setProperty("--offset", `${offset}px`);
+      tooltipRef.current.style.setProperty("--offset", `${newOffset}px`);
     }
     handleResize();
     window.addEventListener("resize", handleResize, false);
   }, []);
 
-  const handleClick = () => {
-    let { left, right } = tooltipRef.current.getBoundingClientRect();
-    console.log(left, right - window.innerWidth);
-  };
+  const handleClick = (e) => {};
 
   // Hittar ordet i ordlistan
   const definition = definitions.filter((word) => word.begrepp === term)[0];
