@@ -13,6 +13,11 @@ import styles from "../styles/fortroendevalda.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Fortroendevalda({ descriptions, contactsList }) {
+  /**
+   * För att uppdatera listan på förtroendevalda följ instruktionerna
+   * du hittar här: https://github.com/Webbutvecklare-CL/cl-sektionen.se/wiki/F%C3%B6rtroendevalda
+   */
+
   // Descriptions - Objekt med alla nämndbeskrivningar
   // contactsList - Objekt med alla namn och mail till förtroendevalda
 
@@ -84,7 +89,7 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
             />
           </div>
         </div>
-        <span class="lastUpdated">Senast uppdaterad: 2023-10-02</span>
+        <span class="lastUpdated">Senast uppdaterad: 2023-10-12</span>
       </div>
     </>
   );

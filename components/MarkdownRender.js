@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import Definition from "./Definition";
 
 export default function MarkdownRender({ source, mdData }) {
   let [content, setContent] = useState("");
@@ -25,10 +26,20 @@ export default function MarkdownRender({ source, mdData }) {
     }
   }, [source]);
 
+  const components = {
+    def: ({ node, ...props }) => {
+      const { term, children } = props;
+      return <Definition term={term}>{...children}</Definition>;
+    },
+  };
+
   return (
     //Rehype gör så att man kan skriva html kod i markdown filen
     <div>
-      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+        components={components}>
         {content}
       </ReactMarkdown>
     </div>
