@@ -89,7 +89,7 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
             />
           </div>
         </div>
-        <span class="lastUpdated">Senast uppdaterad: 2023-10-12</span>
+        <span class="lastUpdated">Senast uppdaterad: 2023-10-17</span>
       </div>
     </>
   );
