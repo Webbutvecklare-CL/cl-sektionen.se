@@ -13,7 +13,7 @@ export default function Schema() {
         description={"Schemat för mottagningen 2023."}
         url={"https://www.cl-sektionen.se/mottagning/schema"}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <BackButton page="mottagning">Mottagningssidan</BackButton>
         <div>
           <h1>Mottagning - Schema</h1>

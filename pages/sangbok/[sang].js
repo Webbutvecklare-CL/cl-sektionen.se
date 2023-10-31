@@ -15,7 +15,7 @@ export default function Sang({ songData, content }) {
         description={"Sektionens digitala sångbok."}
         url={"https://www.cl-sektionen.se/songbok" + songData.href}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <article className={songStyles}>
           <BackButton page={"sangbok"}>Sångboken</BackButton>
           <MarkdownRender mdData={content} />

@@ -8,7 +8,7 @@ import BackButton from "../../components/BackButton";
 export default function Praxis({ content }) {
   const router = useRouter();
   return (
-    <div id="contentbody">
+    <div id="contentbody" className="wideContent">
       <article className="rese">
         <div className="article-head">
           <BackButton page={"dokument"}>Dokument</BackButton>

@@ -264,7 +264,7 @@ export default function Aktuellt({ postList }) {
   // Någon useEffect kanske om användaren laddar in fler inlägg
   // eller vill söka som bara lägger till de nya i newsList/eventList
   return (
-    <div id="contentbody">
+    <div id="contentbody" className="wideContent">
       <div className={styles.header}>
         <h1>Sök bland alla Nyheter</h1>
         <NotificationBell />

@@ -209,25 +209,26 @@ export default function Publicera({ calendarID }) {
   };
 
   return (
-    <div id="contentbody">
-      <BackButton page="personalrummet">Personalrummet</BackButton>
-      <h1>Personalrummet - Publicera</h1>
+    <div id="contentbody" className="wideContent">
+      <div className="small-header">
+        <BackButton page="personalrummet">Personalrummet</BackButton>
+        <h1>Personalrummet - Publicera</h1>
+        {successLink && (
+          <div>
+            <p>
+              Inlägget är publicerat du hittar på följande länk:{" "}
+              <Link
+                href={`/aktuellt/${successLink}`}>{`www.cl-sektionen.se/aktuellt/${successLink}`}</Link>
+              <br />
+            </p>
+          </div>
+        )}
+      </div>
       {userData && !successLink && (
         <div className="create">
           <PostForm onSubmit={handleSubmit} prefill={prefillData} buttonText={"Skapa"} />
           {isPending && <p>Skapar inlägget...</p>}
           {error && <p>Error: {error}</p>}
-        </div>
-      )}
-
-      {successLink && (
-        <div>
-          <p>
-            Inlägget är publicerat du hittar på följande länk:{" "}
-            <Link
-              href={`/aktuellt/${successLink}`}>{`www.cl-sektionen.se/aktuellt/${successLink}`}</Link>
-            <br />
-          </p>
         </div>
       )}
     </div>
