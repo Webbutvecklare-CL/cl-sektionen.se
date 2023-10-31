@@ -298,5 +298,10 @@
     "begrepp": "Förtroendevald",
     "betydelse": "En person som har fått ett officiellt uppdrag inom någon av verksamhetens nämnder eller övriga uppdrag. Personer med uppdrag inom sektionsföreningarna räknas dock inte till sektionens förtroendevalda.",
     "kategori": "Sektionen"
+  },
+  {
+    "begrepp": "Urnval",
+    "betydelse": "En valprocess där röstberättigade medlemmar kan rösta på kandidater inför ett SM genom att lägga en valsedel i en valurna. Se mer i reglemente §4.2.",
+    "kategori": "Röstning & Val"
   }
 ]
