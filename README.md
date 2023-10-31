@@ -126,7 +126,7 @@ REVALIDATE_TOKEN=
 ```
 
 _Firebase_ variablerna hämtas från ett firebase projekt under project settings.  
-_Domain_ är den domän som hemsidan kommer gå att nås på. Under utveckling exempelvis [http://localhost:3000](http://localhost:3000).
+_Domain_ är den domän som webbplatsen kommer gå att nås på. Under utveckling exempelvis [http://localhost:3000](http://localhost:3000).
 
 ## Uppdatera och lägga till textinnehåll - Statiskt innehåll
 

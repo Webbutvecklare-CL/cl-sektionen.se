@@ -104,12 +104,15 @@ export default function Reseberattelser() {
   return (
     <div id="contentbody">
       <h1 id="page-title">Reseberättelser</h1>
-      <h2>Klicka en världsdel på kartan för att filtrera reseberättelser</h2>
+      <h2>
+        Klicka en världsdel på kartan för att filtrera reseberättelser eller scrolla ned för att se
+        alla
+      </h2>
       <p>
         Här kan du läsa om andra CL-studenters erfarenheter under sina utbytesstudievistelser.
         Listan av reseberättelser är för tillfället inte särskilt lång, men vi hoppas att den kommer
         växa så småningom! Förutom att läsa CL-studenters reseberättelser rekommenderar vi även att
-        du kikar på de som publicerats på KTHs hemsida av studenter från andra program.
+        du kikar på de som publicerats på KTHs webbplats av studenter från andra program.
       </p>
       <div className={styles.worldMap}>{worldMap()}</div>
       <div id={styles.scrollNode} />

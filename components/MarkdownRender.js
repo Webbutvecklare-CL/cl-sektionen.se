@@ -4,7 +4,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import Definition from "./Definition";
 
-export default function MarkdownRender({ source, mdData }) {
+export default function MarkdownRender({ source, mdData, id }) {
   let [content, setContent] = useState("");
 
   // Om det kommer in redan inladdad text så renderas den
@@ -35,7 +35,7 @@ export default function MarkdownRender({ source, mdData }) {
 
   return (
     //Rehype gör så att man kan skriva html kod i markdown filen
-    <div>
+    <div id={id}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
