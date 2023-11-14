@@ -8,6 +8,9 @@ export default function Definition({ term, text, children }) {
 
   useEffect(() => {
     function handleResize() {
+      // Den är lite buggig vid ändringar efter sidan laddat
+      // Tar inte hänsyn till om skärmen är för smal
+
       // Vänstra respektive högra kantens koordinater
       let { left, right } = tooltipRef.current.getBoundingClientRect();
 
@@ -36,7 +39,7 @@ export default function Definition({ term, text, children }) {
   const definition = definitions.filter((word) => word.begrepp === term)[0];
 
   // Plockar ut betydelsen
-  const description = definition?.betydelse || "Förklaring saknas, kolla i ordboken.";
+  const description = definition?.betydelse || `Förklaring för "${term}" saknas, kolla i ordboken.`;
   return (
     <span className={styles.container} onClick={handleClick}>
       {text || children}

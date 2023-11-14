@@ -12,7 +12,7 @@ export default function Kontakt({ contents }) {
         description={"Har du frågor eller funderingar? Kontakta oss gärna på..."}
         url={"https://www.cl-sektionen.se/kontakt"}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <h1>Kontakt</h1>
         <div className={styles.contact}>
           <MarkdownRender mdData={contents["allman"]} />

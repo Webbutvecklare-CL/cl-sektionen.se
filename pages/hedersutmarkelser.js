@@ -2,23 +2,25 @@ import Image from "next/image";
 
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import styles from "../styles/hedersutmarkelser.module.css";
 
 export default function Hedersmedlemmar({ contents, hedersorden }) {
   const [selectedMember, setSelectedMember] = useState();
-  const stateUpdater = (member) => {
-    let rootNode = document.getElementById(styles.hedersmedlemmarShelf);
-    setSelectedMember(member);
+  const membersShelfRef = useRef();
 
-    for (let hedersmedlem of rootNode.childNodes) {
-      hedersmedlem.className =
-        hedersmedlem.id === member
-          ? `${styles.hedersmedlem} ${styles.active} `
-          : styles.hedersmedlem;
-    }
-  };
+  // useEffect(() => {
+  //   document.body.onclick = (e) => {
+  //     console.log(e.target);
+  //     console.log(membersShelfRef.current);
+  //     console.log(membersShelfRef.current.contains(e.target));
+  //     if (membersShelfRef.current.contains(e.target)) {
+  //       return;
+  //     }
+  //     setSelectedMember("");
+  //   };
+  // }, []);
 
   const NameTag = ({ name, year }) => {
     return (
@@ -44,8 +46,12 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
 
   const Hedersmedlem = ({ nameId, year }) => {
     let name = nameId.replace("_", " ");
+    let selected = selectedMember == nameId;
     return (
-      <div id={nameId} className={styles.hedersmedlem} onClick={() => stateUpdater(nameId)}>
+      <div
+        id={nameId}
+        className={`${styles.hedersmedlem} ${selected ? styles.selected : ""}`}
+        onClick={() => setSelectedMember(selected ? null : nameId)}>
         <div className={styles.imgdiv}>
           <Image
             src={`/media/img/hedersmedlemmar/${nameId}.webp`}
@@ -65,7 +71,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
       <div className={styles.hedersmedlemmar}>
         <h1>Hedersmedlemmar</h1>
         <MarkdownRender mdData={contents["hedersmedlemmar-info"]} />
-        <div id={styles.hedersmedlemmarShelf}>
+        <div id={styles.hedersmedlemmarShelf} ref={membersShelfRef}>
           <Hedersmedlem nameId={"Jan_Scheffel"} year={2014} />
           <Hedersmedlem nameId={"Hans_Thunberg"} year={2014} />
           <Hedersmedlem nameId={"Mikael_Cronhjort"} year={2020} />

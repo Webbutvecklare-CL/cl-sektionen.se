@@ -8,7 +8,7 @@ import styles from "../../styles/reseberattelser.module.css";
 
 export default function Reseberattelse({ content }) {
   return (
-    <div id="contentbody">
+    <div id="contentbody" className="wideContent">
       <article className={styles.rese}>
         <div className="article-head">
           <BackButton page={"reseberattelser"}>Reseberättelser</BackButton>

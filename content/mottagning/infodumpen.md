@@ -17,7 +17,7 @@ Den 25 augusti håller KTH en ceremoni i statshuset för att välkommna nya stud
 
 ## FUNKA - Stöd för dig med funktionsnedsättning
 
-Studenter med dokumenterad, varaktig funktionsnedsättning kan få kompensatoriskt stöd i sina studier vid KTH. Gruppen som samordnar stöden heter Funka. Det är dock viktigt att ansöka om FUNKA-stöd så tidigt som möjligt då hanläggningstiden kan vara upp till 3 veckor. På KTHs hemsida hittar du info om vilken typ av stöd som FUNKA erbjuder.  
+Studenter med dokumenterad, varaktig funktionsnedsättning kan få kompensatoriskt stöd i sina studier vid KTH. Gruppen som samordnar stöden heter Funka. Det är dock viktigt att ansöka om FUNKA-stöd så tidigt som möjligt då hanläggningstiden kan vara upp till 3 veckor. På KTHs webbplats hittar du info om vilken typ av stöd som FUNKA erbjuder.  
 [Läs mer och ansök om FUNKA-stöd](https://www.kth.se/student/stod/studier/funktionsnedsattning)
 
 ## Studenthälsan
@@ -38,7 +38,7 @@ Onsdag den 23 augusti hålls Kårens Dag och Campus Fair i kårhuset Nymble. Det
 
 ## Ställ dig i bostadskön och bli kårmedlem
 
-Även om du bor i Stockholm är det en bra idé att ställa dig i bostadskön hos [SSSB](https://sssb.se/). Det är helt gratis ställa sig i kön och det enda kravet är att du är kårmedlem. På THS hemsida kan du läsa om alla förmåner som kårmedlemmar har.  
+Även om du bor i Stockholm är det en bra idé att ställa dig i bostadskön hos [SSSB](https://sssb.se/). Det är helt gratis ställa sig i kön och det enda kravet är att du är kårmedlem. På THS webbplats kan du läsa om alla förmåner som kårmedlemmar har.  
 [Läs mer om THS-medlemskap](https://ths.kth.se/sv/membership/)
 
 ## Checklista inför studiestart

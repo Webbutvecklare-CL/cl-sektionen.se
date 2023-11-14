@@ -57,7 +57,7 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
         description={"Här hittar du kontaktuppgifter till styrelsen och övriga förtroendevalda."}
         url={"https://www.cl-sektionen.se/fortroendevalda"}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <div className={styles.fortroendevaldaWrapper}>
           <nav className={styles.committeeNav}>
             <ul>
@@ -89,7 +89,7 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
             />
           </div>
         </div>
-        <span class="lastUpdated">Senast uppdaterad: 2023-10-12</span>
+        <span class="lastUpdated">Senast uppdaterad: 2023-10-17</span>
       </div>
     </>
   );

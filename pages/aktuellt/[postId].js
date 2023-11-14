@@ -30,7 +30,7 @@ export default function Post({ postData, postId }) {
   // 404 sida - om det saknas ett inlägg till den angivna länken
   if (!postData) {
     return (
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <h1>Hoppsan, här ekar det tomt</h1>
         <p>
           Det finns inget inlägg med id{" "}
@@ -58,7 +58,7 @@ export default function Post({ postData, postId }) {
         image={postData.image || "https://www.cl-sektionen.se/media/img/Post_Placeholder.webp"}
         url={"https://www.cl-sektionen.se/aktuellt/" + postId}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <article className={styles.post}>
           <div className="article-head">
             <BackButton page={"aktuellt"}>Aktuellt</BackButton>
