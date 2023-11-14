@@ -42,7 +42,7 @@
   );
 }
 
-.hedersmedlem.active {
+.hedersmedlem.selected {
   background: linear-gradient(
     180deg,
     rgba(255, 0, 26, 0.1) 0%,
