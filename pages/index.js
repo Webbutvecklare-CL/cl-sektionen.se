@@ -62,7 +62,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
           />
         </div>
       </div>
-      <div id="contentbody" className={styles.indexContent}>
+      <div id="contentbody" className={`wideContent ${styles.indexContent}`}>
         <div className={`${styles.omContainer} ${open ? styles.open : styles.collapsed}`}>
           <section className={styles.om}>
             <section>
