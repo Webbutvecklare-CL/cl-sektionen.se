@@ -21,8 +21,10 @@ const firestore = getFirestore(app);
 import BackButton from "../../components/BackButton";
 
 import styles from "../../styles/aktuellt.module.css";
+import { useRouter } from "next/router";
 
 export default function Post({ postData, postId }) {
+  const {query} = useRouter()
   const getDate = (date) => {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };
@@ -61,7 +63,7 @@ export default function Post({ postData, postId }) {
       <div id="contentbody" className="wideContent">
         <article className={styles.post}>
           <div className="article-head">
-            <BackButton page={"aktuellt"}>Aktuellt</BackButton>
+            <BackButton page={query.r ? "history" : "aktuellt"}>Aktuellt</BackButton>
           </div>
           <div className={styles.head}>
             <div className={styles.imageContainer}>
