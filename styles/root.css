@@ -32,6 +32,7 @@ h1 {
   font-size: 2rem;
   color: #1d1d1f;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
@@ -54,6 +55,19 @@ h4 {
   font-style: italic;
 }
 
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(20, 20, 20, 0),
+    rgba(20, 20, 20, 0.55),
+    rgba(20, 20, 20, 0)
+  );
+}
+
 a {
   color: var(--clr5);
 }
@@ -72,8 +86,8 @@ button {
   background-color: var(--clr1);
   border: none;
   height: fit-content;
-  border-radius: 0.5rem;
-  padding: 1.5ch 1ch;
+  border-radius: 0.3rem;
+  padding: 1ch 1rem;
   font-size: 1.2rem;
   font-family: inherit;
   font-weight: 500;
@@ -86,12 +100,30 @@ button {
 }
 
 button.small {
-  padding: 0.5ch 1ch 0.5ch 1ch;
+  padding: 0.5ch 1rem;
 }
+
 
 button:hover {
   background-color: var(--clr3) !important;
   transition: 0.2s;
+}
+
+button.hollow {
+  background-color: unset;
+  color: var(--clr2); /* Med clr1 ser det fel ut, idk */
+  border: 2px solid var(--clr1);
+}
+
+button.hollow.dark {
+  color:  var(--clr4);
+  border: 2px solid var(--clr4);
+}
+
+button.hollow:hover {
+  background-color: var(--clr1);
+  color: white;
+  border-color: var(--clr3);
 }
 
 button[disabled] {

@@ -32,18 +32,6 @@ p {
   font-size: 1.2rem;
 }
 
-hr {
-  margin-top: 2rem;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(20, 20, 20, 0),
-    rgba(20, 20, 20, 0.55),
-    rgba(20, 20, 20, 0)
-  );
-}
-
 p strong {
   color: var(--clr5);
 }
