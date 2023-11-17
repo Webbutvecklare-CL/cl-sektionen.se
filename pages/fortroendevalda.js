@@ -58,7 +58,10 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
         url={"https://www.cl-sektionen.se/fortroendevalda"}
       />
       <div id="contentbody" className="wideContent">
+        <h1 id={"page-title"}>Förtroendevalda och nämndbeskrivningar</h1>
         <div className={styles.fortroendevaldaWrapper}>
+          {/* Nav hämtar data från /constants/committees-data.json uppdatera
+           denna om en nämnd ska ändras, läggas till eller tas bort */}
           <nav className={styles.committeeNav}>
             <ul>
               <NavTab data={board} />
@@ -89,7 +92,7 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
             />
           </div>
         </div>
-        <span class="lastUpdated">Senast uppdaterad: 2023-10-17</span>
+        <span className="lastUpdated">Senast uppdaterad: 2023-10-17</span>
       </div>
     </>
   );

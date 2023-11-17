@@ -10,7 +10,8 @@ import bg from "../public/media/img/Post_Placeholder.webp";
 
 import styles from "../styles/feed-preview.module.css";
 
-export default function FeedPreview({ posts }) {
+// om goBack är true används historiken för att navigera tillbaka från inläggen
+export default function FeedPreview({ posts, goBack = false }) {
   return (
     <div className={styles.preview}>
       {posts.map((post) => {
@@ -18,7 +19,7 @@ export default function FeedPreview({ posts }) {
         return (
           <div className={styles.postWrapper} key={post.id}>
             <Link
-              href={`/aktuellt/${post.id}`}
+              href={`/aktuellt/${post.id}${goBack ? "?r=true" : ""}`}
               onClick={async () => {
                 const { getAnalytics } = await import("../firebase/clientApp");
                 const analytics = await getAnalytics();

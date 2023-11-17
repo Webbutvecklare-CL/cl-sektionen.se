@@ -107,11 +107,6 @@ const associations = [
     icon: faMasksTheater,
     id: "dubbelspexet",
   },
-  {
-    name: "CLak",
-    icon: faArrowTrendUp,
-    id: "clak",
-  },
 ];
 
 const all_committees = [board, ...committees, ...trustees, ...individuals, ...associations];

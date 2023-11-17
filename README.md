@@ -118,13 +118,6 @@ COMMITTEES_SHEET_ID=
 NODE_ENV=development
 ```
 
-Du behöver även en .env fil i mappen `functions` med följande innehåll:
-
-```python
-# Måste vara samma som ovan
-REVALIDATE_TOKEN=
-```
-
 _Firebase_ variablerna hämtas från ett firebase projekt under project settings.  
 _Domain_ är den domän som webbplatsen kommer gå att nås på. Under utveckling exempelvis [http://localhost:3000](http://localhost:3000).
 
