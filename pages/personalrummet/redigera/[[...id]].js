@@ -174,7 +174,7 @@ export default function EditPost() {
     // Kollar om bilden blivit uppdaterad
     if (data.image.name !== prefill.image.name) {
       // Tar bort bilden
-      const oldImageRef = ref(storage, `posts/${postId}/${decodeURI(prefill.image.name)}`);
+      const oldImageRef = ref(storage, `posts/${postId}/${decodeURIComponent(prefill.image.name)}`);
       try {
         if (prefill.image.name) {
           console.log("delete - Raderar gammal bild");
