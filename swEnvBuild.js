@@ -16,3 +16,5 @@ fs.writeFileSync(
     }
   }`
 );
+
+fs.writeFileSync("./google_secrets.json", `${process.env.GOOGLE_SERVICE_ACCOUNT}`);

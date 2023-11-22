@@ -104,15 +104,18 @@ NEXT_PUBLIC_MOTTAGNING_KEY=
 # För att getStaticProps ska komma åt lokala filer (Protokoll innan men inget snedstreck i slutet)
 NEXT_PUBLIC_DOMAIN=http://localhost:3000
 
-# Denna behövs för att kunna använda google apier för att komma åt ex spreadsheets
-# Du hittar den i Google Console för ditt projekt > APIs & Services > Credentials > 
-# Under Service Account tryck på den som heter "App Engine default service account" > 
+# Denna behövs för att kunna använda google api:er för att komma åt ex spreadsheets
+# Du hittar den i Google Console för ditt projekt > APIs & Services > Credentials >
+# Under Service Account tryck på den som heter "App Engine default service account" >
 # Keys > Add key > Då borde en json fil laddas ned. Gör den till en sträng och kopiera in här.
 GOOGLE_SERVICE_ACCOUNT= #OBS Håll väldigt hemlig
 
 # ID till spreadsheet med alla förtroendevalda
-# Denna filen behöver delas med @appspot.gserviceaccount.com adressen som är länkad till ovan
-COMMITTEES_SHEET_ID= 
+# Denna filen behöver delas med @appspot.gserviceaccount.com adressen som är länkad till service account
+COMMITTEES_SHEET_ID=
+
+# För att skapa ett secrets fil för google service account - behövs för reCaptcha
+GOOGLE_APPLICATION_CREDENTIALS="./google_secrets.json"
 
 # Stänger bla av PWA build när dev körs
 NODE_ENV=development
