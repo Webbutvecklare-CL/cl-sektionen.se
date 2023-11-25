@@ -1,8 +1,6 @@
-.create {
+.formWrapper{
   background-color: #eee;
   width: 60%;
-  /* Standard bredden minus padding */
-  max-width: calc(833px - 6rem);
   margin: 0 auto;
   padding: 2rem 3rem;
   -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
@@ -10,88 +8,83 @@
   box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.45);
 }
 
-@media (max-width: 900px) {
-  .create {
+
+@media (max-width: 900) {
+
+  .formWrapper {
     width: 80%;
     margin: 2rem auto;
     background-color: #fafafa;
     box-shadow: none;
   }
 
-  .create .tag-selector {
+  .tagSelector {
     background-color: #fff !important;
   }
 }
 
-.create label {
+.label {
   text-align: left;
   display: block;
   font-size: 1.2rem;
   margin-top: 1rem;
 }
 
-.create input,
-.create textarea {
+.postForm input,
+.postForm textarea,
+.postForm select,
+.imageFile {
   width: 100%;
-  margin: 10px 0;
+  margin: 0.6rem 0;
 }
-.create select,
-.create .image-file {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
+
+.imageFile {
+  padding: 0.5rem;
   border: 1px solid #ddd;
-  box-sizing: border-box;
-  display: block;
   background-color: #fff;
   font-size: 1rem;
   font-family: unset;
   box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.create input:focus {
-  box-shadow: none;
-  outline: solid 1px var(--clgra);
-}
-
 /* Allt för Inläggs textarea */
-.create .editor {
-  margin-top: 10px;
+.editor {
+  margin-top: 0.6rem;
 }
 
-.create .editor > div {
-  border-radius: 0;
+.editor > div {
+  border-radius: 0.3rem;
 }
 
-.create .toolbar > div {
+.toolbar > div {
   background-color: rgba(0, 0, 0, 0);
   gap: 0.2rem;
 }
 
-.create .toolbar > div > button {
-  box-shadow: 0px 0px 0.2rem rgba(0, 0, 0, 0.2);
+.toolbar > div > button {
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
 }
 
 /* Ska ha samma formatering som när det visas i flödet */
-.create .body-input > div > div {
+.bodyInput > div > div {
   font-family: unset !important;
   min-height: 8rem;
   background-color: #fff;
   box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.create .body-input > div > div * {
+.bodyInput > div > div * {
   font-family: "EB Garamond", serif;
 }
 
 /* Datum inputs */
-.create .date-input {
+.dateInput {
   display: flex;
   flex-wrap: wrap;
 }
 
-.create .date-input input {
+.dateInput input {
   margin-right: 2rem;
   width: 11rem;
   height: 2rem;
@@ -99,17 +92,17 @@
 }
 
 /* Tag rutan */
-.create .tag-container {
+.tagContainer {
   display: flex;
   column-gap: 1rem;
 }
 
-.create .meeting-input {
+.meetingInput {
   display: block;
   width: 120px;
 }
 
-.create .tag-selector {
+.tagSelector {
   background-color: #fdfdfd;
   margin: 0.5rem 0rem;
   padding: 0.6rem;
@@ -123,176 +116,153 @@
   box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.create .tag-selector button {
+.tagSelector button {
   background-color: #555;
-  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
-  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
-  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: 0 0 9px -1px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0 0 9px -1px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 9px -1px rgba(0, 0, 0, 0.65);
   padding: 0.5rem;
 }
 
-.create .tag-selector button:hover {
+.tagSelector button:hover {
   background-color: #5d5d5d;
-  -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.9);
-  -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.9);
-  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 0 0 10 -1px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0 0 10 -1px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 10 -1px rgba(0, 0, 0, 0.9);
 }
 
-.create .tag-selector button.selected {
+.tagSelector button.selected {
   background-color: var(--clr3);
 }
 
-.type-container {
+.typeContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.create .type-container button {
+.typeContainer button {
   margin-top: 1rem;
   margin-right: 2rem;
 }
 
-.create .type-container button.selected {
+.typeContainer button.selected {
   background-color: var(--clr3);
 }
 
-.create .image-meta {
+.imageMeta {
   display: flex;
   gap: 1rem;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
-.create .image-meta .error {
+.imageMeta .error {
   color: var(--clr2);
   font-weight: bold;
 }
 
-.create .image-meta .accepted {
+.imageMeta .accepted {
   color: green;
   font-weight: bold;
 }
 /* Förhandsvisning bild */
-.create #frame {
+#frame {
   object-fit: cover;
 }
 
-/* Nämnd select */
-.create select {
-  margin-bottom: 1rem;
-  margin-top: 10px;
-  padding: 6px 6px;
-}
-
-.create select:focus {
-  box-shadow: none;
-  outline: solid 1px var(--clgra);
-}
-
-.create select option:checked {
-  background-color: var(--clr1);
-}
-
-.create select:before {
-  background-color: #92534d;
-  content: "asd";
-}
-
 /* Calender input */
-.create .calender-input {
+.calenderInput {
   display: flex;
 }
 
-.create .calender-input input {
+.calenderInput input {
   width: 1rem;
   height: 1rem;
   margin-top: 1.4rem;
   margin-left: 1rem;
 }
 
-.create .calender-input input:focus {
+.calenderInput input:focus {
   outline: none;
 }
 
-.create .calender-input label {
+.calenderInput label {
   cursor: pointer;
 }
 
 /* Blandat */
 
-.create button.submit {
+.submitButton {
   padding: 1rem 2rem;
   margin: 2rem 0rem;
 }
 
-.create .image-file svg {
-  margin-left: 0.5rem;
+.imageFile svg {
+  margin-left: 1rem;
   cursor: pointer;
 }
 
-.create .image-file svg:hover {
-  color: var(--clr4);
-}
-
-.create svg.required {
+.required {
   color: var(--clr1);
   margin-left: 0.2rem;
   scale: 70%;
 }
 
-.create input:disabled {
+.postForm input:disabled {
   background-color: #e7e7e7;
 }
 
-.create button:disabled {
+.postForm button:disabled {
   background-color: #b67a71;
   cursor: no-drop;
 }
 
-.create button.selected:disabled {
+.postForm button.selected:disabled {
   background-color: #92534d;
 }
 
-.create .visibility-input {
+.visibilityInput {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
 }
 
-.create .visibility-input * {
-  padding: 0;
-  margin: 0;
+.visibilityInput * {
+  padding: 0px;
+  margin: 0px;
 }
 
-.create .visibility-input .visibility-button {
+.visibilityInput .visibilityButton {
   text-align: center;
   cursor: pointer;
   font-size: large;
   border: 2px solid var(--clr1);
-  border-radius: 2px;
+  border-radius: 0.3rem;
   color: #999;
 }
 
-.create .visibility-input .visibility-button.active {
+.visibilityInput .visibilityButton.active {
   background-color: var(--clr1);
   color: black;
 }
 
-.create .visibility-input .visibility-button:hover {
+.visibilityInput .visibilityButton:hover {
   border: 2px solid var(--clr2);
 }
 
-.create .visibility-input .visibility-button svg {
+.visibilityInput .visibilityButton svg {
   width: 30px;
 }
 
-.create .visibility-input .visibility-button:hover svg {
+.visibilityInput .visibilityButton:hover svg {
   transform: scale(1.2);
 }
 
 /* Info box / Tooltip  */
-.infobox-container {
+.infoboxContainer {
   display: inline;
   margin-left: 0.4rem;
 }
@@ -305,7 +275,7 @@
   color: #fff;
   max-width: 20rem;
   padding: 0.6rem;
-  border-radius: 6px;
+  border-radius: 0.3rem;
   overflow: hidden;
 
   transition: all 0.3s ease-in-out;
@@ -315,15 +285,15 @@
   transform: translateX(-0.4rem);
 }
 
-.infobox-container:hover > .infobox {
+.infoboxContainer:hover > .infobox {
   visibility: visible;
 
   opacity: 1;
-  transform: translate(0px);
+  transform: translate(0);
 }
 
-.infobox-container svg {
-  transform: scale(1.1);
-  padding-right: 1rem;
-  height: 0.8rem;
+.infoboxContainer svg {
+    padding-right: 1rem;
+    height: 0.9rem;
+    vertical-align: -1px !important;
 }

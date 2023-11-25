@@ -20,7 +20,7 @@ import { revalidate, sendNotification } from "../../utils/server";
 
 import { all_committee_ids } from "../../constants/committees-data";
 
-// import styles from "../../styles/personalrummet/publicera.module.css";
+import {formWrapper} from "@/styles/personalrummet/post-form.module.css";
 
 export default function Publicera({ calendarID }) {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
@@ -225,7 +225,7 @@ export default function Publicera({ calendarID }) {
         )}
       </div>
       {userData && !successLink && (
-        <div className="create">
+        <div className={formWrapper}>
           <PostForm onSubmit={handleSubmit} prefill={prefillData} buttonText={"Skapa"} />
           {isPending && <p>Skapar inlägget...</p>}
           {error && <p>Error: {error}</p>}

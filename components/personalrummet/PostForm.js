@@ -11,7 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 import { all_committees } from "../../constants/committees-data";
 
-import styles from "../../styles/personalrummet/publicera.module.css";
+import styles from "../../styles/personalrummet/post-form.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
@@ -179,7 +179,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const handleTagClick = (e) => {
     e.preventDefault();
     let tag = e.target.innerHTML;
-    let selected = e.target.classList.contains("selected");
+    let selected = e.target.classList.contains(styles.selected);
 
     // Om det är SM eller StyM ska alla andra tagga rensas om det är ett event
     if ((tag === "SM" || tag === "StyM") && type === "event") {
@@ -260,7 +260,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       <>
         {image.name && (
           <>
-            <div className="image-file">
+            <div className={styles.imageFile}>
               {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
               {image.name}{" "}
               <FontAwesomeIcon
@@ -268,17 +268,19 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                 onClick={() => setImage({ name: undefined, url: undefined })}
               />
             </div>
-            <div className="image-meta">
+            <div className={styles.imageMeta}>
               <span
-                className={`image-format ${
+                className={`${styles.imageFormat} ${
                   available_formats.includes(image.name.split(".")[1].toLowerCase())
-                    ? "accepted"
-                    : "error"
+                    ? styles.accepted
+                    : styles.error
                 }`}>
                 Format: {image.name.split(".")[1].toLowerCase()}
               </span>
               <span
-                className={`image-size ${image.size < 0.8 * 1024 * 1024 ? "accepted" : "error"}`}>
+                className={`${styles.imageSize} ${
+                  image.size < 0.8 * 1024 * 1024 ? styles.accepted : styles.error
+                }`}>
                 Storlek: {Math.round((image.size / 1024) * 10) / 10} kB
               </span>
             </div>
@@ -287,7 +289,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             </p>
             {/* Om det är en sträng så är det länken från firebase annars skapa en lokal url */}
             <Image
-              id="frame"
+              id={styles.frame}
               src={image.url ? image.url : URL.createObjectURL(image)}
               width={120}
               height={100}
@@ -302,19 +304,19 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Välj vilken typ av inlägg du ska göra:</label>
-        <div className="type-container">
+      <form onSubmit={handleSubmit} className={styles.postForm}>
+        <Label>Välj vilken typ av inlägg du ska göra:</Label>
+        <div className={styles.typeContainer}>
           <button
             disabled={editMode}
             onClick={(e) => handleSetType(e, "information")}
-            className={type === "information" ? "selected" : ""}>
+            className={type === "information" ? styles.selected : ""}>
             Information
           </button>
           <button
             disabled={editMode}
             onClick={(e) => handleSetType(e, "event")}
-            className={type === "event" ? "selected" : ""}>
+            className={type === "event" ? styles.selected : ""}>
             Event
           </button>
         </div>
@@ -323,16 +325,16 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             {/* Tagg väljare */}
             {(!editMode || !(tags["SM"] || tags["StyM"])) && (
               <>
-                <label>
+                <Label>
                   Kategorier:
                   <FontAwesomeIcon icon={faStarOfLife} rotation={90} className={styles.required} />
-                </label>
-                <div className="tag-container">
-                  <div className="tag-selector">
+                </Label>
+                <div className={styles.tagContainer}>
+                  <div className={styles.tagSelector}>
                     {Object.keys(tags).map((tag, index) => {
                       return (
                         <button
-                          className={`tag ${tags[tag] ? "selected" : ""}`}
+                          className={`${styles.tag} ${tags[tag] ? styles.selected : ""}`}
                           name={tag}
                           key={index}
                           onClick={handleTagClick}>
@@ -342,15 +344,15 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                     })}
                   </div>
                   {(tags["SM"] || tags["StyM"]) && type === "event" && (
-                    <div className="meeting-input">
-                      <label>
+                    <div className={styles.meetingInput}>
+                      <Label>
                         Mötes nummer:
                         <FontAwesomeIcon
                           icon={faStarOfLife}
                           rotation={90}
                           className={styles.required}
                         />
-                      </label>
+                      </Label>
                       <input
                         required
                         type="number"
@@ -416,7 +418,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
             {type === "event" && (
               <>
-                <div className="date-input">
+                <div className={styles.dateInput}>
                   <div>
                     <Label required>Start:</Label>
                     <input
@@ -441,10 +443,12 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               </>
             )}
 
-            <div className={"visibility-input"}>
+            <div className={styles.visibilityInput}>
               <Label>Synlighet:</Label>
               <div
-                className={`visibility-button ${visibility === "public" ? "active" : ""}`}
+                className={`${styles.visibilityButton} ${
+                  visibility === "public" ? styles.active : ""
+                }`}
                 onClick={() => setVisibility(visibility === "public" ? "private" : "public")}>
                 <FontAwesomeIcon icon={visibility !== "public" ? faEyeSlash : faEye} />
               </div>
@@ -472,10 +476,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             {/* Kalender */}
             {!editMode && type === "event" && (
               <>
-                <div className="calender-input">
-                  <label htmlFor="calendar">Lägg till i sektionskalendern:</label>
+                <div className={styles.calenderInput}>
+                  <Label htmlFor={"calendar"}>Lägg till i sektionskalendern:</Label>
                   <input
-                    id="calendar"
+                    id={"calendar"}
                     type="checkbox"
                     ref={publishInCalendar}
                     defaultChecked={false}
@@ -486,9 +490,14 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
             {!editMode && (
               <>
-                <div className="calender-input">
-                  <label htmlFor="notis">Skicka notis:</label>
-                  <input id="notis" type="checkbox" ref={sendNotification} defaultChecked={true} />
+                <div className={styles.calenderInput}>
+                  <Label htmlFor={"notis"}>Skicka notis:</Label>
+                  <input
+                    id={"notis"}
+                    type="checkbox"
+                    ref={sendNotification}
+                    defaultChecked={true}
+                  />
                 </div>
               </>
             )}

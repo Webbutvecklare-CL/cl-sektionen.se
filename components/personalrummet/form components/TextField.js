@@ -10,6 +10,8 @@ import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
 import Placeholder from "@tiptap/extension-placeholder";
 
+import styles from "@/styles/personalrummet/post-form.module.css";
+
 export default function TextField({ fieldRef, defaultValue }) {
   const editor = useEditor({
     extensions: [
@@ -29,9 +31,9 @@ export default function TextField({ fieldRef, defaultValue }) {
   });
 
   return (
-    <div className="editor">
+    <div className={styles.editor}>
       <RichTextEditor editor={editor}>
-        <RichTextEditor.Toolbar sticky stickyOffset={60} className="toolbar">
+        <RichTextEditor.Toolbar sticky stickyOffset={60} className={styles.toolbar}>
           <RichTextEditor.ControlsGroup>
             <RichTextEditor.Bold />
             <RichTextEditor.Italic />
@@ -67,7 +69,7 @@ export default function TextField({ fieldRef, defaultValue }) {
           </RichTextEditor.ControlsGroup>
         </RichTextEditor.Toolbar>
 
-        <RichTextEditor.Content className="body-input" />
+        <RichTextEditor.Content className={styles.bodyInput} />
       </RichTextEditor>
     </div>
   );
