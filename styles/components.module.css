@@ -2,13 +2,14 @@
 .linkCard {
   background-color: rgb(237, 237, 238);
   color: #444 !important;
-  box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.3);
+  box-shadow: 0px 0px 4px 1px rgba(100, 100, 100, 0.3);
   width: min-content;
 
-  padding: 0.1rem 0.4rem;
+  padding: 0.2rem 0;
+  padding-right: 1rem;
   white-space: nowrap;
 
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   margin: 0.5rem;
 
   font-size: 1.2rem;
@@ -18,8 +19,8 @@
 
 .linkCard:hover,
 .linkCard:focus {
-  box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.15);
-  background-color: rgb(192, 192, 192) !important;
+  box-shadow: 0px 0px 6px 1px rgba(100, 100, 100, 0.3);
+  background-color: #ccc !important;
   transition: 0.1s ease-in-out;
 }
 
@@ -30,7 +31,7 @@
 
 .linkCard svg {
   color: var(--clr3);
-  margin-right: 0.3rem;
+  margin: 0 0.3rem 0 0.5rem;
 }
 
 .linkCard a {
@@ -48,20 +49,20 @@
 .copyButton .toolTipText {
   visibility: hidden;
   opacity: 0;
-  width: 120px;
+  /* width: 120px; */
   background-color: var(--clgra);
   color: #fff;
   text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
+  padding: 0.3rem 16px;
+  border-radius: 0.3rem;
 
   position: absolute;
   z-index: 1;
 
   /* Position */
   bottom: 100%;
-  left: 50%;
-  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  left: 50%; /* sätter vänsterkanten i mitten */
+  transform: translateX(-50%); /* förskjuter till vänster med halva bredden */
 
   transition: all 0.2s ease-in-out;
 }
