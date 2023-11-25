@@ -6,7 +6,7 @@ Kakor är små textfiler som sparas på din dator, surfplatta eller mobiltelefon
 
 ## Nödvändiga kakor:
 
-I vissa fall behöver vi använda kakor som är nödvändiga för att vår webbplats ska fungera korrekt. På vissa sidor finns det inloggnings funktioner för att logga in behöver vi spara en kaka under tiden du använder webbplatsen. Kakan innehåller ingen personlig information och försvinner när du stänger din webbläsare. Om du önskar att prenumerera på notiser från vår webbplats behöver vi spara viss information som ser till att din prenumeration inte försvinner. Om du inte önskar dessa kakor kan du stänger av kakor i din webbläsare, men observera att ovanstående funktioner kan sluta att fungera. Vi sparar även om du har godkänt alla kakor eller ej.
+I vissa fall behöver vi använda kakor som är nödvändiga för att vår webbplats ska fungera korrekt. På vissa sidor finns det inloggnings funktioner för att logga in behöver vi spara en kaka under tiden du använder webbplatsen. Kakan innehåller ingen personlig information och försvinner när du stänger din webbläsare. Om du önskar att prenumerera på notiser från vår webbplats behöver vi spara viss information som ser till att din prenumeration inte försvinner. När du fyller i och skickar meddelanden genom kontakt formuläret <def text="Kakan heter _GRECAPTCHA och placeras under domänen www.recaptcha.com.">sätts en kaka</def> för att verifiera att du är en människa. Om du inte önskar dessa kakor kan du stänger av kakor i din webbläsare, men observera att ovanstående funktioner kan sluta att fungera. Vi sparar även en <def text="Kakan heter allowCookies och placeras under den aktuella domänen.">kaka</def> om du har godkänt alla kakor eller ej.
 
 ## Prestanda- och analytiska kakor:
 
