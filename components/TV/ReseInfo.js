@@ -18,6 +18,11 @@ export default function ReseInfo({ api_key }) {
   const [error, setError] = useState();
 
   useEffect(() => {
+    if (api_key === undefined) {
+      setError("Ingen api-nyckel hittades!");
+      setLoading(true);
+      return;
+    }
     // Sätter ett interval när komponenten laddas in
     const id = setInterval(() => {
       // Uppdatera bara om Gråttan är öppen
