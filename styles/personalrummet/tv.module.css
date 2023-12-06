@@ -130,6 +130,7 @@
   display: flex;
   aspect-ratio: 8/5;
   justify-content: center;
+  align-items: center;
 }
 
 .imageHolder img {
