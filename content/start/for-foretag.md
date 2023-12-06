@@ -1,5 +1,3 @@
-## För Företag
-
 Hej företag! CL-Sektionen är alltid öppen för att etablera nya samarbeten med näringslivet till förmån för våra studenter. Är ert företag intresserat av att träffa studenter med en passion för teknik och pedagogik samt intressen inom data, fysik, kemi, energi och miljö?
 
 Då har ni hittat rätt! Våra studenter representerar framtidens ledare inom teknik- och utbildningssektorn, och särskiljer sig från andra civilingenjörer genom sin förmåga att kommunicera och förklara tekniska problem och lösningar på ett pedagogiskt sätt.

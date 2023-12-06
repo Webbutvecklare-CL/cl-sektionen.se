@@ -123,13 +123,13 @@
   text-decoration: none;
 }
 
-.startNaringsliv {
+.sectionRow {
   display: grid;
   gap: 0px 2rem;
   grid-template-areas: ". .";
 }
 
-.startNaringsliv h2 {
+.sectionRow h2 {
   margin-top: 0px;
 }
 
@@ -160,7 +160,7 @@
     flex-wrap: wrap;
   }
 
-  .startNaringsliv {
+  .sectionRow {
     display: flex;
     flex-wrap: wrap;
     row-gap: 1.5rem;
