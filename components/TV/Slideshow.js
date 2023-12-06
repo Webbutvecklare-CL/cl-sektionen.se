@@ -8,6 +8,8 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
   const fac = new FastAverageColor();
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [imageUrls, setImageUrls] = useState([]); // Alla bilder som ska visas
+
   // Uppdaterar bakgrundsfärgen när currentIndex ändras
   useEffect(() => {
     const container = document.querySelector(`.${styles.slideshow}`); // Elementet där bakgrundsfärgen sätts
@@ -42,8 +44,8 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
   useEffect(() => {
     // Startar en timer när komponenten laddas in
     const id = setInterval(() => {
-      if (images) {
-        if (currentIndex >= images.length - 1) {
+      if (imageUrls.length > 0) {
+        if (currentIndex >= imageUrls.length - 1) {
           setCurrentIndex(0);
         } else {
           setCurrentIndex(currentIndex + 1);
@@ -51,10 +53,44 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
       }
     }, speed);
     return () => clearInterval(id); // Tar bort interval när komponenten laddas ut.
-  }, [currentIndex, images, speed]);
+  }, [currentIndex, imageUrls, speed]);
+
+  // Kollar om bilderna ska visas eller ej
+  useEffect(() => {
+    const timeCheck = () => {
+      const startOfToday = new Date();
+      startOfToday.setUTCHours(0, 0, 0);
+
+      let newImageUrls = [];
+      for (let image of images) {
+        let startDate = image.startDate.toDate();
+        let endDate = image.endDate.toDate();
+
+        if (startDate <= startOfToday && endDate >= startOfToday) {
+          newImageUrls.push(image.url);
+        } else {
+          if (startDate > startOfToday) {
+            console.log("Bilden ska inte visas än:", startDate, startOfToday);
+          } else if (endDate < startOfToday) {
+            console.log("Bilden ska inte visas längre:", endDate, startOfToday);
+          } else {
+            console.log("Bilden ska inte visas:", image);
+          }
+        }
+      }
+      setImageUrls(newImageUrls);
+    };
+
+    // Kollar varje timme om bilderna ska visas eller ej
+    timeCheck();
+    const timeCheckInterval = setInterval(timeCheck, 1000 * 60 * 60);
+
+    // Tar bort interval när komponenten laddas ut.
+    return () => clearInterval(timeCheckInterval);
+  }, [images]);
 
   // Visa en default bild om det inte finns några bilder eller om det blivit ett problem
-  if (!images || typeof images == "string" || images.length < 1) {
+  if (!images || typeof images == "string" || imageUrls.length < 1) {
     return (
       <div className={styles.slideshow}>
         {default_image && <Image src={default_image} alt="Standard bakgrund!" />}
@@ -64,10 +100,8 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
 
   return (
     <div className={styles.slideshow}>
-      {images.length > 0 && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img crossOrigin="anonymous" src={`${images[currentIndex]}`} alt="Bild" />
-      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img crossOrigin="anonymous" src={`${imageUrls[currentIndex]}`} alt="Bild" />
     </div>
   );
 }
