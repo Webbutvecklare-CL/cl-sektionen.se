@@ -183,7 +183,31 @@ export default function Tv() {
       );
       const minStartDate = new Date(startOfToday).toISOString().split("T")[0];
 
+      const [error, setError] = useState("");
+
+      const validateDate = () => {
+        if (newStartDate === "") {
+          return "Du måste ange ett startdatum";
+        }
+        if (newEndDate === "") {
+          return "Du måste ange ett slutdatum";
+        }
+        if (newStartDate > newEndDate) {
+          return "Slutdatumet måste vara efter startdatumet";
+        }
+        if (new Date(newEndDate).getTime() - new Date(newStartDate).getTime() > sevenDays) {
+          return "Bilden får visas i max 7 dagar";
+        }
+
+        return true;
+      };
+
       const editHandler = async () => {
+        const validation = validateDate();
+        if (validation !== true) {
+          setError(validation);
+          return;
+        }
         try {
           await handleEdit(image, newStartDate, newEndDate);
           setEdit(false);
@@ -224,10 +248,11 @@ export default function Tv() {
             <button className="small" onClick={editHandler}>
               Uppdatera
             </button>
-            <button className="small" onClick={() => setEdit(false)}>
+            <button className="small hollow" onClick={() => setEdit(false)}>
               Avbryt
             </button>
           </div>
+          {error && <p className={styles.error}>{error}</p>}
         </div>
       );
     };
@@ -247,7 +272,7 @@ export default function Tv() {
           )}
         </div>
         <div className={styles.imageHolder}>
-          {response && <p>{response}</p>}
+          {response && !edit && <p>{response}</p>}
           {!response && !edit && <Image src={image.url} alt={fileName} width={160} height={100} />}
           {edit && <EditMenu />}
         </div>
