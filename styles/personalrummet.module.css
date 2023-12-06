@@ -26,6 +26,7 @@
 
 .committeeFeed .postWrapper:hover {
   transform: none;
+  height: 100px !important;
 }
 
 .committeeFeed .postPreview {
