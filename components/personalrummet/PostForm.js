@@ -4,6 +4,7 @@ import Image from "next/image";
 import TextField from "./form components/TextField";
 import InfoBox from "./form components/InfoBox";
 import Label from "./form components/Label";
+import PostComponent from "@/components/PostComponent";
 import { create_id } from "../../utils/postUtils";
 import { useAuth } from "../../context/AuthContext";
 
@@ -36,6 +37,18 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [type, setType] = useState("");
   const publishInCalendar = useRef(null);
   const sendNotification = useRef(null);
+
+  const [viewPreview, setViewPreview] = useState(false);
+
+  useEffect(() => {
+    if (viewPreview) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    }
+  }, [viewPreview]);
 
   const { userData } = useAuth();
 
@@ -303,7 +316,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   };
 
   return (
-    <div>
+    <div className={viewPreview ? styles.previewOpen : ""}>
       <form onSubmit={handleSubmit} className={styles.postForm}>
         <Label>Välj vilken typ av inlägg du ska göra:</Label>
         <div className={styles.typeContainer}>
@@ -502,11 +515,45 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               </>
             )}
 
-            <button className={styles.submitButton}>{editMode ? "Uppdatera" : "Publicera"}</button>
+            <div className={styles.actionMenu}>
+              <button className={styles.submitButton}>
+                {editMode ? "Uppdatera" : "Publicera"}
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setViewPreview(true);
+                }}>
+                Visa förhandsvisning
+              </button>
+            </div>
           </div>
         )}
       </form>
       {error && <p>{error}</p>}
+
+      {viewPreview && (
+        <div className={styles.postPreview}>
+          <div>
+            <PostComponent
+              postData={{
+                image: image ? URL.createObjectURL(image) : undefined,
+                title,
+                subtitle: subtitle.current?.value || "",
+                body: body.current || "",
+                publishDate: { seconds: new Date().getTime() / 1000 },
+                author: author.current?.value,
+              }}
+            />
+            <button
+              onClick={() => {
+                setViewPreview(false);
+              }}>
+              Stäng
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
