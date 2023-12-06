@@ -3,7 +3,7 @@
  * @param {import("firebase/auth").User} user - User object from firebase
  * @param {Object} pages - Path as attribute and a boolean as key if it should be revalidated (post path has the postId as true)
  */
-export function revalidate(user, pages) {
+export async function revalidate(user, pages) {
   const url = `/api/revalidate?secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}`;
   let options = {
     method: "POST",
@@ -14,7 +14,7 @@ export function revalidate(user, pages) {
     body: JSON.stringify({ pages }),
   };
   console.log("Sending revalidation request for " + JSON.stringify(pages));
-  fetch(url, options)
+  await fetch(url, options)
     .then((res) => {
       if (res.ok) {
         res.json().then((data) => {
@@ -25,12 +25,16 @@ export function revalidate(user, pages) {
         res.json().then((data) => {
           console.error(data.message);
         });
+        throw new Error("Revalidation unsuccessful");
       }
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.error(error);
+      throw new Error("Revalidation fetch unsuccessful");
+    });
 }
 
-export function sendNotification(user, data) {
+export async function sendNotification(user, data) {
   let options = {
     method: "POST",
     headers: {
@@ -39,15 +43,28 @@ export function sendNotification(user, data) {
     },
     body: JSON.stringify({ data }),
   };
-  fetch(`/api/notifications`, options).then((res) => {
-    if (res.ok) {
-      res.json().then((data) => {
-        console.log(data);
-      });
-    } else {
-      res.json().then((data) => {
-        console.error(data);
-      });
+
+  let res;
+  try {
+    res = await fetch(`/api/notifications`, options);
+  } catch (error) {
+    console.error(error);
+    throw new Error("Could not access notification endpoint");
+  }
+
+  if (res.ok) {
+    try {
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log("Notification sent but could not read response");
     }
-  });
+  } else {
+    let message = "Notification delivery unsuccessful";
+    res.json().then((data) => {
+      console.error(data);
+      message = data.message;
+    });
+    throw new Error(message);
+  }
 }

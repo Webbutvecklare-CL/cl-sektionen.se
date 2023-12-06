@@ -37,9 +37,9 @@ export default async function handler(req, res) {
         collapseKey: req.body.data.postId, // Gör att notiser med samma id byter ut den tidigare notisen
         fcmOptions: { analyticsLabel: "new_post" },
       };
-    } catch (error) {
-      console.error(error);
-      return res.status(400).send({ message: error });
+    } catch ({ error }) {
+      console.error("Verification failed:", error);
+      return res.status(400).send({ message: "Verifiering misslyckades: " + error });
     }
   } else if (req.body.data.type == "mottagning") {
     type = "mottagning";
