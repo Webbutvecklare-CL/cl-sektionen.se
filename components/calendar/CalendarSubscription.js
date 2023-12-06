@@ -12,14 +12,14 @@ export default function CalendarSubscription({ calendar_id, children }) {
     <div className={calendarSubscription}>
       <p>{children}</p>
       <Card link={`webcal://calendar.google.com/calendar/ical/${calendar_id}/public/basic.ics`}>
-        iCal <FontAwesomeIcon icon={faApple} />
+        <FontAwesomeIcon icon={faApple} /> iCal
       </Card>
       <Card
         link={`https://calendar.google.com/calendar/render?cid=https://calendar.google.com/calendar/ical/${calendar_id}/public/basic.ics`}>
-        Google Kalender <FontAwesomeIcon icon={faAndroid} />
+        <FontAwesomeIcon icon={faAndroid} /> Google Kalender
       </Card>
       <CopyButton text={calendar_id}>
-        Kopiera kalender id <FontAwesomeIcon icon={faCopy} />
+        <FontAwesomeIcon icon={faCopy} /> Kopiera kalender id
       </CopyButton>
     </div>
   );
