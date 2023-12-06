@@ -18,7 +18,6 @@ export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
 
   return (
     <div id="contentbody">
-      <div className="small-header">
         <h1>Kakpolicy</h1>
         <MarkdownRender mdData={contents["kakor"]} />
         <h2>Godkänn kakor</h2>
@@ -46,7 +45,6 @@ export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
           )}
           {!open && <p>Dina preferenser är sparade!</p>}
         </div>
-      </div>
     </div>
   );
 }

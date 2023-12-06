@@ -98,72 +98,85 @@ export default function Index({ contents, featured, infoList, eventList }) {
                   <h2>Information</h2>
                   {infoList.length > 0 && <FeedPreview posts={infoList} />}
                   {!infoList.length > 0 && <p>Inlägg saknas</p>}
+                  <Link className={styles.sectionButton} href={"/aktuellt"}>
+                    <button aria-label="Fler informationsinlägg" className="small hollow dark">
+                      Fler inlägg
+                    </button>
+                  </Link>
                 </div>
                 <div className={styles.feedColumn}>
                   <h2>Event</h2>
                   {eventList.length > 0 && <FeedPreview posts={eventList} />}
                   {!eventList.length > 0 && <p>Inlägg saknas</p>}
+                  <Link className={styles.sectionButton} href={"/aktuellt?info=false"}>
+                    <button aria-label="Fler eventinlägg" className="small hollow dark">
+                      Fler event
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <hr />
-        <div>
-          <section className={styles.resurser}>
-            <h1>Ny student</h1>
-            <MarkdownRender mdData={contents["ny-student"]} />
-            <Link className={styles.sectionButton} href={"/mottagning"}>
-              <button aria-label="Öppna mottagningssidan">Mottagningssidan</button>
-            </Link>
-          </section>
-        </div>
+
         <hr />
         <h2>Kalender</h2>
         <CalendarSubscription calendar_id={sektionskalender_id}>
           Prenumerera på <strong>Sektionskalendern</strong>:
         </CalendarSubscription>
-        <CalendarSubscription calendar_id={grattankalender_id}>
-          Prenumerera på <strong>Gråttankalendern</strong>:
-        </CalendarSubscription>
         <section className={styles.sektionskalMånadOchBokningar}>
           <CalendarsWrapper />
         </section>
         <hr />
-        <section className={styles.resurser}>
-          <div>
+        <section>
+          <h1>För studenter</h1>
+          <div className={styles.sectionRow}>
             <section>
-              <br />
-              <h1>Hjälp vid illabehandling</h1>
+              <h2>Ny student</h2>
+              <MarkdownRender mdData={contents["ny-student"]} />
+              {/* Ta visas när mottagningen är aktuell */}
+              {/* <Link className={styles.sectionButton} href={"/mottagning"}>
+                <button aria-label="Öppna mottagningssidan" className="hollow dark">
+                  Mottagningssidan
+                </button>
+              </Link> */}
+            </section>
+            <section>
+              <h2>Hjälp vid illabehandling</h2>
               <MarkdownRender mdData={contents["hjalp-vid-illabehandling"]} />
               <Link className={styles.sectionButton} href={"/hjalp-vid-illabehandling"}>
-                <button aria-label="Öppna sidan med mer information om illabehandling">
-                  Mer information
+                <button aria-label="Läs mer" className="hollow dark">
+                  Läs mer
                 </button>
               </Link>
             </section>
           </div>
-          <div>
-            <br />
-            <h1>Näringsliv</h1>
-            <div className={styles.startNaringsliv}>
-              <section>
-                <MarkdownRender mdData={contents["for-foretag"]} />
-                <Link className={styles.sectionButton} href={"/for-foretag"}>
-                  <button aria-label="Öppna sidan med mer information om CL för företag">
-                    Mer information och produktkatalog
+        </section>
+        <hr />
+        <section>
+          <h1>Näringsliv</h1>
+          <div className={styles.sectionRow}>
+            <section>
+              <h2>För företag</h2>
+              <MarkdownRender mdData={contents["for-foretag"]} />
+              {/* Länka när vi faktiskt har någon */}
+              {/* <Link className={styles.sectionButton} href={"/for-foretag"}>
+                  <button aria-label="Läs vår produktkatalog" className="hollow dark">
+                    Läs vår produktkatalog
                   </button>
-                </Link>
-              </section>
-              <section>
-                <MarkdownRender mdData={contents["for-studenter"]} />
-                <Link className={styles.sectionButton} href={"/samarbeten"}>
-                  <button aria-label="Öppna sidan med mer information vad våra samarbetspartners erbjuder våra medlemmar">
-                    Aktiva samarbeten
-                  </button>
-                </Link>
-              </section>
-            </div>
+                </Link> */}
+            </section>
+            <section>
+              <h2>Samarbeten</h2>
+              <MarkdownRender mdData={contents["samarbeten"]} />
+              <Link className={styles.sectionButton} href={"/samarbeten"}>
+                <button
+                  aria-label="Öppna sidan med mer information vad våra samarbetspartners erbjuder våra medlemmar"
+                  className="hollow dark">
+                  Aktiva samarbeten
+                </button>
+              </Link>
+            </section>
           </div>
         </section>
         <hr />

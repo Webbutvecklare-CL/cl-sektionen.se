@@ -150,12 +150,16 @@ export default function Aktuellt({ postList }) {
   const queryParams = useMemo(() => {
     let newQueryParams = {};
 
+    // Skapar en sträng med alla tags
     let tags = "";
     for (let tag in filterTags) {
       if (filterTags[tag]) {
         tags += tag + "-";
       }
     }
+
+    // Tar bort sista minustecknet
+    tags = tags.slice(0, -1);
 
     // Tar bara med de som inte är sitt standard-värde
     if (!type.information) newQueryParams.info = "false";
@@ -199,6 +203,14 @@ export default function Aktuellt({ postList }) {
       postList.reverse();
     }
 
+    const queryTags = query.tags?.split("-") || [];
+    let tags = {};
+    for (let tag of queryTags) {
+      tags[tag] = true;
+    }
+
+    setFilterTags((filterTags) => ({ ...filterTags, ...tags }));
+
     if (query.s) setSearch(query.s);
     if (query.pub) setPublisher(query.pub);
     if (query.start) setStartDate(query.start);
@@ -218,6 +230,7 @@ export default function Aktuellt({ postList }) {
       // Körs två gånger av någon anledning men det funkar - oftast när det är typ som ändras
       replace({ query: queryParams }, undefined, { shallow: true });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
 
   //HTML för filterpaneler

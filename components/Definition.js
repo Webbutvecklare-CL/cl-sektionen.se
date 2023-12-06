@@ -35,16 +35,20 @@ export default function Definition({ term, text, children }) {
 
   const handleClick = (e) => {};
 
-  // Hittar ordet i ordlistan
-  const definition = definitions.filter((word) => word.begrepp === term)[0];
+  let description = "";
+  if (!text) {
+    // Hittar ordet i ordlistan
+    const definition = definitions.filter((word) => word.begrepp === term)[0];
 
-  // Plockar ut betydelsen
-  const description = definition?.betydelse || `Förklaring för "${term}" saknas, kolla i ordboken.`;
+    // Plockar ut betydelsen
+    description = definition?.betydelse || `Förklaring för "${term}" saknas, kolla i ordboken.`;
+  }
+
   return (
     <span className={styles.container} onClick={handleClick}>
-      {text || children}
+      {children}
       <span ref={tooltipRef} className={styles.tooltip}>
-        {description}
+        {text || description}
       </span>
     </span>
   );

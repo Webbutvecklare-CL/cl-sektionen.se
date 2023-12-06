@@ -114,25 +114,22 @@
   margin-top: 0rem;
 }
 
-.resurser .sectionButton {
+.sectionButton {
   text-align: center;
   display: block;
-  margin: 20px auto 10px auto;
+  margin: auto;
+  margin-top: 1rem;
   width: fit-content;
   text-decoration: none;
 }
 
-.resurser h1 {
-  margin-bottom: 1rem;
-}
-
-.startNaringsliv {
+.sectionRow {
   display: grid;
   gap: 0px 2rem;
   grid-template-areas: ". .";
 }
 
-.startNaringsliv h2 {
+.sectionRow h2 {
   margin-top: 0px;
 }
 
@@ -163,7 +160,7 @@
     flex-wrap: wrap;
   }
 
-  .startNaringsliv {
+  .sectionRow {
     display: flex;
     flex-wrap: wrap;
     row-gap: 1.5rem;

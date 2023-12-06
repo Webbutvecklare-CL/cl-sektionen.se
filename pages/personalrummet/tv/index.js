@@ -1,154 +1,326 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 
-import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, deleteObject } from "firebase/storage";
+import {
+  collection,
+  getFirestore,
+  doc,
+  getDocs,
+  deleteDoc,
+  updateDoc,
+  Timestamp,
+} from "firebase/firestore";
 import { app } from "@/firebase/clientApp";
 const storage = getStorage(app);
+const firestore = getFirestore(app);
 
 import { useAuth } from "@/context/AuthContext";
 
 import BackButton from "@/components/BackButton";
+import Label from "@/components/personalrummet/form components/Label";
 
 import styles from "@/styles/personalrummet/tv.module.css";
 
-import PersonalrummetLayout from "@/layouts/PersonalrummetLayout";
-
 export default function Tv() {
+  const startOfToday = new Date();
+  startOfToday.setHours(0, 0, 0, 0);
+
   const { userData } = useAuth();
 
-  const [image, setImage] = useState(null);
-  const [date, setDate] = useState("");
+  const router = useRouter();
+
+  const [oldImages, setOldImages] = useState([]);
+  const [visibleImages, setVisibleImages] = useState([]);
   const [error, setError] = useState("");
 
-  const uploadImage = async () => {
-    const storageRef = ref(storage, `tv/${date.replace("/", "-")}---${image.name}`);
+  // Hämtar alla bilder när userData hämtats
+  useEffect(() => {
+    const getImages = async () => {
+      // Hämtar bilderna när sidan laddas in
+      const imageDocsRef = await getDocs(collection(firestore, "tv"));
+      let visibleImageDocs = [];
+      let oldImageDocs = [];
+      imageDocsRef.forEach((doc) => {
+        const docId = doc.id;
+        const data = doc.data();
+
+        // Kollar om bilden visas
+        const endDate = data.endDate.toDate();
+        const startDate = data.startDate.toDate();
+        if (startDate <= startOfToday && endDate >= startOfToday) {
+          visibleImageDocs.push({ id: docId, ...data });
+        } else {
+          oldImageDocs.push({ id: docId, ...data });
+        }
+      });
+      setVisibleImages(visibleImageDocs);
+      setOldImages(oldImageDocs);
+    };
+
+    if (userData && userData.permission === "admin") {
+      getImages();
+    }
+  }, [userData]);
+
+  const handleDelete = async (image) => {
+    // Ta bort bild dokumentet
     try {
-      await uploadBytes(storageRef, image);
+      await deleteDoc(doc(firestore, "tv", image.id));
     } catch (error) {
-      console.log(error);
-      setError("Något gick fel när bilden skulle laddas upp");
-      return;
+      console.error(error);
+      throw { type: "image-doc-deletion-failed", error };
     }
-    const url = await getDownloadURL(storageRef);
-    console.log(url);
-    setError("Bilden är uppladdad!");
+
+    // Ta bort bilden
+    try {
+      const imageRef = ref(storage, image.url);
+      await deleteObject(imageRef);
+    } catch (error) {
+      console.error(error);
+      throw { type: "image-deletion-failed", error };
+    }
+
+    console.log("Bild dokumentet och bilden är borttagen!");
   };
 
-  const handleUpload = () => {
-    let imgRes = validateImage();
-    let dateRes = validateDate();
+  const handleEdit = async (image, newStartDate, newEndDate) => {
+    // Uppdatera bild dokumentet
+    try {
+      let updatedDates = {};
 
-    if (imgRes !== true) {
-      setError(imgRes);
-      return;
+      // Gör om datumen till firebase timestamps
+      const newFbStartDate = Timestamp.fromDate(new Date(newStartDate));
+      const newFbEndDate = Timestamp.fromDate(new Date(newEndDate));
+
+      // Kollar om datumet ändrats
+      if (newFbStartDate.seconds != image.startDate.seconds) {
+        updatedDates.startDate = newFbStartDate;
+      }
+
+      if (newFbEndDate.seconds != image.endDate.seconds) {
+        updatedDates.endDate = newFbEndDate;
+      }
+
+      await updateDoc(doc(firestore, "tv", image.id), updatedDates);
+      console.log("Datumen är uppdaterade!", updatedDates);
+    } catch (error) {
+      console.error(error);
+      throw { type: "image-doc-update-failed", error };
     }
-    if (dateRes !== true) {
-      setError(dateRes);
-      return;
-    }
-    uploadImage();
-    setError("Bilden laddas upp!");
   };
 
-  const validateImage = () => {
-    if (!image) {
-      return "Du måste välja en bild";
-    }
-    if (image.size > 0.8 * 1024 * 1024) {
-      return "Filstorleken på bilden får inte vara större än 0.8 MB";
-    }
-    const available_formats = ["jpeg", "webp", "png"];
-    if (!available_formats.includes(image.name.split(".")[1].toLowerCase())) {
-      return "Filformatet på bilden måste vara något av följande: " + available_formats.join(" ");
-    }
+  const ImageHolder = ({ image }) => {
+    // Gör om alla konstiga tecken till vanliga tecken
+    const fileName = decodeURIComponent(image.url.split("%2F")[1].split("?")[0]);
 
-    return true;
-  };
+    const startDateComponents = image.startDate.toDate().toLocaleDateString("sv-SE").split("-");
+    const endDateComponents = image.endDate.toDate().toLocaleDateString("sv-SE").split("-");
 
-  const validateDate = () => {
-    if (!date) {
-      return "Du måste ange ett datum";
-    }
-    // 2 siffror / 2 siffror
-    if (!date.match(/^\d{2}\/\d{2}$/)) {
-      return "Datumet måste vara i formatet DD/MM";
-    }
-    return true;
+    // Gör om till formatet DD/MM
+    const startDateText = `${startDateComponents[2]}/${startDateComponents[1]}`;
+    const endDateText = `${endDateComponents[2]}/${endDateComponents[1]}`;
+
+    const [status, setStatus] = useState("");
+    const [response, setResponse] = useState("");
+
+    const [edit, setEdit] = useState(false);
+
+    const removeHandler = async () => {
+      setStatus("Laddar...");
+
+      // Tar bor bilden
+      try {
+        await handleDelete(image);
+        setResponse("Bilden är borttagen!");
+        setStatus("Borttagen");
+      } catch (error) {
+        if (error.type === "image-doc-deletion-failed") {
+          setResponse("Det gick inte att ta bort bild dokumentet!");
+          setStatus("Prova igen");
+          return;
+        } else if (error.type === "image-deletion-failed") {
+          setResponse(
+            "Dokumentet är borttaget men inte bilden! Bilden visas inte längre på TV:n. Kontakta webbansvariga för att ta bort bilden."
+          );
+          setStatus("Prova igen");
+          return;
+        } else {
+          console.error(error);
+          setResponse("Det gick inte att ta bort bilden!");
+          setStatus("Prova igen");
+        }
+      }
+    };
+
+    const Options = () => {
+      return (
+        <>
+          <button
+            disabled={status === "Laddar..." || status === "Borttagen"}
+            onClick={removeHandler}>
+            {status && <>{status}</>}
+            {!status && <>Ta bort</>}
+          </button>
+          <button
+            disabled={status === "Laddar..." || status === "Borttagen"}
+            onClick={() => setEdit(true)}>
+            Ändra
+          </button>
+        </>
+      );
+    };
+
+    // Meny för att ändra datum
+    const EditMenu = () => {
+      const sevenDays = 7 * 24 * 60 * 60 * 1000;
+      const [newEndDate, setNewEndDate] = useState(
+        image.endDate.toDate().toISOString().split("T")[0]
+      );
+      const [newStartDate, setNewStartDate] = useState(
+        image.startDate.toDate().toISOString().split("T")[0]
+      );
+      const minStartDate = new Date(startOfToday).toISOString().split("T")[0];
+
+      const [error, setError] = useState("");
+
+      const validateDate = () => {
+        if (newStartDate === "") {
+          return "Du måste ange ett startdatum";
+        }
+        if (newEndDate === "") {
+          return "Du måste ange ett slutdatum";
+        }
+        if (newStartDate > newEndDate) {
+          return "Slutdatumet måste vara efter startdatumet";
+        }
+        if (new Date(newEndDate).getTime() - new Date(newStartDate).getTime() > sevenDays) {
+          return "Bilden får visas i max 7 dagar";
+        }
+
+        return true;
+      };
+
+      const editHandler = async () => {
+        const validation = validateDate();
+        if (validation !== true) {
+          setError(validation);
+          return;
+        }
+        try {
+          await handleEdit(image, newStartDate, newEndDate);
+          setEdit(false);
+          setResponse("Datumen är uppdaterade!");
+        } catch (error) {
+          console.error(error.error);
+          setResponse("Det gick inte att ändra datumen! " + error.error.message);
+        }
+        setEdit(false);
+      };
+
+      return (
+        <div className={styles.editMenu}>
+          <div>
+            <div className={styles.inputContainer}>
+              <Label>Visas fom:</Label>
+              <input
+                type="date"
+                value={newStartDate}
+                onChange={(e) => setNewStartDate(e.target.value)}
+                min={minStartDate}
+              />
+            </div>
+            <div className={styles.inputContainer}>
+              <Label>Visas tom:</Label>
+              <input
+                type="date"
+                value={newEndDate}
+                onChange={(e) => setNewEndDate(e.target.value)}
+                min={new Date(new Date(newStartDate).getTime()).toISOString().split("T")[0]}
+                max={
+                  new Date(new Date(newStartDate).getTime() + sevenDays).toISOString().split("T")[0]
+                }
+              />
+            </div>
+          </div>
+          <div>
+            <button className="small" onClick={editHandler}>
+              Uppdatera
+            </button>
+            <button className="small hollow" onClick={() => setEdit(false)}>
+              Avbryt
+            </button>
+          </div>
+          {error && <p className={styles.error}>{error}</p>}
+        </div>
+      );
+    };
+
+    return (
+      <div className={styles.imageContainer}>
+        <div className={styles.imageMeta}>
+          <p>
+            Synlig mellan {startDateText} och {endDateText}
+          </p>
+        </div>
+
+        <div className={styles.imageOptions}>
+          {(userData.uid === image.creator || userData.permission === "admin") && <Options />}
+          {!(userData.uid === image.creator || userData.permission === "admin") && (
+            <p>Du kan inte ta bort eller ändra denna bild</p>
+          )}
+        </div>
+        <div className={styles.imageHolder}>
+          {response && !edit && <p>{response}</p>}
+          {!response && !edit && <Image src={image.url} alt={fileName} width={160} height={100} />}
+          {edit && <EditMenu />}
+        </div>
+      </div>
+    );
   };
 
   return (
-      <div id="contentbody">
-        <BackButton page="personalrummet">Personalrummet</BackButton>
-        <h1>Personalrummet - Lägg upp på TV</h1>
-        {userData && (
-          <div>
-            <p>Här kan du ladda upp en bild som visas på TVn.</p>
-            <p>
-              När du laddar upp en bild tänk på att göra texten stor. Bakgrunden på TVn som inte
-              täcks av bilden bestäms av den mest dominanta färgen i bilden.
-            </p>
-            <p>
-              Du ska ange ett datum för till och med dagen bilden ska tas ner, inte mer än 7 dagar.
-              Bilderna tas bort manuellt vilket kan innebär att de är kvar någon dag längre än
-              datumet du angett. Om det är extra viktigt bilden tas ner exakt ett datum ska du
-              kontakta{" "}
-              <a href="mailto:webbunderhållare@cl-sektionen.se">webbunderhållare@cl-sektionen.se</a>
-              .
-            </p>
-            <div className={styles.uploadPanel}>
-              <div className={styles.uploadMenu}>
-                <div>
-                  <p>Bild</p>
-                  <input
-                    type="file"
-                    name="image"
-                    accept="image/png, image/jpeg, image/webp"
-                    onChange={(e) => {
-                      setImage(e.target.files[0]);
-                    }}
-                  />
-                </div>
-                <div>
-                  <p>Datum</p>
-                  <input
-                    type="text"
-                    name="date"
-                    placeholder="DD/MM"
-                    value={date}
-                    onChange={(e) => {
-                      setDate(e.target.value);
-                    }}
-                  />
-                </div>
-              </div>
-              {image && (
-                <Image
-                  src={URL.createObjectURL(image)}
-                  width={640}
-                  height={360}
-                  alt="Bild som ska laddas upp"
-                />
-              )}
-              {!image && (
-                <div className={styles.imagePlaceholder}>
-                  <p>Du har inte valt en bild.</p>
-                  <p>
-                    Bilden ska vara av formatet jpg, jpeg, png eller webp och inte större än 0.8 MB.
-                  </p>
-                </div>
-              )}
-              <p>{error}</p>
-              <button onClick={handleUpload} className="small" disabled={!image || !date}>
-                Ladda upp
-              </button>
-            </div>
+    <div id="contentbody">
+      <BackButton page="personalrummet">Personalrummet</BackButton>
+      <h1>Personalrummet - Hantera bilder på TV:n</h1>
+      <p>
+        Nedan kan du se vilka bilder som visas på TV:n och vilka samt vilka som har eller kommer att
+        visas.
+        <br />
+        Du kan även ta bort och ändra bilder du själv laddat upp. När du uppdaterat behöver du ladda
+        om sidan för att se uppdateringen. Bilderna sluta visas automatiskt, du behöver alltså inte
+        ta bort bilden manuellt.
+      </p>
+      <button onClick={() => router.push("/personalrummet/tv/ladda-upp")}>Ladda upp bild</button>
+      {error && <p>{error}</p>}
+      {userData && (
+        <>
+          <h2>Bilder som visas på TV:n</h2>
+          <div className={styles.imageList}>
+            {visibleImages.map((image, idx) => (
+              <ImageHolder image={image} key={idx} />
+            ))}
           </div>
-        )}
-        {!userData && (
-          <div>
-            <p> Du måste vara inloggad för att kunna lägga upp på TVn.</p>
+          <h2>Bilder som inte visas</h2>
+          <div className={styles.imageList}>
+            {oldImages.map((image, idx) => (
+              <ImageHolder image={image} key={idx} />
+            ))}
           </div>
-        )}
-      </div>
+        </>
+      )}
+      {!userData && (
+        <div>
+          <p>Du måste vara inloggad för att hantera bilder på TVn.</p>
+        </div>
+      )}
+
+      {userData && userData.permission !== "admin" && (
+        <div>
+          <p>Du måste ha admin behörighet för att hantera bilderna på TVn.</p>
+        </div>
+      )}
+    </div>
   );
 }

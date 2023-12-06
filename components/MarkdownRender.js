@@ -28,8 +28,12 @@ export default function MarkdownRender({ source, mdData, id }) {
 
   const components = {
     def: ({ node, ...props }) => {
-      const { term, children } = props;
-      return <Definition term={term}>{...children}</Definition>;
+      const { term = "", text = "", children } = props;
+      return (
+        <Definition term={term} text={text}>
+          {...children}
+        </Definition>
+      );
     },
   };
 

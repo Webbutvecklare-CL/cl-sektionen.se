@@ -1,6 +1,5 @@
 import "/styles/root.css";
 import "/styles/contents.css";
-import "/styles/publicera.css";
 import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
 import "/styles/reseberattelser.css";
@@ -180,8 +179,9 @@ async function mountMessagingListener(router) {
 }
 
 async function messageListener(click_event) {
-  const { onMessage, getMessaging } = await import("firebase/messaging");
-  const messaging = getMessaging();
+  const { onMessage } = await import("firebase/messaging");
+  let { messaging } = await import("../firebase/clientApp");
+  messaging = await messaging();
 
   // This will fire when a message is received while the app is in the foreground.
   // When the app is in the background, firebase-messaging-sw.js will receive the message instead.
