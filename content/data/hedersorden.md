@@ -2,7 +2,7 @@
 
 ## 2023
 Armin Baymani
-Mikael Lundvist
+Mikael Lundkvist
 Felix Alin
 
 ## 2022
@@ -54,7 +54,7 @@ Armin Baymani
 Erik Åman
 Nicole Polis
 Christoffer Nilsson
-Mikael Lundvist
+Mikael Lundkvist
 
 ## 2021
 
