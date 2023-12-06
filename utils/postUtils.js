@@ -39,7 +39,7 @@ async function validateLink(data, type) {
           return false;
         } else {
           //Gör något test så länken faktiskt fungerar
-          unique_link = create_id(title);
+          unique_link = create_id(unique_link);
         }
       } else {
         // Adressen var unik -> fortsätt försöka skicka data
