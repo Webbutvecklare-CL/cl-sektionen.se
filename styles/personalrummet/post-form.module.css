@@ -1,25 +1,12 @@
-.formWrapper{
-  background-color: #eee;
-  width: 60%;
-  margin: 0 auto;
-  padding: 2rem 3rem;
-  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
-  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
-  box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.45);
-}
-
-
-@media (max-width: 900) {
-
+@media (min-width: 700px) {
   .formWrapper {
-    width: 80%;
-    margin: 2rem auto;
-    background-color: #fafafa;
-    box-shadow: none;
-  }
-
-  .tagSelector {
-    background-color: #fff !important;
+    background-color: #eee;
+    width: 60%;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.45);
   }
 }
 
@@ -121,7 +108,7 @@
   -webkit-box-shadow: 0 0 9px -1px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0 0 9px -1px rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 9px -1px rgba(0, 0, 0, 0.65);
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .tagSelector button:hover {
