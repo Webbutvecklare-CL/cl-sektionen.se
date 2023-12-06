@@ -40,6 +40,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
   const [viewPreview, setViewPreview] = useState(false);
 
+  // Stänger av scroll på resten av innehållet när förhandsvisning är öppen
   useEffect(() => {
     if (viewPreview) {
       document.body.style.overflow = "hidden";
@@ -318,20 +319,22 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   return (
     <div className={viewPreview ? styles.previewOpen : ""}>
       <form onSubmit={handleSubmit} className={styles.postForm}>
-        <Label>Välj vilken typ av inlägg du ska göra:</Label>
-        <div className={styles.typeContainer}>
-          <button
-            disabled={editMode}
-            onClick={(e) => handleSetType(e, "information")}
-            className={type === "information" ? styles.selected : ""}>
-            Information
-          </button>
-          <button
-            disabled={editMode}
-            onClick={(e) => handleSetType(e, "event")}
-            className={type === "event" ? styles.selected : ""}>
-            Event
-          </button>
+        <div>
+          <Label>Välj vilken typ av inlägg du ska göra:</Label>
+          <div className={styles.typeContainer}>
+            <button
+              disabled={editMode}
+              onClick={(e) => handleSetType(e, "information")}
+              className={type === "information" ? styles.selected : ""}>
+              Information
+            </button>
+            <button
+              disabled={editMode}
+              onClick={(e) => handleSetType(e, "event")}
+              className={type === "event" ? styles.selected : ""}>
+              Event
+            </button>
+          </div>
         </div>
         {type && (
           <div>
@@ -514,19 +517,18 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                 </div>
               </>
             )}
-
-            <div className={styles.actionMenu}>
-              <button className={styles.submitButton}>
-                {editMode ? "Uppdatera" : "Publicera"}
-              </button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setViewPreview(true);
-                }}>
-                Visa förhandsvisning
-              </button>
-            </div>
+          </div>
+        )}
+        {type && (
+          <div className={styles.actionMenu}>
+            <button className={styles.submitButton}>{editMode ? "Uppdatera" : "Publicera"}</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setViewPreview(true);
+              }}>
+              Visa förhandsvisning
+            </button>
           </div>
         )}
       </form>

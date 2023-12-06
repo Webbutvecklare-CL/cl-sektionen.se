@@ -10,6 +10,12 @@
   }
 }
 
+.postForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .label {
   text-align: left;
   display: block;
@@ -180,9 +186,9 @@
 /* Blandat */
 .actionMenu {
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   gap: 1rem;
-  margin-top: 1rem;
 
 }
 
@@ -287,11 +293,6 @@
     vertical-align: -1px !important;
 }
 
-body.previewOpen {
-  display: block;
-  overflow-y: hidden;
-}
-
 .postPreview {
   position: fixed;
   display: block;
@@ -329,4 +330,11 @@ body.previewOpen {
     width: calc(100% - 2rem);
     padding: 1rem;
   }
+}
+
+.responseContainer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

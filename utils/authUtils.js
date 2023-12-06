@@ -60,28 +60,6 @@ function updateUser(user) {
   return updateDoc(userRef, profileInfo);
 }
 
-async function reauthenticate() {
-  return new Promise((resolve, reject) => {
-    googleLogin()
-      .then(async (result) => {
-        console.log("Omautentiserad!");
-        // Användaren har loggat in med sin förtroendevalds-mail
-        // Förutsätter att användaren loggat in tidigare dvs att userData finns
-        const { GoogleAuthProvider } = await import("firebase/auth");
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        resolve(token);
-      })
-      .catch((err) => {
-        console.error(err);
-        if (err.code == "auth/popup-closed-by-user") {
-          setError("Inloggningsfönstret stängdes!");
-        } else {
-          setError("Fel vid inloggningen till google!");
-        }
-        reject();
-      });
-  });
-}
 
-export { googleLogin, validateAccountCheck, createUser, updateUser, reauthenticate };
+
+export { googleLogin, validateAccountCheck, createUser, updateUser };
