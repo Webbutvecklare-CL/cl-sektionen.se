@@ -252,7 +252,7 @@ export default function EditPost() {
   };
 
   return (
-    <div id="contentbody" className="wideContent">
+    <div id="contentbody">
       <BackButton page="personalrummet">Personalrummet</BackButton>
       <h1>Personalrummet - Redigera</h1>
       {!success && (

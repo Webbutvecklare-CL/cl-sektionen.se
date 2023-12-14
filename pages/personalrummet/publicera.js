@@ -360,7 +360,7 @@ export default function Publicera({ calendarID }) {
   };
 
   return (
-    <div id="contentbody" className="wideContent">
+    <div id="contentbody">
       <div className="small-header">
         {modal && modal}
         <BackButton page="personalrummet">Personalrummet</BackButton>
