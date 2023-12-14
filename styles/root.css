@@ -160,17 +160,6 @@ input.error {
   border: var(--clr1) 1px solid;
 }
 
- select {
-  margin-bottom: 1rem;
-  margin-top: 10px;
-  padding: 6px 6px;
-}
-
-select:focus {
-  box-shadow: none;
-  outline: solid 1px var(--clgra);
-}
-
 select option:checked {
   background-color: var(--clr1);
 }

@@ -114,8 +114,14 @@ GOOGLE_SERVICE_ACCOUNT= #OBS Håll väldigt hemlig
 # Denna filen behöver delas med @appspot.gserviceaccount.com adressen som är länkad till service account
 COMMITTEES_SHEET_ID=
 
-# För att skapa ett secrets fil för google service account - behövs för reCaptcha
+# För att skapa ett secrets fil för att göra det lättare att använda
+# google service account
 GOOGLE_APPLICATION_CREDENTIALS="./google_secrets.json"
+
+# För mail formulär
+CONTACT_EMAIL="exempel@cl-sektionen.se"
+CONTACT_EMAIL_PASS=
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY= #Fås genom att skapa en reCaptcha
 
 # Stänger bla av PWA build när dev körs
 NODE_ENV=development
