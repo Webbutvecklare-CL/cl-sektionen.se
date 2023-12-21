@@ -123,7 +123,8 @@ export default function App({ Component, pageProps }) {
         image={cl_banner}
         url={"https://www.cl-sektionen.se/"}
       />
-      {/* AuthContext behövs inte utanför personalrummet */}
+      {/* Personalrummetlayout med AuthContext behövs inte utanför personalrummet, 
+      vilket annars förlänger inladdningen av övriga sidor */}
       {!router.pathname.startsWith("/personalrummet") && (
         <Component {...pageProps} cookiesAllowed={cookiesAllowed} setCookieState={setCookieState} />
       )}
@@ -136,6 +137,8 @@ export default function App({ Component, pageProps }) {
           />
         </PersonalrummetLayout>
       )}
+
+      {/* Klockan som visas på startsidan och övriga sidor om notiser stödjs */}
       <NotificationBell hideIfNoSupport floating messageOptions={{ delay: 2000 }} />
 
       <Footer />

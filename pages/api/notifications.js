@@ -24,6 +24,8 @@ export default async function handler(req, res) {
   let message;
   let dryRun = false;
 
+  // Kollar vilken typ av notis det är och skapar payload
+  // Om inget matchar returnera 400 error
   if (req.body.data.type == "post") {
     try {
       const postData = await verifyRequest(uid, req.body.data.postId);
