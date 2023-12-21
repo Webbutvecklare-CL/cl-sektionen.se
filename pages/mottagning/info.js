@@ -13,7 +13,7 @@ export default function Info({ contents }) {
         }
         url={"https://www.cl-sektionen.se/mottagning/info"}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <article>
           <BackButton page="mottagning">Mottagningssidan</BackButton>
           <MarkdownRender mdData={contents["infodumpen"]} />

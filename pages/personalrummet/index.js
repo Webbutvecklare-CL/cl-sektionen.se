@@ -1,3 +1,4 @@
+import { getContentData } from "@/utils/contents";
 import Login from "../../components/personalrummet/Login";
 import UserMenu from "../../components/personalrummet/UserMenu";
 
@@ -5,7 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 
 import { personalrummet } from "../../styles/personalrummet.module.css";
 
-export default function Personalrummet() {
+export default function Personalrummet({ contents }) {
   const { userData, signingIn } = useAuth();
 
   return (
@@ -27,8 +28,15 @@ export default function Personalrummet() {
             <Login />
           </div>
         )}
-        {userData && <UserMenu />}
+        {userData && <UserMenu contents={contents} />}
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const contents = getContentData("personalrummet");
+  return {
+    props: { contents },
+  };
 }

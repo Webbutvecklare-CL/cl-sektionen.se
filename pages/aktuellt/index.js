@@ -13,7 +13,9 @@ const firestore = getFirestore(app);
 
 import { convertDate } from "../../utils/convertDate";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 import FeedPreview from "../../components/FeedPreview";
 
@@ -37,6 +39,9 @@ import {
 import NotificationBell from "../../components/NotificationBell";
 
 export default function Aktuellt({ postList }) {
+  const router = useRouter();
+  const { replace, query } = router;
+
   const [currentpage, setcurrentPage] = useState(1);
   const itemsperpage = 6;
 
@@ -56,7 +61,7 @@ export default function Aktuellt({ postList }) {
 
   const [filterTags, setFilterTags] = useState({});
   const [publisher, setPublisher] = useState("");
-  const [startDate, setStartDate] = useState();
+  const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState(new Date().toDateString());
 
   // tar bort filter kategori of den redan finns, lägger annars till den
@@ -140,6 +145,94 @@ export default function Aktuellt({ postList }) {
     };
   });
 
+  // Filter via länkar
+  // Uppdatera objektet som sparas i query params
+  const queryParams = useMemo(() => {
+    let newQueryParams = {};
+
+    // Skapar en sträng med alla tags
+    let tags = "";
+    for (let tag in filterTags) {
+      if (filterTags[tag]) {
+        tags += tag + "-";
+      }
+    }
+
+    // Tar bort sista minustecknet
+    tags = tags.slice(0, -1);
+
+    // Tar bara med de som inte är sitt standard-värde
+    if (!type.information) newQueryParams.info = "false";
+    if (!type.event) newQueryParams.event = "false";
+    if (!sortNewestFirst) newQueryParams.newest = "false";
+
+    // Dessa är från början false eller null
+    const filters = {
+      s: search,
+      tags: tags,
+      pub: publisher,
+      start: startDate,
+    };
+
+    for (let key in filters) {
+      const value = filters[key];
+      if (value) {
+        newQueryParams[key] = value;
+      }
+    }
+
+    if (endDate && endDate != new Date().toDateString()) {
+      newQueryParams.end = endDate;
+    }
+
+    return newQueryParams;
+  }, [search, type, filterTags, sortNewestFirst, publisher, startDate, endDate]);
+
+  // Sätter filtret vid inladdning från query params
+  useEffect(() => {
+    // Kör bara om det faktiskt finns en query
+    if (!router.isReady) {
+      return;
+    }
+
+    // Tar bara med de som inte är sitt standard-värde
+    if (query.info === "false") setType({ ...type, information: false });
+    if (query.event === "false") setType({ ...type, event: false });
+    if (query.newest === "false") {
+      setSortNewestFirst(false);
+      postList.reverse();
+    }
+
+    const queryTags = query.tags?.split("-") || [];
+    let tags = {};
+    for (let tag of queryTags) {
+      tags[tag] = true;
+    }
+
+    setFilterTags((filterTags) => ({ ...filterTags, ...tags }));
+
+    if (query.s) setSearch(query.s);
+    if (query.pub) setPublisher(query.pub);
+    if (query.start) setStartDate(query.start);
+    if (query.end) setEndDate(query.end);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]); // Is ready för att den inte ska uppdateras när filtret uppdateras
+
+  // Uppdaterar länken när filtret ändras
+  useEffect(() => {
+    // Hindrar att den ändrar query innan query laddats in
+    if (!router.isReady) {
+      return;
+    }
+
+    // Uppdatera bara om det finns något att uppdatera - hindrar att den rensar vid inladdning
+    if (Object.keys(queryParams).length > 0 || Object.keys(query).length > 0) {
+      // Körs två gånger av någon anledning men det funkar - oftast när det är typ som ändras
+      replace({ query: queryParams }, undefined, { shallow: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryParams]);
+
   //HTML för filterpaneler
   const TypPanel = () => {
     return (
@@ -191,6 +284,7 @@ export default function Aktuellt({ postList }) {
           <FontAwesomeIcon icon={faPen} /> Publicerad av
         </h3>
         <select
+          name="committeePicker"
           className={filterStyles.committeePicker}
           value={publisher}
           onChange={(e) => {
@@ -264,7 +358,7 @@ export default function Aktuellt({ postList }) {
   // Någon useEffect kanske om användaren laddar in fler inlägg
   // eller vill söka som bara lägger till de nya i newsList/eventList
   return (
-    <div id="contentbody">
+    <div id="contentbody" className="wideContent">
       <div className={styles.header}>
         <h1>Sök bland alla Nyheter</h1>
         <NotificationBell />
@@ -285,8 +379,10 @@ export default function Aktuellt({ postList }) {
             <div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
               <input
                 type="text"
+                name="searchbar"
                 className="searchbar"
                 placeholder="Sök efter inlägg..."
+                value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
                 }}
@@ -334,6 +430,7 @@ export default function Aktuellt({ postList }) {
           <section className={styles.posts}>
             <div className={feed.long}>
               <FeedPreview
+                goBack={true}
                 posts={postList
                   .filter((post) => {
                     return (

@@ -8,7 +8,12 @@ export default function BackButton({ page = "", children }) {
   const router = useRouter();
 
   function handleBackClick() {
-    router.push("/" + page);
+    // Om knappen ska gå tillbaka i historiken
+    if (page == "history") {
+      router.back();
+    } else {
+      router.push("/" + page);
+    }
   }
 
   return (

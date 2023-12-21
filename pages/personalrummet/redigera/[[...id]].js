@@ -10,6 +10,7 @@ const storage = getStorage(app);
 const firestore = getFirestore(app);
 
 import PostForm from "../../../components/personalrummet/PostForm";
+import BackButton from "@/components/BackButton";
 import { useAuth } from "../../../context/AuthContext";
 
 import { revalidate } from "../../../utils/server";
@@ -173,7 +174,7 @@ export default function EditPost() {
     // Kollar om bilden blivit uppdaterad
     if (data.image.name !== prefill.image.name) {
       // Tar bort bilden
-      const oldImageRef = ref(storage, `posts/${postId}/${prefill.image.name}`);
+      const oldImageRef = ref(storage, `posts/${postId}/${decodeURIComponent(prefill.image.name)}`);
       try {
         if (prefill.image.name) {
           console.log("delete - Raderar gammal bild");
@@ -252,10 +253,8 @@ export default function EditPost() {
 
   return (
     <div id="contentbody">
+      <BackButton page="personalrummet">Personalrummet</BackButton>
       <h1>Personalrummet - Redigera</h1>
-      <button type="button" onClick={() => router.push("/personalrummet")}>
-        Tillbaka
-      </button>
       {!success && (
         <div className="create">
           {!prefill && (

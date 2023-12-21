@@ -85,7 +85,7 @@ NEXT_PUBLIC_FIREBASE_VAPID_KEY=
 
 # Fråga Webbansvariga efter denna - används i api rotes
 # Finns i Project Settings > Service Account > Generate New Private Key
-NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT=
+FIREBASE_SERVICE_ACCOUNT=
 
 # Väljs fritt för att verifiera att revalidation request är från en betrodd källa
 NEXT_PUBLIC_REVALIDATE_TOKEN=
@@ -104,25 +104,31 @@ NEXT_PUBLIC_MOTTAGNING_KEY=
 # För att getStaticProps ska komma åt lokala filer (Protokoll innan men inget snedstreck i slutet)
 NEXT_PUBLIC_DOMAIN=http://localhost:3000
 
+# Denna behövs för att kunna använda google api:er för att komma åt ex spreadsheets
+# Du hittar den i Google Console för ditt projekt > APIs & Services > Credentials >
+# Under Service Account tryck på den som heter "App Engine default service account" >
+# Keys > Add key > Då borde en json fil laddas ned. Gör den till en sträng och kopiera in här.
+GOOGLE_SERVICE_ACCOUNT= #OBS Håll väldigt hemlig
+
+# ID till spreadsheet med alla förtroendevalda
+# Denna filen behöver delas med @appspot.gserviceaccount.com adressen som är länkad till service account
+COMMITTEES_SHEET_ID=
+
+# För att skapa ett secrets fil för google service account - behövs för reCaptcha
+GOOGLE_APPLICATION_CREDENTIALS="./google_secrets.json"
+
 # Stänger bla av PWA build när dev körs
 NODE_ENV=development
 ```
 
-Du behöver även en .env fil i mappen `functions` med följande innehåll:
-
-```python
-# Måste vara samma som ovan
-REVALIDATE_TOKEN=
-```
-
 _Firebase_ variablerna hämtas från ett firebase projekt under project settings.  
-_Domain_ är den domän som hemsidan kommer gå att nås på. Under utveckling exempelvis [http://localhost:3000](http://localhost:3000).
+_Domain_ är den domän som webbplatsen kommer gå att nås på. Under utveckling exempelvis [http://localhost:3000](http://localhost:3000).
 
 ## Uppdatera och lägga till textinnehåll - Statiskt innehåll
 
-För att ändra i en text går du bara in på en fil som du vill ändra på i mappen `public/content/`.
+För att ändra i en text går du bara in på en fil som du vill ändra på i mappen `/content`.
 
-All längre sammanhängande text ska vara skriven i markdown. [Här](https://www.markdownguide.org/cheat-sheet/) hittar du en guide på hur du formatera texten, du kan även kolla på andra texter i mappen `public/content/`. Tips som inte står där:
+All längre sammanhängande text ska vara skriven i markdown. [Här](https://www.markdownguide.org/cheat-sheet/) hittar du en guide på hur du formatera texten, du kan även kolla på andra texter i mappen `/content`. Tips som inte står där:
 
 - För att göra en ny rad utan mellanrum gör två mellanslag på raden ovan.
 
@@ -132,7 +138,7 @@ För att lägga till texten på en sida ska du använda `<MarkdownRender source=
 
 ### Lägga till alumniblogg inlägg eller reseberättelser
 
-Gör en markdown fil och spara den i `public/content/` i någon av mapparna alumniberattelser eller reseberättelser. För att lägga till en länk till sidan kan du gå till `/pages/{alumniblogg | reseberattelser}/index.js` kopiera in följande i `<ul>` tagen:
+Gör en markdown fil och spara den i `/content/` i någon av mapparna alumniberattelser eller reseberättelser. För att lägga till en länk till sidan kan du gå till `/pages/{alumniblogg | reseberattelser}/index.js` kopiera in följande i `<ul>` tagen:
 
 ```html
 <li>
@@ -144,7 +150,8 @@ Gör en markdown fil och spara den i `public/content/` i någon av mapparna alum
 
 #### Bilder
 
-I markdown filen kan du lägga in vanlig HTML kod och med vanliga `<img src="path">` taggar kan du lägga in bilder i texten. Det finns tre olika standard styles: _rese-top, rese-mid och rese-right_. _Top_ används för bilden högst upp på sidan (det går bara att använda en bild i toppen med den taggen). Om du vill ha flera bilder på en rad kan dui lägga dem i en "container" med följande tagg: `<div class="rese-img-container">`. För exempel se `public\content\reseberattelser\camilla-björn-irland.md`.
+I markdown filen kan du lägga in vanlig HTML kod och med vanliga `<img src="path">` taggar kan du lägga in bilder i texten. Det finns tre olika standard styles: _rese-top, rese-mid och rese-right_. _Top_ används för bilden högst upp på sidan (det går bara att använda en bild i toppen med den taggen). Om du vill ha flera bilder på en rad kan dui lägga dem i en "container" med följande tagg: `<div class="rese-img-container">`. För exempel se `/content/reseberattelser/camilla-björn-irland.md`.
+Bilderna ska laddas upp i `public/media/reseberattelse` eller motsvarande. Då blir "path": `media/reseberattelse/namn-på-bild.webp`.
 
 ## Struktur på aktuellt sidan - Dynamiskt innehåll
 

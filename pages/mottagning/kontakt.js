@@ -16,7 +16,7 @@ export default function Kontakt({ contents }) {
         description={"Här hittar du viktiga kontaktuppgifter för dig som deltar i mottagningen."}
         url={"https://www.cl-sektionen.se/mottagning/bilder"}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <article>
           <BackButton page="mottagning">Mottagningssidan</BackButton>
           <div className={styles.contact}>

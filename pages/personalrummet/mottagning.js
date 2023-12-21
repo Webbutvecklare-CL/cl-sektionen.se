@@ -227,7 +227,7 @@ export default function Mottagning() {
 
   return (
     <div id="contentbody">
-      <BackButton page="/personalrummet">Personalrummet</BackButton>
+      <BackButton page="personalrummet">Personalrummet</BackButton>
       <h1>Personalrummet - Mottagning</h1>
       <h2>Ladda upp nytt inlägg</h2>
       <div className={styles.inputPanel}>

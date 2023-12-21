@@ -24,21 +24,48 @@ p {
   color: #1d1d1f;
 }
 
+div, h1, h2, h3, h4 {
+  scroll-margin-top: 4rem;
+}
+
 h1 {
   font-size: 2rem;
   color: #1d1d1f;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   color: var(--clr5);
+  font-size: 1.5rem;
 }
 
 h3 {
-  margin-bottom: 0.2rem;
-  scroll-margin-top: 4rem;
+  margin-bottom: 0.2rem;  
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-top: .75rem;
+  margin-bottom: 0.1rem;
+  font-style: italic;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(20, 20, 20, 0),
+    rgba(20, 20, 20, 0.55),
+    rgba(20, 20, 20, 0)
+  );
 }
 
 a {
@@ -59,8 +86,8 @@ button {
   background-color: var(--clr1);
   border: none;
   height: fit-content;
-  border-radius: 0.5rem;
-  padding: 1.5ch 1ch;
+  border-radius: 0.3rem;
+  padding: 1ch 1rem;
   font-size: 1.2rem;
   font-family: inherit;
   font-weight: 500;
@@ -73,12 +100,30 @@ button {
 }
 
 button.small {
-  padding: 0.5ch 1ch 0.5ch 1ch;
+  padding: 0.5ch 1rem;
 }
+
 
 button:hover {
   background-color: var(--clr3) !important;
   transition: 0.2s;
+}
+
+button.hollow {
+  background-color: unset;
+  color: var(--clr2); /* Med clr1 ser det fel ut, idk */
+  border: 2px solid var(--clr1);
+}
+
+button.hollow.dark {
+  color:  var(--clr4);
+  border: 2px solid var(--clr4);
+}
+
+button.hollow:hover {
+  background-color: var(--clr1);
+  color: white;
+  border-color: var(--clr3);
 }
 
 button[disabled] {
@@ -92,10 +137,12 @@ span {
 }
 
 input,
-textarea {
+textarea,
+select {
   outline: none;
-  padding: 0.7rem;
+  padding: 0.5rem;
   border: 1px solid #ddd;
+  border-radius: 0.3rem;
   box-sizing: border-box;
   display: block;
   background-color: #fff;
@@ -104,7 +151,7 @@ textarea {
   box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-input:focus {
+input:focus, select:focus {
   box-shadow: none;
   outline: solid 1px var(--clgra);
 }
@@ -112,3 +159,26 @@ input:focus {
 input.error {
   border: var(--clr1) 1px solid;
 }
+
+ select {
+  margin-bottom: 1rem;
+  margin-top: 10px;
+  padding: 6px 6px;
+}
+
+select:focus {
+  box-shadow: none;
+  outline: solid 1px var(--clgra);
+}
+
+select option:checked {
+  background-color: var(--clr1);
+}
+
+select:before {
+  background-color: #92534d;
+  content: "";
+}
+
+/* Tar bort reCaptcha banner  */
+.grecaptcha-badge { visibility: hidden; }

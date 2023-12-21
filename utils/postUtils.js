@@ -26,6 +26,8 @@ function create_id(data, type = "") {
 async function validateLink(data, type) {
   let exist = true;
   let unique_link = create_id(data, type);
+
+  // Loopar tills användaren angett en unik adress
   while (exist) {
     console.log("getDoc - Validera länken");
     try {
@@ -37,7 +39,7 @@ async function validateLink(data, type) {
           return false;
         } else {
           //Gör något test så länken faktiskt fungerar
-          unique_link = create_id(title);
+          unique_link = create_id(unique_link);
         }
       } else {
         // Adressen var unik -> fortsätt försöka skicka data

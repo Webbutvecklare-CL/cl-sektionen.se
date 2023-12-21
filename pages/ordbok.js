@@ -161,7 +161,7 @@ function Ordbok({ ordbok }) {
 export default Ordbok;
 
 export async function getStaticProps() {
-  var ordbok = JSON.parse(readFileSync(`public/content/data/ordbok.json`));
+  var ordbok = JSON.parse(readFileSync(`content/data/ordbok.json`));
 
   return {
     props: { ordbok },

@@ -5,9 +5,9 @@ export default function Studiebevakning({ contents }) {
   return (
     <div id="contentbody">
       <h1 id="page-title">Studiebevakning</h1>
-      <p>
-        På denna sidan kan du läsa om hur du kan påverka din utbildning och studentliv samt vad det
-        finns för hjälp att få.
+      <p className="headerText">
+        På denna sidan kan du läsa om hur du kan påverka din utbildning och studentliv samt vad
+        det finns för hjälp att få.
       </p>
       <MarkdownRender mdData={contents["influence"]} />
       <MarkdownRender mdData={contents["kursnamnd"]} />

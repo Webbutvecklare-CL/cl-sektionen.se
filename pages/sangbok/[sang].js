@@ -15,7 +15,7 @@ export default function Sang({ songData, content }) {
         description={"Sektionens digitala sångbok."}
         url={"https://www.cl-sektionen.se/songbok" + songData.href}
       />
-      <div id="contentbody">
+      <div id="contentbody" className="wideContent">
         <article className={songStyles}>
           <BackButton page={"sangbok"}>Sångboken</BackButton>
           <MarkdownRender mdData={content} />
@@ -30,10 +30,10 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  const content = readFileSync(`public/content/sangbok/${params.sang}.md`, "utf8");
+  const content = readFileSync(`content/sangbok/${params.sang}.md`, "utf8");
 
   // Hämtar sång data från json
-  const songsDataFile = readFileSync(`public/content/data/sangbok-index.json`, "utf8");
+  const songsDataFile = readFileSync(`content/data/sangbok-index.json`, "utf8");
   const songsList = JSON.parse(songsDataFile);
 
   const songData = songsList.find((song) => song.href === `/${params.sang}`);
@@ -45,7 +45,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   // Hämtar alla filnamn från mappen med alla sånger
-  const PATH = join(process.cwd(), "public/content/sangbok");
+  const PATH = join(process.cwd(), "content/sangbok");
   const paths = readdirSync(PATH)
     .map((path) => path.replace(/\.mdx?$/, ""))
     .map((sangid) => ({ params: { sang: sangid } }));

@@ -34,12 +34,12 @@ export default async function handler(req, res) {
       message = {
         topic: "new_post",
         ...payload,
-        collapseKey: "new_post",
+        collapseKey: req.body.data.postId, // Gör att notiser med samma id byter ut den tidigare notisen
         fcmOptions: { analyticsLabel: "new_post" },
       };
-    } catch (error) {
-      console.error(error);
-      return res.status(400).send({ message: error });
+    } catch ({ error }) {
+      console.error("Verification failed:", error);
+      return res.status(400).send({ message: "Verifiering misslyckades: " + error });
     }
   } else if (req.body.data.type == "mottagning") {
     type = "mottagning";
@@ -49,14 +49,12 @@ export default async function handler(req, res) {
         title: "Mottagningen: " + req.body.data.title,
         body: req.body.data.body,
         icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
-        tag: "Mottagning",
         link: `/mottagning`,
       },
     };
     message = {
       topic: "mottagning",
       ...payload,
-      collapseKey: "mottagning",
       fcmOptions: { analyticsLabel: "mottagning" },
     };
   } else if (req.body.data.type == "custom") {
@@ -73,14 +71,12 @@ export default async function handler(req, res) {
         body: req.body.data.body,
         image: req.body.data.image || "",
         icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
-        tag: "Anpassad",
         link: `/`,
       },
     };
     message = {
       topic: "custom",
       ...payload,
-      collapseKey: "custom",
       fcmOptions: { analyticsLabel: "custom" },
     };
   } else {
@@ -141,7 +137,6 @@ function createPostPayload(data) {
       body: `${data.title}`,
       image: data.image || "",
       icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
-      tag: "Nytt inlägg",
       link: `/aktuellt/${data.id}`,
     },
   };

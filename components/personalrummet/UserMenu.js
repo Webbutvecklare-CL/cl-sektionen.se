@@ -25,7 +25,7 @@ import { all_committees } from "../../constants/committees-data";
 
 import { menu } from "../../styles/personalrummet.module.css";
 
-export default function UserMenu() {
+export default function UserMenu({ contents }) {
   const [menuSelect, setMenuSelect] = useState("senaste");
   const [error, setError] = useState("");
   const [committeePosts, setCommitteePosts] = useState([]);
@@ -147,14 +147,14 @@ export default function UserMenu() {
         <button id="how-to" onClick={() => setMenuSelect("how-to")}>
           HOW-TO
         </button>
-        <button onClick={() => router.push("personalrummet/tv")}>NCT</button>
+        <button onClick={() => router.push("personalrummet/ntc")}>NTC</button>
         <button onClick={() => logOut()}>Logga ut</button>
       </div>
       <h2>Hantera</h2>
       <div className={menu}>
         <button onClick={() => router.push("personalrummet/redigera")}>Redigera inlägg</button>
         <button onClick={() => router.push("personalrummet/publicera")}>Publicera inlägg</button>
-        <button onClick={() => router.push("personalrummet/tv")}>Lägg upp på tv</button>
+        <button onClick={() => router.push("personalrummet/tv")}>Hantera bilder på TV:n</button>
         {/* Bara de som kan göra inlägg på mottagningssidan får upp detta alternativet */}
         {(userData.permission === "admin" ||
           ["mottagningsnamnden", "naringslivsnamnden"].includes(userData.committee)) && (
@@ -181,7 +181,7 @@ export default function UserMenu() {
       {menuSelect == "how-to" && (
         <div>
           <h2>HOW-TO</h2>
-          <MarkdownRender source={"./content/personalrummet/how-to.md"} />
+          <MarkdownRender mdData={contents["how-to"]} />
         </div>
       )}
     </div>

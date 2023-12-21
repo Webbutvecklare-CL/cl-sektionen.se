@@ -15,6 +15,8 @@ import {
   faDice,
   faMasksTheater,
   faArrowTrendUp,
+  faCartShopping,
+  faBasketball,
 } from "@fortawesome/free-solid-svg-icons";
 
 const board = {
@@ -87,6 +89,13 @@ const trustees = [
     id: "enskilda",
   },
 ];
+
+const individuals = [
+  { name: "Talman", icon: faGavel, id: "talman" },
+  { name: "Försäljningsansvarig", icon: faCartShopping, id: "forsaljningsansvarig" },
+  { name: "Idrottsansvarig", icon: faBasketball, id: "idrottsansvarig" },
+];
+
 const associations = [
   {
     name: "CLek",
@@ -98,14 +107,9 @@ const associations = [
     icon: faMasksTheater,
     id: "dubbelspexet",
   },
-  {
-    name: "CLak",
-    icon: faArrowTrendUp,
-    id: "clak",
-  },
 ];
 
-const all_committees = [board, ...committees, ...trustees, ...associations];
+const all_committees = [board, ...committees, ...trustees, ...individuals, ...associations];
 
 var all_committee_ids = {};
 all_committee_ids[board.id] = board;
@@ -117,6 +121,9 @@ for (let trustee of trustees) {
 }
 for (let association of associations) {
   all_committee_ids[association.id] = association;
+}
+for (let individual of individuals) {
+  all_committee_ids[individual.id] = individual;
 }
 
 export { board, committees, trustees, associations, all_committees, all_committee_ids };

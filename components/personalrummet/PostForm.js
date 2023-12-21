@@ -4,6 +4,7 @@ import Image from "next/image";
 import TextField from "./form components/TextField";
 import InfoBox from "./form components/InfoBox";
 import Label from "./form components/Label";
+import PostComponent from "@/components/PostComponent";
 import { create_id } from "../../utils/postUtils";
 import { useAuth } from "../../context/AuthContext";
 
@@ -11,7 +12,7 @@ import { useAuth } from "../../context/AuthContext";
 import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 import { all_committees } from "../../constants/committees-data";
 
-import styles from "../../styles/personalrummet/publicera.module.css";
+import styles from "../../styles/personalrummet/post-form.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
@@ -36,6 +37,19 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [type, setType] = useState("");
   const publishInCalendar = useRef(null);
   const sendNotification = useRef(null);
+
+  const [viewPreview, setViewPreview] = useState(false);
+
+  // Stänger av scroll på resten av innehållet när förhandsvisning är öppen
+  useEffect(() => {
+    if (viewPreview) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    }
+  }, [viewPreview]);
 
   const { userData } = useAuth();
 
@@ -69,22 +83,24 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   // Om det är ett SM eller StyM så uppdatera länken efter typ och mötes nummer
   useEffect(() => {
     if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
+    if (type !== "event") return; // Om det inte är ett event kan länken va vad som
     if (tags["SM"]) {
       setLink(create_id({ number: meetingNumber }, "SM"));
     } else if (tags["StyM"]) {
       setLink(create_id({ number: meetingNumber }, "StyM"));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [meetingNumber, tags]);
+  }, [meetingNumber, tags, type, editMode]);
 
   // Om det inte är ett SM eller StyM så uppdateras länken efter titeln
   useEffect(() => {
     if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
-    if (!(tags["SM"] || tags["StyM"])) {
-      setLink(create_id(title));
+
+    if ((tags["SM"] || tags["StyM"]) && type === "event") {
+      // Om det är ett SM / StyM event då ska det va en speciell länk
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [title, tags]);
+    setLink(create_id(title));
+  }, [title, tags, type, editMode]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -177,10 +193,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const handleTagClick = (e) => {
     e.preventDefault();
     let tag = e.target.innerHTML;
-    let selected = e.target.classList.contains("selected");
+    let selected = e.target.classList.contains(styles.selected);
 
-    // Om det är SM eller StyM ska alla andra tagga rensas
-    if (tag === "SM" || tag === "StyM") {
+    // Om det är SM eller StyM ska alla andra tagga rensas om det är ett event
+    if ((tag === "SM" || tag === "StyM") && type === "event") {
       setTags((tags) => {
         // Sätter alla andra taggar till false
         Object.keys(tags).forEach((key) => {
@@ -195,7 +211,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
 
     // Rensar link input om SM eller StyM var valda tidigare
-    if (tags["SM"] || tags["StyM"]) {
+    if ((tags["SM"] || tags["StyM"]) && type === "event") {
       setLink("");
     }
 
@@ -258,7 +274,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       <>
         {image.name && (
           <>
-            <div className="image-file">
+            <div className={styles.imageFile}>
               {/* Om image är en sträng så är det en länk och då plockar vi ut filnamnet */}
               {image.name}{" "}
               <FontAwesomeIcon
@@ -266,17 +282,19 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                 onClick={() => setImage({ name: undefined, url: undefined })}
               />
             </div>
-            <div className="image-meta">
+            <div className={styles.imageMeta}>
               <span
-                className={`image-format ${
+                className={`${styles.imageFormat} ${
                   available_formats.includes(image.name.split(".")[1].toLowerCase())
-                    ? "accepted"
-                    : "error"
+                    ? styles.accepted
+                    : styles.error
                 }`}>
                 Format: {image.name.split(".")[1].toLowerCase()}
               </span>
               <span
-                className={`image-size ${image.size < 0.8 * 1024 * 1024 ? "accepted" : "error"}`}>
+                className={`${styles.imageSize} ${
+                  image.size < 0.8 * 1024 * 1024 ? styles.accepted : styles.error
+                }`}>
                 Storlek: {Math.round((image.size / 1024) * 10) / 10} kB
               </span>
             </div>
@@ -285,7 +303,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             </p>
             {/* Om det är en sträng så är det länken från firebase annars skapa en lokal url */}
             <Image
-              id="frame"
+              id={styles.frame}
               src={image.url ? image.url : URL.createObjectURL(image)}
               width={120}
               height={100}
@@ -299,38 +317,40 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Välj vilken typ av inlägg du ska göra:</label>
-        <div className="type-container">
-          <button
-            disabled={editMode}
-            onClick={(e) => handleSetType(e, "information")}
-            className={type === "information" ? "selected" : ""}>
-            Information
-          </button>
-          <button
-            disabled={editMode}
-            onClick={(e) => handleSetType(e, "event")}
-            className={type === "event" ? "selected" : ""}>
-            Event
-          </button>
+    <div className={viewPreview ? styles.previewOpen : ""}>
+      <form onSubmit={handleSubmit} className={styles.postForm}>
+        <div>
+          <Label>Välj vilken typ av inlägg du ska göra:</Label>
+          <div className={styles.typeContainer}>
+            <button
+              disabled={editMode}
+              onClick={(e) => handleSetType(e, "information")}
+              className={type === "information" ? styles.selected : ""}>
+              Information
+            </button>
+            <button
+              disabled={editMode}
+              onClick={(e) => handleSetType(e, "event")}
+              className={type === "event" ? styles.selected : ""}>
+              Event
+            </button>
+          </div>
         </div>
         {type && (
           <div>
             {/* Tagg väljare */}
             {(!editMode || !(tags["SM"] || tags["StyM"])) && (
               <>
-                <label>
+                <Label>
                   Kategorier:
                   <FontAwesomeIcon icon={faStarOfLife} rotation={90} className={styles.required} />
-                </label>
-                <div className="tag-container">
-                  <div className="tag-selector">
+                </Label>
+                <div className={styles.tagContainer}>
+                  <div className={styles.tagSelector}>
                     {Object.keys(tags).map((tag, index) => {
                       return (
                         <button
-                          className={`tag ${tags[tag] ? "selected" : ""}`}
+                          className={`${styles.tag} ${tags[tag] ? styles.selected : ""}`}
                           name={tag}
                           key={index}
                           onClick={handleTagClick}>
@@ -339,16 +359,16 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                       );
                     })}
                   </div>
-                  {(tags["SM"] || tags["StyM"]) && (
-                    <div className="meeting-input">
-                      <label>
+                  {(tags["SM"] || tags["StyM"]) && type === "event" && (
+                    <div className={styles.meetingInput}>
+                      <Label>
                         Mötes nummer:
                         <FontAwesomeIcon
                           icon={faStarOfLife}
                           rotation={90}
                           className={styles.required}
                         />
-                      </label>
+                      </Label>
                       <input
                         required
                         type="number"
@@ -358,6 +378,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                         width="100px"
                         onChange={(e) => setMeetingNumber(e.target.value)}
                       />
+                      <InfoBox text="För event inlägg är SM och StyM taggarna reserverade enbart för eventinlägget för just det SM:et" />
                     </div>
                   )}
                 </div>
@@ -413,7 +434,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
             {type === "event" && (
               <>
-                <div className="date-input">
+                <div className={styles.dateInput}>
                   <div>
                     <Label required>Start:</Label>
                     <input
@@ -438,10 +459,12 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               </>
             )}
 
-            <div className={"visibility-input"}>
+            <div className={styles.visibilityInput}>
               <Label>Synlighet:</Label>
               <div
-                className={`visibility-button ${visibility === "public" ? "active" : ""}`}
+                className={`${styles.visibilityButton} ${
+                  visibility === "public" ? styles.active : ""
+                }`}
                 onClick={() => setVisibility(visibility === "public" ? "private" : "public")}>
                 <FontAwesomeIcon icon={visibility !== "public" ? faEyeSlash : faEye} />
               </div>
@@ -457,8 +480,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               Url:
               <InfoBox text='Länken måste vara unik och får bara innehålla a-z, 0-9 samt "-".' />
             </Label>
+            {/* Avstängd om det är SM / StyM event */}
             <input
-              disabled={editMode || tags.StyM || tags.SM}
+              disabled={editMode || ((tags.StyM || tags.SM) && type === "event")}
               type="text"
               value={link}
               placeholder={"Ex: sm-1-23 ger länken /aktuellt/sm-1-23"}
@@ -468,10 +492,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
             {/* Kalender */}
             {!editMode && type === "event" && (
               <>
-                <div className="calender-input">
-                  <label htmlFor="calendar">Lägg till i sektionskalendern:</label>
+                <div className={styles.calenderInput}>
+                  <Label htmlFor={"calendar"}>Lägg till i sektionskalendern:</Label>
                   <input
-                    id="calendar"
+                    id={"calendar"}
                     type="checkbox"
                     ref={publishInCalendar}
                     defaultChecked={false}
@@ -482,18 +506,56 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
             {!editMode && (
               <>
-                <div className="calender-input">
-                  <label htmlFor="notis">Skicka notis:</label>
-                  <input id="notis" type="checkbox" ref={sendNotification} defaultChecked={true} />
+                <div className={styles.calenderInput}>
+                  <Label htmlFor={"notis"}>Skicka notis:</Label>
+                  <input
+                    id={"notis"}
+                    type="checkbox"
+                    ref={sendNotification}
+                    defaultChecked={true}
+                  />
                 </div>
               </>
             )}
-
+          </div>
+        )}
+        {type && (
+          <div className={styles.actionMenu}>
             <button className={styles.submitButton}>{editMode ? "Uppdatera" : "Publicera"}</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setViewPreview(true);
+              }}>
+              Visa förhandsvisning
+            </button>
           </div>
         )}
       </form>
       {error && <p>{error}</p>}
+
+      {viewPreview && (
+        <div className={styles.postPreview}>
+          <div>
+            <PostComponent
+              postData={{
+                image: image ? URL.createObjectURL(image) : undefined,
+                title,
+                subtitle: subtitle.current?.value || "",
+                body: body.current || "",
+                publishDate: { seconds: new Date().getTime() / 1000 },
+                author: author.current?.value,
+              }}
+            />
+            <button
+              onClick={() => {
+                setViewPreview(false);
+              }}>
+              Stäng
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
