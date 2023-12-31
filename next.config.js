@@ -8,7 +8,6 @@ const withPWA = require("next-pwa")({
 const nextConfig = {
   productionBrowserSourceMaps: true,
   images: {
-    domains: ["firebasestorage.googleapis.com"],
     remotePatterns: [
       {
         protocol: "https",
