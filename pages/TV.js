@@ -40,10 +40,13 @@ export default function TV() {
 
   useEffect(() => {
     // Uppdaterar natt/dag varje timme
-    const id = setInterval(async () => {
-      //Kollar om det är kväll eller dag
-      setIsNight(getIsNight());
-    }, 1000 * 60 * 60);
+    const id = setInterval(
+      async () => {
+        //Kollar om det är kväll eller dag
+        setIsNight(getIsNight());
+      },
+      1000 * 60 * 60
+    );
     return () => clearInterval(id); // Tar bort interval när sidan lämnas
   }, []);
 
