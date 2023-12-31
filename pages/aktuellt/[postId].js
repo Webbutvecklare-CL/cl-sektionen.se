@@ -24,7 +24,7 @@ import styles from "../../styles/aktuellt.module.css";
 import { useRouter } from "next/router";
 
 export default function Post({ postData, postId }) {
-  const {query} = useRouter()
+  const { query } = useRouter();
   const getDate = (date) => {
     return new Date(date.seconds * 1000).toLocaleDateString("sv");
   };

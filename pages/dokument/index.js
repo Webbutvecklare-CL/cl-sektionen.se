@@ -48,7 +48,10 @@ export default function Dokument({ contents }) {
 
         <h2>Blanketter, mallar och lathundar</h2>
         <div className={styles.cards}>
-          <Card link={"https://drive.google.com/file/d/1I3bKFoR5PRMrIl-_SFrGBcC5_JMVPWPM/view?usp=drive_link"}>
+          <Card
+            link={
+              "https://drive.google.com/file/d/1I3bKFoR5PRMrIl-_SFrGBcC5_JMVPWPM/view?usp=drive_link"
+            }>
             <FontAwesomeIcon icon={faFilePdf} /> Utläggsblankett
           </Card>
           <Card

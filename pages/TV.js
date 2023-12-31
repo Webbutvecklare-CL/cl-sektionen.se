@@ -11,7 +11,7 @@ import Slideshow from "../components/TV/Slideshow";
 import KTH_Summer from "../public/media/TV/kth-sommar.png";
 import KTH_Night from "../public/media/TV/kth-night.jpg";
 
-import {  getIsNight } from "../utils/tv";
+import { getIsNight } from "../utils/tv";
 
 import styles from "../styles/tv.module.css";
 

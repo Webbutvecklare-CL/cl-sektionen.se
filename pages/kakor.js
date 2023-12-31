@@ -18,33 +18,33 @@ export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
 
   return (
     <div id="contentbody">
-        <h1>Kakpolicy</h1>
-        <MarkdownRender mdData={contents["kakor"]} />
-        <h2>Godkänn kakor</h2>
+      <h1>Kakpolicy</h1>
+      <MarkdownRender mdData={contents["kakor"]} />
+      <h2>Godkänn kakor</h2>
 
-        <div style={menuStyles}>
-          {open && (
-            <>
-              <button
-                className={`${buttonStyles} small`}
-                onClick={() => {
-                  setCookieState(true);
-                  setOpen(false);
-                }}>
-                Godkänn alla
-              </button>
-              <button
-                className={`${buttonStyles} small`}
-                onClick={() => {
-                  setCookieState(false);
-                  setOpen(false);
-                }}>
-                Godkänn nödvändiga
-              </button>
-            </>
-          )}
-          {!open && <p>Dina preferenser är sparade!</p>}
-        </div>
+      <div style={menuStyles}>
+        {open && (
+          <>
+            <button
+              className={`${buttonStyles} small`}
+              onClick={() => {
+                setCookieState(true);
+                setOpen(false);
+              }}>
+              Godkänn alla
+            </button>
+            <button
+              className={`${buttonStyles} small`}
+              onClick={() => {
+                setCookieState(false);
+                setOpen(false);
+              }}>
+              Godkänn nödvändiga
+            </button>
+          </>
+        )}
+        {!open && <p>Dina preferenser är sparade!</p>}
+      </div>
     </div>
   );
 }
