@@ -41,7 +41,7 @@
     "googleapis": "^126.0.1",
     "html-react-parser": "^3.0.15",
     "localforage": "^1.10.0",
-    "next": "13.2.4",
+    "next": "^13.5.6",
     "next-pwa": "^5.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
