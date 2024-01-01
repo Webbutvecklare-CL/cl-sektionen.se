@@ -76,7 +76,11 @@ export default function Mottagning() {
     }
 
     // Skickar notis om valt
-    sendNotification(user, { type: "mottagning", title, body: content });
+    try {
+      await sendNotification(user, { type: "mottagning", title, body: content });
+    } catch (error) {
+      console.error("Fel vid skickandet av notisen: ", error);
+    }
 
     postData.id = mottagningsPostsRef.id;
     setPosts([postData, ...posts]);

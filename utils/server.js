@@ -61,10 +61,15 @@ export async function sendNotification(user, data) {
     }
   } else {
     let message = "Notification delivery unsuccessful";
-    res.json().then((data) => {
-      console.error(data);
-      message = data.message;
-    });
+    await res
+      .json()
+      .then((data) => {
+        console.error(data);
+        message = data.message;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     throw new Error(message);
   }
 }
