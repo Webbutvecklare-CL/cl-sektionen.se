@@ -335,6 +335,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                 <div className={styles.tagContainer}>
                   <div className={styles.tagSelector}>
                     {Object.keys(tags).map((tag, index) => {
+                      // Om det är ett event så ska inte SM och StyM visas
+                      if (editMode && (tag === "SM" || tag === "StyM")) return;
+
                       return (
                         <button
                           className={`${styles.tag} ${tags[tag] ? styles.selected : ""}`}

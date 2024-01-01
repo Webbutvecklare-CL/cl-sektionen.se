@@ -188,7 +188,6 @@
   flex-flow: row wrap;
   align-items: center;
   gap: 1rem;
-
 }
 
 .imageFile svg {
@@ -206,8 +205,8 @@
   background-color: #e7e7e7;
 }
 
-.postForm button:disabled {
-  background-color: #b67a71;
+.postForm button:disabled:not(.selected) {
+  background-color: #b67a71 !important;
   cursor: no-drop;
 }
 
@@ -287,9 +286,9 @@
 }
 
 .infoboxContainer svg {
-    padding-right: 1rem;
-    height: 0.9rem;
-    vertical-align: -1px !important;
+  padding-right: 1rem;
+  height: 0.9rem;
+  vertical-align: -1px !important;
 }
 
 .postPreview {
@@ -305,7 +304,6 @@
 
   display: flex;
   justify-content: center;
-  
 }
 
 .postPreview > div {
