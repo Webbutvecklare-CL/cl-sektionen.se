@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 import PostForm from "../../components/personalrummet/PostForm";
 import BackButton from "@/components/BackButton";
@@ -10,6 +10,7 @@ import { getFirestore, doc, setDoc, deleteDoc, Timestamp, updateDoc } from "fire
 import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { app } from "../../firebase/clientApp";
 import { useAuth } from "../../context/AuthContext";
+import { createId, getTypedLink } from "@/utils/postUtils";
 
 const storage = getStorage(app);
 const firestore = getFirestore(app);
@@ -20,6 +21,8 @@ import { revalidate, sendNotification } from "../../utils/server";
 
 import { all_committee_ids } from "../../constants/committees-data";
 
+import ValidationModal from "@/components/personalrummet/ValidationModal";
+
 import {
   formWrapper,
   actionMenu,
@@ -28,7 +31,6 @@ import {
 
 export default function Publicera({ calendarID }) {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
-  const router = useRouter();
 
   let today = new Date().toLocaleString().substring(0, 16); // Hämtar dagens datum och sätter som default
   const [prefillData, setPrefillData] = useState({
@@ -71,30 +73,45 @@ export default function Publicera({ calendarID }) {
   // Skickar allt till databasen
   const handleSubmit = async (data) => {
     setIsPending(true);
-    setStatus("Validera länk...");
+    setStatus("Validerar länk...");
+
+    if (!data.link) {
+      data.link = createId(data.title, data.type);
+    }
 
     // Validera id/länk
-    // Om ej unik be användaren specificera en adress kollar därefter om den är unik
-    let link = "";
+    let uniqueLink;
     try {
-      if (data.link) {
-        link = await validateLink(data.link);
-      } else {
-        link = await validateLink(data.title);
+      // Funktionen resolverar med false om länken inte är unik annars med en korrekt länk
+      let link = await validateLink(data.link, data.type);
+      if (link === false) {
+        // Om länken inte är unik låt användaren skriva in en ny tills den är unik
+        link = await new Promise((resolve, reject) => {
+          setModal(<ValidationModal data={data} onClose={resolve} onError={reject} />);
+        });
       }
+
+      // Förtydliga att detta är den validerade unika länken
+      uniqueLink = link;
     } catch (error) {
       console.error("Fel vid valideringen av länken:", error);
-      setError("Det gick inte att validera länken/id:et");
+      setError("Det gick inte att validerar länken/id:et");
       setIsPending(false);
       return;
     }
+    setModal(false);
 
-    if (!link) {
+    if (!uniqueLink) {
       // Användaren stängde fönstret för att ange unik länk
+      console.log("Användaren avbröt uppladdningen", uniqueLink);
       setIsPending(false);
       setError("Användaren avbröt uppladdningen.");
       return;
     }
+
+    console.log("Laddar upp...");
+    setError("");
+    return;
 
     // Skickar data
     let postData = {
@@ -116,7 +133,7 @@ export default function Publicera({ calendarID }) {
       postData.endDateTime = Timestamp.fromDate(new Date(data.endDateTime));
     }
 
-    const postRef = doc(firestore, "posts", link);
+    const postRef = doc(firestore, "posts", uniqueLink);
 
     setStatus("Laddar upp inlägget...");
     try {
@@ -150,7 +167,7 @@ export default function Publicera({ calendarID }) {
       // Ladda upp bilden
       setStatus("Laddar upp bilden...");
       try {
-        const imageRef = ref(storage, `posts/${link}/${data.image.name}`);
+        const imageRef = ref(storage, `posts/${uniqueLink}/${data.image.name}`);
         await uploadBytes(imageRef, data.image);
         const downloadUrl = await getDownloadURL(imageRef);
 
@@ -210,7 +227,7 @@ export default function Publicera({ calendarID }) {
     setStatus("Uppdatera webbplatsen...");
     try {
       // Revalidate:ar hemsidan
-      await revalidate(user, { index: true, aktuellt: true, post: link });
+      await revalidate(user, { index: true, aktuellt: true, post: uniqueLink });
     } catch (error) {
       console.error(error);
       setModal(
@@ -275,7 +292,7 @@ export default function Publicera({ calendarID }) {
     if (data.sendNotification) {
       setStatus("Skickar notiser...");
       try {
-        await sendNotification(user, { type: "post", postId: link });
+        await sendNotification(user, { type: "post", postId: uniqueLink });
       } catch (error) {
         setError("Det gick inte att skicka notiserna");
         console.error(error);
@@ -304,13 +321,13 @@ export default function Publicera({ calendarID }) {
 
     setIsPending(false);
     setError("");
-    setSuccessLink(link);
+    setSuccessLink(uniqueLink);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleDeletion = async (data) => {
+  const handleDeletion = async () => {
     try {
-      const postRef = doc(firestore, "posts", data.link);
+      const postRef = doc(firestore, "posts", uniqueLink);
       await deleteDoc(postRef);
       console.log("Inlägget är borttaget");
     } catch (err) {

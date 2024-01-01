@@ -5,7 +5,7 @@ import TextField from "./form components/TextField";
 import InfoBox from "./form components/InfoBox";
 import Label from "./form components/Label";
 import PostComponent from "@/components/PostComponent";
-import { create_id } from "../../utils/postUtils";
+import { createId, getTypedLink } from "../../utils/postUtils";
 import { useAuth } from "../../context/AuthContext";
 
 // Taggar som kan väljas
@@ -85,9 +85,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
     if (type !== "event") return; // Om det inte är ett event kan länken va vad som
     if (tags["SM"]) {
-      setLink(create_id({ number: meetingNumber }, "SM"));
+      setLink(createId({ number: meetingNumber }, "SM"));
     } else if (tags["StyM"]) {
-      setLink(create_id({ number: meetingNumber }, "StyM"));
+      setLink(createId({ number: meetingNumber }, "StyM"));
     }
   }, [meetingNumber, tags, type, editMode]);
 
@@ -99,7 +99,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       // Om det är ett SM / StyM event då ska det va en speciell länk
       return;
     }
-    setLink(create_id(title));
+    setLink(createId(title));
   }, [title, tags, type, editMode]);
 
   const handleSubmit = (e) => {
@@ -251,19 +251,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       setTags({ ...infoTags, ...commonTags });
     } else if (type === "event") {
       setTags({ ...eventTags, ...commonTags });
-    }
-  };
-
-  // Ändrar värdet så att det är en korrekt länk
-  const handleLinkInput = (txt) => {
-    if (txt.endsWith(" ")) {
-      // Låter användaren skriva mellan slag som om de lägger till fler tecken blir ett -
-      setLink(create_id(txt) + " ");
-    } else if (txt.endsWith("-")) {
-      // Låter användaren skriva in - som försvinner om inga fler tecken läggs till
-      setLink(create_id(txt) + "-");
-    } else {
-      setLink(create_id(txt));
     }
   };
 
@@ -486,7 +473,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               type="text"
               value={link}
               placeholder={"Ex: sm-1-23 ger länken /aktuellt/sm-1-23"}
-              onChange={(e) => handleLinkInput(e.target.value)}
+              onChange={(e) => setLink(getTypedLink(e.target.value))}
             />
 
             {/* Kalender */}
