@@ -1,11 +1,8 @@
 .contactForm {
-  
-  
   padding: 2rem;
   border-radius: 0.4rem;
 
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
-
 }
 
 .contactForm form {
@@ -18,10 +15,11 @@
 
 .contactForm form > div {
   width: 100%;
-
 }
 
-.contactForm input, .contactForm textarea, .contactForm select {
+.contactForm input,
+.contactForm textarea,
+.contactForm select {
   width: 100%;
 }
 
@@ -49,7 +47,7 @@
   margin-bottom: 0.3rem;
 }
 
-.disclaimer {  
+.disclaimer {
   text-align: center;
   margin: auto;
 }
@@ -67,5 +65,4 @@
     font-size: 0.9rem;
     max-width: 100%;
   }
-  
 }

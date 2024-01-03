@@ -60,6 +60,4 @@ function updateUser(user) {
   return updateDoc(userRef, profileInfo);
 }
 
-
-
 export { googleLogin, validateAccountCheck, createUser, updateUser };

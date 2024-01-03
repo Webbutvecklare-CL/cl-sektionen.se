@@ -1,6 +1,7 @@
 # Platina
 
 ## 2023
+
 Armin Baymani
 Mikael Lundkvist
 Felix Alin
@@ -39,6 +40,7 @@ Niclas Lund
 # Guld
 
 ## 2023
+
 Anton Sundberg
 Emil Rapp
 Emelie Selinder
@@ -185,9 +187,10 @@ Martin Pettersson
 # Silver
 
 ## 2023
+
 Maja Rosén
 Armin Baymani
-Jesper Svensson 
+Jesper Svensson
 Frida Sundberg
 Gustav Heldt
 

@@ -114,7 +114,6 @@ export default function Navbar() {
   let burgerMenuRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-
       // Kollar om elementet som användaren tryckte på finns i navbar eller burgerMenu
       const pressOnNavBar = navbarRef.current.contains(e.target);
       const pressOnBurgerMenu = burgerMenuRef.current.contains(e.target);

@@ -24,10 +24,7 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   // Hämtar all text
-  const content = readFileSync(
-    `content/reseberattelser/${params.reseberattelse}.md`,
-    "utf8"
-  );
+  const content = readFileSync(`content/reseberattelser/${params.reseberattelse}.md`, "utf8");
 
   return {
     props: { reseberattelse: params.reseberattelse, content: JSON.parse(JSON.stringify(content)) }, // will be passed to the page component as props

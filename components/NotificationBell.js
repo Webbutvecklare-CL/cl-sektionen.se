@@ -40,9 +40,12 @@ export default function NotificationBell({
           setTimeout(() => {
             setShowHint(true);
           }, messageOptions?.delay || 2000);
-          setTimeout(() => {
-            setShowHint(false);
-          }, messageOptions?.delay + messageOptions?.duration || 9000);
+          setTimeout(
+            () => {
+              setShowHint(false);
+            },
+            messageOptions?.delay + messageOptions?.duration || 9000
+          );
         }
       }
     });

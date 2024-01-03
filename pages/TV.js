@@ -11,7 +11,7 @@ import Slideshow from "../components/TV/Slideshow";
 import KTH_Summer from "../public/media/TV/kth-sommar.png";
 import KTH_Night from "../public/media/TV/kth-night.jpg";
 
-import {  getIsNight } from "../utils/tv";
+import { getIsNight } from "../utils/tv";
 
 import styles from "../styles/tv.module.css";
 
@@ -40,10 +40,13 @@ export default function TV() {
 
   useEffect(() => {
     // Uppdaterar natt/dag varje timme
-    const id = setInterval(async () => {
-      //Kollar om det är kväll eller dag
-      setIsNight(getIsNight());
-    }, 1000 * 60 * 60);
+    const id = setInterval(
+      async () => {
+        //Kollar om det är kväll eller dag
+        setIsNight(getIsNight());
+      },
+      1000 * 60 * 60
+    );
     return () => clearInterval(id); // Tar bort interval när sidan lämnas
   }, []);
 

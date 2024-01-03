@@ -59,10 +59,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-/* 
+  /* 
   background-color: rgba(0, 0, 0, 0.5); */
   color: rgb(25, 151, 25);
-
 }
 
 .imageOverlay[data-visible="false"] {
@@ -126,7 +125,7 @@
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
 }
 
-.imageHolder  {
+.imageHolder {
   display: flex;
   aspect-ratio: 8/5;
   justify-content: center;
@@ -178,7 +177,6 @@
   margin: 0;
   padding: 0;
   font-size: 0.8rem;
-
 }
 
 .imageOptions button:first-child {
@@ -201,7 +199,7 @@
 
 .editMenu p {
   margin: 0;
-padding: 0;
+  padding: 0;
 }
 
 .editMenu > div {
@@ -230,8 +228,6 @@ padding: 0;
 }
 
 @media screen and (max-width: 500px) {
-
-
   /* .imageHolder {
     height: 100px;
   } */

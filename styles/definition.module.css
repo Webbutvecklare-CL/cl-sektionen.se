@@ -5,7 +5,6 @@
 }
 
 .tooltip {
-
   --offset: 0px;
 
   position: absolute;
@@ -16,9 +15,9 @@
   width: 20rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
-  
+
   transition: all 0.3s ease-in-out;
-  
+
   visibility: hidden;
   opacity: 0;
 
@@ -26,7 +25,6 @@
   left: 50%;
   margin-left: calc(-10rem - var(--offset));
   transform: translateY(5px);
- 
 }
 
 .container:hover > .tooltip {
