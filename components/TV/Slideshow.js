@@ -38,7 +38,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
       container.style.backgroundColor = "";
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [default_image, currentIndex]);
+  }, [default_image, currentIndex, imageUrls]);
 
   //Byter till nästa bild
   useEffect(() => {

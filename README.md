@@ -85,7 +85,7 @@ NEXT_PUBLIC_FIREBASE_VAPID_KEY=
 
 # Fråga Webbansvariga efter denna - används i api rotes
 # Finns i Project Settings > Service Account > Generate New Private Key
-NEXT_PUBLIC_FIREBASE_SERVICE_ACCOUNT=
+FIREBASE_SERVICE_ACCOUNT=
 
 # Väljs fritt för att verifiera att revalidation request är från en betrodd källa
 NEXT_PUBLIC_REVALIDATE_TOKEN=

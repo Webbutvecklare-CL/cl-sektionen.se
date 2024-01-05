@@ -22,7 +22,7 @@ export default function NTC() {
 
   const { userData, user } = useAuth();
 
-  const handleSendNotification = () => {
+  const handleSendNotification = async () => {
     let notificationMessage;
     if (type == "post") {
       notificationMessage = {
@@ -39,7 +39,11 @@ export default function NTC() {
       };
     }
 
-    sendNotification(user, notificationMessage);
+    try {
+      await sendNotification(user, notificationMessage);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const testSupport = () => {

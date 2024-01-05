@@ -2,7 +2,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { app } from "../firebase/clientApp";
 const firestore = getFirestore(app);
 
-function create_id(data, type = "") {
+function createId(data, type = "") {
   if (type === "SM") {
     // Kommer funka i lite mindre än 2000 år
     return `sm-${data.number}-${new Date().getFullYear() - 2000}`;
@@ -12,6 +12,8 @@ function create_id(data, type = "") {
     // Kommer funka i lite mindre än 2000 år
     return `stym-${data.number}-${new Date().getFullYear() - 2000}`;
   }
+
+  data += ""; // Ser till att det är en sträng
 
   data = data.toLowerCase();
   data = data.replace(/[åä]/g, "a");
@@ -25,31 +27,61 @@ function create_id(data, type = "") {
 
 async function validateLink(data, type) {
   let exist = true;
-  let unique_link = create_id(data, type);
+  let unique_link = createId(data, type);
 
-  // Loopar tills användaren angett en unik adress
-  while (exist) {
-    console.log("getDoc - Validera länken");
+  return new Promise(async (resolve, reject) => {
+    // Kolla om det finns ett dokument med den länken
     try {
-      const docSnap = await getDoc(doc(firestore, "posts", unique_link));
+      const docRef = doc(firestore, "posts", unique_link);
+      const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        unique_link = prompt("Ange en unik adress:", "unik-adress");
-        if (unique_link == null || unique_link == "") {
-          //Användaren avbröt
-          return false;
-        } else {
-          //Gör något test så länken faktiskt fungerar
-          unique_link = create_id(title);
-        }
+        // Länken finns redan
+        resolve(false);
       } else {
-        // Adressen var unik -> fortsätt försöka skicka data
-        exist = false;
+        // Länken finns inte
+        resolve(unique_link);
       }
     } catch (error) {
-      throw error;
+      reject(error);
     }
-  }
-  return unique_link;
+  });
+
+  // Loopar tills användaren angett en unik adress
+  // while (exist) {
+  //   console.log("getDoc - Validera länken");
+  //   try {
+  //     const docSnap = await getDoc(doc(firestore, "posts", unique_link));
+  //     if (docSnap.exists()) {
+  //       unique_link = prompt("Ange en unik adress:", "unik-adress");
+  //       if (unique_link == null || unique_link == "") {
+  //         //Användaren avbröt
+  //         return false;
+  //       } else {
+  //         //Gör något test så länken faktiskt fungerar
+  //         unique_link = create_id(unique_link);
+  //       }
+  //     } else {
+  //       // Adressen var unik -> fortsätt försöka skicka data
+  //       exist = false;
+  //     }
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
+  // return unique_link;
 }
 
-export { validateLink, create_id };
+// Ändrar värdet så att det är en korrekt länk
+const getTypedLink = (txt) => {
+  if (txt.endsWith(" ")) {
+    // Låter användaren skriva mellan slag som om de lägger till fler tecken blir ett -
+    return createId(txt) + " ";
+  } else if (txt.endsWith("-")) {
+    // Låter användaren skriva in - som försvinner om inga fler tecken läggs till
+    return createId(txt) + "-";
+  } else {
+    return createId(txt);
+  }
+};
+
+export { validateLink, createId, getTypedLink };

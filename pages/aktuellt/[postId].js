@@ -1,8 +1,6 @@
 import { React } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import CustomHead from "../../components/CustomHead";
-import parse from "html-react-parser";
 import { app } from "../../firebase/clientApp";
 import {
   getFirestore,
@@ -18,16 +16,12 @@ import {
 } from "firebase/firestore";
 const firestore = getFirestore(app);
 
-import BackButton from "../../components/BackButton";
+import PostComponent from "@/components/PostComponent";
 
-import styles from "../../styles/aktuellt.module.css";
 import { useRouter } from "next/router";
 
 export default function Post({ postData, postId }) {
   const { query } = useRouter();
-  const getDate = (date) => {
-    return new Date(date.seconds * 1000).toLocaleDateString("sv");
-  };
 
   // 404 sida - om det saknas ett inlägg till den angivna länken
   if (!postData) {
@@ -61,28 +55,7 @@ export default function Post({ postData, postId }) {
         url={"https://www.cl-sektionen.se/aktuellt/" + postId}
       />
       <div id="contentbody" className="wideContent">
-        <article className={styles.post}>
-          <div className="article-head">
-            <BackButton page={query.r ? "history" : "aktuellt"}>Aktuellt</BackButton>
-          </div>
-          <div className={styles.head}>
-            <div className={styles.imageContainer}>
-              {postData.image && (
-                <Image src={postData.image} width={400} height={400} alt="Post bild" />
-              )}
-            </div>
-            <div className={styles.info}>
-              <h1 className={styles.title}>{postData.title}</h1>
-              <h2>{postData.subtitle}</h2>
-              <p className={styles.meta}>
-                Publicerad {getDate(postData.publishDate)} av {postData.author}
-              </p>
-            </div>
-          </div>
-
-          <hr />
-          <div>{parse(postData.body)}</div>
-        </article>
+        <PostComponent postData={postData} backPath={query.r ? "history" : "aktuellt"} />
       </div>
     </>
   );

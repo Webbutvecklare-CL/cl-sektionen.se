@@ -4,7 +4,8 @@ import Image from "next/image";
 import TextField from "./form components/TextField";
 import InfoBox from "./form components/InfoBox";
 import Label from "./form components/Label";
-import { create_id } from "../../utils/postUtils";
+import PostComponent from "@/components/PostComponent";
+import { createId, getTypedLink } from "../../utils/postUtils";
 import { useAuth } from "../../context/AuthContext";
 
 // Taggar som kan väljas
@@ -36,6 +37,19 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   const [type, setType] = useState("");
   const publishInCalendar = useRef(null);
   const sendNotification = useRef(null);
+
+  const [viewPreview, setViewPreview] = useState(false);
+
+  // Stänger av scroll på resten av innehållet när förhandsvisning är öppen
+  useEffect(() => {
+    if (viewPreview) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    }
+  }, [viewPreview]);
 
   const { userData } = useAuth();
 
@@ -71,9 +85,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     if (editMode) return; // Om vi är i editMode så ska inte länken uppdateras
     if (type !== "event") return; // Om det inte är ett event kan länken va vad som
     if (tags["SM"]) {
-      setLink(create_id({ number: meetingNumber }, "SM"));
+      setLink(createId({ number: meetingNumber }, "SM"));
     } else if (tags["StyM"]) {
-      setLink(create_id({ number: meetingNumber }, "StyM"));
+      setLink(createId({ number: meetingNumber }, "StyM"));
     }
   }, [meetingNumber, tags, type, editMode]);
 
@@ -85,7 +99,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
       // Om det är ett SM / StyM event då ska det va en speciell länk
       return;
     }
-    setLink(create_id(title));
+    setLink(createId(title));
   }, [title, tags, type, editMode]);
 
   const handleSubmit = (e) => {
@@ -240,19 +254,6 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
   };
 
-  // Ändrar värdet så att det är en korrekt länk
-  const handleLinkInput = (txt) => {
-    if (txt.endsWith(" ")) {
-      // Låter användaren skriva mellan slag som om de lägger till fler tecken blir ett -
-      setLink(create_id(txt) + " ");
-    } else if (txt.endsWith("-")) {
-      // Låter användaren skriva in - som försvinner om inga fler tecken läggs till
-      setLink(create_id(txt) + "-");
-    } else {
-      setLink(create_id(txt));
-    }
-  };
-
   // Komponenter
   const ImageInput = () => {
     const available_formats = ["jpeg", "jpg", "webp", "avif", "png", "gif"];
@@ -303,22 +304,24 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   };
 
   return (
-    <div>
+    <div className={viewPreview ? styles.previewOpen : ""}>
       <form onSubmit={handleSubmit} className={styles.postForm}>
-        <Label>Välj vilken typ av inlägg du ska göra:</Label>
-        <div className={styles.typeContainer}>
-          <button
-            disabled={editMode}
-            onClick={(e) => handleSetType(e, "information")}
-            className={type === "information" ? styles.selected : ""}>
-            Information
-          </button>
-          <button
-            disabled={editMode}
-            onClick={(e) => handleSetType(e, "event")}
-            className={type === "event" ? styles.selected : ""}>
-            Event
-          </button>
+        <div>
+          <Label>Välj vilken typ av inlägg du ska göra:</Label>
+          <div className={styles.typeContainer}>
+            <button
+              disabled={editMode}
+              onClick={(e) => handleSetType(e, "information")}
+              className={type === "information" ? styles.selected : ""}>
+              Information
+            </button>
+            <button
+              disabled={editMode}
+              onClick={(e) => handleSetType(e, "event")}
+              className={type === "event" ? styles.selected : ""}>
+              Event
+            </button>
+          </div>
         </div>
         {type && (
           <div>
@@ -332,6 +335,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                 <div className={styles.tagContainer}>
                   <div className={styles.tagSelector}>
                     {Object.keys(tags).map((tag, index) => {
+                      // Om det är ett event så ska inte SM och StyM visas
+                      if (editMode && (tag === "SM" || tag === "StyM")) return;
+
                       return (
                         <button
                           className={`${styles.tag} ${tags[tag] ? styles.selected : ""}`}
@@ -470,7 +476,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
               type="text"
               value={link}
               placeholder={"Ex: sm-1-23 ger länken /aktuellt/sm-1-23"}
-              onChange={(e) => handleLinkInput(e.target.value)}
+              onChange={(e) => setLink(getTypedLink(e.target.value))}
             />
 
             {/* Kalender */}
@@ -501,12 +507,45 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
                 </div>
               </>
             )}
-
+          </div>
+        )}
+        {type && (
+          <div className={styles.actionMenu}>
             <button className={styles.submitButton}>{editMode ? "Uppdatera" : "Publicera"}</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setViewPreview(true);
+              }}>
+              Visa förhandsvisning
+            </button>
           </div>
         )}
       </form>
       {error && <p>{error}</p>}
+
+      {viewPreview && (
+        <div className={styles.postPreview}>
+          <div>
+            <PostComponent
+              postData={{
+                image: image ? URL.createObjectURL(image) : undefined,
+                title,
+                subtitle: subtitle.current?.value || "",
+                body: body.current || "",
+                publishDate: { seconds: new Date().getTime() / 1000 },
+                author: author.current?.value,
+              }}
+            />
+            <button
+              onClick={() => {
+                setViewPreview(false);
+              }}>
+              Stäng
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

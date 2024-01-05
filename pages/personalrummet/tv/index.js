@@ -48,7 +48,7 @@ export default function Tv() {
 
         // Kollar om bilden visas
         const endDate = data.endDate.toDate();
-        const startDate = data.startDate.toDate();
+        const startDate = data.startDate.toDate().setHours(0, 0, 0, 0);
         if (startDate <= startOfToday && endDate >= startOfToday) {
           visibleImageDocs.push({ id: docId, ...data });
         } else {
@@ -59,9 +59,11 @@ export default function Tv() {
       setOldImages(oldImageDocs);
     };
 
-    if (userData && userData.permission === "admin") {
+    if (userData) {
       getImages();
     }
+    // Ta inte med startOfToday i beroendet, blir knas annars
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userData]);
 
   const handleDelete = async (image) => {
@@ -312,13 +314,7 @@ export default function Tv() {
       )}
       {!userData && (
         <div>
-          <p>Du måste vara inloggad för att hantera bilder på TVn.</p>
-        </div>
-      )}
-
-      {userData && userData.permission !== "admin" && (
-        <div>
-          <p>Du måste ha admin behörighet för att hantera bilderna på TVn.</p>
+          <p>Du måste vara inloggad för att hantera och se bilder på TVn.</p>
         </div>
       )}
     </div>
