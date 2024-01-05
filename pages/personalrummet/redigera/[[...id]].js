@@ -9,11 +9,13 @@ import { app } from "../../../firebase/clientApp";
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 
-import PostForm from "../../../components/personalrummet/PostForm";
+import PostForm from "@/components/personalrummet/PostForm";
 import BackButton from "@/components/BackButton";
 import { useAuth } from "../../../context/AuthContext";
 
 import { revalidate } from "../../../utils/server";
+
+import { formWrapper } from "@/styles/personalrummet/post-form.module.css";
 
 export default function EditPost() {
   // Hämtar id från länken om det finns
@@ -252,7 +254,7 @@ export default function EditPost() {
   };
 
   return (
-    <div id="contentbody" className="wideContent">
+    <div id="contentbody">
       <BackButton page="personalrummet">Personalrummet</BackButton>
       <h1>Personalrummet - Redigera</h1>
       {!success && (
@@ -278,7 +280,7 @@ export default function EditPost() {
           <div>
             {loading && <p>Hämtar inlägg...</p>}
             {!loading && prefill && (
-              <div>
+              <div className={formWrapper}>
                 <PostForm onSubmit={handleFormData} prefill={prefill} editMode={true} />
                 {isPending && <p>Uppdaterar inlägg...</p>}
                 {error && <p>Error: {error}</p>}

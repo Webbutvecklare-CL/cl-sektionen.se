@@ -28,7 +28,9 @@
   height: min-content;
   min-width: 300px;
   min-height: 170px;
+  max-width: 600px;
   max-height: 60vh;
+  text-align: center;
 }
 
 .confirmModal {

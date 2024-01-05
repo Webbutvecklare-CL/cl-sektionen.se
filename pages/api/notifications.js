@@ -24,6 +24,8 @@ export default async function handler(req, res) {
   let message;
   let dryRun = false;
 
+  // Kollar vilken typ av notis det är och skapar payload
+  // Om inget matchar returnera 400 error
   if (req.body.data.type == "post") {
     try {
       const postData = await verifyRequest(uid, req.body.data.postId);
@@ -37,9 +39,9 @@ export default async function handler(req, res) {
         collapseKey: req.body.data.postId, // Gör att notiser med samma id byter ut den tidigare notisen
         fcmOptions: { analyticsLabel: "new_post" },
       };
-    } catch (error) {
-      console.error(error);
-      return res.status(400).send({ message: error });
+    } catch ({ error }) {
+      console.error("Verification failed:", error);
+      return res.status(400).send({ message: "Verifiering misslyckades: " + error });
     }
   } else if (req.body.data.type == "mottagning") {
     type = "mottagning";
@@ -93,9 +95,10 @@ export default async function handler(req, res) {
     let response = await sendNotification(type, message, dryRun);
 
     // Skickar tillbaka respons
-    return res
-      .status(200)
-      .json({ message: `Notis skickat till ${response.tokens} enheter`, data: req.query.message });
+    return res.status(200).json({
+      message: `Notis skickad till ${response.successCount} enheter och misslyckades skicka till ${response.failureCount} enheter.`,
+      data: req.query.message,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: `Ett fel inträffade`, error });
@@ -115,16 +118,30 @@ async function sendNotification(type, message, dryRun = false) {
       try {
         // Send notifications to all tokens.
         const response = await admin.messaging().sendEachForMulticast(message, dryRun);
-        console.log("Notifications have been sent");
+        console.log(
+          "Successfully sent notification to:",
+          response.successCount,
+          "tokens. Failed to send notification to:",
+          response.failureCount,
+          "tokens"
+        );
+
+        // Rensar upp alla ogiltiga tokens
         const removedTokens = await cleanupTokens(response, tokens);
         console.log("Removed", removedTokens.length, "invalid tokens");
-        resolve({ ok: true, tokens: tokens.length });
+
+        // Skickar tillbaka antal tokens som notisen skickades till, detta är egentligen lite fel då vissa kan vara ogiltiga
+        resolve({
+          ok: true,
+          successCount: response.successCount,
+          failureCount: response.failureCount,
+        });
       } catch (error) {
         console.error(
           "Something went wrong with sending notification or cleaning up tokens.",
           error
         );
-        reject({ ok: false, tokens: 0, error });
+        reject({ ok: false, successCount: 0, failureCount: tokens.length, error });
       }
     }
   });
@@ -193,7 +210,7 @@ function cleanupTokens(response, tokens) {
         // Ta bort från alla prenumerationer struktur kommer förändras
         const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
 
-        // Tar bort ifrån event prenumerationen
+        // Lägger in en request för att ta bort varje token
         tokensDelete.push(
           allTokensRef.update({
             [tokens[index] + ""]: FieldValue.delete(),
@@ -202,6 +219,8 @@ function cleanupTokens(response, tokens) {
       }
     }
   });
+
+  // Gör så att funktionen tar bort samtliga ogiltiga tokens innan den resolvar
   return Promise.all(tokensDelete);
 }
 

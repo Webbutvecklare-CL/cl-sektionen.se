@@ -125,8 +125,10 @@ export default function NotificationModal({ show, handleClose }) {
       setWaitingText(
         "Du har tidigare blockerat notiser. Du kan ändra detta i din webbläsares inställningar."
       );
+      return;
     } else {
       setWaitingText("Väntar på tillåtelse att skicka notiser");
+      return;
     }
 
     // Fråga om notiser
