@@ -109,10 +109,6 @@ export default function Publicera({ calendarID }) {
       return;
     }
 
-    console.log("Laddar upp...");
-    setError("");
-    return;
-
     // Skickar data
     let postData = {
       title: data.title,

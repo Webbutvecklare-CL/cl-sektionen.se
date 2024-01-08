@@ -185,10 +185,10 @@ export default function Mottagning({ loggedIn, _posts }) {
 
 export async function getServerSideProps(context) {
   // Kollar om användaren har en mottagning_key och om den stämmer
-  // Körs server side dvs NEXT_PUBLIC_MOTTAGNING_KEY exponeras inte
+  // Körs server side dvs MOTTAGNING_KEY exponeras inte
   const mottagning_key = context.req.cookies["mottagning_key"];
 
-  let loggedIn = mottagning_key === process.env.NEXT_PUBLIC_MOTTAGNING_KEY;
+  let loggedIn = mottagning_key === process.env.MOTTAGNING_KEY;
 
   var posts = [];
   if (loggedIn) {

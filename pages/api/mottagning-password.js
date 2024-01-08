@@ -43,15 +43,13 @@ function handlePasswordReq(req, res) {
     }
 
     // Om ingen maxAge sätts så blir det en session cookie
-    const cookie = serialize("mottagning_key", process.env.NEXT_PUBLIC_MOTTAGNING_KEY, {
+    const cookie = serialize("mottagning_key", process.env.MOTTAGNING_KEY, {
       path: "/",
       httpOnly: true,
       maxAge: maxAge,
     });
     res.setHeader("Set-Cookie", cookie);
-    res
-      .status(200)
-      .json({ success: "Logged in", mottagning_key: process.env.NEXT_PUBLIC_MOTTAGNING_KEY });
+    res.status(200).json({ success: "Logged in", mottagning_key: process.env.MOTTAGNING_KEY });
   } else {
     res.status(401).json({ error: "Incorrect Password" });
   }
@@ -59,7 +57,7 @@ function handlePasswordReq(req, res) {
 
 async function handleKeyReq(req, res) {
   const key = req.headers.mottagning_key;
-  if (key === process.env.NEXT_PUBLIC_MOTTAGNING_KEY) {
+  if (key === process.env.MOTTAGNING_KEY) {
     // Hämtar alla mottagningsposts
     let posts = [];
     const mottagningsPostsRef = admin.firestore().collection("mottagningsPosts");

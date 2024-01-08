@@ -80,7 +80,7 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
-# Behövs för notiser
+# Behövs för notiser, finns i Project Settings > Cloud Messaging > Web configuration > Generate Key Pair
 NEXT_PUBLIC_FIREBASE_VAPID_KEY=
 
 # Fråga Webbansvariga efter denna - används i api rotes
@@ -99,7 +99,7 @@ CL_CALENDAR=
 MOTTAGNING_PASSWORD=
 
 # Används bara i getServerSideProps eller api-routes, ska inte exponeras
-NEXT_PUBLIC_MOTTAGNING_KEY=
+MOTTAGNING_KEY=
 
 # För att getStaticProps ska komma åt lokala filer (Protokoll innan men inget snedstreck i slutet)
 NEXT_PUBLIC_DOMAIN=http://localhost:3000
@@ -110,12 +110,12 @@ NEXT_PUBLIC_DOMAIN=http://localhost:3000
 # Keys > Add key > Då borde en json fil laddas ned. Gör den till en sträng och kopiera in här.
 GOOGLE_SERVICE_ACCOUNT= #OBS Håll väldigt hemlig
 
+# Behövs för reCaptcha - skapas från GOOGLE_SERVICE_ACCOUNT i swEnvBuild
+GOOGLE_APPLICATION_CREDENTIALS="./google_secrets.json"
+
 # ID till spreadsheet med alla förtroendevalda
 # Denna filen behöver delas med @appspot.gserviceaccount.com adressen som är länkad till service account
 COMMITTEES_SHEET_ID=
-
-# För att skapa ett secrets fil för google service account - behövs för reCaptcha
-GOOGLE_APPLICATION_CREDENTIALS="./google_secrets.json"
 
 # Stänger bla av PWA build när dev körs
 NODE_ENV=development
