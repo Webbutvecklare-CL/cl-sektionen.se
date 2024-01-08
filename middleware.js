@@ -8,8 +8,7 @@ export const config = {
 // Kollar om användaren är inloggad, om inte skickas användaren till /mottagning/login
 export async function middleware(req) {
   if (req.nextUrl.pathname.startsWith("/mottagning")) {
-    const isLoggedIn =
-      req.cookies.get("mottagning_key")?.value === process.env.NEXT_PUBLIC_MOTTAGNING_KEY;
+    const isLoggedIn = req.cookies.get("mottagning_key")?.value === process.env.MOTTAGNING_KEY;
 
     if (!isLoggedIn) {
       const redirectUrl = req.nextUrl.pathname.split("/mottagning/")[1];
