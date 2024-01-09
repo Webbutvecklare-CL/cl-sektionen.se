@@ -16,10 +16,10 @@ export default function Kalender() {
   return (
     <div id="contentbody" className="wideContent">
       <h1>Sektionskalendern och gråttbokningar</h1>
-      <CalendarSubscription id={sektionskalender_id}>
+      <CalendarSubscription calendar_id={sektionskalender_id}>
         Prenumerera på <strong>Sektionskalendern</strong>:
       </CalendarSubscription>
-      <CalendarSubscription id={grattankalender_id}>
+      <CalendarSubscription calendar_id={grattankalender_id}>
         Prenumerera på <strong>Gråttankalendern</strong>:
       </CalendarSubscription>
 
