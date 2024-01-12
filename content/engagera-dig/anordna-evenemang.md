@@ -6,11 +6,11 @@ På den här sidan finns lite tips för hur du kan planera event som är inklude
 
 #### Viktiga länkar
 
-- [CL:s alkoholpolicy](https://drive.google.com/file/d/1jwKZmpZTzA3xbOlnBfFAhED5t4oKbM_L/view)
-- [CL:s JML-policy](https://drive.google.com/file/d/12r-TUybj36H_Q49YXtFWxtAa45_Emm33/view)
-- [CL:s miljöpolicy](https://drive.google.com/file/d/12DanV1Fz1ay-_4JiGjprv7UaD2vq6gDk/view?usp=share_link)
-- [CL:s Personuppgiftspolicy](https://drive.google.com/file/d/1pxfAhbv2TA3QRZjS1FDu7tQ-jnpS0X4N/view?usp=share_link)
-- [THS:s Sångpolicy](https://drive.google.com/drive/folders/15GQMVeBq5oZzjLipTbLVJlSUqhQ4Nf_g)
+- [CL:s alkoholpolicy](https://drive.google.com/file/d/1sxG6cV1ZqadKZ-_l69yIpNmt8nZHJWum/view?usp=sharing)
+- [CL:s JML-policy](https://drive.google.com/file/d/1ECevrbshII7PtClTy5B9Qq1dgfHvdtV6/view?usp=drive_link)
+- [CL:s miljöpolicy](https://drive.google.com/file/d/1zfr8Bb3CiF73DOqWonr6HdE5ASau2x_6/view?usp=drive_link)
+- [CL:s Personuppgiftspolicy](https://drive.google.com/file/d/1yBc951mw2LaSFNeHUlRNR-kpGxbEf0Io/view?usp=drive_link)
+- [THS:s Sångpolicy](https://drive.google.com/file/d/1k891iIKPrAhH9F05rQpWK6Nr1vBOIDrK/view?usp=drive_link)
 
 #### Normkritiskt tänkande
 

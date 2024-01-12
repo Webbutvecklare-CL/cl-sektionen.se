@@ -7,7 +7,6 @@ export default function Samarbete({ contents }) {
     <div id="contentbody">
       <h1 id="page-title">Om oss</h1>
       <MarkdownRender mdData={contents["sektionen"]} />
-      <MarkdownRender mdData={contents["medlem"]} />
       <MarkdownRender mdData={contents["programmet"]} />
       <MarkdownRender mdData={contents["inriktningar"]} />
       <MarkdownRender mdData={contents["kpu"]} />
