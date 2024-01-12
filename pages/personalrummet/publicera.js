@@ -262,25 +262,31 @@ export default function Publicera({ calendarID }) {
       } catch (error) {
         console.error(error);
 
-        setModal(
-          <Modal
-            onClose={() => {
-              setModal(false);
-              setIsPending(false);
-            }}>
-            <h2>Det gick inte att lägga till eventet i kalendern</h2>
-            <p>Du kan gå in i sektionskalendern manuellt och lägga till eventet.</p>
-            <p>Felmeddelande: {error.message}</p>
-
-            <button
-              onClick={() => {
+        // Väntar på att användaren stängt dialogrutan
+        await new Promise((resolve) => {
+          setModal(
+            <Modal
+              onClose={() => {
                 setModal(false);
-                setIsPending(false);
+                resolve(true);
               }}>
-              Stäng
-            </button>
-          </Modal>
-        );
+              <h2>Det gick inte att lägga till eventet i kalendern</h2>
+              <p>
+                Eventet är däremot uppladdat på webbplatsen.
+                <br />
+                Du kan gå in i sektionskalendern manuellt och lägga till eventet.
+              </p>
+              <p>Felmeddelande: {error.message}</p>
+              <button
+                onClick={() => {
+                  setModal(false);
+                  resolve(true);
+                }}>
+                Stäng
+              </button>
+            </Modal>
+          );
+        });
       }
     }
 
@@ -353,22 +359,23 @@ export default function Publicera({ calendarID }) {
       }
     }
 
-    createEvent(token, calendarID, eventData)
-      .then((res) => {
-        console.log(res);
-        setCalendarStatus("Uppladdat i kalendern.");
-      })
-      .catch((err) => {
-        if (err.status == 401) {
-          console.log(calendarID);
-        } else {
-          console.error(err);
-        }
-        err.json().then((data) => {
-          console.log(data);
-        });
-        setCalendarStatus("Det gick inte att ladda upp i kalendern.");
-      });
+    try {
+      const response = await createEvent(token, calendarID, eventData);
+
+      console.log(response);
+      setCalendarStatus("Uppladdat i kalendern.");
+    } catch (errRes) {
+      console.error(errRes);
+      if (errRes.status == 401) {
+        console.log(calendarID);
+      }
+
+      const { error } = await errRes.json();
+      console.error("Fel vid uppladdning av event:", error);
+
+      setCalendarStatus("Det gick inte att ladda upp i kalendern.");
+      throw new Error(error.message);
+    }
     console.log("Eventet är uppladdat i kalendern");
   };
 
@@ -426,12 +433,17 @@ async function reauthenticate() {
       })
       .catch((err) => {
         console.error(err);
+        var errorText;
         if (err.code == "auth/popup-closed-by-user") {
-          setError("Inloggningsfönstret stängdes!");
+          errorText = "Inloggningsfönstret stängdes!";
+        } else if (err.code === "auth/popup-blocked") {
+          errorText =
+            "Det gick inte att öppna ett inloggningsfönster. Kolla dina webbläsarinställningar.";
         } else {
-          setError("Fel vid inloggningen till google!");
+          errorText = "Fel vid inloggningen till google!";
         }
-        reject();
+        setError(errorText);
+        reject(errorText);
       });
   });
 }
