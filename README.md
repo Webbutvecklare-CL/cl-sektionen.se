@@ -94,7 +94,7 @@ SL_API_KEY=
 # En random nyckel som används av TV:n för att inte spamma sönder vår api route
 CL_API_KEY=
 # Länk till sektionskalendern kalender id för att publicera automatiskt
-CL_CALENDAR=
+NEXT_PUBLIC_CL_CALENDAR=
 
 MOTTAGNING_PASSWORD=
 
