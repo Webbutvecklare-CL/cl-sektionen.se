@@ -45,9 +45,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
     setOpen(!open);
   };
 
-  const sektionskalender_id =
-    "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com";
-  const grattankalender_id = "konsumclw%40gmail.com";
+  const sektionskalender_id = process.env.NEXT_PUBLIC_CL_CALENDAR;
 
   return (
     <div>
