@@ -9,8 +9,7 @@ export default function Kalender() {
     setActiveIdx(index);
   }
 
-  const sektionskalender_id =
-    "c_ed90bbde0bd3990cdf20f078c68d8e45822fea3b82ffd69687c36ffb0270924f@group.calendar.google.com";
+  const sektionskalender_id = process.env.NEXT_PUBLIC_CL_CALENDAR;
   const grattankalender_id = "konsumclw%40gmail.com";
 
   return (

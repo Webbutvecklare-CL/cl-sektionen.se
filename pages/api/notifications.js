@@ -143,6 +143,9 @@ async function sendNotification(type, message, dryRun = false) {
         );
         reject({ ok: false, successCount: 0, failureCount: tokens.length, error });
       }
+    } else {
+      console.log("No tokens to send notification to");
+      resolve({ ok: true, successCount: 0, failureCount: 0 });
     }
   });
 }

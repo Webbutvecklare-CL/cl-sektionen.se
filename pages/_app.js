@@ -200,7 +200,7 @@ async function messageListener(click_event) {
     const options = {
       body: message.body,
       icon: message.icon || "/media/icons/icon-512x512.png",
-      badge: "media/icons/badge-330x330.webp", // Lite icon som visas på "Android Chrome"
+      badge: "/media/icons/badge-330x330.webp", // Lite icon som visas på "Android Chrome"
       image: message.image,
       link: message.link,
     };
