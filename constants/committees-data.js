@@ -126,4 +126,4 @@ for (let individual of individuals) {
   all_committee_ids[individual.id] = individual;
 }
 
-export { board, committees, trustees, associations, all_committees, all_committee_ids };
+export { board, committees, trustees, individuals, associations, all_committees, all_committee_ids };
