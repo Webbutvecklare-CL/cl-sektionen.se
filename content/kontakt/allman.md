@@ -8,5 +8,5 @@ För allmänna frågor eller om du är osäker på vem du ska vända dig till, k
 
 ### Styrelse ordförande
 
-Gustav Heldt  
+Andrea Donné  
 [ordf@cl-sektionen.se](mailto:ordf@cl-sektionen.se)
