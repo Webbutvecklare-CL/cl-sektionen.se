@@ -55,6 +55,17 @@
   color: black;
 }
 
+.imageWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.imageContainer {
+  max-width: 500px;
+  padding: 10px;
+}
+
 .committeeNav li svg {
   width: 1.6rem;
 }
@@ -70,6 +81,17 @@
   color: grey;
   font-size: 1.1rem;
   text-align: center;
+}
+
+@media screen and (max-width: 1160px) {
+  .imageWrapper {
+    flex-direction: column;
+  }
+  .imageContainer {
+    padding: 0px;
+    width: auto;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 650px) {

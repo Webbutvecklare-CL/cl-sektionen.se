@@ -1,8 +1,9 @@
 import MarkdownRender from "./MarkdownRender";
+import Image from "next/image";
 
 import styles from "../styles/fortroendevalda.module.css";
 
-export default function CommitteeInfo({ description, contact }) {
+export default function CommitteeInfo({ committee, description, contact }) {
   const MandatePeriod = ({ contact }) => {
     if (!contact.period) return null;
     let periods = contact.period.split(";");
@@ -32,19 +33,33 @@ export default function CommitteeInfo({ description, contact }) {
       <MarkdownRender mdData={description} />
       <MandatePeriod contact={contact} />
       <br />
-      <section>
-        <div className={styles.poster}>
-          {contact.trustees.map((trustee, idx) => {
-            return (
-              <p key={idx}>
-                {trustee.name} {trustee.year}, <strong>{trustee.position}</strong>
-                <br />
-                <a href={"mailto:" + trustee.mail}>{trustee.mail}</a>
-              </p>
-            );
-          })}
+      <div className={styles.imageWrapper}>
+        <section>
+          <div className={styles.poster}>
+            {contact.trustees.map((trustee, idx) => {
+              return (
+                <p key={idx}>
+                  {trustee.name} {trustee.year}, <strong>{trustee.position}</strong>
+                  <br />
+                  <a href={"mailto:" + trustee.mail}>{trustee.mail}</a>
+                </p>
+              );
+            })}
+          </div>
+        </section>
+        <div className={styles.imageContainer}>
+          <Image
+            src={"/media/förtroendevalda/" + committee + ".webp"}
+            width={500}
+            height={500}
+            alt="Gruppbild"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
         </div>
-      </section>
+      </div>
     </div>
   );
 }
