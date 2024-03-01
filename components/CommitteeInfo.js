@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "../styles/fortroendevalda.module.css";
 
 export default function CommitteeInfo({ committee, description, contact }) {
+  const groupImgPath = "/media/förtroendevalda/" + committee + ".webp";
   const MandatePeriod = ({ contact }) => {
     if (!contact.period) return null;
     let periods = contact.period.split(";");
@@ -49,7 +50,7 @@ export default function CommitteeInfo({ committee, description, contact }) {
         </section>
         <div className={styles.imageContainer}>
           <Image
-            src={"/media/förtroendevalda/" + committee + ".webp"}
+            src={groupImgPath}
             width={500}
             height={500}
             alt="Gruppbild"
