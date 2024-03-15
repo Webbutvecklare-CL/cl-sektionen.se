@@ -5,5 +5,5 @@ Du hittar mer information och fler länkar under [Illabehandling](/hjalp-vid-ill
 
 ### Skyddsombud
 
-Lea Martinelle
+Jakob Malik  
 [skyddsombud@cl-sektionen.se](mailto:skyddsombud@cl-sektionen.se)

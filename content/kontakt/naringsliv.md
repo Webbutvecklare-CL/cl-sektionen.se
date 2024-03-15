@@ -9,5 +9,5 @@ Om du vill ha något upplagt på socialamedier eller på vår webbplats kontakta
 
 ### PR-ansvarig
 
-Tuva Egman  
+Madeleine Rogersdotter  
 [pransvarig@cl-sektionen.se](pransvarig@cl-sektionen.se)
