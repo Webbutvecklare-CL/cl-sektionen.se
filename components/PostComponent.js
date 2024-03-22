@@ -26,6 +26,18 @@ export default function PostComponent({ postData, backPath }) {
         <div className={styles.info}>
           <h1 className={styles.title}>{postData.title}</h1>
           <h2>{postData.subtitle}</h2>
+          {postData.type === "event" && (
+            <p>
+              Datum: {getDate(postData.startDateTime)}
+              {getDate(postData.startDateTime) != getDate(postData.endDateTime) && (
+                <span> till {getDate(postData.endDateTime)}</span>
+              )}
+              {new Date(postData.endDateTime.seconds * 1000) < Date.now() && (
+                <span className={styles.passedDate}> (passerat)</span>
+              )}
+            </p>
+          )}
+
           <p className={styles.meta}>
             Publicerad {getDate(postData.publishDate)} av {postData.author}
           </p>

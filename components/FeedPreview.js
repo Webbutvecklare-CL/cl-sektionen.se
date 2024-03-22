@@ -12,6 +12,10 @@ import styles from "../styles/feed-preview.module.css";
 
 // om goBack är true används historiken för att navigera tillbaka från inläggen
 export default function FeedPreview({ posts, goBack = false }) {
+  const getDate = (date) => {
+    return new Date(date.seconds * 1000).toLocaleDateString("sv");
+  };
+
   return (
     <div className={styles.preview}>
       {posts.map((post) => {
@@ -36,10 +40,21 @@ export default function FeedPreview({ posts, goBack = false }) {
                 </div>
                 <div className={styles.postMeta}>
                   <h2>{post.title}</h2>
-                  {post.author} {convertDate(date)}
+                  {post.author} ({convertDate(date)})
                 </div>
                 <div className={styles.postContent}>
                   <p className={styles.subtitle}>{post.subtitle}</p>
+                  {post.type === "event" && (
+                    <span className={styles.eventDate}>
+                      Datum: {getDate(post.startDateTime)}
+                      {getDate(post.startDateTime) != getDate(post.endDateTime) && (
+                        <span> till {getDate(post.endDateTime)}</span>
+                      )}
+                      {new Date(post.endDateTime.seconds * 1000) < Date.now() && (
+                        <span className={styles.passedDate}> (passerat)</span>
+                      )}
+                    </span>
+                  )}
                   {/* Parse för att formatera om html koden till html element
                                         Sanitize för att göra det lite mer stilrent i previewn dvs inga styles*/}
                   <div className={styles.body}>
