@@ -99,3 +99,8 @@ button.tag {
   width: 100%;
   height: 100%;
 }
+
+.passedDate {
+  font-size: 0.9rem;
+  color: var(--clr5);
+}

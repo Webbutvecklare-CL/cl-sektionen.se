@@ -8,7 +8,7 @@
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden !important;
   transition: 0.1s ease-in-out;
-  height: 100px;
+  height: 110px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -33,6 +33,16 @@
   .preview .postWrapper:hover .postContent .body p {
     -webkit-line-clamp: 3;
   }
+}
+
+.passedDate {
+  font-size: 0.9rem;
+  color: var(--clr5);
+}
+
+.eventDate {
+  color: #1d1d1f;
+  font-size: 0.9rem;
 }
 
 .postPreview {
@@ -179,7 +189,7 @@
 .preview {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .small .preview {
