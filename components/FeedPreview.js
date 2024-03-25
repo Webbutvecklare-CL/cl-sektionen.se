@@ -33,10 +33,11 @@ export default function FeedPreview({ posts, goBack = false }) {
               }}>
               <div className={styles.postPreview}>
                 <div className={styles.image}>
-                  {post.image && (
+                  {post.image ? (
                     <Image src={post.image} width={120} height={100} alt="Post image" />
+                  ) : (
+                    <Image src={bg} placeholder="blur" alt="Bakgrundsbild KTH" />
                   )}
-                  {!post.image && <Image src={bg} placeholder="blur" alt="Bakgrundsbild KTH" />}
                 </div>
                 <div className={styles.postMeta}>
                   <h2>{post.title}</h2>

@@ -163,18 +163,14 @@ export default function UserMenu({ contents }) {
       </div>
       {menuSelect == "senaste" && (
         <div>
-          {committeePosts && (
-            <div>
-              <h2>Nämndens senaste inlägg</h2>
+          <div>
+            <h2>Nämndens senaste inlägg</h2>
+            {committeePosts ? (
               <CommitteeFeed posts={committeePosts} permission={userData.permission} />
-            </div>
-          )}
-          {!committeePosts && (
-            <div>
-              <h2>Nämndens senaste inlägg</h2>
+            ) : (
               <p>Finns inga inlägg</p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       )}
       {menuSelect == "update" && <p>{userUpdateStatus}</p>}

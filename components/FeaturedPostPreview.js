@@ -25,8 +25,11 @@ export default function FeaturedPostPreview({ post }) {
         }}>
         <div className="post-preview featured">
           <div className="image">
-            {post.image && <Image src={post.image} width={400} height={300} alt="Post image" />}
-            {!post.image && <Image src={bg} width={400} height={300} alt="Bakgrundsbild KTH" />}
+            {post.image ? (
+              <Image src={post.image} width={400} height={300} alt="Post image" />
+            ) : (
+              <Image src={bg} width={400} height={300} alt="Bakgrundsbild KTH" />
+            )}
           </div>
           <div className="post-meta">
             <h2>{post.title}</h2>
