@@ -1,10 +1,10 @@
 import MarkdownRender from "./MarkdownRender";
 import Image from "next/image";
-
 import styles from "../styles/fortroendevalda.module.css";
 
 export default function CommitteeInfo({ committee, description, contact }) {
   const groupImgPath = "/media/fortroendevalda/" + committee + ".webp";
+
   const MandatePeriod = ({ contact }) => {
     if (!contact.period) return null;
     let periods = contact.period.split(";");
@@ -58,6 +58,10 @@ export default function CommitteeInfo({ committee, description, contact }) {
               width: "100%",
               height: "auto",
             }}
+            // Detta stoppar bilden från att visas tom om den inte finns,
+            //och undviker att konsollen spammas för mycket
+            onLoad={(e) => (e.currentTarget.style.display = "block")}
+            onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
       </div>
