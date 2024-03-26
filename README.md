@@ -36,22 +36,27 @@ npm run build
 
 ## Formatering och linting
 
-Projektet använder Prettier och ESLint för att hålla koden enhetlig och felfri. Prettier kollar egentligen bara estetiken av koden, och ESLint är lite mer funktionell för att standarder ska följas. För att säkerställa att din editor har kopplat till Prettier på rätt sätt kan du läsa [här](https://prettier.io/docs/en/editors.html).
-
-ESLint kan köras för att se var "fel" förekommer, men inte fixa dem själv. Kör följande för att köra ESLint-kontrollen genom hela projektet:
+Projektet använder Biome för att hålla koden enhetlig och felfri. Det handlar både om formatering med radbryt och liknande, men också om små standarder för olika kod-specifika lösningar. För att säkerställa att din editor har kopplat till Biome på rätt sätt kan du läsa [här](https://biomejs.dev/guides/integrate-in-editor/).
 
 ```bash
-# Letar efter kod som inte följer standarder
-npm run lint
+# Letar efter kod som inte är formaterad rätt
+npm run format
+
+# Formaterar koden
+npm run format:apply
 ```
 
-Kör följande kommandon för att använda Prettier manuellt:
+```bash
+# Letar efter kod som inte har fel i standarder
+npm run lint
+
+# Fixar det som kan fixas automatiskt
+npm run lint:apply
+```
 
 ```bash
-# Kollar om någon kod är ful
-npm run prettier
-# Fixar eventuell ful kod
-npm run prettier:fix
+# Gör bägge ovan och lite till
+npm run biome:apply
 ```
 
 ## Learn More
