@@ -2,11 +2,11 @@
 // Körs automatiskt vid npm run build och npm run dev
 
 require("dotenv").config(); // make sure you have '.env' file in pwd
-const fs = require("fs");
+const fs = require("node:fs");
 
 fs.writeFileSync(
-  "./public/swenv.js",
-  `const process = {
+	"./public/swenv.js",
+	`const process = {
     env: {
       NEXT_PUBLIC_FIREBASE_API_KEY: '${process.env.NEXT_PUBLIC_FIREBASE_API_KEY}',
       NEXT_PUBLIC_FIREBASE_PROJECT_ID: '${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}',
@@ -14,7 +14,10 @@ fs.writeFileSync(
       NEXT_PUBLIC_FIREBASE_APP_ID: '${process.env.NEXT_PUBLIC_FIREBASE_APP_ID}',
       NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: '${process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID}',
     }
-  }`
+  }`,
 );
 
-fs.writeFileSync("./google_secrets.json", `${process.env.GOOGLE_SERVICE_ACCOUNT}`);
+fs.writeFileSync(
+	"./google_secrets.json",
+	`${process.env.GOOGLE_SERVICE_ACCOUNT}`,
+);
