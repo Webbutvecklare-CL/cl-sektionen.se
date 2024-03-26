@@ -36,7 +36,7 @@ npm run build
 
 ## Formatering och linting
 
-Projektet använder Biome för att hålla koden enhetlig och felfri. Det handlar både om formatering med radbryt och liknande, men också om små standarder för olika kod-specifika lösningar. För att säkerställa att din editor har kopplat till Biome på rätt sätt kan du läsa [här](https://biomejs.dev/guides/integrate-in-editor/).
+Projektet använder Biome för att hålla koden enhetlig och felfri. Det handlar både om formatering med radbryt och liknande, men också om små standarder för olika kod-specifika lösningar. Vill du veta mer om Biome och vad den gör så kan du läsa [här](https://biomejs.dev/).
 
 ```bash
 # Letar efter kod som inte är formaterad rätt

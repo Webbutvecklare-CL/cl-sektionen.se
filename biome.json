@@ -6,7 +6,16 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"complexity": {
+				"noUselessLoneBlockStatements": "off"
+			},
+			"suspicious": {
+				"noAssignInExpressions": "off"
+			},
+			"correctness": {
+				"noUnreachable": "off"
+			}
 		}
 	},
 	"vcs": {
