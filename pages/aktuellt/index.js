@@ -83,6 +83,7 @@ export default function Aktuellt({ postList }) {
   };
 
   //Hanterar tags när man filtrerar bort antingen Event eller Information
+  // biome-ignore lint/correctness/useExhaustiveDependencies: migrate fix from eslint
   useEffect(() => {
     const infoTags = {};
     INFOTAGS.forEach((tag) => {
@@ -109,7 +110,6 @@ export default function Aktuellt({ postList }) {
       setFilterTags({});
     }
     // Lägg inte till filterTags som dependency
-    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
 
   const panelRef = useRef();
@@ -189,6 +189,7 @@ export default function Aktuellt({ postList }) {
   }, [search, type, filterTags, sortNewestFirst, publisher, startDate, endDate]);
 
   // Sätter filtret vid inladdning från query params
+  // biome-ignore lint/correctness/useExhaustiveDependencies: migrate fix from eslint
   useEffect(() => {
     // Kör bara om det faktiskt finns en query
     if (!router.isReady) {
@@ -215,10 +216,10 @@ export default function Aktuellt({ postList }) {
     if (query.pub) setPublisher(query.pub);
     if (query.start) setStartDate(query.start);
     if (query.end) setEndDate(query.end);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]); // Is ready för att den inte ska uppdateras när filtret uppdateras
 
   // Uppdaterar länken när filtret ändras
+  // biome-ignore lint/correctness/useExhaustiveDependencies: migrate fix from eslint
   useEffect(() => {
     // Hindrar att den ändrar query innan query laddats in
     if (!router.isReady) {
@@ -230,7 +231,6 @@ export default function Aktuellt({ postList }) {
       // Körs två gånger av någon anledning men det funkar - oftast när det är typ som ändras
       replace({ query: queryParams }, undefined, { shallow: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams]);
 
   //HTML för filterpaneler

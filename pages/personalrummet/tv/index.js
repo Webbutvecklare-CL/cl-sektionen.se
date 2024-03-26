@@ -36,6 +36,7 @@ export default function Tv() {
   const [error, setError] = useState("");
 
   // Hämtar alla bilder när userData hämtats
+  // biome-ignore lint/correctness/useExhaustiveDependencies: migrate fix from eslint
   useEffect(() => {
     const getImages = async () => {
       // Hämtar bilderna när sidan laddas in
@@ -63,7 +64,6 @@ export default function Tv() {
       getImages();
     }
     // Ta inte med startOfToday i beroendet, blir knas annars
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userData]);
 
   const handleDelete = async (image) => {

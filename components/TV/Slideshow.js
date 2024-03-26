@@ -11,6 +11,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
   const [imageUrls, setImageUrls] = useState([]); // Alla bilder som ska visas
 
   // Uppdaterar bakgrundsfärgen när currentIndex ändras
+  // biome-ignore lint/correctness/useExhaustiveDependencies: migrate fix from eslint
   useEffect(() => {
     const container = document.querySelector(`.${styles.slideshow}`); // Elementet där bakgrundsfärgen sätts
 
@@ -37,8 +38,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
       console.error(error);
       container.style.backgroundColor = "";
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [default_image, currentIndex, imageUrls]);
+  }, [default_image]);
 
   //Byter till nästa bild
   useEffect(() => {
@@ -100,7 +100,6 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
 
   return (
     <div className={styles.slideshow}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img crossOrigin="anonymous" src={`${imageUrls[currentIndex]}`} alt="Bild" />
     </div>
   );

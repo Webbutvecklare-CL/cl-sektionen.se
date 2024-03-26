@@ -43,7 +43,6 @@ export default function EditPost() {
       loadPost(id[0]);
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   // Hämtar angivna inlägget
