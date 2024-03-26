@@ -12,7 +12,7 @@ export default function ForForetag({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("for-foretag");
+  const contents = getContentData("for-foretag");
   return {
     props: {
       contents,

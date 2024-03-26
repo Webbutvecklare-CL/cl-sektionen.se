@@ -41,7 +41,7 @@ export default function ReseInfo({ api_key }) {
                     return;
                   }
                   // Tar ut de 6 närmast kommande avgångarna
-                  let maxLength = 6;
+                  const maxLength = 6;
                   setBuses(data.Buses.sort().slice(0, maxLength));
                   setMetros(data.Metros.sort().slice(0, maxLength));
                   setTrams(data.Trams.sort().slice(0, maxLength));

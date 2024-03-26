@@ -29,7 +29,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 
   const [fokusSearchBar, setfokusSearchBar] = useState(false);
   useEffect(() => {
-    let focusSearchHandler = (e) => {
+    const focusSearchHandler = (e) => {
       if (!fokusSearchBar && e.target.className === "searchbar") {
         setfokusSearchBar(true);
       } else if (fokusSearchBar && e.target.className !== "searchbar") {
@@ -188,7 +188,7 @@ export async function getServerSideProps(context) {
   // Körs server side dvs MOTTAGNING_KEY exponeras inte
   const mottagning_key = context.req.cookies["mottagning_key"];
 
-  let loggedIn = mottagning_key === process.env.MOTTAGNING_KEY;
+  const loggedIn = mottagning_key === process.env.MOTTAGNING_KEY;
 
   var posts = [];
   if (loggedIn) {

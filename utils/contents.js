@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "fs";
 import path from "path";
 
 export function getContentData(page) {
-  let contents = {};
+  const contents = {};
 
   readdirSync(`content/${page}`).forEach((fileName) => {
     // process.cwd() är för att skit ska fungera

@@ -26,7 +26,7 @@ export default function Kontakt({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("kontakt");
+  const contents = getContentData("kontakt");
   return {
     props: {
       contents,

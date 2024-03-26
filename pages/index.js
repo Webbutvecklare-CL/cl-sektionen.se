@@ -229,21 +229,21 @@ export async function getStaticProps() {
   }
   // Plockar ut data och lägger till id i post data
   infoDocs.forEach((doc) => {
-    let data = doc.data();
+    const data = doc.data();
     data.id = doc.id;
     infoList.push(data);
   });
 
   eventDocs.forEach((doc) => {
-    let data = doc.data();
+    const data = doc.data();
     data.id = doc.id;
     eventList.push(data);
   });
 
   let featured = {};
 
-  let newestEventDate = eventList.length ? new Date(eventList[0].publishDate["seconds"] * 1000) : 0;
-  let newestInfoDate = infoList.length ? new Date(infoList[0].publishDate["seconds"] * 1000) : 0;
+  const newestEventDate = eventList.length ? new Date(eventList[0].publishDate["seconds"] * 1000) : 0;
+  const newestInfoDate = infoList.length ? new Date(infoList[0].publishDate["seconds"] * 1000) : 0;
 
   if (newestEventDate >= newestInfoDate) {
     featured = eventList[0];

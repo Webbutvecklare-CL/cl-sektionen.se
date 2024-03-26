@@ -23,7 +23,7 @@ function HideDate(currentMonth) {
 
 export default function Sangbok({ sånger, index }) {
   const [sortedSongs, setSortedSongs] = useState(
-    [...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10))
+    [...sånger].sort((a, b) => Number.parseInt(a.sida, 10) - Number.parseInt(b.sida, 10))
   );
 
   const [fulltextSearchResults, setFulltextSearchResults] = useState([]);
@@ -38,7 +38,7 @@ export default function Sangbok({ sånger, index }) {
     if (sort === "category") {
       setSortedSongs([...sånger].sort((a, b) => a.kategori.localeCompare(b.kategori, "sv")));
     } else if (sort === "pageNr") {
-      setSortedSongs([...sånger].sort((a, b) => parseInt(a.sida, 10) - parseInt(b.sida, 10)));
+      setSortedSongs([...sånger].sort((a, b) => Number.parseInt(a.sida, 10) - Number.parseInt(b.sida, 10)));
     } else {
       setSortedSongs([...sånger].sort((a, b) => a.title.localeCompare(b.title, "sv")));
     }
@@ -51,7 +51,7 @@ export default function Sangbok({ sånger, index }) {
   const [fokusSearchBar, setFokusSearchBar] = useState(false);
 
   useEffect(() => {
-    let focusSearchHandler = (e) => {
+    const focusSearchHandler = (e) => {
       if (!fokusSearchBar && e.target.className === "searchbar") {
         setFokusSearchBar(true);
       } else if (fokusSearchBar && e.target.className !== "searchbar") {
@@ -95,7 +95,7 @@ export default function Sangbok({ sånger, index }) {
   const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
-    let panelCloseHandler = (e) => {
+    const panelCloseHandler = (e) => {
       const clickOnPanel = e.composedPath().includes(panelRef.current);
       if (!clickOnPanel) {
         setFilterPanelOpen(false);

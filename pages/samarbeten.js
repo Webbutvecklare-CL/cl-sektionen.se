@@ -22,7 +22,7 @@ export default function Samarbete({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("samarbeten");
+  const contents = getContentData("samarbeten");
   return {
     props: {
       contents,

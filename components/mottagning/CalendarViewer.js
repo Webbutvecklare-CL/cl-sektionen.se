@@ -319,13 +319,13 @@ async function getWeek(calendar_id, date) {
 }
 
 function eventListToDayLists(events, nrOfDays, startWeekDay = 1) {
-  let days = [];
+  const days = [];
   for (let i = 0; i < nrOfDays; i++) {
     days.push([]);
   }
 
   // Event listan är och måste vara i ordning efter start tid/datum
-  for (let event of events) {
+  for (const event of events) {
     const date = new Date(event.start.dateTime);
     const weekDay = date.getDay() == 0 ? 7 : date.getDay();
     var idx = weekDay - startWeekDay;
@@ -357,8 +357,8 @@ function getEventListSpan(eventList, startDate, endRef) {
     endDate = endRef;
   }
 
-  let span = [];
-  for (let event of eventList) {
+  const span = [];
+  for (const event of eventList) {
     const eventDate = new Date(event.start.dateTime);
     if (eventDate >= startDate && eventDate <= endDate) {
       span.push(event);
@@ -371,7 +371,7 @@ const urlify = (text) => {
   const urlRegex = /(([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.\]?[\w-]+)*\/?)/gm;
   const urls = text.match(urlRegex) || [];
 
-  let strings = [];
+  const strings = [];
   let newStrings = [, text];
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];

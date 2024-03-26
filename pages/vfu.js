@@ -12,7 +12,7 @@ export default function VFU({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("vfu");
+  const contents = getContentData("vfu");
   return {
     props: {
       contents,

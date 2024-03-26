@@ -24,7 +24,7 @@ export default function Info({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("mottagning");
+  const contents = getContentData("mottagning");
   return {
     props: {
       contents,

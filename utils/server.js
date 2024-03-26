@@ -5,7 +5,7 @@
  */
 export async function revalidate(user, pages) {
   const url = `/api/revalidate?secret=${process.env.NEXT_PUBLIC_REVALIDATE_TOKEN}`;
-  let options = {
+  const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export async function revalidate(user, pages) {
 }
 
 export async function sendNotification(user, data) {
-  let options = {
+  const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

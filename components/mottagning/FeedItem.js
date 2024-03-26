@@ -26,7 +26,7 @@ export default function FeedItem({ item }) {
   }, [expanding, closing]);
 
   useEffect(() => {
-    const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
+    const rem = Number.parseInt(getComputedStyle(document.documentElement).fontSize);
     if (contentRef.current.scrollHeight > 4.5 * rem) {
       setMaxHeight(contentRef.current.scrollHeight);
     }
@@ -34,7 +34,7 @@ export default function FeedItem({ item }) {
 
   useEffect(() => {
     const handleResize = () => {
-      const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
+      const rem = Number.parseInt(getComputedStyle(document.documentElement).fontSize);
       if (contentRef.current.scrollHeight > 4.5 * rem) {
         setMaxHeight(contentRef.current.scrollHeight);
       }
@@ -49,7 +49,7 @@ export default function FeedItem({ item }) {
     const urlRegex = /(([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.\]?[\w-]+)*\/?)/gm;
     const urls = text.match(urlRegex) || [];
 
-    let strings = [];
+    const strings = [];
     let newStrings = [, text];
     for (let i = 0; i < urls.length; i++) {
       const url = urls[i];

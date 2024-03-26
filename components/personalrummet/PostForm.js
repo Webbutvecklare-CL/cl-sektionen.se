@@ -61,8 +61,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     }
 
     // Markera de tidigare valda taggarna
-    let newTags = {};
-    for (let tag of prefill.tags) {
+    const newTags = {};
+    for (const tag of prefill.tags) {
       newTags[tag] = true;
     }
     setTags((tags) => ({ ...tags, ...newTags }));
@@ -106,20 +106,20 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
     e.preventDefault();
 
     // Kollar om alla inputs är ok
-    let validation = validate_inputs();
+    const validation = validate_inputs();
     if (validation != "ok") {
       setError(validation);
       return;
     }
 
-    let selectedTags = [];
+    const selectedTags = [];
     Object.entries(tags).forEach((pair) => {
       if (pair[1]) {
         selectedTags.push(pair[0]);
       }
     });
 
-    let formData = {
+    const formData = {
       title,
       subtitle: subtitle.current.value,
       image,
@@ -192,8 +192,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
   // När användaren klickar på en tagg
   const handleTagClick = (e) => {
     e.preventDefault();
-    let tag = e.target.innerHTML;
-    let selected = e.target.classList.contains(styles.selected);
+    const tag = e.target.innerHTML;
+    const selected = e.target.classList.contains(styles.selected);
 
     // Om det är SM eller StyM ska alla andra tagga rensas om det är ett event
     if ((tag === "SM" || tag === "StyM") && type === "event") {

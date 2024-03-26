@@ -69,9 +69,9 @@ export default function UserMenu({ contents }) {
 
     getDocs(committeeQuery)
       .then((docs) => {
-        let posts = [];
+        const posts = [];
         docs.forEach((doc) => {
-          let data = doc.data();
+          const data = doc.data();
           data.id = doc.id;
           posts.push(data);
         });

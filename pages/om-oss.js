@@ -15,7 +15,7 @@ export default function Samarbete({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("om-oss");
+  const contents = getContentData("om-oss");
   return {
     props: {
       contents,

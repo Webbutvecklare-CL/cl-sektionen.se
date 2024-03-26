@@ -113,16 +113,16 @@ const all_committees = [board, ...committees, ...trustees, ...individuals, ...as
 
 var all_committee_ids = {};
 all_committee_ids[board.id] = board;
-for (let committee of committees) {
+for (const committee of committees) {
   all_committee_ids[committee.id] = committee;
 }
-for (let trustee of trustees) {
+for (const trustee of trustees) {
   all_committee_ids[trustee.id] = trustee;
 }
-for (let association of associations) {
+for (const association of associations) {
   all_committee_ids[association.id] = association;
 }
-for (let individual of individuals) {
+for (const individual of individuals) {
   all_committee_ids[individual.id] = individual;
 }
 

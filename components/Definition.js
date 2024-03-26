@@ -12,10 +12,10 @@ export default function Definition({ term, text, children }) {
       // Tar inte hänsyn till om skärmen är för smal
 
       // Vänstra respektive högra kantens koordinater
-      let { left, right } = tooltipRef.current.getBoundingClientRect();
+      const { left, right } = tooltipRef.current.getBoundingClientRect();
 
-      let oldValue = tooltipRef.current.style.getPropertyValue("--offset");
-      let offset = parseInt(oldValue.substring(0, oldValue.length - 2)) || 0;
+      const oldValue = tooltipRef.current.style.getPropertyValue("--offset");
+      const offset = Number.parseInt(oldValue.substring(0, oldValue.length - 2)) || 0;
 
       // Om utanför så beräknas offseten plus extra marginal
       let newOffset = 0;

@@ -92,7 +92,7 @@ export default function App({ Component, pageProps }) {
       // Rensar existerande cookies
       const cookies = document.cookie.split(";");
       const requiredCookies = ["mottagning_key", "allowCookies"];
-      for (let cookie of cookies) {
+      for (const cookie of cookies) {
         const [name] = cookie.trim().split("=");
         if (!requiredCookies.includes(name)) {
           document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
@@ -206,7 +206,7 @@ async function messageListener(click_event) {
     };
 
     // Visar notisen och lägger till ett klick event
-    let notification = new Notification(title, options);
+    const notification = new Notification(title, options);
     notification.addEventListener("click", () => {
       notification.close();
       if (message.link) {

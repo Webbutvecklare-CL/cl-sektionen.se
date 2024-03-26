@@ -137,7 +137,7 @@ export default function Dokument({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("dokument");
+  const contents = getContentData("dokument");
   return {
     props: {
       contents,

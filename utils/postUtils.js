@@ -26,8 +26,8 @@ function createId(data, type = "") {
 }
 
 async function validateLink(data, type) {
-  let exist = true;
-  let unique_link = createId(data, type);
+  const exist = true;
+  const unique_link = createId(data, type);
 
   return new Promise(async (resolve, reject) => {
     // Kolla om det finns ett dokument med den länken

@@ -32,7 +32,7 @@ import {
 export default function Publicera({ calendarID }) {
   const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
 
-  let today = new Date().toLocaleString().substring(0, 16); // Hämtar dagens datum och sätter som default
+  const today = new Date().toLocaleString().substring(0, 16); // Hämtar dagens datum och sätter som default
   const [prefillData, setPrefillData] = useState({
     title: "",
     subtitle: "",
@@ -110,7 +110,7 @@ export default function Publicera({ calendarID }) {
     }
 
     // Skickar data
-    let postData = {
+    const postData = {
       title: data.title,
       subtitle: data.subtitle,
       image: "",

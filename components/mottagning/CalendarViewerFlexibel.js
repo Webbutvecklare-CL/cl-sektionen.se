@@ -29,7 +29,7 @@ export default function CalendarViewer() {
       timeMax: endMottagning,
     };
     getPublicEvents(calendar_id, query).then((data) => {
-      let weeks = [];
+      const weeks = [];
       weeks.push(getEventListSpan(data, startMottagning, firstWeekM));
       weeks.push(getEventListSpan(data, secondWeekM, secondWeekS));
       weeks.push(getEventListSpan(data, thirdWeekM, endMottagning));
@@ -218,10 +218,10 @@ async function getWeek(calendar_id, date) {
 }
 
 function weekToDayLists(events) {
-  let days = [[], [], [], [], [], [], []];
+  const days = [[], [], [], [], [], [], []];
 
   // Event listan är och måste vara i ordning efter start tid/datum
-  for (let event of events) {
+  for (const event of events) {
     const date = new Date(event.start.dateTime);
 
     const weekDay = date.getDay() == 0 ? 7 : date.getDay();
@@ -241,8 +241,8 @@ function getWeekNumber(refDate) {
 }
 
 function getEventListSpan(eventList, startDate, endDate) {
-  let span = [];
-  for (let event of eventList) {
+  const span = [];
+  for (const event of eventList) {
     if (eventDate >= startDate && eventDate <= endDate) {
       span.push(event);
     }

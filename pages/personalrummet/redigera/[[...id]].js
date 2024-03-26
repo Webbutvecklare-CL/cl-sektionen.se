@@ -121,9 +121,9 @@ export default function EditPost() {
   // Skickar allt till databasen
   const handleFormData = async (data) => {
     setIsPending(true);
-    let postData = {};
+    const postData = {};
     // Kollar igenom vilka fält som blivit uppdaterade
-    for (let key in data) {
+    for (const key in data) {
       // Kollar om fälten blivit uppdaterade
 
       // Om det är en bild så ska den få lite särbehandling senare

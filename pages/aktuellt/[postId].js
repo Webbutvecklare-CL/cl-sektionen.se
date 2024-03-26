@@ -106,7 +106,7 @@ export async function getStaticPaths() {
   }
 
   // Plockar ut id:et
-  let postIdList = [];
+  const postIdList = [];
   publicDocs.forEach((doc) => {
     postIdList.push({ params: { postId: doc.id } });
   });

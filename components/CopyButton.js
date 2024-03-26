@@ -26,7 +26,7 @@ export default function CopyButton({ text, children }) {
     }
 
     // Gör att tooltipen försvinner efter 3 sekunder
-    setTimeout(function () {
+    setTimeout(() => {
       setShowing(false);
     }, 3000);
   };

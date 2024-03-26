@@ -41,8 +41,8 @@ export default function Tv() {
     const getImages = async () => {
       // Hämtar bilderna när sidan laddas in
       const imageDocsRef = await getDocs(collection(firestore, "tv"));
-      let visibleImageDocs = [];
-      let oldImageDocs = [];
+      const visibleImageDocs = [];
+      const oldImageDocs = [];
       imageDocsRef.forEach((doc) => {
         const docId = doc.id;
         const data = doc.data();
@@ -90,7 +90,7 @@ export default function Tv() {
   const handleEdit = async (image, newStartDate, newEndDate) => {
     // Uppdatera bild dokumentet
     try {
-      let updatedDates = {};
+      const updatedDates = {};
 
       // Gör om datumen till firebase timestamps
       const newFbStartDate = Timestamp.fromDate(new Date(newStartDate));

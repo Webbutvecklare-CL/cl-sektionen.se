@@ -10,7 +10,7 @@ export default function Illabehandling({ contents }) {
 }
 
 export async function getStaticProps() {
-  let contents = getContentData("hjalp-vid-illabehandling");
+  const contents = getContentData("hjalp-vid-illabehandling");
   return {
     props: {
       contents,

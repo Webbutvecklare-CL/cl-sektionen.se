@@ -23,7 +23,7 @@ async function validateAccountCheck(user) {
   // Försöker hämta användaren
   const firestore = getFirestore(app);
   const userRef = doc(firestore, "users", user.uid);
-  let docSnap = await getDoc(userRef);
+  const docSnap = await getDoc(userRef);
   if (docSnap.exists()) {
     if (!docSnap.data().committee || !docSnap.data().permission) {
       return { ok: false, message: "no permission" };
@@ -37,7 +37,7 @@ async function validateAccountCheck(user) {
 
 function createUser(user) {
   console.log("setDoc - Skapar användare");
-  let profileInfo = {
+  const profileInfo = {
     displayName: user.displayName,
     email: user.email,
     committee: "",
@@ -50,7 +50,7 @@ function createUser(user) {
 
 function updateUser(user) {
   console.log("updateDoc - Update user");
-  let profileInfo = {
+  const profileInfo = {
     displayName: user.displayName,
     email: user.email,
   };

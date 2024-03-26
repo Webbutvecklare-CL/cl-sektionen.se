@@ -92,7 +92,7 @@ export default async function handler(req, res) {
 
   try {
     // Skickar notis till alla som följer eventuella taggar
-    let response = await sendNotification(type, message, dryRun);
+    const response = await sendNotification(type, message, dryRun);
 
     // Skickar tillbaka respons
     return res.status(200).json({
@@ -181,7 +181,7 @@ async function getTokens(type) {
 
       resolve(Array.from(selectedTokens));
       try {
-        let removedTokens = await removeOldTokens(allTokensObj);
+        const removedTokens = await removeOldTokens(allTokensObj);
         console.log("Removed", removedTokens.length, "old tokens");
       } catch (error) {
         console.error("Something went wrong with removing old tokens", error);

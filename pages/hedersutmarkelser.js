@@ -45,8 +45,8 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
   };
 
   const Hedersmedlem = ({ nameId, year }) => {
-    let name = nameId.replace("_", " ");
-    let selected = selectedMember == nameId;
+    const name = nameId.replace("_", " ");
+    const selected = selectedMember == nameId;
     return (
       <div
         id={nameId}
@@ -128,7 +128,7 @@ export async function getStaticProps() {
   const hedersordenText = getContentData("data")["hedersorden"];
 
   // Gör om md/text-filen hedersorden till JSON
-  let hedersorden = {};
+  const hedersorden = {};
   const rows = hedersordenText.split(/\r?\n/); // Plockar ut alla rader
   let title = "";
   let year = "2002";

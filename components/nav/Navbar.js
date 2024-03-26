@@ -110,10 +110,10 @@ export default function Navbar() {
   };
 
   //för att stänga hamburgarmenyn om man klickar utanför---------------------
-  let navbarRef = useRef();
-  let burgerMenuRef = useRef();
+  const navbarRef = useRef();
+  const burgerMenuRef = useRef();
   useEffect(() => {
-    let handler = (e) => {
+    const handler = (e) => {
       // Kollar om elementet som användaren tryckte på finns i navbar eller burgerMenu
       const pressOnNavBar = navbarRef.current.contains(e.target);
       const pressOnBurgerMenu = burgerMenuRef.current.contains(e.target);

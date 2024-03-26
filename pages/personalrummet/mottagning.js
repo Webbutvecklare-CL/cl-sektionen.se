@@ -55,7 +55,7 @@ export default function Mottagning() {
     }
 
     // Skickar data
-    let postData = {
+    const postData = {
       title,
       content,
       publishDate: Timestamp.fromDate(new Date()),
@@ -108,7 +108,7 @@ export default function Mottagning() {
       setIsPending(false);
       return;
     }
-    let postData = {};
+    const postData = {};
     if (title !== editing.title) postData.title = title;
     if (content !== editing.content) postData.content = content;
 
@@ -143,7 +143,7 @@ export default function Mottagning() {
 
   const deletePost = async (id) => {
     const promise = new Promise((resolve, reject) => {
-      let modal = {};
+      const modal = {};
       modal.onClose = async () => {
         resolve(false);
       };
@@ -208,9 +208,9 @@ export default function Mottagning() {
     const mottagningsPostsRef = collection(firestore, "mottagningsPosts");
     const q = query(mottagningsPostsRef, where("visibility", "==", "public"));
     getDocs(q).then((docs) => {
-      let posts = [];
+      const posts = [];
       docs.forEach((doc) => {
-        let data = doc.data();
+        const data = doc.data();
         data.id = doc.id;
         posts.push(data);
       });

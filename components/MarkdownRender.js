@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import Definition from "./Definition";
 
 export default function MarkdownRender({ source, mdData, id }) {
-  let [content, setContent] = useState("");
+  const [content, setContent] = useState("");
 
   // Om det kommer in redan inladdad text så renderas den
   useEffect(() => {

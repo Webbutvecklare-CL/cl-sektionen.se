@@ -59,7 +59,7 @@ async function handleKeyReq(req, res) {
   const key = req.headers.mottagning_key;
   if (key === process.env.MOTTAGNING_KEY) {
     // Hämtar alla mottagningsposts
-    let posts = [];
+    const posts = [];
     const mottagningsPostsRef = admin.firestore().collection("mottagningsPosts");
     try {
       const postDocs = await mottagningsPostsRef.limit(40).get();

@@ -123,13 +123,13 @@ export async function getStaticProps() {
 }
 
 function getContactsList(data) {
-  let contactsList = {}; // Objekt med alla nämnder en nämnd ser ut på följande sätt:
+  const contactsList = {}; // Objekt med alla nämnder en nämnd ser ut på följande sätt:
   // 'namnd-id': {id: namnd-id, mail: '', period: '', trustees: [/*Nämndens förtroendevalda*/]}
 
   let committeeHolder = null;
   let i = 0;
   while (i < data.length) {
-    let row = data[i];
+    const row = data[i];
     i++;
     if (row.length < 1) {
       // Mellan varje nämnd finns en tom rad dvs raden(listan) kommer vara tom

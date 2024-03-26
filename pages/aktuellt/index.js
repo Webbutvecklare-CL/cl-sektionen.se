@@ -69,15 +69,15 @@ export default function Aktuellt({ postList }) {
     if (e) {
       e.preventDefault();
     }
-    let tag = e.target.innerHTML;
-    let selected = e.target.classList.contains(filterStyles.selected);
+    const tag = e.target.innerHTML;
+    const selected = e.target.classList.contains(filterStyles.selected);
 
     // Kopiera förra statet och skriver över värdet på den valda tagen
     setFilterTags((filterTags) => ({ ...filterTags, ...{ [tag]: !selected } }));
   };
 
   const handleSetType = (e, tag) => {
-    let selected = e.target.classList.contains(filterStyles.selected);
+    const selected = e.target.classList.contains(filterStyles.selected);
 
     setType((t) => ({ ...t, ...{ [tag]: !selected } }));
   };
@@ -115,7 +115,7 @@ export default function Aktuellt({ postList }) {
   const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
-    let panelCloseHandler = (e) => {
+    const panelCloseHandler = (e) => {
       const clickOnPanel = e.composedPath().includes(panelRef.current);
       if (!clickOnPanel) {
         setFilterPanelOpen(false);
@@ -131,7 +131,7 @@ export default function Aktuellt({ postList }) {
   //outline runt sökfältet om man klickar innuti, detta för att firefox inte stödjer css 'has()' selector
   const [fokusSearchBar, setfokusSearchBar] = useState(false);
   useEffect(() => {
-    let focusSearchHandler = (e) => {
+    const focusSearchHandler = (e) => {
       if (!fokusSearchBar && e.target.className === "searchbar") {
         setfokusSearchBar(true);
       } else if (fokusSearchBar && e.target.className !== "searchbar") {
@@ -148,11 +148,11 @@ export default function Aktuellt({ postList }) {
   // Filter via länkar
   // Uppdatera objektet som sparas i query params
   const queryParams = useMemo(() => {
-    let newQueryParams = {};
+    const newQueryParams = {};
 
     // Skapar en sträng med alla tags
     let tags = "";
-    for (let tag in filterTags) {
+    for (const tag in filterTags) {
       if (filterTags[tag]) {
         tags += tag + "-";
       }
@@ -174,7 +174,7 @@ export default function Aktuellt({ postList }) {
       start: startDate,
     };
 
-    for (let key in filters) {
+    for (const key in filters) {
       const value = filters[key];
       if (value) {
         newQueryParams[key] = value;
@@ -205,8 +205,8 @@ export default function Aktuellt({ postList }) {
     }
 
     const queryTags = query.tags?.split("-") || [];
-    let tags = {};
-    for (let tag of queryTags) {
+    const tags = {};
+    for (const tag of queryTags) {
       tags[tag] = true;
     }
 
@@ -485,7 +485,7 @@ export default function Aktuellt({ postList }) {
 }
 
 export async function getStaticProps() {
-  let postList = [];
+  const postList = [];
 
   // Aktuellt
   const postRef = collection(firestore, "posts");
@@ -508,7 +508,7 @@ export async function getStaticProps() {
 
   // Plockar ut data och lägger till id i post data
   postDocs.forEach((doc) => {
-    let data = doc.data();
+    const data = doc.data();
     data.id = doc.id;
     postList.push(data);
   });

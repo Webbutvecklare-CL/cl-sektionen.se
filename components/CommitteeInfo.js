@@ -7,8 +7,8 @@ export default function CommitteeInfo({ committee, description, contact }) {
 
   const MandatePeriod = ({ contact }) => {
     if (!contact.period) return null;
-    let periods = contact.period.split(";");
-    let elementList = []; // Varje element är en mandatperiod
+    const periods = contact.period.split(";");
+    const elementList = []; // Varje element är en mandatperiod
 
     // Lägger till första mandat perioden, första ska vara generell för nämnden
     elementList.push(

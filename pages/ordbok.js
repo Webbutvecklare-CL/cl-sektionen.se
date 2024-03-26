@@ -38,7 +38,7 @@ function Ordbok({ ordbok }) {
   const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
   useEffect(() => {
-    let panelCloseHandler = (e) => {
+    const panelCloseHandler = (e) => {
       const clickOnPanel = e.composedPath().includes(panelRef.current);
       if (!clickOnPanel) {
         setFilterPanelOpen(false);
@@ -52,7 +52,7 @@ function Ordbok({ ordbok }) {
   });
 
   useEffect(() => {
-    let focusSearchHandler = (e) => {
+    const focusSearchHandler = (e) => {
       if (!fokusSearchBar && e.target.className === "searchbar") {
         setFokusSearchBar(true);
       } else if (fokusSearchBar && e.target.className !== "searchbar") {

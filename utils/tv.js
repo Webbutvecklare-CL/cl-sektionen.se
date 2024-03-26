@@ -25,7 +25,7 @@ async function getAllImages() {
 
 function getIsNight() {
   // Kollar om klockan är mellan 17-08
-  let now = new Date().getHours();
+  const now = new Date().getHours();
   if (now > 17 || now < 8) {
     return true;
   } else {
@@ -35,7 +35,7 @@ function getIsNight() {
 
 function getGr8anOpen() {
   // Kollar om klockan är mellan 03-06 (Gråttans öppettider)
-  let now = new Date().getHours();
+  const now = new Date().getHours();
   if (now > 3 && now < 6) {
     return false;
   } else {
@@ -64,7 +64,7 @@ function areArraysEqualSets(a1, a2) {
     superSet[e] = 2;
   }
 
-  for (let e in superSet) {
+  for (const e in superSet) {
     if (superSet[e] === 1) {
       return false;
     }

@@ -61,10 +61,10 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
       const startOfToday = new Date();
       startOfToday.setUTCHours(0, 0, 0);
 
-      let newImageUrls = [];
-      for (let image of images) {
-        let startDate = image.startDate.toDate();
-        let endDate = image.endDate.toDate();
+      const newImageUrls = [];
+      for (const image of images) {
+        const startDate = image.startDate.toDate();
+        const endDate = image.endDate.toDate();
 
         if (startDate <= startOfToday && endDate >= startOfToday) {
           newImageUrls.push(image.url);
