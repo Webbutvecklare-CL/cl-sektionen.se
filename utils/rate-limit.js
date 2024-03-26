@@ -1,8 +1,8 @@
 // Används för att begränsa antalet anrop som kan göras till API:et
-import LRU from "lru-cache";
+import { LRUCache } from "lru-cache";
 
 export default function rateLimit(options) {
-  const tokenCache = new LRU({
+  const tokenCache = new LRUCache({
     max: options?.uniqueTokenPerInterval || 500,
     maxAge: options?.interval || 60000,
   });
