@@ -19,7 +19,7 @@ export default function FeedPreview({ posts, goBack = false }) {
 	return (
 		<div className={styles.preview}>
 			{posts.map((post) => {
-				const date = new Date(post.publishDateseconds * 1000);
+				const date = new Date(post.publishDate.seconds * 1000);
 				return (
 					<div className={styles.postWrapper} key={post.id}>
 						<Link

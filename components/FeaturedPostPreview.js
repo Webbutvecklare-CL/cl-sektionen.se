@@ -10,7 +10,6 @@ import styles from "../styles/feed-preview.module.css";
 import { logEvent } from "firebase/analytics";
 
 export default function FeaturedPostPreview({ post }) {
-
 	const getDate = (date) => {
 		return new Date(date.seconds * 1000).toLocaleDateString("sv");
 	};
@@ -54,19 +53,17 @@ export default function FeaturedPostPreview({ post }) {
 					</div>
 					<div className="post-content">
 						<p className="subtitle">{post.subtitle}</p>
-								{post.type === "event" && (
-										<span className={styles.eventDate}>
-											Datum: {getDate(post.startDateTime)}
-											{getDate(post.startDateTime) !==
-												getDate(post.endDateTime) && (
-												<span> till {getDate(post.endDateTime)}</span>
-											)}
-											{new Date(post.endDateTime.seconds * 1000) <
-												Date.now() && (
-												<span className={styles.passedDate}> (passerat)</span>
-											)}
-										</span>
-									)}
+						{post.type === "event" && (
+							<span className={styles.eventDate}>
+								Datum: {getDate(post.startDateTime)}
+								{getDate(post.startDateTime) !== getDate(post.endDateTime) && (
+									<span> till {getDate(post.endDateTime)}</span>
+								)}
+								{new Date(post.endDateTime.seconds * 1000) < Date.now() && (
+									<span className={styles.passedDate}> (passerat)</span>
+								)}
+							</span>
+						)}
 						<div className="body">
 							<br />
 							<p>
