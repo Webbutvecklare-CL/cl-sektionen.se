@@ -28,8 +28,6 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignore": [
-			"**/public/**"
-		]
+		"ignore": ["**/public/**"]
 	}
 }
