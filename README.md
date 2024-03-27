@@ -36,7 +36,7 @@ npm run build
 
 ## Formatering och linting
 
-Projektet använder Biome för att hålla koden enhetlig och felfri. Det handlar både om formatering med radbryt och liknande, men också om små standarder för olika kod-specifika lösningar. Vill du veta mer om Biome och vad den gör så kan du läsa [här](https://biomejs.dev/). Suffixet :apply gör att det som du utfört faktiskt sparas i koden, annars får du bara en lista med problemen. Du kan använda ett kommando med :apply direkt.
+Projektet använder Biome för att hålla koden enhetlig och felfri. Det handlar både om formatering med radbryt och liknande, men också om små standarder för olika kod-specifika lösningar. Vill du veta mer om Biome och vad den gör så kan du läsa [här](https://biomejs.dev/). Suffixet :apply gör att det som du utfört faktiskt sparas i koden, annars får du bara en lista med problemen. Du kan använda ett kommando med :apply direkt. Vi har satt upp en GitHub action som automatiskt kommenterar din pull request, ifall du glömmer att köra kommandot innan.
 
 ```bash
 # Letar efter kod som inte är formaterad rätt
