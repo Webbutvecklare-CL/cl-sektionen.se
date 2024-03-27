@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       // Försöker få ut all json data och skickar tillbaka till anroparen
       await result.json().then((data) => {
         if (result.ok) {
-          if (data.StatusCode == 0) {
+          if (data.StatusCode === 0) {
             // Typ lite oklart vad dessa headers gör
             res.setHeader("Access-Control-Allow-Origin", "*");
             res.setHeader("Access-Control-Allow-Credentials", true);

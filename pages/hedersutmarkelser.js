@@ -46,7 +46,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
 
   const Hedersmedlem = ({ nameId, year }) => {
     const name = nameId.replace("_", " ");
-    const selected = selectedMember == nameId;
+    const selected = selectedMember === nameId;
     return (
       <div
         id={nameId}

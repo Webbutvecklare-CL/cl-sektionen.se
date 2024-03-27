@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
   // Kollar vilken typ av notis det är och skapar payload
   // Om inget matchar returnera 400 error
-  if (req.body.data.type == "post") {
+  if (req.body.data.type === "post") {
     try {
       const postData = await verifyRequest(uid, req.body.data.postId);
 
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       console.error("Verification failed:", error);
       return res.status(400).send({ message: "Verifiering misslyckades: " + error });
     }
-  } else if (req.body.data.type == "mottagning") {
+  } else if (req.body.data.type === "mottagning") {
     type = "mottagning";
     dryRun = req.body.data.dryRun || false;
     const payload = {
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       ...payload,
       fcmOptions: { analyticsLabel: "mottagning" },
     };
-  } else if (req.body.data.type == "custom") {
+  } else if (req.body.data.type === "custom") {
     if (permission !== "admin") {
       return res
         .status(401)
@@ -153,7 +153,7 @@ async function sendNotification(type, message, dryRun = false) {
 function createPostPayload(data) {
   return {
     data: {
-      title: `${data.author} publicerade ett ${data.type == "event" ? "event" : "inlägg"}`,
+      title: `${data.author} publicerade ett ${data.type === "event" ? "event" : "inlägg"}`,
       body: `${data.title}`,
       image: data.image || "",
       icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här

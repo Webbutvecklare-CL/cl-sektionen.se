@@ -366,7 +366,7 @@ export default function Publicera({ calendarID }) {
       setCalendarStatus("Uppladdat i kalendern.");
     } catch (errRes) {
       console.error(errRes);
-      if (errRes.status == 401) {
+      if (errRes.status === 401) {
         console.log(calendarID);
       }
 
@@ -434,7 +434,7 @@ async function reauthenticate() {
       .catch((err) => {
         console.error(err);
         var errorText;
-        if (err.code == "auth/popup-closed-by-user") {
+        if (err.code === "auth/popup-closed-by-user") {
           errorText = "Inloggningsfönstret stängdes!";
         } else if (err.code === "auth/popup-blocked") {
           errorText =

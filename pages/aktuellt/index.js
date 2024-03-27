@@ -181,7 +181,7 @@ export default function Aktuellt({ postList }) {
       }
     }
 
-    if (endDate && endDate != new Date().toDateString()) {
+    if (endDate && endDate !== new Date().toDateString()) {
       newQueryParams.end = endDate;
     }
 

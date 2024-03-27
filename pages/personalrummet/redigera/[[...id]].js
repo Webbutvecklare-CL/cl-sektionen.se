@@ -141,7 +141,7 @@ export default function EditPost() {
         continue;
       }
 
-      if (data[key] != prefill[key]) {
+      if (data[key] !== prefill[key]) {
         // Datumen sparas som en string och måste göras om till firebase date
         if (key.includes("date") || key.includes("startDateTime") || key.includes("endDateTime")) {
           postData[key] = Timestamp.fromDate(new Date(data[key]));
@@ -151,12 +151,12 @@ export default function EditPost() {
       }
     }
 
-    if (JSON.stringify(data.tags) != JSON.stringify(prefill.tags)) {
+    if (JSON.stringify(data.tags) !== JSON.stringify(prefill.tags)) {
       postData.tags = data.tags;
     }
 
     const committee = userData.permission === "admin" ? data.authorCommittee : userData.committee;
-    if (committee != prefill.authorCommittee) {
+    if (committee !== prefill.authorCommittee) {
       postData.committee = committee;
     }
 

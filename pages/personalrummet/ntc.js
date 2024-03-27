@@ -24,13 +24,13 @@ export default function NTC() {
 
   const handleSendNotification = async () => {
     let notificationMessage;
-    if (type == "post") {
+    if (type === "post") {
       notificationMessage = {
         type: "post",
         postId,
         dryRun,
       };
-    } else if (type == "custom") {
+    } else if (type === "custom") {
       notificationMessage = {
         type: "custom",
         title,

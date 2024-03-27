@@ -97,11 +97,11 @@ export default function Tv() {
       const newFbEndDate = Timestamp.fromDate(new Date(newEndDate));
 
       // Kollar om datumet ändrats
-      if (newFbStartDate.seconds != image.startDate.seconds) {
+      if (newFbStartDate.seconds !== image.startDate.seconds) {
         updatedDates.startDate = newFbStartDate;
       }
 
-      if (newFbEndDate.seconds != image.endDate.seconds) {
+      if (newFbEndDate.seconds !== image.endDate.seconds) {
         updatedDates.endDate = newFbEndDate;
       }
 
