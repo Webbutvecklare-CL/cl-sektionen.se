@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import React, { useState, useEffect, useRef } from "react";
 
-import TextField from "./form components/TextField";
+import PostComponent from "@/components/PostComponent";
+import { useAuth } from "../../context/AuthContext";
+import { createId, getTypedLink } from "../../utils/postUtils";
 import InfoBox from "./form components/InfoBox";
 import Label from "./form components/Label";
-import PostComponent from "@/components/PostComponent";
-import { createId, getTypedLink } from "../../utils/postUtils";
-import { useAuth } from "../../context/AuthContext";
+import TextField from "./form components/TextField";
 
-// Taggar som kan väljas
-import { INFOTAGS, EVENTSTAGS, COMMONTAGS } from "../../constants/tags";
 import { all_committees } from "../../constants/committees-data";
+// Taggar som kan väljas
+import { COMMONTAGS, EVENTSTAGS, INFOTAGS } from "../../constants/tags";
 
 import styles from "../../styles/personalrummet/post-form.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faTrashCan,
 	faEye,
 	faEyeSlash,
+	faTrashCan,
 } from "@fortawesome/free-regular-svg-icons";
 import { faStarOfLife } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function PostForm({ onSubmit, prefill, editMode = false }) {
 	const [title, setTitle] = useState(prefill.title);

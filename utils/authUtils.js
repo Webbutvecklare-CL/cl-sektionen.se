@@ -1,11 +1,11 @@
-import { app } from "../firebase/clientApp";
 import {
-	getFirestore,
-	getDoc,
-	setDoc,
 	doc,
+	getDoc,
+	getFirestore,
+	setDoc,
 	updateDoc,
 } from "firebase/firestore";
+import { app } from "../firebase/clientApp";
 
 async function googleLogin() {
 	const { GoogleAuthProvider } = await import("firebase/auth");

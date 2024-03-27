@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import styles from "../styles/cookie-banner.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "../styles/cookie-banner.module.css";
 
 export default function CookieBanner({ setCookieState }) {
 	return (

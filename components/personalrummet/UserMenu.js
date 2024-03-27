@@ -2,26 +2,26 @@ import { useRouter } from "next/router";
 
 import React, { useEffect, useState } from "react";
 
-import { app } from "../../firebase/clientApp";
 import {
-	getFirestore,
-	getDocs,
 	collection,
-	query,
-	where,
-	orderBy,
+	getDocs,
+	getFirestore,
 	limit,
 	or,
+	orderBy,
+	query,
+	where,
 } from "firebase/firestore";
+import { app } from "../../firebase/clientApp";
 const firestore = getFirestore(app);
 
-import { updateUser } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
+import { updateUser } from "../../utils/authUtils";
 
-import CommitteeFeed from "./CommitteeFeed";
-import MarkdownRender from "../MarkdownRender";
-import ErrorPage from "../ErrorPage";
 import { all_committees } from "../../constants/committees-data";
+import ErrorPage from "../ErrorPage";
+import MarkdownRender from "../MarkdownRender";
+import CommitteeFeed from "./CommitteeFeed";
 
 import { menu } from "../../styles/personalrummet.module.css";
 

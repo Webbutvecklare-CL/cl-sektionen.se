@@ -3,8 +3,8 @@ import Link from "next/link";
 import { logEvent } from "firebase/analytics";
 
 import {
-	submenuItem as submenuItemStyles,
 	active as activeStyles,
+	submenuItem as submenuItemStyles,
 } from "../../styles/nav.module.css";
 
 export default function NavSubItem({ text, href, active }) {

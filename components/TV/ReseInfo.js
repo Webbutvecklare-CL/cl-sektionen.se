@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import Departures from "./Departures";
 import { getGr8anOpen } from "../../utils/tv";
+import Departures from "./Departures";
 
 import styles from "../../styles/tv.module.css";
 

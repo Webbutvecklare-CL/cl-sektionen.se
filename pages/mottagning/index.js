@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { useState } from "react";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { useEffect } from "react";
 
 import CustomHead from "../../components/CustomHead";
 
 import styles from "../../styles/mottagning/mottagning.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import FeedItem from "../../components/mottagning/FeedItem";
 import NotificationBell from "../../components/NotificationBell";
+import FeedItem from "../../components/mottagning/FeedItem";
 
 // Innehållet på mottagningssidan kan kommas åt via klienten (utöver github)
 // Därför ska inget känsligt innehåll vara inkodat här

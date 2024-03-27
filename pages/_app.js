@@ -1,9 +1,9 @@
-import "/styles/root.css";
 import "/styles/contents.css";
-import "/styles/feed-preview.css";
 import "/styles/featured-preview.css";
-import "/styles/reseberattelser.css";
+import "/styles/feed-preview.css";
 import "/styles/fontawesome-fonts.css";
+import "/styles/reseberattelser.css";
+import "/styles/root.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -21,18 +21,18 @@ const PersonalrummetLayout = dynamic(
 	() => import("@/layouts/PersonalrummetLayout"),
 );
 
+import { useRouter } from "next/router";
 // React
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 import { getCookie, setCookie } from "../utils/cookieUtils";
 
+import Head from "next/head";
+import CookieBanner from "../components/CookieBanner";
+import CustomHead from "../components/CustomHead";
+import Footer from "../components/Footer";
 // Komponenter
 import Navbar from "../components/nav/Navbar";
-import Footer from "../components/Footer";
-import Head from "next/head";
-import CustomHead from "../components/CustomHead";
-import CookieBanner from "../components/CookieBanner";
 
 export default function App({ Component, pageProps }) {
 	const router = useRouter();

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import styles from "../styles/notification-bell.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "../styles/notification-bell.module.css";
 
-import NotificationModal from "./NotificationModal";
 import { isSupported } from "firebase/messaging";
+import NotificationModal from "./NotificationModal";
 
 export default function NotificationBell({
 	hideIfNoSupport = false,

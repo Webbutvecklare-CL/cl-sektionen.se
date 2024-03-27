@@ -1,12 +1,12 @@
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import Sidhuvud_inv from "../public/media/grafik/Namn_Vit.webp";
 import Sidhuvud_black from "../public/media/grafik/Sidhuvud.webp";
 
+import FeaturedPostPreview from "../components/FeaturedPostPreview";
 // Komponenter
 import FeedPreview from "../components/FeedPreview";
-import FeaturedPostPreview from "../components/FeaturedPostPreview";
 import CalendarSubscription from "../components/calendar/CalendarSubscription";
 
 // Gör att kalendrarna laddas in efter användaren kommit in på sidan - för att snabba upp laddningstiden
@@ -27,12 +27,12 @@ import { getContentData } from "../utils/contents";
 //Firebase stuff
 import { logEvent } from "firebase/analytics";
 
+import feedStyles from "../styles/feed-preview.module.css";
 // Styles
 import styles from "../styles/index.module.css";
-import feedStyles from "../styles/feed-preview.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Index({ contents, featured, infoList, eventList }) {
 	const [open, setOpen] = useState(false);

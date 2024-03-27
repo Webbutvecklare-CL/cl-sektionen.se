@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { FastAverageColor } from "fast-average-color";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import styles from "../../styles/tv.module.css";
 

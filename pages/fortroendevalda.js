@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { getContentData } from "../utils/contents";
-import { getValues } from "../utils/sheetsUtils";
+import { useEffect, useState } from "react";
 import {
+	associations,
 	board,
 	committees,
 	trustees,
-	associations,
 } from "../constants/committees-data";
+import { getContentData } from "../utils/contents";
+import { getValues } from "../utils/sheetsUtils";
 
 // Komponenter
 import CommitteeInfo from "../components/CommitteeInfo";

@@ -1,6 +1,6 @@
 import BackButton from "../../components/BackButton";
-import MarkdownRender from "../../components/MarkdownRender";
 import CustomHead from "../../components/CustomHead";
+import MarkdownRender from "../../components/MarkdownRender";
 import { getContentData } from "../../utils/contents";
 
 import Image from "next/image";

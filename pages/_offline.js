@@ -1,5 +1,5 @@
-import BackButton from "../components/BackButton";
 import Image from "next/image";
+import BackButton from "../components/BackButton";
 import bg from "../public/media/grafik/CLsharp.webp";
 
 import styles from "../styles/404.module.css";

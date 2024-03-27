@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function BackButton({ page = "", children }) {
 	const router = useRouter();

@@ -1,10 +1,10 @@
-import CustomHead from "../../components/CustomHead";
 import BackButton from "../../components/BackButton";
 import Card from "../../components/Card";
+import CustomHead from "../../components/CustomHead";
 import styles from "../../styles/mottagning/mottagning.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Bilder() {
 	return (

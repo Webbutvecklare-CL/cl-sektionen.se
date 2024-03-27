@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { googleLogin } from "../../utils/authUtils";
 import { useAuth } from "../../context/AuthContext";
+import { googleLogin } from "../../utils/authUtils";
 
 import ErrorPage from "../ErrorPage";
 

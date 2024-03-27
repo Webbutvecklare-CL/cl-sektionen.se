@@ -1,8 +1,8 @@
 import Image from "next/image";
 
+import { useEffect, useRef, useState } from "react";
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
-import { useEffect, useState, useRef } from "react";
 
 import styles from "../styles/hedersutmarkelser.module.css";
 

@@ -1,14 +1,14 @@
 // Används för att kunna skriva rich text vilket gör att man kan formatera texten
 // Målet är att WYSIWYG - What you see is what you get. Dvs så man formaterar det
 // så kommer det se ut när det är publicerat.
-import { RichTextEditor, Link } from "@mantine/tiptap";
+import { Link, RichTextEditor } from "@mantine/tiptap";
+import Placeholder from "@tiptap/extension-placeholder";
+import SubScript from "@tiptap/extension-subscript";
+import Superscript from "@tiptap/extension-superscript";
+import TextAlign from "@tiptap/extension-text-align";
+import Underline from "@tiptap/extension-underline";
 import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import TextAlign from "@tiptap/extension-text-align";
-import Superscript from "@tiptap/extension-superscript";
-import SubScript from "@tiptap/extension-subscript";
-import Placeholder from "@tiptap/extension-placeholder";
 
 import styles from "@/styles/personalrummet/post-form.module.css";
 

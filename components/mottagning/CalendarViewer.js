@@ -2,16 +2,16 @@ import React, { useEffect, useState, useRef } from "react";
 
 import HTMLString from "react-html-string";
 
-import { getPublicEvents } from "../../utils/calendarUtils";
 import Link from "next/link";
+import { getPublicEvents } from "../../utils/calendarUtils";
 
-import styles from "../../styles/calendar-viewer.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faAngleLeft,
 	faAngleRight,
 	faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "../../styles/calendar-viewer.module.css";
 
 export default function CalendarViewer({ calendar_id }) {
 	const startDay = new Date(new Date("2023-08-14").setHours(0, 0, 0, 0));

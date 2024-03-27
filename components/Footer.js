@@ -1,17 +1,17 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import CL_logo_stor from "../public/media/grafik/sidhuvud_inv.webp";
 
 import styles from "../styles/footer.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faInstagram,
 	faFacebook,
 	faGithub,
+	faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import { faMugHot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMugHot } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import dynamic from "next/dynamic";
 const MapsFrame = dynamic(() => import("./MapsFrame"), { ssr: false });

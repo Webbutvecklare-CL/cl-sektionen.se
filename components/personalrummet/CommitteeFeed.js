@@ -1,12 +1,12 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import parse from "html-react-parser";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import sanitizeHtml from "sanitize-html";
 
+import { deleteDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
+import { deleteObject, getStorage, listAll, ref } from "firebase/storage";
 import { app } from "../../firebase/clientApp";
-import { getFirestore, doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { getStorage, ref, listAll, deleteObject } from "firebase/storage";
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 
@@ -15,16 +15,16 @@ import { revalidate } from "../../utils/server";
 
 import bg from "../../public/media/img/KTHcover.jpg";
 
-import styles from "../../styles/personalrummet.module.css";
 import feed from "../../styles/feed-preview.module.css";
+import styles from "../../styles/personalrummet.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faEye,
 	faEyeSlash,
 	faTrashCan,
 } from "@fortawesome/free-regular-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function CommitteeFeed({ posts, permission = "" }) {
 	// För att feedet ska uppdateras när man klickar på ex ögat

@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import parse from "html-react-parser";
+import Image from "next/image";
+import Link from "next/link";
 import sanitizeHtml from "sanitize-html";
 import { convertDate } from "../utils/convertDate";
 

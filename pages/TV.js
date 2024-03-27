@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
+	Timestamp,
 	collection,
 	getFirestore,
 	onSnapshot,
 	query,
 	where,
-	Timestamp,
 } from "firebase/firestore";
 import { app } from "../firebase/clientApp";
 const firestore = getFirestore(app);
@@ -15,8 +15,8 @@ const firestore = getFirestore(app);
 import ReseInfo from "../components/TV/ReseInfo";
 import Slideshow from "../components/TV/Slideshow";
 
-import KTH_Summer from "../public/media/TV/kth-sommar.png";
 import KTH_Night from "../public/media/TV/kth-night.jpg";
+import KTH_Summer from "../public/media/TV/kth-sommar.png";
 
 import { getIsNight } from "../utils/tv";
 

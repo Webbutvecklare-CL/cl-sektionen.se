@@ -1,9 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp, getApp, getApps } from "firebase/app";
 import {
-	getAnalytics,
 	isSupported as analyticsIsSupported,
+	getAnalytics,
 } from "firebase/analytics";
+// Import the functions you need from the SDKs you need
+import { getApp, getApps, initializeApp } from "firebase/app";
 
 import { getMessaging, isSupported } from "firebase/messaging";
 

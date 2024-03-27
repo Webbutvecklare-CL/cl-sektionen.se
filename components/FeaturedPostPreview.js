@@ -1,9 +1,9 @@
-import Link from "next/link";
 import parse from "html-react-parser";
-import sanitizeHtml from "sanitize-html";
 import Image from "next/image";
-import { convertDate } from "../utils/convertDate";
+import Link from "next/link";
+import sanitizeHtml from "sanitize-html";
 import bg from "../public/media/img/KTHcover.jpg";
+import { convertDate } from "../utils/convertDate";
 
 import styles from "../styles/feed-preview.module.css";
 

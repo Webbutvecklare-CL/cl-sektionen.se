@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, forwardRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 import { getPublicEvents } from "../../utils/calendarUtils";
 

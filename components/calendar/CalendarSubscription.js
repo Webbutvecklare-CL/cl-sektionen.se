@@ -3,9 +3,9 @@ import CopyButton from "../CopyButton";
 
 import { calendarSubscription } from "../../styles/kalender.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAndroid, faApple } from "@fortawesome/free-brands-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function CalendarSubscription({ calendar_id, children }) {
 	return (

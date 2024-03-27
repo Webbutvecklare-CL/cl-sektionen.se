@@ -1,8 +1,8 @@
-import React from "react";
-import MarkdownRender from "../../components/MarkdownRender";
-import { readdirSync, readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import React from "react";
 import BackButton from "../../components/BackButton";
+import MarkdownRender from "../../components/MarkdownRender";
 
 import styles from "../../styles/reseberattelser.module.css";
 

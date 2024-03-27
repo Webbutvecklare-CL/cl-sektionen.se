@@ -1,6 +1,6 @@
+import { isSupported } from "firebase/messaging"; // Biblioteket
 import React, { useState } from "react";
 import { getFCMToken } from "../../firebase/messaging"; // Filen
-import { isSupported } from "firebase/messaging"; // Biblioteket
 import { sendNotification } from "../../utils/server";
 
 import { useAuth } from "../../context/AuthContext";

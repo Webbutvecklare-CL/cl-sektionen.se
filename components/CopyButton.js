@@ -3,8 +3,8 @@ import Card from "./Card";
 
 import {
 	copyButton as copyButtonStyles,
-	toolTipText as toolTipTextStyles,
 	showing as showingStyles,
+	toolTipText as toolTipTextStyles,
 } from "../styles/components.module.css";
 
 export default function CopyButton({ text, children }) {

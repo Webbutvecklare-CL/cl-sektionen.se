@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-import { getStorage, ref, deleteObject } from "firebase/storage";
+import { app } from "@/firebase/clientApp";
 import {
+	Timestamp,
 	collection,
-	getFirestore,
+	deleteDoc,
 	doc,
 	getDocs,
-	deleteDoc,
+	getFirestore,
 	updateDoc,
-	Timestamp,
 } from "firebase/firestore";
-import { app } from "@/firebase/clientApp";
+import { deleteObject, getStorage, ref } from "firebase/storage";
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 

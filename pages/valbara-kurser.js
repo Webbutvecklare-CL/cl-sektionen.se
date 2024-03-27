@@ -1,17 +1,17 @@
+import Link from "next/link";
+import { useState } from "react";
 import MarkdownRender from "../components/MarkdownRender";
 import { getContentData } from "../utils/contents";
-import { useState } from "react";
-import Link from "next/link";
 
 import styles from "../styles/valbara-kurser.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+	faAngleDown,
 	faAngleLeft,
 	faAngleRight,
-	faAngleDown,
 	faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Valbarakurser({ contents, courses }) {
 	const CommentCarousel = ({ comments }) => {

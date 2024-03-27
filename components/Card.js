@@ -1,5 +1,5 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 import { linkCard as linkCardStyles } from "../styles/components.module.css";
 

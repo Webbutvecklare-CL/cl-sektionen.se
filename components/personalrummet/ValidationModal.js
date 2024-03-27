@@ -1,5 +1,5 @@
+import { createId, getTypedLink, validateLink } from "@/utils/postUtils";
 import { useState } from "react";
-import { validateLink, getTypedLink, createId } from "@/utils/postUtils";
 
 import Modal from "../Modal";
 

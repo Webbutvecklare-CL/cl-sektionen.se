@@ -1,7 +1,7 @@
 import BackButton from "../../components/BackButton";
-import CalendarViewer from "../../components/mottagning/CalendarViewer";
 import CustomHead from "../../components/CustomHead";
 import CalendarSubscription from "../../components/calendar/CalendarSubscription";
+import CalendarViewer from "../../components/mottagning/CalendarViewer";
 
 export default function Schema() {
 	const calendar_id =

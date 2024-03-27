@@ -10,7 +10,8 @@
 		"format:apply": "npx @biomejs/biome format . --write",
 		"lint": "npx @biomejs/biome lint .",
 		"lint:apply": "npx @biomejs/biome lint . --apply",
-		"biome:apply": "npx @biomejs/biome check --apply ."
+		"biome": "npx @biomejs/biome check .",
+		"biome:apply": "npx @biomejs/biome check . --apply ."
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.5.1",

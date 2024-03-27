@@ -2,22 +2,22 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { use, useEffect, useState } from "react";
 
-import PostForm from "../../components/personalrummet/PostForm";
 import BackButton from "@/components/BackButton";
 import Modal from "@/components/Modal";
+import PostForm from "../../components/personalrummet/PostForm";
 
+import { createId, getTypedLink } from "@/utils/postUtils";
 import {
-	getFirestore,
-	doc,
-	setDoc,
-	deleteDoc,
 	Timestamp,
+	deleteDoc,
+	doc,
+	getFirestore,
+	setDoc,
 	updateDoc,
 } from "firebase/firestore";
-import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { app } from "../../firebase/clientApp";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { useAuth } from "../../context/AuthContext";
-import { createId, getTypedLink } from "@/utils/postUtils";
+import { app } from "../../firebase/clientApp";
 
 const storage = getStorage(app);
 const firestore = getFirestore(app);
@@ -31,8 +31,8 @@ import { all_committee_ids } from "../../constants/committees-data";
 import ValidationModal from "@/components/personalrummet/ValidationModal";
 
 import {
-	formWrapper,
 	actionMenu,
+	formWrapper,
 	responseContainer,
 } from "@/styles/personalrummet/post-form.module.css";
 

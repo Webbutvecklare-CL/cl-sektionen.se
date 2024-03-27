@@ -1,20 +1,20 @@
 import React from "react";
+import Card from "../../components/Card";
 import CustomHead from "../../components/CustomHead";
 import MarkdownRender from "../../components/MarkdownRender";
-import Card from "../../components/Card";
 import { getContentData } from "../../utils/contents";
 
 import styles from "../../styles/dokument.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilePdf, faFileLines } from "@fortawesome/free-regular-svg-icons";
+import { faFileLines, faFilePdf } from "@fortawesome/free-regular-svg-icons";
 import {
-	faMartiniGlass,
-	faHouse,
 	faAddressCard,
 	faFileInvoiceDollar,
+	faHouse,
+	faMartiniGlass,
 	faSquarePollHorizontal,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Dokument({ contents }) {
 	return (

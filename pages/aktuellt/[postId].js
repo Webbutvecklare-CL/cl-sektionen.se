@@ -1,19 +1,19 @@
-import { React } from "react";
-import Link from "next/link";
-import CustomHead from "../../components/CustomHead";
-import { app } from "../../firebase/clientApp";
 import {
-	getFirestore,
+	Timestamp,
+	collection,
 	doc,
 	getDoc,
-	collection,
+	getDocs,
+	getFirestore,
+	limit,
+	orderBy,
 	query,
 	where,
-	orderBy,
-	limit,
-	Timestamp,
-	getDocs,
 } from "firebase/firestore";
+import Link from "next/link";
+import { React } from "react";
+import CustomHead from "../../components/CustomHead";
+import { app } from "../../firebase/clientApp";
 const firestore = getFirestore(app);
 
 import PostComponent from "@/components/PostComponent";

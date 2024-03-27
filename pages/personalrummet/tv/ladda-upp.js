@@ -1,20 +1,20 @@
-import { useMemo, useState } from "react";
 import Image from "next/image";
+import { useMemo, useState } from "react";
 
+import { app } from "@/firebase/clientApp";
 import {
-	getStorage,
-	getDownloadURL,
-	ref,
-	uploadBytes,
-	deleteObject,
-} from "firebase/storage";
-import {
+	Timestamp,
 	addDoc,
 	collection,
 	getFirestore,
-	Timestamp,
 } from "firebase/firestore";
-import { app } from "@/firebase/clientApp";
+import {
+	deleteObject,
+	getDownloadURL,
+	getStorage,
+	ref,
+	uploadBytes,
+} from "firebase/storage";
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 
@@ -23,12 +23,12 @@ import { useAuth } from "@/context/AuthContext";
 import BackButton from "@/components/BackButton";
 import Label from "@/components/personalrummet/form components/Label";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from "@/styles/personalrummet/tv.module.css";
-import { useRef } from "react";
 import { FastAverageColor } from "fast-average-color";
+import { useRef } from "react";
 import { useEffect } from "react";
 
 export default function Tv() {
