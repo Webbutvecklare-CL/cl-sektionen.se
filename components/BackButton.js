@@ -5,20 +5,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function BackButton({ page = "", children }) {
-  const router = useRouter();
+	const router = useRouter();
 
-  function handleBackClick() {
-    // Om knappen ska gå tillbaka i historiken
-    if (page == "history") {
-      router.back();
-    } else {
-      router.push("/" + page);
-    }
-  }
+	function handleBackClick() {
+		// Om knappen ska gå tillbaka i historiken
+		if (page === "history") {
+			router.back();
+		} else {
+			router.push(`/${page}`);
+		}
+	}
 
-  return (
-    <button className="back-button" onClick={handleBackClick}>
-      <FontAwesomeIcon icon={faArrowLeft} /> {children}
-    </button>
-  );
+	return (
+		<button type="button" className="back-button" onClick={handleBackClick}>
+			<FontAwesomeIcon icon={faArrowLeft} /> {children}
+		</button>
+	);
 }

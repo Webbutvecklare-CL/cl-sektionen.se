@@ -11,10 +11,14 @@
 				"noUselessLoneBlockStatements": "off"
 			},
 			"suspicious": {
-				"noAssignInExpressions": "off"
+				"noAssignInExpressions": "off",
+				"noArrayIndexKey": "off"
 			},
 			"correctness": {
 				"noUnreachable": "off"
+			},
+			"a11y": {
+				"noNoninteractiveTabindex": "off"
 			}
 		}
 	},
