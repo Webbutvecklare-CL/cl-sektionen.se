@@ -116,9 +116,9 @@ export async function getStaticPaths() {
 
 	// Plockar ut id:et
 	const postIdList = [];
-	for (const doc of publicDocs) {
+	publicDocs.forEach((doc) => {
 		postIdList.push({ params: { postId: doc.id } });
-	}
+	});
 
 	return {
 		paths: postIdList,

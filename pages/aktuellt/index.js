@@ -543,11 +543,11 @@ export async function getStaticProps() {
 	}
 
 	// Plockar ut data och lägger till id i post data
-	for (const doc of postDocs) {
+	postDocs.forEach((doc) => {
 		const data = doc.data();
 		data.id = doc.id;
 		postList.push(data);
-	}
+	});
 
 	// Postlist är listan med de senaste inläggen
 	// stringify gör om listan till en sträng parse gör sedan om till objekt

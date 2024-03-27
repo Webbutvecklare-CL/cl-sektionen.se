@@ -48,12 +48,10 @@ function handlePasswordReq(req, res) {
 			maxAge: maxAge,
 		});
 		res.setHeader("Set-Cookie", cookie);
-		res
-			.status(200)
-			.json({
-				success: "Logged in",
-				mottagning_key: process.env.MOTTAGNING_KEY,
-			});
+		res.status(200).json({
+			success: "Logged in",
+			mottagning_key: process.env.MOTTAGNING_KEY,
+		});
 	} else {
 		res.status(401).json({ error: "Incorrect Password" });
 	}
@@ -69,10 +67,10 @@ async function handleKeyReq(req, res) {
 			.collection("mottagningsPosts");
 		try {
 			const postDocs = await mottagningsPostsRef.limit(40).get();
-			for (const doc of postDocs) {
+			postDocs.forEach((doc) => {
 				const data = doc.data();
 				posts.push(data);
-			}
+			});
 		} catch (err) {
 			console.log("Error getting documents", err);
 			return res.status(200).json({ error: "Kunde inte ladda inläggen" });

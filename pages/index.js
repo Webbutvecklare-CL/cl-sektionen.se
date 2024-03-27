@@ -265,17 +265,16 @@ export async function getStaticProps() {
 		console.error("Det gick inte att hämta eventinlägg: ", error.toString());
 	}
 	// Plockar ut data och lägger till id i post data
-	for (const doc of infoDocs) {
+	infoDocs.forEach((doc) => {
 		const data = doc.data();
 		data.id = doc.id;
 		infoList.push(data);
-	}
-
-	for (const doc of eventDocs) {
+	});
+	eventDocs.forEach((doc) => {
 		const data = doc.data();
 		data.id = doc.id;
 		eventList.push(data);
-	}
+	});
 
 	let featured = {};
 

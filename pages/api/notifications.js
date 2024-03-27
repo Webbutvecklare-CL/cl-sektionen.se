@@ -63,11 +63,9 @@ export default async function handler(req, res) {
 		};
 	} else if (req.body.data.type === "custom") {
 		if (permission !== "admin") {
-			return res
-				.status(401)
-				.send({
-					message: "Du har inte tillåtelse att skicka anpassade notiser",
-				});
+			return res.status(401).send({
+				message: "Du har inte tillåtelse att skicka anpassade notiser",
+			});
 		}
 		dryRun = req.body.data.dryRun || false;
 		type = "information";

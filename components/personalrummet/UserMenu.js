@@ -74,11 +74,11 @@ export default function UserMenu({ contents }) {
 		getDocs(committeeQuery)
 			.then((docs) => {
 				const posts = [];
-				for (const doc of docs) {
+				docs.forEach((doc) => {
 					const data = doc.data();
 					data.id = doc.id;
 					posts.push(data);
-				}
+				});
 				setCommitteePosts(posts);
 			})
 			.catch((err) => {

@@ -64,7 +64,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
 			startOfToday.setUTCHours(0, 0, 0);
 
 			const newImageUrls = [];
-			for (const image of images) {
+			images.forEach((image) => {
 				const startDate = image.startDate.toDate();
 				const endDate = image.endDate.toDate();
 
@@ -79,7 +79,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
 						console.log("Bilden ska inte visas:", image);
 					}
 				}
-			}
+			});
 			setImageUrls(newImageUrls);
 		};
 

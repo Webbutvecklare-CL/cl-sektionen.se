@@ -127,12 +127,12 @@ export default function Mottagning() {
 		updateDoc(postRef, postData)
 			.then(() => {
 				console.log("Inlägget är uppdaterat!");
-				for (const post of posts) {
+				posts.forEach((post) => {
 					if (post.id === editing.id) {
 						post.title = title;
 						post.content = content;
 					}
-				}
+				});
 				setEditing(false);
 				setTitle("");
 				setContent("");
@@ -217,11 +217,11 @@ export default function Mottagning() {
 		const q = query(mottagningsPostsRef, where("visibility", "==", "public"));
 		getDocs(q).then((docs) => {
 			const posts = [];
-			for (const doc of docs) {
+			docs.forEach((doc) => {
 				const data = doc.data();
 				data.id = doc.id;
 				posts.push(data);
-			}
+			});
 			posts.sort((a, b) => b.publishDate.seconds - a.publishDate.seconds);
 			setPosts(posts);
 		});

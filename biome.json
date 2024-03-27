@@ -8,7 +8,8 @@
 		"rules": {
 			"recommended": true,
 			"complexity": {
-				"noUselessLoneBlockStatements": "off"
+				"noUselessLoneBlockStatements": "off",
+				"noForEach": "off"
 			},
 			"suspicious": {
 				"noAssignInExpressions": "off",

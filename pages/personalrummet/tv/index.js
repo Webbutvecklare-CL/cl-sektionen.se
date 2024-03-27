@@ -43,7 +43,6 @@ export default function Tv() {
 			const imageDocsRef = await getDocs(collection(firestore, "tv"));
 			const visibleImageDocs = [];
 			const oldImageDocs = [];
-			// biome-ignore lint/complexity/noForEach: TVn bråkar annars
 			imageDocsRef.forEach((doc) => {
 				const docId = doc.id;
 				const data = doc.data();

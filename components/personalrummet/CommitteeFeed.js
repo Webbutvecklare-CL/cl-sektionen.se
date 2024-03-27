@@ -91,7 +91,6 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 		try {
 			const folderRef = ref(storage, `posts/${postId}`);
 			const allImages = await listAll(folderRef);
-			// biome-ignore lint/complexity/noForEach: async is weird
 			allImages.items.forEach(async (itemRef) => {
 				await deleteObject(itemRef);
 				console.log("Bild borttagen:", itemRef.name);
