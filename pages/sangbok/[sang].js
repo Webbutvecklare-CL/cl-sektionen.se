@@ -1,7 +1,7 @@
 import React from "react";
 import MarkdownRender from "../../components/MarkdownRender";
-import { readdirSync, readFileSync } from "fs";
-import { join } from "path";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import BackButton from "../../components/BackButton";
 import CustomHead from "../../components/CustomHead";
 
@@ -13,7 +13,7 @@ export default function Sang({ songData, content }) {
       <CustomHead
         metaTitle={`${songData.title} | Sektionen för Civilingenjör och Lärare`}
         description={"Sektionens digitala sångbok."}
-        url={"https://www.cl-sektionen.se/songbok" + songData.href}
+        url={`https://www.cl-sektionen.se/sangbok${songData.href}`}
       />
       <div id="contentbody" className="wideContent">
         <article className={songStyles}>
@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
   const content = readFileSync(`content/sangbok/${params.sang}.md`, "utf8");
 
   // Hämtar sång data från json
-  const songsDataFile = readFileSync(`content/data/sangbok-index.json`, "utf8");
+  const songsDataFile = readFileSync("content/data/sangbok-index.json", "utf8");
   const songsList = JSON.parse(songsDataFile);
 
   const songData = songsList.find((song) => song.href === `/${params.sang}`);

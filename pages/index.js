@@ -166,7 +166,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
             </section>
             <section>
               <h2>Samarbeten</h2>
-              <MarkdownRender mdData={contents["samarbeten"]} />
+              <MarkdownRender mdData={contents.samarbeten} />
               <Link className={styles.sectionButton} href={"/samarbeten"}>
                 <button
                   aria-label="Öppna sidan med mer information vad våra samarbetspartners erbjuder våra medlemmar"
@@ -242,8 +242,8 @@ export async function getStaticProps() {
 
   let featured = {};
 
-  const newestEventDate = eventList.length ? new Date(eventList[0].publishDate["seconds"] * 1000) : 0;
-  const newestInfoDate = infoList.length ? new Date(infoList[0].publishDate["seconds"] * 1000) : 0;
+  const newestEventDate = eventList.length ? new Date(eventList[0].publishDate.seconds * 1000) : 0;
+  const newestInfoDate = infoList.length ? new Date(infoList[0].publishDate.seconds * 1000) : 0;
 
   if (newestEventDate >= newestInfoDate) {
     featured = eventList[0];

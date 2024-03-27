@@ -9,9 +9,9 @@ export default function Studiebevakning({ contents }) {
         På denna sidan kan du läsa om hur du kan påverka din utbildning och studentliv samt vad det
         finns för hjälp att få.
       </p>
-      <MarkdownRender mdData={contents["influence"]} />
-      <MarkdownRender mdData={contents["kursnamnd"]} />
-      <MarkdownRender mdData={contents["akademisktintro"]} />
+      <MarkdownRender mdData={contents.influence} />
+      <MarkdownRender mdData={contents.kursnamnd} />
+      <MarkdownRender mdData={contents.akademisktintro} />
     </div>
   );
 }

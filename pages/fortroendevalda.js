@@ -33,7 +33,7 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
 
   // När en användare väljer en nämnd uppdateras url:en och vilken nämnd som visas
   const stateUpdater = (committee) => {
-    router.replace("#" + committee);
+    router.replace(`#${committee}`);
     document.getElementById(styles.fortroendevaldaContent).scrollIntoView();
     setSelectedCommittee(committee);
   };
@@ -53,7 +53,7 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
   return (
     <>
       <CustomHead
-        metaTitle={`Förtroendevalda | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Förtroendevalda | Sektionen för Civilingenjör och Lärare"}
         description={"Här hittar du kontaktuppgifter till styrelsen och övriga förtroendevalda."}
         url={"https://www.cl-sektionen.se/fortroendevalda"}
       />

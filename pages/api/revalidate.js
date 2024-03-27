@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     console.log("Verifying user");
     await verifyUser(req, res); // Verifierar att det är en inloggad användare
   } catch (err) {
-    return res.status(401).json({ message: "Det gick inte att verifiera: " + err.error });
+    return res.status(401).json({ message: `Det gick inte att verifiera: ${err.error}` });
   }
 
   const pages = req.body.pages;
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   }
 
   console.log(req.body);
-  var pagesResult = []; // Håller koll på om de lyckas revalidate:a eller inte
+  const pagesResult = []; // Håller koll på om de lyckas revalidate:a eller inte
   if (pages.index) {
     try {
       // Försöker revalidate:a index

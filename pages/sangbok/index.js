@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 import { logEvent } from "firebase/analytics";
 import CustomHead from "../../components/CustomHead";
 import TextHighlighter from "../../components/Highlighter";
@@ -72,15 +72,15 @@ export default function Sangbok({ sånger, index }) {
     const wordsArray = search.replaceAll(sanitizeExpression, "").trim().split(" ");
 
     //console.log(wordsArray)
-    var results = contentindex.has(wordsArray[0]) ? contentindex.get(wordsArray[0]).split(" ") : [];
+    let results = contentindex.has(wordsArray[0]) ? contentindex.get(wordsArray[0]).split(" ") : [];
 
     if (results) {
-      for (var i = 1; i < wordsArray.length; i++) {
+      for (let i = 1; i < wordsArray.length; i++) {
         const word = wordsArray[i];
 
         // Check if the key exists in the hashmap
         if (contentindex.has(word)) {
-          var newRes = contentindex.get(word).split(" ");
+          const newRes = contentindex.get(word).split(" ");
           results = results.filter((elem) => newRes.includes(elem));
         } else {
           results = [];
@@ -141,9 +141,9 @@ export default function Sangbok({ sånger, index }) {
   return (
     <>
       <CustomHead
-        metaTitle={`Sångbok | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Sångbok | Sektionen för Civilingenjör och Lärare"}
         description={"Sektionens digitala sångbok."}
-        url={"https://www.cl-sektionen.se/songbok"}
+        url={"https://www.cl-sektionen.se/sangbok"}
       />
       <div id="contentbody">
         <div className="small-header">
@@ -275,8 +275,8 @@ export default function Sangbok({ sånger, index }) {
 }
 
 export async function getStaticProps() {
-  var sånger = JSON.parse(readFileSync(`content/data/sangbok-index.json`));
-  var index = JSON.parse(readFileSync(`content/data/sangbok-content-index.json`));
+  const sånger = JSON.parse(readFileSync("content/data/sangbok-index.json"));
+  const index = JSON.parse(readFileSync("content/data/sangbok-content-index.json"));
 
   return {
     props: { sånger, index },

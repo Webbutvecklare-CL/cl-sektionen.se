@@ -157,7 +157,7 @@ export default function Tv() {
     }
     const available_formats = ["jpeg", "webp", "png"];
     if (!available_formats.includes(image.name.split(".")[1].toLowerCase())) {
-      return "Filformatet på bilden måste vara något av följande: " + available_formats.join(" ");
+      return `Filformatet på bilden måste vara något av följande: ${available_formats.join(" ")}`;
     }
 
     return true;

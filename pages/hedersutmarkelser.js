@@ -125,7 +125,7 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
 
 export async function getStaticProps() {
   const contents = getContentData("hedersutmarkelser");
-  const hedersordenText = getContentData("data")["hedersorden"];
+  const hedersordenText = getContentData("data").hedersorden;
 
   // Gör om md/text-filen hedersorden till JSON
   const hedersorden = {};

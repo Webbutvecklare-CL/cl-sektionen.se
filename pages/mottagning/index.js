@@ -89,7 +89,7 @@ export default function Mottagning({ loggedIn, _posts }) {
   return (
     <>
       <CustomHead
-        metaTitle={`Mottagningssidan | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Mottagningssidan | Sektionen för Civilingenjör och Lärare"}
         description={"Här hittar du all information och nyheter för mottagningen."}
         url={"https://www.cl-sektionen.se/mottagning/"}
       />
@@ -132,7 +132,7 @@ export default function Mottagning({ loggedIn, _posts }) {
                         checkPassword();
                       }
                     }}
-                    className={`searchbar`}
+                    className={"searchbar"}
                   />
                   <button className={styles.inputSubmit} onClick={checkPassword}>
                     Logga in
@@ -172,7 +172,7 @@ export default function Mottagning({ loggedIn, _posts }) {
                   <NotificationBell />
                 </div>
                 <div className={styles.feed}>
-                  {posts && posts.map((item, index) => <FeedItem key={index} item={item} />)}
+                  {posts?.map((item, index) => <FeedItem key={index} item={item} />)}
                 </div>
               </div>
             </div>
@@ -186,11 +186,11 @@ export default function Mottagning({ loggedIn, _posts }) {
 export async function getServerSideProps(context) {
   // Kollar om användaren har en mottagning_key och om den stämmer
   // Körs server side dvs MOTTAGNING_KEY exponeras inte
-  const mottagning_key = context.req.cookies["mottagning_key"];
+  const mottagning_key = context.req.cookies.mottagning_key;
 
   const loggedIn = mottagning_key === process.env.MOTTAGNING_KEY;
 
-  var posts = [];
+  let posts = [];
   if (loggedIn) {
     try {
       posts = await getKeyResponse(mottagning_key);
@@ -209,11 +209,11 @@ export async function getServerSideProps(context) {
 
 function getKeyResponse(key) {
   return new Promise(async (resolve, reject) => {
-    const res = await fetch(process.env.NEXT_PUBLIC_DOMAIN + "/api/mottagning-password", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/mottagning-password`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "mottagning_key": key,
+        mottagning_key: key,
       },
     });
 

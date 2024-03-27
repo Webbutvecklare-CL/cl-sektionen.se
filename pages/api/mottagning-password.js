@@ -20,15 +20,13 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     return handleKeyReq(req, res);
-  } else if (req.method === "POST") {
+  }if (req.method === "POST") {
     if (req.body.type === "password") {
       return handlePasswordReq(req, res);
-    } else {
-      return res.status(405).send("Type not declared or not allowed");
     }
-  } else {
-    return res.status(405).send("Method not allowed");
+      return res.status(405).send("Type not declared or not allowed");
   }
+    return res.status(405).send("Method not allowed");
 }
 
 function handlePasswordReq(req, res) {
@@ -72,7 +70,6 @@ async function handleKeyReq(req, res) {
       return res.status(200).json({ error: "Kunde inte ladda inläggen" });
     }
     return res.status(200).json({ posts });
-  } else {
-    return res.status(401).json({ error: "Incorrect key" });
   }
+    return res.status(401).json({ error: "Incorrect key" });
 }

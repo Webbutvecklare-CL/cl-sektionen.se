@@ -135,7 +135,7 @@ export default function Valbarakurser({ contents, courses }) {
 
 export async function getStaticProps() {
   const contents = getContentData("valbara-kurser");
-  const courses = JSON.parse(getContentData("data")["courses"]);
+  const courses = JSON.parse(getContentData("data").courses);
   return {
     props: {
       contents,

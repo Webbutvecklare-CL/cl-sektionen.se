@@ -10,7 +10,7 @@ export default function Bilder() {
   return (
     <>
       <CustomHead
-        metaTitle={`Mottagningsbilder | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Mottagningsbilder | Sektionen för Civilingenjör och Lärare"}
         description={"Här finns alla bilder tagna under mottagningen."}
         url={"https://www.cl-sektionen.se/mottagning/bilder"}
       />

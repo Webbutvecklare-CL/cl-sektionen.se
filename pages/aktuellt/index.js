@@ -100,11 +100,11 @@ export default function Aktuellt({ postList }) {
       commonTags[tag] = !!filterTags[tag];
     });
 
-    if (type["information"] && type["event"]) {
+    if (type.information && type.event) {
       setFilterTags({ ...commonTags, ...infoTags, ...eventTags });
-    } else if (type["information"]) {
+    } else if (type.information) {
       setFilterTags({ ...commonTags, ...infoTags });
-    } else if (type["event"]) {
+    } else if (type.event) {
       setFilterTags({ ...commonTags, ...eventTags });
     } else {
       setFilterTags({});
@@ -154,7 +154,7 @@ export default function Aktuellt({ postList }) {
     let tags = "";
     for (const tag in filterTags) {
       if (filterTags[tag]) {
-        tags += tag + "-";
+        tags += `${tag}-`;
       }
     }
 
@@ -242,14 +242,14 @@ export default function Aktuellt({ postList }) {
         </h3>
         <div className={filterStyles.buttonMenu}>
           <button
-            className={`${type["information"] ? filterStyles.selected : ""}`}
+            className={`${type.information ? filterStyles.selected : ""}`}
             onClick={(e) => {
               handleSetType(e, "information");
             }}>
             Information
           </button>
           <button
-            className={`${type["event"] ? filterStyles.selected : ""}`}
+            className={`${type.event ? filterStyles.selected : ""}`}
             onClick={(e) => {
               handleSetType(e, "event");
             }}>

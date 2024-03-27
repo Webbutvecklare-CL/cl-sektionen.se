@@ -95,7 +95,7 @@ export default function App({ Component, pageProps }) {
       for (const cookie of cookies) {
         const [name] = cookie.trim().split("=");
         if (!requiredCookies.includes(name)) {
-          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+          document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT`;
         }
       }
     }
@@ -252,7 +252,7 @@ async function updateTokenData(fcmTokenData) {
       const { getFirestore, doc, updateDoc } = await import("firebase/firestore");
       const firestore = getFirestore(app);
       const token = fcmTokenData.token;
-      const fcmTokensRef = doc(firestore, `fcmTokens/all`);
+      const fcmTokensRef = doc(firestore, "fcmTokens/all");
       await updateDoc(fcmTokensRef, { [token]: fcmTokenData }, { merge: true });
     } catch (error) {
       console.error(error);

@@ -61,7 +61,7 @@ export default function NTC() {
       try {
         const token = await getFCMToken();
         console.log(token);
-        setDebugText(token.substring(0, 20) + "...");
+        setDebugText(`${token.substring(0, 20)}...`);
       } catch (error) {
         console.error(error);
         setDebugText("Ingen token fanns, ny behöver skapas");

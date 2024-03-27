@@ -7,7 +7,7 @@ export default function Info({ contents }) {
   return (
     <>
       <CustomHead
-        metaTitle={`Mottagningsinfo | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Mottagningsinfo | Sektionen för Civilingenjör och Lärare"}
         description={
           "Här finns viktig information och tips till dig som ska börja på programmet Civilingenjör och lärare."
         }
@@ -16,7 +16,7 @@ export default function Info({ contents }) {
       <div id="contentbody" className="wideContent">
         <article>
           <BackButton page="mottagning">Mottagningssidan</BackButton>
-          <MarkdownRender mdData={contents["infodumpen"]} />
+          <MarkdownRender mdData={contents.infodumpen} />
         </article>
       </div>
     </>

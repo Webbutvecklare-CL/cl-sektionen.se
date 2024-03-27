@@ -433,7 +433,7 @@ async function reauthenticate() {
       })
       .catch((err) => {
         console.error(err);
-        var errorText;
+        let errorText;
         if (err.code === "auth/popup-closed-by-user") {
           errorText = "Inloggningsfönstret stängdes!";
         } else if (err.code === "auth/popup-blocked") {

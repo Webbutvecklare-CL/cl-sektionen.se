@@ -9,7 +9,7 @@ export default function Schema() {
   return (
     <>
       <CustomHead
-        metaTitle={`Mottagningsschema | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Mottagningsschema | Sektionen för Civilingenjör och Lärare"}
         description={"Schemat för mottagningen 2023."}
         url={"https://www.cl-sektionen.se/mottagning/schema"}
       />

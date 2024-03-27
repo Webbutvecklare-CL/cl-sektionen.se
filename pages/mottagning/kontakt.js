@@ -12,7 +12,7 @@ export default function Kontakt({ contents }) {
   return (
     <>
       <CustomHead
-        metaTitle={`Kontakt mottagningen | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Kontakt mottagningen | Sektionen för Civilingenjör och Lärare"}
         description={"Här hittar du viktiga kontaktuppgifter för dig som deltar i mottagningen."}
         url={"https://www.cl-sektionen.se/mottagning/bilder"}
       />
@@ -20,10 +20,10 @@ export default function Kontakt({ contents }) {
         <article>
           <BackButton page="mottagning">Mottagningssidan</BackButton>
           <div className={styles.contact}>
-            <MarkdownRender mdData={contents["presidiet"]} />
+            <MarkdownRender mdData={contents.presidiet} />
           </div>
           <div>
-            <MarkdownRender mdData={contents["trygghetsradet"]} />
+            <MarkdownRender mdData={contents.trygghetsradet} />
             <Image
               src={qrCode}
               width={100}

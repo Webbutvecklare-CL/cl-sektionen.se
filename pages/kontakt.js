@@ -8,17 +8,17 @@ export default function Kontakt({ contents }) {
   return (
     <>
       <CustomHead
-        metaTitle={`Kontakt | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Kontakt | Sektionen för Civilingenjör och Lärare"}
         description={"Har du frågor eller funderingar? Kontakta oss gärna på..."}
         url={"https://www.cl-sektionen.se/kontakt"}
       />
       <div id="contentbody" className="wideContent">
         <h1>Kontakt</h1>
         <div className={styles.contact}>
-          <MarkdownRender mdData={contents["allman"]} />
-          <MarkdownRender mdData={contents["naringsliv"]} />
-          <MarkdownRender mdData={contents["skyddsombud"]} />
-          <MarkdownRender mdData={contents["ovrigt"]} />
+          <MarkdownRender mdData={contents.allman} />
+          <MarkdownRender mdData={contents.naringsliv} />
+          <MarkdownRender mdData={contents.skyddsombud} />
+          <MarkdownRender mdData={contents.ovrigt} />
         </div>
       </div>
     </>

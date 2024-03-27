@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import TextHighlighter from "../components/Highlighter";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 import styles from "../styles/ordbok.module.css";
 import filterStyles from "../styles/filter-panel.module.css";
@@ -159,7 +159,7 @@ export default function Gråttanbiblioteket({ booklist }) {
 }
 
 export async function getStaticProps() {
-  var booklist = JSON.parse(readFileSync(`content/data/grattanbiblioteket.json`));
+  const booklist = JSON.parse(readFileSync("content/data/grattanbiblioteket.json"));
 
   return {
     props: { booklist },

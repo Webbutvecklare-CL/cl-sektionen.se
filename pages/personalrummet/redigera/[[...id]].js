@@ -49,7 +49,7 @@ export default function EditPost() {
   const loadPost = async (pid) => {
     // Hämtar id från input om ej specificerat
     if (!pid) {
-      pid = ("/" + postLink).split("/").pop();
+      pid = (`/${postLink}`).split("/").pop();
     }
 
     if (!pid) {

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import TextHighlighter from "../components/Highlighter";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 import styles from "../styles/ordbok.module.css";
 import filterStyles from "../styles/filter-panel.module.css";
@@ -161,7 +161,7 @@ function Ordbok({ ordbok }) {
 export default Ordbok;
 
 export async function getStaticProps() {
-  var ordbok = JSON.parse(readFileSync(`content/data/ordbok.json`));
+  const ordbok = JSON.parse(readFileSync("content/data/ordbok.json"));
 
   return {
     props: { ordbok },

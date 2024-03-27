@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    var { uid, permission } = await verifyUser(req, res);
+    const { uid, permission } = await verifyUser(req, res);
   } catch (error) {
     console.error("Error validating user authentication:", error);
     return res.status(401).json({ error: error.error });
@@ -41,17 +41,17 @@ export default async function handler(req, res) {
       };
     } catch ({ error }) {
       console.error("Verification failed:", error);
-      return res.status(400).send({ message: "Verifiering misslyckades: " + error });
+      return res.status(400).send({ message: `Verifiering misslyckades: ${error}` });
     }
   } else if (req.body.data.type === "mottagning") {
     type = "mottagning";
     dryRun = req.body.data.dryRun || false;
     const payload = {
       data: {
-        title: "Mottagningen: " + req.body.data.title,
+        title: `Mottagningen: ${req.body.data.title}`,
         body: req.body.data.body,
         icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
-        link: `/mottagning`,
+        link: "/mottagning",
       },
     };
     message = {
@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         body: req.body.data.body,
         image: req.body.data.image || "",
         icon: "/media/icons/icon-512x512.png", // kanske alla nämnders loggor här
-        link: `/`,
+        link: "/",
       },
     };
     message = {
@@ -101,7 +101,7 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: `Ett fel inträffade`, error });
+    return res.status(500).json({ message: "Ett fel inträffade", error });
   }
 }
 
@@ -216,7 +216,7 @@ function cleanupTokens(response, tokens) {
         // Lägger in en request för att ta bort varje token
         tokensDelete.push(
           allTokensRef.update({
-            [tokens[index] + ""]: FieldValue.delete(),
+            [`${tokens[index]}`]: FieldValue.delete(),
           })
         );
       }
@@ -232,7 +232,7 @@ function removeOldTokens(tokensData) {
   const todayDate = new Date().getTime();
   const maxTime = 1000 * 60 * 60 * 24 * 365; // 365 days in milliseconds
 
-  var removedTokens = [];
+  const removedTokens = [];
 
   const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
 

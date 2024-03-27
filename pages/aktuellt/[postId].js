@@ -52,7 +52,7 @@ export default function Post({ postData, postId }) {
         metaTitle={`${postData.title} | ${postData.author}`}
         description={postData.subtitle}
         image={postData.image || "https://www.cl-sektionen.se/media/img/Post_Placeholder.webp"}
-        url={"https://www.cl-sektionen.se/aktuellt/" + postId}
+        url={`https://www.cl-sektionen.se/aktuellt/${postId}`}
       />
       <div id="contentbody" className="wideContent">
         <PostComponent postData={postData} backPath={query.r ? "history" : "aktuellt"} />
@@ -74,7 +74,7 @@ export async function getStaticProps({ params }) {
   let props = { postData: null, postId: params.postId }; // default om inget inlägg finns
 
   // Kollar om inlägget faktiskt fanns
-  if (docSnap && docSnap.exists()) {
+  if (docSnap?.exists()) {
     props = { postData: JSON.parse(JSON.stringify(docSnap.data())), postId: params.postId };
   }
 

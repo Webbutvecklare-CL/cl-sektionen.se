@@ -20,7 +20,7 @@ export default function Dokument({ contents }) {
   return (
     <>
       <CustomHead
-        metaTitle={`Dokument | Sektionen för Civilingenjör och Lärare`}
+        metaTitle={"Dokument | Sektionen för Civilingenjör och Lärare"}
         description={"Här hittar du styrdokument, praxisdokument, blanketter och mallar."}
         url={"https://www.cl-sektionen.se/dokument"}
       />
@@ -129,7 +129,7 @@ export default function Dokument({ contents }) {
           }}
         />
         <section id={`${styles.rights} rättigheter`}>
-          <MarkdownRender mdData={contents["rattigheter"]} />
+          <MarkdownRender mdData={contents.rattigheter} />
         </section>
       </div>
     </>

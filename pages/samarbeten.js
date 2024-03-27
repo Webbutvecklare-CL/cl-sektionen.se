@@ -7,7 +7,7 @@ export default function Samarbete({ contents }) {
   return (
     <div id="contentbody">
       <h1>Jobberbjudanden</h1>
-      <MarkdownRender mdData={contents["jobberbjudanden"]} />
+      <MarkdownRender mdData={contents.jobberbjudanden} />
       <h1>Sponsorer</h1>
       <div>
         <p>

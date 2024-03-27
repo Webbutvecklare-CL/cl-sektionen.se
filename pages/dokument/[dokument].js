@@ -1,8 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 import MarkdownRender from "../../components/MarkdownRender";
-import { readdirSync, readFileSync } from "fs";
-import { join } from "path";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import BackButton from "../../components/BackButton";
 
 export default function Praxis({ content }) {
