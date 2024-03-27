@@ -123,12 +123,12 @@ export default function Mottagning() {
     updateDoc(postRef, postData)
       .then(() => {
         console.log("Inlägget är uppdaterat!");
-        posts.forEach((post) => {
+        for (const post of posts) {
           if (post.id === editing.id) {
             post.title = title;
             post.content = content;
           }
-        });
+        }
         setEditing(false);
         setTitle("");
         setContent("");
@@ -160,12 +160,14 @@ export default function Mottagning() {
           <h3>Är du säker att du vill radera inlägget?</h3>
           <div style={modalStyles}>
             <button
+              type="button"
               onClick={() => {
                 resolve(true);
               }}>
               Radera
             </button>
             <button
+              type="button"
               onClick={() => {
                 resolve(false);
               }}>
@@ -209,11 +211,11 @@ export default function Mottagning() {
     const q = query(mottagningsPostsRef, where("visibility", "==", "public"));
     getDocs(q).then((docs) => {
       const posts = [];
-      docs.forEach((doc) => {
+      for (const doc of docs) {
         const data = doc.data();
         data.id = doc.id;
         posts.push(data);
-      });
+      }
       posts.sort((a, b) => b.publishDate.seconds - a.publishDate.seconds);
       setPosts(posts);
     });
@@ -252,11 +254,12 @@ export default function Mottagning() {
             setContent(e.target.value);
           }}
         />
-        {!editing && <button onClick={uploadPost}>Ladda upp</button>}
+        {!editing && <button type="button" onClick={uploadPost}>Ladda upp</button>}
         {editing && (
           <div className={styles.menu}>
-            <button onClick={updatePost}>Uppdatera</button>
+            <button type="button" onClick={updatePost}>Uppdatera</button>
             <button
+              type="button"
               onClick={() => {
                 setTitle("");
                 setContent("");
@@ -281,11 +284,17 @@ export default function Mottagning() {
               <span
                 onClick={() => {
                   editPost(item);
+                }}
+                onKeyDown={() => {
+                  deletePost(item.id);
                 }}>
                 <FontAwesomeIcon icon={faPen} />
               </span>
               <span
                 onClick={() => {
+                  deletePost(item.id);
+                }}
+                onKeyDown={() => {
                   deletePost(item.id);
                 }}>
                 <FontAwesomeIcon icon={faTrashCan} />

@@ -26,10 +26,10 @@ export default function TV() {
     // Kolla så att datumen är inom 7 dagar
     const unsubscribe = onSnapshot(collection(firestore, "tv"), (snapshot) => {
       const updatedList = [];
-      snapshot.forEach((doc) => {
+      for (const doc of snapshot) {
         const data = doc.data();
         updatedList.push(data);
-      });
+      }
       setListOfImages(updatedList);
       console.log(updatedList);
     });

@@ -61,10 +61,10 @@ async function handleKeyReq(req, res) {
     const mottagningsPostsRef = admin.firestore().collection("mottagningsPosts");
     try {
       const postDocs = await mottagningsPostsRef.limit(40).get();
-      postDocs.forEach((doc) => {
+      for (const doc of postDocs) {
         const data = doc.data();
         posts.push(data);
-      });
+      }
     } catch (err) {
       console.log("Error getting documents", err);
       return res.status(200).json({ error: "Kunde inte ladda inläggen" });

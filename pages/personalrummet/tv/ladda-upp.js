@@ -63,7 +63,7 @@ export default function Tv() {
 
       imageRef.current.style.backgroundColor = "";
     }
-  }, [imageObj, fac]);
+  }, [fac]);
 
   const uploadImage = async (imageRef) => {
     try {
@@ -263,7 +263,7 @@ export default function Tv() {
             )}
             {error && <p className={styles.error}>{error}</p>}
             {status && <p className={styles.status}>{status}</p>}
-            <button onClick={handleUpload} className="small" disabled={!image}>
+            <button type="button" onClick={handleUpload} className="small" disabled={!image}>
               Ladda upp
             </button>
           </div>

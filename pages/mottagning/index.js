@@ -107,6 +107,7 @@ export default function Mottagning({ loggedIn, _posts }) {
             </p>
           </div>
           <button
+            type="button"
             className={styles.showMoreButton}
             onClick={() => setShowWelcometext(!showWelcometext)}>
             Visa
@@ -134,7 +135,7 @@ export default function Mottagning({ loggedIn, _posts }) {
                     }}
                     className={"searchbar"}
                   />
-                  <button className={styles.inputSubmit} onClick={checkPassword}>
+                  <button type="button" className={styles.inputSubmit} onClick={checkPassword}>
                     Logga in
                   </button>
                 </div>
@@ -208,32 +209,33 @@ export async function getServerSideProps(context) {
 }
 
 function getKeyResponse(key) {
-  return new Promise(async (resolve, reject) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/mottagning-password`, {
+  return new Promise((resolve, reject) => {
+    fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/mottagning-password`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         mottagning_key: key,
       },
-    });
-
-    if (res.status !== 200) {
-      reject(res);
-    }
-
-    try {
-      const data = await res.json();
-      if (data.error) {
-        console.error(data.error);
-      }
-      let posts = [];
-      if (data.posts) {
-        posts = data.posts.sort((a, b) => b.publishDate._seconds - a.publishDate._seconds);
-      }
-      resolve(posts);
-    } catch (error) {
-      console.error(error);
-      reject(error);
-    }
+    })
+      .then((res) => {
+        if (res.status !== 200) {
+          reject(res);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (data.error) {
+          console.error(data.error);
+        }
+        let posts = [];
+        if (data.posts) {
+          posts = data.posts.sort((a, b) => b.publishDate._seconds - a.publishDate._seconds);
+        }
+        resolve(posts);
+      })
+      .catch((error) => {
+        console.error(error);
+        reject(error);
+      });
   });
 }

@@ -43,6 +43,7 @@ export default function Tv() {
       const imageDocsRef = await getDocs(collection(firestore, "tv"));
       const visibleImageDocs = [];
       const oldImageDocs = [];
+      // biome-ignore lint/complexity/noForEach: TVn bråkar annars
       imageDocsRef.forEach((doc) => {
         const docId = doc.id;
         const data = doc.data();
@@ -142,17 +143,16 @@ export default function Tv() {
           setResponse("Det gick inte att ta bort bild dokumentet!");
           setStatus("Prova igen");
           return;
-        } else if (error.type === "image-deletion-failed") {
+        } if (error.type === "image-deletion-failed") {
           setResponse(
             "Dokumentet är borttaget men inte bilden! Bilden visas inte längre på TV:n. Kontakta webbansvariga för att ta bort bilden."
           );
           setStatus("Prova igen");
           return;
-        } else {
-          console.error(error);
-          setResponse("Det gick inte att ta bort bilden!");
-          setStatus("Prova igen");
-        }
+        } 
+        console.error(error);
+        setResponse("Det gick inte att ta bort bilden!");
+        setStatus("Prova igen");
       }
     };
 
@@ -160,12 +160,13 @@ export default function Tv() {
       return (
         <>
           <button
+            type="button"
             disabled={status === "Laddar..." || status === "Borttagen"}
             onClick={removeHandler}>
-            {status && <>{status}</>}
-            {!status && <>Ta bort</>}
+            {status ? <>{status}</> : <>Ta bort</>}
           </button>
           <button
+            type="button"
             disabled={status === "Laddar..." || status === "Borttagen"}
             onClick={() => setEdit(true)}>
             Ändra
@@ -216,7 +217,7 @@ export default function Tv() {
           setResponse("Datumen är uppdaterade!");
         } catch (error) {
           console.error(error.error);
-          setResponse("Det gick inte att ändra datumen! " + error.error.message);
+          setResponse(`Det gick inte att ändra·datumen! ${error.error.message}`);
         }
         setEdit(false);
       };
@@ -247,10 +248,10 @@ export default function Tv() {
             </div>
           </div>
           <div>
-            <button className="small" onClick={editHandler}>
+            <button type="button" className="small" onClick={editHandler}>
               Uppdatera
             </button>
-            <button className="small hollow" onClick={() => setEdit(false)}>
+            <button type="button" className="small hollow" onClick={() => setEdit(false)}>
               Avbryt
             </button>
           </div>
@@ -294,7 +295,7 @@ export default function Tv() {
         om sidan för att se uppdateringen. Bilderna sluta visas automatiskt, du behöver alltså inte
         ta bort bilden manuellt.
       </p>
-      <button onClick={() => router.push("/personalrummet/tv/ladda-upp")}>Ladda upp bild</button>
+      <button type="button" onClick={() => router.push("/personalrummet/tv/ladda-upp")}>Ladda upp bild</button>
       {error && <p>{error}</p>}
       {userData && (
         <>

@@ -108,45 +108,48 @@ export default async function handler(req, res) {
 // Hjälpfunktioner
 
 async function sendNotification(type, message, dryRun = false) {
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     // Hämtar alla tokens - de som ska få notisen
-    const tokens = await getTokens(type);
+    getTokens(type).then((tokens) => {
+      console.log(`Sending notification to ${tokens.length} devices`);
+      if (tokens.length > 0) {
+        message.tokens = tokens;
+        admin.messaging().sendEachForMulticast(message, dryRun).then(
+          (response) => {
+            console.log(
+              "Successfully sent notification to:",
+              response.successCount,
+              "tokens. Failed to send notification to:",
+              response.failureCount,
+              "tokens"
+            );
 
-    console.log(`Sending notification to ${tokens.length} devices`);
-    if (tokens.length > 0) {
-      message.tokens = tokens;
-      try {
-        // Send notifications to all tokens.
-        const response = await admin.messaging().sendEachForMulticast(message, dryRun);
-        console.log(
-          "Successfully sent notification to:",
-          response.successCount,
-          "tokens. Failed to send notification to:",
-          response.failureCount,
-          "tokens"
-        );
+            cleanupTokens(response, tokens).then((removedTokens) => {
+              console.log("Removed", removedTokens.length, "invalid tokens");
 
-        // Rensar upp alla ogiltiga tokens
-        const removedTokens = await cleanupTokens(response, tokens);
-        console.log("Removed", removedTokens.length, "invalid tokens");
-
-        // Skickar tillbaka antal tokens som notisen skickades till, detta är egentligen lite fel då vissa kan vara ogiltiga
-        resolve({
-          ok: true,
-          successCount: response.successCount,
-          failureCount: response.failureCount,
+              // Skickar tillbaka antal tokens som notisen skickades till, detta är egentligen lite fel då vissa kan vara ogiltiga
+              resolve({
+                ok: true,
+                successCount: response.successCount,
+                failureCount: response.failureCount,
+              });
+            });
+          }
+        ).catch((error) => {
+          console.error(
+            "Something went wrong with sending notification or cleaning up tokens.",
+            error
+          );
+          reject({ ok: false, successCount: 0, failureCount: tokens.length, error });
         });
-      } catch (error) {
-        console.error(
-          "Something went wrong with sending notification or cleaning up tokens.",
-          error
-        );
-        reject({ ok: false, successCount: 0, failureCount: tokens.length, error });
+      } else {
+        console.log("No tokens to send notification to");
+        resolve({ ok: true, successCount: 0, failureCount: 0 });
       }
-    } else {
-      console.log("No tokens to send notification to");
-      resolve({ ok: true, successCount: 0, failureCount: 0 });
-    }
+    }).catch((error) => {
+      console.error("Something went wrong fetching tokens", error);
+      reject({ ok: false, successCount: 0, failureCount: 0, error });
+    });
   });
 }
 
@@ -165,30 +168,31 @@ function createPostPayload(data) {
 async function getTokens(type) {
   const selectedTokens = new Set(); // Set gör att tokens inte ska räknas dubbelt
 
-  return new Promise(async (resolve, reject) => {
-    try {
-      const fcmTokensCollection = admin.firestore().collection("fcmTokens");
-      const allTokensDoc = await fcmTokensCollection.doc("all").get();
-      const allTokensObj = allTokensDoc.data();
+  return new Promise((resolve, reject) => {
+    admin.firestore().collection("fcmTokens")
+      .doc("all")
+      .get()
+      .then(allTokensDoc => {
+        const allTokensObj = allTokensDoc.data();
 
-      console.log("hej");
+        console.log("hej");
 
-      Object.entries(allTokensObj).forEach(([token, settings]) => {
-        if (settings.enabled && settings.types[type]) {
-          selectedTokens.add(token);
+        for (const [token, settings] of Object.entries(allTokensObj)) {
+          if (settings.enabled && settings.types[type]) {
+            selectedTokens.add(token);
+          }
         }
-      });
 
-      resolve(Array.from(selectedTokens));
-      try {
-        const removedTokens = await removeOldTokens(allTokensObj);
+        resolve(Array.from(selectedTokens));
+      })
+      .then(() => removeOldTokens(allTokensObj))
+      .then(removedTokens => {
         console.log("Removed", removedTokens.length, "old tokens");
-      } catch (error) {
+      })
+      .catch(error => {
         console.error("Something went wrong with removing old tokens", error);
-      }
-    } catch (error) {
-      reject(error);
-    }
+      })
+      .catch(error => reject(error));
   });
 }
 
@@ -236,7 +240,7 @@ function removeOldTokens(tokensData) {
 
   const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
 
-  Object.entries(tokensData).forEach(([token, settings]) => {
+  for (const [token, settings] of Object.entries(tokensData)) {
     const lastUpdated = new Date(settings.lastUpdated).getTime();
     if (todayDate - lastUpdated > maxTime) {
       // Tar bort ifrån event prenumerationen
@@ -246,13 +250,13 @@ function removeOldTokens(tokensData) {
         })
       );
     }
-  });
+  }
 
   return Promise.all(removedTokens);
 }
 
 function verifyRequest(userId, postId) {
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const db = admin.firestore();
     const postRef = db.collection("posts").doc(postId);
     const snap = postRef.get();
@@ -277,4 +281,5 @@ function verifyRequest(userId, postId) {
         reject({ error: err });
       });
   });
+
 }

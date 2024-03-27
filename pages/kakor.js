@@ -26,6 +26,7 @@ export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
         {open && (
           <>
             <button
+              type="button"
               className={`${buttonStyles} small`}
               onClick={() => {
                 setCookieState(true);
@@ -34,6 +35,7 @@ export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
               Godkänn alla
             </button>
             <button
+              type="button"
               className={`${buttonStyles} small`}
               onClick={() => {
                 setCookieState(false);

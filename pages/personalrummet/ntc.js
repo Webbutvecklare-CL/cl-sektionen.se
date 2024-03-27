@@ -81,15 +81,16 @@ export default function NTC() {
         </p>
         <div className={styles.subscriptionMenu}>
           <button
+            type="button"
             onClick={() => {
               setSettingsOpen(true);
             }}>
             Öppna notis inställningar
           </button>
 
-          <button onClick={testSupport}>Kolla support</button>
-          <button onClick={testToken}>Kolla Token</button>
-          <button
+          <button type="button" onClick={testSupport}>Kolla support</button>
+          <button type="button" onClick={testToken}>Kolla Token</button>
+          <button type="button"
             onClick={() => {
               isSupported().then(async (yes) => {
                 if (!yes) {
@@ -106,6 +107,7 @@ export default function NTC() {
             Kolla Permission
           </button>
           <button
+          type="button"
             onClick={() => {
               setDebugText(navigator.userAgent);
             }}>
@@ -125,12 +127,14 @@ export default function NTC() {
               <p>Vilken typ av notis vill du skicka?</p>
               <div className={styles.typeSelect}>
                 <button
+                  type="button"
                   onClick={() => {
                     setType("post");
                   }}>
                   Inlägg
                 </button>
                 <button
+                  type="button"
                   onClick={() => {
                     setType("custom");
                   }}>
@@ -182,7 +186,7 @@ export default function NTC() {
                 />
                 Dry run
               </label>
-              <button onClick={handleSendNotification}>Skicka notis</button>
+              <button type="button" onClick={handleSendNotification}>Skicka notis</button>
             </div>
           </>
         )}

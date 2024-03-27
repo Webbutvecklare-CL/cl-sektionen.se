@@ -51,7 +51,8 @@ export default function Hedersmedlemmar({ contents, hedersorden }) {
       <div
         id={nameId}
         className={`${styles.hedersmedlem} ${selected ? styles.selected : ""}`}
-        onClick={() => setSelectedMember(selected ? null : nameId)}>
+        onClick={() => setSelectedMember(selected ? null : nameId)}
+        onKeyDown={() => setSelectedMember(selected ? null : nameId)}>
         <div className={styles.imgdiv}>
           <Image
             src={`/media/img/hedersmedlemmar/${nameId}.webp`}

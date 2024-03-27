@@ -24,6 +24,7 @@ export default function Kalender() {
 
       <div className={styles.tabsWrapper}>
         <button
+          type="button"
           onClick={() => {
             setCalendar(0);
           }}
@@ -33,6 +34,7 @@ export default function Kalender() {
           Sektionskalender
         </button>
         <button
+          type="button"
           onClick={() => {
             setCalendar(1);
           }}

@@ -44,7 +44,8 @@ export default function Fortroendevalda({ descriptions, contactsList }) {
       <li
         // id={data.id}
         className={selectedCommittee === data.id ? styles.active : ""}
-        onClick={() => stateUpdater(data.id)}>
+        onClick={() => stateUpdater(data.id)}
+        onKeyDown={() => stateUpdater(data.id)}>
         <FontAwesomeIcon icon={data.icon} /> {data.name}
       </li>
     );

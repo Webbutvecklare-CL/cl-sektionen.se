@@ -49,6 +49,9 @@ export default function Valbarakurser({ contents, courses }) {
           className={styles.title}
           onClick={() => {
             setShowDetails(!showDetails);
+          }}
+          onKeyDown={() => {
+            setShowDetails(!showDetails);
           }}>
           {course.id} | {course.name}{" "}
           <FontAwesomeIcon icon={showDetails ? faAngleUp : faAngleDown} />

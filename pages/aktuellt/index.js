@@ -86,19 +86,20 @@ export default function Aktuellt({ postList }) {
   // biome-ignore lint/correctness/useExhaustiveDependencies: migrate fix from eslint
   useEffect(() => {
     const infoTags = {};
-    INFOTAGS.forEach((tag) => {
+    for (const tag of INFOTAGS) {
       infoTags[tag] = !!filterTags[tag];
-    });
+    }
 
     const eventTags = {};
-    EVENTSTAGS.forEach((tag) => {
+    for (const tag of EVENTSTAGS) {
       eventTags[tag] = !!filterTags[tag];
-    });
+    }
 
     const commonTags = {};
-    COMMONTAGS.forEach((tag) => {
+    for (const tag of COMMONTAGS) {
       commonTags[tag] = !!filterTags[tag];
-    });
+    }
+
 
     if (type.information && type.event) {
       setFilterTags({ ...commonTags, ...infoTags, ...eventTags });
@@ -242,6 +243,7 @@ export default function Aktuellt({ postList }) {
         </h3>
         <div className={filterStyles.buttonMenu}>
           <button
+            type="button"
             className={`${type.information ? filterStyles.selected : ""}`}
             onClick={(e) => {
               handleSetType(e, "information");
@@ -249,6 +251,7 @@ export default function Aktuellt({ postList }) {
             Information
           </button>
           <button
+            type="button"
             className={`${type.event ? filterStyles.selected : ""}`}
             onClick={(e) => {
               handleSetType(e, "event");
@@ -268,6 +271,7 @@ export default function Aktuellt({ postList }) {
         </h3>
         <div className={filterStyles.buttonMenu}>
           <button
+            type="button"
             className={sortNewestFirst ? filterStyles.selected : ""}
             onClick={() => toggleSort()}>
             Nyast först
@@ -313,6 +317,7 @@ export default function Aktuellt({ postList }) {
           {Object.keys(filterTags).map((tag, index) => {
             return (
               <button
+                type="button"
                 className={`tag ${filterTags[tag] ? filterStyles.selected : ""}`}
                 name={tag}
                 key={index}
@@ -396,6 +401,7 @@ export default function Aktuellt({ postList }) {
                 }}
               />
               <button
+                type="button"
                 className={`${filterStyles.filterOpen} ${
                   filterPanelOpen ? filterStyles.active : ""
                 }`}
@@ -465,6 +471,7 @@ export default function Aktuellt({ postList }) {
               />
             </div>
             <button
+              type="button"
               className={`${styles.loadMore} ${
                 currentpage * itemsperpage >= postList.length && styles.nope
               }`}
@@ -507,11 +514,11 @@ export async function getStaticProps() {
   }
 
   // Plockar ut data och lägger till id i post data
-  postDocs.forEach((doc) => {
+  for (const doc of postDocs) {
     const data = doc.data();
     data.id = doc.id;
     postList.push(data);
-  });
+  }
 
   // Postlist är listan med de senaste inläggen
   // stringify gör om listan till en sträng parse gör sedan om till objekt

@@ -90,7 +90,7 @@ export default function Sangbok({ sånger, index }) {
     }
     //console.log(results)
     setFulltextSearchResults(results);
-  }, [index, search, searchFullText]);
+  }, [index, search]);
 
   const panelRef = useRef();
   //Stänger filterpanelen om man trycker utanför
@@ -178,6 +178,7 @@ export default function Sangbok({ sånger, index }) {
                 className="searchbar"
               />
               <button
+                type="button"
                 className={`${filterStyles.filterOpen} ${
                   filterPanelOpen ? filterStyles.active : ""
                 }`}
@@ -188,6 +189,7 @@ export default function Sangbok({ sånger, index }) {
               </button>
               {audio && (
                 <button
+                  type="button"
                   className="muteButton"
                   onClick={() => {
                     audio.pause();
@@ -236,18 +238,6 @@ export default function Sangbok({ sånger, index }) {
                   />
                   <span className={filterStyles.filterOption}>Sortera på kategori</span>
                 </label>
-                {/* <label>
-                  <input
-                    type="checkbox"
-                    name="filters"
-                    checked={searchFullText}
-                    onChange={() => setSearchFullText(!searchFullText)}
-                    className={filterStyles.filterInput}
-                  />
-                  <span className={filterStyles.filterOption}>
-                    Sök i sångtext <i>(experimentell!)</i>
-                  </span>
-                </label> */}
               </div>
             </section>
           </div>

@@ -106,6 +106,7 @@ export default function Gråttanbiblioteket({ booklist }) {
               className="searchbar"
             />
             <button
+              type="button"
               className={`${filterStyles.filterOpen} ${filterPanelOpen ? filterStyles.active : ""}`}
               onClick={() => setFilterPanelOpen(!filterPanelOpen)}>
               <FontAwesomeIcon icon={faEllipsis} className="buttonIcon" />

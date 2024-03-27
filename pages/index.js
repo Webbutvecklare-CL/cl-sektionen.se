@@ -80,6 +80,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
         <hr className={styles.noMarginLine} />
         <div className={styles.visaOmKnappDiv}>
           <button
+            type="button"
             className={`${styles.visaOmKnapp} ${open ? styles.btnOpen : ""}`}
             onClick={toggleOm}>
             Om CL <FontAwesomeIcon icon={open ? faAngleUp : faAngleDown} />
@@ -97,7 +98,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
                   {infoList.length > 0 && <FeedPreview posts={infoList} />}
                   {!infoList.length > 0 && <p>Inlägg saknas</p>}
                   <Link className={styles.sectionButton} href={"/aktuellt"}>
-                    <button aria-label="Fler informationsinlägg" className="small hollow dark">
+                    <button type="button" aria-label="Fler informationsinlägg" className="small hollow dark">
                       Fler inlägg
                     </button>
                   </Link>
@@ -107,7 +108,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
                   {eventList.length > 0 && <FeedPreview posts={eventList} />}
                   {!eventList.length > 0 && <p>Inlägg saknas</p>}
                   <Link className={styles.sectionButton} href={"/aktuellt?info=false"}>
-                    <button aria-label="Fler eventinlägg" className="small hollow dark">
+                    <button type="button" aria-label="Fler eventinlägg" className="small hollow dark">
                       Fler event
                     </button>
                   </Link>
@@ -143,7 +144,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
               <h2>Hjälp vid illabehandling</h2>
               <MarkdownRender mdData={contents["hjalp-vid-illabehandling"]} />
               <Link className={styles.sectionButton} href={"/hjalp-vid-illabehandling"}>
-                <button aria-label="Läs mer" className="hollow dark">
+                <button type="button" aria-label="Läs mer" className="hollow dark">
                   Läs mer
                 </button>
               </Link>
@@ -169,6 +170,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
               <MarkdownRender mdData={contents.samarbeten} />
               <Link className={styles.sectionButton} href={"/samarbeten"}>
                 <button
+                  type="button"
                   aria-label="Öppna sidan med mer information vad våra samarbetspartners erbjuder våra medlemmar"
                   className="hollow dark">
                   Aktiva samarbeten
@@ -228,17 +230,18 @@ export async function getStaticProps() {
     console.error("Det gick inte att hämta eventinlägg: ", error.toString());
   }
   // Plockar ut data och lägger till id i post data
-  infoDocs.forEach((doc) => {
+  for (const doc of infoDocs) {
     const data = doc.data();
     data.id = doc.id;
     infoList.push(data);
-  });
+  }
 
-  eventDocs.forEach((doc) => {
+  for (const doc of eventDocs) {
     const data = doc.data();
     data.id = doc.id;
     eventList.push(data);
-  });
+  }
+
 
   let featured = {};
 

@@ -46,7 +46,8 @@ export default function EditPost() {
   }, [id]);
 
   // Hämtar angivna inlägget
-  const loadPost = async (pid) => {
+  const loadPost = async (oldPid) => {
+    let pid = oldPid;
     // Hämtar id från input om ej specificerat
     if (!pid) {
       pid = (`/${postLink}`).split("/").pop();
@@ -269,6 +270,7 @@ export default function EditPost() {
                 onKeyDown={handleKeypress}
               />
               <button
+                type="submit"
                 onClick={() => {
                   loadPost();
                 }}>

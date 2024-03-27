@@ -145,6 +145,7 @@ export default function Publicera({ calendarID }) {
           <p>Felmeddelande: {err.message}</p>
           <div className={actionMenu}>
             <button
+            type="submit"
               onClick={() => {
                 setModal(false);
                 setIsPending(false);
@@ -190,6 +191,7 @@ export default function Publicera({ calendarID }) {
               </p>
               <div className={actionMenu}>
                 <button
+                type="submit"
                   onClick={() => {
                     setModal(false);
                     resolve(true);
@@ -197,6 +199,7 @@ export default function Publicera({ calendarID }) {
                   Ladda upp bild senare
                 </button>
                 <button
+                  type="submit"
                   onClick={async () => {
                     await handleDeletion(data);
                     setModal(false);
@@ -239,6 +242,7 @@ export default function Publicera({ calendarID }) {
           </p>
           <p>Felmeddelande: {error.message}</p>
           <button
+            type="submit"
             onClick={() => {
               setModal(false);
               setIsPending(false);
@@ -278,6 +282,7 @@ export default function Publicera({ calendarID }) {
               </p>
               <p>Felmeddelande: {error.message}</p>
               <button
+                type="submit"
                 onClick={() => {
                   setModal(false);
                   resolve(true);
@@ -309,6 +314,7 @@ export default function Publicera({ calendarID }) {
             <p>Felmeddelande: {error.message}</p>
 
             <button
+              type="submit"
               onClick={() => {
                 setModal(false);
                 setIsPending(false);
