@@ -171,6 +171,7 @@ export default function NotificationModal({ show, handleClose }) {
     } catch (error) {
       console.error(error);
       setErrorText("Något gick fel när inställningarna skulle sparas");
+      return;
     }
 
     // Spara i localStorage

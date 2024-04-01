@@ -63,7 +63,7 @@ export default function Tv() {
 
       imageRef.current.style.backgroundColor = "";
     }
-  }, [imageObj]);
+  }, [imageObj, fac]);
 
   const uploadImage = async (imageRef) => {
     try {
