@@ -187,23 +187,20 @@ async function getTokens(type) {
       .then((allTokensDoc) => {
         const allTokensObj = allTokensDoc.data();
 
-        console.log("hej");
+        console.log("Nr of existing tokens", allTokensObj ? Object.keys(allTokensObj).length : 0);
 
+        // Lägger till alla tokens som är aktiva och har prenumererat på den valda typen
         for (const [token, settings] of Object.entries(allTokensObj)) {
           if (settings.enabled && settings.types[type]) {
             selectedTokens.add(token);
           }
         }
-
         resolve(Array.from(selectedTokens));
+        return allTokensObj;
       })
-      .then(() => removeOldTokens(allTokensObj))
-      .then((removedTokens) => {
-        console.log("Removed", removedTokens.length, "old tokens");
-      })
-      .catch((error) => {
-        console.error("Something went wrong with removing old tokens", error);
-      })
+      .then((allTokensObj) => removeOldTokens(allTokensObj))
+      .then((removedTokens) => console.log("Removed", removedTokens.length, "old tokens"))
+      .catch((error) => console.error("Something went wrong with removing old tokens", error))
       .catch((error) => reject(error));
   });
 }
