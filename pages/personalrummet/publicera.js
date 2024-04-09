@@ -36,7 +36,7 @@ import {
 	responseContainer,
 } from "@/styles/personalrummet/post-form.module.css";
 
-export default function Publicera({ calendarID }) {
+export default function Publicera() {
 	const { user, userData, userAccessToken, setUserAccessToken } = useAuth();
 
 	const today = new Date().toLocaleString().substring(0, 16); // Hämtar dagens datum och sätter som default
@@ -371,6 +371,7 @@ export default function Publicera({ calendarID }) {
 
 	// Lägger in event i kalendern
 	const addEvent = async (eventData) => {
+		const calendarID = process.env.NEXT_PUBLIC_CL_CALENDAR;
 		// Om access token inte finns måste användaren logga in på nytt
 		let token = userAccessToken;
 		if (!token) {
@@ -441,14 +442,6 @@ export default function Publicera({ calendarID }) {
 			)}
 		</div>
 	);
-}
-
-export async function getStaticProps() {
-	return {
-		props: {
-			calendarID: process.env.CL_CALENDAR,
-		},
-	};
 }
 
 import { googleLogin } from "@/utils/authUtils";

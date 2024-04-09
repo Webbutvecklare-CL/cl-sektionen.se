@@ -12,9 +12,10 @@ export default async function handler(req, res) {
 	if (!req.body.data) {
 		return res.status(400).send({ message: "Felaktiga attribut i body." });
 	}
-
+	let uid = "";
+	let permission = "";
 	try {
-		const { uid, permission } = await verifyUser(req, res);
+		({ uid, permission } = await verifyUser(req, res));
 	} catch (error) {
 		console.error("Error validating user authentication:", error);
 		return res.status(401).json({ error: error.error });
@@ -39,7 +40,7 @@ export default async function handler(req, res) {
 				collapseKey: req.body.data.postId, // Gör att notiser med samma id byter ut den tidigare notisen
 				fcmOptions: { analyticsLabel: "new_post" },
 			};
-		} catch ({ error }) {
+		} catch (error) {
 			console.error("Verification failed:", error);
 			return res
 				.status(400)
@@ -108,7 +109,6 @@ export default async function handler(req, res) {
 }
 
 // Hjälpfunktioner
-
 async function sendNotification(type, message, dryRun = false) {
 	return new Promise((resolve, reject) => {
 		// Hämtar alla tokens - de som ska få notisen
@@ -163,7 +163,6 @@ async function sendNotification(type, message, dryRun = false) {
 			});
 	});
 }
-
 function createPostPayload(data) {
 	return {
 		data: {
@@ -190,8 +189,12 @@ async function getTokens(type) {
 			.then((allTokensDoc) => {
 				const allTokensObj = allTokensDoc.data();
 
-				console.log("hej");
+				console.log(
+					"Nr of existing tokens",
+					allTokensObj ? Object.keys(allTokensObj).length : 0,
+				);
 
+				// Lägger till alla tokens som är aktiva och har prenumererat på den valda typen
 				for (const [token, settings] of Object.entries(allTokensObj)) {
 					if (settings.enabled && settings.types[type]) {
 						selectedTokens.add(token);
@@ -199,14 +202,15 @@ async function getTokens(type) {
 				}
 
 				resolve(Array.from(selectedTokens));
+				return allTokensObj;
 			})
-			.then(() => removeOldTokens(allTokensObj))
-			.then((removedTokens) => {
-				console.log("Removed", removedTokens.length, "old tokens");
-			})
-			.catch((error) => {
-				console.error("Something went wrong with removing old tokens", error);
-			})
+			.then((allTokensObj) => removeOldTokens(allTokensObj))
+			.then((removedTokens) =>
+				console.log("Removed", removedTokens.length, "old tokens"),
+			)
+			.catch((error) =>
+				console.error("Something went wrong with removing old tokens", error),
+			)
 			.catch((error) => reject(error));
 	});
 }
@@ -277,6 +281,7 @@ function removeOldTokens(tokensData) {
 
 function verifyRequest(userId, postId) {
 	return new Promise((resolve, reject) => {
+		console.log("Verifying request for user", userId, "and post", postId);
 		const db = admin.firestore();
 		const postRef = db.collection("posts").doc(postId);
 		const snap = postRef.get();
@@ -298,6 +303,7 @@ function verifyRequest(userId, postId) {
 				}
 			})
 			.catch((err) => {
+				console.error("Error getting document:", err);
 				reject({ error: err });
 			});
 	});
