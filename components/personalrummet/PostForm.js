@@ -207,7 +207,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 		if ((tag === "SM" || tag === "StyM") && type === "event") {
 			setTags((tags) => {
 				// Sätter alla andra taggar till false
-				for (const key of Objext.keys(tags)) {
+				for (const key of Object.keys(tags)) {
 					tags[key] = false;
 				}
 
