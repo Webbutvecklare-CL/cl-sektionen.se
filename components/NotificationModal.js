@@ -106,7 +106,7 @@ export default function NotificationModal({ show, handleClose }) {
 			setErrorText("Du måste välja åtminstone en kategori");
 			return;
 		}
-		
+
 		if (!notificationsEnabled) {
 			setStep("local");
 			setWaitingText("Sparar inställningar...");
