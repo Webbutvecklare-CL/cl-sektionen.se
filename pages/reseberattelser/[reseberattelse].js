@@ -1,45 +1,51 @@
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 import React from "react";
-import MarkdownRender from "../../components/MarkdownRender";
-import { readdirSync, readFileSync } from "fs";
-import { join } from "path";
 import BackButton from "../../components/BackButton";
+import MarkdownRender from "../../components/MarkdownRender";
 
 import styles from "../../styles/reseberattelser.module.css";
 
 export default function Reseberattelse({ content }) {
-  return (
-    <div id="contentbody" className="wideContent">
-      <article className={styles.rese}>
-        <div className="article-head">
-          <BackButton page={"reseberattelser"}>Reseberättelser</BackButton>
-        </div>
-        <MarkdownRender mdData={content} />
-      </article>
-    </div>
-  );
+	return (
+		<div id="contentbody" className="wideContent">
+			<article className={styles.rese}>
+				<div className="article-head">
+					<BackButton page={"reseberattelser"}>Reseberättelser</BackButton>
+				</div>
+				<MarkdownRender mdData={content} />
+			</article>
+		</div>
+	);
 }
 
 export async function getStaticProps(context) {
-  // Skickar med filnamnet som en prop vilket gör att next kan serverside rendera alla reseberättelser
-  const { params } = context;
+	// Skickar med filnamnet som en prop vilket gör att next kan serverside rendera alla reseberättelser
+	const { params } = context;
 
-  // Hämtar all text
-  const content = readFileSync(`content/reseberattelser/${params.reseberattelse}.md`, "utf8");
+	// Hämtar all text
+	const content = readFileSync(
+		`content/reseberattelser/${params.reseberattelse}.md`,
+		"utf8",
+	);
 
-  return {
-    props: { reseberattelse: params.reseberattelse, content: JSON.parse(JSON.stringify(content)) }, // will be passed to the page component as props
-  };
+	return {
+		props: {
+			reseberattelse: params.reseberattelse,
+			content: JSON.parse(JSON.stringify(content)),
+		}, // will be passed to the page component as props
+	};
 }
 
 export async function getStaticPaths() {
-  // Hämtar alla filnamn från mappen med blogginläggen
-  const PATH = join(process.cwd(), "content/reseberattelser");
-  const paths = readdirSync(PATH)
-    .map((path) => path.replace(/\.mdx?$/, ""))
-    .map((blogid) => ({ params: { reseberattelse: blogid } }));
+	// Hämtar alla filnamn från mappen med blogginläggen
+	const PATH = join(process.cwd(), "content/reseberattelser");
+	const paths = readdirSync(PATH)
+		.map((path) => path.replace(/\.mdx?$/, ""))
+		.map((blogid) => ({ params: { reseberattelse: blogid } }));
 
-  return {
-    paths,
-    fallback: false, // can also be true or 'blocking'
-  };
+	return {
+		paths,
+		fallback: false, // can also be true or 'blocking'
+	};
 }

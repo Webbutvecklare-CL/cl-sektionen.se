@@ -1,14 +1,14 @@
 [
-  {
-    "title": "Introduktion till matematik",
-    "edition": 2,
-    "author": "",
-    "iban": "327492379423"
-  },
-  {
-    "title": "Hållbar utveckling",
-    "edition": 2,
-    "author": "",
-    "iban": "98347732"
-  }
+	{
+		"title": "Introduktion till matematik",
+		"edition": 2,
+		"author": "",
+		"iban": "327492379423"
+	},
+	{
+		"title": "Hållbar utveckling",
+		"edition": 2,
+		"author": "",
+		"iban": "98347732"
+	}
 ]
