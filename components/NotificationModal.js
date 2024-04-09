@@ -87,6 +87,7 @@ export default function NotificationModal({ show, handleClose }) {
 	}, [notificationsEnabled]);
 
 	const handleSave = async () => {
+		let token;
 		setErrorText("");
 		setStep("settings");
 		const notificationSettings = {
@@ -105,7 +106,7 @@ export default function NotificationModal({ show, handleClose }) {
 			setErrorText("Du måste välja åtminstone en kategori");
 			return;
 		}
-		let token;
+		
 		if (!notificationsEnabled) {
 			setStep("local");
 			setWaitingText("Sparar inställningar...");

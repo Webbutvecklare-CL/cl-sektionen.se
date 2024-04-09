@@ -255,7 +255,8 @@ function removeOldTokens(tokensData) {
 	const todayDate = new Date().getTime();
 	const maxTime = 1000 * 60 * 60 * 24 * 365; // 365 days in milliseconds
 
-	const removedTokens = [];
+	// biome-ignore lint/style/noVar: may mess with notifications
+	var removedTokens = [];
 
 	const allTokensRef = admin.firestore().collection("fcmTokens").doc("all");
 
