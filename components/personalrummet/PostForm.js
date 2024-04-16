@@ -587,7 +587,9 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 						{console.log(image)}
 						<PostComponent
 							postData={{
-								image: image ? image.url || URL.createObjectURL(image) : undefined,
+								image: image
+									? image.url || URL.createObjectURL(image)
+									: undefined,
 								title,
 								subtitle: subtitle.current?.value || "",
 								body: body.current || "",
