@@ -584,9 +584,10 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 			{viewPreview && (
 				<div className={styles.postPreview}>
 					<div>
+						{console.log(image)}
 						<PostComponent
 							postData={{
-								image: image ? URL.createObjectURL(image) : undefined,
+								image: image ? image.url || URL.createObjectURL(image) : undefined,
 								title,
 								subtitle: subtitle.current?.value || "",
 								body: body.current || "",

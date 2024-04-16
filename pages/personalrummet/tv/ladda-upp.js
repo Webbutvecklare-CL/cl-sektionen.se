@@ -277,7 +277,7 @@ export default function Tv() {
 							<div className={styles.imagePlaceholder}>
 								<p>Du har inte valt en bild.</p>
 								<p>
-									Bilden ska vara av formatet jpg, jpeg, png eller webp och inte
+									Bilden ska vara av formatet jpeg, png eller webp och inte
 									större än 0.8 MB.
 								</p>
 							</div>
