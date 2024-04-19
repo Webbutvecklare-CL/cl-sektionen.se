@@ -38,6 +38,8 @@ npm run build
 
 Projektet använder Biome för att hålla koden enhetlig och felfri. Det handlar både om formatering med radbryt och liknande, men också om små standarder för olika kod-specifika lösningar. Vill du veta mer om Biome och vad den gör så kan du läsa [här](https://biomejs.dev/). Suffixet :apply gör att det som du utfört faktiskt sparas i koden, annars får du bara en lista med problemen. Du kan använda ett kommando med :apply direkt. Biome körs också automatiskt som ett litet test när du pushar eller gör en pull request. Kan vara bra att kika där innan du går vidare.
 
+(GitHub actions väljer en specifik version av Biome via en fil i `.github/workflows`, se till att den och `package.json` stämmer överens)
+
 ```bash
 # Letar efter kod som inte är formaterad rätt
 npm run format

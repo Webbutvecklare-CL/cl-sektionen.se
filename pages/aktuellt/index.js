@@ -477,9 +477,7 @@ export default function Aktuellt({ postList }) {
 										if (Object.keys(filterTags).every((k) => !filterTags[k])) {
 											return true;
 										}
-										return post.tags.some((tag) => filterTags[tag])
-											? true
-											: false;
+										return post.tags.some((tag) => filterTags[tag]);
 									})
 									.filter((post) => {
 										let res = true;
