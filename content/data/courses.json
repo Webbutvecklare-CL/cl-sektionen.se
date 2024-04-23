@@ -1,6 +1,8 @@
 [
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"type": "Matte",
 		"id": "DD2350",
 		"name": "Algoritmer, datastrukturer och komplexitet",
@@ -11,28 +13,129 @@
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "DD2395",
 		"name": "Datasäkerhet",
 		"short": "Dsäk",
 		"hp": 6.0,
 		"comments": [
-			"Det finns tyvärr inga kommentarer. Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+			"Intressant kurs, men dålig struktur och upplägg."
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "SF2520",
 		"name": "Tillämpade numeriska metoder",
 		"short": "",
 		"hp": 7.5,
 		"comments": [
-			"Svår kurs och fortsättning till nummen. Handlar mestadels om diffekvationer och att lösa de med komplexa algoritmer. Väldigt värt att läsa om man är intresserad av att koppla data med matte. Börja med labbarna så tidigt som möjligt och gå gärna på \"excercise lectures\". Kursboken är väldigt bra, dock dyr. Wikipedias sidor kring vissa koncept är faktiskt väldigt värdefulla",
+			"Svår kurs och fortsättning till nummen. Handlar mestadels om diffekvationer och att lösa de med komplexa algoritmer. Väldigt värt att läsa om man är intresserad av att koppla data med matte. Börja med labbarna så tidigt som möjligt och gå gärna på \"excercise lectures\". Kursboken är väldigt bra, dock dyr. Wikipedias sidor kring vissa koncept är faktiskt väldigt värdefulla"
+		]
+	},
+	{
+		"specialization": [
+			"mafy"
+		],
+		"id": "SK2330",
+		"name": "Optisk design",
+		"hp": 6.0,
+		"comments": [
 			"Har du läst kursen? Skicka in en kommentar i formuläret nedan."
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"mafy"
+		],
+		"id": "SK2300",
+		"name": "Optisk fysik",
+		"hp": 6.0,
+		"comments": [
+			"Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+		]
+	},
+	{
+		"specialization": [
+			"mafy"
+		],
+		"id": "SK2350",
+		"name": "Optisk mätteknik",
+		"hp": 6.0,
+		"comments": [
+			"Rolig! Praktiska laborationer och studiebesök."
+		]
+	},
+	{
+		"specialization": [
+			"mafy"
+		],
+		"id": "SK2350",
+		"name": "Fotografi för medieteknik",
+		"hp": 4.0,
+		"comments": [
+			"Lätt jämfört med andra fysikkurser. Roligt med labbar och grupparbeten. Bra intro till kamerans optik och sensorer."
+		]
+	},
+	{
+		"specialization": [
+			"mafy"
+		],
+		"id": "ED2200",
+		"name": "Energi och fusionsforskning",
+		"hp": 6.0,
+		"comments": [
+			"Intressant ur allmänintresse, men nog inget jag kommer att ha nytta av i praktiken.",
+			"Kurslitteraturen är en gratis PDF. Samarbete kring hemuppgifterna är tillåtet, så det är en god idé om du hittar en grupp att jobba med. Den fysik som ingår i kursen är ganska svår, men uppgifterna man får är oftast inte extremt svåra.",
+			"Kursen examineras med minigrupparbeten och hemuppgifter (som ED1100 Ingenjörsvetenskap). Bra om du vill slippa en ytterligare tenta efter period 4. Inget betyg, utan bara pass/fail."
+		]
+	},
+	{
+		"specialization": [
+			"mafy"
+		],
+		"id": "SF1904",
+		"type": "Matte",
+		"name": "Markovprocesser, grundkurs",
+		"hp": 3.0,
+		"comments": [
+			"Intressant matte som man kan ha praktisk nytta av. Kurslitteraturen är en gratis PDF. Lär dig från början att det är skillnad på p, P, ℙ, 𝒫, ρ och 𝜋, så ska nog den här kursen gå bra. 😉",
+			"Kursen är på 3 hp, vilket kan vara praktiskt för att kunna pussla ihop lagom många poäng. Har du inte tid att gå på föreläsningarna, kan du nog läsa in materialet på egen hand. Det behövs inte särskilt mycket förkunskaper – nästan så man klarar sig med gymnasiematte."
+		]
+	},
+	{
+		"specialization": [
+			"mafy"
+		],
+		"id": "SI1336",
+		"name": "Simulering och modellering",
+		"hp": 6.0,
+		"comments": [
+			"Riktigt kul om man gillar programmering. Förmodligen extremt okul annars. Om du gillar att programmera och vill få det att räknas som fysik, är detta kursen för dig.",
+			"En ganska annorlunda kurs: Det finns föreläsningar, men du lär dig inte så mycket på dem, utan du lär dig istället genom att göra labbarna och studera vad som händer när du ändrar olika parametrar. I enlighet med pedagogiska teorier kan det faktiskt funka ganska bra.",
+			"Jag läste i princip inget i den PDF-bok som rekommenderades, bland annat eftersom den är skriven för Java, medan alla normala moderna människor vill använda Python och NumPy för dessa uppgifter.",
+			"Man kan se denna kurs delvis som en fortsättning på Numme. Det finns också likheter med datorlabben i Teoretisk fysik."
+		]
+	},
+	{
+		"specialization": [
+			"teda"
+		],
+		"id": "DD1351",
+		"name": "Logik för dataloger",
+		"type": "Matte",
+		"hp": 7.5,
+		"comments": [
+			"Rolig kurs med mycket nytt och spännande innehåll, perfekt för den som gillar den lagom teoretiska sidan av programmering. Kändes som en blandning av matte och programmering, där kursens sex olika delar kändes både sammankopplade och tillräckligt separata."
+		]
+	},
+	{
+		"specialization": [
+			"teda"
+		],
 		"id": "DT2140",
 		"name": "Multimodala interaktioner och gränssnitt",
 		"short": "",
@@ -42,27 +145,34 @@
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "DD2417",
 		"name": "Språkteknologi",
 		"short": "",
 		"hp": 7.5,
 		"comments": [
-			"Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+			"Rolig och väldigt intressant kurs. Svår, men definitivt görbar. Man får mycket hjälp med kodskelett. Kräver en dator som är lite mer kraftig, då vissa program man körde var väldigt tunga."
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "SF2718",
 		"name": "Matematik för kemister",
-		"short": "",
+		"type": "Matte",
+		"short": "MFK",
 		"hp": 6.0,
 		"comments": [
-			"Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+			"Kursen är rolig och intressant. Man skriver ett par rapporter där man svarar på frågor inom matematik, så den är lite annorlunda än andra mattekurser. Definitivt ett bra alternativ för att få in tillräckligt med matematik."
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "EN2720",
 		"name": "Etisk hackning",
 		"short": "",
@@ -72,7 +182,9 @@
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "ID1200",
 		"name": "Operativsystem",
 		"short": "",
@@ -82,7 +194,9 @@
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "DD1396",
 		"name": "Parallellprogrammering i introduktion till datalogi",
 		"short": "",
@@ -93,7 +207,9 @@
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": [
+			"teda"
+		],
 		"id": "DD2424",
 		"name": "Djupinlärning i Data Science",
 		"short": "",
@@ -103,18 +219,34 @@
 		]
 	},
 	{
-		"specialization": ["make"],
+		"specialization": [
+			"make"
+		],
 		"id": "DD1320",
 		"name": "Tillämpad datalogi",
-		"short": "",
+		"short": "TILDA",
 		"hp": 6.0,
 		"comments": [
 			"Har du läst kursen? Skicka in en kommentar i formuläret nedan."
 		]
 	},
 	{
-		"specialization": ["make"],
-		"id": "CK2130 tidigare KE2130",
+		"specialization": [
+			"make"
+		],
+		"id": "DD1325",
+		"name": "Tillämpad datalogi med etik",
+		"short": "TILDA",
+		"hp": 7.5,
+		"comments": [
+			"Har du läst kursen? Skicka in en kommentar i formuläret nedan."
+		]
+	},
+	{
+		"specialization": [
+			"make"
+		],
+		"id": "CK2130",
 		"name": "Hållbar produktion av material och bränslen",
 		"short": "",
 		"hp": 7.5,
@@ -123,7 +255,9 @@
 		]
 	},
 	{
-		"specialization": ["make"],
+		"specialization": [
+			"make"
+		],
 		"id": "KD1270",
 		"name": "Organisk kemi, grundläggande koncept och praktik 2",
 		"short": "",
@@ -133,7 +267,9 @@
 		]
 	},
 	{
-		"specialization": ["mafy"],
+		"specialization": [
+			"mafy"
+		],
 		"id": "SH2007",
 		"name": "Research Methodology in Physics",
 		"short": "",
@@ -143,7 +279,9 @@
 		]
 	},
 	{
-		"specialization": ["temi"],
+		"specialization": [
+			"temi"
+		],
 		"id": "MJ2659",
 		"name": "Teknik och ekosystem, större kurs",
 		"short": "",
