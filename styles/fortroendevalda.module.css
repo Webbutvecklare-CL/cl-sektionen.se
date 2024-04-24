@@ -55,6 +55,10 @@
   color: black;
 }
 
+.cl_year {
+  font-size: 1rem !important;
+}
+
 .imageWrapper {
   display: flex;
   flex-direction: row;
