@@ -38,11 +38,11 @@
   cursor: pointer;
 }
 
-#fortroendevaldaContent {
+.fortroendevaldaContent {
   scroll-margin-top: 75px;
 }
 
-#fortroendevaldaContent h1 {
+.fortroendevaldaContent h1 {
   color: var(--clr5);
   margin-top: 0;
 }
