@@ -27,13 +27,15 @@ export default function Fortroendevalda({ descriptions }) {
 	useEffect(() => {
 		const urlSelect = router.asPath.split("#")[1] || "ctyrelsen";
 		setSelectedCommittee(urlSelect);
-		window.scrollTo(0, 0);
+		const element = document.getElementById("fortroendevaldaContent");
+		element.scrollIntoView({ behavior: "smooth" });
 	}, [router.asPath]);
 
 	// När en användare väljer en nämnd uppdateras url:en och vilken nämnd som visas
 	const stateUpdater = (committee) => {
 		router.replace(`#${committee}`);
-		window.scrollTo(0, 0);
+		const element = document.getElementById("fortroendevaldaContent");
+		element.scrollIntoView({ behavior: "smooth" });
 		setSelectedCommittee(committee);
 	};
 
@@ -95,7 +97,10 @@ export default function Fortroendevalda({ descriptions }) {
 							})}
 						</ul>
 					</nav>
-					<div id={styles.fortroendevaldaContent}>
+					<div
+						id="fortroendevaldaContent"
+						className={styles.fortroendevaldaContent}
+					>
 						<NewCommitteeInfo
 							committee={selectedCommittee}
 							description={descriptions[selectedCommittee]}
