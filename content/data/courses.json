@@ -127,7 +127,7 @@
 		]
 	},
 	{
-		"specialization": ["teda"],
+		"specialization": ["teda", "temi"],
 		"id": "SF2718",
 		"name": "Matematik för kemister",
 		"type": "Matte",
