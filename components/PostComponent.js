@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import parse from "html-react-parser";
 
+import BackButton from "@/components/BackButton";
 import styles from "@/styles/aktuellt.module.css";
-import BackButton from "./BackButton";
 
 export default function PostComponent({ postData, backPath }) {
 	const getDate = (date) => {

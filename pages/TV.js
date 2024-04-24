@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import { app } from "@/firebase/clientApp";
 import {
 	Timestamp,
 	collection,
@@ -9,18 +10,17 @@ import {
 	query,
 	where,
 } from "firebase/firestore";
-import { app } from "../firebase/clientApp";
 const firestore = getFirestore(app);
 
-import ReseInfo from "../components/TV/ReseInfo";
-import Slideshow from "../components/TV/Slideshow";
+import ReseInfo from "@/components/TV/ReseInfo";
+import Slideshow from "@/components/TV/Slideshow";
 
-import KTH_Night from "../public/media/TV/kth-night.jpg";
-import KTH_Summer from "../public/media/TV/kth-sommar.png";
+import KTH_Night from "@/media/TV/kth-night.jpg";
+import KTH_Summer from "@/media/TV/kth-sommar.png";
 
-import { getIsNight } from "../utils/tv";
+import { getIsNight } from "@/utils/tv";
 
-import styles from "../styles/tv.module.css";
+import styles from "@/styles/tv.module.css";
 
 export default function TV() {
 	const router = useRouter();

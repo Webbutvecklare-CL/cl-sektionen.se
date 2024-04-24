@@ -1,8 +1,8 @@
-import CustomHead from "../components/CustomHead";
-import MarkdownRender from "../components/MarkdownRender";
-import { getContentData } from "../utils/contents";
+import CustomHead from "@/components/CustomHead";
+import MarkdownRender from "@/components/MarkdownRender";
+import { getContentData } from "@/utils/contents";
 
-import styles from "../styles/kontakt.module.css";
+import styles from "@/styles/kontakt.module.css";
 
 export default function Kontakt({ contents }) {
 	return (

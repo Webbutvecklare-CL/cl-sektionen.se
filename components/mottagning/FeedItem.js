@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 
-import feed_styles from "../../styles/mottagning/mottagning.module.css";
+import feed_styles from "@/styles/mottagning/mottagning.module.css";
 
 export default function FeedItem({ item }) {
 	const [expanding, setExpanding] = useState(false);

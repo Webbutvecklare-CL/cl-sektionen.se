@@ -1,3 +1,4 @@
+import { app } from "@/firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 import {
 	collection,
@@ -8,25 +9,25 @@ import {
 	query,
 	where,
 } from "firebase/firestore";
-import { app } from "../../firebase/clientApp";
 const firestore = getFirestore(app);
 
-import { convertDate } from "../../utils/convertDate";
+import { convertDate } from "@/utils/convertDate";
 
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import FeedPreview from "../../components/FeedPreview";
+import FeedPreview from "@/components/FeedPreview";
 
-import { all_committees } from "../../constants/committees-data";
+import { all_committees } from "@/constants/committees-data";
 //Ändra dessa för att lägga till och ta bort tags
-import { COMMONTAGS, EVENTSTAGS, INFOTAGS } from "../../constants/tags";
+import { COMMONTAGS, EVENTSTAGS, INFOTAGS } from "@/constants/tags";
 
-import styles from "../../styles/aktuellt.module.css";
-import feed from "../../styles/feed-preview.module.css";
-import filterStyles from "../../styles/filter-panel.module.css";
+import styles from "@/styles/aktuellt.module.css";
+import feed from "@/styles/feed-preview.module.css";
+import filterStyles from "@/styles/filter-panel.module.css";
 
+import NotificationBell from "@/components/NotificationBell";
 import {
 	faArrowDownWideShort,
 	faCalendarDays,
@@ -36,7 +37,6 @@ import {
 	faTags,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import NotificationBell from "../../components/NotificationBell";
 
 export default function Aktuellt({ postList }) {
 	const router = useRouter();

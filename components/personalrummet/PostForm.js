@@ -2,17 +2,17 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 
 import PostComponent from "@/components/PostComponent";
-import { useAuth } from "../../context/AuthContext";
-import { createId, getTypedLink } from "../../utils/postUtils";
-import InfoBox from "./form components/InfoBox";
-import Label from "./form components/Label";
-import TextField from "./form components/TextField";
+import InfoBox from "@/components/personalrummet/form components/InfoBox";
+import Label from "@/components/personalrummet/form components/Label";
+import TextField from "@/components/personalrummet/form components/TextField";
+import { useAuth } from "@/context/AuthContext";
+import { createId, getTypedLink } from "@/utils/postUtils";
 
-import { all_committees } from "../../constants/committees-data";
+import { all_committees } from "@/constants/committees-data";
 // Taggar som kan väljas
-import { COMMONTAGS, EVENTSTAGS, INFOTAGS } from "../../constants/tags";
+import { COMMONTAGS, EVENTSTAGS, INFOTAGS } from "@/constants/tags";
 
-import styles from "../../styles/personalrummet/post-form.module.css";
+import styles from "@/styles/personalrummet/post-form.module.css";
 
 import {
 	faEye,

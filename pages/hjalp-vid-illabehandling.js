@@ -1,5 +1,5 @@
-import MarkdownRender from "../components/MarkdownRender";
-import { getContentData } from "../utils/contents";
+import MarkdownRender from "@/components/MarkdownRender";
+import { getContentData } from "@/utils/contents";
 
 export default function Illabehandling({ contents }) {
 	return (

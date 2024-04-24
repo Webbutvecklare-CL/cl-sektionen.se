@@ -2,14 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
-import NavItem from "./NavItem";
 
-import NavLogo from "../../public/media/grafik/CL-Logo_Nav_White.webp";
-import NavSubItem from "./NavSubItem";
+import NavItem from "@/components/nav/NavItem";
 
+import NavSubItem from "@/components/nav/NavSubItem";
+import NavLogo from "@/media/grafik/CL-Logo_Nav_White.webp";
+
+import styles from "@/styles/nav.module.css";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "../../styles/nav.module.css";
 
 //Att lägga till nya sidor:
 // 1. Se till att skapa sidan (se guide)

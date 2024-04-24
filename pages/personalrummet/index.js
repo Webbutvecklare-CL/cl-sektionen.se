@@ -1,10 +1,10 @@
+import Login from "@/components/personalrummet/Login";
+import UserMenu from "@/components/personalrummet/UserMenu";
 import { getContentData } from "@/utils/contents";
-import Login from "../../components/personalrummet/Login";
-import UserMenu from "../../components/personalrummet/UserMenu";
 
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
-import { personalrummet } from "../../styles/personalrummet.module.css";
+import { personalrummet } from "@/styles/personalrummet.module.css";
 
 export default function Personalrummet({ contents }) {
 	const { userData, signingIn } = useAuth();

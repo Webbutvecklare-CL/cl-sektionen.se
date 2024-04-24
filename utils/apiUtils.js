@@ -1,4 +1,4 @@
-import admin from "../firebase/firebaseAdmin";
+import admin from "@/firebase/firebaseAdmin";
 
 /**
  * Verifiera att användaren som gjorde requesten är inloggad och har rättigheter.

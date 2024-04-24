@@ -25,14 +25,14 @@ import { useRouter } from "next/router";
 // React
 import { useEffect, useState } from "react";
 
-import { getCookie, setCookie } from "../utils/cookieUtils";
+import { getCookie, setCookie } from "@/utils/cookieUtils";
+
+import CookieBanner from "@/components/CookieBanner";
+import CustomHead from "@/components/CustomHead";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/nav/Navbar";
 
 import Head from "next/head";
-import CookieBanner from "../components/CookieBanner";
-import CustomHead from "../components/CustomHead";
-import Footer from "../components/Footer";
-// Komponenter
-import Navbar from "../components/nav/Navbar";
 
 export default function App({ Component, pageProps }) {
 	const router = useRouter();

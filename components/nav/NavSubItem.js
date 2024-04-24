@@ -5,7 +5,7 @@ import { logEvent } from "firebase/analytics";
 import {
 	active as activeStyles,
 	submenuItem as submenuItemStyles,
-} from "../../styles/nav.module.css";
+} from "@/styles/nav.module.css";
 
 export default function NavSubItem({ text, href, active }) {
 	return (

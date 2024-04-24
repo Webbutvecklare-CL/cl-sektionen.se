@@ -1,4 +1,4 @@
-import styles from "../../styles/kalender.module.css";
+import styles from "@/styles/kalender.module.css";
 
 export default function GråttKalender() {
 	return (

@@ -1,8 +1,8 @@
+import Definition from "@/components/Definition";
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-import Definition from "./Definition";
 
 export default function MarkdownRender({ source, mdData, id }) {
 	const [content, setContent] = useState("");

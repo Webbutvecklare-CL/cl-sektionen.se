@@ -1,7 +1,8 @@
-import Card from "../Card";
-import CopyButton from "../CopyButton";
+import Card from "@/components/Card";
 
-import { calendarSubscription } from "../../styles/kalender.module.css";
+import CopyButton from "@/components/CopyButton";
+
+import { calendarSubscription } from "@/styles/kalender.module.css";
 
 import { faAndroid, faApple } from "@fortawesome/free-brands-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";

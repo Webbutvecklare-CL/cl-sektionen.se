@@ -1,8 +1,8 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import BackButton from "@/components/BackButton";
+import MarkdownRender from "@/components/MarkdownRender";
 import React from "react";
-import BackButton from "../../components/BackButton";
-import MarkdownRender from "../../components/MarkdownRender";
 
 export default function Alumniberattelse({ content }) {
 	return (

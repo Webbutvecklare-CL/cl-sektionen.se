@@ -1,12 +1,12 @@
 import { readFileSync } from "node:fs";
+import CustomHead from "@/components/CustomHead";
+import TextHighlighter from "@/components/Highlighter";
 import { logEvent } from "firebase/analytics";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import CustomHead from "../../components/CustomHead";
-import TextHighlighter from "../../components/Highlighter";
 
-import filterStyles from "../../styles/filter-panel.module.css";
-import styles from "../../styles/sangbok.module.css";
+import filterStyles from "@/styles/filter-panel.module.css";
+import styles from "@/styles/sangbok.module.css";
 
 import { faEllipsis, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

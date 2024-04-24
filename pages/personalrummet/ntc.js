@@ -1,13 +1,13 @@
+import { getFCMToken } from "@/firebase/messaging"; // Filen
+import { sendNotification } from "@/utils/server";
 import { isSupported } from "firebase/messaging"; // Biblioteket
 import React, { useState } from "react";
-import { getFCMToken } from "../../firebase/messaging"; // Filen
-import { sendNotification } from "../../utils/server";
 
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
-import NotificationModal from "../../components/NotificationModal";
+import NotificationModal from "@/components/NotificationModal";
 
-import styles from "../../styles/ntc.module.css";
+import styles from "@/styles/ntc.module.css";
 
 export default function NTC() {
 	const [result, setResult] = useState("");

@@ -1,7 +1,7 @@
+import CalendarSubscription from "@/components/calendar/CalendarSubscription";
 import React, { useState } from "react";
-import CalendarSubscription from "../components/calendar/CalendarSubscription";
 
-import styles from "../styles/kalender.module.css";
+import styles from "@/styles/kalender.module.css";
 
 export default function Kalender() {
 	const [activeIdx, setActiveIdx] = useState(0);

@@ -1,6 +1,6 @@
+import MarkdownRender from "@/components/MarkdownRender";
+import { getContentData } from "@/utils/contents";
 import React from "react";
-import MarkdownRender from "../components/MarkdownRender";
-import { getContentData } from "../utils/contents";
 
 export default function ForForetag({ contents }) {
 	return (

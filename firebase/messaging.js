@@ -1,6 +1,7 @@
+import { app, messaging } from "@/firebase/clientApp";
 import { arrayUnion, doc, getFirestore, updateDoc } from "firebase/firestore";
 import { getToken } from "firebase/messaging";
-import { app, messaging } from "./clientApp";
+
 const firestore = getFirestore(app);
 
 import { logEvent } from "firebase/analytics";

@@ -1,4 +1,4 @@
-import styles from "../../styles/tv.module.css";
+import styles from "@/styles/tv.module.css";
 
 export default function Departures({ data }) {
 	return (

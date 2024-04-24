@@ -11,9 +11,9 @@ import {
 	board,
 	committees,
 	trustees,
-} from "../constants/committees-data";
+} from "@/constants/committees-data";
 
-import { fortroendevaldaList } from "../constants/fortroendevaldaData";
+import { fortroendevaldaList } from "@/constants/fortroendevaldaData";
 
 import styles from "@/styles/fortroendevalda.module.css";
 

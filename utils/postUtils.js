@@ -1,5 +1,5 @@
+import { app } from "@/firebase/clientApp";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { app } from "../firebase/clientApp";
 const firestore = getFirestore(app);
 
 function createId(data, type = "") {

@@ -1,6 +1,6 @@
+import MarkdownRender from "@/components/MarkdownRender";
+import styles from "@/styles/fortroendevalda.module.css";
 import Image from "next/image";
-import styles from "../styles/fortroendevalda.module.css";
-import MarkdownRender from "./MarkdownRender";
 
 export default function CommitteeInfo({ committee, description, groupData }) {
 	const groupImgPath = `/media/fortroendevalda/${committee}.webp`;

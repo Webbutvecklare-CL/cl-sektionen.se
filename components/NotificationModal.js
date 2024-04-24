@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { app } from "@/firebase/clientApp";
+import { getFCMToken } from "@/firebase/messaging"; // Filen
 import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import { isSupported } from "firebase/messaging"; // Biblioteket
-import { app } from "../firebase/clientApp";
-import { getFCMToken } from "../firebase/messaging"; // Filen
 const firestore = getFirestore(app);
 
+import { fa } from "@/styles/fontawesome.module.css"; // För att ios dela ikonen ska fungera
 import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fa } from "../styles/fontawesome.module.css"; // För att ios dela ikonen ska fungera
 
-import styles from "../styles/notification-modal.module.css";
-import Toggle from "./Toggle";
+import Toggle from "@/components/Toggle";
+import styles from "@/styles/notification-modal.module.css";
 
 export default function NotificationModal({ show, handleClose }) {
 	const [noSupport, setNoSupport] = useState(true);

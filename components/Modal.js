@@ -1,4 +1,4 @@
-import styles from "../styles/modal.module.css";
+import styles from "@/styles/modal.module.css";
 
 export default function Modal({ children, onClose }) {
 	const outsideClick = (e) => {

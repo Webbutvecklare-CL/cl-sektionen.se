@@ -1,7 +1,8 @@
-import GråttAgenda from "./GråttAgenda";
-import GråttKalender from "./GråttKalender";
+import GråttAgenda from "@/components/calendar/GråttAgenda";
 
-import calStyles from "../../styles/kalender.module.css";
+import GråttKalender from "@/components/calendar/GråttKalender";
+
+import calStyles from "@/styles/kalender.module.css";
 
 export default function CalendarsWrapper() {
 	return (

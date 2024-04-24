@@ -1,8 +1,8 @@
+import BackButton from "@/components/BackButton";
+import bg from "@/media/grafik/CLsharp.webp";
 import Image from "next/image";
-import BackButton from "../components/BackButton";
-import bg from "../public/media/grafik/CLsharp.webp";
 
-import styles from "../styles/404.module.css";
+import styles from "@/styles/404.module.css";
 
 export default function Custom404() {
 	return (

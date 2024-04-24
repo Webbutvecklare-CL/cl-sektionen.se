@@ -1,11 +1,11 @@
+import bg from "@/media/img/KTHcover.jpg";
+import { convertDate } from "@/utils/convertDate";
 import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
 import sanitizeHtml from "sanitize-html";
-import bg from "../public/media/img/KTHcover.jpg";
-import { convertDate } from "../utils/convertDate";
 
-import styles from "../styles/feed-preview.module.css";
+import styles from "@/styles/feed-preview.module.css";
 
 import { logEvent } from "firebase/analytics";
 

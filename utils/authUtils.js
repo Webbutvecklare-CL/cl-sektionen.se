@@ -1,3 +1,4 @@
+import { app } from "@/firebase/clientApp";
 import {
 	doc,
 	getDoc,
@@ -5,7 +6,6 @@ import {
 	setDoc,
 	updateDoc,
 } from "firebase/firestore";
-import { app } from "../firebase/clientApp";
 
 async function googleLogin() {
 	const { GoogleAuthProvider } = await import("firebase/auth");
