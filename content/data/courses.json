@@ -1,8 +1,6 @@
 [
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"type": "Matte",
 		"id": "DD2350",
 		"name": "Algoritmer, datastrukturer och komplexitet",
@@ -13,21 +11,15 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "DD2395",
 		"name": "Datasäkerhet",
 		"short": "Dsäk",
 		"hp": 6.0,
-		"comments": [
-			"Intressant kurs, men dålig struktur och upplägg."
-		]
+		"comments": ["Intressant kurs, men dålig struktur och upplägg."]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "SF2520",
 		"name": "Tillämpade numeriska metoder",
 		"short": "",
@@ -37,9 +29,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "SK2330",
 		"name": "Optisk design",
 		"hp": 6.0,
@@ -48,9 +38,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "SK2300",
 		"name": "Optisk fysik",
 		"hp": 6.0,
@@ -59,20 +47,14 @@
 		]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "SK2350",
 		"name": "Optisk mätteknik",
 		"hp": 6.0,
-		"comments": [
-			"Rolig! Praktiska laborationer och studiebesök."
-		]
+		"comments": ["Rolig! Praktiska laborationer och studiebesök."]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "SK2350",
 		"name": "Fotografi för medieteknik",
 		"hp": 4.0,
@@ -81,9 +63,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "ED2200",
 		"name": "Energi och fusionsforskning",
 		"hp": 6.0,
@@ -94,9 +74,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "SF1904",
 		"type": "Matte",
 		"name": "Markovprocesser, grundkurs",
@@ -107,9 +85,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "SI1336",
 		"name": "Simulering och modellering",
 		"hp": 6.0,
@@ -121,9 +97,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "DD1351",
 		"name": "Logik för dataloger",
 		"type": "Matte",
@@ -133,9 +107,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "DT2140",
 		"name": "Multimodala interaktioner och gränssnitt",
 		"short": "",
@@ -145,9 +117,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "DD2417",
 		"name": "Språkteknologi",
 		"short": "",
@@ -157,9 +127,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "SF2718",
 		"name": "Matematik för kemister",
 		"type": "Matte",
@@ -170,9 +138,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "EN2720",
 		"name": "Etisk hackning",
 		"short": "",
@@ -182,9 +148,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "ID1200",
 		"name": "Operativsystem",
 		"short": "",
@@ -194,9 +158,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "DD1396",
 		"name": "Parallellprogrammering i introduktion till datalogi",
 		"short": "",
@@ -207,9 +169,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"teda"
-		],
+		"specialization": ["teda"],
 		"id": "DD2424",
 		"name": "Djupinlärning i Data Science",
 		"short": "",
@@ -219,9 +179,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"make"
-		],
+		"specialization": ["make"],
 		"id": "DD1320",
 		"name": "Tillämpad datalogi",
 		"short": "TILDA",
@@ -231,9 +189,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"make"
-		],
+		"specialization": ["make"],
 		"id": "DD1325",
 		"name": "Tillämpad datalogi med etik",
 		"short": "TILDA",
@@ -243,9 +199,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"make"
-		],
+		"specialization": ["make"],
 		"id": "CK2130",
 		"name": "Hållbar produktion av material och bränslen",
 		"short": "",
@@ -255,9 +209,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"make"
-		],
+		"specialization": ["make"],
 		"id": "KD1270",
 		"name": "Organisk kemi, grundläggande koncept och praktik 2",
 		"short": "",
@@ -267,9 +219,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"mafy"
-		],
+		"specialization": ["mafy"],
 		"id": "SH2007",
 		"name": "Research Methodology in Physics",
 		"short": "",
@@ -279,9 +229,7 @@
 		]
 	},
 	{
-		"specialization": [
-			"temi"
-		],
+		"specialization": ["temi"],
 		"id": "MJ2659",
 		"name": "Teknik och ekosystem, större kurs",
 		"short": "",
