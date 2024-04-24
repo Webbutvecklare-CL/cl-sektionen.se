@@ -1,4 +1,4 @@
-import calStyles from "../../styles/kalender.module.css";
+import calStyles from "@/styles/kalender.module.css";
 
 export default function CalendarLoader() {
 	return (

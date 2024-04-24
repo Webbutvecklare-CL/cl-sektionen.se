@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-import { linkCard as linkCardStyles } from "../styles/components.module.css";
+import { linkCard as linkCardStyles } from "@/styles/components.module.css";
 
 export default function Card({
 	link = "",

@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 
 import React, { useEffect, useState } from "react";
 
+import { app } from "@/firebase/clientApp";
 import {
 	collection,
 	getDocs,
@@ -12,18 +13,17 @@ import {
 	query,
 	where,
 } from "firebase/firestore";
-import { app } from "../../firebase/clientApp";
 const firestore = getFirestore(app);
 
-import { useAuth } from "../../context/AuthContext";
-import { updateUser } from "../../utils/authUtils";
+import { useAuth } from "@/context/AuthContext";
+import { updateUser } from "@/utils/authUtils";
 
-import { all_committees } from "../../constants/committees-data";
-import ErrorPage from "../ErrorPage";
-import MarkdownRender from "../MarkdownRender";
-import CommitteeFeed from "./CommitteeFeed";
+import ErrorPage from "@/components/ErrorPage";
+import MarkdownRender from "@/components/MarkdownRender";
+import CommitteeFeed from "@/components/personalrummet/CommitteeFeed";
+import { all_committees } from "@/constants/committees-data";
 
-import { menu } from "../../styles/personalrummet.module.css";
+import { menu } from "@/styles/personalrummet.module.css";
 
 export default function UserMenu({ contents }) {
 	const [menuSelect, setMenuSelect] = useState("senaste");

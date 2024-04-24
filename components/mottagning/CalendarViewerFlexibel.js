@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
 
-import { getPublicEvents } from "../../utils/calendarUtils";
+import { getPublicEvents } from "@/utils/calendarUtils";
 
-import styles from "../../styles/calendar-viewer.module.css";
+import styles from "@/styles/calendar-viewer.module.css";
 
 export default function CalendarViewer() {
 	const [events, setEvents] = useState([]);

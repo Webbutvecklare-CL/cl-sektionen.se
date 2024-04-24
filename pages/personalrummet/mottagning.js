@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useAuth } from "@/context/AuthContext";
+import { app } from "@/firebase/clientApp";
 import {
 	Timestamp,
 	collection,
@@ -12,18 +14,16 @@ import {
 	updateDoc,
 	where,
 } from "firebase/firestore";
-import { useAuth } from "../../context/AuthContext";
-import { app } from "../../firebase/clientApp";
 const firestore = getFirestore(app);
 
-import { sendNotification } from "../../utils/server";
+import { sendNotification } from "@/utils/server";
 
-import BackButton from "../../components/BackButton";
-import Modal from "../../components/Modal";
-import FeedItem from "../../components/mottagning/FeedItem";
+import BackButton from "@/components/BackButton";
+import Modal from "@/components/Modal";
+import FeedItem from "@/components/mottagning/FeedItem";
 
-import { feed as feed_style } from "../../styles/mottagning/mottagning.module.css";
-import styles from "../../styles/personalrummet/mottagning.module.css";
+import { feed as feed_style } from "@/styles/mottagning/mottagning.module.css";
+import styles from "@/styles/personalrummet/mottagning.module.css";
 
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";

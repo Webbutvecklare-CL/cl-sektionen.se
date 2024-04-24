@@ -2,7 +2,7 @@ import { FastAverageColor } from "fast-average-color";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import styles from "../../styles/tv.module.css";
+import styles from "@/styles/tv.module.css";
 
 export default function Slideshow({ images, default_image, speed = 8000 }) {
 	const fac = new FastAverageColor();

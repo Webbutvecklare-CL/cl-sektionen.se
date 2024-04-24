@@ -1,10 +1,10 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import BackButton from "@/components/BackButton";
+import MarkdownRender from "@/components/MarkdownRender";
 import React from "react";
-import BackButton from "../../components/BackButton";
-import MarkdownRender from "../../components/MarkdownRender";
 
-import styles from "../../styles/reseberattelser.module.css";
+import styles from "@/styles/reseberattelser.module.css";
 
 export default function Reseberattelse({ content }) {
 	return (

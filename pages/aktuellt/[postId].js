@@ -1,3 +1,5 @@
+import CustomHead from "@/components/CustomHead";
+import { app } from "@/firebase/clientApp";
 import {
 	Timestamp,
 	collection,
@@ -12,8 +14,6 @@ import {
 } from "firebase/firestore";
 import Link from "next/link";
 import { React } from "react";
-import CustomHead from "../../components/CustomHead";
-import { app } from "../../firebase/clientApp";
 const firestore = getFirestore(app);
 
 import PostComponent from "@/components/PostComponent";

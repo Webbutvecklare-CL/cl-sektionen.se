@@ -4,19 +4,19 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import sanitizeHtml from "sanitize-html";
 
+import { app } from "@/firebase/clientApp";
 import { deleteDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
 import { deleteObject, getStorage, listAll, ref } from "firebase/storage";
-import { app } from "../../firebase/clientApp";
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 
-import { useAuth } from "../../context/AuthContext";
-import { revalidate } from "../../utils/server";
+import { useAuth } from "@/context/AuthContext";
+import { revalidate } from "@/utils/server";
 
-import bg from "../../public/media/img/KTHcover.jpg";
+import bg from "@/media/img/KTHcover.jpg";
 
-import feed from "../../styles/feed-preview.module.css";
-import styles from "../../styles/personalrummet.module.css";
+import feed from "@/styles/feed-preview.module.css";
+import styles from "@/styles/personalrummet.module.css";
 
 import {
 	faEye,

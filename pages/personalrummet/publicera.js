@@ -4,8 +4,10 @@ import React, { use, useEffect, useState } from "react";
 
 import BackButton from "@/components/BackButton";
 import Modal from "@/components/Modal";
-import PostForm from "../../components/personalrummet/PostForm";
+import PostForm from "@/components/personalrummet/PostForm";
 
+import { useAuth } from "@/context/AuthContext";
+import { app } from "@/firebase/clientApp";
 import { createId, getTypedLink } from "@/utils/postUtils";
 import {
 	Timestamp,
@@ -16,17 +18,15 @@ import {
 	updateDoc,
 } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { useAuth } from "../../context/AuthContext";
-import { app } from "../../firebase/clientApp";
 
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 
-import { createEvent } from "../../utils/calendarUtils";
-import { validateLink } from "../../utils/postUtils";
-import { revalidate, sendNotification } from "../../utils/server";
+import { createEvent } from "@/utils/calendarUtils";
+import { validateLink } from "@/utils/postUtils";
+import { revalidate, sendNotification } from "@/utils/server";
 
-import { all_committee_ids } from "../../constants/committees-data";
+import { all_committee_ids } from "@/constants/committees-data";
 
 import ValidationModal from "@/components/personalrummet/ValidationModal";
 

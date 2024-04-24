@@ -1,14 +1,14 @@
+import { convertDate } from "@/utils/convertDate";
 import parse from "html-react-parser";
 import Image from "next/image";
 import Link from "next/link";
 import sanitizeHtml from "sanitize-html";
-import { convertDate } from "../utils/convertDate";
 
 import { logEvent } from "firebase/analytics";
 
-import bg from "../public/media/img/Post_Placeholder.webp";
+import bg from "@/media/img/Post_Placeholder.webp";
 
-import styles from "../styles/feed-preview.module.css";
+import styles from "@/styles/feed-preview.module.css";
 
 // om goBack är true används historiken för att navigera tillbaka från inläggen
 export default function FeedPreview({ posts, goBack = false }) {

@@ -1,9 +1,9 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import BackButton from "@/components/BackButton";
+import MarkdownRender from "@/components/MarkdownRender";
 import { useRouter } from "next/router";
 import React from "react";
-import BackButton from "../../components/BackButton";
-import MarkdownRender from "../../components/MarkdownRender";
 
 export default function Praxis({ content }) {
 	const router = useRouter();

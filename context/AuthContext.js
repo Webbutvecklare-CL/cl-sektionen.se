@@ -1,7 +1,7 @@
+import { app } from "@/firebase/clientApp";
+import { validateAccountCheck } from "@/utils/authUtils";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { app } from "../firebase/clientApp";
-import { validateAccountCheck } from "../utils/authUtils";
 const AuthContext = createContext({});
 
 export const useAuth = () => useContext(AuthContext);

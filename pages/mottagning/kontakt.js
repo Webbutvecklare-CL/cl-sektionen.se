@@ -1,12 +1,12 @@
-import BackButton from "../../components/BackButton";
-import CustomHead from "../../components/CustomHead";
-import MarkdownRender from "../../components/MarkdownRender";
-import { getContentData } from "../../utils/contents";
+import BackButton from "@/components/BackButton";
+import CustomHead from "@/components/CustomHead";
+import MarkdownRender from "@/components/MarkdownRender";
+import { getContentData } from "@/utils/contents";
 
+import qrCode from "@/media/img/qr-kod-illabehandling.png";
 import Image from "next/image";
-import qrCode from "../../public/media/img/qr-kod-illabehandling.png";
 
-import styles from "../../styles/mottagning/kontakt.module.css";
+import styles from "@/styles/mottagning/kontakt.module.css";
 
 export default function Kontakt({ contents }) {
 	return (

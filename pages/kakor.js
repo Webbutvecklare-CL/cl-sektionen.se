@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import MarkdownRender from "../components/MarkdownRender";
-import { getContentData } from "../utils/contents";
+import MarkdownRender from "@/components/MarkdownRender";
+import { getContentData } from "@/utils/contents";
 
-import { button as buttonStyles } from "../styles/cookie-banner.module.css";
+import { button as buttonStyles } from "@/styles/cookie-banner.module.css";
 
 export default function Kakor({ contents, cookiesAllowed, setCookieState }) {
 	const menuStyles = {

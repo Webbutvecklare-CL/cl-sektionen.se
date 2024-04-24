@@ -1,7 +1,7 @@
-import BackButton from "../../components/BackButton";
-import Card from "../../components/Card";
-import CustomHead from "../../components/CustomHead";
-import styles from "../../styles/mottagning/mottagning.module.css";
+import BackButton from "@/components/BackButton";
+import Card from "@/components/Card";
+import CustomHead from "@/components/CustomHead";
+import styles from "@/styles/mottagning/mottagning.module.css";
 
 import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

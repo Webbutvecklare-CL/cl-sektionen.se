@@ -1,7 +1,7 @@
 import { createId, getTypedLink, validateLink } from "@/utils/postUtils";
 import { useState } from "react";
 
-import Modal from "../Modal";
+import Modal from "@/components/Modal";
 
 import { actionMenu } from "@/styles/personalrummet/post-form.module.css";
 

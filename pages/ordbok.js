@@ -1,9 +1,9 @@
 import { readFileSync } from "node:fs";
+import TextHighlighter from "@/components/Highlighter";
 import { useEffect, useRef, useState } from "react";
-import TextHighlighter from "../components/Highlighter";
 
-import filterStyles from "../styles/filter-panel.module.css";
-import styles from "../styles/ordbok.module.css";
+import filterStyles from "@/styles/filter-panel.module.css";
+import styles from "@/styles/ordbok.module.css";
 
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

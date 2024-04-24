@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import { getGr8anOpen } from "../../utils/tv";
-import Departures from "./Departures";
+import Departures from "@/components/TV/Departures";
+import { getGr8anOpen } from "@/utils/tv";
 
-import styles from "../../styles/tv.module.css";
+import styles from "@/styles/tv.module.css";
 
 import { PT_Sans } from "next/font/google";
 const pt_sans = PT_Sans({ subsets: ["latin"], weight: ["400", "700"] });

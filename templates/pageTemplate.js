@@ -1,5 +1,5 @@
+import MarkdownRender from "@/components/MarkdownRender";
 import React from "react";
-import MarkdownRender from "../components/MarkdownRender";
 
 //Create <pagename>.js file in "pages" directory. Url will become cl-sektionen.se/<pagename>
 export default function Page({ contents }) {

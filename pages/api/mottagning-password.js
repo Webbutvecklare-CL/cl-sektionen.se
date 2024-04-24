@@ -1,7 +1,7 @@
+import rateLimit from "@/utils/rate-limit";
 import { serialize } from "cookie";
-import rateLimit from "../../utils/rate-limit";
 
-import admin from "../../firebase/firebaseAdmin";
+import admin from "@/firebase/firebaseAdmin";
 
 const limiter = rateLimit({
 	interval: 60 * 1000, // 60 seconds

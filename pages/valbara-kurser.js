@@ -1,9 +1,9 @@
+import MarkdownRender from "@/components/MarkdownRender";
+import { getContentData } from "@/utils/contents";
 import Link from "next/link";
 import { useState } from "react";
-import MarkdownRender from "../components/MarkdownRender";
-import { getContentData } from "../utils/contents";
 
-import styles from "../styles/valbara-kurser.module.css";
+import styles from "@/styles/valbara-kurser.module.css";
 
 import {
 	faAngleDown,

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import { useAuth } from "../../context/AuthContext";
-import { googleLogin } from "../../utils/authUtils";
+import { useAuth } from "@/context/AuthContext";
+import { googleLogin } from "@/utils/authUtils";
 
-import ErrorPage from "../ErrorPage";
+import ErrorPage from "@/components/ErrorPage";
 
 export default function Login() {
 	const [screen, setScreen] = useState("login");

@@ -1,5 +1,5 @@
+import { app } from "@/firebase/clientApp";
 import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage";
-import { app } from "../firebase/clientApp";
 const storage = getStorage(app);
 
 async function getAllImages() {

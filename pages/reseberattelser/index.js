@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import styles from "../../styles/reseberattelser.module.css";
+import styles from "@/styles/reseberattelser.module.css";
 
 export default function Reseberattelser() {
 	const [activeContinent, setActiveContinent] = useState();

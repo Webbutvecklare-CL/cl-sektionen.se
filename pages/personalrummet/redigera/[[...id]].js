@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
+import { app } from "@/firebase/clientApp";
 import { logEvent } from "firebase/analytics";
 import {
 	Timestamp,
@@ -17,15 +18,14 @@ import {
 	ref,
 	uploadBytes,
 } from "firebase/storage";
-import { app } from "../../../firebase/clientApp";
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 
 import BackButton from "@/components/BackButton";
 import PostForm from "@/components/personalrummet/PostForm";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
-import { revalidate } from "../../../utils/server";
+import { revalidate } from "@/utils/server";
 
 import { formWrapper } from "@/styles/personalrummet/post-form.module.css";
 

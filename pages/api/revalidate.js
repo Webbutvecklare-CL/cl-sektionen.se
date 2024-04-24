@@ -1,4 +1,4 @@
-import { verifyUser } from "../../utils/apiUtils";
+import { verifyUser } from "@/utils/apiUtils";
 
 export default async function handler(req, res) {
 	// Check for secret to confirm this is a valid request

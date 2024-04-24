@@ -1,5 +1,5 @@
+import styles from "@/styles/alumniblogg.module.css";
 import Link from "next/link";
-import styles from "../../styles/alumniblogg.module.css";
 export default function Alumniblogg() {
 	return (
 		<div id="contentbody">

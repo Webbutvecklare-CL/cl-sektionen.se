@@ -1,10 +1,10 @@
 import Image from "next/image";
 
+import MarkdownRender from "@/components/MarkdownRender";
+import { getContentData } from "@/utils/contents";
 import { useEffect, useRef, useState } from "react";
-import MarkdownRender from "../components/MarkdownRender";
-import { getContentData } from "../utils/contents";
 
-import styles from "../styles/hedersutmarkelser.module.css";
+import styles from "@/styles/hedersutmarkelser.module.css";
 
 export default function Hedersmedlemmar({ contents, hedersorden }) {
 	const [selectedMember, setSelectedMember] = useState();

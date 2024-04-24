@@ -1,11 +1,11 @@
+import Card from "@/components/Card";
 import { useState } from "react";
-import Card from "./Card";
 
 import {
 	copyButton as copyButtonStyles,
 	showing as showingStyles,
 	toolTipText as toolTipTextStyles,
-} from "../styles/components.module.css";
+} from "@/styles/components.module.css";
 
 export default function CopyButton({ text, children }) {
 	const [result, setResult] = useState("");
