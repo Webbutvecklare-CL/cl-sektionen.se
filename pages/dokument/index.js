@@ -1,5 +1,5 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
 import Card from "../../components/Card";
 import CustomHead from "../../components/CustomHead";
 import MarkdownRender from "../../components/MarkdownRender";
@@ -7,12 +7,12 @@ import { getContentData } from "../../utils/contents";
 
 import styles from "@/styles/dokument.module.css";
 
+import { faWpforms } from "@fortawesome/free-brands-svg-icons";
 import {
 	faFileLines,
 	faFilePdf,
 	faFolder,
 } from "@fortawesome/free-regular-svg-icons";
-import { faWpforms } from "@fortawesome/free-brands-svg-icons";
 import {
 	faAddressCard,
 	faFileInvoiceDollar,
