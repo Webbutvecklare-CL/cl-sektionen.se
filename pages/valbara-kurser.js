@@ -92,6 +92,145 @@ export default function Valbarakurser({ contents, courses }) {
 		);
 	};
 
+	const CourseForm = () => {
+		// Denna är kopplad med kod till formuläret på drive.
+		// Ändras den behöver denna komponent ses över
+		return (
+			<form
+				action="https://docs.google.com/forms/d/e/1FAIpQLScxnTpEdIQW7FHF5aX6NX6b9riZQoU7ftxiZ3vOO_MEJXimRw/formResponse"
+				target="_blank"
+				id="courseForm"
+				method="POST"
+			>
+				<fieldset>
+					<p>
+						Här kan du ge kommentarer till valbara kurser du läst och tipsa om
+						kurser som inte finns med i utbildningsplanen men som går att läsa
+						som valbar.
+					</p>
+				</fieldset>
+
+				<fieldset>
+					<legend for="863582543">Vilken inriktning går/gick du?</legend>
+					<div class="form-group">
+						<div class="radio">
+							<input
+								type="radio"
+								id="radiomafy"
+								name="entry.930161229"
+								value="Fysik"
+								required
+							/>
+							<label for="radiomafy">Fysik</label>
+						</div>
+						<div class="radio">
+							<input
+								type="radio"
+								id="radiomake"
+								name="entry.930161229"
+								value="Kemi"
+								required
+							/>
+							<label for="radiotikt">Kemi</label>
+						</div>
+						<div class="radio">
+							<input
+								type="radio"
+								id="radioteda"
+								name="entry.930161229"
+								value="Data"
+								required
+							/>
+							<label for="radioteda">Data</label>
+						</div>
+						<div class="radio">
+							<input
+								type="radio"
+								id="radiotemi"
+								name="entry.930161229"
+								value="Energi och Miljö"
+								required
+							/>
+							<label for="radiotemi">Energi och Miljö</label>
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend for="1219756709">
+						Vilka valbara kurser läste du? Ex: SF1674 Flervariabelanalys 7.5hp
+					</legend>
+					<div class="form-group">
+						<textarea
+							id="200414168"
+							name="entry.200414168"
+							class="form-control"
+							required
+						/>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend for="1144452137">
+						Räknas kursen som matte ditt inriktningsämne?
+					</legend>
+					<div class="form-group">
+						<textarea
+							id="512426309"
+							type="text"
+							name="entry.512426309"
+							class="form-control"
+							required
+						/>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend for="231265136">Vad tyckte du om kursen?</legend>
+					<div class="form-group">
+						<textarea
+							id="1722070801"
+							name="entry.1722070801"
+							class="form-control"
+						/>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend for="2141144178">
+						Tips till kommande studenter. Kurslitteratur, seminarier, labbar osv
+					</legend>
+					<div class="form-group">
+						<textarea
+							id="2058513381"
+							name="entry.2058513381"
+							class="form-control"
+						/>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend for="1787560031">Övrig kommentar</legend>
+					<div class="form-group">
+						<textarea
+							id="1372823783"
+							name="entry.1372823783"
+							class="form-control"
+						/>
+					</div>
+				</fieldset>
+
+				<input type="hidden" name="fvv" value="1" />
+				<input type="hidden" name="fbzx" value="-3961422005687902826" />
+				<input type="hidden" name="pageHistory" value="0" />
+
+				<button class="btn btn-primary" type="submit" value="Submit">
+					Skicka
+				</button>
+			</form>
+		);
+	};
+
 	return (
 		<div id="contentbody" className={styles.electiveCourses}>
 			<div className={"small-header"}>
@@ -123,18 +262,9 @@ export default function Valbarakurser({ contents, courses }) {
 				})}
 			/>
 
-			<div id="kursformulär" className={styles.formWrapper}>
+			<div id="kursformulär">
 				<h2>Kursformulär</h2>
-				<iframe
-					title="kursformulär"
-					src="https://docs.google.com/forms/d/e/1FAIpQLScxnTpEdIQW7FHF5aX6NX6b9riZQoU7ftxiZ3vOO_MEJXimRw/viewform?embedded=true"
-					frameBorder="0"
-					marginHeight="0"
-					marginWidth="0"
-					loading="lazy"
-				>
-					Läser in…
-				</iframe>
+				<CourseForm />
 			</div>
 		</div>
 	);
