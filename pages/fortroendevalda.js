@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { getContentData } from "@/utils/contents";
 
-import NewCommitteeInfo from "@/components/CommitteeInfo";
+import CommitteeInfo from "@/components/CommitteeInfo";
 import CustomHead from "@/components/CustomHead";
 
 import {
@@ -101,7 +101,7 @@ export default function Fortroendevalda({ descriptions }) {
 						id="fortroendevaldaContent"
 						className={styles.fortroendevaldaContent}
 					>
-						<NewCommitteeInfo
+						<CommitteeInfo
 							committee={selectedCommittee}
 							description={descriptions[selectedCommittee]}
 							groupData={getCommitteeInfo(selectedCommittee)}
