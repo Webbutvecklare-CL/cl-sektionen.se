@@ -93,7 +93,7 @@ const fortroendevaldaList = [
 			{
 				role: "PR-ansvarig",
 				name: "Madeleine Rogersdotter",
-				mail: "pr.naringsliv@cl-sektionen.se",
+				mail: "pr@cl-sektionen.se",
 				year: "CL22",
 			},
 			{
