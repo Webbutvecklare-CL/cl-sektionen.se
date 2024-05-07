@@ -237,5 +237,15 @@
 		"comments": [
 			"Har du läst kursen? Skicka in en kommentar i formuläret nedan."
 		]
+	},
+	{
+		"specialization": ["temi"],
+		"id": "AL1301",
+		"name": "Naturresursteori",
+		"short": "",
+		"hp": 7.5,
+		"comments": [
+			"Intressant kurs, vi hade en hel fältdag ''Mälaren runt'' som var givande. En bra kurs att välja till om man har mycket annat. Tyckte man ekologin var intressant tycker man om denna kurs"
+		]
 	}
 ]
