@@ -1,6 +1,6 @@
 {
-	"name": "reacttest",
-	"version": "0.1.0",
+	"name": "cl-sektionen",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "node swEnvBuild.js && next dev",
