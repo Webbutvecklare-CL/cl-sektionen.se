@@ -41,29 +41,6 @@ export default function Dokument({ contents }) {
 					</Link>
 					. Hojta till Webbutvecklare eller Webbunderhållare om något saknas.
 				</p>
-				<h2>Praxisdokument</h2>
-				<p>
-					Har som syfte att samla viktig information som inte passar in i något
-					av sektionens styrdokument. Notera att dessa är levande dokument.
-				</p>
-				<div className={`${styles.cards} ${styles.praxisCards}`}>
-					<Card link="/dokument/alkoholservering">
-						<FontAwesomeIcon icon={faMartiniGlass} /> Rutiner för{" "}
-						<b>alkoholservering</b>
-					</Card>
-					<Card link="/dokument/lokalbokning">
-						<FontAwesomeIcon icon={faHouse} /> Praxis för <b>lokalbokning</b>
-					</Card>
-					<Card link="/dokument/personuppgifter">
-						<FontAwesomeIcon icon={faAddressCard} /> Hantering av{" "}
-						<b>personuppgifter</b>
-					</Card>
-					<Card link="/dokument/utlagg">
-						<FontAwesomeIcon icon={faFileInvoiceDollar} /> Praxis för{" "}
-						<b>utlägg</b>
-					</Card>
-				</div>
-
 				<h2>Blanketter, mallar och lathundar</h2>
 				<div className={styles.cards}>
 					<Card link="https://drive.google.com/drive/folders/1AiHJ65areh-OA9Uyf5yZFQV_x2i2RS6Y?usp=drive_link">
@@ -102,6 +79,46 @@ export default function Dokument({ contents }) {
 						<FontAwesomeIcon icon={faWpforms} /> Formulärsmall
 					</Card>
 				</div>
+
+				<h2>Protokoll och handlingar från SM och StyM</h2>
+				<div className={styles.cards}>
+					<Card link="https://drive.google.com/drive/folders/197L5LUdD8NgNALDWXY0odhP-Owoi5jKP">
+						<FontAwesomeIcon icon={faFolder} /> SM 2024
+					</Card>
+					<Card link="https://drive.google.com/drive/folders/1iiXb0_HOgV60qL1FU72QBUJF1hXoaix0">
+						<FontAwesomeIcon icon={faFolder} /> StyM 2024
+					</Card>
+					<Card link="https://drive.google.com/drive/folders/1ORNw9mBO9rBp1whbjSzHPMoKN4LmLnbt">
+						<FontAwesomeIcon icon={faFolder} /> SM Arkiv
+					</Card>
+					<Card link="https://drive.google.com/drive/folders/1s_kHfXsbXC-Zi8nIOlXhdze0E_sjm_uD">
+						<FontAwesomeIcon icon={faFolder} /> StyM Arkiv
+					</Card>
+				</div>
+
+				<h2>Praxisdokument</h2>
+				<p>
+					Har som syfte att samla viktig information som inte passar in i något
+					av sektionens styrdokument. Notera att dessa är levande dokument.
+				</p>
+				<div className={`${styles.cards} ${styles.praxisCards}`}>
+					<Card link="/dokument/alkoholservering">
+						<FontAwesomeIcon icon={faMartiniGlass} /> Rutiner för{" "}
+						<b>alkoholservering</b>
+					</Card>
+					<Card link="/dokument/lokalbokning">
+						<FontAwesomeIcon icon={faHouse} /> Praxis för <b>lokalbokning</b>
+					</Card>
+					<Card link="/dokument/personuppgifter">
+						<FontAwesomeIcon icon={faAddressCard} /> Hantering av{" "}
+						<b>personuppgifter</b>
+					</Card>
+					<Card link="/dokument/utlagg">
+						<FontAwesomeIcon icon={faFileInvoiceDollar} /> Praxis för{" "}
+						<b>utlägg</b>
+					</Card>
+				</div>
+
 				<h2>Styrdokument</h2>
 				<div className={styles.cards}>
 					<Card link="https://drive.google.com/drive/folders/1Nwg-S7C0YZ0FAeoQtQoQs2NpAcB9Jacb?usp=drive_link">
@@ -139,21 +156,7 @@ export default function Dokument({ contents }) {
 						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2024
 					</Card>
 				</div>
-				<h2>Protokoll och handlingar från SM och StyM</h2>
-				<div className={styles.cards}>
-					<Card link="https://drive.google.com/drive/folders/197L5LUdD8NgNALDWXY0odhP-Owoi5jKP">
-						<FontAwesomeIcon icon={faFolder} /> SM 2024
-					</Card>
-					<Card link="https://drive.google.com/drive/folders/1iiXb0_HOgV60qL1FU72QBUJF1hXoaix0">
-						<FontAwesomeIcon icon={faFolder} /> StyM 2024
-					</Card>
-					<Card link="https://drive.google.com/drive/folders/1ORNw9mBO9rBp1whbjSzHPMoKN4LmLnbt">
-						<FontAwesomeIcon icon={faFolder} /> SM Arkiv
-					</Card>
-					<Card link="https://drive.google.com/drive/folders/1s_kHfXsbXC-Zi8nIOlXhdze0E_sjm_uD">
-						<FontAwesomeIcon icon={faFolder} /> StyM Arkiv
-					</Card>
-				</div>
+
 				<h2>Verksamhets-berättelser och planer</h2>
 				<div className={styles.cards}>
 					<Card link="https://drive.google.com/file/d/1fEAof3da4qs0NKCh0aVpVKPmZCiDXJd-/view?usp=drive_link">

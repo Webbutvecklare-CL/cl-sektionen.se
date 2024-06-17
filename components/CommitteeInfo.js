@@ -1,9 +1,25 @@
 import MarkdownRender from "@/components/MarkdownRender";
 import styles from "@/styles/fortroendevalda.module.css";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function CommitteeInfo({ committee, description, groupData }) {
 	const groupImgPath = `/media/fortroendevalda/${committee}.webp`;
+
+	const HideableImage = (props) => {
+		const [hideImage, setHideImage] = useState(false);
+
+		return (
+			!hideImage && (
+				<Image
+					{...props}
+					onError={() => {
+						setHideImage(true);
+					}}
+				/>
+			)
+		);
+	};
 
 	return (
 		<div>
@@ -33,7 +49,7 @@ export default function CommitteeInfo({ committee, description, groupData }) {
 					</div>
 				</section>
 				<div className={styles.imageContainer}>
-					<Image
+					<HideableImage
 						src={groupImgPath}
 						width={500}
 						height={500}
@@ -42,10 +58,6 @@ export default function CommitteeInfo({ committee, description, groupData }) {
 							width: "100%",
 							height: "auto",
 						}}
-						// Detta stoppar bilden från att visas tom om den inte finns,
-						//och undviker att konsollen spammas för mycket
-						onLoad={(e) => (e.currentTarget.style.display = "block")}
-						onError={(e) => (e.currentTarget.style.display = "none")}
 					/>
 				</div>
 			</div>

@@ -67,9 +67,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Utbytesansvarig",
-				name: "Albin Westlin",
+				name: "Sander Söderberg",
 				mail: "utbyte@cl-sektionen.se",
-				year: "CL19",
+				year: "CL21",
 			},
 		],
 	},
@@ -93,7 +93,7 @@ const fortroendevaldaList = [
 			{
 				role: "PR-ansvarig",
 				name: "Madeleine Rogersdotter",
-				mail: "pr.naringsliv@cl-sektionen.se",
+				mail: "pr@cl-sektionen.se",
 				year: "CL22",
 			},
 			{
@@ -189,23 +189,23 @@ const fortroendevaldaList = [
 	{
 		id: "clw",
 		mail: "clw@cl-sektionen.se",
-		period: "2022-05-01 – 2023-04-30",
+		period: "2024-05-01 – 2025-04-30",
 		people: [
 			{
 				role: "Klubbmästare – CL",
-				name: "Fabian Olesen",
+				name: "Tuva Fred",
 				mail: "clw@cl-sektionen.se",
-				year: "CL22",
+				year: "CL23",
 			},
 			{
 				role: "Klubbmästare – W",
-				name: "Anton Tystrand",
+				name: "Sarah Nemati",
 				mail: "klubbmastare@w-sektionen.se",
-				year: "W20",
+				year: "W23",
 			},
 			{
 				role: "Ekonomiskt ansvarig",
-				name: "Amanda Helgesson",
+				name: "Gustav Nilsson",
 				mail: "ekonomi.clw@cl-sektionen.se",
 				year: "W22",
 			},
@@ -214,37 +214,37 @@ const fortroendevaldaList = [
 	{
 		id: "valberedningen",
 		mail: "val@cl-sektionen.se",
-		period: "2023-05-01 – 2024-04-30",
+		period: "2024-05-01 – 2025-04-30",
 		people: [
 			{
 				role: "Femmans representant även sammankallande",
-				name: "Anton Sundberg",
+				name: "David Calén",
 				mail: "",
-				year: "CL19",
+				year: "CL20",
 			},
 			{
 				role: "Fyrans representant",
-				name: "Elias Keytuli",
-				mail: "",
-				year: "CL19",
-			},
-			{
-				role: "Treans representant",
-				name: "Vera Roos",
+				name: "Mathilda Larsson",
 				mail: "",
 				year: "CL21",
 			},
 			{
-				role: "Tvåans representant",
-				name: "Elin Ebbers",
+				role: "Treans representant",
+				name: "Madeleine Rogersdotter",
 				mail: "",
 				year: "CL22",
 			},
 			{
-				role: "Ettans representant",
-				name: "Vida Sihlén",
+				role: "Tvåans representant",
+				name: "Nova Roberts",
 				mail: "",
 				year: "CL23",
+			},
+			{
+				role: "Ettans representant",
+				name: "Vakant",
+				mail: "",
+				year: "",
 			},
 		],
 	},
