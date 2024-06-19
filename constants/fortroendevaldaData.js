@@ -105,7 +105,7 @@ const fortroendevaldaList = [
 			{
 				role: "Webbutvecklare",
 				name: "Emil Rapp",
-				main: "webbutvecklare@cl-sektionen.se",
+				mail: "webbutvecklare@cl-sektionen.se",
 				year: "CL20",
 			},
 		],
