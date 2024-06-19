@@ -2,21 +2,21 @@
 
 Presidiet är ytterst ansvariga för CL-sektionens mottagning.
 
-### Mottagningsansvarig - Oscar Ekström
+### Mottagningsansvarig - Moa Wettby
 
-Tel: 070 882 08 23  
+Tel: 076 607 08 74
 Mail: mottagningen@cl-sektionen.se
 
-### Vice mottagningsansvarig - Emma Östling
+### Vice mottagningsansvarig - Olivia Gadstam
 
-Tel: 070 325 52 32  
+Tel: 076 238 11 54
 Mail: vice.mottagningen@cl-sektionen.se
 
-### Ekonomiskt ansvarig - Joar Söderman
+### Ekonomiskt ansvarig - Viktor Hallberg
 
-Tel: 072 214 59 33  
+Tel: 073 714 68 43 
 Mail: ekonomi.mottagningen@cl-sektionen.se
 
 ### Anonym kontakt
 
-Vill du kontakta presidiet anonymt kan du göra det via följande [formulär](https://docs.google.com/forms/d/e/1FAIpQLSeLx7U_STIhFImIK8XL0cAwO8jXseo_hXu5nZFGOl7BQLZzXQ/viewform).
+Vill du kontakta presidiet anonymt kan du göra det via följande [formulär](https://forms.gle/eocCcukzjxNuSAv28).
