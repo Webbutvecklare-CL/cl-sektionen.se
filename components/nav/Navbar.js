@@ -28,6 +28,7 @@ const MENU_LIST = [
 		submenu: [
 			{ text: "Info & Event", href: "/aktuellt" },
 			{ text: "Kalender", href: "/kalender" },
+			{ text: "Mottagning", href: "/mottagning" },
 		],
 	},
 	{
