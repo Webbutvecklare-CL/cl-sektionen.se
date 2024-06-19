@@ -11,7 +11,7 @@
 		"lint": "npx @biomejs/biome lint",
 		"lint:fix": "npx @biomejs/biome lint --fix",
 		"biome": "npx @biomejs/biome check",
-		"biome:fix": "npx @biomejs/biome check --fix ."
+		"biome:fix": "npx @biomejs/biome check --fix"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.5.2",
