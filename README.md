@@ -45,7 +45,7 @@ Projektet använder Biome för att hålla koden enhetlig och felfri. Det handlar
 npm run format
 
 # Formaterar koden
-npm run format:apply
+npm run format:fix
 ```
 
 ```bash
@@ -53,7 +53,7 @@ npm run format:apply
 npm run lint
 
 # Fixar det som kan fixas automatiskt
-npm run lint:apply
+npm run lint:fix
 ```
 
 ```bash
@@ -61,7 +61,7 @@ npm run lint:apply
 npm run biome
 
 # Utför biome
-npm run biome:apply
+npm run biome:fix
 ```
 
 ## Learn More
