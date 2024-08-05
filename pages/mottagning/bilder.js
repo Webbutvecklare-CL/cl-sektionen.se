@@ -29,7 +29,46 @@ export default function Bilder() {
 						<h2>Första veckan v.33</h2>
 						<div className={styles.cardList}>
 							<Card link={"./bilder"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-14
+								<FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-12
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-13
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Onsdag, 2023-08-14
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Torsdag, 2023-08-15
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-16
+							</Card>
+						</div>
+						<h2>Andra veckan v.34</h2>
+						<div className={styles.cardList}>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-19
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-20
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Onsdag, 2023-08-21
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Torsdag, 2023-08-22
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-23
+							</Card>
+						</div>
+						<h2>Tredje veckan v.35</h2>
+						<div className={styles.cardList}>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Onsdag, 2023-08-28
+							</Card>
+							<Card link={"./bilder"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-30
 							</Card>
 						</div>
 					</div>
