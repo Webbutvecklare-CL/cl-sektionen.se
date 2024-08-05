@@ -34,7 +34,7 @@ KTH erbjuder alla studenter studie- och karriärvägledning, för att du ska utv
 
 <img src="../../media/img/KårensdagCampusfair.jpg" alt="Kårens dag" style="color:transparent;width:100%;height:auto">
 
-Onsdag den 23 augusti hålls Kårens Dag och Campus Fair i kårhuset Nymble. Det är ett ypperligt tillfälle att lära dig mer om vad kåren har att erbjuda. När Kårens Dag går mot sitt slut börjar istället Kårens Kväll, en fest för alla nya KTH-studenter.
+Torsdag den 22 augusti hålls Kårens Dag och Campus Fair i kårhuset Nymble. Det är ett ypperligt tillfälle att lära dig mer om vad kåren har att erbjuda. När Kårens Dag går mot sitt slut börjar istället Kårens Kväll, en fest för alla nya KTH-studenter.
 
 ## Ställ dig i bostadskön och bli kårmedlem
 
