@@ -9,16 +9,6 @@ CL-sektionens mottagning. De har planerat
 sedan vintern för att mottagningen ska bli så
 bra och minnensvärd som möjligt!
 
-## Banquettis
-
-***Gruppansvarig:*** Maja Rosén
-
-Banquettis planerar
-Adeptgasquen, som är
-en av sektionens finaste
-sittningar.
-Det kommer bjudas på både mat, dryck och
-fantastiska uppträdanden!
 
 ## Bakis
 
@@ -33,6 +23,16 @@ bröd och vad annat
 bakat man kan tänka
 sig i stora mängder!
 
+## Banquettis
+
+***Gruppansvarig:*** Maja Rosén
+
+Banquettis planerar
+Adeptgasquen, som är
+en av sektionens finaste
+sittningar.
+Det kommer bjudas på både mat, dryck och
+fantastiska uppträdanden!
 
 ## Bästis
 
