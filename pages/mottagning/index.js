@@ -179,7 +179,11 @@ export default function Mottagning({ loggedIn, _posts }) {
 									<Link href={"mottagning/mottagargrupper"}>
 										Mottagargrupper
 									</Link>
-									<Link href={""} target="_blank">
+									<Link
+										href={
+											"https://drive.google.com/file/d/1UP2fslk2qXJYf8qiP6iP49iGWKZ5J4g0/view?usp=drive_link"
+										}
+									>
 										Adeptbok
 									</Link>
 									<Link href={"sangbok"}>Sångbok</Link>
