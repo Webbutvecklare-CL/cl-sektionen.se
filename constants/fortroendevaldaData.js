@@ -301,17 +301,17 @@ const fortroendevaldaList = [
 	{
 		id: "kf",
 		mail: "kf@cl-sektionen.se",
-		period: "2023-07-01 – 2024-06-30",
+		period: "2024-07-01 – 2025-06-30",
 		people: [
 			{
 				role: "Ledamot",
-				name: "Gustav Heldt",
+				name: "Armin Baymani",
 				mail: "",
-				year: "CL20",
+				year: "CL19",
 			},
 			{
 				role: "Suppleant",
-				name: "Emil Rapp",
+				name: "Frida Andersson",
 				mail: "",
 				year: "CL20",
 			},
