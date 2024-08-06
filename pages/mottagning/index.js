@@ -183,10 +183,13 @@ export default function Mottagning({ loggedIn, _posts }) {
 										href={
 											"https://drive.google.com/file/d/1UP2fslk2qXJYf8qiP6iP49iGWKZ5J4g0/view?usp=drive_link"
 										}
+										target="_blank"
 									>
 										Adeptbok
 									</Link>
-									<Link href={"sangbok"}>Sångbok</Link>
+									<Link href={"sangbok"} target="_blank">
+										Sångbok
+									</Link>
 								</div>
 							</div>
 							<div className={styles.feedWrapper}>
