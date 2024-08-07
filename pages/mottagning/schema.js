@@ -1,14 +1,11 @@
 import BackButton from "@/components/BackButton";
 import CustomHead from "@/components/CustomHead";
-
-import Schema_v1 from "@/media/mottagning/schema_1.webp";
-import Schema_v2 from "@/media/mottagning/schema_2.webp";
-import Schema_v3 from "@/media/mottagning/schema_3.webp";
-import Schema_legend from "@/media/mottagning/schema_legend.webp";
-
-import Image from "next/image";
+import CalendarSubscription from "@/components/calendar/CalendarSubscription";
+import CalendarViewer from "@/components/mottagning/CalendarViewer";
 
 export default function Schema() {
+	const calendar_id =
+		"c_685fdcb158806451f21d0cfd532eb5582884b6fb6102c4b35a1ab3362ebad500@group.calendar.google.com";
 	return (
 		<>
 			<CustomHead
@@ -19,41 +16,13 @@ export default function Schema() {
 			<div id="contentbody" className="wideContent">
 				<BackButton page="mottagning">Mottagningssidan</BackButton>
 				<div>
-					<article>
-						<h1>Mottagningsschema</h1>
-						<h2>Första veckan, v.33</h2>
-						<Image
-							src={Schema_v1}
-							width={0}
-							height={0}
-							sizes="100vw"
-							style={{ width: "100%", height: "auto" }}
-						/>
-						<h2>Andra veckan, v.34</h2>
-						<Image
-							src={Schema_v2}
-							width={0}
-							height={0}
-							sizes="100vw"
-							style={{ width: "100%", height: "auto" }}
-						/>
-						<h2>Tredje veckan, v.35</h2>
-						<Image
-							src={Schema_v3}
-							width={0}
-							height={0}
-							sizes="100vw"
-							style={{ width: "100%", height: "auto" }}
-						/>
-						<h2>Teckenförklaring</h2>
-						<Image
-							src={Schema_legend}
-							width={0}
-							height={0}
-							sizes="100vw"
-							style={{ width: "100%", height: "auto" }}
-						/>
-					</article>
+					<h1>Mottagning - Schema</h1>
+				</div>
+				<div>
+					<CalendarSubscription calendar_id={calendar_id}>
+						<strong>Lägg till i din egna kalender:</strong>
+					</CalendarSubscription>
+					<CalendarViewer calendar_id={calendar_id} />
 				</div>
 			</div>
 		</>
