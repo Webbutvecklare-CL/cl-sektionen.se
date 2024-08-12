@@ -28,46 +28,49 @@ export default function Bilder() {
 						</p>
 						<h2>Första veckan v.33</h2>
 						<div className={styles.cardList}>
-							<Card link={"https://photos.app.goo.gl/YmnuwTBvmA12XBFG9"} newTab>
+							<Card link={"https://photos.app.goo.gl/qzo2gDvZz9cZM9j47"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Måndag, 2024-08-12
 							</Card>
-							<Card link={"https://photos.app.goo.gl/AsAJ6kmDqHxxY3Zo9"} newTab>
+							<Card link={"https://photos.app.goo.gl/XBEUsrYwRZQMeE3D9"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Tisdag, 2024-08-13
 							</Card>
-							<Card link={"https://photos.app.goo.gl/XFEZYjq9e3ZNx7tc8"} newTab>
+							<Card link={"https://photos.app.goo.gl/hGBUZxYagZYCgVFG7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Onsdag, 2024-08-14
 							</Card>
-							<Card link={"https://photos.app.goo.gl/T7bzVYk1tegqdwtq5"} newTab>
+							<Card link={"https://photos.app.goo.gl/dMWkZm8mQAEiXvr1A"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Torsdag, 2024-08-15
 							</Card>
-							<Card link={"https://photos.app.goo.gl/EC2eMgJmTTugz5yS8"} newTab>
+							<Card link={"https://photos.app.goo.gl/d723YArJuzTRK35m7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-16
 							</Card>
 						</div>
 						<h2>Andra veckan v.34</h2>
 						<div className={styles.cardList}>
-							<Card link={"https://photos.app.goo.gl/Df9nTtZW6TSZhLFg9"} newTab>
+							<Card link={"https://photos.app.goo.gl/huFfTeRaKy5NEDwL8"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Måndag, 2024-08-19
 							</Card>
-							<Card link={"https://photos.app.goo.gl/DXVD14e21A1FZrnC6"} newTab>
+							<Card link={"https://photos.app.goo.gl/rYGYG6eE2A8Mc2dP7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Tisdag, 2024-08-20
 							</Card>
-							<Card link={"https://photos.app.goo.gl/98azoc4nSNr3ZTa9A"} newTab>
+							<Card link={"https://photos.app.goo.gl/VmbPaZ9sjWWcJwY49"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Onsdag, 2024-08-21
 							</Card>
-							<Card link={"https://photos.app.goo.gl/MhKnp4qEEttKteX46"} newTab>
+							<Card link={"https://photos.app.goo.gl/k4d4RxyN3jRNrgjz9"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Torsdag, 2024-08-22
 							</Card>
-							<Card link={"https://photos.app.goo.gl/6k691BhPecFEPwfA6"} newTab>
+							<Card link={"https://photos.app.goo.gl/Q4VT2NEfAHF4VahK8"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-23
+							</Card>
+							<Card link={"https://photos.app.goo.gl/HWerGSYJ92mG2GkL7"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Lördag, 2024-08-24
 							</Card>
 						</div>
 						<h2>Tredje veckan v.35</h2>
 						<div className={styles.cardList}>
-							<Card link={"https://photos.app.goo.gl/HA8uRyqsfC9kYWFg8"} newTab>
+							<Card link={"https://photos.app.goo.gl/C6r1ztDa14P5YEos5"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Onsdag, 2024-08-28
 							</Card>
-							<Card link={"https://photos.app.goo.gl/3ni7aGwZaMuC8eip8"} newTab>
+							<Card link={"https://photos.app.goo.gl/iDpbNADtEu29JkWd8"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-30
 							</Card>
 						</div>
