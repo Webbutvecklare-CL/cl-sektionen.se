@@ -386,9 +386,9 @@ function getWeekNumber(refDate) {
 
 function getEventListSpan(eventList, startDate, endRef) {
 	let endDate = null;
+	startDate.setHours(0, 0, 0, 0);
 	if (typeof endRef === "number") {
 		endDate = new Date(startDate);
-		endDate.setHours(23, 59, 0, 0);
 		endDate.setDate(startDate.getDate() + endRef);
 	} else {
 		endDate = endRef;

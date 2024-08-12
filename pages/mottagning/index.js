@@ -181,7 +181,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 									</Link>
 									<Link
 										href={
-											"https://drive.google.com/file/d/1UP2fslk2qXJYf8qiP6iP49iGWKZ5J4g0/view?usp=drive_link"
+											"https://drive.google.com/file/d/1yiqu0gfDygx7VK-e5de2ElgMUXQd0rIR/view"
 										}
 										target="_blank"
 									>
