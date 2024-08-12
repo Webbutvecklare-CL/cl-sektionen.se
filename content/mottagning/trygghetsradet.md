@@ -8,4 +8,4 @@ Charlie Axelsson, ordförande JML-nämnden: [jml@cl-sektionen.se](mailto:jml@cl-
 Jakob Malik, studerandeskyddsombud: [skyddsombud@cl-sektionen.se](mailto:skyddsombud@cl-sektionen.se)  
 Lea Martinelle, ledamot för studiesociala- och JML-frågor: [studiesocialt@cl-sektionen.se](mailto:studiesocialt@cl-sektionen.se)
 
-Du kan även kontakta rådet anonymt om du inte känner för att dela dina kontaktuppgifter. Scanna QR-koden eller gå in på [cl-sektionen.se/hjalp-vid-illabehandling](www.cl-sektionen.se/hjalp-vid-illabehandling), där hittas vägledning vid illabehandling samt länk till kontaktformuläret till studerandeskyddsombudet.
+Du kan även kontakta rådet anonymt om du inte känner för att dela dina kontaktuppgifter. Scanna QR-koden eller gå in på [cl-sektionen.se/hjalp-vid-illabehandling](https://www.cl-sektionen.se/hjalp-vid-illabehandling), där hittas vägledning vid illabehandling samt länk till kontaktformuläret till studerandeskyddsombudet.
