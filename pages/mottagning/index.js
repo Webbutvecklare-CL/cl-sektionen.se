@@ -190,6 +190,11 @@ export default function Mottagning({ loggedIn, _posts }) {
 									<Link href={"sangbok"} target="_blank">
 										Sångbok
 									</Link>
+									{false && (
+										<Link href={"mottagning/knappis-uppdrag"}>
+											Knäppis-uppdrag
+										</Link>
+									)}
 								</div>
 							</div>
 							<div className={styles.feedWrapper}>
