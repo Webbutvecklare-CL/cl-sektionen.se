@@ -55,9 +55,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Programansvarig student",
-				name: "Vera Roos",
+				name: "Maja Rosén",
 				mail: "pas@cl-sektionen.se",
-				year: "CL21",
+				year: "CL19",
 			},
 			{
 				role: "Utbildningsbevakare",
@@ -142,9 +142,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Vice ordförande",
-				name: "Elin Ebbers",
+				name: "Mathilda Larsson,",
 				mail: "vice.aktivitetsnamnden@cl-sektionen.se",
-				year: "CL22",
+				year: "CL21",
 			},
 		],
 	},
@@ -244,7 +244,7 @@ const fortroendevaldaList = [
 				role: "Ettans representant",
 				name: "Vakant",
 				mail: "",
-				year: "",
+				year: "CL24",
 			},
 		],
 	},
