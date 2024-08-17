@@ -190,7 +190,6 @@ export default function Mottagning({ loggedIn, _posts }) {
 									<Link href={"sangbok"} target="_blank">
 										Sångbok
 									</Link>
-									
 								</div>
 							</div>
 							<div className={styles.feedWrapper}>
