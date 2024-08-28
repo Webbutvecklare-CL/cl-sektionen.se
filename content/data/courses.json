@@ -97,6 +97,16 @@
 		]
 	},
 	{
+		"specialization": ["mafy"],
+		"id": "SH2402",
+		"name": "Astrofysik",
+		"hp": 6.0,
+		"comments": [
+			"Väldigt intressant i ämnesområde. Allt från planetbanor till ytskrap på generella relativitetsteorin för svarta hål. Lite småstökig dock (föreläsningarna blir lätt röriga, finns inte jättemycket räkneövningar osv.)",
+			"Försök hitta saker tidigt i kursboken att räkna. Bearbetar man inte materialet tidigt så kan det kännas överväldigt. Tentan behandlar vissa delar extra. Mest delen som kallas Radiative transfer."
+		]
+	},
+	{
 		"specialization": ["teda"],
 		"id": "DD1351",
 		"name": "Logik för dataloger",
