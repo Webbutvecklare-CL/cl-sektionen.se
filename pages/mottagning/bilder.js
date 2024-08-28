@@ -74,6 +74,21 @@ export default function Bilder() {
 								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-30
 							</Card>
 						</div>
+						<h2>Knäppisupprag</h2>
+						<div className={styles.cardList}>
+							<Card link={"https://photos.app.goo.gl/yqpQAJvKyzmbd5E26"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Black Pearl
+							</Card>
+							<Card link={"https://photos.app.goo.gl/ZVD3qRGpvjkj7zY96"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Flygande Holländaren
+							</Card>
+							<Card link={"https://photos.app.goo.gl/u4dNRXHFWtGj3ZZXA"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Hoppetossa
+							</Card>
+							<Card link={"https://photos.app.goo.gl/xc1R36p39ccNPrqK8"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Jolly Roger
+							</Card>
+						</div>
 					</div>
 				</article>
 			</div>
