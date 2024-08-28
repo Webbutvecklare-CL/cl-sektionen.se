@@ -74,7 +74,7 @@ export default function Bilder() {
 								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-30
 							</Card>
 						</div>
-						<h2>Knäppisupprag</h2>
+						<h2>Knäppisuppdrag</h2>
 						<div className={styles.cardList}>
 							<Card link={"https://photos.app.goo.gl/yqpQAJvKyzmbd5E26"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Black Pearl
