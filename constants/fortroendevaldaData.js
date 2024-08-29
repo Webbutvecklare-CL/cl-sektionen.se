@@ -144,7 +144,7 @@ const fortroendevaldaList = [
 				role: "Vice ordförande",
 				name: "Mathilda Larsson,",
 				mail: "vice.aktivitetsnamnden@cl-sektionen.se",
-				year: "CL21",
+				year: "CL22",
 			},
 		],
 	},
@@ -226,7 +226,7 @@ const fortroendevaldaList = [
 				role: "Fyrans representant",
 				name: "Mathilda Larsson",
 				mail: "",
-				year: "CL21",
+				year: "CL22",
 			},
 			{
 				role: "Treans representant",
