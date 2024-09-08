@@ -23,7 +23,6 @@ export default async function handler(req, res) {
 
 	let type;
 	let message;
-	let dryRun = false;
 
 	// Kollar vilken typ av notis det är och skapar payload
 	// Om inget matchar returnera 400 error
@@ -48,7 +47,6 @@ export default async function handler(req, res) {
 		}
 	} else if (req.body.data.type === "mottagning") {
 		type = "mottagning";
-		dryRun = req.body.data.dryRun || false;
 		const payload = {
 			data: {
 				title: `Mottagningen: ${req.body.data.title}`,
@@ -68,7 +66,6 @@ export default async function handler(req, res) {
 				message: "Du har inte tillåtelse att skicka anpassade notiser",
 			});
 		}
-		dryRun = req.body.data.dryRun || false;
 		type = "information";
 		const payload = {
 			data: {
@@ -94,6 +91,10 @@ export default async function handler(req, res) {
 	res.setHeader("Content-Type", "application/json");
 
 	try {
+		const dryRun =
+			req.body.data.dryRun === undefined ? true : req.body.data.dryRun;
+		console.log("Sending as dry run:", dryRun);
+
 		// Skickar notis till alla som följer eventuella taggar
 		const response = await sendNotification(type, message, dryRun);
 
@@ -109,7 +110,7 @@ export default async function handler(req, res) {
 }
 
 // Hjälpfunktioner
-async function sendNotification(type, message, dryRun = false) {
+async function sendNotification(type, message, dryRun = true) {
 	return new Promise((resolve, reject) => {
 		// Hämtar alla tokens - de som ska få notisen
 		getTokens(type)
