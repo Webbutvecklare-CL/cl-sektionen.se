@@ -13,6 +13,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
 	// Uppdaterar bakgrundsfärgen när currentIndex ändras
 	// biome-ignore lint/correctness/useExhaustiveDependencies: migrate fix from eslint
 	useEffect(() => {
+		console.log("Slideshow: currentIndex", currentIndex);
 		const container = document.querySelector(`.${styles.slideshow}`); // Elementet där bakgrundsfärgen sätts
 
 		// Kollar om det finns någon bild annars tar den bort bakgrunden
@@ -40,7 +41,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
 			console.error(error);
 			container.style.backgroundColor = "";
 		}
-	}, [default_image]);
+	}, [default_image, currentIndex]);
 
 	//Byter till nästa bild
 	useEffect(() => {
