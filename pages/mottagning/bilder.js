@@ -28,51 +28,65 @@ export default function Bilder() {
 						</p>
 						<h2>Första veckan v.33</h2>
 						<div className={styles.cardList}>
-							<Card link={"https://photos.app.goo.gl/MAKizBYoNMjZqKz66"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-14
+							<Card link={"https://photos.app.goo.gl/qzo2gDvZz9cZM9j47"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Måndag, 2024-08-12
 							</Card>
-							<Card link={"https://photos.app.goo.gl/bj2yPMQSFWy8JPcL8"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-15
+							<Card link={"https://photos.app.goo.gl/XBEUsrYwRZQMeE3D9"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Tisdag, 2024-08-13
 							</Card>
-							<Card link={"https://photos.app.goo.gl/vubczCPjjf6eJ4os6"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Onsdag, 2023-08-16
+							<Card link={"https://photos.app.goo.gl/hGBUZxYagZYCgVFG7"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Onsdag, 2024-08-14
 							</Card>
-							<Card link={"https://photos.app.goo.gl/NiJkQ46ZtAEDS8ko6"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Torsdag, 2023-08-17
+							<Card link={"https://photos.app.goo.gl/dMWkZm8mQAEiXvr1A"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Torsdag, 2024-08-15
 							</Card>
-							<Card link={"https://photos.app.goo.gl/QixKWNwMwpSr7tqZ8"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-18
+							<Card link={"https://photos.app.goo.gl/d723YArJuzTRK35m7"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-16
 							</Card>
 						</div>
 						<h2>Andra veckan v.34</h2>
 						<div className={styles.cardList}>
-							<Card link={"https://photos.app.goo.gl/ZPGNF2rkdmVStXbU8"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Måndag, 2023-08-21
+							<Card link={"https://photos.app.goo.gl/huFfTeRaKy5NEDwL8"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Måndag, 2024-08-19
 							</Card>
-							<Card link={"https://photos.app.goo.gl/8ucyVvuJqPXvbkjD6"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Tisdag, 2023-08-22
+							<Card link={"https://photos.app.goo.gl/rYGYG6eE2A8Mc2dP7"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Tisdag, 2024-08-20
 							</Card>
-							<Card disabled>
-								<FontAwesomeIcon icon={faImage} />
-								Onsdag, 2023-08-23 (Kårensdag, inga bilder)
+							<Card link={"https://photos.app.goo.gl/VmbPaZ9sjWWcJwY49"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Onsdag, 2024-08-21
 							</Card>
-							<Card link={"https://photos.app.goo.gl/K8TBohmkxUb7yvYh8"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Torsdag, 2023-08-24
+							<Card link={"https://photos.app.goo.gl/k4d4RxyN3jRNrgjz9"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Torsdag, 2024-08-22
 							</Card>
-							<Card link={"https://photos.app.goo.gl/eAwsDEbh356H1WcS9"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Fredag, 2023-08-25
+							<Card link={"https://photos.app.goo.gl/Q4VT2NEfAHF4VahK8"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-23
 							</Card>
-							<Card link={"https://photos.app.goo.gl/ecJMjVQksG4eFS8q7"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Lördag, 2023-08-26
+							<Card link={"https://photos.app.goo.gl/HWerGSYJ92mG2GkL7"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Lördag, 2024-08-24
 							</Card>
 						</div>
-						<h2>Tredje veckan</h2>
+						<h2>Tredje veckan v.35</h2>
 						<div className={styles.cardList}>
-							<Card link={"https://photos.app.goo.gl/AZiTVo8FwcVk14c79"} newTab>
-								<FontAwesomeIcon icon={faImage} /> NPR, 2023-08-25
+							<Card link={"https://photos.app.goo.gl/C6r1ztDa14P5YEos5"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Onsdag, 2024-08-28
 							</Card>
-							<Card link={"https://photos.app.goo.gl/R2BoHMQhE9beLs8e9"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Adeptgasquen, 2023-08-25
+							<Card link={"https://photos.app.goo.gl/iDpbNADtEu29JkWd8"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-30
+							</Card>
+						</div>
+						<h2>Knäppisuppdrag</h2>
+						<div className={styles.cardList}>
+							<Card link={"https://photos.app.goo.gl/yqpQAJvKyzmbd5E26"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Black Pearl
+							</Card>
+							<Card link={"https://photos.app.goo.gl/ZVD3qRGpvjkj7zY96"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Flygande Holländaren
+							</Card>
+							<Card link={"https://photos.app.goo.gl/u4dNRXHFWtGj3ZZXA"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Hoppetossa
+							</Card>
+							<Card link={"https://photos.app.goo.gl/xc1R36p39ccNPrqK8"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Jolly Roger
 							</Card>
 						</div>
 					</div>

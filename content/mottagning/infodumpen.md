@@ -12,8 +12,8 @@ KTH". Du bör besöka sidan och bekanta dig med dess innehåll. Sidan är framta
 
 <img src="../../media/img/Stockholms_stadshus.webp" alt="Bild på statshuset" style="color:transparent;width:100%;height:auto">
 
-Den 25 augusti håller KTH en ceremoni i statshuset för att välkommna nya studenter. Det finns begränsade platser och först till kvarn gäller.  
-[Du kan anmäla dig här](https://www.kth.se/student/studier/nypakth/rektors-mottagning-i-stockholms-stadshus-25-augusti-1.326539)
+Den 24 augusti håller KTH en ceremoni i statshuset för att välkommna nya studenter. Det finns begränsade platser och först till kvarn gäller.  
+[Du kan anmäla dig här](https://www.kth.se/student/studier/nypakth/rektors-mottagning-i-stockholms-stadshus-24-augusti)
 
 ## FUNKA - Stöd för dig med funktionsnedsättning
 
@@ -23,18 +23,18 @@ Studenter med dokumenterad, varaktig funktionsnedsättning kan få kompensatoris
 ## Studenthälsan
 
 Via Studenthälsan kan du träffa företagssköterska, psykolog och kurator. Företagssköterskor erbjuder hälsosamtal. Till psykologerna kan du komma för rådgivning eller för en avgränsad samtalskontakt. Kurator erbjuder psykosocial rådgivning och stödsamtal. Besök är gratis!  
-[Läs mer om studenthälsan](https://www.kth.se/student/stod/halsa/studenthalsan/valkommen-till-studenthalsan-i-stockholm-1.409886)
+[Läs mer om studenthälsan](https://www.kth.se/student/stod/halsa/studenthalsan/valkommen-till-studenthalsan-i-stockholm)
 
 ## Studie- och karriärvägledning (SVL)
 
 KTH erbjuder alla studenter studie- och karriärvägledning, för att du ska utveckla effektiva studiestrategier och göra välgrundade val i din studiesituation.  
-[Läs mer om och kontakta CL:s studievägledare](https://www.kth.se/social/program/clgym/page/kontakt-34/)
+[Läs mer om och kontakta CL:s studievägledare](https://www.kth.se/student/kontakt/kontaktuppgifter/kontakta-oss-pa-civilingenjor-och-larare-300-hp)
 
 ## Kårens Dag & Campus Fair
 
 <img src="../../media/img/KårensdagCampusfair.jpg" alt="Kårens dag" style="color:transparent;width:100%;height:auto">
 
-Onsdag den 23 augusti hålls Kårens Dag och Campus Fair i kårhuset Nymble. Det är ett ypperligt tillfälle att lära dig mer om vad kåren har att erbjuda. När Kårens Dag går mot sitt slut börjar istället Kårens Kväll, en fest för alla nya KTH-studenter.
+Torsdag den 22 augusti hålls Kårens Dag och Campus Fair i kårhuset Nymble. Det är ett ypperligt tillfälle att lära dig mer om vad kåren har att erbjuda. När Kårens Dag går mot sitt slut börjar istället Kårens Kväll, en fest för alla nya KTH-studenter.
 
 ## Ställ dig i bostadskön och bli kårmedlem
 

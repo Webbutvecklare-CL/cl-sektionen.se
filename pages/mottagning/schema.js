@@ -5,12 +5,12 @@ import CalendarViewer from "@/components/mottagning/CalendarViewer";
 
 export default function Schema() {
 	const calendar_id =
-		"c_1351cc6b384ac29b6abd7b38136ebae1b08e383e3cc6299a3aa90303770f46ed@group.calendar.google.com";
+		"c_685fdcb158806451f21d0cfd532eb5582884b6fb6102c4b35a1ab3362ebad500@group.calendar.google.com";
 	return (
 		<>
 			<CustomHead
 				metaTitle={"Mottagningsschema | Sektionen för Civilingenjör och Lärare"}
-				description={"Schemat för mottagningen 2023."}
+				description={"Schemat för mottagningen 2024."}
 				url={"https://www.cl-sektionen.se/mottagning/schema"}
 			/>
 			<div id="contentbody" className="wideContent">
@@ -20,7 +20,7 @@ export default function Schema() {
 				</div>
 				<div>
 					<CalendarSubscription calendar_id={calendar_id}>
-						<strong>Lägg till i din egna kalender:</strong>
+						<strong>Lägg till i din egen kalender:</strong>
 					</CalendarSubscription>
 					<CalendarViewer calendar_id={calendar_id} />
 				</div>

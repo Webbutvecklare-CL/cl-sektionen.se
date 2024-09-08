@@ -14,7 +14,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function CalendarViewer({ calendar_id }) {
-	const startDay = new Date(new Date("2023-08-14").setHours(0, 0, 0, 0));
+	const startDay = new Date(new Date("2024-08-12").setHours(0, 0, 0, 0));
 	const [events, setEvents] = useState([]);
 	const [scale, setScale] = useState(48);
 	const [nrOfDays, setNrOfDays] = useState(7);
@@ -40,8 +40,12 @@ export default function CalendarViewer({ calendar_id }) {
 	};
 
 	useEffect(() => {
-		const startMottagning = new Date("2023-08-14").toISOString();
-		const endMottagning = new Date("2023-09-04").toISOString();
+		const startMottagning = new Date(
+			new Date("2024-08-12").setHours(0, 0, 0, 0),
+		).toISOString();
+		const endMottagning = new Date(
+			new Date("2024-09-01").setHours(23, 59, 0, 0),
+		).toISOString();
 
 		const query = {
 			orderBy: "startTime",
@@ -78,10 +82,10 @@ export default function CalendarViewer({ calendar_id }) {
 			top: `${top}px`,
 		};
 
-		const values = event.description.split(/\n|<br>/);
-		const location = values[0].substring(7) || "Kolla med bästis";
-		const desc = values[1].substring(13);
-		const id = values[2].substring(4);
+		const values = event.description ? event.description.split(/\n|<br>/) : [];
+		const location = values[0]?.substring(7) || "Kolla med bästis";
+		const desc = values[1]?.substring(13);
+		const id = values[2]?.substring(4);
 
 		const color = types[id]?.color || "var(--clr2)";
 
@@ -382,6 +386,7 @@ function getWeekNumber(refDate) {
 
 function getEventListSpan(eventList, startDate, endRef) {
 	let endDate = null;
+	startDate.setHours(0, 0, 0, 0);
 	if (typeof endRef === "number") {
 		endDate = new Date(startDate);
 		endDate.setDate(startDate.getDate() + endRef);
@@ -389,10 +394,14 @@ function getEventListSpan(eventList, startDate, endRef) {
 		endDate = endRef;
 	}
 
+	// To null the hours of the start date
+	const start = new Date(startDate);
+	start.setHours(0, 0, 0, 0);
+
 	const span = [];
 	for (const event of eventList) {
 		const eventDate = new Date(event.start.dateTime);
-		if (eventDate >= startDate && eventDate <= endDate) {
+		if (eventDate >= start && eventDate <= endDate) {
 			span.push(event);
 		}
 	}

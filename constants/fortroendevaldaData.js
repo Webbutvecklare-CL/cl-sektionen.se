@@ -55,9 +55,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Programansvarig student",
-				name: "Vera Roos",
+				name: "Maja Rosén",
 				mail: "pas@cl-sektionen.se",
-				year: "CL21",
+				year: "CL19",
 			},
 			{
 				role: "Utbildningsbevakare",
@@ -105,7 +105,7 @@ const fortroendevaldaList = [
 			{
 				role: "Webbutvecklare",
 				name: "Emil Rapp",
-				main: "webbutvecklare@cl-sektionen.se",
+				mail: "webbutvecklare@cl-sektionen.se",
 				year: "CL20",
 			},
 		],
@@ -142,7 +142,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Vice ordförande",
-				name: "Elin Ebbers",
+				name: "Mathilda Larsson,",
 				mail: "vice.aktivitetsnamnden@cl-sektionen.se",
 				year: "CL22",
 			},
@@ -226,7 +226,7 @@ const fortroendevaldaList = [
 				role: "Fyrans representant",
 				name: "Mathilda Larsson",
 				mail: "",
-				year: "CL21",
+				year: "CL22",
 			},
 			{
 				role: "Treans representant",
@@ -244,7 +244,7 @@ const fortroendevaldaList = [
 				role: "Ettans representant",
 				name: "Vakant",
 				mail: "",
-				year: "",
+				year: "CL24",
 			},
 		],
 	},
@@ -301,17 +301,17 @@ const fortroendevaldaList = [
 	{
 		id: "kf",
 		mail: "kf@cl-sektionen.se",
-		period: "2023-07-01 – 2024-06-30",
+		period: "2024-07-01 – 2025-06-30",
 		people: [
 			{
 				role: "Ledamot",
-				name: "Gustav Heldt",
+				name: "Armin Baymani",
 				mail: "",
-				year: "CL20",
+				year: "CL19",
 			},
 			{
 				role: "Suppleant",
-				name: "Emil Rapp",
+				name: "Frida Andersson",
 				mail: "",
 				year: "CL20",
 			},

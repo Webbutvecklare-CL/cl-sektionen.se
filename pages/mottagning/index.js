@@ -112,9 +112,9 @@ export default function Mottagning({ loggedIn, _posts }) {
 						<p>
 							Är du nyantagen? Du kommer få mer information via mail inom kort.
 							Om du inte har fått något mail hör av dig till{" "}
-							<a href="mailto:mottagningen@cl-sektionen.se">
+							<Link href={"mailto:mottagningen@cl-sektionen.se"}>
 								mottagningen@cl-sektionen.se
-							</a>
+							</Link>
 							. Denna sidan är till för alla nyantagna som deltar eller funderar
 							på att delta i mottagningen. Här kommer aktuell information läggas
 							upp kontinuerligt under mottagningen.
@@ -174,17 +174,22 @@ export default function Mottagning({ loggedIn, _posts }) {
 								<div className={styles.nav}>
 									<Link href={"mottagning/schema"}>Schema</Link>
 									<Link href={"mottagning/bilder"}>Bilder</Link>
-									<Link href={"mottagning/info"}>Info-dump</Link>
+									<Link href={"mottagning/info"}>Info</Link>
 									<Link href={"mottagning/kontakt"}>Kontakt</Link>
+									<Link href={"mottagning/mottagargrupper"}>
+										Mottagargrupper
+									</Link>
 									<Link
 										href={
-											"https://drive.google.com/file/d/179imNdlLjc7HHg8RrhsBiioScjwWBtek/view?usp=sharing"
+											"https://drive.google.com/file/d/1yiqu0gfDygx7VK-e5de2ElgMUXQd0rIR/view"
 										}
 										target="_blank"
 									>
-										Adeptboken
+										Adeptbok
 									</Link>
-									<Link href={"sangbok"}>Sångboken</Link>
+									<Link href={"sangbok"} target="_blank">
+										Sångbok
+									</Link>
 								</div>
 							</div>
 							<div className={styles.feedWrapper}>
