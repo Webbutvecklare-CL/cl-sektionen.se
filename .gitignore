@@ -51,3 +51,5 @@ storage.rules
 /public/fallback*
 
 *secrets.json
+
+.prettierrc
