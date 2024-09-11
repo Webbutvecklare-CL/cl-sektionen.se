@@ -115,20 +115,19 @@ export default function NotificationModal({ show, handleClose }) {
 				JSON.stringify({ token, ...notificationSettings }),
 			);
 			handleExit();
+			console.log("Exiting modal");
 			return;
 		}
 
 		// Kolla om användaren har accepterat notiser
 		if (Notification.permission === "granted") {
+			// Continue
 		} else if (Notification.permission === "denied") {
 			setSaving(true);
 			setStep("retry");
 			setWaitingText(
 				"Du har tidigare blockerat notiser. Du kan ändra detta i din webbläsares inställningar.",
 			);
-			return;
-		} else {
-			setWaitingText("Väntar på tillåtelse att skicka notiser");
 			return;
 		}
 
@@ -329,6 +328,7 @@ export default function NotificationModal({ show, handleClose }) {
 
 							<BellSetting />
 						</div>
+						<p>{waitingText}</p>
 						<p>{errorText}</p>
 						<div className={styles.buttons}>
 							<button type="button" onClick={handleSave}>

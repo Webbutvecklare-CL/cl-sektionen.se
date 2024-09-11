@@ -10,7 +10,7 @@ export default function Schema() {
 		<>
 			<CustomHead
 				metaTitle={"Mottagningsschema | Sektionen för Civilingenjör och Lärare"}
-				description={"Schemat för mottagningen 2023."}
+				description={"Schemat för mottagningen 2024."}
 				url={"https://www.cl-sektionen.se/mottagning/schema"}
 			/>
 			<div id="contentbody" className="wideContent">
@@ -20,7 +20,7 @@ export default function Schema() {
 				</div>
 				<div>
 					<CalendarSubscription calendar_id={calendar_id}>
-						<strong>Lägg till i din egna kalender:</strong>
+						<strong>Lägg till i din egen kalender:</strong>
 					</CalendarSubscription>
 					<CalendarViewer calendar_id={calendar_id} />
 				</div>

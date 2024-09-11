@@ -4,7 +4,8 @@ På Sektionen för Civilingenjör och Lärare finns det vi kallar Trygghetsråde
 
 Under mottagningen har Trygghetsrådets medlemmar extra koll på sina mail-inkorgar för att du som αdepten ska känna dig trygg. Upplever du något obehagligt under CL-sektionens mottagningsveckor finns vi här för att stötta, tveka inte att kontakta oss!
 Kontaktuppgifter:
+Charlie Axelsson, ordförande JML-nämnden: [jml@cl-sektionen.se](mailto:jml@cl-sektionen.se)  
 Jakob Malik, studerandeskyddsombud: [skyddsombud@cl-sektionen.se](mailto:skyddsombud@cl-sektionen.se)  
 Lea Martinelle, ledamot för studiesociala- och JML-frågor: [studiesocialt@cl-sektionen.se](mailto:studiesocialt@cl-sektionen.se)
 
-Du kan även kontakta rådet anonymt om du inte känner för att dela dina kontaktuppgifter. Scanna QR-koden eller gå in på [cl-sektionen.se/hjalp-vid-illabehandling](www.cl-sektionen.se/hjalp-vid-illabehandling), där hittas vägledning vid illabehandling samt länk till kontaktformuläret till studerandeskyddsombudet.
+Du kan även kontakta rådet anonymt om du inte känner för att dela dina kontaktuppgifter. Scanna QR-koden eller gå in på [cl-sektionen.se/hjalp-vid-illabehandling](https://www.cl-sektionen.se/hjalp-vid-illabehandling), där hittas vägledning vid illabehandling samt länk till kontaktformuläret till studerandeskyddsombudet.

@@ -174,12 +174,22 @@ export default function Mottagning({ loggedIn, _posts }) {
 								<div className={styles.nav}>
 									<Link href={"mottagning/schema"}>Schema</Link>
 									<Link href={"mottagning/bilder"}>Bilder</Link>
-									<Link href={"mottagning/info"}>Info-dump</Link>
+									<Link href={"mottagning/info"}>Info</Link>
 									<Link href={"mottagning/kontakt"}>Kontakt</Link>
-									<Link href={""} target="_blank">
-										Adeptboken
+									<Link href={"mottagning/mottagargrupper"}>
+										Mottagargrupper
 									</Link>
-									<Link href={"sangbok"}>Sångboken</Link>
+									<Link
+										href={
+											"https://drive.google.com/file/d/1yiqu0gfDygx7VK-e5de2ElgMUXQd0rIR/view"
+										}
+										target="_blank"
+									>
+										Adeptbok
+									</Link>
+									<Link href={"sangbok"} target="_blank">
+										Sångbok
+									</Link>
 								</div>
 							</div>
 							<div className={styles.feedWrapper}>

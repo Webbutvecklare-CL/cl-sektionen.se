@@ -77,11 +77,16 @@ export default function Mottagning() {
 
 		// Skickar notis om valt
 		try {
-			await sendNotification(user, {
-				type: "mottagning",
-				title,
-				body: content,
-			});
+			await sendNotification(
+				user,
+				{
+					type: "mottagning",
+					title,
+					body: content,
+					dryRun: false,
+				},
+				false,
+			);
 		} catch (error) {
 			console.error("Fel vid skickandet av notisen: ", error);
 		}
