@@ -28,7 +28,6 @@ const MENU_LIST = [
 		submenu: [
 			{ text: "Info & Event", href: "/aktuellt" },
 			{ text: "Kalender", href: "/kalender" },
-			{ text: "Webbshop", href: "/webbshop" },
 			{ text: "Mottagning", href: "/mottagning" },
 		],
 	},
@@ -39,6 +38,7 @@ const MENU_LIST = [
 			{ text: "Förtroendevalda", href: "/fortroendevalda" },
 			{ text: "Engagera dig", href: "/engagera-dig" },
 			{ text: "Hedersutmärkelser", href: "/hedersutmarkelser" },
+			{ text: "CL-shop", href: "/cl-shop" },
 			{ text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
 		],
 	},

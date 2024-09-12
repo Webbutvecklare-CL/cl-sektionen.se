@@ -1,11 +1,3 @@
-.itemList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px;
-  padding: 0;
-  list-style: none;
-}
-
 .itemCard {
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
@@ -58,6 +50,11 @@
   .itemCard {
     flex-direction: row; 
     align-items: flex-start;
+    transition: none;
+  }
+
+  .itemCard:hover {
+    transform: none;
   }
 
   .itemImage {

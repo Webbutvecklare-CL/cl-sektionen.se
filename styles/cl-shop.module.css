@@ -1,0 +1,15 @@
+.itemList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 780px) {
+
+  .itemList {
+    grid-template-columns: 1fr;
+  }
+
+}

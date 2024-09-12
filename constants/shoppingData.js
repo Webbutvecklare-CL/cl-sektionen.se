@@ -1,36 +1,143 @@
 const shoppingData = {
 	items: [
 		{
-			id: "small",
-			name: "Cute small horse",
-			price: "129",
-			description: "Teeny tiny horsy",
+			name: "CL-pin",
+			id: "cl-pin",
+			description: "En liten pin för schmecken",
+			price: "35",
 		},
 		{
-			id: "right",
-			name: "Cool horse",
-			price: "12",
-			description: "Wow",
+			name: "Klistermärken",
+			id: "klistermarken",
+			description: "Fina klistermärken med vår logga",
+			price: "10",
 		},
 		{
-			id: "rome",
-			name: "Roman Horse",
-			price: "13,5",
-			description: "Tänker du ofta på honom?",
+			name: "Frackband",
+			id: "frackband",
+			description: "50 cm, fästes på högtidsdräkt",
+			price: "25",
 		},
 		{
-			id: "sherlock",
-			name: "Sherlock Horse",
-			price: "200",
-			description: "Elementary my dear Horson",
+			name: "Manschettknapp",
+			id: "manschettknapp",
+			description: "För din frack",
+			price: "55",
 		},
 		{
-			id: "magic",
-			name: "Pling plong",
-			price: "1337",
-			description: "Horse with magic powers",
+			name: "Sånbok",
+			id: "sangbok",
+			description: "Vanlig CL-sångbok",
+			price: "130",
 		},
 	],
 };
 
-export { shoppingData };
+const patchData = {
+	items: [
+		{
+			name: "Mini-emblem",
+			id: "mini-emblem",
+			description: "",
+			price: "15",
+		},
+		{
+			name: "CL-sektionsmärke",
+			id: "cl_sektionsmarke",
+			description: "",
+			price: "25",
+		},
+		{
+			name: "CL-ryggmärke",
+			id: "cl_ryggmarke",
+			description: "",
+			price: "130",
+		},
+		{
+			name: "THS 118",
+			id: "ths_118",
+			description: "",
+			price: "11,8",
+		},
+		{
+			name: "Bananingenjör",
+			id: "bananingenjor",
+			description: "",
+			price: "20",
+		},
+		{
+			name: "Jubileumsgalan",
+			id: "jubileumsgalan",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Jubileumspub",
+			id: "jubileumspub",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Super Casque",
+			id: "super_casque",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Osqvik23",
+			id: "osqvik23",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Mottagningsmärke 2023",
+			id: "mottagningsmarke_2023",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Mottagningsmärke 2021",
+			id: "mottagningsmarke_2021",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Ovvegasque 22",
+			id: "ovvegasque_22",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Ovvegasque 23",
+			id: "ovvegasque_23",
+			description: "",
+			price: "5",
+		},
+		{
+			name: "Under Ytan",
+			id: "under_ytan",
+			description: "",
+			price: "15",
+		},
+		{
+			name: "Piratgasque",
+			id: "piratgasque",
+			description: "",
+			price: "15",
+		},
+		{
+			name: "Mottagning24",
+			id: "mottagning24",
+			description: "",
+			price: "15",
+		},
+		{
+			name: "Halvtid (CL20)",
+			id: "halvtid_cl20",
+			description: "",
+			price: "5",
+		},
+	],
+};
+
+export { shoppingData, patchData };
