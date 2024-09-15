@@ -28,11 +28,11 @@
 .solid,
 .far,
 .fas {
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 6 Free", fantasy;
 }
 .brands,
 .fab {
-  font-family: "Font Awesome 6 Brands";
+  font-family: "Font Awesome 6 Brands", fantasy;
 }
 .fa1x {
   font-size: 1em;
