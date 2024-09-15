@@ -1,267 +1,267 @@
 .calendarViewer {
-  position: relative;
-  --hairline: rgb(218, 220, 224);
-  padding: 1rem;
-  background-color: white;
-  box-shadow: 0px 0px 0.3rem rgba(0, 0, 0, 0.2);
-  border-radius: 0.2rem;
+	position: relative;
+	--hairline: rgb(218, 220, 224);
+	padding: 1rem;
+	background-color: white;
+	box-shadow: 0px 0px 0.3rem rgba(0, 0, 0, 0.2);
+	border-radius: 0.2rem;
 }
 
 .eventBox {
-  position: absolute;
-  border-radius: 5px;
-  background-color: var(--clr2);
-  cursor: pointer;
-  width: 100%;
-  overflow: hidden;
-  -webkit-tap-highlight-color: transparent;
+	position: absolute;
+	border-radius: 5px;
+	background-color: var(--clr2);
+	cursor: pointer;
+	width: 100%;
+	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
 }
 
 .eventBox:hover {
-  background-color: var(--clr3);
+	background-color: var(--clr3);
 }
 
 .eventBox > div {
-  display: flex;
-  flex-direction: column;
-  padding: 0.2rem;
-  overflow: hidden;
-  height: calc(100% - 0.6rem);
+	display: flex;
+	flex-direction: column;
+	padding: 0.2rem;
+	overflow: hidden;
+	height: calc(100% - 0.6rem);
 }
 
 .eventBox p {
-  color: black;
-  font-size: 1rem;
-  margin-top: -2px;
-  padding: 0;
+	color: black;
+	font-size: 1rem;
+	margin-top: -2px;
+	padding: 0;
 }
 
 .infoBoxOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 500;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 500;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .eventInfoBox {
-  position: absolute;
-  top: 40%;
-  background-color: white;
-  box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  width: 80%;
-  max-width: 600px;
-  height: min-content;
-  padding: 0 1rem;
-  translate: -0.5rem;
-  border-radius: 0.3rem;
+	position: absolute;
+	top: 40%;
+	background-color: white;
+	box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+	z-index: 100;
+	width: 80%;
+	max-width: 600px;
+	height: min-content;
+	padding: 0 1rem;
+	translate: -0.5rem;
+	border-radius: 0.3rem;
 }
 
 .eventInfoBox .close {
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--clr1);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 0.8rem;
+	right: 0.8rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--clr1);
+	color: white;
+	cursor: pointer;
+	box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
 }
 
 .eventInfoBox .close:hover {
-  background-color: var(--clr3);
+	background-color: var(--clr3);
 }
 
 .eventInfoBox .close svg {
-  transform: scale(0.8);
+	transform: scale(0.8);
 }
 
 .dayBox {
-  border-right: 1px solid var(--hairline);
-  width: 100%;
-  position: relative;
-  display: block;
-  overflow: hidden;
-  z-index: 5;
+	border-right: 1px solid var(--hairline);
+	width: 100%;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	z-index: 5;
 }
 
 .timeRuler {
-  min-width: none;
+	min-width: none;
 }
 
 .grid {
-  position: relative;
-  display: flex;
-  height: 500px;
-  background-color: #fff;
-  overflow: hidden;
-  overflow-y: scroll;
+	position: relative;
+	display: flex;
+	height: 500px;
+	background-color: #fff;
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
 .daysContainer {
-  position: relative;
-  display: flex;
-  width: 100%;
+	position: relative;
+	display: flex;
+	width: 100%;
 }
 
 .lineContainer {
-  border-top: var(--hairline) 1px solid;
+	border-top: var(--hairline) 1px solid;
 }
 
 .horizontalLine {
-  height: var(--scale);
+	height: var(--scale);
 }
 
 .horizontalLine::after {
-  content: "";
-  border-bottom: #ccc 1px solid;
-  position: absolute;
-  width: 100%;
-  margin-top: -1px;
-  z-index: 3;
-  pointer-events: none;
+	content: "";
+	border-bottom: #ccc 1px solid;
+	position: absolute;
+	width: 100%;
+	margin-top: -1px;
+	z-index: 3;
+	pointer-events: none;
 }
 
 .timeStamps:first-child {
-  border-top: var(--hairline) 1px solid;
-  margin-bottom: -1px;
+	border-top: var(--hairline) 1px solid;
+	margin-bottom: -1px;
 }
 
 .timeStamps {
-  position: relative;
-  height: var(--scale);
-  display: flex;
-  border-right: var(--hairline) 1px solid;
-  width: 2.6rem;
+	position: relative;
+	height: var(--scale);
+	display: flex;
+	border-right: var(--hairline) 1px solid;
+	width: 2.6rem;
 }
 
 .timeStamps span:first-child {
-  line-height: 0.8rem;
-  font-size: 0.8rem;
-  position: relative;
-  top: -0.4rem;
-  padding-right: 0.4rem;
+	line-height: 0.8rem;
+	font-size: 0.8rem;
+	position: relative;
+	top: -0.4rem;
+	padding-right: 0.4rem;
 }
 
 .timeStamps span:last-child {
-  flex-grow: 1;
-  border-top: var(--hairline) 1px solid;
+	flex-grow: 1;
+	border-top: var(--hairline) 1px solid;
 }
 
 /* Scrollbar */
 .grid::-webkit-scrollbar {
-  width: 0.4rem;
-  margin-block: 15px;
+	width: 0.4rem;
+	margin-block: 15px;
 
-  border-left: 4px solid transparent;
-  background-clip: padding-box;
+	border-left: 4px solid transparent;
+	background-clip: padding-box;
 }
 
 .grid::-webkit-scrollbar-track {
-  background-color: whitesmoke;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
-  margin-left: 1rem;
+	background-color: whitesmoke;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 6px;
+	margin-left: 1rem;
 }
 
 .grid::-webkit-scrollbar-thumb {
-  background-color: var(--clr2);
-  border-radius: 10px;
+	background-color: var(--clr2);
+	border-radius: 10px;
 }
 .grid::-webkit-scrollbar-thumb:hover {
-  background-color: var(--clr3);
+	background-color: var(--clr3);
 }
 
 .grid::-webkit-scrollbar-thumb:active {
-  background-color: var(--clr4);
+	background-color: var(--clr4);
 }
 
 /* Menu */
 .menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 1rem;
-  padding: 0 2rem;
-  max-width: 200px;
-  font-size: 1rem;
-  white-space: nowrap;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+	margin-bottom: 1rem;
+	padding: 0 2rem;
+	max-width: 200px;
+	font-size: 1rem;
+	white-space: nowrap;
 }
 
 .menu h2 {
-  margin: 0;
+	margin: 0;
 }
 
 .menu button {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 /* Header */
 .header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: fit-content;
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: fit-content;
 
-  align-items: self-end;
-  z-index: 10;
+	align-items: self-end;
+	z-index: 10;
 }
 
 .headerItem {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  word-break: break-all;
-  border-bottom: 1px solid var(--hairline);
-  margin-bottom: -1px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	word-break: break-all;
+	border-bottom: 1px solid var(--hairline);
+	margin-bottom: -1px;
 }
 
 .headerSpacer {
-  border-left: var(--hairline) 1px solid;
-  bottom: 0;
-  height: 20px;
-  position: absolute;
+	border-left: var(--hairline) 1px solid;
+	bottom: 0;
+	height: 20px;
+	position: absolute;
 }
 
 .header div:first-child {
-  min-width: 2.6rem;
-  height: inherit;
-  border-right: none;
-  border-bottom: 1px solid var(--hairline);
-  margin-bottom: -1px;
+	min-width: 2.6rem;
+	height: inherit;
+	border-right: none;
+	border-bottom: 1px solid var(--hairline);
+	margin-bottom: -1px;
 }
 
 .header div:last-child {
-  flex-shrink: 0;
-  width: 0.44rem; /* Scrollbar width */
-  height: 100%;
-  background-color: #c05656;
+	flex-shrink: 0;
+	width: 0.44rem; /* Scrollbar width */
+	height: 100%;
+	background-color: #c05656;
 }
 
 @media screen and (max-width: 700px) {
-  .calendarViewer {
-    padding: 0.5rem;
-  }
+	.calendarViewer {
+		padding: 0.5rem;
+	}
 
-  .eventBox p {
-    font-size: smaller;
-  }
+	.eventBox p {
+		font-size: smaller;
+	}
 
-  .eventBox .description {
-    display: none;
-  }
+	.eventBox .description {
+		display: none;
+	}
 }

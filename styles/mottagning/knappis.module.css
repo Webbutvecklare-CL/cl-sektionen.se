@@ -1,28 +1,28 @@
 .knappisTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
+	width: 100%;
+	border-collapse: collapse;
+	margin: 20px 0;
+	font-size: 18px;
+	text-align: left;
 }
 
 .knappisTable th,
 .knappisTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
+	border: 1px solid #ddd;
+	padding: 8px;
 }
 
 .knappisTable th {
-    text-align: center;
-    background-color: #d23022; 
-    color: white; 
+	text-align: center;
+	background-color: #d23022;
+	color: white;
 }
 
 .knappisTable td:first-child,
 .knappisTable td:last-child {
-    text-align: center;
+	text-align: center;
 }
 
 .knappisTable tbody tr:hover {
-    background-color: #f1f1f1;
+	background-color: #f1f1f1;
 }

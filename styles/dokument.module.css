@@ -1,24 +1,24 @@
 #rights strong,
 #rights h2,
 #rights h1 span {
-  color: var(--clr5);
+	color: var(--clr5);
 }
 
 #rights p {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 
 #rights li {
-  font-size: 1.1rem;
+	font-size: 1.1rem;
 }
 
 .cards {
-  width: 100%;
-  font-size: 1.2rem;
-  display: flex;
-  flex-wrap: wrap;
+	width: 100%;
+	font-size: 1.2rem;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .praxisCards {
-  font-size: 1.4rem;
+	font-size: 1.4rem;
 }

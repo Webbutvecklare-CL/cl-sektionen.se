@@ -1,44 +1,44 @@
 .ordbokWrapper {
-  max-width: 833px;
-  margin: 0 auto;
+	max-width: 833px;
+	margin: 0 auto;
 }
 
 .ord {
-  display: grid;
-  grid-template-columns: minmax(120px, 200px) minmax(150px, 1fr);
-  align-items: start;
+	display: grid;
+	grid-template-columns: minmax(120px, 200px) minmax(150px, 1fr);
+	align-items: start;
 
-  background-color: white;
-  overflow: hidden;
+	background-color: white;
+	overflow: hidden;
 
-  border: 1px solid rgb(230, 230, 230);
-  margin: -1px auto 0 auto;
+	border: 1px solid rgb(230, 230, 230);
+	margin: -1px auto 0 auto;
 }
 
 .ord > div {
-  padding: 0.5rem 0 0.5rem 1rem;
+	padding: 0.5rem 0 0.5rem 1rem;
 }
 
 .begrepp {
-  color: var(--clr5);
-  font-size: 1rem;
-  font-weight: 600;
-  word-wrap: break-word;
+	color: var(--clr5);
+	font-size: 1rem;
+	font-weight: 600;
+	word-wrap: break-word;
 
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
 }
 
 .kategori {
-  font-size: 0.9rem;
-  margin-left: -0.1rem;
-  font-style: italic;
-  color: #777;
+	font-size: 0.9rem;
+	margin-left: -0.1rem;
+	font-style: italic;
+	color: #777;
 }
 
 .betydelse {
-  font-size: 1rem;
-  padding: 0.5rem;
+	font-size: 1rem;
+	padding: 0.5rem;
 }
