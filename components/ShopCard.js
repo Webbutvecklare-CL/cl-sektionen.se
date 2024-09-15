@@ -34,7 +34,7 @@ export default function ShopCard({ item }) {
 			<div>
 				<p className={styles.itemTitle}>{item.name}</p>
 				<p className={styles.itemDescription}>{item.description || " "}</p>
-				<p className={styles.itemPrice}>{item.price} :-</p>
+				<p className={styles.itemPrice}>{item.price}:-</p>
 			</div>
 		</li>
 	);

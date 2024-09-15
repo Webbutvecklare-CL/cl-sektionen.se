@@ -90,6 +90,12 @@ const patchData = {
 			price: "5",
 		},
 		{
+			name: "Mottagning24",
+			id: "mottagning24",
+			description: "",
+			price: "15",
+		},
+		{
 			name: "Mottagningsmärke 2023",
 			id: "mottagningsmarke_2023",
 			description: "",
@@ -122,12 +128,6 @@ const patchData = {
 		{
 			name: "Piratgasque",
 			id: "piratgasque",
-			description: "",
-			price: "15",
-		},
-		{
-			name: "Mottagning24",
-			id: "mottagning24",
 			description: "",
 			price: "15",
 		},
