@@ -1,216 +1,216 @@
 .loader {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 21px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 21px;
 }
 
 .loader > div {
-  border-radius: 0.2rem;
-  background-color: white;
-  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  min-height: 570px;
-  flex-grow: 1;
+	border-radius: 0.2rem;
+	background-color: white;
+	box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	min-height: 570px;
+	flex-grow: 1;
 }
 
 .loader .miniKalender > div {
-  height: 570px;
+	height: 570px;
 }
 
 .loader p {
-  width: fit-content;
-  padding: 0;
+	width: fit-content;
+	padding: 0;
 }
 
 .kalenderTab {
-  background-color: var(--clr1);
-  border-radius: 0 0 0.2rem 0.2rem;
-  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
+	background-color: var(--clr1);
+	border-radius: 0 0 0.2rem 0.2rem;
+	box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.507);
 }
 
 #sektionskal,
 #gråttkal {
-  padding: 10px;
+	padding: 10px;
 }
 
 .kalenderTab h1 {
-  color: white;
-  font-weight: 500;
-  margin: 0;
+	color: white;
+	font-weight: 500;
+	margin: 0;
 }
 
 .openWebCalendar {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0 !important;
-  height: 570px;
-  width: 100%;
-  max-width: 850px;
-  border: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0 !important;
+	height: 570px;
+	width: 100%;
+	max-width: 850px;
+	border: none;
 }
 
 .openWebCalendar.agenda {
-  height: 510px;
-  width: calc(100% - 10px);
-  min-width: 350px;
-  border: none;
+	height: 510px;
+	width: calc(100% - 10px);
+	min-width: 350px;
+	border: none;
 }
 
 .kalTitel {
-  text-align: center;
-  padding-bottom: 0.5rem;
+	text-align: center;
+	padding-bottom: 0.5rem;
 }
 
 .kalKnapp {
-  white-space: nowrap;
-  position: relative;
-  display: block;
-  background-color: var(--clr4);
-  border-radius: 1rem 1rem 0 0;
-  box-shadow: none;
-  padding-bottom: 0.5rem;
-  margin-left: 0rem;
+	white-space: nowrap;
+	position: relative;
+	display: block;
+	background-color: var(--clr4);
+	border-radius: 1rem 1rem 0 0;
+	box-shadow: none;
+	padding-bottom: 0.5rem;
+	margin-left: 0rem;
 }
 
 .kalKnapp.active {
-  background-color: var(--clr1);
+	background-color: var(--clr1);
 }
 
 .tabsWrapper {
-  margin-left: 0rem;
-  display: flex;
-  justify-content: space-between;
+	margin-left: 0rem;
+	display: flex;
+	justify-content: space-between;
 }
 
 .gråttagendaWrapper {
-  border-radius: 0.3rem;
-  min-width: 360px;
-  max-width: 450px;
-  padding-bottom: 10px;
+	border-radius: 0.3rem;
+	min-width: 360px;
+	max-width: 450px;
+	padding-bottom: 10px;
 }
 
 .miniKalender.kalenderTab.gråttan.månad {
-  max-width: 850px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
+	max-width: 850px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
 }
 
 .gråttan.månad {
-  display: none;
+	display: none;
 }
 
 .openWebCalendar.månad {
-  height: 570px;
-  margin: unset;
+	height: 570px;
+	margin: unset;
 }
 
 .calendarSubscription {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.2rem;
 }
 
 .calendarSubscription p {
-  padding: 0;
+	padding: 0;
 }
 
 @media screen and (max-width: 1000px) {
-  .loader {
-    flex-direction: column;
-  }
+	.loader {
+		flex-direction: column;
+	}
 
-  .loader > div {
-    width: 100%;
-    margin: 0 auto;
-  }
+	.loader > div {
+		width: 100%;
+		margin: 0 auto;
+	}
 
-  .sektionskalMånadOchBokningar {
-    display: block;
-  }
+	.sektionskalMånadOchBokningar {
+		display: block;
+	}
 
-  .openWebCalendar.månad {
-    margin-left: auto;
-    margin-right: auto;
-  }
+	.openWebCalendar.månad {
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-  .openWebCalendar.agenda {
-    height: 300px !important;
-    max-width: 450px !important;
-    min-width: 270px !important;
-  }
+	.openWebCalendar.agenda {
+		height: 300px !important;
+		max-width: 450px !important;
+		min-width: 270px !important;
+	}
 
-  .gråttan.månad {
-    display: block;
-  }
+	.gråttan.månad {
+		display: block;
+	}
 
-  .gråttagendaWrapper {
-    min-width: 280px !important;
-    margin: 1rem auto 0 auto;
-  }
+	.gråttagendaWrapper {
+		min-width: 280px !important;
+		margin: 1rem auto 0 auto;
+	}
 
-  .agendaVy {
-    display: none;
-  }
+	.agendaVy {
+		display: none;
+	}
 }
 
 @media screen and (min-width: 500px) {
-  .kalKnapp {
-    margin-right: 2rem;
-    margin-left: 2rem;
-  }
+	.kalKnapp {
+		margin-right: 2rem;
+		margin-left: 2rem;
+	}
 
-  .kalKnapp::before,
-  .kalKnapp::after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 0;
-    height: 101%;
-    width: 2.6rem;
-    background-color: var(--clr4);
-  }
+	.kalKnapp::before,
+	.kalKnapp::after {
+		display: block;
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 101%;
+		width: 2.6rem;
+		background-color: var(--clr4);
+	}
 
-  .kalKnapp::before {
-    transform: skew(-20deg, 0);
-    border-radius: 1rem 0 0 0;
-    left: -2rem;
-  }
-  .kalKnapp::after {
-    transform: skew(20deg, 0);
-    border-radius: 0 1rem 0 0;
-    right: -2rem;
-  }
+	.kalKnapp::before {
+		transform: skew(-20deg, 0);
+		border-radius: 1rem 0 0 0;
+		left: -2rem;
+	}
+	.kalKnapp::after {
+		transform: skew(20deg, 0);
+		border-radius: 0 1rem 0 0;
+		right: -2rem;
+	}
 
-  .kalKnapp.active::before,
-  .kalKnapp.active::after {
-    background-color: var(--clr1);
-    z-index: 2;
-  }
-  .kalKnapp.active:hover::before,
-  .kalKnapp.active:hover::after {
-    background-color: var(--clr1);
-  }
+	.kalKnapp.active::before,
+	.kalKnapp.active::after {
+		background-color: var(--clr1);
+		z-index: 2;
+	}
+	.kalKnapp.active:hover::before,
+	.kalKnapp.active:hover::after {
+		background-color: var(--clr1);
+	}
 
-  .kalKnapp:hover::before,
-  .kalKnapp:hover::after {
-    background-color: var(--clr3);
-    transition: 0.2s;
-  }
+	.kalKnapp:hover::before,
+	.kalKnapp:hover::after {
+		background-color: var(--clr3);
+		transition: 0.2s;
+	}
 
-  .kalenderTab {
-    border-radius: 0.2rem;
-  }
+	.kalenderTab {
+		border-radius: 0.2rem;
+	}
 
-  .tabsWrapper {
-    margin-left: 1rem;
-    display: flex;
-    justify-content: left;
-  }
+	.tabsWrapper {
+		margin-left: 1rem;
+		display: flex;
+		justify-content: left;
+	}
 }

@@ -1,91 +1,91 @@
 article.rese div {
-  position: relative;
+	position: relative;
 }
 
 img.rese-top {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 12.5rem;
-  width: auto;
-  max-width: 50%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 12.5rem;
+	width: auto;
+	max-width: 50%;
 }
 
 img.rese-right {
-  float: right;
-  margin: 0 0 1rem 1rem;
-  min-width: 250px;
+	float: right;
+	margin: 0 0 1rem 1rem;
+	min-width: 250px;
 }
 
 img.rese-mid {
-  min-width: 250px;
-  max-width: 315px;
-  max-height: 300px;
-  object-fit: contain;
+	min-width: 250px;
+	max-width: 315px;
+	max-height: 300px;
+	object-fit: contain;
 }
 
 .rese-img-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 1rem;
-  margin-bottom: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 1rem;
+	margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 900px) {
-  img.rese-top {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: inline-block;
-    float: none;
-    margin-bottom: 1em;
-    position: unset;
-  }
+	img.rese-top {
+		width: 100%;
+		max-width: 300px;
+		height: auto;
+		display: inline-block;
+		float: none;
+		margin-bottom: 1em;
+		position: unset;
+	}
 }
 
 /* Very small screen - fix right aligned images */
 @media only screen and (max-width: 500px) {
-  img.rese-right {
-    width: 90%;
-    float: unset;
-  }
-  img.rese-mid {
-    max-width: unset;
-  }
+	img.rese-right {
+		width: 90%;
+		float: unset;
+	}
+	img.rese-mid {
+		max-width: unset;
+	}
 }
 
 article.rese table * {
-  font-size: 1.2rem;
-  vertical-align: top;
+	font-size: 1.2rem;
+	vertical-align: top;
 }
 article.rese table td {
-  padding-right: 0.5rem;
+	padding-right: 0.5rem;
 }
 
 #scroll-node {
-  scroll-margin: 24rem;
+	scroll-margin: 24rem;
 }
 
 .worldmap svg {
-  overflow: visible;
-  width: 125%;
-  transform: translate(-9%);
+	overflow: visible;
+	width: 125%;
+	transform: translate(-9%);
 }
 
 .worldmap g {
-  stroke: #aaa;
-  stroke-width: 15;
-  cursor: pointer;
+	stroke: #aaa;
+	stroke-width: 15;
+	cursor: pointer;
 }
 
 .worldmap svg path {
-  fill: #fff;
-  transition: 0.1s;
+	fill: #fff;
+	transition: 0.1s;
 }
 
 .worldmap g:hover path {
-  fill: var(--clr5);
-  transition: 0.1s;
-  stroke-width: 0;
+	fill: var(--clr5);
+	transition: 0.1s;
+	stroke-width: 0;
 }
