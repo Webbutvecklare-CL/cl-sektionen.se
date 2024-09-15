@@ -1,134 +1,134 @@
 #tvContent {
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--clr2);
-  background-image: url(../public/media/grafik/CL_logo_sketch_black.png);
-  background-repeat: no-repeat;
-  background-position: center;
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--clr2);
+	background-image: url(../public/media/grafik/CL_logo_sketch_black.png);
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .slideshow {
-  overflow: hidden;
-  height: 100vh;
-  margin: auto;
-  width: 100%;
+	overflow: hidden;
+	height: 100vh;
+	margin: auto;
+	width: 100%;
 }
 
 .slideshow img {
-  display: none;
+	display: none;
 }
 
 .slideshow img[src] {
-  display: inline;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border: none;
-  outline: none;
+	display: inline;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border: none;
+	outline: none;
 }
 
 /* Reseinfo */
 .reseinfo {
-  width: 18vw;
-  height: 100vh;
-  background-color: var(--clgra);
-  font-size: 1.6rem;
-  color: white;
-  overflow: hidden;
+	width: 18vw;
+	height: 100vh;
+	background-color: var(--clgra);
+	font-size: 1.6rem;
+	color: white;
+	overflow: hidden;
 }
 
 .reseinfo h2 {
-  color: var(--clr2);
-  margin-top: 0.5rem;
-  margin-left: 1rem;
+	color: var(--clr2);
+	margin-top: 0.5rem;
+	margin-left: 1rem;
 }
 
 .reseinfo p {
-  color: white;
+	color: white;
 }
 
 .departure {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
 
-  width: 100%;
-  margin-bottom: 0.2rem;
-  min-height: 2.5rem;
-  padding: 0 1.5rem 0 1rem;
+	width: 100%;
+	margin-bottom: 0.2rem;
+	min-height: 2.5rem;
+	padding: 0 1.5rem 0 1rem;
 
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .departure:nth-child(odd) {
-  background-color: #363636;
+	background-color: #363636;
 }
 
 .destination {
-  overflow-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .messages {
-  width: 18rem;
-  margin-top: 1.3rem;
+	width: 18rem;
+	margin-top: 1.3rem;
 }
 
 .messages p {
-  font-size: 1.5rem;
-  padding: 0;
-  margin-bottom: 0;
-  margin-left: 1rem;
+	font-size: 1.5rem;
+	padding: 0;
+	margin-bottom: 0;
+	margin-left: 1rem;
 }
 
 /* För skrollande error text */
 .scrollContainer {
-  width: min-content;
-  white-space: nowrap;
-  height: 2rem;
-  overflow: hidden;
+	width: min-content;
+	white-space: nowrap;
+	height: 2rem;
+	overflow: hidden;
 }
 
 .scrollContainer {
-  /* animation properties */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
+	/* animation properties */
+	-moz-transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
 
-  -moz-animation: my-animation 15s linear infinite;
-  -webkit-animation: my-animation 15s linear infinite;
-  animation: my-animation 15s linear infinite;
+	-moz-animation: my-animation 15s linear infinite;
+	-webkit-animation: my-animation 15s linear infinite;
+	animation: my-animation 15s linear infinite;
 }
 
 /* for Firefox */
 @-moz-keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-  }
+	from {
+		-moz-transform: translateX(100%);
+	}
+	to {
+		-moz-transform: translateX(-100%);
+	}
 }
 
 /* for Chrome */
 @-webkit-keyframes my-animation {
-  from {
-    -webkit-transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-  }
+	from {
+		-webkit-transform: translateX(100%);
+	}
+	to {
+		-webkit-transform: translateX(-100%);
+	}
 }
 
 @keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
+	from {
+		-moz-transform: translateX(100%);
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+	to {
+		-moz-transform: translateX(-100%);
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
 }

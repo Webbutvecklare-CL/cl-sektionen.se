@@ -460,34 +460,32 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 						)}
 
 						{type === "event" && (
-							<>
-								<div className={styles.dateInput}>
-									<div>
-										<Label required>Start:</Label>
-										<input
-											type="datetime-local"
-											required
-											value={startDateTime}
-											onChange={(e) => setStartDateTime(e.target.value)}
-											min={
-												editMode
-													? ""
-													: new Date().toLocaleString().substring(0, 16)
-											}
-										/>
-									</div>
-									<div>
-										<Label required>Slut:</Label>
-										<input
-											type="datetime-local"
-											required
-											value={endDateTime}
-											onChange={(e) => setEndDateTime(e.target.value)}
-											min={startDateTime}
-										/>
-									</div>
+							<div className={styles.dateInput}>
+								<div>
+									<Label required>Start:</Label>
+									<input
+										type="datetime-local"
+										required
+										value={startDateTime}
+										onChange={(e) => setStartDateTime(e.target.value)}
+										min={
+											editMode
+												? ""
+												: new Date().toLocaleString().substring(0, 16)
+										}
+									/>
 								</div>
-							</>
+								<div>
+									<Label required>Slut:</Label>
+									<input
+										type="datetime-local"
+										required
+										value={endDateTime}
+										onChange={(e) => setEndDateTime(e.target.value)}
+										min={startDateTime}
+									/>
+								</div>
+							</div>
 						)}
 
 						<div className={styles.visibilityInput}>
@@ -532,33 +530,29 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 
 						{/* Kalender */}
 						{!editMode && type === "event" && (
-							<>
-								<div className={styles.calenderInput}>
-									<Label htmlFor={"calendar"}>
-										Lägg till i sektionskalendern:
-									</Label>
-									<input
-										id={"calendar"}
-										type="checkbox"
-										ref={publishInCalendar}
-										defaultChecked={false}
-									/>
-								</div>
-							</>
+							<div className={styles.calenderInput}>
+								<Label htmlFor={"calendar"}>
+									Lägg till i sektionskalendern:
+								</Label>
+								<input
+									id={"calendar"}
+									type="checkbox"
+									ref={publishInCalendar}
+									defaultChecked={false}
+								/>
+							</div>
 						)}
 
 						{!editMode && (
-							<>
-								<div className={styles.calenderInput}>
-									<Label htmlFor={"notis"}>Skicka notis:</Label>
-									<input
-										id={"notis"}
-										type="checkbox"
-										ref={sendNotification}
-										defaultChecked={true}
-									/>
-								</div>
-							</>
+							<div className={styles.calenderInput}>
+								<Label htmlFor={"notis"}>Skicka notis:</Label>
+								<input
+									id={"notis"}
+									type="checkbox"
+									ref={sendNotification}
+									defaultChecked={true}
+								/>
+							</div>
 						)}
 					</div>
 				)}

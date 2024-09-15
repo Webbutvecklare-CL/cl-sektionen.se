@@ -320,7 +320,11 @@ export default function Publicera() {
 		if (data.sendNotification) {
 			setStatus("Skickar notiser...");
 			try {
-				await sendNotification(user, { type: "post", postId: uniqueLink });
+				await sendNotification(user, {
+					type: "post",
+					postId: uniqueLink,
+					dryRun: false,
+				});
 			} catch (error) {
 				setError("Det gick inte att skicka notiserna");
 				console.error(error);

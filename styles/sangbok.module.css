@@ -1,51 +1,51 @@
 .songbookWrapper {
-  max-width: 833px;
-  margin: 0 auto;
+	max-width: 833px;
+	margin: 0 auto;
 }
 .songLink {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
 
-  max-width: 800px;
-  text-decoration: none;
+	max-width: 800px;
+	text-decoration: none;
 
-  font-size: 1.2rem;
-  font-weight: 600;
+	font-size: 1.2rem;
+	font-weight: 600;
 
-  padding: 0.7rem 1rem;
-  background-color: white;
-  border: 1px solid rgb(230, 230, 230);
-  margin: -1px auto 0 auto;
+	padding: 0.7rem 1rem;
+	background-color: white;
+	border: 1px solid rgb(230, 230, 230);
+	margin: -1px auto 0 auto;
 }
 
 .songLink:hover {
-  text-decoration: none;
-  background: linear-gradient(
-    90deg,
-    rgba(200, 0, 26, 0.1) 0%,
-    rgba(255, 255, 255, 1) 35%,
-    rgba(255, 255, 255, 1) 100%
-  );
+	text-decoration: none;
+	background: linear-gradient(
+		90deg,
+		rgba(200, 0, 26, 0.1) 0%,
+		rgba(255, 255, 255, 1) 35%,
+		rgba(255, 255, 255, 1) 100%
+	);
 
-  transform: scale(1.01);
-  transition: 0.2s;
+	transform: scale(1.01);
+	transition: 0.2s;
 }
 
 .songCategory {
-  text-align: right;
-  font-weight: 400;
-  color: black;
-  font-size: 1rem;
+	text-align: right;
+	font-weight: 400;
+	color: black;
+	font-size: 1rem;
 }
 
 .songLink .songPage {
-  color: grey;
-  font-weight: 500;
-  font-size: 1rem;
+	color: grey;
+	font-weight: 500;
+	font-size: 1rem;
 }
 
 .emojivisan {
-  width: 100%;
-  max-width: 400px;
+	width: 100%;
+	max-width: 400px;
 }
