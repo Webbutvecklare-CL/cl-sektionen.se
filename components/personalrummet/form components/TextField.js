@@ -17,7 +17,9 @@ export default function TextField({ fieldRef, defaultValue }) {
 		extensions: [
 			StarterKit,
 			Underline,
-			Link,
+			Link.configure({
+				defaultProtocol: "https",
+			}),
 			Superscript,
 			SubScript,
 			TextAlign.configure({ types: ["heading", "paragraph"] }),
