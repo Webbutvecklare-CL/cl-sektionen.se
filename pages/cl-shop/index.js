@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "@/styles/cl-shop.module.css";
 import { useState } from "react";
 
+import Link from "next/link";
+
 export default function CL_shop() {
 	const [isDrawerOpen, setIsDrawerOpen] = useState({
 		shopping: true,
@@ -28,14 +30,28 @@ export default function CL_shop() {
 				description={
 					"Här hittar du vad som finns att köpa hos Försäljningsansvarig."
 				}
-				url={"https://www.cl-sektionen.se/webbshopp"}
+				url={"https://www.cl-sektionen.se/cl-shop"}
 			/>
 			<div id="contentbody">
 				<h1 id="page-title">CL-shop</h1>
 				<p>
 					För att beställa behöver du kontakta sektionens Försäljningsansvarig.
+				</p>
+				<p>
+					Personen finns oftast tillgänglig på sektionsmöten, eller så kan du
+					mejla till{" "}
+					<Link
+						className={styles.email}
+						href="mailto:forsaljning@cl-sektionen.se"
+					>
+						forsaljning@cl-sektionen.se
+					</Link>
+					. På <Link href={"/fortroendevalda"}>sidan för förtroendevalda</Link>{" "}
+					kan du se vem som är nuvarande Försäljningsansvarig. .
+				</p>
+				<p>
 					Du betalar genom att swisha sektionen på numret:{" "}
-					<span>123-29 38 108</span>
+					<span className={styles.phoneNumber}>123-29 38 108</span>
 				</p>
 
 				<div className={styles.drawerSection}>
