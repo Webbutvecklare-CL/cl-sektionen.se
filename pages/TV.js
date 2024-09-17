@@ -15,8 +15,9 @@ const firestore = getFirestore(app);
 import ReseInfo from "@/components/TV/ReseInfo";
 import Slideshow from "@/components/TV/Slideshow";
 
-import KTH_Night from "@/media/TV/kth-night.jpg";
-import KTH_Summer from "@/media/TV/kth-sommar.png";
+import KTH_Night from "@/media/TV/kth-natt.webp";
+import KTH_Summer from "@/media/TV/kth-sommar.webp";
+import KTH_Winter from "@/media/TV/kth-vinter.webp";
 
 import { getIsNight } from "@/utils/tv";
 
