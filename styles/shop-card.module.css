@@ -1,0 +1,69 @@
+.itemCard {
+	background-color: #f9f9f9;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease-in-out;
+}
+
+.itemCard:hover {
+	transform: scale(1.1);
+}
+
+.itemImage {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+
+.itemTitle {
+	font-size: 1.5em;
+	text-align: center;
+	color: black;
+}
+
+.itemDescription {
+	font-size: 1em;
+	color: #686868;
+	text-align: center;
+}
+
+.itemPrice {
+	font-weight: bold;
+	color: var(--clr2);
+	font-size: 1.2em;
+	text-align: center;
+}
+
+@media (max-width: 780px) {
+	.itemList {
+		grid-template-columns: 1fr;
+	}
+
+	.itemCard {
+		flex-direction: row;
+		align-items: flex-start;
+		transition: none;
+	}
+
+	.itemCard:hover {
+		transform: none;
+	}
+
+	.itemImage {
+		max-width: 150px;
+		margin-bottom: 0;
+		margin-right: 16px;
+	}
+
+	.itemTitle,
+	.itemDescription,
+	.itemPrice {
+		text-align: left;
+	}
+}
