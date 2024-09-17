@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import filterStyles from "@/styles/filter-panel.module.css";
 import styles from "@/styles/sangbok.module.css";
 
-import { faEllipsis, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //göm majjelåtar mellan månad 6 och 9
@@ -145,20 +145,6 @@ export default function Sangbok({ sånger, index }) {
 		);
 	};
 
-	const [audio, setAudio] = useState(null);
-	const playSong = () => {
-		if (audio) {
-			audio.pause();
-			setAudio(null);
-			return;
-		}
-		const newAudio = new Audio(
-			"/media/ljud/Rick Astley - Never Gonna Give You Up.mp3",
-		);
-		setAudio(newAudio);
-		newAudio.play();
-	};
-
 	return (
 		<>
 			<CustomHead
@@ -194,13 +180,6 @@ export default function Sangbok({ sånger, index }) {
 									if (analytics) {
 										logEvent(analytics, "search", { search_term: search });
 									}
-									if (
-										["never gonna give you up", "spela en låt"].includes(
-											search.toLowerCase(),
-										)
-									) {
-										playSong();
-									}
 								}}
 								className="searchbar"
 							/>
@@ -215,18 +194,6 @@ export default function Sangbok({ sånger, index }) {
 							>
 								<FontAwesomeIcon icon={faEllipsis} />
 							</button>
-							{audio && (
-								<button
-									type="button"
-									className="muteButton"
-									onClick={() => {
-										audio.pause();
-										setAudio(null);
-									}}
-								>
-									<FontAwesomeIcon icon={faVolumeMute} size="sm" />
-								</button>
-							)}
 						</div>
 
 						<section
