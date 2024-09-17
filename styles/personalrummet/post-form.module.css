@@ -56,6 +56,10 @@
 .toolbar > div > button {
 	box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.2);
 	border-radius: 0.25rem;
+
+	&:hover {
+		color: white;
+	}
 }
 
 /* Ska ha samma formatering som när det visas i flödet */
