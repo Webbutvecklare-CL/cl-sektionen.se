@@ -83,6 +83,7 @@
 	position: relative;
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
+	line-clamp: 3;
 	-webkit-box-orient: vertical;
 	line-height: 1.5rem;
 	padding-bottom: 0;
@@ -113,11 +114,13 @@
 /* Animation och öppnings styles */
 .expanding p {
 	-webkit-line-clamp: unset;
+	line-clamp: unset;
 	max-height: 20rem;
 }
 
 .closing {
 	-webkit-line-clamp: unset !important;
+	line-clamp: unset !important;
 	max-height: 4.5rem;
 }
 

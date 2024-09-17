@@ -83,6 +83,7 @@
 	font-size: 1.4rem;
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
+	line-clamp: 1;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -96,6 +97,7 @@
 	overflow: hidden;
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
+	line-clamp: 1;
 	-webkit-box-orient: vertical;
 }
 
@@ -109,6 +111,7 @@
 	overflow: hidden;
 	display: -webkit-box;
 	-webkit-line-clamp: 8;
+	line-clamp: 8;
 	-webkit-box-orient: vertical;
 }
 
@@ -136,6 +139,7 @@
 	.featured-preview .post-preview h2 {
 		font-size: 1.3rem;
 		-webkit-line-clamp: 1;
+		line-clamp: 1;
 	}
 
 	.featured-preview .post-preview {
@@ -150,10 +154,12 @@
 
 	.featured-preview .post-preview .subtitle {
 		-webkit-line-clamp: 1;
+		line-clamp: 1;
 	}
 
 	.featured-preview .post-preview .body p {
 		-webkit-line-clamp: 3;
+		line-clamp: 3;
 	}
 
 	.post-preview.featured:hover,
@@ -192,10 +198,12 @@
 
 	.featured-preview .post-preview .subtitle {
 		-webkit-line-clamp: 1;
+		line-clamp: 1;
 	}
 
 	.featured-preview .post-preview .body p {
 		-webkit-line-clamp: 3;
+		line-clamp: 3;
 	}
 
 	.post-preview.featured:hover,

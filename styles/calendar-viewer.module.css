@@ -15,6 +15,7 @@
 	width: 100%;
 	overflow: hidden;
 	-webkit-tap-highlight-color: transparent;
+	touch-action: manipulation;
 }
 
 .eventBox:hover {
@@ -59,7 +60,7 @@
 	max-width: 600px;
 	height: min-content;
 	padding: 0 1rem;
-	translate: -0.5rem;
+	left: 0.5rem;
 	border-radius: 0.3rem;
 }
 
@@ -214,6 +215,7 @@
 	position: relative;
 	display: flex;
 	align-items: center;
+
 	height: fit-content;
 
 	align-items: self-end;

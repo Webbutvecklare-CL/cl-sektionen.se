@@ -7,6 +7,7 @@
 
 .committeeNav {
 	background-color: white;
+	max-width: -moz-fit-content;
 	max-width: fit-content;
 	border-radius: 0.3rem;
 	overflow: hidden;

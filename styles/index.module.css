@@ -119,6 +119,7 @@
 	display: block;
 	margin: auto;
 	margin-top: 1rem;
+	width: -moz-fit-content;
 	width: fit-content;
 	text-decoration: none;
 }

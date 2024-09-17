@@ -103,6 +103,7 @@
 	margin: 0.5rem 0rem;
 	padding: 0.6rem;
 	border-radius: 0.6rem;
+	width: -moz-fit-content;
 	width: fit-content;
 	display: flex;
 	flex-wrap: wrap;
@@ -202,7 +203,7 @@
 .required {
 	color: var(--clr1);
 	margin-left: 0.2rem;
-	scale: 70%;
+	transform: scale(0.7);
 }
 
 .postForm input:disabled {
