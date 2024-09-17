@@ -25,7 +25,7 @@ const shoppingData = {
 			price: "55",
 		},
 		{
-			name: "Sånbok",
+			name: "Sångbok",
 			id: "sangbok",
 			description: "Vanlig CL-sångbok",
 			price: "130",
