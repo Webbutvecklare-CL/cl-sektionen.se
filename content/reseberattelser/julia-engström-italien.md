@@ -1,6 +1,6 @@
 # Julia Engström – Italien
 
-<img src="../../media/reseberattelser/julia-engström-italien-uni.jpg" class="rese-top">
+<img src="../../media/reseberattelser/julia-engström-italien-uni.webp" class="rese-top">
 
 Universitet: Politecnico di Torino - Campus i Valentinoparken  
 Termin: HT 2017  
@@ -18,8 +18,8 @@ Via exempelvis grupperna på facebook länkas det en hel del lägenheter för ut
 
 Det tar ett tag att komma in i ett nytt land, speciellt om man åker själv, inte har varit där förut, inte kan språket eller bara inte känner sig bekväm. Var inte rädd om det känns lite tufft ibland, det gör det för alla! I Turin är det väldigt många utbytesstudenter så just denna känsla går att dela med många. På grund av mängden studenter och framförallt utbytesstudenter finns det mängder med aktiviteter att göra utöver att plugga. Delvis så anordnas planerade resor till olika ställen, jag tog en buss för att gå på Oktoberfest i München och sen planeras helgresor till städer runtom i landet. Under vinterhalvåret planeras skidresor av olika slag vilket jag verkligen rekommenderar om man är skidintresserad. Det tar ca 1.5h att ta sig till skidorten Sestriere från Turin. Dit åkte jag över en dag bara och det funkade toppen! Turin ligger väldigt bra till då man på några timmar kan ta sig till allt ifrån alperna, till franska eller italienska Rivieran, Milano, franska städer som Lyon, Comosjön, Gardasjön och mycket mer. Jag hittade några kompisar som jag åkte på massa både dagsresor och helgresor med vilket var väldigt roligt. Vi var även iväg på vinprovningar, ostfestival och tryffelfestival i Piemonte (regionen som Turin ligger i).
 
-<img src="../../media/reseberattelser/julia-engström-italien-vy.jpg" style="margin-right: 2%;">
-<img src="../../media/reseberattelser/julia-engström-italien-gata.jpg" style="">
+<img src="../../media/reseberattelser/julia-engström-italien-vy.webp" style="margin-right: 2%;">
+<img src="../../media/reseberattelser/julia-engström-italien-gata.webp" style="">
 
 Vy från ”Basilica di Superga” samt Vy från en av gågatorna (titta noga så ser du alperna)
 

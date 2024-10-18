@@ -1,6 +1,6 @@
 # Camilla Björn - Irland
 
-<img src="../../media/reseberattelser/camilla-björk-irland-bibliotek.jpg" class="rese-top">
+<img src="../../media/reseberattelser/camilla-björk-irland-bibliotek.webp" class="rese-top">
 
 Universitet: Trinity College Dublin  
 Termin: HT 2016  
@@ -18,8 +18,8 @@ Sen var det dags att packa. Med facit i hand kan jag nog konstatera att jag nog 
 Att skära ned på packningen var svårt och jag tvingads tillslut att plocka ut denna sorgsna varelse ur väskan.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/camilla-björk-irland-bil.jpg" class="rese-mid">
-    <img src="../../media/reseberattelser/camilla-björk-irland-katt.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/camilla-björk-irland-bil.webp" class="rese-mid">
+    <img src="../../media/reseberattelser/camilla-björk-irland-katt.webp" class="rese-mid">  
 </div>
 
 Mamma agerar taxi till Arlanda och lämnar mig med de visa orden: ”Tänk inte så mycket på skolan, du får ta de poängen sen...”.
@@ -74,13 +74,13 @@ Frusen nykterist på Irland… Många hade sina misstankar om att jag kanske int
 
 Min erfarenhet är att Irland är inte så blött som många tror, men nog finns det en anledning till att det är så grönt… När det kom till alkoholen så är det klart att jag nog ”missade” något, men jag kan inte klaga på publivet. De flesta av mina favoritpubar serverade villigt te och jag kan inte minnas att jag var på någon hemmafest där det inte fanns tillgång till vattenkokare och mjölk (tepåsarna låg givetvis i säkert förvar i väskan). Hursomhelst, för er som inte är oroliga över att ni inte kommer ha konstant tillgång till te så kan jag garantera att det även finns annat att dricka. Jag kan tyvärr inte ge någon personlig recension av alkoholen. De jag pratade med var dock mycket nöjda med ölsortimentet, kanske i synnerlighet Guinnessen som testas kontinuerligt utav en särskild Guinnessprovsmakare som åker runt mellan pubarna.
 
-<img src="../../media/reseberattelser/camilla-björk-irland-klippa.jpg" class="rese-right">
+<img src="../../media/reseberattelser/camilla-björk-irland-klippa.webp" class="rese-right">
 
 Jag blev snabbt ett stort fan av staden. Den beskrevs av många som ett litet och något mysigare London, och jag kan inte mer än att hålla med! Staden är fantastiskt mysig och en behöver inte åka långt för att komma ut på landsbygden. Det räcker med att ta Darten (deras pendeltåg) till någon av hållplatserna i utkanten av linjen (yes, det är bara en linje…) för att hitta fantastiskt mysiga hajkområden. Min personliga favorit är halvön Howth, men promenaden mellan Bray och Gray Stones är också jättemysig. Ungefär 50 km från Dublin ligger Glendalough som också är en jättemysig utflyktsplats. Passar perfekt för dagsutflykter! Egentligen passar nästan alla ställen på Irland bra för dagsutflykter eftersom ön är så pass liten, men om en vill spendera lite mer tid någon stans kan det ju så klart vara trevligt att övernatta. För utflyktsmål lite längre bort från Dublin så kan jag varmt rekommendera Belfast, Giants Cause Way, Galway och Cork! Alla tre är typiska turist resemål, men värda att se. Det är många ställen som jag inte han besöka, Cliffs of Moher ska tydligen vara värt ett besök, men det finns många ställen på Irland som påminner om Cliffs of Moher, men med färre turister…
 
 ## Fritid och sociala aktiviteter
 
-<img src="../../media/reseberattelser/camilla-björk-irland-vatten.jpg" class="rese-right" >
+<img src="../../media/reseberattelser/camilla-björk-irland-vatten.webp" class="rese-right" >
 
 En stor del av min fritid spenderade jag med mina vänner från Trinitys klätterklubb. Trinity hade en klättervägg på campus som vi hade träningar vid på tisdag och torsdag kvällar och efteråt gick vi ofta till antingen campuspuben eller en pub alldeles bredvid campus. Utöver tisdags och torsdags träningarna anordnade klubben många andra aktiviteter. Den bästa var helt klart resan till the Burren under reading week (deras höstlovsvecka). Vi var ett 40 tal studenter som åkte dit i en hyrd buss och bodde tillsammans i husvagnar som vi hyrde på en kamping i närheten av klippan där vi klättrade. Det är tveklöst den minst glamorösa resa jag varit på, men det var fantastiskt roligt och ett bra sätt att både lära känna folk och se naturen.
 

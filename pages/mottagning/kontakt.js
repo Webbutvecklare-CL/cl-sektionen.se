@@ -3,7 +3,7 @@ import CustomHead from "@/components/CustomHead";
 import MarkdownRender from "@/components/MarkdownRender";
 import { getContentData } from "@/utils/contents";
 
-import qrCode from "@/media/img/qr-kod-illabehandling.png";
+import qrCode from "@/media/img/qr-kod-illabehandling.webp";
 import Image from "next/image";
 
 import styles from "@/styles/mottagning/kontakt.module.css";

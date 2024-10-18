@@ -1,6 +1,6 @@
 # Anna Stolpe – Australien
 
-<img src="../../media/reseberattelser/anna-stolpe-australien-sunset.jpg" class="rese-top">
+<img src="../../media/reseberattelser/anna-stolpe-australien-sunset.webp" class="rese-top">
 
 Universitet: University of Wollongong  
 Termin: HT 2016  
@@ -60,7 +60,7 @@ Den tredje kursen jag läste var jag tvungen att ta på plats pga. ovan nämnda 
 
 ## Staden och landet
 
-<img src="../../media/reseberattelser/anna-stolpe-australien-äng.jpg" class="rese-right">
+<img src="../../media/reseberattelser/anna-stolpe-australien-äng.webp" class="rese-right">
 
 Jag tycker att Australien är helt fantastiskt. Det liknar Sverige i levnadssätt och samhällsmässigt så det är inga direkta kulturchockar. De märkbara skillnaderna är att alla är så otroligt trevliga. Det är verkligen inga konstigheter att plötsligt ha en konversation med någon man precis mötte på gatan, bussen eller stranden. Du kan alltid fråga om hjälp vart du än kommer och den du frågar kanske tom. kör dig till rätt destination! En annan skillnad är att alla avstånd är långa… Australien är större än hela Europa vilket gör att det blir längre sträckor att transportera sig vart man än ska. Klimatet är självfallet en märkbar skillnad det också. När jag kom till Wollongong den 14:e juli var det mitt i vintern men temperaturen varierade mellan 18-25 grader från första dagen. I Wollongong blir det aldrig riktigt hett som det kan bli längre in i landet och längre norrut. Under sommaren kan det bli upp till 35 grader men kan nästa dag vara 25 igen och det blåser även ganska mycket eftersom det ligger precis vid kusten.
 
@@ -89,6 +89,6 @@ När man är på utbytestermin vill man självfallet hinna uppleva så mycket so
 Min termin började redan i mitten av juli och slutade därför i mitten av november. Det innebar att jag hade två månader mellan min sista tenta och terminsstart på KTH igen. Den tiden utnyttjade jag till max. Jag började med att resa längs östkusten från Cairns till Brisbane med en kompis från Kooloobong. Från Brisbane flög vi sedan till Nya Zeeland där vi bilade runt med fem andra kompisar från Kooloobong. Vi var både svenskar, britter och en norsk. Jag firade jul i Melbourne (även där med kompisar från Kooloobong) och avslutade med tre veckor i Sydney-området så som Bondi, Coogee, Palm beach, Hunter valley och Manly. Det har varit ett helt fantastiskt halvår fyllt av nya vänskaper, upplevelser och erfarenheter och jag rekommenderar verkligen alla som får chansen att söka en utbytestermin att ta den.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/anna-stolpe-australien-surf.jpg" class="rese-mid">
-    <img src="../../media/reseberattelser/anna-stolpe-australien-boomerang.jpg" class="rese-mid">
+    <img src="../../media/reseberattelser/anna-stolpe-australien-surf.webp" class="rese-mid">
+    <img src="../../media/reseberattelser/anna-stolpe-australien-boomerang.webp" class="rese-mid">
 </div>

@@ -11,7 +11,7 @@ Jag tyckte att det var svårt att ha klara förväntningar på landet och univer
 Vi behövde inte skaffa visum innan vi åkte, men lade dock mycket tid och pengar åt att vaccinera oss mot hepatit, rabies, gula febern, tyfoidfeber, malaria och kolera. Jag kollade upp lite fraser på Setswana, men tyvärr finns det inte så mycket resurser för det språket att tillgå. Innan vi åkte försökte vi också fördjupa oss så mycket vi kunde i projektet och tidigare forskning, så att vi inte skulle behöva ägna så mycket tid i Botswana åt att läsa litteratur.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/edith-jacobson-botswana001.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/edith-jacobson-botswana001.webp" class="rese-mid">  
 </div>
 
 ## Ankomst
@@ -29,7 +29,7 @@ Transport var en stor utgift. Man behöver bil för att ta sig runt i staden, oc
 Direkt när vi fick reda på att vi kunde göra projektet i samarbete med Botho University erbjöd de oss att få hyra en lägenhet på campus. Lägenheten var en trea med kök, balkong och två badrum som vi betalade P5000 (ungefär 4000 SEK) för per månad, det vill säga P2500 per person. Eftersom campuset var inhägnat med vakter promenerade vi ofta ute på campusområdet när det hade blivit svalare på kvällen. Ett tidsfördriv blev att spela schack på deras jättestora schackbräde, och hade vi haft ett intresse i sport hade vi säkert fått spela på deras fotbolls-, volleyboll- och basketplaner. Det fanns även ett nyöppnat köpcenter precis bredvid campus där vi handlade mat.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/edith-jacobson-botswana002.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/edith-jacobson-botswana002.webp" class="rese-mid">  
 </div>
 
 ## Projektet
@@ -37,7 +37,7 @@ Direkt när vi fick reda på att vi kunde göra projektet i samarbete med Botho 
 Vi analyserade kurser där studenterna från olika länder och universitet samarbetade med varandra online. Vi gjorde det genom att observera en Challenge Driven Education-kurs på Botho som hette "Innovation for Sustainable Development", samt genom att intervjua lärare, amanuenser och studenter som arbetade med, eller hade arbetat med, CDE-kurser i Sverige, Botswana och Kenya. Vi fick också möjlighet att besöka en närliggande by som kursen samarbetade med.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/edith-jacobson-botswana005.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/edith-jacobson-botswana005.webp" class="rese-mid">  
 </div>
 
 ## Staden och landet
@@ -53,9 +53,9 @@ På fritiden försökte vi se så mycket vilt djurliv som möjligt. Vi fick se a
 Vi med en amanuens på ISD-kursen Eftersom de stora naturreservaten finns i norra delen av landet, och universitetet i södra delen, tog vi en nattbuss dit. Då passade vi även på att åka till Zimbabwe och Zambia för att uppleva Victoriafallen. Den resan var en av de absolut häftigaste sakerna jag har gjort i mitt liv.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/edith-jacobson-botswana008.jpg" class="rese-mid">  
-    <img src="../../media/reseberattelser/edith-jacobson-botswana009.jpg" class="rese-mid">  
-    <img src="../../media/reseberattelser/edith-jacobson-botswana011.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/edith-jacobson-botswana008.webp" class="rese-mid">  
+    <img src="../../media/reseberattelser/edith-jacobson-botswana009.webp" class="rese-mid">  
+    <img src="../../media/reseberattelser/edith-jacobson-botswana011.webp" class="rese-mid">  
 </div>
 
 ## Hållbarhet
@@ -65,7 +65,7 @@ Eftersom Botswana ligger i Afrika kände vi oss låsta i att ta flyget dit. Vi �
 Botho University arbetar aktivt för att vara hållbara. När vi var där kom 40% av deras el från deras egna solceller och de arbetade med att reducera användningen av vatten och plast. De arbetade också mycket med social hållbarhet genom att bland annat dela ut böcker till skolor och stödja en närliggande by.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/edith-jacobson-botswana017.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/edith-jacobson-botswana017.webp" class="rese-mid">  
 </div>
 
 ## Rekommendationer och övriga reflektioner
