@@ -13,7 +13,7 @@ const firestore = getFirestore(app);
 import { useAuth } from "@/context/AuthContext";
 import { revalidate } from "@/utils/server";
 
-import bg from "@/media/img/KTHcover.jpg";
+import bg from "@/media/img/KTHcover.webp";
 
 import feed from "@/styles/feed-preview.module.css";
 import styles from "@/styles/personalrummet.module.css";

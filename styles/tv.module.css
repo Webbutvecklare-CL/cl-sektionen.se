@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--clr2);
-	background-image: url(../public/media/grafik/CL_logo_sketch_black.png);
+	background-image: url(../public/media/grafik/CL_logo_sketch_black.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 }

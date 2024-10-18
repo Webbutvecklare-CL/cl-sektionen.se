@@ -1,6 +1,6 @@
 # Astrid Häggström – USA
 
-<img src="../../media/reseberattelser/astrid-häggström.jpg" class="rese-top">
+<img src="../../media/reseberattelser/astrid-häggström.webp" class="rese-top">
 
 Universitet: Iowa State University  
 Termin: HT 2018  

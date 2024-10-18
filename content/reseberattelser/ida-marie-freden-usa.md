@@ -1,6 +1,6 @@
 # Ida-Marie Fredén- USA
 
-<img src="../../media/reseberattelser/ida-marie-freden-iowa.jpg" class="rese-top">
+<img src="../../media/reseberattelser/ida-marie-freden-iowa.webp" class="rese-top">
 
 Universitet: Iowa State University  
 Termin: HT 2018  
@@ -32,7 +32,7 @@ Universitetet är större än KTH och är främst inriktade på Jordbruk, teknik
 
 Ett av våra klassrum
 
-<img src="../../media/reseberattelser/ida-marie-freden-klassrum.jpg" style="">
+<img src="../../media/reseberattelser/ida-marie-freden-klassrum.webp" style="">
 
 ## Kurser
 
@@ -49,7 +49,7 @@ Det fanns fantastiska gym på skolan som man fick använda där det fanns planer
 Utelivet tyckte jag var fantastiskt. Egentligen alla studenter som gick ut gick samma ”runda” när man gick ut, mer eller mindre, där det fanns egentligen en ”klubb” man slutade på vilket var väldigt kul. Väldigt billig biljard fanns också, så det utnyttjade vi 4 gånger i veckan.
 
 <div style="">
-<img src="../../media/reseberattelser/ida-marie-freden-fotboll.jpg" style="width:150px; height: 200px; float:right;">
+<img src="../../media/reseberattelser/ida-marie-freden-fotboll.webp" style="width:150px; height: 200px; float:right;">
 <p style="min-width: 300px;overflow-wrap: break-word;">
 Cirka varannan lördag var det fotbollsmatch (Amerikansk fotboll) där de dagarna började med Tail gate. Tail Gate går egentligen ut på att man träffas några timmar innan matchen börjar på området utanför arenan och äter mat (kött, ost, pannkakor eller kakor typ) och dricker, och det är inte bara för studenter utan det är minst lika många barnfamiljer och sådant. Och sen var det match i ungefär 4 timmar, och sen gick folk ut. Så det var väldigt roliga event som engagerade hela staden.
 </p>
@@ -61,8 +61,8 @@ Cirka varannan lördag var det fotbollsmatch (Amerikansk fotboll) där de dagarn
 Äter corn dog, en korv friterad i majssmet. För att Iowa är Iowa... Men väldigt gott!
 Grottutforskning i Iowa. Verkligen coola!
 
-<img src="../../media/reseberattelser/ida-marie-freden-corndogs.jpg" style="margin-right: 10%;">
-<img src="../../media/reseberattelser/ida-marie-freden-gråtta.jpg" style="">
+<img src="../../media/reseberattelser/ida-marie-freden-corndogs.webp" style="margin-right: 10%;">
+<img src="../../media/reseberattelser/ida-marie-freden-gråtta.webp" style="">
 
 ## Rekommendationer och övriga reflektioner
 

@@ -17,8 +17,8 @@ hämtade upp oss på flygplatsen vid ankomst och stöttade oss under hela vår t
 trodde att det skulle behövas. Tack och lov kunde det göras direkt till universitetet och det gick därför ganska fort att reda ut så att vi kunde komma igång.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/veronica-vilbern-botswana001.jpg" class="rese-mid">
-    <img src="../../media/reseberattelser/veronica-vilbern-botswana002.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/veronica-vilbern-botswana001.webp" class="rese-mid">
+    <img src="../../media/reseberattelser/veronica-vilbern-botswana002.webp" class="rese-mid">  
 </div>
 
 ## Ekonomi
@@ -56,9 +56,9 @@ var också ute på en flodsafari bara 20 minuter från campus. Gabs är fullt av
 Vi passade också på att resa upp till Chobe nationalpark nära Kasane i norra Botswana. Det var en otroligt häftig upplevelse att åka ut på safari i nationalparken och vi hade tur nog att få se hela ”big five” under vår tid i Botswana (+ halva ”little five”). Kasane ligger dessutom precis vid gränsen till Zimbabwe och vi passade på att besöka Victoriafallen vilket var helt magiskt.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/veronica-vilbern-botswana003.jpg" class="rese-mid">
-    <img src="../../media/reseberattelser/veronica-vilbern-botswana004.jpg" class="rese-mid">  
-    <img src="../../media/reseberattelser/veronica-vilbern-botswana005.jpg" class="rese-mid">  
+    <img src="../../media/reseberattelser/veronica-vilbern-botswana003.webp" class="rese-mid">
+    <img src="../../media/reseberattelser/veronica-vilbern-botswana004.webp" class="rese-mid">  
+    <img src="../../media/reseberattelser/veronica-vilbern-botswana005.webp" class="rese-mid">  
 </div>
 
 ## Hållbarhet
@@ -68,8 +68,8 @@ Vi hade inga andra rimliga vägar till Botswana än genom att flyga, och väl p�
 Det fanns inget system för att exempelvis sortera upp sopor. Universitetet vi bodde på arbetade aktivt med sin egen hållbarhet och hade fyllt varje tak med solceller (vilka stod för ca 40% av universitetets elförbrukning). De hade också installerat vattenbesparande kranar och hade egen vattenrening för att minska mängden plastflaskor på campus.
 
 <div class="rese-img-container">
-    <img src="../../media/reseberattelser/veronica-vilbern-botswana006.jpg" class="rese-mid">
-    <img src="../../media/reseberattelser/veronica-vilbern-botswana007.jpg" class="rese-mid">   
+    <img src="../../media/reseberattelser/veronica-vilbern-botswana006.webp" class="rese-mid">
+    <img src="../../media/reseberattelser/veronica-vilbern-botswana007.webp" class="rese-mid">   
 </div>
 
 ## Rekommendationer och övriga reflektioner

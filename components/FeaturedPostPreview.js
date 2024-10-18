@@ -1,4 +1,4 @@
-import bg from "@/media/img/KTHcover.jpg";
+import bg from "@/media/img/KTHcover.webp";
 import { convertDate } from "@/utils/convertDate";
 import parse from "html-react-parser";
 import Image from "next/image";
