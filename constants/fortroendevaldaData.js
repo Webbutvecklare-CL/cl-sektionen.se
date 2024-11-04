@@ -242,7 +242,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Ettans representant",
-				name: "Vakant",
+				name: "Sara Pirkhidran",
 				mail: "",
 				year: "CL24",
 			},
