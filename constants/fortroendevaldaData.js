@@ -123,7 +123,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Vice ordförande tillika studerandeskyddsombud",
-				name: "Jakob Malik",
+				name: "Emma Nergell",
 				mail: "skyddsombud@cl-sektionen.se",
 				year: "CL23",
 			},
@@ -242,7 +242,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Ettans representant",
-				name: "Vakant",
+				name: "Sara Pirkhidran",
 				mail: "",
 				year: "CL24",
 			},
