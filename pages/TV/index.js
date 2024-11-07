@@ -13,8 +13,11 @@ import {
 const firestore = getFirestore(app);
 
 import Slideshow from "@/components/TV/Slideshow";
+import Reseinfo from "@/components/TV/Reseinfo";
 
 import KTH_Winter from "@/media/TV/kth-vinter.webp";
+import KTH_Summer from "@/media/TV/kth-sommar.webp";
+import KTH_Natt from "@/media/TV/kth-natt.webp";
 
 import styles from "@/styles/tv.module.css";
 
@@ -46,9 +49,10 @@ export default function TV() {
 		<div id={styles.tvContent}>
 			<Slideshow
 				images={listOfImages}
-				default_image={ KTH_Winter}
+				default_image={ KTH_Natt}
 				speed={1000 * 10}
 			/>
+			<Reseinfo />
 		</div>
 	);
 }
