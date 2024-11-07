@@ -12,14 +12,9 @@ import {
 } from "firebase/firestore";
 const firestore = getFirestore(app);
 
-import ReseInfo from "@/components/TV/ReseInfo";
 import Slideshow from "@/components/TV/Slideshow";
 
-import KTH_Night from "@/media/TV/kth-natt.webp";
-import KTH_Summer from "@/media/TV/kth-sommar.webp";
 import KTH_Winter from "@/media/TV/kth-vinter.webp";
-
-import { getIsNight } from "@/utils/tv";
 
 import styles from "@/styles/tv.module.css";
 
@@ -27,7 +22,6 @@ export default function TV() {
 	const router = useRouter();
 
 	const [listOfImages, setListOfImages] = useState([]);
-	const [isNight, setIsNight] = useState(getIsNight());
 
 	// Hämtar alla bild länkar.
 	useEffect(() => {
@@ -46,26 +40,15 @@ export default function TV() {
 		return () => unsubscribe();
 	}, []);
 
-	useEffect(() => {
-		// Uppdaterar natt/dag varje timme
-		const id = setInterval(
-			async () => {
-				//Kollar om det är kväll eller dag
-				setIsNight(getIsNight());
-			},
-			1000 * 60 * 60,
-		);
-		return () => clearInterval(id); // Tar bort interval när sidan lämnas
-	}, []);
+	
 
 	return (
 		<div id={styles.tvContent}>
 			<Slideshow
 				images={listOfImages}
-				default_image={isNight ? KTH_Night : KTH_Summer}
+				default_image={ KTH_Winter}
 				speed={1000 * 10}
 			/>
-			<ReseInfo api_key={router.query.key} />
 		</div>
 	);
 }

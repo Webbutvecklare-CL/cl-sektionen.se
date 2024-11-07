@@ -23,14 +23,7 @@ async function getAllImages() {
 	});
 }
 
-function getIsNight() {
-	// Kollar om klockan är mellan 17-08
-	const now = new Date().getHours();
-	if (now > 17 || now < 8) {
-		return true;
-	}
-	return false;
-}
+
 
 function getGr8anOpen() {
 	// Kollar om klockan är mellan 03-06 (Gråttans öppettider)
@@ -71,4 +64,4 @@ function areArraysEqualSets(a1, a2) {
 	return true;
 }
 
-export { getAllImages, getIsNight, areArraysEqualSets, getGr8anOpen };
+export { getAllImages, areArraysEqualSets, getGr8anOpen };
