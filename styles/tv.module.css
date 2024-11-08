@@ -1,17 +1,22 @@
+/* Hela sidan*/
+
 #tvContent {
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start;
 	background-color: var(--clr2);
 	background-image: url(../public/media/grafik/CL_logo_sketch_black.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
+/* Bilden*/
+
 .slideshow {
 	overflow: hidden;
 	height: 100vh;
 	margin: auto;
-	width: 100%;
+	width: 75%; /*Måste matcha .travelColumn*/
 }
 
 .slideshow img {
@@ -25,4 +30,61 @@
 	object-fit: contain;
 	border: none;
 	outline: none;
+}
+
+/* Kolumn för SL-data*/
+
+.travelColumn {
+	width: 25%; /*Måste matcha .slideshow*/
+	padding-inline-start: 1rem;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: #12151a;
+}
+
+.travelColumn h1,
+.travelColumn h2,
+.travelColumn table {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: white;
+	margin: 0%;
+}
+
+.travelColumn h1 {
+	text-align: center;
+	margin-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.travelGroup {
+	margin-bottom: 1rem;
+}
+
+.titleGroup {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: left;
+	gap: 0.5rem;
+}
+
+.travelTable {
+	width: 100%;
+	font-size: 1.25rem;
+	border-collapse: collapse;
+	padding: 0%;
+}
+
+.travelTableHeader {
+	text-align: left;
+}
+.travelTableLine {
+	width: 20%;
+}
+.travelTableDestination {
+	width: 60%;
+}
+.travelTableTime {
+	width: 20%;
 }
