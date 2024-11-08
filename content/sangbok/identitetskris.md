@@ -20,6 +20,7 @@ Vi skriver vårt CV, och klurar på vad det
 Innebär att vara ingenjör  
 Vår löneutveckling, säg värnar vi om den?  
 Då lärare vi inte välja bör  
+
 Men sommarlovet hägrar och de liv som vi berör  
 som lärare i klassen ger oss alltid gott humör  
 
@@ -29,6 +30,7 @@ Här sitter vi lärda, med dubbel kompetens
 Så klurigt att förmedla på en gång  
 Ett tvådelat exjobb, så mångdimensionellt  
 Vår lista på intressen är så lång  
+
 Vårt öde ligger öppet i en framtid som är ljus  
 Så många sätt att göra rätt nu när vi ger oss ut  
 
