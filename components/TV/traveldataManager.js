@@ -14,11 +14,9 @@ function fetchSLData() {
 		fetchData();
 	}, []);
 
-	const metroList = [];
-	const roslagsList = [];
-	const busList = [];
+	const trips = slData.departures;
 
-	return [metroList, roslagsList, busList];
+	return trips;
 }
 
 export { fetchSLData };
