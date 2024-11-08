@@ -35,9 +35,13 @@
 /* Kolumn för SL-data*/
 
 .travelColumn {
-	width: 25%; /*Måste matcha .slideshow*/
-	padding-inline-start: 1rem;
+	overflow: hidden;
 	height: 100vh;
+	margin: auto;
+
+	width: 25%; /*Måste matcha .slideshow*/
+	padding-left: 1rem;
+	padding-right: 1rem;
 	display: flex;
 	flex-direction: column;
 	background-color: #12151a;
@@ -67,6 +71,7 @@
 	align-items: center;
 	justify-content: left;
 	gap: 0.5rem;
+	margin-bottom: 5px;
 }
 
 .travelTable {
@@ -74,6 +79,11 @@
 	font-size: 1.25rem;
 	border-collapse: collapse;
 	padding: 0%;
+}
+
+.travelTable th {
+	background-color: var(--clr1);
+	padding: 2px;
 }
 
 .travelTableHeader {
