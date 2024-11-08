@@ -97,7 +97,7 @@ export default function Slideshow({ images, default_image, speed = 8000 }) {
 		return (
 			<div className={styles.slideshow}>
 				{default_image && (
-					<Image src={default_image} alt="Standard bakgrund!" />
+					<Image src={default_image} alt="Standard bakgrund!" priority={true} />
 				)}
 			</div>
 		);

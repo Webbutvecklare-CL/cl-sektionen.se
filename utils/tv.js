@@ -23,8 +23,6 @@ async function getAllImages() {
 	});
 }
 
-
-
 function getGr8anOpen() {
 	// Kollar om klockan är mellan 03-06 (Gråttans öppettider)
 	const now = new Date().getHours();

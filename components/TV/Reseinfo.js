@@ -1,18 +1,10 @@
 import styles from "@/styles/tv.module.css";
 
 import TravelGroup from "./TravelGroup";
+import { fetchSLData } from "./traveldataManager";
 
-export async function getServerSideProps() {
-	const res = await fetch(
-		"https://transport.integration.sl.se/v1/sites/9204/departures",
-	);
-	console.log("res", res);
-	const dataSL = await res.json();
-
-	return { props: { dataSL } };
-}
-
-export default function Reseinfo({ dataSL }) {
+export default function Reseinfo() {
+	console.log(fetchSLData());
 	const fakeInfo = [
 		{
 			name: "Tunnelbana",
@@ -55,7 +47,6 @@ export default function Reseinfo({ dataSL }) {
 			{fakeInfo.map((item) => (
 				<TravelGroup key={item.name} {...item} />
 			))}
-			<p>{dataSL}</p>
 		</div>
 	);
 }

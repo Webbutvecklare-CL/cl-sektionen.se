@@ -10,18 +10,20 @@ export default function TravelGroup({ name, icon, data }) {
 				<h2>{name}</h2>
 			</div>
 			<table className={styles.travelTable}>
-				<tr className={styles.travelTableHeader}>
-					<th className={styles.travelTableLine}>Linje</th>
-					<th className={styles.travelTableDestination}>Destination</th>
-					<th className={styles.travelTableTime}>Tid</th>
-				</tr>
-				{data.map((item, index) => (
-					<tr key={index}>
-						<td>{item.line}</td>
-						<td>{item.destination}</td>
-						<td>{item.time}</td>
+				<tbody>
+					<tr className={styles.travelTableHeader}>
+						<th className={styles.travelTableLine}>Linje</th>
+						<th className={styles.travelTableDestination}>Destination</th>
+						<th className={styles.travelTableTime}>Tid</th>
 					</tr>
-				))}
+					{data.map((item, index) => (
+						<tr key={index}>
+							<td>{item.line}</td>
+							<td>{item.destination}</td>
+							<td>{item.time}</td>
+						</tr>
+					))}
+				</tbody>
 			</table>
 		</div>
 	);
