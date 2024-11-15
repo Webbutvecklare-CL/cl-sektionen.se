@@ -41,6 +41,7 @@ dagtid ändrar bara färger*/
 .travelColumn {
 	height: 100vh;
 	overflow: hidden;
+	margin: auto;
 	width: 25%; /*Måste matcha .slideshow*/
 	display: flex;
 	flex-direction: column;
@@ -57,6 +58,7 @@ dagtid ändrar bara färger*/
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	color: white;
 	margin: 0;
+	padding: 0;
 }
 
 .dayTravelColumn h1,
@@ -69,6 +71,7 @@ dagtid ändrar bara färger*/
 	text-align: center;
 	margin-top: 1rem;
 	padding-bottom: 1rem;
+	font-size: 2.2rem;
 }
 
 .travelGroup {

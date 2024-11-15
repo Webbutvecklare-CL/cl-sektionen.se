@@ -33,44 +33,35 @@ async function makeTravelInfo() {
 		roslagsList = roslagsList.slice(0, 6);
 		busList = busList.slice(0, 8);
 
-		metroList.forEach((trip) => {
-			metroDataList.push({
-				line: trip.line.designation,
-				destination: trip.destination,
-				time: trip.display,
+		// Convert from lists to displayable objects
+		function listToDataList(list, dataList) {
+			list.forEach((trip) => {
+				dataList.push({
+					line: trip.line.designation,
+					destination: trip.destination,
+					time: trip.display,
+				});
 			});
-		});
+		}
 
-		roslagsList.forEach((trip) => {
-			roslagsDataList.push({
-				line: trip.line.designation,
-				destination: trip.destination,
-				time: trip.display,
-			});
-		});
-
-		busList.forEach((trip) => {
-			busDataList.push({
-				line: trip.line.designation,
-				destination: trip.destination,
-				time: trip.display,
-			});
-		});
+		listToDataList(metroList, metroDataList);
+		listToDataList(roslagsList, roslagsDataList);
+		listToDataList(busList, busDataList);
 	}
 
 	return [
 		{
-			name: "Tunnelbana",
+			name: "Tunnelbanan",
 			icon: "tunnelbana",
 			data: metroDataList,
 		},
 		{
-			name: "Roslagsbana",
+			name: "Roslagsbanan",
 			icon: "roslagsbana",
 			data: roslagsDataList,
 		},
 		{
-			name: "Buss",
+			name: "Bussar",
 			icon: "buss",
 			data: busDataList,
 		},
@@ -92,6 +83,7 @@ export default function Reseinfo() {
 		return () => clearInterval(intervalId);
 	}, []);
 
+	// auto update if it is daylight
 	const [isDay, setDay] = useState(true);
 
 	useEffect(() => {

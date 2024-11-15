@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import { getSunTime } from "@/pages/api/tvDayTimeAPI";
+
 import { app } from "@/firebase/clientApp";
 import {
 	Timestamp,
@@ -43,12 +45,23 @@ export default function TV() {
 		return () => unsubscribe();
 	}, []);
 
+	// auto update if it is daylight
+	const [isDay, setDay] = useState(true);
+
+	useEffect(() => {
+		const updateDayStatus = async () => {
+			setDay(await getSunTime());
+		};
+
+		const intervalId = setInterval(updateDayStatus, 60_000);
+		return () => clearInterval(intervalId);
+	}, []);
+
 	return (
 		<div id={styles.tvContent}>
 			<Slideshow
 				images={listOfImages}
-				default_image={KTH_Natt}
-				speed={1000 * 10}
+				default_image={isDay ? KTH_Winter : KTH_Natt}
 			/>
 			<Reseinfo />
 		</div>
