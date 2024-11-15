@@ -52,7 +52,7 @@
 .travelColumn table {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	color: white;
-	margin: 0%;
+	margin: 0;
 }
 
 .travelColumn h1 {
@@ -78,7 +78,7 @@
 	width: 100%;
 	font-size: 1.25rem;
 	border-collapse: collapse;
-	padding: 0%;
+	padding: 0;
 }
 
 .travelTable th {

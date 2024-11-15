@@ -1,14 +1,16 @@
 import styles from "@/styles/tv.module.css";
+import { useEffect, useState } from "react";
 
 import TravelGroup from "./TravelGroup";
-import { fetchSLData } from "./traveldataManager";
 
-function makeTravelInfo() {
+import { getData } from "@/pages/api/tvAPI";
+
+async function makeTravelInfo() {
 	const metroDataList = [];
 	const busDataList = [];
 	const roslagsDataList = [];
 
-	const trips = fetchSLData();
+	const trips = await getData();
 
 	if (trips) {
 		let metroList = [];
@@ -52,11 +54,9 @@ function makeTravelInfo() {
 				time: trip.display,
 			});
 		});
-
-		console.log(metroDataList);
 	}
 
-	const travelInfo = [
+	return [
 		{
 			name: "Tunnelbana",
 			icon: "tunnelbana",
@@ -73,12 +73,23 @@ function makeTravelInfo() {
 			data: busDataList,
 		},
 	];
-
-	return travelInfo;
 }
 
 export default function Reseinfo() {
-	const travelInfo = makeTravelInfo();
+	const [travelInfo, setTravelInfo] = useState([]);
+
+	useEffect(() => {
+		async function fetchTravelInfo() {
+			const data = await makeTravelInfo();
+			setTravelInfo(data);
+		}
+
+		fetchTravelInfo();
+
+		const interval = setInterval(fetchTravelInfo, 30000);
+
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
 		<div className={styles.travelColumn}>

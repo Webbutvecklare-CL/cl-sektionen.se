@@ -6,7 +6,12 @@ export default function TravelGroup({ name, icon, data }) {
 	return (
 		<div className={styles.travelGroup}>
 			<div className={styles.titleGroup}>
-				<Image src={`/media/tv/${icon}.svg`} width={32} height={32} />
+				<Image
+					src={`/media/tv/${icon}.svg`}
+					width={32}
+					height={32}
+					alt={`ikon för ${name}`}
+				/>
 				<h2>{name}</h2>
 			</div>
 			<table className={styles.travelTable}>
