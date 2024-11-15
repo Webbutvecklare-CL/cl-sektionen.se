@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import styles from "@/styles/tv.module.css";
 
-export default function TravelGroup({ name, icon, data }) {
+export default function TravelGroup({ isDay, name, icon, data }) {
 	return (
 		<div className={styles.travelGroup}>
 			<div className={styles.titleGroup}>
@@ -22,7 +22,12 @@ export default function TravelGroup({ name, icon, data }) {
 						<th className={styles.travelTableTime}>Tid</th>
 					</tr>
 					{data.map((item, index) => (
-						<tr key={index}>
+						<tr
+							key={index}
+							className={`${index % 2 === 1 ? styles.oddRow : ""} ${
+								isDay && index % 2 === 1 ? styles.oddRowDay : ""
+							}`}
+						>
 							<td>{item.line}</td>
 							<td>{item.destination}</td>
 							<td>{item.time}</td>

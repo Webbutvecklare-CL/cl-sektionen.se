@@ -32,19 +32,23 @@
 	outline: none;
 }
 
-/* Kolumn för SL-data*/
+/* Kolumn för SL-data
+
+Stil för dagtid ligger under respektive del
+standard är natt-tid som alltid applicerar,
+dagtid ändrar bara färger*/
 
 .travelColumn {
-	overflow: hidden;
 	height: 100vh;
-	margin: auto;
-
+	overflow: hidden;
 	width: 25%; /*Måste matcha .slideshow*/
-	padding-left: 1rem;
-	padding-right: 1rem;
 	display: flex;
 	flex-direction: column;
-	background-color: #12151a;
+	background-color: black;
+}
+
+.dayTravelColumn {
+	background-color: white;
 }
 
 .travelColumn h1,
@@ -53,6 +57,12 @@
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	color: white;
 	margin: 0;
+}
+
+.dayTravelColumn h1,
+.dayTravelColumn h2,
+.dayTravelColumn table {
+	color: black;
 }
 
 .travelColumn h1 {
@@ -71,6 +81,7 @@
 	align-items: center;
 	justify-content: left;
 	gap: 0.5rem;
+	padding-left: 0.5rem;
 	margin-bottom: 5px;
 }
 
@@ -78,11 +89,15 @@
 	width: 100%;
 	font-size: 1.25rem;
 	border-collapse: collapse;
-	padding: 0;
 }
 
 .travelTable th {
 	background-color: var(--clr1);
+}
+
+.travelTable th,
+.travelTable td {
+	padding: 4px 4px 4px 0.5rem;
 }
 
 .travelTableHeader {
@@ -96,4 +111,12 @@
 }
 .travelTableTime {
 	width: 25%;
+}
+
+.oddRow {
+	background-color: #222;
+}
+
+.oddRowDay {
+	background-color: #bbb;
 }

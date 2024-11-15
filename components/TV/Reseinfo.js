@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 
 import TravelGroup from "./TravelGroup";
 
-import { getData } from "@/pages/api/tvAPI";
+import { getSunTime } from "@/pages/api/tvDayTimeAPI";
+import { getSLdata } from "@/pages/api/tvSLdataAPI";
 
 async function makeTravelInfo() {
 	const metroDataList = [];
 	const busDataList = [];
 	const roslagsDataList = [];
 
-	const trips = await getData();
+	const trips = await getSLdata();
 
 	if (trips) {
 		let metroList = [];
@@ -27,9 +28,10 @@ async function makeTravelInfo() {
 			}
 		});
 
-		metroList = metroList.slice(0, 5);
-		roslagsList = roslagsList.slice(0, 5);
-		busList = busList.slice(0, 5);
+		// Number of trips to show per mode
+		metroList = metroList.slice(0, 6);
+		roslagsList = roslagsList.slice(0, 6);
+		busList = busList.slice(0, 8);
 
 		metroList.forEach((trip) => {
 			metroDataList.push({
@@ -76,26 +78,38 @@ async function makeTravelInfo() {
 }
 
 export default function Reseinfo() {
+	// auto update travel info
 	const [travelInfo, setTravelInfo] = useState([]);
 
 	useEffect(() => {
-		async function fetchTravelInfo() {
+		async function fetchAndSetTravelInfo() {
 			const data = await makeTravelInfo();
 			setTravelInfo(data);
 		}
 
-		fetchTravelInfo();
+		fetchAndSetTravelInfo();
+		const intervalId = setInterval(fetchAndSetTravelInfo, 30_000);
+		return () => clearInterval(intervalId);
+	}, []);
 
-		const interval = setInterval(fetchTravelInfo, 30000);
+	const [isDay, setDay] = useState(true);
 
-		return () => clearInterval(interval);
+	useEffect(() => {
+		const updateDayStatus = async () => {
+			setDay(await getSunTime());
+		};
+
+		const intervalId = setInterval(updateDayStatus, 1_000);
+		return () => clearInterval(intervalId);
 	}, []);
 
 	return (
-		<div className={styles.travelColumn}>
+		<div
+			className={`${styles.travelColumn} ${isDay ? styles.dayTravelColumn : ""}`}
+		>
 			<h1>Reseinfo</h1>
 			{travelInfo.map((item) => (
-				<TravelGroup key={item.name} {...item} />
+				<TravelGroup key={item.name} isDay={isDay} {...item} />
 			))}
 		</div>
 	);
