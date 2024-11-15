@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import { getSunTime } from "@/pages/api/tvDayTimeAPI";
+
 import { app } from "@/firebase/clientApp";
 import {
 	Timestamp,
@@ -12,14 +14,12 @@ import {
 } from "firebase/firestore";
 const firestore = getFirestore(app);
 
-import ReseInfo from "@/components/TV/ReseInfo";
+import Reseinfo from "@/components/TV/Reseinfo";
 import Slideshow from "@/components/TV/Slideshow";
 
-import KTH_Night from "@/media/TV/kth-natt.webp";
+import KTH_Natt from "@/media/TV/kth-natt.webp";
 import KTH_Summer from "@/media/TV/kth-sommar.webp";
 import KTH_Winter from "@/media/TV/kth-vinter.webp";
-
-import { getIsNight } from "@/utils/tv";
 
 import styles from "@/styles/tv.module.css";
 
@@ -27,7 +27,6 @@ export default function TV() {
 	const router = useRouter();
 
 	const [listOfImages, setListOfImages] = useState([]);
-	const [isNight, setIsNight] = useState(getIsNight());
 
 	// Hämtar alla bild länkar.
 	useEffect(() => {
@@ -46,26 +45,25 @@ export default function TV() {
 		return () => unsubscribe();
 	}, []);
 
+	// auto update if it is daylight
+	const [isDay, setDay] = useState(true);
+
 	useEffect(() => {
-		// Uppdaterar natt/dag varje timme
-		const id = setInterval(
-			async () => {
-				//Kollar om det är kväll eller dag
-				setIsNight(getIsNight());
-			},
-			1000 * 60 * 60,
-		);
-		return () => clearInterval(id); // Tar bort interval när sidan lämnas
+		const updateDayStatus = async () => {
+			setDay(await getSunTime());
+		};
+
+		const intervalId = setInterval(updateDayStatus, 60_000);
+		return () => clearInterval(intervalId);
 	}, []);
 
 	return (
 		<div id={styles.tvContent}>
 			<Slideshow
 				images={listOfImages}
-				default_image={isNight ? KTH_Night : KTH_Summer}
-				speed={1000 * 10}
+				default_image={isDay ? KTH_Winter : KTH_Natt}
 			/>
-			<ReseInfo api_key={router.query.key} />
+			<Reseinfo />
 		</div>
 	);
 }
