@@ -53,7 +53,7 @@ export default function TV() {
 			setDay(await getSunTime());
 		};
 
-		const intervalId = setInterval(updateDayStatus, 60_000);
+		const intervalId = setInterval(updateDayStatus, 1_000);
 		return () => clearInterval(intervalId);
 	}, []);
 

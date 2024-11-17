@@ -1,4 +1,4 @@
-import Image from "next/image";
+import TravelIcon from "@/components/TV/TravelIcon";
 
 import styles from "@/styles/tv.module.css";
 
@@ -6,12 +6,7 @@ export default function TravelGroup({ isDay, name, icon, data }) {
 	return (
 		<div className={styles.travelGroup}>
 			<div className={styles.titleGroup}>
-				<Image
-					src={`/media/tv/${icon}.svg`}
-					width={32}
-					height={32}
-					alt={`ikon för ${name}`}
-				/>
+				<TravelIcon icon={icon} />
 				<h2>{name}</h2>
 			</div>
 			<table className={styles.travelTable}>
