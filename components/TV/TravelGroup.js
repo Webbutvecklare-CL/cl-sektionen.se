@@ -1,12 +1,20 @@
-import TravelIcon from "@/components/TV/TravelIcon";
-
 import styles from "@/styles/tv.module.css";
 
+import Image from "next/image";
+
+const iconMap = {
+	tunnelbana: "/media/tv/tunnelbana.svg",
+	roslagsbana: "/media/tv/roslagsbana.svg",
+	buss: "/media/tv/buss.svg",
+};
+
 export default function TravelGroup({ isDay, name, icon, data }) {
+	const srcImage = iconMap[icon] || null;
+
 	return (
 		<div className={styles.travelGroup}>
 			<div className={styles.titleGroup}>
-				<TravelIcon icon={icon} />
+				<Image src={srcImage} width={32} height={32} alt={`ikon för ${icon}`} />
 				<h2>{name}</h2>
 			</div>
 			<table className={styles.travelTable}>
