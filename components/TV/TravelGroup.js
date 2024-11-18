@@ -2,9 +2,9 @@ import styles from "@/styles/tv.module.css";
 
 import Image from "next/image";
 
-import bussIcon from "@/media/tv/buss.svg";
-import roslagsbanaIcon from "@/media/tv/roslagsbana.svg";
-import tunnelbanaIcon from "@/media/tv/tunnelbana.svg";
+import bussIcon from "@/media/TV/buss.svg";
+import roslagsbanaIcon from "@/media/TV/roslagsbana.svg";
+import tunnelbanaIcon from "@/media/TV/tunnelbana.svg";
 
 const iconMap = {
 	tunnelbana: tunnelbanaIcon,
