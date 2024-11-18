@@ -68,13 +68,13 @@ export default function Bilder() {
 						<h2>Tredje veckan v.35</h2>
 						<div className={styles.cardList}>
 							<Card link={"https://photos.app.goo.gl/C6r1ztDa14P5YEos5"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Onsdag, 2024-08-28
+								<FontAwesomeIcon icon={faImage} /> Nollepubrundan
 							</Card>
 							<Card link={"https://photos.app.goo.gl/iDpbNADtEu29JkWd8"} newTab>
-								<FontAwesomeIcon icon={faImage} /> Fredag, 2024-08-30
+								<FontAwesomeIcon icon={faImage} /> Adeptgasquen
 							</Card>
 						</div>
-						<h2>Knäppisuppdrag</h2>
+						<h2>Knäppisuppdrag och tackgasquen</h2>
 						<div className={styles.cardList}>
 							<Card link={"https://photos.app.goo.gl/yqpQAJvKyzmbd5E26"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Black Pearl
@@ -87,6 +87,9 @@ export default function Bilder() {
 							</Card>
 							<Card link={"https://photos.app.goo.gl/xc1R36p39ccNPrqK8"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Jolly Roger
+							</Card>
+							<Card link={"https://photos.app.goo.gl/m72fUbT39xcbkmf5A"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Tackgasquen
 							</Card>
 						</div>
 					</div>

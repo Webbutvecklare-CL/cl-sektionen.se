@@ -99,10 +99,6 @@ FIREBASE_SERVICE_ACCOUNT=
 
 # Väljs fritt för att verifiera att revalidation request är från en betrodd källa
 NEXT_PUBLIC_REVALIDATE_TOKEN=
-# Kommer från SL - går att få en egen gratis
-SL_API_KEY=
-# En random nyckel som används av TV:n för att inte spamma sönder vår api route
-CL_API_KEY=
 # Länk till sektionskalendern kalender id för att publicera automatiskt
 NEXT_PUBLIC_CL_CALENDAR=
 

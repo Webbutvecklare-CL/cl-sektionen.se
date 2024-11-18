@@ -31,7 +31,7 @@ spriten spruta, spriten spru-u-u-u-utar.
 Gasquen var sen länge stängd  
 jag supit bort varenda peng  
 och vill nu bara hem till min egen säng  
-Jag vanda hem genom en natt  
+Jag vandra hem genom en natt  
 kall och trött jag såg en katt  
 den satt där utanför på min gata  
 Katten lutar, katten lutar,  

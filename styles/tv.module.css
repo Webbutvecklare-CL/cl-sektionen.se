@@ -1,17 +1,22 @@
+/* Hela sidan*/
+
 #tvContent {
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start;
 	background-color: var(--clr2);
 	background-image: url(../public/media/grafik/CL_logo_sketch_black.webp);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
+/* Bilden*/
+
 .slideshow {
 	overflow: hidden;
 	height: 100vh;
 	margin: auto;
-	width: 100%;
+	width: 75%; /*Måste matcha .travelColumn*/
 }
 
 .slideshow img {
@@ -27,108 +32,94 @@
 	outline: none;
 }
 
-/* Reseinfo */
-.reseinfo {
-	width: 18vw;
+/* Kolumn för SL-data
+
+Stil för dagtid ligger under respektive del
+standard är natt-tid som alltid applicerar,
+dagtid ändrar bara färger*/
+
+.travelColumn {
 	height: 100vh;
-	background-color: var(--clgra);
-	font-size: 1.6rem;
-	color: white;
 	overflow: hidden;
-}
-
-.reseinfo h2 {
-	color: var(--clr2);
-	margin-top: 0.5rem;
-	margin-left: 1rem;
-}
-
-.reseinfo p {
-	color: white;
-}
-
-.departure {
+	margin: auto;
+	width: 25%; /*Måste matcha .slideshow*/
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-align: center;
-
-	width: 100%;
-	margin-bottom: 0.2rem;
-	min-height: 2.5rem;
-	padding: 0 1.5rem 0 1rem;
-
-	box-sizing: border-box;
+	flex-direction: column;
+	background-color: black;
 }
 
-.departure:nth-child(odd) {
-	background-color: #363636;
+.dayTravelColumn {
+	background-color: white;
 }
 
-.destination {
-	overflow-wrap: break-word;
-}
-
-.messages {
-	width: 18rem;
-	margin-top: 1.3rem;
-}
-
-.messages p {
-	font-size: 1.5rem;
+.travelColumn h1,
+.travelColumn h2,
+.travelColumn table {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: white;
+	margin: 0;
 	padding: 0;
-	margin-bottom: 0;
-	margin-left: 1rem;
 }
 
-/* För skrollande error text */
-.scrollContainer {
-	width: min-content;
-	white-space: nowrap;
-	height: 2rem;
-	overflow: hidden;
+.dayTravelColumn h1,
+.dayTravelColumn h2,
+.dayTravelColumn table {
+	color: black;
 }
 
-.scrollContainer {
-	/* animation properties */
-	-moz-transform: translateX(100%);
-	-webkit-transform: translateX(100%);
-	transform: translateX(100%);
-
-	-moz-animation: my-animation 15s linear infinite;
-	-webkit-animation: my-animation 15s linear infinite;
-	animation: my-animation 15s linear infinite;
+.travelColumn h1 {
+	text-align: center;
+	margin-top: 1rem;
+	padding-bottom: 1rem;
+	font-size: 2.2rem;
 }
 
-/* for Firefox */
-@-moz-keyframes my-animation {
-	from {
-		-moz-transform: translateX(100%);
-	}
-	to {
-		-moz-transform: translateX(-100%);
-	}
+.travelGroup {
+	margin-bottom: 1rem;
 }
 
-/* for Chrome */
-@-webkit-keyframes my-animation {
-	from {
-		-webkit-transform: translateX(100%);
-	}
-	to {
-		-webkit-transform: translateX(-100%);
-	}
+.titleGroup {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: left;
+	gap: 0.5rem;
+	padding-left: 0.5rem;
+	margin-bottom: 5px;
 }
 
-@keyframes my-animation {
-	from {
-		-moz-transform: translateX(100%);
-		-webkit-transform: translateX(100%);
-		transform: translateX(100%);
-	}
-	to {
-		-moz-transform: translateX(-100%);
-		-webkit-transform: translateX(-100%);
-		transform: translateX(-100%);
-	}
+.travelTable {
+	width: 100%;
+	font-size: 1.25rem;
+	border-collapse: collapse;
+}
+
+.travelTable th {
+	background-color: var(--clr1);
+}
+
+.travelTable th,
+.travelTable td {
+	padding: 4px 4px 4px 0.5rem;
+}
+
+.travelTableHeader {
+	text-align: left;
+}
+.travelTableLine {
+	width: 20%;
+}
+.travelTableDestination {
+	width: 55%;
+}
+.travelTableTime {
+	width: 25%;
+}
+
+.oddRow {
+	background-color: #222;
+}
+
+.oddRowDay {
+	background-color: #bbb;
 }
