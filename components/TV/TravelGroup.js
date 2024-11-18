@@ -2,10 +2,14 @@ import styles from "@/styles/tv.module.css";
 
 import Image from "next/image";
 
+import bussIcon from "@/media/tv/buss.svg";
+import roslagsbanaIcon from "@/media/tv/roslagsbana.svg";
+import tunnelbanaIcon from "@/media/tv/tunnelbana.svg";
+
 const iconMap = {
-	tunnelbana: "/media/tv/tunnelbana.svg",
-	roslagsbana: "/media/tv/roslagsbana.svg",
-	buss: "/media/tv/buss.svg",
+	tunnelbana: tunnelbanaIcon,
+	roslagsbana: roslagsbanaIcon,
+	buss: bussIcon,
 };
 
 export default function TravelGroup({ isDay, name, icon, data }) {
