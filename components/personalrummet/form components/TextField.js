@@ -30,6 +30,7 @@ export default function TextField({ fieldRef, defaultValue }) {
 			fieldRef.current = editor.getHTML().toString();
 		},
 		content: defaultValue,
+		immediatelyRender: false,
 	});
 
 	return (

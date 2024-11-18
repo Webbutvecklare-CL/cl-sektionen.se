@@ -23,15 +23,15 @@ export async function revalidate(user, pages) {
 					);
 				});
 			} else {
-				console.warn("Revalidation unsuccessful", res.statusText);
+				console.error("Revalidation failed:", res.status, res.statusText);
 				res.json().then((data) => {
-					console.error(data.message);
+					console.error("Revalidation error data:", data);
 				});
 				throw new Error("Revalidation unsuccessful");
 			}
 		})
 		.catch((error) => {
-			console.error(error);
+			console.error("Revalidation fetch error:", error);
 			throw new Error("Revalidation fetch unsuccessful");
 		});
 }
