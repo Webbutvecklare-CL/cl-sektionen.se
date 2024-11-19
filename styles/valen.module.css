@@ -52,12 +52,28 @@
 	text-decoration: none;
 }
 
+.cardTitleContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 .cardTitle {
 	font-size: 16px;
 	font-weight: bold;
+	color: black;
 	margin: 0;
 }
 
-.cardIcon {
-	margin-right: 10px;
+.cardName {
+	display: block;
+	color: black;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hashtag {
+	font-weight: bold;
 }

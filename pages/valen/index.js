@@ -16,10 +16,11 @@ export default function ValensAventyr() {
 			/>
 			<div id="contentbody">
 				<h1 id="page-title">Valens äventyr</h1>
+				<p>Här kan du hitta de äventyr som SM-valen varit med om.</p>
 				<p>
-					Här kan du hitta de äventyr som SM-valen varit med om. Sidan skapades
-					hösten 2024, så många berättelser saknas! Om du har några äldre
-					äventyr, eller om du precis gjort det, så skicka in på{" "}
+					Sidan skapades hösten 2024, så många berättelser saknas! Om du har
+					några äventyr med valen förut, eller om du precis gjort det, så skicka
+					in på{" "}
 					<Link
 						href="https://forms.gle/V8QaTnjUxZFmRuZZ8"
 						target="_blank"
@@ -27,7 +28,18 @@ export default function ValensAventyr() {
 					>
 						länken här
 					</Link>
-					!
+					! Många äldre äventyr kan du hitta på Instagram med{" "}
+					<Link
+						className={styles.hashtag}
+						href={
+							"https://www.instagram.com/explore/search/keyword/?q=%23valens%C3%A4ventyr"
+						}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						#valensaventyr
+					</Link>
+					.
 				</p>
 				{renderGroups()}
 			</div>
@@ -45,11 +57,18 @@ function renderGroups() {
 					<h2 className={styles.yearTitle}>{year}</h2>
 					<div className={styles.cardGrid}>
 						{valensAventyrData[year].map((item) => (
-							<Link key={item.sm} href={item.link} className={styles.cardLink}>
+							<Link
+								key={year + item.sm}
+								href={item.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								className={styles.cardLink}
+							>
 								<div className={styles.cardTitleContainer}>
-									<p className={styles.cardTitle}>
-										SM#{item.sm} - {item.person}
-									</p>
+									<span className={styles.cardTitle}>SM#{item.sm}</span>
+									{item.person && (
+										<span className={styles.cardName}>{item.person}</span>
+									)}
 									{!item.link && (
 										<span className={styles.cardNoLink}>(Saknas)</span>
 									)}
