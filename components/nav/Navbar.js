@@ -29,6 +29,7 @@ const MENU_LIST = [
 			{ text: "Info & Event", href: "/aktuellt" },
 			{ text: "Kalender", href: "/kalender" },
 			{ text: "Mottagning", href: "/mottagning" },
+			{ text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
 		],
 	},
 	{
@@ -38,8 +39,7 @@ const MENU_LIST = [
 			{ text: "Förtroendevalda", href: "/fortroendevalda" },
 			{ text: "Engagera dig", href: "/engagera-dig" },
 			{ text: "Hedersutmärkelser", href: "/hedersutmarkelser" },
-			{ text: "CL-shop", href: "/cl-shop" },
-			{ text: "Hjälp vid illabehandling", href: "/hjalp-vid-illabehandling" },
+			{ text: "Valens äventyr", href: "/valen" },
 		],
 	},
 	{
@@ -56,9 +56,9 @@ const MENU_LIST = [
 		text: "Resurser",
 		submenu: [
 			{ text: "Sångbok", href: "/sangbok" },
+			{ text: "CL-shop", href: "/cl-shop" },
 			{ text: "Dokument", href: "/dokument" },
 			{ text: "Ordboken", href: "/ordbok" },
-			// { text: "Bildarkiv", href: "/bildarkiv" },
 		],
 	},
 	{
