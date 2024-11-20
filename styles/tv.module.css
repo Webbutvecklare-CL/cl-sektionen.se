@@ -69,7 +69,13 @@ dagtid ändrar bara färger*/
 
 .travelColumn h1 {
 	text-align: center;
-	margin-top: 0.2rem;
+	margin-top: 0.5rem;
+	font-size: 3.5rem;
+}
+
+.travelColumn h2 {
+	text-align: center;
+	margin-top: 0.5rem;
 	font-size: 2.5rem;
 }
 
@@ -89,8 +95,9 @@ dagtid ändrar bara färger*/
 
 .travelTable {
 	width: 100%;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	border-collapse: collapse;
+	margin-bottom: 1.5rem;
 }
 
 .travelTable th {
