@@ -69,9 +69,8 @@ dagtid ändrar bara färger*/
 
 .travelColumn h1 {
 	text-align: center;
-	margin-top: 1rem;
-	padding-bottom: 1rem;
-	font-size: 2.2rem;
+	margin-top: 0.2rem;
+	font-size: 2.5rem;
 }
 
 .travelGroup {
@@ -85,12 +84,12 @@ dagtid ändrar bara färger*/
 	justify-content: left;
 	gap: 0.5rem;
 	padding-left: 0.5rem;
-	margin-bottom: 5px;
+	margin-bottom: 0.2rem;
 }
 
 .travelTable {
 	width: 100%;
-	font-size: 1.25rem;
+	font-size: 1.3rem;
 	border-collapse: collapse;
 }
 

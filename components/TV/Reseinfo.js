@@ -29,9 +29,9 @@ async function makeTravelInfo() {
 		});
 
 		// Number of trips to show per mode
-		metroList = metroList.slice(0, 6);
+		metroList = metroList.slice(0, 5);
 		roslagsList = roslagsList.slice(0, 6);
-		busList = busList.slice(0, 8);
+		busList = busList.slice(0, 6);
 
 		// Convert from lists to displayable objects
 		function listToDataList(list, dataList) {
