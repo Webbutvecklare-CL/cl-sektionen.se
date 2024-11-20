@@ -11,6 +11,11 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+/**
+ * Hämtar namnet till försäljningsansvarig med formatet "Namn (CL-år)".
+ *
+ * @returns {string} Namnet på försäljningsansvarig, eller en tom sträng om inte hittad.
+ */
 function getSalesResponsibleName() {
 	const enskildaData = fortroendevaldaList.find(
 		(item) => item.id === "enskilda",
