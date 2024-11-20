@@ -66,12 +66,7 @@ function renderGroups() {
 							>
 								<div className={styles.cardTitleContainer}>
 									<span className={styles.cardTitle}>SM#{item.sm}</span>
-									{item.person && (
-										<span className={styles.cardName}>{item.person}</span>
-									)}
-									{!item.link && (
-										<span className={styles.cardNoLink}>(Saknas)</span>
-									)}
+									<span className={styles.cardName}>{item.person}</span>
 								</div>
 							</Link>
 						))}

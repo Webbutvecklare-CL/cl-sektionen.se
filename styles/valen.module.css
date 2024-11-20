@@ -50,14 +50,6 @@
 	background-color: var(--clr2);
 }
 
-.cardNoLink {
-	color: #bbb;
-	font-size: 0.9rem;
-	font-weight: bold;
-	text-align: center;
-	text-decoration: none;
-}
-
 .cardTitleContainer {
 	display: flex;
 	justify-content: center;
