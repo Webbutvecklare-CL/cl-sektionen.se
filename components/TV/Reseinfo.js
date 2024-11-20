@@ -30,7 +30,7 @@ async function makeTravelInfo() {
 
 		// Number of trips to show per mode
 		metroList = metroList.slice(0, 5);
-		roslagsList = roslagsList.slice(0, 6);
+		roslagsList = roslagsList.slice(0, 5);
 		busList = busList.slice(0, 6);
 
 		// Convert from lists to displayable objects
