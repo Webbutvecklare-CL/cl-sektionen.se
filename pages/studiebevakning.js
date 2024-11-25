@@ -15,7 +15,14 @@ export default function Studiebevakning({ contents }) {
 				och har ofta koll på dina rättigheter eller om du behöver hjälp.
 			</p>
 
-			<p>Nuvarande Studienämnd består av {getStudienamnd()}. Du kan hitta deras kontaktuppgifter på <Link	href="fortroendevalda#studienamnden">sidan för förtroendevalda</Link>.</p>
+			<p>
+				Nuvarande Studienämnd består av {getStudienamnd()}. Du kan hitta deras
+				kontaktuppgifter på{" "}
+				<Link href="fortroendevalda#studienamnden">
+					sidan för förtroendevalda
+				</Link>
+				.
+			</p>
 			<MarkdownRender mdData={contents.influence} />
 			<MarkdownRender mdData={contents.kursnamnd} />
 			<MarkdownRender mdData={contents.akademisktintro} />
