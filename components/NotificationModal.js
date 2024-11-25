@@ -22,6 +22,7 @@ export default function NotificationModal({ show, handleClose }) {
 	const [information, setInformation] = useState(true);
 	const [event, setEvent] = useState(true);
 	const [mottagning, setMottagning] = useState(true);
+	const [mottagningAuth, setMottagningAuth] = useState(false);
 
 	const [saving, setSaving] = useState(false);
 	const [step, setStep] = useState("");
@@ -42,6 +43,23 @@ export default function NotificationModal({ show, handleClose }) {
 		} else {
 			setDeviceType("other");
 		}
+	}, []);
+
+	useEffect(() => {
+		// Check mottagning auth status
+		fetch("/api/mottagning-auth")
+			.then((res) => res.json())
+			.then((data) => {
+				setMottagningAuth(data.isLoggedIn);
+				if (!data.isLoggedIn) {
+					setMottagning(false);
+				}
+			})
+			.catch((err) => {
+				console.error("Failed to check mottagning auth:", err);
+				setMottagningAuth(false);
+				setMottagning(false);
+			});
 	}, []);
 
 	useEffect(() => {
@@ -322,10 +340,11 @@ export default function NotificationModal({ show, handleClose }) {
 							<Toggle toggled={event} onClick={setEvent}>
 								Eventinlägg {event ? "på" : "av"}
 							</Toggle>
-							<Toggle toggled={mottagning} onClick={setMottagning}>
-								Mottagningsnyheter {mottagning ? "på" : "av"}
-							</Toggle>
-
+							{mottagningAuth && (
+								<Toggle toggled={mottagning} onClick={setMottagning}>
+									Mottagningsnyheter {mottagning ? "på" : "av"}
+								</Toggle>
+							)}
 							<BellSetting />
 						</div>
 						<p>{waitingText}</p>
