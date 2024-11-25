@@ -1,0 +1,78 @@
+.gridContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	margin: 0 auto;
+}
+
+@media (max-width: 780px) {
+	.gridContainer {
+		grid-template-columns: 1fr;
+	}
+}
+
+.yearContainer {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 20px;
+}
+
+.yearTitle {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.cardGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+
+.cardLink {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background-color: var(--clr1);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	text-decoration: none;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.cardLink:hover {
+	background-color: var(--clr2);
+}
+
+.cardLink:focus {
+	outline: 2px solid black;
+	background-color: var(--clr2);
+}
+
+.cardTitleContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.cardTitle {
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: mintcream;
+	margin: 0;
+}
+
+.cardName {
+	font-size: 1rem;
+	display: block;
+	color: white;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hashtag {
+	font-weight: bold;
+}
