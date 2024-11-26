@@ -58,7 +58,9 @@
 
 @media (max-width: 780px) {
 	.itemList {
-		grid-template-columns: 1fr;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 	}
 
 	.drawerToggle {

@@ -69,13 +69,20 @@ dagtid ändrar bara färger*/
 
 .travelColumn h1 {
 	text-align: center;
-	margin-top: 1rem;
-	padding-bottom: 1rem;
-	font-size: 2.2rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	font-size: 3.8rem;
+}
+
+.travelColumn h2 {
+	text-align: center;
+	margin-top: 0.5rem;
+	font-size: 2.8rem;
 }
 
 .travelGroup {
 	margin-bottom: 1rem;
+	margin-top: 0;
 }
 
 .titleGroup {
@@ -85,13 +92,15 @@ dagtid ändrar bara färger*/
 	justify-content: left;
 	gap: 0.5rem;
 	padding-left: 0.5rem;
-	margin-bottom: 5px;
+	margin-bottom: 0.2rem;
+	margin-top: 0;
 }
 
 .travelTable {
 	width: 100%;
-	font-size: 1.25rem;
+	font-size: 2rem;
 	border-collapse: collapse;
+	margin-bottom: 1.5rem;
 }
 
 .travelTable th {
@@ -122,4 +131,13 @@ dagtid ändrar bara färger*/
 
 .oddRowDay {
 	background-color: #bbb;
+}
+
+.currentTime {
+	font-size: 2rem;
+	color: var(--clr1);
+	margin-bottom: 0.5rem;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
 }

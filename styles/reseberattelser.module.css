@@ -76,8 +76,8 @@ img.rese-mid {
 
 .card {
 	aspect-ratio: 4 / 3;
-	background-color: var(--clr1);
-	color: white !important;
+	color: var(--clr1) !important;
+	border: var(--clr1) 2px solid;
 	padding: 0.75rem;
 	border-radius: 0.5rem;
 	display: flex;
@@ -86,19 +86,20 @@ img.rese-mid {
 	justify-content: center;
 	text-align: center;
 	text-decoration: none;
-	transition: background-color 0.2s;
 	gap: 0.25rem;
 	max-width: 120px;
 	width: 100%;
 }
 
 .card:hover {
-	background-color: var(--clr2);
+	background-color: var(--clr1);
+	color: white !important;
 }
 
 .cardName {
 	font-weight: bold;
 	font-size: 1.2rem;
+	text-align: center;
 }
 
 .cardLocationContainer {
@@ -106,19 +107,21 @@ img.rese-mid {
 	flex-direction: column;
 	align-items: center;
 	gap: 0.25rem;
-	margin-top: auto;
 }
 
 .cardLocation {
+	color: black !important;
 	font-size: 0.8rem;
 }
 
+.cardEmojiContainer {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
 .cardEmoji {
-	font-size: 1.5rem;
-	line-height: 1;
-	background-color: white;
-	padding: 0.25rem;
-	border-radius: 50%;
+	border: black 1px solid;
 }
 
 @media (max-width: 700px) {
@@ -138,7 +141,6 @@ img.rese-mid {
 @media (max-width: 480px) {
 	.grid {
 		grid-template-columns: 1fr;
-		max-width: 80%;
 	}
 	.card {
 		max-width: none;
@@ -154,6 +156,9 @@ img.rese-mid {
 		margin-top: 0;
 		gap: 0.5rem;
 		align-items: center;
+	}
+	.cardName {
+		text-align: left;
 	}
 	.cardLocation {
 		font-size: 0.9rem;
@@ -180,10 +185,7 @@ img.rese-mid {
 	border-radius: 2rem;
 	background: transparent;
 	color: var(--clr1);
-	font-size: 1rem;
-	font-weight: 500;
 	cursor: pointer;
-	transition: all 0.2s ease-in-out;
 }
 
 .continentButton:hover {

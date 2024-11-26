@@ -1,5 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+import australienEmoji from "@/media/flagemojis/australien.svg";
+import botswanaEmoji from "@/media/flagemojis/botswana.svg";
+import irlandEmoji from "@/media/flagemojis/irland.svg";
+import italienEmoji from "@/media/flagemojis/italien.svg";
+import kanadaEmoji from "@/media/flagemojis/kanada.svg";
+import singaporeEmoji from "@/media/flagemojis/singapore.svg";
+import taiwanEmoji from "@/media/flagemojis/taiwan.svg";
+import tjeckienEmoji from "@/media/flagemojis/tjeckien.svg";
+import turkietEmoji from "@/media/flagemojis/turkiet.svg";
+import tysklandEmoji from "@/media/flagemojis/tyskland.svg";
+import usaEmoji from "@/media/flagemojis/usa.svg";
 
 import styles from "@/styles/reseberattelser.module.css";
 
@@ -68,7 +81,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Anton Sundberg</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>USA</span>
-								<span className={styles.cardEmoji}>🇺🇸</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={usaEmoji}
+										alt={"USA-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -78,7 +98,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Caroline Stejmar</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Kanada</span>
-								<span className={styles.cardEmoji}>🇨🇦</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={kanadaEmoji}
+										alt={"Kanada-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -88,7 +115,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Astrid Häggström</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>USA</span>
-								<span className={styles.cardEmoji}>🇺🇸</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={usaEmoji}
+										alt={"USA-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -98,7 +132,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Ida-Marie Fréden</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>USA</span>
-								<span className={styles.cardEmoji}>🇺🇸</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={usaEmoji}
+										alt={"USA-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -108,7 +149,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Sabina Permats</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>USA</span>
-								<span className={styles.cardEmoji}>🇺🇸</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={usaEmoji}
+										alt={"USA-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 					</div>
@@ -125,7 +173,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Camilla Björn</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Irland</span>
-								<span className={styles.cardEmoji}>🇮🇪</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={irlandEmoji}
+										alt={"Irland-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -135,7 +190,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Camilla Björn</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Tyskland</span>
-								<span className={styles.cardEmoji}>🇩🇪</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={tysklandEmoji}
+										alt={"Tyskland-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -145,7 +207,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Ida Fantenberg Niklasson</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Irland</span>
-								<span className={styles.cardEmoji}>🇮🇪</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={irlandEmoji}
+										alt={"Irland-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -155,7 +224,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Julia Engström</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Italien</span>
-								<span className={styles.cardEmoji}>🇮🇹</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={italienEmoji}
+										alt={"Italien-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -165,7 +241,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Ewa Hörnlund</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Tjeckien</span>
-								<span className={styles.cardEmoji}>🇨🇿</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={tjeckienEmoji}
+										alt={"Tjeckien-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -175,7 +258,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Philip Gullberg</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Tjeckien</span>
-								<span className={styles.cardEmoji}>🇨🇿</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={tjeckienEmoji}
+										alt={"Tjeckien-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 					</div>
@@ -192,7 +282,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>William Friefeldt</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Taiwan</span>
-								<span className={styles.cardEmoji}>🇹🇼</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={taiwanEmoji}
+										alt={"Taiwan-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -202,7 +299,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Furkan Kocak</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Turkiet</span>
-								<span className={styles.cardEmoji}>🇹🇷</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={turkietEmoji}
+										alt={"Turkiet-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -212,7 +316,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Albin Westlin</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Singapore</span>
-								<span className={styles.cardEmoji}>🇸🇬</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={singaporeEmoji}
+										alt={"Singapore-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 					</div>
@@ -229,7 +340,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Anna Stolpe</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Australien</span>
-								<span className={styles.cardEmoji}>🇦🇺</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={australienEmoji}
+										alt={"Australien-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -239,7 +357,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Emelie Selinder</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Australien</span>
-								<span className={styles.cardEmoji}>🇦🇺</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={australienEmoji}
+										alt={"Australien-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 					</div>
@@ -256,7 +381,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Veronica Vilbern</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Botswana</span>
-								<span className={styles.cardEmoji}>🇧🇼</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={botswanaEmoji}
+										alt={"Botswana-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 						<Link
@@ -266,7 +398,14 @@ export default function Reseberattelser() {
 							<span className={styles.cardName}>Edith Jacobson</span>
 							<div className={styles.cardLocationContainer}>
 								<span className={styles.cardLocation}>Botswana</span>
-								<span className={styles.cardEmoji}>🇧🇼</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={botswanaEmoji}
+										alt={"Botswana-emoji"}
+										height={16}
+									/>
+								</div>
 							</div>
 						</Link>
 					</div>

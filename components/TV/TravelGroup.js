@@ -22,12 +22,14 @@ export default function TravelGroup({ isDay, name, icon, data }) {
 				<h2>{name}</h2>
 			</div>
 			<table className={styles.travelTable}>
-				<tbody>
+				<thead>
 					<tr className={styles.travelTableHeader}>
 						<th className={styles.travelTableLine}>Linje</th>
 						<th className={styles.travelTableDestination}>Destination</th>
 						<th className={styles.travelTableTime}>Tid</th>
 					</tr>
+				</thead>
+				<tbody>
 					{data.map((item, index) => (
 						<tr
 							key={index}

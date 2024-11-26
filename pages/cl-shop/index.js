@@ -23,7 +23,7 @@ function getSalesResponsibleName() {
 	const salesResponsible = enskildaData?.people.find((person) =>
 		person.role.startsWith("Försälj"),
 	);
-	return `${salesResponsible?.name} (${salesResponsible?.year})` || "";
+	return `${salesResponsible?.name} (${salesResponsible?.year})`;
 }
 
 export default function CL_shop() {
@@ -83,7 +83,9 @@ export default function CL_shop() {
 						/>
 					</button>
 					<div
-						className={`${styles.drawerContent} ${isDrawerOpen.shopping ? styles.open : styles.closed}`}
+						className={`${styles.drawerContent} ${
+							isDrawerOpen.shopping ? styles.open : styles.closed
+						}`}
 					>
 						<ul className={styles.itemList}>
 							{shoppingData.items.map((item) => (
@@ -106,7 +108,9 @@ export default function CL_shop() {
 						/>
 					</button>
 					<div
-						className={`${styles.drawerContent} ${isDrawerOpen.patches ? styles.open : styles.closed}`}
+						className={`${styles.drawerContent} ${
+							isDrawerOpen.patches ? styles.open : styles.closed
+						}`}
 					>
 						<ul className={styles.itemList}>
 							{patchData.items.map((item) => (

@@ -29,9 +29,9 @@ async function makeTravelInfo() {
 		});
 
 		// Number of trips to show per mode
-		metroList = metroList.slice(0, 6);
-		roslagsList = roslagsList.slice(0, 6);
-		busList = busList.slice(0, 8);
+		metroList = metroList.slice(0, 5);
+		roslagsList = roslagsList.slice(0, 5);
+		busList = busList.slice(0, 6);
 
 		// Convert from lists to displayable objects
 		function listToDataList(list, dataList) {
@@ -95,11 +95,37 @@ export default function Reseinfo() {
 		return () => clearInterval(intervalId);
 	}, []);
 
+	// get current time
+
+	const [currentTime, setCurrentTime] = useState(
+		new Intl.DateTimeFormat("sv-SE", {
+			hour: "numeric",
+			minute: "numeric",
+			second: "numeric",
+		}).format(new Date()),
+	);
+
+	useEffect(() => {
+		const updateTime = async () => {
+			setCurrentTime(
+				new Intl.DateTimeFormat("sv-SE", {
+					hour: "numeric",
+					minute: "numeric",
+					second: "numeric",
+				}).format(new Date()),
+			);
+		};
+
+		const intervalId = setInterval(updateTime, 1_000);
+		return () => clearInterval(intervalId);
+	}, []);
+
 	return (
 		<div
 			className={`${styles.travelColumn} ${isDay ? styles.dayTravelColumn : ""}`}
 		>
 			<h1>Reseinfo</h1>
+			<span className={styles.currentTime}>{currentTime}</span>
 			{travelInfo.map((item) => (
 				<TravelGroup key={item.name} isDay={isDay} {...item} />
 			))}
