@@ -35,6 +35,8 @@ import {
 	faFilter,
 	faPen,
 	faTags,
+	faList,
+	faGrip,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -54,6 +56,21 @@ export default function Aktuellt({ postList }) {
 	});
 
 	const [sortNewestFirst, setSortNewestFirst] = useState(true);
+	const [isGridLayout, setIsGridLayout] = useState(false);
+
+	// Load layout preference from localStorage on mount
+	useEffect(() => {
+		const savedLayout = localStorage.getItem('aktuelltLayout');
+		if (savedLayout) {
+			setIsGridLayout(savedLayout === 'grid');
+		}
+	}, []);
+
+	// Save layout preference to localStorage
+	useEffect(() => {
+		localStorage.setItem('aktuelltLayout', isGridLayout ? 'grid' : 'list');
+	}, [isGridLayout]);
+
 	const toggleSort = () => {
 		setSortNewestFirst(!sortNewestFirst);
 		postList.reverse();
@@ -430,6 +447,14 @@ export default function Aktuellt({ postList }) {
 							>
 								<FontAwesomeIcon icon={faEllipsis} />
 							</button>
+							<button
+								type="button"
+								className={styles.layoutToggle}
+								onClick={() => setIsGridLayout(!isGridLayout)}
+								title={isGridLayout ? "Visa som lista" : "Visa som rutnät"}
+							>
+								<FontAwesomeIcon icon={isGridLayout ? faList : faGrip} />
+							</button>
 						</div>
 
 						<section
@@ -454,64 +479,63 @@ export default function Aktuellt({ postList }) {
 					</div>
 
 					{/* Alla inlägg */}
-					<section className={styles.posts}>
-						<div className={feed.long}>
-							<FeedPreview
-								goBack={true}
-								posts={postList
-									.filter((post) => {
-										return (
-											(publisher === "" || post.committee === publisher) &&
-											(search === "" ||
-												post.title
-													.toLowerCase()
-													.includes(search.toLowerCase())) &&
-											type[post.type]
-										);
-									})
-									.filter((post) => {
-										//Om alla filters är avstända eller påslagna, returnera allt
-										if (Object.keys(filterTags).every((k) => filterTags[k])) {
-											return true;
-										}
-										if (Object.keys(filterTags).every((k) => !filterTags[k])) {
-											return true;
-										}
-										return post.tags.some((tag) => filterTags[tag]);
-									})
-									.filter((post) => {
-										let res = true;
-										const publishDate = new Date(
-											post.publishDate.seconds * 1000,
-										);
+					<div className={isGridLayout ? styles.postGrid : styles.posts}>
+						<FeedPreview
+							posts={postList
+								.filter((post) => {
+									return (
+										(publisher === "" || post.committee === publisher) &&
+										(search === "" ||
+											post.title
+												.toLowerCase()
+												.includes(search.toLowerCase())) &&
+										type[post.type]
+									);
+								})
+								.filter((post) => {
+									//Om alla filters är avstända eller påslagna, returnera allt
+									if (Object.keys(filterTags).every((k) => filterTags[k])) {
+										return true;
+									}
+									if (Object.keys(filterTags).every((k) => !filterTags[k])) {
+										return true;
+									}
+									return post.tags.some((tag) => filterTags[tag]);
+								})
+								.filter((post) => {
+									let res = true;
+									const publishDate = new Date(
+										post.publishDate.seconds * 1000,
+									);
 
-										if (endDate && publishDate > endDate) {
-											res = false;
-										}
-										if (startDate && publishDate < startDate) {
-											res = false;
-										}
-										return res;
-									})
-									.slice(0, currentpage * itemsperpage)}
-							/>
-						</div>
-						<button
-							type="button"
-							className={`${styles.loadMore} ${
-								currentpage * itemsperpage >= postList.length && styles.nope
-							}`}
-							onClick={
-								currentpage * itemsperpage < postList.length
-									? () => setcurrentPage(currentpage + 1)
-									: () => {}
-							}
-						>
-							{currentpage * itemsperpage < postList.length
-								? "Ladda fler inlägg"
-								: "Inga fler inlägg att hämta"}
-						</button>
-					</section>
+									if (endDate && publishDate > endDate) {
+										res = false;
+									}
+									if (startDate && publishDate < startDate) {
+										res = false;
+									}
+									return res;
+								})
+								.slice(0, currentpage * itemsperpage)}
+							goBack={true}
+							isGridLayout={isGridLayout}
+						/>
+					</div>
+					<button
+						type="button"
+						className={`${styles.loadMore} ${
+							currentpage * itemsperpage >= postList.length && styles.nope
+						}`}
+						onClick={
+							currentpage * itemsperpage < postList.length
+								? () => setcurrentPage(currentpage + 1)
+								: () => {}
+						}
+					>
+						{currentpage * itemsperpage < postList.length
+							? "Ladda fler inlägg"
+							: "Inga fler inlägg att hämta"}
+					</button>
 				</div>
 			</div>
 		</div>

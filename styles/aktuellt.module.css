@@ -104,3 +104,92 @@ button.tag {
 	font-size: 0.9rem;
 	color: var(--clr5);
 }
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+
+.searchContainer input {
+  min-width: 200px;
+  flex: 1;
+}
+
+.layoutToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  color: var(--clr1);
+  flex-shrink: 0;
+}
+
+.layoutToggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .postGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .postGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .searchContainer {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .searchContainer input {
+    width: calc(100% - 48px);
+    min-width: auto;
+  }
+}
+
+.postGridItem {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.44);
+  display: flex;
+  flex-direction: column;
+}
+
+.postGridItem .head {
+  margin-bottom: 0.5rem;
+}
+
+.postGridItem .imageContainer {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+}
+
+.postGridItem .imageContainer img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+}
