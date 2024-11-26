@@ -1,27 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef, useState, useCallback } from "react";
 import NavItem from "@/components/nav/NavItem";
-
 import NavSubItem from "@/components/nav/NavSubItem";
 import NavLogo from "@/media/grafik/CL-Logo_Nav_White.webp";
-
 import styles from "@/styles/nav.module.css";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-//Att lägga till nya sidor:
-// 1. Se till att skapa sidan (se guide)
-
-// 2a. skapa ett nytt objekt i listan på formatet:
-//      {text: "<sidans namn>"", href: "/<sid dokumentets namn (länk)>"}
-
-// 2b. skapa dropdown meny genom att lägga till en tredje 'property' och kalla den för 'submenu'
-//     definiera den som en lista [] och dropdown item på samma format som 2a.
-
-//Notera att dropdowns i dropdowns inte stödjs
 const MENU_LIST = [
 	{
 		text: "Aktuellt",
@@ -70,227 +57,157 @@ const MENU_LIST = [
 	},
 ];
 
-//förord: läs på egen risk --Armin
 export default function Navbar() {
-	const [activeIdx, setActiveIdx] = useState(-1); //för att markera aktiv menytab
-	const [activeSubIdx, setActiveSubIdx] = useState(-1); // för att markera aktiv submenu
-	const [navBurgerOpen, setNavBurgerOpen] = useState(false); //för att öppna och stänga hamburgarmeny
-	const [scrolled, setScrolled] = useState(false);
+	const [activeIdx, setActiveIdx] = useState(-1);
+	const [activeSubIdx, setActiveSubIdx] = useState(-1);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [currentPageTitle, setCurrentPageTitle] = useState("");
+	const [activeMainSection, setActiveMainSection] = useState(null);
+	const [expandedItems, setExpandedItems] = useState(new Set());
+	const [isMobile, setIsMobile] = useState(false);
+	const navRef = useRef(null);
 	const router = useRouter();
 
-	const [currentPageTitle, setCurrentPageTitle] = useState("");
-
 	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth <= 768);
+		};
+		
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		
+		return () => window.removeEventListener('resize', checkMobile);
+	}, []);
+
+	const handleClickOutside = useCallback((event) => {
+		if (navRef.current && !navRef.current.contains(event.target)) {
+			setIsMenuOpen(false);
+			setActiveIdx(-1);
+			setActiveSubIdx(-1);
+		}
+	}, []);
+
+	const updateCurrentPage = useCallback(() => {
 		const path = router.asPath.split("#")[0];
 		if (path === "/") {
 			setCurrentPageTitle("");
+			setActiveMainSection(null);
 			return;
 		}
 
 		for (const menu of MENU_LIST) {
-			for (const sub of menu.submenu) {
-				if (sub.href === path) {
-					setCurrentPageTitle(sub.text);
-					break;
-				}
+			const subItem = menu.submenu?.find((sub) => sub.href === path);
+			if (subItem) {
+				setCurrentPageTitle(subItem.text);
+				setActiveMainSection(menu.text);
+				break;
 			}
 		}
 	}, [router.asPath]);
 
 	useEffect(() => {
-		window.addEventListener("scroll", () => {
-			window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
-		});
-	});
-
-	useEffect(() => {
-		window.scrollY > 50 ? setScrolled(true) : setScrolled(false);
-	}, []);
-
-	const burgerToggle = () => {
-		setNavBurgerOpen(!navBurgerOpen);
-	};
-
-	//för att stänga hamburgarmenyn om man klickar utanför---------------------
-	const navbarRef = useRef();
-	const burgerMenuRef = useRef();
-	useEffect(() => {
-		const handler = (e) => {
-			// Kollar om elementet som användaren tryckte på finns i navbar eller burgerMenu
-			const pressOnNavBar = navbarRef.current.contains(e.target);
-			const pressOnBurgerMenu = burgerMenuRef.current.contains(e.target);
-
-			if (!pressOnBurgerMenu && !pressOnNavBar) {
-				setNavBurgerOpen(false);
-			}
-		};
-
-		document.addEventListener("mousedown", handler);
-		document.ontouchend = handler;
+		document.addEventListener("mousedown", handleClickOutside);
+		updateCurrentPage();
 
 		return () => {
-			document.removeEventListener("mousedown", handler);
-			document.ontouchend = null;
+			document.removeEventListener("mousedown", handleClickOutside);
 		};
-	});
-	//-------------------------------------------------------------------------
+	}, [handleClickOutside, updateCurrentPage]);
 
-	const HomeButton = () => {
-		return (
-			<div
-				onClick={() => {
-					setActiveIdx(-1);
-					setActiveSubIdx(-1);
-				}}
-				onKeyDown={() => {
-					setActiveIdx(-1);
-					setActiveSubIdx(-1);
-				}}
-			>
-				<Link href="/">
-					<Image
-						src={NavLogo}
-						width={48}
-						height={48}
-						alt="CL logo, navigation"
-						id={styles.navLogo}
-						className={styles.navItem}
-					/>
-				</Link>
-			</div>
-		);
+	const handleItemClick = (idx) => {
+		if (isMobile) {
+			setExpandedItems((prev) => {
+				const newSet = new Set(prev);
+				if (newSet.has(idx)) {
+					newSet.delete(idx);
+				} else {
+					newSet.add(idx);
+				}
+				return newSet;
+			});
+		} else {
+			setActiveIdx(idx === activeIdx ? -1 : idx);
+		}
+		setActiveSubIdx(-1);
 	};
 
-	const BurgerMenuButton = () => {
-		return (
-			<div id={styles.navBurgerMenu}>
-				<button
-					type="button"
-					onClick={burgerToggle}
-					aria-label={`${navBurgerOpen ? "Stäng" : "Öppna"} navigationsmenyn`}
-					className={`${styles.navItem} menuButton`}
-				>
-					<FontAwesomeIcon icon={navBurgerOpen ? faTimes : faBars} />
-				</button>
-			</div>
-		);
+	const handleSubItemClick = (idx) => {
+		setActiveSubIdx(idx);
+		setIsMenuOpen(false);
+		setExpandedItems(new Set());
 	};
 
-	const BurgerMenu = () => {
-		return (
-			<div ref={burgerMenuRef}>
-				{navBurgerOpen ? (
-					<div className={styles.burgerMenuList}>
-						{MENU_LIST.map((menu, idx) => (
-							<div
-								key={menu.text}
-								className={`${styles.submenuWrapper} ${
-									activeIdx === idx ? styles.active : ""
-								}`}
-							>
-								<div
-									className={styles.navItemWrapper}
-									onClick={() => {
-										activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
-										setActiveSubIdx(-1);
-									}}
-									onKeyDown={() => {
-										activeIdx === idx ? setActiveIdx(-1) : setActiveIdx(idx);
-										setActiveSubIdx(-1);
-									}}
-								>
-									<NavItem active={activeIdx === idx} {...menu} />
-								</div>
-								{menu.submenu?.map((sb, s_idx) => (
-									<div
-										key={sb.text}
-										onClick={() => {
-											if (idx === activeIdx) {
-												setActiveIdx(idx);
-												setActiveSubIdx(s_idx);
-												setNavBurgerOpen(false);
-											}
-										}}
-										onKeyDown={() => {
-											if (idx === activeIdx) {
-												setActiveIdx(idx);
-												setActiveSubIdx(s_idx);
-												setNavBurgerOpen(false);
-											}
-										}}
-									>
-										<NavSubItem
-											active={activeIdx === idx && activeSubIdx === s_idx}
-											{...sb}
-										/>
-									</div>
-								))}
-							</div>
-						))}
-					</div>
-				) : (
-					""
-				)}
-			</div>
-		);
-	};
-
-	const WideScreenMenu = () => {
-		return (
-			<div className={styles.navMenuList}>
-				{MENU_LIST.map((menu, idx) => (
-					<div key={menu.text} className={styles.submenuWrapper}>
-						<div className={styles.navItemWrapper}>
-							<NavItem active={activeIdx === idx} {...menu} />
-						</div>
-						{menu.submenu?.map((sb, s_idx) => (
-							<div
-								key={sb.text}
-								onClick={() => {
-									setActiveIdx(idx);
-									setActiveSubIdx(s_idx);
-								}}
-								onKeyDown={() => {
-									setActiveIdx(idx);
-									setActiveSubIdx(s_idx);
-								}}
-							>
-								<NavSubItem
-									active={activeIdx === idx && activeSubIdx === s_idx}
-									{...sb}
-								/>
-							</div>
-						))}
-					</div>
-				))}
-			</div>
-		);
+	const isItemExpanded = (idx) => {
+		if (isMobile) {
+			return expandedItems.has(idx);
+		}
+		return idx === activeIdx;
 	};
 
 	return (
-		<header>
-			<nav>
-				{/* Om man har scrollat på startsidan, är på en annan sida eller öppnat menyn är top nav röd */}
-				<div
-					ref={navbarRef}
-					id={styles.topNav}
-					className={
-						scrolled || router.pathname !== "/" || navBurgerOpen
-							? styles.navBarFilled
-							: ""
-					}
+		<nav
+			ref={navRef}
+			className={styles.topNav}
+			aria-label="Main navigation"
+		>
+			<div className={styles.navMain}>
+				<Link href="/" aria-label="Home">
+					<Image
+						src={NavLogo}
+						alt="CL Logo"
+						className={styles.navLogo}
+						priority
+					/>
+				</Link>
+
+				<div className={styles.currentPage}>{currentPageTitle}</div>
+
+				<button
+					type="button"
+					className={styles.menuButton}
+					onClick={() => {
+						setIsMenuOpen(!isMenuOpen);
+						setExpandedItems(new Set());
+					}}
+					aria-expanded={isMenuOpen}
+					aria-label={isMenuOpen ? "Close menu" : "Open menu"}
 				>
-					<div id={styles.navMain}>
-						<div className={styles.homeButtonWrapper}>
-							<HomeButton />
-							<div className={styles.currentPage}>{currentPageTitle}</div>
+					<FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
+				</button>
+
+				<div
+					className={`${styles.navMenuList} ${isMenuOpen ? styles.menuOpen : ""}`}
+				>
+					{MENU_LIST.map((menu, idx) => (
+						<div
+							key={menu.text}
+							className={styles.submenuWrapper}
+							onMouseEnter={() => !isMenuOpen && !isMobile && handleItemClick(idx)}
+							onMouseLeave={() => !isMenuOpen && !isMobile && setActiveIdx(-1)}
+						>
+							<NavItem
+								text={menu.text}
+								active={menu.text === activeMainSection}
+								expanded={isItemExpanded(idx)}
+								submenu={menu.submenu}
+								onClick={() => handleItemClick(idx)}
+							/>
+							{menu.submenu && isItemExpanded(idx) && (
+								<div className={styles.submenuContainer}>
+									{menu.submenu.map((subItem, subIdx) => (
+										<NavSubItem
+											key={subItem.href}
+											{...subItem}
+											active={router.asPath === subItem.href}
+											onClick={() => handleSubItemClick(subIdx)}
+										/>
+									))}
+								</div>
+							)}
 						</div>
-						<BurgerMenuButton />
-						<WideScreenMenu />
-					</div>
+					))}
 				</div>
-				<BurgerMenu />
-			</nav>
-		</header>
+			</div>
+		</nav>
 	);
 }
