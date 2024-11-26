@@ -31,12 +31,11 @@ import NotificationBell from "@/components/NotificationBell";
 import {
 	faArrowDownWideShort,
 	faCalendarDays,
-	faEllipsis,
 	faFilter,
+	faGrip,
+	faList,
 	faPen,
 	faTags,
-	faList,
-	faGrip,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -60,15 +59,15 @@ export default function Aktuellt({ postList }) {
 
 	// Load layout preference from localStorage on mount
 	useEffect(() => {
-		const savedLayout = localStorage.getItem('aktuelltLayout');
+		const savedLayout = localStorage.getItem("aktuelltLayout");
 		if (savedLayout) {
-			setIsGridLayout(savedLayout === 'grid');
+			setIsGridLayout(savedLayout === "grid");
 		}
 	}, []);
 
 	// Save layout preference to localStorage
 	useEffect(() => {
-		localStorage.setItem('aktuelltLayout', isGridLayout ? 'grid' : 'list');
+		localStorage.setItem("aktuelltLayout", isGridLayout ? "grid" : "list");
 	}, [isGridLayout]);
 
 	const toggleSort = () => {
@@ -415,46 +414,47 @@ export default function Aktuellt({ postList }) {
 						className={`${filterStyles.panelWrapper} ${filterStyles.smallPanel}`}
 						ref={panelRef}
 					>
-						<div className={`inputfält ${fokusSearchBar ? "active" : ""}`}>
-							<input
-								type="text"
-								name="searchbar"
-								className="searchbar"
-								placeholder="Sök efter inlägg..."
-								value={search}
-								onChange={(e) => {
-									setSearch(e.target.value);
-								}}
-								onBlur={async () => {
-									// När användaren lämnar sökrutan
-									const { getAnalytics } = await import(
-										"../../firebase/clientApp"
-									);
-									const analytics = await getAnalytics();
-									if (analytics) {
-										logEvent(analytics, "search", { search_term: search });
-									}
-								}}
-							/>
-							<button
-								type="button"
-								className={`${filterStyles.filterOpen} ${
-									filterPanelOpen ? filterStyles.active : ""
-								}`}
-								onClick={() => {
-									setFilterPanelOpen(!filterPanelOpen);
-								}}
-							>
-								<FontAwesomeIcon icon={faEllipsis} />
-							</button>
-							<button
-								type="button"
-								className={styles.layoutToggle}
-								onClick={() => setIsGridLayout(!isGridLayout)}
-								title={isGridLayout ? "Visa som lista" : "Visa som rutnät"}
-							>
-								<FontAwesomeIcon icon={isGridLayout ? faList : faGrip} />
-							</button>
+						<div className={styles.headerControls}>
+							<div className={styles.searchRow}>
+								<input
+									type="text"
+									name="searchbar"
+									className={styles.searchInput}
+									placeholder="Sök efter inlägg..."
+									value={search}
+									onChange={(e) => {
+										setSearch(e.target.value);
+									}}
+									onBlur={async () => {
+										const { getAnalytics } = await import(
+											"../../firebase/clientApp"
+										);
+										const analytics = await getAnalytics();
+										if (analytics) {
+											logEvent(analytics, "search", { search_term: search });
+										}
+									}}
+								/>
+								<button
+									type="button"
+									className={`${filterStyles.filterOpen} ${
+										filterPanelOpen ? filterStyles.active : ""
+									}`}
+									onClick={() => {
+										setFilterPanelOpen(!filterPanelOpen);
+									}}
+								>
+									<FontAwesomeIcon icon={faFilter} />
+								</button>
+								<button
+									type="button"
+									className={styles.layoutToggle}
+									onClick={() => setIsGridLayout(!isGridLayout)}
+									title={isGridLayout ? "Visa som lista" : "Visa som rutnät"}
+								>
+									<FontAwesomeIcon icon={isGridLayout ? faList : faGrip} />
+								</button>
+							</div>
 						</div>
 
 						<section
@@ -504,9 +504,7 @@ export default function Aktuellt({ postList }) {
 								})
 								.filter((post) => {
 									let res = true;
-									const publishDate = new Date(
-										post.publishDate.seconds * 1000,
-									);
+									const publishDate = new Date(post.publishDate.seconds * 1000);
 
 									if (endDate && publishDate > endDate) {
 										res = false;

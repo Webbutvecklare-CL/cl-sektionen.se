@@ -10,6 +10,13 @@
 	align-items: center;
 }
 
+.headerControls {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
 button.tag {
 	padding: 0.3rem !important;
 }
@@ -105,91 +112,101 @@ button.tag {
 	color: var(--clr5);
 }
 
-.searchContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: nowrap;
-  margin-bottom: 1rem;
+.searchRow {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	width: 100%;
+	margin-bottom: 1rem;
 }
 
-.searchContainer input {
-  min-width: 200px;
-  flex: 1;
+.searchInput {
+	flex: 1;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 0.3rem;
+	font-size: 1rem;
+	height: 2.5rem;
 }
 
 .layoutToggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 36px;
-  color: var(--clr1);
-  flex-shrink: 0;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 0.3rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--clr1);
+	flex-shrink: 0;
 }
 
 .layoutToggle:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+	color: white;
+	background-color: #f5f5f5;
+}
+
+.layoutToggle:focus {
+	outline: var(--clr2) auto 1px;
+	color: white;
+	background-color: var(--clr1);
 }
 
 .postGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 1rem;
-  width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+	padding: 1rem;
+	width: 100%;
 }
 
 @media screen and (max-width: 1200px) {
-  .postGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+	.postGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media screen and (max-width: 768px) {
-  .postGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+	.postGrid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
 
-  .searchContainer {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+	.searchRow {
+		flex-wrap: wrap;
+	}
 
-  .searchContainer input {
-    width: calc(100% - 48px);
-    min-width: auto;
-  }
+	.searchInput {
+		width: calc(100% - 48px);
+		min-width: auto;
+	}
 }
 
 .postGridItem {
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 0.3rem;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.44);
-  display: flex;
-  flex-direction: column;
+	background-color: #fff;
+	padding: 1rem;
+	border-radius: 0.3rem;
+	box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.44);
+	display: flex;
+	flex-direction: column;
 }
 
 .postGridItem .head {
-  margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .postGridItem .imageContainer {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 1rem;
+	width: 100%;
+	height: 200px;
+	margin-bottom: 1rem;
 }
 
 .postGridItem .imageContainer img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 0.3rem;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.3rem;
 }
