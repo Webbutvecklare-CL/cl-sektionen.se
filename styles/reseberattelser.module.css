@@ -67,25 +67,146 @@ img.rese-mid {
 	scroll-margin: 24rem;
 }
 
-.worldMap svg {
-	overflow: visible;
-	width: 125%;
-	transform: translate(-9%);
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.5rem;
+	width: 100%;
 }
 
-.worldMap g {
-	stroke: #aaa;
-	stroke-width: 15;
+.card {
+	aspect-ratio: 4 / 3;
+	background-color: var(--clr1);
+	color: white !important;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.2s;
+	gap: 0.25rem;
+	max-width: 120px;
+	width: 100%;
+}
+
+.card:hover {
+	background-color: var(--clr2);
+}
+
+.cardName {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.cardLocationContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.25rem;
+	margin-top: auto;
+}
+
+.cardLocation {
+	font-size: 0.8rem;
+}
+
+.cardEmoji {
+	font-size: 1.5rem;
+	line-height: 1;
+	background-color: white;
+	padding: 0.25rem;
+	border-radius: 50%;
+}
+
+@media (max-width: 700px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 80%;
+	}
+}
+
+@media (max-width: 600px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+		max-width: 80%;
+	}
+}
+
+@media (max-width: 480px) {
+	.grid {
+		grid-template-columns: 1fr;
+		max-width: 80%;
+	}
+	.card {
+		max-width: none;
+		aspect-ratio: auto;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0.5rem 1rem;
+		gap: 1rem;
+		font-size: 0.9rem;
+	}
+	.cardLocationContainer {
+		flex-direction: row;
+		margin-top: 0;
+		gap: 0.5rem;
+		align-items: center;
+	}
+	.cardLocation {
+		font-size: 0.9rem;
+	}
+	.cardEmoji {
+		font-size: 1.2rem;
+	}
+}
+
+.mapSelector {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+	margin: 2rem 0;
+}
+
+.continentButton {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	border: 2px solid var(--clr1);
+	border-radius: 2rem;
+	background: transparent;
+	color: var(--clr1);
+	font-size: 1rem;
+	font-weight: 500;
 	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 
-.worldMap svg path {
-	fill: #fff;
-	transition: 0.1s;
+.continentButton:hover {
+	background: var(--clr1);
+	color: white;
 }
 
-.worldMap g:hover path {
-	fill: var(--clr5);
-	transition: 0.1s;
-	stroke-width: 0;
+.continentButton.active {
+	background: var(--clr1);
+	color: white;
+}
+
+.continentEmoji {
+	font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+	.continentButton {
+		padding: 0.5rem 1rem;
+		font-size: 0.9rem;
+	}
+
+	.continentEmoji {
+		font-size: 1.1rem;
+	}
 }

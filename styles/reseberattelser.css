@@ -66,26 +66,3 @@ article.rese table td {
 #scroll-node {
 	scroll-margin: 24rem;
 }
-
-.worldmap svg {
-	overflow: visible;
-	width: 125%;
-	transform: translate(-9%);
-}
-
-.worldmap g {
-	stroke: #aaa;
-	stroke-width: 15;
-	cursor: pointer;
-}
-
-.worldmap svg path {
-	fill: #fff;
-	transition: 0.1s;
-}
-
-.worldmap g:hover path {
-	fill: var(--clr5);
-	transition: 0.1s;
-	stroke-width: 0;
-}
