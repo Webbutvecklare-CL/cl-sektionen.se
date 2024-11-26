@@ -15,7 +15,7 @@
 }
 
 .itemImage {
-	max-width: 100%;
+	max-width: 20%;
 	height: auto;
 	border-radius: 4px;
 	margin-bottom: 12px;
@@ -41,14 +41,11 @@
 }
 
 @media (max-width: 780px) {
-	.itemList {
-		grid-template-columns: 1fr;
-	}
-
 	.itemCard {
 		flex-direction: row;
 		align-items: flex-start;
 		transition: none;
+		overflow: hidden;
 	}
 
 	.itemCard:hover {
@@ -56,7 +53,7 @@
 	}
 
 	.itemImage {
-		max-width: 150px;
+		max-width: 30%;
 		margin-bottom: 0;
 		margin-right: 16px;
 	}
@@ -65,5 +62,15 @@
 	.itemDescription,
 	.itemPrice {
 		text-align: left;
+	}
+
+	.itemTitle {
+		font-size: 1.3em;
+	}
+	.itemDescription {
+		font-size: 1em;
+	}
+	.itemPrice {
+		font-size: 1.1em;
 	}
 }
