@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useRef, useState, useCallback } from "react";
 import NavItem from "@/components/nav/NavItem";
 import NavSubItem from "@/components/nav/NavSubItem";
 import NavLogo from "@/media/grafik/CL-Logo_Nav_White.webp";
 import styles from "@/styles/nav.module.css";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const MENU_LIST = [
 	{
@@ -72,11 +72,11 @@ export default function Navbar() {
 		const checkMobile = () => {
 			setIsMobile(window.innerWidth <= 768);
 		};
-		
+
 		checkMobile();
-		window.addEventListener('resize', checkMobile);
-		
-		return () => window.removeEventListener('resize', checkMobile);
+		window.addEventListener("resize", checkMobile);
+
+		return () => window.removeEventListener("resize", checkMobile);
 	}, []);
 
 	const handleClickOutside = useCallback((event) => {
@@ -145,11 +145,7 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav
-			ref={navRef}
-			className={styles.topNav}
-			aria-label="Main navigation"
-		>
+		<nav ref={navRef} className={styles.topNav} aria-label="Main navigation">
 			<div className={styles.navMain}>
 				<Link href="/" aria-label="Home">
 					<Image
@@ -182,7 +178,9 @@ export default function Navbar() {
 						<div
 							key={menu.text}
 							className={styles.submenuWrapper}
-							onMouseEnter={() => !isMenuOpen && !isMobile && handleItemClick(idx)}
+							onMouseEnter={() =>
+								!isMenuOpen && !isMobile && handleItemClick(idx)
+							}
 							onMouseLeave={() => !isMenuOpen && !isMobile && setActiveIdx(-1)}
 						>
 							<NavItem

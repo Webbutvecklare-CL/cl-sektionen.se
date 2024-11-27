@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import Link from "next/link";
-import { logEvent } from "firebase/analytics";
 import styles from "@/styles/nav.module.css";
+import { logEvent } from "firebase/analytics";
+import Link from "next/link";
+import PropTypes from "prop-types";
 
 export default function NavSubItem({ text, href, active, onClick }) {
 	const handleClick = async (e) => {

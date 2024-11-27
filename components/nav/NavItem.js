@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
+import styles from "@/styles/nav.module.css";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "@/styles/nav.module.css";
+import PropTypes from "prop-types";
 
 export default function NavItem({ text, active, expanded, submenu, onClick }) {
 	return (

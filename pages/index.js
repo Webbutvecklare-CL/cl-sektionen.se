@@ -21,6 +21,8 @@ const CalendarsWrapper = dynamic(
 	},
 );
 
+import ImageCarousel from "@/components/ImageCarousel";
+
 // För text rendering
 import MarkdownRender from "@/components/MarkdownRender";
 import { getContentData } from "@/utils/contents";
@@ -53,41 +55,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
 
 	return (
 		<div>
-			<div className={styles.indexBg}>
-				<Carousel
-					withIndicators
-					height={300}
-					loop
-					align="center"
-					classNames={{
-						root: styles.carouselRoot,
-						slide: styles.carouselSlide,
-						indicators: styles.carouselIndicators,
-					}}
-				>
-					{[
-						"andrea_pa_scen.webp",
-						"gasqueteori.webp",
-						"mot1.webp",
-						"mot2.webp",
-						"mot2024.webp",
-						"mot3.webp",
-						"mot4.webp",
-					].map((image) => (
-						<Carousel.Slide key={image}>
-							<div className={styles.carouselSlideInner}>
-								<Image
-									src={`/media/bildspel_new/${image}`}
-									fill
-									style={{ objectFit: "cover" }}
-									alt="CL-sektionen"
-									priority={true}
-								/>
-							</div>
-						</Carousel.Slide>
-					))}
-				</Carousel>
-			</div>
+			<ImageCarousel />
 			<div id="contentbody" className={`wideContent ${styles.indexContent}`}>
 				<div
 					className={`${styles.omContainer} ${

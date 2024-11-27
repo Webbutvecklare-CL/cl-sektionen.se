@@ -18,38 +18,6 @@
 	align-items: center;
 }
 
-.carouselRoot {
-	height: 100%;
-	width: 100%;
-}
-
-.carouselSlide {
-	height: 100%;
-}
-
-.carouselSlideInner {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-
-.carouselIndicators {
-	bottom: 1rem;
-	z-index: 2;
-}
-
-.carouselIndicators button {
-	width: 8px;
-	height: 8px;
-	transition: width 250ms ease;
-	background-color: rgba(255, 255, 255, 0.7);
-}
-
-.carouselIndicators button[data-active] {
-	width: 24px;
-	background-color: white;
-}
-
 .sektionsloggaVitt {
 	max-width: 1000px;
 	width: 87%;
