@@ -1,8 +1,9 @@
-import Sidhuvud_inv from "@/media/grafik/Namn_Vit.webp";
-import Sidhuvud_black from "@/media/grafik/Sidhuvud.webp";
+import { Carousel } from "@mantine/carousel";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+import Sidhuvud_black from "@/media/grafik/Sidhuvud.webp";
 
 import FeaturedPostPreview from "@/components/FeaturedPostPreview";
 // Komponenter
@@ -53,15 +54,39 @@ export default function Index({ contents, featured, infoList, eventList }) {
 	return (
 		<div>
 			<div className={styles.indexBg}>
-				<div className={styles.imageContainer}>
-					<Image
-						src={Sidhuvud_inv}
-						placeholder="blur"
-						sizes="(max-width: 500px) 400px, 1000px"
-						alt='"Sektionen för Civilingenjör & Lärare" skrivet med en fin font'
-						className={styles.sektionsloggaVitt}
-					/>
-				</div>
+				<Carousel
+					withIndicators
+					height={300}
+					loop
+					align="center"
+					classNames={{
+						root: styles.carouselRoot,
+						slide: styles.carouselSlide,
+						indicators: styles.carouselIndicators,
+					}}
+				>
+					{[
+						"andrea_pa_scen.webp",
+						"gasqueteori.webp",
+						"mot1.webp",
+						"mot2.webp",
+						"mot2024.webp",
+						"mot3.webp",
+						"mot4.webp",
+					].map((image) => (
+						<Carousel.Slide key={image}>
+							<div className={styles.carouselSlideInner}>
+								<Image
+									src={`/media/bildspel_new/${image}`}
+									fill
+									style={{ objectFit: "cover" }}
+									alt="CL-sektionen"
+									priority={true}
+								/>
+							</div>
+						</Carousel.Slide>
+					))}
+				</Carousel>
 			</div>
 			<div id="contentbody" className={`wideContent ${styles.indexContent}`}>
 				<div

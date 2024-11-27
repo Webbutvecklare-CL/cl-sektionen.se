@@ -5,18 +5,49 @@
 	overflow: hidden;
 	position: relative;
 	transform: translateX(-1%);
+	filter: brightness(120%);
 	background-image: url("../public/media/bildspel/cl15jub-wide.webp");
 	background-position: center;
 	background-position-y: 0;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	filter: brightness(120%);
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.carouselRoot {
+	height: 100%;
+	width: 100%;
+}
+
+.carouselSlide {
+	height: 100%;
+}
+
+.carouselSlideInner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.carouselIndicators {
+	bottom: 1rem;
+	z-index: 2;
+}
+
+.carouselIndicators button {
+	width: 8px;
+	height: 8px;
+	transition: width 250ms ease;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.carouselIndicators button[data-active] {
+	width: 24px;
+	background-color: white;
 }
 
 .sektionsloggaVitt {
@@ -24,10 +55,21 @@
 	width: 87%;
 	height: min-content;
 	filter: drop-shadow(5px 5px 5px #222);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
 }
 
 .imageContainer {
-	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
 }
 
 @media screen and (max-width: 550px) {
