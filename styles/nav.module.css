@@ -1,5 +1,9 @@
 .topNav {
 	position: fixed;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	top: 0;
 	width: 100%;
 	height: 3.5rem;
@@ -12,14 +16,14 @@
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	padding: 0 1rem;
+	padding: 0 0.5rem;
 	max-width: 1200px;
 	position: relative;
 }
 
 .navLogo {
-	height: 2.7rem;
-	width: 2.7rem;
+	width: 3rem;
+	height: inherit;
 	transition: transform 0.2s ease;
 	margin-right: 1rem;
 }
@@ -31,7 +35,7 @@
 .currentPage {
 	display: none;
 	color: white;
-	font-size: 1.1rem;
+	font-size: 1.3rem;
 }
 
 .menuButton {
@@ -39,14 +43,13 @@
 	background: none;
 	border: none;
 	color: white;
-	font-size: 1.5rem;
 	cursor: pointer;
 	padding: 0.5rem;
 }
 
 .navMenuList {
 	display: flex;
-	gap: 1rem;
+	gap: 0.5rem;
 	align-items: center;
 }
 
@@ -55,7 +58,7 @@
 	align-items: center;
 	gap: 0.5rem;
 	color: white;
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -126,9 +129,13 @@
 }
 
 @media (max-width: 768px) {
+	.topNav {
+		display: block;
+	}
+
 	.navMain {
 		justify-content: space-between;
-		margin: 0 1rem;
+		margin: 0 0.5rem;
 	}
 
 	.currentPage {
@@ -172,9 +179,10 @@
 
 	.submenuContainer {
 		position: static;
-		gap: 0;
+		gap: 1px;
 		min-width: unset;
 		margin: 0;
+		background-color: var(--clr1);
 	}
 
 	.navItem,
