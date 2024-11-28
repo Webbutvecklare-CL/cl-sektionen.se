@@ -15,7 +15,7 @@
 .transparent {
 	background-color: transparent;
 	backdrop-filter: blur(6px);
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.4);
 
 	@media (min-width: 768px) {
 		.navItem span {
