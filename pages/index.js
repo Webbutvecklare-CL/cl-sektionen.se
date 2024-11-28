@@ -1,8 +1,9 @@
-import Sidhuvud_inv from "@/media/grafik/Namn_Vit.webp";
-import Sidhuvud_black from "@/media/grafik/Sidhuvud.webp";
+import { Carousel } from "@mantine/carousel";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+import Sidhuvud_black from "@/media/grafik/Sidhuvud.webp";
 
 import FeaturedPostPreview from "@/components/FeaturedPostPreview";
 // Komponenter
@@ -19,6 +20,8 @@ const CalendarsWrapper = dynamic(
 		loading: () => <CalendarLoader />,
 	},
 );
+
+import ImageCarousel from "@/components/ImageCarousel";
 
 // För text rendering
 import MarkdownRender from "@/components/MarkdownRender";
@@ -52,17 +55,7 @@ export default function Index({ contents, featured, infoList, eventList }) {
 
 	return (
 		<div>
-			<div className={styles.indexBg}>
-				<div className={styles.imageContainer}>
-					<Image
-						src={Sidhuvud_inv}
-						placeholder="blur"
-						sizes="(max-width: 500px) 400px, 1000px"
-						alt='"Sektionen för Civilingenjör & Lärare" skrivet med en fin font'
-						className={styles.sektionsloggaVitt}
-					/>
-				</div>
-			</div>
+			<ImageCarousel />
 			<div id="contentbody" className={`wideContent ${styles.indexContent}`}>
 				<div
 					className={`${styles.omContainer} ${

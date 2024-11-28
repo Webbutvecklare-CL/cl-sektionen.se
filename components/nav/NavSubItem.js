@@ -1,27 +1,47 @@
-import Link from "next/link";
-
+import styles from "@/styles/nav.module.css";
 import { logEvent } from "firebase/analytics";
+import Link from "next/link";
+import PropTypes from "prop-types";
 
-import {
-	active as activeStyles,
-	submenuItem as submenuItemStyles,
-} from "@/styles/nav.module.css";
+export default function NavSubItem({ text, href, active, onClick }) {
+	const handleClick = async (e) => {
+		if (onClick) {
+			onClick(e);
+		}
 
-export default function NavSubItem({ text, href, active }) {
+		try {
+			const { getAnalytics } = await import("../../firebase/clientApp");
+			const analytics = await getAnalytics();
+			if (analytics) {
+				logEvent(analytics, "nav_click", { href });
+			}
+		} catch (error) {
+			console.error("Analytics error:", error);
+		}
+	};
+
 	return (
 		<Link
+			className={styles.submenuLink}
 			href={href}
-			className={`${submenuItemStyles} ${active ? activeStyles : ""}`}
-			onClick={async () => {
-				// När användaren klickar på en nav link
-				const { getAnalytics } = await import("../../firebase/clientApp");
-				const analytics = await getAnalytics();
-				if (analytics) {
-					logEvent(analytics, "nav_click", { href });
-				}
-			}}
+			onClick={handleClick}
+			role="menuitem"
 		>
-			<p>{text}</p>
+			<span className={`${styles.submenuItem} ${active ? styles.active : ""}`}>
+				{text}
+			</span>
 		</Link>
 	);
 }
+
+NavSubItem.propTypes = {
+	text: PropTypes.string.isRequired,
+	href: PropTypes.string.isRequired,
+	active: PropTypes.bool,
+	onClick: PropTypes.func,
+};
+
+NavSubItem.defaultProps = {
+	active: false,
+	onClick: null,
+};

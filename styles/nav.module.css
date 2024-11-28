@@ -1,189 +1,226 @@
-#topNav {
+.topNav {
 	position: fixed;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	top: 0;
 	width: 100%;
 	height: 3.5rem;
-	-webkit-backdrop-filter: blur(4px);
-	backdrop-filter: blur(4px);
-	overflow: visible;
-	transition: 0.2s ease-in-out;
-	z-index: 10000000; /*fixar så att nav alltid är längst upp*/
-}
-
-.burgerMenuList,
-.burgerMenuList p,
-#topNav *,
-.burgerMenuList a {
-	color: white !important;
-	text-decoration: none !important;
-}
-
-/* Gör topnav röd när menyn är ute på mobil  eller man skrollat ner*/
-.navBarFilled {
-	transition: 0.2s ease-in-out;
+	z-index: 1000;
 	background-color: var(--clr2);
-	backdrop-filter: none;
-	box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease;
 }
 
-.topNav.active {
-	transition: none !important;
+.transparent {
+	background-color: transparent;
+	backdrop-filter: blur(6px);
+	background-color: rgba(0, 0, 0, 0.4);
+
+	@media (min-width: 768px) {
+		.navItem span {
+			--text-blur-color: rgba(33, 33, 33, 0.5);
+			filter: drop-shadow(-1px -1px 1px var(--text-blur-color))
+				drop-shadow(1px -1px 1px var(--text-blur-color))
+				drop-shadow(-1px 1px 1px var(--text-blur-color))
+				drop-shadow(1px 1px 1px var(--text-blur-color));
+		}
+	}
 }
 
-#navMain {
-	overflow: inherit;
+.navMain {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
+	height: 100%;
+	padding: 0 0.5rem;
+	max-width: 1200px;
+	position: relative;
 }
 
-#topNav button {
-	background-color: inherit !important;
-}
-
-.navMenuList {
-	display: flex;
-}
-
-#navLogo {
+.navLogo {
 	width: 3rem;
-	padding: 0.25rem 1rem 0.25rem 1rem;
 	height: inherit;
+	transition: transform 0.2s ease;
+	margin-right: 1rem;
 }
 
-.navItemWrapper {
-	overflow: hidden;
-	height: auto;
-}
-
-.navItem {
-	float: left;
-	text-align: center;
-	padding: 0.9rem 1.2rem;
-	font-size: 1.3rem;
-	cursor: pointer;
-}
-
-.submenuItem {
-	display: none !important;
-	text-align: center;
-	padding: 0.5rem 0.25rem;
-	border-bottom: solid 1px var(--clr1);
-	background-color: var(--clr2);
-}
-
-/* För att subitems ska linewrapa  */
-.submenuItem p {
-	margin: 0 auto;
-	padding: 0;
-	font-size: unset;
-	max-width: 8rem;
-}
-
-.navMenuList .submenuWrapper:hover .submenuItem {
-	display: block !important;
-}
-
-.burgerMenuList .navItem:hover,
-.navMenuList .submenuWrapper:hover,
-.submenuItem:hover,
-.navItem:hover {
-	background-color: var(--clr3);
-	transition: 0.2s;
-}
-
-.submenuItem:hover {
-	transform: scale(1.05);
-}
-
-.navItem.active,
-.submenuItem.active {
-	background-color: var(--clr4) !important;
-}
-
-.navItem svg {
-	font-size: 1.1rem;
-	transition: 0.5s;
-	transform: rotate(0deg);
-}
-
-.burgerMenuList .submenuWrapper.active .navItem svg,
-.navMenuList .submenuWrapper:hover .navItem svg {
-	transform: rotate(180deg);
-}
-
-#navBurgerMenu {
-	display: none;
-	font-size: 1.5rem;
-}
-
-#navBurgerMenu button {
-	box-shadow: none;
-}
-
-.burgerMenuList {
-	display: none;
-	overflow: hidden;
-	position: fixed;
-	width: 70%;
-	max-width: 300px;
-	right: 0px;
-	background-color: var(--clr2);
-	box-shadow: -0.2rem 0.2rem 0.3rem -0.1rem rgba(0, 0, 0, 0.25);
-	z-index: 1000000;
-}
-
-.burgerMenuList .navItem {
-	width: 100%;
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.burgerMenuList .submenuWrapper.active .submenuItem {
-	display: block !important;
-}
-
-.burgerMenuList .submenuItem.active {
-	background-color: var(--clr3) !important;
+.navLogo:hover {
+	transform: scale(1.2);
 }
 
 .currentPage {
 	display: none;
-	float: left;
-	text-align: center;
+	color: white;
 	font-size: 1.3rem;
 }
 
-.homeButtonWrapper {
+.menuButton {
+	display: none;
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 0.5rem;
+}
+
+.navMenuList {
 	display: flex;
+	gap: 0.5rem;
 	align-items: center;
 }
 
-@media screen and (max-width: 780px) {
-	#navMain {
-		align-items: left;
+.navItem {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: white;
+	font-size: 1.2rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.navItem:hover,
+.navItem.active {
+	background-color: var(--clr3);
+}
+
+.navItem.active .dropdownIcon {
+	transform: rotate(90deg);
+}
+
+.dropdownIcon {
+	transition: transform 0.2s ease;
+}
+
+.submenuWrapper {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.submenuContainer {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	top: 100%;
+	left: 0;
+	min-width: 200px;
+	background-color: var(--clr1);
+	overflow: hidden;
+	animation: slideDown 0.2s ease;
+}
+
+.submenuItem {
+	display: block;
+	padding: 0.75rem 1rem;
+	color: white;
+	background-color: var(--clr2);
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.submenuLink {
+	text-decoration: none;
+}
+
+.submenuItem:hover,
+.submenuItem.active {
+	background-color: var(--clr3);
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 768px) {
+	.topNav {
+		display: block;
+	}
+
+	.navMain {
 		justify-content: space-between;
-	}
-
-	.navMenuList {
-		display: none;
-	}
-
-	#navBurgerMenu {
-		display: block;
-	}
-
-	#navBurgerMenu .navItem {
-		margin-right: 0;
-	}
-
-	.burgerMenuList {
-		display: block;
-
-		top: 3.5rem;
+		margin: 0 0.5rem;
 	}
 
 	.currentPage {
 		display: block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		white-space: nowrap;
+		pointer-events: none;
+	}
+
+	.navLogo {
+		margin-right: 0;
+	}
+
+	.menuButton {
+		display: block;
+		position: relative;
+		box-shadow: none;
+		min-width: 40px;
+	}
+
+	.navMenuList {
+		position: absolute;
+		top: 3.5rem;
+		right: 0;
+		width: auto;
+		min-width: 200px;
+		flex-direction: column;
+		align-items: stretch;
+		padding: 0.5rem;
+		display: none;
+		gap: 0.5rem;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+
+	.navMenuList.menuOpen {
+		display: flex;
+		background-color: var(--clr2);
+	}
+
+	.submenuContainer {
+		position: static;
+		gap: 1px;
+		min-width: unset;
+		margin: 0;
+		background-color: var(--clr1);
+	}
+
+	.navItem,
+	.submenuItem {
+		width: 100%;
+		text-align: left;
+		padding: 0.5rem 1rem;
+		background-color: var(--clr2);
+	}
+
+	.submenuItem {
+		padding-left: 2rem;
+	}
+
+	.submenuItem:hover {
+		background-color: var(--clr3);
+	}
+
+	.submenuWrapper {
+		width: 100%;
+		flex-direction: column;
+		align-items: stretch;
 	}
 }
