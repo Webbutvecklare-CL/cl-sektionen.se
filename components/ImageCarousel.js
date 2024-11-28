@@ -1,9 +1,14 @@
-import { Carousel } from "@mantine/carousel";
-import Image from "next/image";
-import styles from "@/styles/image-carousel.module.css";
+import { useRef } from "react";
+
 import Sidhuvud_inv from "@/media/grafik/Namn_Vit.webp";
+import styles from "@/styles/image-carousel.module.css";
+import { Carousel } from "@mantine/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
 export default function ImageCarousel() {
+	const autoplay = useRef(Autoplay({ delay: 2000 }));
+
 	const imageArray = [
 		"andrea_pa_scen.webp",
 		"gasqueteori.webp",
@@ -18,9 +23,13 @@ export default function ImageCarousel() {
 		<div className={styles.indexBg}>
 			<Carousel
 				withIndicators
+				withControls={false}
 				height={300}
 				loop
 				align="center"
+				plugins={[autoplay.current]}
+				onMouseEnter={autoplay.current.stop}
+				onMouseLeave={autoplay.current.reset}
 				classNames={{
 					root: styles.carouselRoot,
 					slide: styles.carouselSlide,
@@ -33,7 +42,8 @@ export default function ImageCarousel() {
 							<Image
 								src={`/media/bildspel_new/${image}`}
 								fill
-								style={{ objectFit: "cover" }}
+								className={styles.carouselMainImage}
+								style={{ objectFit: "contain" }}
 								alt="CL-sektionen"
 								priority={true}
 							/>

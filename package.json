@@ -36,6 +36,7 @@
 		"@vercel/analytics": "^1.4.1",
 		"cookie": "^0.7.0",
 		"dotenv": "^16.4.5",
+		"embla-carousel-autoplay": "^7.1.0",
 		"embla-carousel-react": "^7.1.0",
 		"fast-average-color": "^9.4.0",
 		"firebase": "^11.0.2",
