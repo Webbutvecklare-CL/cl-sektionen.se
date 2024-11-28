@@ -57,7 +57,7 @@
 	max-width: 1000px;
 	width: 87%;
 	height: min-content;
-	filter: drop-shadow(5px 5px 5px #222);
+	filter: drop-shadow(5px 5px 5px #000000);
 	position: absolute;
 	top: 50%;
 	left: 50%;

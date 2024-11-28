@@ -12,9 +12,10 @@ export default function ImageCarousel() {
 	const imageArray = [
 		"andrea_pa_scen.webp",
 		"gasqueteori.webp",
+		"mot2024.webp",
 		"mot1.webp",
 		"mot2.webp",
-		"mot2024.webp",
+		"cl15jub.webp",
 		"mot3.webp",
 		"mot4.webp",
 	];
