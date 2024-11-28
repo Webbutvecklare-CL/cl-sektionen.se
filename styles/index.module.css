@@ -29,11 +29,11 @@
 	display: grid;
 	grid-template-rows: 0fr;
 	transition: grid-template-rows 0.2s ease-in-out;
-	padding-bottom: 0.5rem;
 }
 
 .omContainer.open {
 	grid-template-rows: 1fr;
+	padding-bottom: 0.5rem;
 }
 
 .omContainer > * {

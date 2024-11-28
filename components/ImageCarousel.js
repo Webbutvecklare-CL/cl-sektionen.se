@@ -7,7 +7,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
 export default function ImageCarousel() {
-	const autoplay = useRef(Autoplay({ delay: 2000 }));
+	const autoplay = useRef(Autoplay({ delay: 5000 }));
 
 	const imageArray = [
 		"andrea_pa_scen.webp",
@@ -41,7 +41,7 @@ export default function ImageCarousel() {
 					<Carousel.Slide key={image}>
 						<div className={styles.carouselSlideInner}>
 							<Image
-								src={`/media/bildspel_new/${image}`}
+								src={`/media/bildspel/${image}`}
 								fill
 								className={styles.carouselBackgroundImage}
 								style={{ objectFit: "cover" }}
@@ -50,7 +50,7 @@ export default function ImageCarousel() {
 								blur
 							/>
 							<Image
-								src={`/media/bildspel_new/${image}`}
+								src={`/media/bildspel/${image}`}
 								fill
 								className={styles.carouselMainImage}
 								style={{ objectFit: "contain" }}
