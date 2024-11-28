@@ -65,6 +65,7 @@ export default function Navbar() {
 	const [activeMainSection, setActiveMainSection] = useState(null);
 	const [expandedItems, setExpandedItems] = useState(new Set());
 	const [isMobile, setIsMobile] = useState(false);
+	const [isAtTop, setIsAtTop] = useState(true);
 	const navRef = useRef(null);
 	const router = useRouter();
 
@@ -73,11 +74,20 @@ export default function Navbar() {
 			setIsMobile(window.innerWidth <= 768);
 		};
 
-		checkMobile();
-		window.addEventListener("resize", checkMobile);
+		const handleScroll = () => {
+			setIsAtTop(window.scrollY === 0 && router.pathname === "/");
+		};
 
-		return () => window.removeEventListener("resize", checkMobile);
-	}, []);
+		checkMobile();
+		handleScroll();
+		window.addEventListener("resize", checkMobile);
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("resize", checkMobile);
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [router.pathname]);
 
 	const handleClickOutside = useCallback((event) => {
 		if (navRef.current && !navRef.current.contains(event.target)) {
@@ -145,7 +155,16 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav ref={navRef} className={styles.topNav} aria-label="Main navigation">
+		<nav
+			ref={navRef}
+			className={`${styles.topNav} ${isAtTop ? styles.transparent : ""}`}
+			onMouseLeave={() => {
+				if (!isMenuOpen && !isMobile) {
+					setActiveIdx(-1);
+				}
+			}}
+			aria-label="Main navigation"
+		>
 			<div className={styles.navMain}>
 				<Link href="/" aria-label="Home">
 					<Image

@@ -9,6 +9,23 @@
 	height: 3.5rem;
 	z-index: 1000;
 	background-color: var(--clr2);
+	transition: background-color 0.3s ease;
+}
+
+.transparent {
+	background-color: transparent;
+	backdrop-filter: blur(6px);
+	background-color: rgba(0, 0, 0, 0.2);
+
+	@media (min-width: 768px) {
+		.navItem span {
+			--text-blur-color: rgba(33, 33, 33, 0.5);
+			filter: drop-shadow(-1px -1px 1px var(--text-blur-color))
+				drop-shadow(1px -1px 1px var(--text-blur-color))
+				drop-shadow(-1px 1px 1px var(--text-blur-color))
+				drop-shadow(1px 1px 1px var(--text-blur-color));
+		}
+	}
 }
 
 .navMain {

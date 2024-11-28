@@ -56,11 +56,11 @@
 	max-width: 1000px;
 	width: 87%;
 	height: min-content;
-	--text-blur-color: rgba(33, 33, 33, 0.6);
-	filter: drop-shadow(-1px -1px 1px var(--text-blur-color))
-		drop-shadow(1px -1px 1px var(--text-blur-color))
-		drop-shadow(-1px 1px 1px var(--text-blur-color))
-		drop-shadow(1px 1px 1px var(--text-blur-color));
+	--text-blur-color: rgba(33, 33, 33, 0.4);
+	filter: drop-shadow(-2px -2px 2px var(--text-blur-color))
+		drop-shadow(2px -2px 2px var(--text-blur-color))
+		drop-shadow(-2px 2px 2px var(--text-blur-color))
+		drop-shadow(2px 2px 2px var(--text-blur-color));
 	position: absolute;
 	top: 50%;
 	left: 50%;
