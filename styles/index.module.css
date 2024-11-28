@@ -81,6 +81,8 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1rem;
+	padding: auto;
+	overflow: hidden;
 }
 
 .feedColumn {
