@@ -81,9 +81,6 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1rem;
-	padding: auto;
-	padding-left: 0.25rem;
-	padding-right: 0.25rem;
 	overflow: hidden;
 }
 

@@ -2,12 +2,12 @@
 
 /* Post preview dvs varje länk */
 .postWrapper {
-	margin: 1rem 0.5rem;
+	margin: 5px;
 	background-color: #fff;
 	border-radius: 0.3rem;
 	box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.44);
 	overflow: hidden;
-	padding: 0.5rem;
+	padding: 5px;
 	height: auto;
 	min-height: 110px;
 }
