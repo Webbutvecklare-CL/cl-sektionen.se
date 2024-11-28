@@ -26,6 +26,16 @@
 	height: 100%;
 }
 
+.carouselBackgroundImage {
+	filter: blur(10px) brightness(70%);
+	transform: scale(1.1);
+	z-index: 0;
+}
+
+.carouselMainImage {
+	z-index: 1;
+}
+
 .carouselIndicators {
 	bottom: 1rem;
 	z-index: 2;

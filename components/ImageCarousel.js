@@ -27,14 +27,14 @@ export default function ImageCarousel() {
 				height={300}
 				loop
 				align="center"
-				plugins={[autoplay.current]}
-				onMouseEnter={autoplay.current.stop}
-				onMouseLeave={autoplay.current.reset}
 				classNames={{
 					root: styles.carouselRoot,
 					slide: styles.carouselSlide,
 					indicators: styles.carouselIndicators,
 				}}
+				plugins={[autoplay.current]}
+				onMouseEnter={autoplay.current.stop}
+				onMouseLeave={autoplay.current.reset}
 			>
 				{imageArray.map((image) => (
 					<Carousel.Slide key={image}>
@@ -42,9 +42,18 @@ export default function ImageCarousel() {
 							<Image
 								src={`/media/bildspel_new/${image}`}
 								fill
+								className={styles.carouselBackgroundImage}
+								style={{ objectFit: "cover" }}
+								alt={`${image} background image`}
+								priority={true}
+								blur
+							/>
+							<Image
+								src={`/media/bildspel_new/${image}`}
+								fill
 								className={styles.carouselMainImage}
 								style={{ objectFit: "contain" }}
-								alt="CL-sektionen"
+								alt={image}
 								priority={true}
 							/>
 						</div>
