@@ -75,7 +75,7 @@ export default function Dokument({ contents }) {
 					<Card link="https://docs.google.com/document/d/1xvkaImZgTlshVRRpyNc31_lrnB1qrEwMHUgF8ei21fs/edit?usp=sharing">
 						<FontAwesomeIcon icon={faFileLines} /> Rapportmall SM
 					</Card>
-					<Card link="https://docs.google.com/forms/d/159D-EqMxWraoC8ZdaXySFzg9B8hOQlhARkTLUu28830/edit">
+					<Card link="https://docs.google.com/forms/d/e/1FAIpQLSfm0gD5AJ5s2YNpaO9rXq31FDSHdLjnbPeG4V7bdtmh3l1dPQ/viewform?usp=sharing">
 						<FontAwesomeIcon icon={faWpforms} /> Formulärsmall
 					</Card>
 				</div>
