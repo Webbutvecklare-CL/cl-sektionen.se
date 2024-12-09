@@ -1,5 +1,10 @@
 # Platina
 
+## 2024
+
+Maja Rosén
+Erik Åman
+
 ## 2023
 
 Armin Baymani
@@ -38,6 +43,16 @@ Elisabet Lövkvist
 Niclas Lund
 
 # Guld
+
+## 2024
+
+Frida Sundberg
+Gustav Heldt
+Jesper Svensson
+Lea Martinelle
+Linnea Selmarker
+Moa Wettby 
+Oscar Ekström
 
 ## 2023
 
@@ -185,6 +200,14 @@ Anna Johansson
 Martin Pettersson
 
 # Silver
+
+## 2024
+
+Andrea Donné
+Matilda Algotsson
+Alexander Jansson
+Emelie Selinder 
+Fanny Enocksson
 
 ## 2023
 
