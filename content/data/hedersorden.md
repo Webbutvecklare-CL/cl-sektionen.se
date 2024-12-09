@@ -51,7 +51,7 @@ Gustav Heldt
 Jesper Svensson
 Lea Martinelle
 Linnea Selmarker
-Moa Wettby 
+Moa Wettby
 Oscar Ekström
 
 ## 2023
@@ -206,7 +206,7 @@ Martin Pettersson
 Andrea Donné
 Matilda Algotsson
 Alexander Jansson
-Emelie Selinder 
+Emelie Selinder
 Fanny Enocksson
 
 ## 2023
