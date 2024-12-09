@@ -27,6 +27,8 @@ och sedan blir utvalda av styrelsen för att tilldelas medaljen och medlemskap i
 ### Övrigt
 
 Året som anges vid varje medlem är det året styrelsen beslutade om att tilldela medlemmen medaljen. Nedan listas vilket StyM beslutet togs:  
+2024 StyM#3 24  
+2023 StyM#3 23  
 2022 StyM#3 22  
 2021 StyM#3 21  
 2020 StyM#3 20  
