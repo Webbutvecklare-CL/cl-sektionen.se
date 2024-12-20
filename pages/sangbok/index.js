@@ -19,8 +19,6 @@ function HideDate(currentMonth) {
 	return true;
 }
 
-// 2023-08-04, Tar bort alternativet för fulltext-search då jag inte har hunnit göra klart det. -Armin
-
 export default function Sangbok({ sånger, index }) {
 	const [sortedSongs, setSortedSongs] = useState(
 		[...sånger].sort(
