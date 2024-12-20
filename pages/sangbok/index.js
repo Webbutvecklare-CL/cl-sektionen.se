@@ -28,8 +28,9 @@ export default function Sangbok({ sånger, index }) {
 		),
 	);
 
-	const [fulltextSearchResults, setFulltextSearchResults] = useState([]);
-	const [searchFullText, setSearchFullText] = useState(false);
+	const [searchResults, setSearchResults] = useState([]);
+	const [search, setSearch] = useState("");
+	const currentMonth = new Date().getMonth();
 
 	const [sort, setSort] = useState("pageNr");
 	const sortBy = (e) => {
@@ -54,9 +55,6 @@ export default function Sangbok({ sånger, index }) {
 		}
 	}, [sort, sånger]);
 
-	const [search, setSearch] = useState("");
-	const currentMonth = new Date().getMonth();
-
 	const [filterPanelOpen, setFilterPanelOpen] = useState(false);
 	const [fokusSearchBar, setFokusSearchBar] = useState(false);
 
@@ -75,38 +73,6 @@ export default function Sangbok({ sånger, index }) {
 		};
 	});
 
-	//WIP
-	useEffect(() => {
-		const contentindex = new Map(Object.entries(index));
-		const sanitizeExpression = /[#_:.,*|/\"\'\\!?()[\]\{\}+’´']/gm;
-		const wordsArray = search
-			.replaceAll(sanitizeExpression, "")
-			.trim()
-			.split(" ");
-
-		//console.log(wordsArray)
-		let results = contentindex.has(wordsArray[0])
-			? contentindex.get(wordsArray[0]).split(" ")
-			: [];
-
-		if (results) {
-			for (let i = 1; i < wordsArray.length; i++) {
-				const word = wordsArray[i];
-
-				// Check if the key exists in the hashmap
-				if (contentindex.has(word)) {
-					const newRes = contentindex.get(word).split(" ");
-					results = results.filter((elem) => newRes.includes(elem));
-				} else {
-					results = [];
-					break;
-				}
-			}
-		}
-		//console.log(results)
-		setFulltextSearchResults(results);
-	}, [index, search]);
-
 	const panelRef = useRef();
 	//Stänger filterpanelen om man trycker utanför
 	useEffect(() => {
@@ -122,6 +88,76 @@ export default function Sangbok({ sånger, index }) {
 			document.removeEventListener("mousedown", panelCloseHandler);
 		};
 	});
+
+	// Search ranking function
+	const rankSearchResult = (song, searchTerm) => {
+		let score = 0;
+		const searchLower = searchTerm.toLowerCase();
+
+		// Exact title match gets highest score
+		if (song.title.toLowerCase() === searchLower) {
+			score += 100;
+		}
+		// Title contains search term
+		else if (song.title.toLowerCase().includes(searchLower)) {
+			score += 50;
+		}
+
+		// Check alternate titles
+		if (
+			song.altSearch?.some((alt) => alt.toLowerCase().includes(searchLower))
+		) {
+			score += 40;
+		}
+
+		// Page number exact match
+		if (song.sida === searchTerm) {
+			score += 30;
+		}
+
+		// Category match
+		if (song.kategori.toLowerCase().includes(searchLower)) {
+			score += 20;
+		}
+
+		// Content match (using the index)
+		const words = searchTerm
+			.toLowerCase()
+			.replace(/[#_:.,*|/\"\'\\!?()[\]\{\}+'´']/gm, "")
+			.trim()
+			.split(" ");
+
+		const contentMatches = words.every((word) => {
+			const songRefs = index[word]?.split(" ") || [];
+			return songRefs.some((ref) => song.href.endsWith(ref));
+		});
+
+		if (contentMatches) {
+			score += 10;
+		}
+
+		return score;
+	};
+
+	// Search handler
+	// biome-ignore lint/correctness/useExhaustiveDependencies: No bad rerender
+	useEffect(() => {
+		if (!search.trim()) {
+			setSearchResults([...sortedSongs]);
+			return;
+		}
+
+		const results = sortedSongs
+			.map((song) => ({
+				...song,
+				score: rankSearchResult(song, search),
+			}))
+			.filter((song) => song.score > 0)
+			.sort((a, b) => b.score - a.score)
+			.map(({ score, ...song }) => song);
+
+		setSearchResults(results);
+	}, [search, sortedSongs]);
 
 	const SångLänk = ({ sång }) => {
 		// Döljer bla majjelåtar under vår/sommar
@@ -246,22 +282,9 @@ export default function Sangbok({ sånger, index }) {
 					</div>
 
 					<div>
-						{sortedSongs
-							.filter(
-								(sång) =>
-									search === "" ||
-									sång.title.toLowerCase().includes(search.toLowerCase()) ||
-									sång.altSearch?.some((title) =>
-										title.toLowerCase().includes(search.toLowerCase()),
-									) ||
-									(searchFullText &&
-										fulltextSearchResults.some((elem) =>
-											elem.includes(sång.href.slice(-1)),
-										)),
-							)
-							.map((sång) => (
-								<SångLänk key={sång.href} sång={sång} />
-							))}
+						{searchResults.map((sång) => (
+							<SångLänk key={sång.href} sång={sång} />
+						))}
 					</div>
 				</div>
 			</div>
