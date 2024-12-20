@@ -89,75 +89,27 @@ export default function Sangbok({ sånger, index }) {
 		};
 	});
 
-	// Search ranking function
-	const rankSearchResult = (song, searchTerm) => {
-		let score = 0;
-		const searchLower = searchTerm.toLowerCase();
-
-		// Exact title match gets highest score
-		if (song.title.toLowerCase() === searchLower) {
-			score += 100;
-		}
-		// Title contains search term
-		else if (song.title.toLowerCase().includes(searchLower)) {
-			score += 50;
-		}
-
-		// Check alternate titles
-		if (
-			song.altSearch?.some((alt) => alt.toLowerCase().includes(searchLower))
-		) {
-			score += 40;
-		}
-
-		// Page number exact match
-		if (song.sida === searchTerm) {
-			score += 30;
-		}
-
-		// Category match
-		if (song.kategori.toLowerCase().includes(searchLower)) {
-			score += 20;
-		}
-
-		// Content match (using the index)
-		const words = searchTerm
-			.toLowerCase()
-			.replace(/[#_:.,*|/\"\'\\!?()[\]\{\}+'´']/gm, "")
-			.trim()
-			.split(" ");
-
-		const contentMatches = words.every((word) => {
-			const songRefs = index[word]?.split(" ") || [];
-			return songRefs.some((ref) => song.href.endsWith(ref));
-		});
-
-		if (contentMatches) {
-			score += 10;
-		}
-
-		return score;
-	};
-
 	// Search handler
-	// biome-ignore lint/correctness/useExhaustiveDependencies: No bad rerender
 	useEffect(() => {
 		if (!search.trim()) {
 			setSearchResults([...sortedSongs]);
 			return;
 		}
 
-		const results = sortedSongs
-			.map((song) => ({
-				...song,
-				score: rankSearchResult(song, search),
-			}))
-			.filter((song) => song.score > 0)
-			.sort((a, b) => b.score - a.score)
-			.map(({ score, ...song }) => song);
+		// Dynamic import of search function
+		import("@/utils/songSearch").then(({ rankSearchResult }) => {
+			const results = sortedSongs
+				.map((song) => ({
+					...song,
+					score: rankSearchResult(song, search, index),
+				}))
+				.filter((song) => song.score > 0)
+				.sort((a, b) => b.score - a.score)
+				.map(({ score, ...song }) => song);
 
-		setSearchResults(results);
-	}, [search, sortedSongs]);
+			setSearchResults(results);
+		});
+	}, [search, sortedSongs, index]);
 
 	const SångLänk = ({ sång }) => {
 		// Döljer bla majjelåtar under vår/sommar
@@ -294,11 +246,17 @@ export default function Sangbok({ sånger, index }) {
 
 export async function getStaticProps() {
 	const sånger = JSON.parse(readFileSync("content/data/sangbok-index.json"));
-	const index = JSON.parse(
+
+	// Only load basic index data initially
+	const basicIndex = JSON.parse(
 		readFileSync("content/data/sangbok-content-index.json"),
 	);
 
 	return {
-		props: { sånger, index },
+		props: {
+			sånger,
+			// Only include most common search terms in initial load
+			index: Object.fromEntries(Object.entries(basicIndex).slice(0, 100)),
+		},
 	};
 }
