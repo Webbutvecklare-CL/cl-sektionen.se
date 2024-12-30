@@ -83,10 +83,10 @@ export default function Dokument({ contents }) {
 				<h2>Protokoll och handlingar från SM och StyM</h2>
 				<div className={styles.cards}>
 					<Card link="https://drive.google.com/drive/folders/197L5LUdD8NgNALDWXY0odhP-Owoi5jKP">
-						<FontAwesomeIcon icon={faFolder} /> SM 2024
+						<FontAwesomeIcon icon={faFolder} /> SM 2025
 					</Card>
 					<Card link="https://drive.google.com/drive/folders/1iiXb0_HOgV60qL1FU72QBUJF1hXoaix0">
-						<FontAwesomeIcon icon={faFolder} /> StyM 2024
+						<FontAwesomeIcon icon={faFolder} /> StyM 2025
 					</Card>
 					<Card link="https://drive.google.com/drive/folders/1ORNw9mBO9rBp1whbjSzHPMoKN4LmLnbt">
 						<FontAwesomeIcon icon={faFolder} /> SM Arkiv
@@ -147,13 +147,13 @@ export default function Dokument({ contents }) {
 						<FontAwesomeIcon icon={faFilePdf} /> Stadgar
 					</Card>
 					<Card link="https://drive.google.com/file/d/1SWygyIWxNqOwwIvqmfHx8s-cKH7voL5p/view?usp=drive_web">
-						<FontAwesomeIcon icon={faFilePdf} /> Budget 2024
+						<FontAwesomeIcon icon={faFilePdf} /> Budget 2025
 					</Card>
 					<Card link="https://drive.google.com/file/d/1KuZmVOeegFd-iAuLf1WRzpUNS0f4Z1jI/view?usp=drive_web">
-						<FontAwesomeIcon icon={faFilePdf} /> Ekonomisk femårsplan 2020-2024
+						<FontAwesomeIcon icon={faFilePdf} /> Ekonomisk femårsplan 2025-2029
 					</Card>
 					<Card link="https://drive.google.com/file/d/1GkK2Jk98GWDVdNXiJaVW6PbFhCLTBtqU/view?usp=drive_web">
-						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2024
+						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2025
 					</Card>
 				</div>
 
