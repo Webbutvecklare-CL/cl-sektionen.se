@@ -2,7 +2,7 @@ const fortroendevaldaList = [
 	{
 		id: "ctyrelsen",
 		mail: "ctyrelsen@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -45,7 +45,7 @@ const fortroendevaldaList = [
 	{
 		id: "studienamnden",
 		mail: "studienamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31 (ej utbytesansvarig)",
+		period: "2025-01-01 – 2025-12-31 (ej utbytesansvarig)",
 		people: [
 			{
 				role: "Ordförande",
@@ -76,7 +76,7 @@ const fortroendevaldaList = [
 	{
 		id: "naringslivsnamnden",
 		mail: "naringslivsnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -113,7 +113,7 @@ const fortroendevaldaList = [
 	{
 		id: "jml-namnden",
 		mail: "jml-namnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -132,7 +132,7 @@ const fortroendevaldaList = [
 	{
 		id: "aktivitetsnamnden",
 		mail: "aktivitetsnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -151,7 +151,7 @@ const fortroendevaldaList = [
 	{
 		id: "lokalnamnden",
 		mail: "lokalnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Lokalansvarig",
@@ -164,7 +164,7 @@ const fortroendevaldaList = [
 	{
 		id: "mottagningsnamnden",
 		mail: "mottagningsnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Mottagningsansvarig",
@@ -251,7 +251,7 @@ const fortroendevaldaList = [
 	{
 		id: "revisorer",
 		mail: "revisor@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Revisor",
@@ -320,7 +320,7 @@ const fortroendevaldaList = [
 	{
 		id: "enskilda",
 		mail: "",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Talman 👩‍⚖️",
