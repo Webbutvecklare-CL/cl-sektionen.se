@@ -156,10 +156,10 @@ export default function Dokument({ contents }) {
 
 				<h2>Verksamhets-berättelser och planer</h2>
 				<div className={styles.cards}>
-					<Card link="https://drive.google.com/file/d/1fEAof3da4qs0NKCh0aVpVKPmZCiDXJd-/view?usp=drive_link"> <!-- Hittar inte verksamhetsberättelse 2024 -->
+					<Card link="https://drive.google.com/file/d/1fEAof3da4qs0NKCh0aVpVKPmZCiDXJd-/view?usp=drive_link"> {/* Hittar inte verksamhetsberättelse 2024 */}
 						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsberättelse 2023
 					</Card>
-					<Card link="https://drive.google.com/file/d/1GkK2Jk98GWDVdNXiJaVW6PbFhCLTBtqU/view?usp=drive_web"> <!-- Länkar till verksamhetsplanen i 1. Styrdokument -->
+					<Card link="https://drive.google.com/file/d/1GkK2Jk98GWDVdNXiJaVW6PbFhCLTBtqU/view?usp=drive_web"> {/*  Länkar till verksamhetsplanen i 1. Styrdokument */}
 						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2025
 					</Card>
 					<Card link="https://drive.google.com/drive/folders/1NJxJnjQIhetEji1W8RFBw4iaHgoy6kJy?usp=drive_link">
