@@ -152,18 +152,15 @@ export default function Dokument({ contents }) {
 					<Card link="https://drive.google.com/file/d/1KuZmVOeegFd-iAuLf1WRzpUNS0f4Z1jI/view?usp=drive_web">
 						<FontAwesomeIcon icon={faFilePdf} /> Ekonomisk femårsplan 2025-2029
 					</Card>
-					<Card link="https://drive.google.com/file/d/1GkK2Jk98GWDVdNXiJaVW6PbFhCLTBtqU/view?usp=drive_web">
-						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2025
-					</Card>
 				</div>
 
 				<h2>Verksamhets-berättelser och planer</h2>
 				<div className={styles.cards}>
-					<Card link="https://drive.google.com/file/d/1fEAof3da4qs0NKCh0aVpVKPmZCiDXJd-/view?usp=drive_link">
+					<Card link="https://drive.google.com/file/d/1fEAof3da4qs0NKCh0aVpVKPmZCiDXJd-/view?usp=drive_link"> // Hittar inte verksamhetsberättelse 2024
 						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsberättelse 2023
 					</Card>
-					<Card link="https://drive.google.com/file/d/1EXpiAXkQK-gCBgPicBRxdcNgSSly-tYt/view?usp=drive_link">
-						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2024
+					<Card link="https://drive.google.com/file/d/1GkK2Jk98GWDVdNXiJaVW6PbFhCLTBtqU/view?usp=drive_web"> // Länkar till verksamhetsplanen i 1. Styrdokument
+						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2025
 					</Card>
 					<Card link="https://drive.google.com/drive/folders/1NJxJnjQIhetEji1W8RFBw4iaHgoy6kJy?usp=drive_link">
 						<FontAwesomeIcon icon={faFolder} /> Verksamhetsberättelser
