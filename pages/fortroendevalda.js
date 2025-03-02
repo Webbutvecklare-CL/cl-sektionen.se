@@ -108,7 +108,6 @@ export default function Fortroendevalda({ descriptions }) {
 						/>
 					</div>
 				</div>
-				<span className="lastUpdated">Senast uppdaterad: 2024-08-06</span>
 			</div>
 		</>
 	);

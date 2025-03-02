@@ -12,7 +12,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Vice ordförande tillika sekreterare",
-				name: 'Viktor Uhlgren',
+				name: "Viktor Uhlgren",
 				mail: "vordf@cl-sektionen.se",
 				year: "CL22",
 			},
