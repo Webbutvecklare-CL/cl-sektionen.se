@@ -1,0 +1,126 @@
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
+import { getContentData } from "@/utils/contents";
+
+import CommitteeInfo from "@/components/CommitteeInfo";
+import CustomHead from "@/components/CustomHead";
+
+import {
+	associations,
+} from "@/constants/committees-data";
+
+import {
+	welcome,
+	inProgress,
+	abouts,
+	interest,
+	contact,
+} from "@/constants/dubbelspexet-rubrics";
+
+import { fortroendevaldaList } from "@/constants/fortroendevaldaData";
+
+import styles from "@/styles/fortroendevalda.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+export default function Fortroendevalda({ descriptions }) {
+	const router = useRouter();
+	const [selectedCommittee, setSelectedCommittee] = useState("ctyrelsen");
+
+	// När sidan laddats in så sätter vi selectedCommittee till det angivna i url:en
+	useEffect(() => {
+		const urlSelect = router.asPath.split("#")[1] || "ctyrelsen";
+		setSelectedCommittee(urlSelect);
+		const element = document.getElementById("fortroendevaldaContent");
+		element.scrollIntoView({ behavior: "smooth" });
+	}, [router.asPath]);
+
+	// När en användare väljer en nämnd uppdateras url:en och vilken nämnd som visas
+	const stateUpdater = (committee) => {
+		router.replace(`#${committee}`);
+		const element = document.getElementById("fortroendevaldaContent");
+		element.scrollIntoView({ behavior: "smooth" });
+		setSelectedCommittee(committee);
+	};
+
+	// Nav Tab för varje nämnd/post i menyvalet
+	const NavTab = ({ data, idx }) => {
+		return (
+			<li
+				key={idx}
+				className={selectedCommittee === data.id ? styles.active : ""}
+				onClick={() => stateUpdater(data.id)}
+				onKeyDown={() => stateUpdater(data.id)}
+			>
+				<FontAwesomeIcon icon={data.icon} /> {data.name}
+			</li>
+		);
+	};
+
+	// finds the data with the correct id in the list
+	const getCommitteeInfo = (committee) => {
+		for (let i = 0; i < fortroendevaldaList.length; i++) {
+			if (fortroendevaldaList[i].id === committee) {
+				return fortroendevaldaList[i];
+			}
+		}
+		return null;
+	};
+
+	return (
+		<>
+			<CustomHead
+				metaTitle={"Förtroendevalda | Sektionen för Civilingenjör och Lärare"}
+				description={
+					"Här hittar du kontaktuppgifter till styrelsen och övriga förtroendevalda."
+				}
+				url={"https://www.cl-sektionen.se/dubbelspexet"}
+			/>
+			<div id="contentbody" className="wideContent">
+				<h1 id={"page-title"}>Dubbelspexet</h1>
+				<div className={styles.fortroendevaldaWrapper}>
+					<nav className={styles.committeeNav}>
+						<ul>
+							<NavTab data={welcome} />
+
+							<NavTab data={inProgress} />
+
+							<NavTab data={interest} />
+
+							<NavTab data={contact} />
+
+							<h2>Om</h2>
+							{abouts.map((about, idx) => {
+								return <NavTab data={about} key={idx} />;
+							})}
+							<br />
+
+						</ul>
+					</nav>
+					<div
+						id="fortroendevaldaContent"
+						className={styles.fortroendevaldaContent}
+					>
+						<CommitteeInfo
+							committee={selectedCommittee}
+							description={descriptions[selectedCommittee]}
+							groupData={getCommitteeInfo(selectedCommittee)}
+						/>
+					</div>
+				</div>
+				<span className="lastUpdated">Senast uppdaterad: 2024-08-06</span>
+			</div>
+		</>
+	);
+}
+export async function getStaticProps() {
+	// get text from markdown for all pages
+	const descriptions = getContentData("fortroendevalda");
+
+	return {
+		props: {
+			descriptions,
+		},
+	};
+}
