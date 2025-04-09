@@ -428,12 +428,12 @@ const fortroendevaldaList = [
 	},
 	{
 		id: "dubbelspexet",
-		mail: "direktionen@gmail.com",
+		mail: "",
 		people: [
 			{
 				role: "DireKTHréce",
 				name: "Lukas Kuusivuori",
-				mail: "dubbelspexet@cl-sektionen.se",
+				mail: "",
 				year: "CL22",
 			},
 			{
