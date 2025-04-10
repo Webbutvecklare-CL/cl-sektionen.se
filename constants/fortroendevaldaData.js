@@ -445,7 +445,7 @@ const fortroendevaldaList = [
 			{
 				role: "Ekonomiskt ansvarig",
 				name: "Felicia Lund",
-				mail: "ekonomi@dubbelspexet.com",
+				mail: "",
 				year: "CL24",
 			},
 			{
