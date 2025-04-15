@@ -345,34 +345,35 @@ const fortroendevaldaList = [
 	{
 		id: "clek",
 		mail: "clek@cl-sektionen.se",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
+				name: "Leonard Rehbinder",
+				mail: "",
+				year: "CL24",
+			},
+			{
+				role: "Vice ordförande",
+				name: "Samuel Giselsson",
+				mail: "",
+				year: "CL24",
+			},
+			{
+				role: "Ekonomiskt ansvarig",
+				name: "Olivia Sundkvist",
+				mail: "",
+				year: "CL24",
+			},
+			{
+				role: "Ledamot",
 				name: "Nova Roberts",
 				mail: "",
 				year: "CL23",
 			},
 			{
-				role: "Vice ordförande",
-				name: "Viktor Uhlgren",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Ekonomiskt ansvarig",
-				name: "Sander Söderberg",
-				mail: "",
-				year: "CL21",
-			},
-			{
 				role: "Ledamot",
-				name: "Charlie Axelsson",
-				mail: "",
-				year: "CL23",
-			},
-			{
-				role: "Ledamot",
-				name: "Edvin Tran",
+				name: "William Thunholm",
 				mail: "",
 				year: "CL22",
 			},
@@ -383,44 +384,8 @@ const fortroendevaldaList = [
 				year: "CL23",
 			},
 			{
-				role: "Ledamot",
-				name: "Niklas Furtenbach",
-				mail: "",
-				year: "CL21",
-			},
-			{
-				role: "Ledamot",
-				name: "Okan Köker",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Ledamot",
-				name: "William Thunholm",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Valberedare",
-				name: "Henning Lindqvist",
-				mail: "",
-				year: "CL23",
-			},
-			{
-				role: "Valberedare",
-				name: "Tuva Egman",
-				mail: "",
-				year: "CL20",
-			},
-			{
 				role: "Revisor",
-				name: "Ludwig Gustafsson",
-				mail: "",
-				year: "CL21",
-			},
-			{
-				role: "Revisor",
-				name: "Jesper Svensson",
+				name: "Sander Söderberg",
 				mail: "",
 				year: "CL21",
 			},
@@ -429,6 +394,7 @@ const fortroendevaldaList = [
 	{
 		id: "dubbelspexet",
 		mail: "",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "DireKTHréce",
