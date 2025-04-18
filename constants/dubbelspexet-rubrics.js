@@ -38,7 +38,7 @@ const contact = {
 };
 
 
-const all_rubricss = [
+const all_rubrics = [
 	welcome,
 	inProgress,
 	...abouts,
@@ -61,6 +61,6 @@ export {
 	abouts,
 	interest,
 	contact,
-	all_rubricss,
+	all_rubrics,
 	all_rubrics_ids,
 };
