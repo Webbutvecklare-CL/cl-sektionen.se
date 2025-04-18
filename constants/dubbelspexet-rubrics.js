@@ -11,7 +11,7 @@ const inProgress = {
 const abouts = [
 	{
 		name: "Vad är ett spex?",
-		id: "vadarettsaex",
+		id: "vadarettspex",
 	},
 	{
 		name: "Grupper",
@@ -29,12 +29,12 @@ const abouts = [
 
 const interest = {
 	name: "Intresseanmälan",
-	id: "intresseanmälan",
+	id: "intresseanmalan",
 };
 
 const contact = {
-	name: "Intresseanmälan",
-	id: "intresseanmälan",
+	name: "Kontakt",
+	id: "kontakt",
 };
 
 
