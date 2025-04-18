@@ -3,12 +3,8 @@ import { useEffect, useState } from "react";
 
 import { getContentData } from "@/utils/contents";
 
-import CommitteeInfo from "@/components/CommitteeInfo";
+import DubbelspexetInfo from "@/components/DubbelspexetInfo";
 import CustomHead from "@/components/CustomHead";
-
-import {
-	associations,
-} from "@/constants/committees-data";
 
 import {
 	welcome,
@@ -16,32 +12,40 @@ import {
 	abouts,
 	interest,
 	contact,
+	all_rubrics,
+	all_rubrics_ids,
 } from "@/constants/dubbelspexet-rubrics";
+
 
 import { fortroendevaldaList } from "@/constants/fortroendevaldaData";
 
-import styles from "@/styles/fortroendevalda.module.css";
+import styles from "@/styles/dubbelspexet.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Fortroendevalda({ descriptions }) {
+export default function Rubrics({ descriptions }) {
 	const router = useRouter();
-	const [selectedCommittee, setSelectedCommittee] = useState("ctyrelsen");
+	const [selectedRubric, setselectedRubric] = useState("valkommen");
 
-	// När sidan laddats in så sätter vi selectedCommittee till det angivna i url:en
+	console.log("selectedRubric:", selectedRubric);
+	console.log("Markdown for selected rubric:", descriptions[selectedRubric]);
+
+	// När sidan laddats in så sätter vi selectedRubric till det angivna i url:en
 	useEffect(() => {
-		const urlSelect = router.asPath.split("#")[1] || "ctyrelsen";
-		setSelectedCommittee(urlSelect);
-		const element = document.getElementById("fortroendevaldaContent");
-		element.scrollIntoView({ behavior: "smooth" });
+		const urlSelect = router.asPath.split("#")[1] || "valkommen";
+		setselectedRubric(urlSelect);
+		const element = document.getElementById("dubbelspexetContent");
+		//element.scrollIntoView({ behavior: "smooth" });
 	}, [router.asPath]);
 
 	// När en användare väljer en nämnd uppdateras url:en och vilken nämnd som visas
-	const stateUpdater = (committee) => {
-		router.replace(`#${committee}`);
-		const element = document.getElementById("fortroendevaldaContent");
+	const stateUpdater = (rubric) => {
+		//console.log("Rubrik " + rubric)
+
+		router.replace(`#${rubric}`);
+		const element = document.getElementById("dubbelspexetContent");
 		element.scrollIntoView({ behavior: "smooth" });
-		setSelectedCommittee(committee);
+		setselectedRubric(rubric);
 	};
 
 	// Nav Tab för varje nämnd/post i menyvalet
@@ -49,38 +53,41 @@ export default function Fortroendevalda({ descriptions }) {
 		return (
 			<li
 				key={idx}
-				className={selectedCommittee === data.id ? styles.active : ""}
+				className={selectedRubric === data.id ? styles.active : ""}
 				onClick={() => stateUpdater(data.id)}
 				onKeyDown={() => stateUpdater(data.id)}
 			>
-				<FontAwesomeIcon icon={data.icon} /> {data.name}
+				
+				{data.name}
 			</li>
 		);
 	};
 
 	// finds the data with the correct id in the list
-	const getCommitteeInfo = (committee) => {
-		for (let i = 0; i < fortroendevaldaList.length; i++) {
-			if (fortroendevaldaList[i].id === committee) {
-				return fortroendevaldaList[i];
+
+	const getInfo = (rubric) => {
+		for (let i = 0; i < all_rubrics.length; i++) {
+			if (all_rubrics[i].id === rubric) {
+				return all_rubrics[i];
 			}
 		}
 		return null;
 	};
+	
 
 	return (
 		<>
 			<CustomHead
-				metaTitle={"Förtroendevalda | Sektionen för Civilingenjör och Lärare"}
+				metaTitle={"Dubbelspexet | Sektionen för Civilingenjör och Lärare"}
 				description={
-					"Här hittar du kontaktuppgifter till styrelsen och övriga förtroendevalda."
+					"Detta är Dubbelspexets hemsida, det är en underkategori på CL-sektionens hemsida"
 				}
 				url={"https://www.cl-sektionen.se/dubbelspexet"}
 			/>
 			<div id="contentbody" className="wideContent">
 				<h1 id={"page-title"}>Dubbelspexet</h1>
-				<div className={styles.fortroendevaldaWrapper}>
-					<nav className={styles.committeeNav}>
+				<div className={styles.dubbelspexetWrapper}>
+					<nav className={styles.dubbelspexetNav}>
 						<ul>
 							<NavTab data={welcome} />
 
@@ -99,13 +106,14 @@ export default function Fortroendevalda({ descriptions }) {
 						</ul>
 					</nav>
 					<div
-						id="fortroendevaldaContent"
-						className={styles.fortroendevaldaContent}
+						id="dubbelspexetContent"
+						className={styles.dubbelspexetContent}
 					>
-						<CommitteeInfo
-							committee={selectedCommittee}
-							description={descriptions[selectedCommittee]}
-							groupData={getCommitteeInfo(selectedCommittee)}
+						<DubbelspexetInfo
+							rubric={selectedRubric}
+							descriptions={descriptions[selectedRubric]}
+							//{console.log(info)}
+							//groupData={getInfo(selectedRubric)}
 						/>
 					</div>
 				</div>
@@ -116,8 +124,8 @@ export default function Fortroendevalda({ descriptions }) {
 }
 export async function getStaticProps() {
 	// get text from markdown for all pages
-	const descriptions = getContentData("fortroendevalda");
-
+	const descriptions = getContentData("dubbelspexet");
+	console.log("Descriptions som skickas till sidan:", descriptions);
 	return {
 		props: {
 			descriptions,
