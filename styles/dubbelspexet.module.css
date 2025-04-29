@@ -13,11 +13,14 @@
 	overflow: hidden;
 
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-	border-top: 3px solid var(--clr4);
+	/* Grod-grön accent på övre kant */
+	border-top: 3px solid rgb(1, 102, 101);
 }
 
+/* Anpassa nav-sektionens rubrik (h2) till grod-grön */
 .dubbelspexetNav h2 {
 	padding-left: 1rem;
+	color: rgb(1, 102, 101);
 }
 
 .dubbelspexetNav ul {
@@ -35,7 +38,8 @@
 .dubbelspexetNav ul li:hover {
 	transform: scale(106%);
 	transition: 0.1s;
-	background-color: rgb(211, 211, 211);
+	/* Hatt-gul hover */
+	background-color: rgb(254, 203, 55);
 	cursor: pointer;
 }
 
@@ -43,8 +47,9 @@
 	scroll-margin-top: 75px;
 }
 
+/* Rubrik (h1) färgad grod-grön utan centrering */
 .dubbelspexetContent h1 {
-	color: var(--clr5);
+	color: rgb(1, 102, 101);
 	margin-top: 0;
 }
 
@@ -77,8 +82,11 @@
 
 .dubbelspexetNav .active {
 	text-align: center;
-	background-color: var(--clr4) !important;
+	/* Grod-grön bakgrund */
+	background-color: rgb(1, 102, 101) !important;
 	color: white;
+	/* Grod-röd kant för aktiv */
+	border-left: 4px solid rgb(183, 44, 49);
 }
 
 .mandatePeriod {
@@ -87,6 +95,22 @@
 	font-size: 1.1rem;
 	text-align: center;
 }
+
+.logo {
+	display: block;
+	margin: 1rem auto;
+	max-width: 400px;    /* valfri maxbredd på desktop */
+	width: 100%;
+	height: auto;
+  }
+  
+  /* På riktigt små skärmar kan du minska max-bredden ytterligare */
+@media screen and (max-width: 500px) {
+	.logo {
+		max-width: 250px;
+	}
+}
+  
 
 @media screen and (max-width: 1160px) {
 	.imageWrapper {
@@ -109,4 +133,5 @@
 	.dubbelspexetNav {
 		max-width: 100%;
 	}
+
 }

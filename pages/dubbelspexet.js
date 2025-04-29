@@ -85,7 +85,10 @@ export default function Rubrics({ descriptions }) {
 				url={"https://www.cl-sektionen.se/dubbelspexet"}
 			/>
 			<div id="contentbody" className="wideContent">
-				<h1 id={"page-title"}>Dubbelspexet</h1>
+				
+				<img src="../../media/dubbelspexet/Logga-RättFärg.png" alt="Dubbelspexet" className={styles.logo}/>
+				
+				
 				<div className={styles.dubbelspexetWrapper}>
 					<nav className={styles.dubbelspexetNav}>
 						<ul>
@@ -117,7 +120,7 @@ export default function Rubrics({ descriptions }) {
 						/>
 					</div>
 				</div>
-				<span className="lastUpdated">Senast uppdaterad: 2024-08-06</span>
+				<span className="lastUpdated">Senast uppdaterad: 2025-29-04</span>
 			</div>
 		</>
 	);
