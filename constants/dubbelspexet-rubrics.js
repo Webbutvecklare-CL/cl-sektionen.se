@@ -23,7 +23,7 @@ const abouts = [
 	},
 	{
 		name: "Tidigare spex",
-		id: "tidigarespexs",
+		id: "tidigarespex",
 	},
 ];
 
