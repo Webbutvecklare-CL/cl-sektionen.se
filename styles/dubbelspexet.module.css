@@ -99,18 +99,17 @@
 .logo {
 	display: block;
 	margin: 1rem auto;
-	max-width: 400px;    /* valfri maxbredd på desktop */
+	max-width: 400px; /* valfri maxbredd på desktop */
 	width: 100%;
 	height: auto;
-  }
-  
-  /* På riktigt små skärmar kan du minska max-bredden ytterligare */
+}
+
+/* På riktigt små skärmar kan du minska max-bredden ytterligare */
 @media screen and (max-width: 500px) {
 	.logo {
 		max-width: 250px;
 	}
 }
-  
 
 @media screen and (max-width: 1160px) {
 	.imageWrapper {
@@ -133,5 +132,4 @@
 	.dubbelspexetNav {
 		max-width: 100%;
 	}
-
 }

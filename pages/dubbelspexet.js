@@ -3,19 +3,18 @@ import { useEffect, useState } from "react";
 
 import { getContentData } from "@/utils/contents";
 
-import DubbelspexetInfo from "@/components/DubbelspexetInfo";
 import CustomHead from "@/components/CustomHead";
+import DubbelspexetInfo from "@/components/DubbelspexetInfo";
 
 import {
-	welcome,
-	inProgress,
 	abouts,
-	interest,
-	contact,
 	all_rubrics,
 	all_rubrics_ids,
+	contact,
+	inProgress,
+	interest,
+	welcome,
 } from "@/constants/dubbelspexet-rubrics";
-
 
 import { fortroendevaldaList } from "@/constants/fortroendevaldaData";
 
@@ -57,7 +56,6 @@ export default function Rubrics({ descriptions }) {
 				onClick={() => stateUpdater(data.id)}
 				onKeyDown={() => stateUpdater(data.id)}
 			>
-				
 				{data.name}
 			</li>
 		);
@@ -73,7 +71,6 @@ export default function Rubrics({ descriptions }) {
 		}
 		return null;
 	};
-	
 
 	return (
 		<>
@@ -85,10 +82,12 @@ export default function Rubrics({ descriptions }) {
 				url={"https://www.cl-sektionen.se/dubbelspexet"}
 			/>
 			<div id="contentbody" className="wideContent">
-				
-				<img src="../../media/dubbelspexet/Logga-RättFärg.png" alt="Dubbelspexet" className={styles.logo}/>
-				
-				
+				<img
+					src="../../media/dubbelspexet/Logga-RättFärg.png"
+					alt="Dubbelspexet"
+					className={styles.logo}
+				/>
+
 				<div className={styles.dubbelspexetWrapper}>
 					<nav className={styles.dubbelspexetNav}>
 						<ul>
@@ -105,13 +104,9 @@ export default function Rubrics({ descriptions }) {
 								return <NavTab data={about} key={idx} />;
 							})}
 							<br />
-
 						</ul>
 					</nav>
-					<div
-						id="dubbelspexetContent"
-						className={styles.dubbelspexetContent}
-					>
+					<div id="dubbelspexetContent" className={styles.dubbelspexetContent}>
 						<DubbelspexetInfo
 							rubric={selectedRubric}
 							descriptions={descriptions[selectedRubric]}

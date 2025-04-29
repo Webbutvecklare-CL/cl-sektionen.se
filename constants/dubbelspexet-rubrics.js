@@ -37,14 +37,7 @@ const contact = {
 	id: "kontakt",
 };
 
-
-const all_rubrics = [
-	welcome,
-	inProgress,
-	...abouts,
-	interest,
-	contact,
-];
+const all_rubrics = [welcome, inProgress, ...abouts, interest, contact];
 
 const all_rubrics_ids = {};
 all_rubrics_ids[welcome.id] = welcome;
