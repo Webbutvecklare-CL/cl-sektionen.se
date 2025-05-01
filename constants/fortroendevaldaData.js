@@ -45,7 +45,7 @@ const fortroendevaldaList = [
 	{
 		id: "studienamnden",
 		mail: "studienamnden@cl-sektionen.se",
-		period: "2025-01-01 – 2025-12-31 (utbytesansvarig 2025-05-01 - 2026-04-30)",
+		period: "2025-01-01 – 2025-12-31 (utbytesansvarig 2025-05-01 – 2026-04-30)",
 		people: [
 			{
 				role: "Ordförande",
@@ -244,7 +244,7 @@ const fortroendevaldaList = [
 				role: "Ettans representant",
 				name: "Vakant",
 				mail: "",
-				year: "",
+				year: "CL",
 			},
 		],
 	},
