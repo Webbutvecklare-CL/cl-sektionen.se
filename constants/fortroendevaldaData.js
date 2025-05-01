@@ -45,7 +45,7 @@ const fortroendevaldaList = [
 	{
 		id: "studienamnden",
 		mail: "studienamnden@cl-sektionen.se",
-		period: "2025-01-01 – 2025-12-31 (ej utbytesansvarig)",
+		period: "2025-01-01 – 2025-12-31 (utbytesansvarig 2025-05-01 - 2026-04-30)",
 		people: [
 			{
 				role: "Ordförande",
@@ -67,9 +67,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Utbytesansvarig",
-				name: "Sander Söderberg",
+				name: "Charlie Axelsson",
 				mail: "utbyte@cl-sektionen.se",
-				year: "CL21",
+				year: "CL23",
 			},
 		],
 	},
@@ -189,62 +189,62 @@ const fortroendevaldaList = [
 	{
 		id: "clw",
 		mail: "clw@cl-sektionen.se",
-		period: "2024-05-01 – 2025-04-30",
+		period: "2025-05-01 – 2026-04-30",
 		people: [
 			{
 				role: "Klubbmästare – CL",
-				name: "Tuva Fred",
+				name: "Vida Sihlén",
 				mail: "clw@cl-sektionen.se",
 				year: "CL23",
 			},
 			{
 				role: "Klubbmästare – W",
-				name: "Sarah Nemati",
+				name: "Gustaf Rosén",
 				mail: "klubbmastare@w-sektionen.se",
-				year: "W23",
+				year: "W22",
 			},
 			{
 				role: "Ekonomiskt ansvarig",
-				name: "Gustav Nilsson",
+				name: "Teo Kamiyasu",
 				mail: "ekonomi.clw@cl-sektionen.se",
-				year: "W22",
+				year: "CL24",
 			},
 		],
 	},
 	{
 		id: "valberedningen",
 		mail: "val@cl-sektionen.se",
-		period: "2024-05-01 – 2025-04-30",
+		period: "2025-05-01 – 2026-04-30",
 		people: [
 			{
-				role: "Femmans representant även sammankallande",
-				name: "David Calén",
+				role: "Femmans representant",
+				name: "Vilmer Arrskog",
 				mail: "",
-				year: "CL20",
+				year: "CL23",
 			},
 			{
 				role: "Fyrans representant",
-				name: "Mathilda Larsson",
+				name: "Viktor Halberg",
 				mail: "",
 				year: "CL22",
 			},
 			{
 				role: "Treans representant",
-				name: "Madeleine Rogersdotter",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Tvåans representant",
-				name: "Nova Roberts",
+				name: "Tuva Fred",
 				mail: "",
 				year: "CL23",
 			},
 			{
-				role: "Ettans representant",
-				name: "Sara Pirkhidran",
+				role: "Tvåans representant även sammankallande",
+				name: "Tova Andrae",
 				mail: "",
 				year: "CL24",
+			},
+			{
+				role: "Ettans representant",
+				name: "Vakant",
+				mail: "",
+				year: "",
 			},
 		],
 	},
