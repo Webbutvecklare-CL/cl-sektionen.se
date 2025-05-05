@@ -43,7 +43,6 @@ export default function Rubrics({ descriptions }) {
 
 		router.replace(`#${rubric}`);
 		const element = document.getElementById("dubbelspexetContent");
-		element.scrollIntoView({ behavior: "smooth" });
 		setselectedRubric(rubric);
 	};
 
