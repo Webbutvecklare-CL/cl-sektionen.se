@@ -80,13 +80,13 @@ const fortroendevaldaList = [
 		people: [
 			{
 				role: "Ordförande",
-				name: "Vakant",
+				name: "Alva Petterson",
 				mail: "ordf.naringsliv@cl-sektionen.se",
-				year: "CL",
+				year: "CL24",
 			},
 			{
 				role: "Vice ordförande",
-				name: "Noel Dansell",
+				name: "August Ericsson",
 				mail: "vice.naringsliv@cl-sektionen.se",
 				year: "CL24",
 			},
@@ -301,19 +301,19 @@ const fortroendevaldaList = [
 	{
 		id: "kf",
 		mail: "kf@cl-sektionen.se",
-		period: "2024-07-01 – 2025-06-30",
+		period: "2025-07-01 – 2026-06-30",
 		people: [
 			{
 				role: "Ledamot",
-				name: "Armin Baymani",
-				mail: "",
-				year: "CL19",
-			},
-			{
-				role: "Suppleant",
 				name: "Frida Andersson",
 				mail: "",
 				year: "CL20",
+			},
+			{
+				role: "Suppleant",
+				name: "Mathilda Larsson",
+				mail: "",
+				year: "CL22",
 			},
 		],
 	},
