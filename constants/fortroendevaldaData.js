@@ -142,7 +142,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Vice ordförande",
-				name: "Amélile Santesson",
+				name: "Amélie Santesson",
 				mail: "vice.aktivitetsnamnden@cl-sektionen.se",
 				year: "CL23",
 			},
@@ -301,19 +301,19 @@ const fortroendevaldaList = [
 	{
 		id: "kf",
 		mail: "kf@cl-sektionen.se",
-		period: "2025-07-01 – 2026-06-30",
+		period: "2024-07-01 – 2025-06-30",
 		people: [
 			{
 				role: "Ledamot",
-				name: "Frida Andersson",
+				name: "Armin Baymani",
 				mail: "",
-				year: "CL20",
+				year: "CL19",
 			},
 			{
 				role: "Suppleant",
-				name: "Mathilda Larsson",
+				name: "Frida Andersson",
 				mail: "",
-				year: "CL22",
+				year: "CL20",
 			},
 		],
 	},
