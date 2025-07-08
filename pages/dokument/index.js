@@ -134,16 +134,16 @@ export default function Dokument({ contents }) {
 					<Card link="https://drive.google.com/file/d/1VquRwgakGEWAZezuBrMNvqyBIDkJtA6x/view?usp=drive_web">
 						<FontAwesomeIcon icon={faFilePdf} /> Ekonomiskt regelverk
 					</Card>
-					<Card link="https://drive.google.com/file/d/1Dey5wOO4O-jb2SvQMl43JsQ6dHzCR4vP/view?usp=drive_web">
+					<Card link="https://drive.google.com/file/d/1kJ7Hl4zt6zlE2sWXCH0O_bGNGFhG_ROY/view?usp=sharing">
 						<FontAwesomeIcon icon={faFilePdf} /> Uppförandekod
 					</Card>
 					<Card link="https://drive.google.com/file/d/1kRL_V5opBUguLuqFSdjamFqcKNKXL7op/view?usp=drive_web">
 						<FontAwesomeIcon icon={faFilePdf} /> Gråttboken
 					</Card>
-					<Card link="https://drive.google.com/file/d/16QjpDvNKQ2PzOSCacY6JtBhlGvk9Yku_/view?usp=drive_web">
+					<Card link="https://drive.google.com/file/d/1zn_N4Y4BHj0wkH2tVcXl229iVZsw15V6/view?usp=sharing">
 						<FontAwesomeIcon icon={faFilePdf} /> Reglemente
 					</Card>
-					<Card link="https://drive.google.com/file/d/1KEP4uWzteiCP8Ce-jLW0XeVINW6iOf2V/view?usp=drive_web">
+					<Card link="https://drive.google.com/file/d/1FspTJSvdjjGWg2LxhR21rUTxYr4AlEtu/view?usp=sharing">
 						<FontAwesomeIcon icon={faFilePdf} /> Stadgar
 					</Card>
 					<Card link="https://drive.google.com/file/d/1SWygyIWxNqOwwIvqmfHx8s-cKH7voL5p/view?usp=drive_web">
