@@ -4,8 +4,7 @@
 
 ***Gruppansvarig:*** Mathilda Larsson
 
-Presidiet är ytterst ansvariga för CL-sektionens mottagning.
-De har planerat sedan vintern för att mottagningen ska bli så bra och minnensvärd som möjligt!
+Presidiet är ytterst ansvariga för CL-sektionens mottagning. De har planerat sedan vintern för att mottagningen ska bli så bra och minnensvärd som möjligt!
 
 ## Bakis
 
