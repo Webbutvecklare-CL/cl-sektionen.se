@@ -179,6 +179,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 									<Link href={"mottagning/mottagargrupper"}>
 										Mottagargrupper
 									</Link>
+									/* 2025-07-22: Kommenterar ut adeptboken tillfälligt tills den nya länken kommer
 									<Link
 										href={
 											"https://drive.google.com/file/d/1yiqu0gfDygx7VK-e5de2ElgMUXQd0rIR/view"
@@ -187,6 +188,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 									>
 										Adeptbok
 									</Link>
+	 								*/
 									<Link href={"sangbok"} target="_blank">
 										Sångbok
 									</Link>
