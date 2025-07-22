@@ -12,29 +12,29 @@ KTH". Du bör besöka sidan och bekanta dig med dess innehåll. Sidan är framta
 
 <img src="../../media/img/Stockholms_stadshus.webp" alt="Bild på statshuset" style="color:transparent;width:100%;height:auto">
 
-Den 24 augusti håller KTH en ceremoni i statshuset för att välkommna nya studenter. Det finns begränsade platser och först till kvarn gäller.  
-[Du kan anmäla dig här](https://www.kth.se/student/studier/nypakth/rektors-mottagning-i-stockholms-stadshus-24-augusti)
+Den 24:e augusti håller KTH en ceremoni i stadshuset för att välkomna nya studenter. En personlig inbjudan skickas till dig via samma e-postadress som du använde för att ansöka till KTH. Det finns begränsade platser och först till kvarn gäller.
+[Läs mer om rektorsmottagningen](https://www.kth.se/student/studier/nypakth/rektors-mottagning-i-stockholms-stadshus-1.326539)
 
 ## FUNKA - Stöd för dig med funktionsnedsättning
 
-Studenter med dokumenterad, varaktig funktionsnedsättning kan få kompensatoriskt stöd i sina studier vid KTH. Gruppen som samordnar stöden heter Funka. Det är dock viktigt att ansöka om FUNKA-stöd så tidigt som möjligt då hanläggningstiden kan vara upp till 3 veckor. På KTHs webbplats hittar du info om vilken typ av stöd som FUNKA erbjuder.  
+Studenter med dokumenterad, varaktig funktionsnedsättning kan få kompensatoriskt stöd i sina studier vid KTH. Gruppen som samordnar stöden heter Funka. Det är dock viktigt att ansöka om FUNKA-stöd så tidigt som möjligt då handläggningstiden kan vara upp till 3 veckor. På KTHs webbplats hittar du info om vilken typ av stöd som FUNKA erbjuder.  
 [Läs mer och ansök om FUNKA-stöd](https://www.kth.se/student/stod/studier/funktionsnedsattning)
 
 ## Studenthälsan
 
 Via Studenthälsan kan du träffa företagssköterska, psykolog och kurator. Företagssköterskor erbjuder hälsosamtal. Till psykologerna kan du komma för rådgivning eller för en avgränsad samtalskontakt. Kurator erbjuder psykosocial rådgivning och stödsamtal. Besök är gratis!  
-[Läs mer om studenthälsan](https://www.kth.se/student/stod/halsa/studenthalsan/valkommen-till-studenthalsan-i-stockholm)
+[Läs mer om studenthälsan](https://www.kth.se/student/stod/halsa/studenthalsan-1.409886)
 
 ## Studie- och karriärvägledning (SVL)
 
 KTH erbjuder alla studenter studie- och karriärvägledning, för att du ska utveckla effektiva studiestrategier och göra välgrundade val i din studiesituation.  
-[Läs mer om och kontakta CL:s studievägledare](https://www.kth.se/student/kontakt/kontaktuppgifter/kontakta-oss-pa-civilingenjor-och-larare-300-hp)
+[Läs mer om och kontakta CL:s studievägledare](https://www.kth.se/student/stod/studier/studievagledning-1.83165)
 
 ## Kårens Dag & Campus Fair
 
 <img src="../../media/img/KårensdagCampusfair.webp" alt="Kårens dag" style="color:transparent;width:100%;height:auto">
 
-Torsdag den 22 augusti hålls Kårens Dag och Campus Fair i kårhuset Nymble. Det är ett ypperligt tillfälle att lära dig mer om vad kåren har att erbjuda. När Kårens Dag går mot sitt slut börjar istället Kårens Kväll, en fest för alla nya KTH-studenter.
+Torsdag den 21 augusti hålls Kårens Dag och Campus Fair i kårhuset Nymble. Det är ett ypperligt tillfälle att lära dig mer om vad kåren har att erbjuda. När Kårens Dag går mot sitt slut börjar istället Kårens Kväll, en fest för alla nya KTH-studenter.
 
 ## Ställ dig i bostadskön och bli kårmedlem
 
