@@ -12,7 +12,7 @@ KTH". Du bör besöka sidan och bekanta dig med dess innehåll. Sidan är framta
 
 <img src="../../media/img/Stockholms_stadshus.webp" alt="Bild på statshuset" style="color:transparent;width:100%;height:auto">
 
-Den 24:e augusti håller KTH en ceremoni i stadshuset för att välkomna nya studenter. En personlig inbjudan skickas till dig via samma e-postadress som du använde för att ansöka till KTH. Det finns begränsade platser och först till kvarn gäller.
+Den 24:e augusti håller KTH en ceremoni i stadshuset för att välkomna nya studenter. En personlig inbjudan skickas till dig via samma e-postadress som du använde för att ansöka till KTH. Det finns begränsade platser och först till kvarn gäller.  
 [Läs mer om rektorsmottagningen](https://www.kth.se/student/studier/nypakth/rektors-mottagning-i-stockholms-stadshus-1.326539)
 
 ## FUNKA - Stöd för dig med funktionsnedsättning
