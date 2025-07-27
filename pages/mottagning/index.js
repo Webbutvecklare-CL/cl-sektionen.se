@@ -172,7 +172,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 									<h2>Hitta på mottagningssidan</h2>
 								</div>
 								<div className={styles.nav}>
-									<Link href={"mottagning/schema"}>Schema</Link>
+									<Link href={"https://drive.google.com/file/d/1EtGxAhStM91zl9vRdPQP0S_y4bcFovkN/view"} target="_blank">Schema</Link>
 									<Link href={"mottagning/bilder"}>Bilder</Link>
 									<Link href={"mottagning/info"}>Info</Link>
 									<Link href={"mottagning/kontakt"}>Kontakt</Link>
@@ -181,7 +181,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 									</Link>
 									<Link
 										href={
-											"https://drive.google.com/file/d/1yiqu0gfDygx7VK-e5de2ElgMUXQd0rIR/view"
+											"https://drive.google.com/file/d/1Et0CmSBiAZ6yHwX7etEe3-WEadjWqLGF/view"
 										}
 										target="_blank"
 									>
