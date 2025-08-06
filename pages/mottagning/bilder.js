@@ -28,56 +28,59 @@ export default function Bilder() {
 						</p>
 						<h2>Första veckan v.33</h2>
 						<div className={styles.cardList}>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/5EG2SgMtmAD2YcDL6"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Måndag, 2025-08-11
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/aud4YqtGPy5WDiZe7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Tisdag, 2025-08-12
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/2jpk1tt91xQyHE5r7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Onsdag, 2025-08-13
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/39QxjFTFv7PSGmkx7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Torsdag, 2025-08-14
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/p9WCbcE656HDoZpg9"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Fredag, 2025-08-15
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/zdBswjkTEJufLoRJ6"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Söndag, 2025-08-17
 							</Card>
 						</div>
 						<h2>Andra veckan v.34</h2>
 						<div className={styles.cardList}>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/WnYK87JhwqLqT1ky8"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Måndag, 2025-08-18
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/PjgYBYeYbLkZAQUC7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Tisdag, 2025-08-19
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/2qVjYcBAUE4vFb127"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Onsdag, 2025-08-20
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/CNeNfn7KEgx8TR4q7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Torsdag, 2025-08-21
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/qbdUxgQTaSiZsFCe7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Fredag, 2025-08-22
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/yJJkNVkipNPG3LiS7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Lördag, 2025-08-23
 							</Card>
 						</div>
 						<h2>Tredje veckan v.35</h2>
 						<div className={styles.cardList}>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/5p5eW4FhcoD8SBru7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Nollepubrundan, 2025-08-27
 							</Card>
-							<Card link={"./bilder"} newTab>
+							<Card link={"https://photos.app.goo.gl/au5wSX9v6nUvrLtP6"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Mottagningshäng, 2025-08-28
+							</Card>
+							<Card link={"https://photos.app.goo.gl/vHsdC4iQqzocH2Jz5"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Adeptgasquen, 2025-08-29
 							</Card>
 						</div>
-						<h2>Knäppisuppdrag och tackgasquen</h2>
+						<h2>Tackgasquen</h2>
 						<div className={styles.cardList}>
 							<Card link={"./bilder"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Tackgasquen
