@@ -174,7 +174,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 								<div className={styles.nav}>
 									<Link
 										href={
-											"https://drive.google.com/file/d/1zlZ2XA7tGqQLuPzedBZyOLnnMBCOx_ID/view"
+											"https://drive.google.com/file/d/1--tzak8eaBnVnCkYia7mVm-lHWDPJCUu/view"
 										}
 										target="_blank"
 									>
