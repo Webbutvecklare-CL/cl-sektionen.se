@@ -1,4 +1,4 @@
-import Link from "next/link";
+coimport Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -196,6 +196,9 @@ export default function Mottagning({ loggedIn, _posts }) {
 									</Link>
 									<Link href={"sangbok"} target="_blank">
 										Sångbok
+									</Link>
+									<Link href={"mottagning/mknappis-uppdrag"} target="_blank">
+										Knäppis-uppdrag
 									</Link>
 								</div>
 							</div>
