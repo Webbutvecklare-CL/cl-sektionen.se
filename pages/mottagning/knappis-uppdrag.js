@@ -18,7 +18,7 @@ export default function KnappisUppdrag() {
 					<div className="article-head">
 						<BackButton page="mottagning">Mottagningssidan</BackButton>
 					</div>
-					<h2 text-align="center">Knäppis poängjakt 2025</h2>
+					<h2>Knäppis poängjakt 2025</h2>
 					<p>
 						Målet är att fånga de 15 olika motiven listade nedan, och utöver
 						dessa fylla resterande kamerarullen med minnesvärda bilder från

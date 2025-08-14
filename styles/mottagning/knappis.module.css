@@ -18,6 +18,10 @@
 	color: white;
 }
 
+.knappisTable tr:nth-child(odd) {
+	background-color: #ed9991;
+}
+
 .knappisTable td:first-child,
 .knappisTable td:last-child {
 	text-align: center;
@@ -27,6 +31,7 @@
 	background-color: #f1f1f1;
 }
 
-.knappisTable td:nth-child(even) {
-	background-color: #ed9991;
+.wideContent h2 {
+	text-align: center;
 }
+
