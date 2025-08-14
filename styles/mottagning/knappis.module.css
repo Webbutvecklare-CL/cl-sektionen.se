@@ -18,7 +18,7 @@
 	color: white;
 }
 
-.knappisTable tr:nth-child(odd) {
+.knappisTable tr:nth-child(even) {
 	background-color: #ed9991;
 }
 
