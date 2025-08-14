@@ -19,9 +19,11 @@ export default function KnappisUppdrag() {
 						<BackButton page="mottagning">Mottagningssidan</BackButton>
 					</div>
 					<p>
-						Målet är att fånga de 15 olika motiven listade nedan, och utöver dessa fylla resterande kamerarullen med
-						minnesvärda bilder från dagen. Någon från Knäppis eller Bästis kommer vid kvällens slut/när de lämnar
-						Bästismiddagen ta med sig kameran för framkallning och poängsättning. Ha det så kul och lycka till!
+						Målet är att fånga de 15 olika motiven listade nedan, och utöver
+						dessa fylla resterande kamerarullen med minnesvärda bilder från
+						dagen. Någon från Knäppis eller Bästis kommer vid kvällens slut/när
+						de lämnar Bästismiddagen ta med sig kameran för framkallning och
+						poängsättning. Ha det så kul och lycka till!
 					</p>
 					<table className={styles.knappisTable}>
 						<thead>
@@ -39,9 +41,7 @@ export default function KnappisUppdrag() {
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>
-									En bild på något barnsligt roligt
-								</td>
+								<td>En bild på något barnsligt roligt</td>
 								<td>7 p</td>
 							</tr>
 							<tr>
@@ -115,12 +115,14 @@ export default function KnappisUppdrag() {
 						Tips:
 						<ul>
 							<li>
-								Det ska finnas information på kameran gällande exempelvis fokusavstånd (hur långt bort saker
-								som ska se skarpa ut får vara), använd den informationen hur ni vill.
+								Det ska finnas information på kameran gällande exempelvis
+								fokusavstånd (hur långt bort saker som ska se skarpa ut får
+								vara), använd den informationen hur ni vill.
 							</li>
 							<li>
-								Det är svårt att få bilder som ser annat än svarta och suddiga ut när det väl skymmer, så försök
-								tömma rullen innan solen går ner och det blir för mörkt.
+								Det är svårt att få bilder som ser annat än svarta och suddiga
+								ut när det väl skymmer, så försök tömma rullen innan solen går
+								ner och det blir för mörkt.
 							</li>
 						</ul>
 					</p>
