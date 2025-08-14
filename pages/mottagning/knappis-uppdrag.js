@@ -18,6 +18,7 @@ export default function KnappisUppdrag() {
 					<div className="article-head">
 						<BackButton page="mottagning">Mottagningssidan</BackButton>
 					</div>
+					<h2 text-align="center">Knäppis poängjakt 2025</h2>
 					<p>
 						Målet är att fånga de 15 olika motiven listade nedan, och utöver
 						dessa fylla resterande kamerarullen med minnesvärda bilder från
@@ -56,7 +57,7 @@ export default function KnappisUppdrag() {
 							</tr>
 							<tr>
 								<td>5</td>
-								<td>En Bästis som lagar mat</td>
+								<td>Bästis som lagar mat</td>
 								<td>1-3 p</td>
 							</tr>
 							<tr>
@@ -81,7 +82,7 @@ export default function KnappisUppdrag() {
 							</tr>
 							<tr>
 								<td>10</td>
-								<td>Återskapning av scen ur barnserie/fil</td>
+								<td>Återskapning av scen ur barnserie/film</td>
 								<td>3-5 p</td>
 							</tr>
 							<tr>

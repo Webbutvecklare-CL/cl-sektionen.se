@@ -197,7 +197,7 @@ export default function Mottagning({ loggedIn, _posts }) {
 									<Link href={"sangbok"} target="_blank">
 										Sångbok
 									</Link>
-									<Link href={"mottagning/mknappis-uppdrag"} target="_blank">
+									<Link href={"mottagning/knappis-uppdrag"} target="_blank">
 										Knäppis-uppdrag
 									</Link>
 								</div>
