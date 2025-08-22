@@ -80,6 +80,21 @@ export default function Bilder() {
 								<FontAwesomeIcon icon={faImage} /> Adeptgasquen, 2025-08-29
 							</Card>
 						</div>
+						<h2>Knäppisuppdrag</h2>
+						<div className={styles.cardList}>
+							<Card link={"https://photos.app.goo.gl/mrZaEAvGe1mbJusg7"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Alfons Åberg
+							</Card>
+							<Card link={"https://photos.app.goo.gl/zTmnx6TNFrAbr3BH8"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Bumbitåget
+							</Card>
+							<Card link={"https://photos.app.goo.gl/AUVbC6ceZNWnt2xcA"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Mumin
+							</Card>
+							<Card link={"https://photos.app.goo.gl/dfMj3yuYcAnn91ut5"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Nalle Puh
+							</Card>
+						</div>
 						<h2>Tackgasquen</h2>
 						<div className={styles.cardList}>
 							<Card link={"./bilder"} newTab>
