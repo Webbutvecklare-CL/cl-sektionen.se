@@ -67,6 +67,9 @@ export default function Bilder() {
 							<Card link={"https://photos.app.goo.gl/yJJkNVkipNPG3LiS7"} newTab>
 								<FontAwesomeIcon icon={faImage} /> Lördag, 2025-08-23
 							</Card>
+							<Card link={"https://photos.app.goo.gl/3RGLXBF4j7LJsHzd8"} newTab>
+								<FontAwesomeIcon icon={faImage} /> Söndag, 2025-08-24
+							</Card>
 						</div>
 						<h2>Tredje veckan v.35</h2>
 						<div className={styles.cardList}>
