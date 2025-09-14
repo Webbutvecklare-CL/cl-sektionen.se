@@ -1,0 +1,135 @@
+.dubbelspexetWrapper {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	height: auto;
+	column-gap: 1rem;
+}
+
+.dubbelspexetNav {
+	background-color: white;
+	max-width: -moz-fit-content;
+	max-width: fit-content;
+	border-radius: 0.3rem;
+	overflow: hidden;
+
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+	/* Grod-grön accent på övre kant */
+	border-top: 3px solid rgb(1, 102, 101);
+}
+
+/* Anpassa nav-sektionens rubrik (h2) till grod-grön */
+.dubbelspexetNav h2 {
+	padding-left: 1rem;
+	color: rgb(1, 102, 101);
+}
+
+.dubbelspexetNav ul {
+	list-style-type: none;
+	padding-inline-start: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.dubbelspexetNav ul li {
+	padding: 0.5rem 1rem 0.5rem 1.4rem;
+	font-size: 1.3rem;
+}
+
+.dubbelspexetNav ul li:hover {
+	transform: scale(106%);
+	transition: 0.1s;
+	/* Hatt-gul hover */
+	background-color: rgb(254, 203, 55);
+	cursor: pointer;
+}
+
+.dubbelspexetContent {
+	scroll-margin-top: 75px;
+}
+
+/* Rubrik (h1) färgad grod-grön utan centrering */
+.dubbelspexetContent h1 {
+	color: rgb(1, 102, 101);
+	margin-top: 0;
+}
+
+.poster p {
+	font-size: 1.4rem !important;
+}
+
+.poster strong {
+	color: black;
+}
+
+.cl_year {
+	font-size: 1rem !important;
+}
+
+.imageWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.imageContainer {
+	max-width: 500px;
+	padding: 10px;
+}
+
+.dubbelspexetNav li svg {
+	width: 1.6rem;
+}
+
+.dubbelspexetNav .active {
+	text-align: center;
+	/* Grod-grön bakgrund */
+	background-color: rgb(1, 102, 101) !important;
+	color: white;
+	/* Grod-röd kant för aktiv */
+	border-left: 4px solid rgb(183, 44, 49);
+}
+
+.mandatePeriod {
+	display: block;
+	color: grey;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+.logo {
+	display: block;
+	margin: 1rem auto;
+	max-width: 400px; /* valfri maxbredd på desktop */
+	width: 100%;
+	height: auto;
+}
+
+/* På riktigt små skärmar kan du minska max-bredden ytterligare */
+@media screen and (max-width: 500px) {
+	.logo {
+		max-width: 250px;
+	}
+}
+
+@media screen and (max-width: 1160px) {
+	.imageWrapper {
+		flex-direction: column;
+	}
+	.imageContainer {
+		padding: 0px;
+		width: auto;
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.dubbelspexetWrapper {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		row-gap: 1rem;
+	}
+
+	.dubbelspexetNav {
+		max-width: 100%;
+	}
+}
