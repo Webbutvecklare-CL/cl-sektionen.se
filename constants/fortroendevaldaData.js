@@ -2,7 +2,7 @@ const fortroendevaldaList = [
 	{
 		id: "ctyrelsen",
 		mail: "ctyrelsen@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -12,7 +12,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Vice ordförande tillika sekreterare",
-				name: 'Viktor Uhlgren',
+				name: "Viktor Uhlgren",
 				mail: "vordf@cl-sektionen.se",
 				year: "CL22",
 			},
@@ -45,7 +45,7 @@ const fortroendevaldaList = [
 	{
 		id: "studienamnden",
 		mail: "studienamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31 (ej utbytesansvarig)",
+		period: "2025-01-01 – 2025-12-31 (utbytesansvarig 2025-05-01 – 2026-04-30)",
 		people: [
 			{
 				role: "Ordförande",
@@ -67,26 +67,26 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Utbytesansvarig",
-				name: "Sander Söderberg",
+				name: "Charlie Axelsson",
 				mail: "utbyte@cl-sektionen.se",
-				year: "CL21",
+				year: "CL23",
 			},
 		],
 	},
 	{
 		id: "naringslivsnamnden",
 		mail: "naringslivsnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
-				name: "Vakant",
+				name: "Alva Petterson",
 				mail: "ordf.naringsliv@cl-sektionen.se",
-				year: "CL",
+				year: "CL24",
 			},
 			{
 				role: "Vice ordförande",
-				name: "Noel Dansell",
+				name: "August Ericsson",
 				mail: "vice.naringsliv@cl-sektionen.se",
 				year: "CL24",
 			},
@@ -113,7 +113,7 @@ const fortroendevaldaList = [
 	{
 		id: "jml-namnden",
 		mail: "jml-namnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -132,7 +132,7 @@ const fortroendevaldaList = [
 	{
 		id: "aktivitetsnamnden",
 		mail: "aktivitetsnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -142,7 +142,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Vice ordförande",
-				name: "Amélile Santesson",
+				name: "Amélie Santesson",
 				mail: "vice.aktivitetsnamnden@cl-sektionen.se",
 				year: "CL23",
 			},
@@ -151,7 +151,7 @@ const fortroendevaldaList = [
 	{
 		id: "lokalnamnden",
 		mail: "lokalnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Lokalansvarig",
@@ -164,7 +164,7 @@ const fortroendevaldaList = [
 	{
 		id: "mottagningsnamnden",
 		mail: "mottagningsnamnden@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Mottagningsansvarig",
@@ -189,69 +189,69 @@ const fortroendevaldaList = [
 	{
 		id: "clw",
 		mail: "clw@cl-sektionen.se",
-		period: "2024-05-01 – 2025-04-30",
+		period: "2025-05-01 – 2026-04-30",
 		people: [
 			{
 				role: "Klubbmästare – CL",
-				name: "Tuva Fred",
+				name: "Vida Sihlén",
 				mail: "clw@cl-sektionen.se",
 				year: "CL23",
 			},
 			{
 				role: "Klubbmästare – W",
-				name: "Sarah Nemati",
+				name: "Gustaf Rosén",
 				mail: "klubbmastare@w-sektionen.se",
-				year: "W23",
+				year: "W22",
 			},
 			{
 				role: "Ekonomiskt ansvarig",
-				name: "Gustav Nilsson",
+				name: "Teo Kamiyasu",
 				mail: "ekonomi.clw@cl-sektionen.se",
-				year: "W22",
+				year: "CL24",
 			},
 		],
 	},
 	{
 		id: "valberedningen",
 		mail: "val@cl-sektionen.se",
-		period: "2024-05-01 – 2025-04-30",
+		period: "2025-05-01 – 2026-04-30",
 		people: [
 			{
-				role: "Femmans representant även sammankallande",
-				name: "David Calén",
+				role: "Femmans representant",
+				name: "Vilmer Arrskog",
 				mail: "",
-				year: "CL20",
+				year: "CL23",
 			},
 			{
 				role: "Fyrans representant",
-				name: "Mathilda Larsson",
+				name: "Viktor Halberg",
 				mail: "",
 				year: "CL22",
 			},
 			{
 				role: "Treans representant",
-				name: "Madeleine Rogersdotter",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Tvåans representant",
-				name: "Nova Roberts",
+				name: "Tuva Fred",
 				mail: "",
 				year: "CL23",
 			},
 			{
-				role: "Ettans representant",
-				name: "Sara Pirkhidran",
+				role: "Tvåans representant även sammankallande",
+				name: "Tova Andrae",
 				mail: "",
 				year: "CL24",
+			},
+			{
+				role: "Ettans representant",
+				name: "Vakant",
+				mail: "",
+				year: "CL",
 			},
 		],
 	},
 	{
 		id: "revisorer",
 		mail: "revisor@cl-sektionen.se",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Revisor",
@@ -270,23 +270,23 @@ const fortroendevaldaList = [
 	{
 		id: "fanborg",
 		mail: "fanborg@cl-sektionen.se",
-		period: "2024-02-01 – 2025-01-31",
+		period: "2025-02-01 – 2026-01-31",
 		people: [
 			{
 				role: "Fanbärare",
-				name: "Frida Sundberg",
+				name: "Gustav Heldt",
 				mail: "",
-				year: "CL16",
+				year: "CL20",
 			},
 			{
 				role: "Vice fanbärare",
-				name: "Matilda Algotsson",
+				name: "Lea Martinelle",
 				mail: "",
-				year: "CL21",
+				year: "CL20",
 			},
 			{
 				role: "Fanbärare suppleant",
-				name: "Linnea Selmarker",
+				name: "Frida Anderson",
 				mail: "",
 				year: "CL20",
 			},
@@ -301,26 +301,26 @@ const fortroendevaldaList = [
 	{
 		id: "kf",
 		mail: "kf@cl-sektionen.se",
-		period: "2024-07-01 – 2025-06-30",
+		period: "2025-07-01 – 2026-06-30",
 		people: [
 			{
 				role: "Ledamot",
-				name: "Armin Baymani",
-				mail: "",
-				year: "CL19",
-			},
-			{
-				role: "Suppleant",
 				name: "Frida Andersson",
 				mail: "",
 				year: "CL20",
+			},
+			{
+				role: "Suppleant",
+				name: "Mathilda Larsson",
+				mail: "",
+				year: "CL22",
 			},
 		],
 	},
 	{
 		id: "enskilda",
 		mail: "",
-		period: "2024-01-01 – 2024-12-31",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Talman 👩‍⚖️",
@@ -345,34 +345,35 @@ const fortroendevaldaList = [
 	{
 		id: "clek",
 		mail: "clek@cl-sektionen.se",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "Ordförande",
+				name: "Leonard Rehbinder",
+				mail: "",
+				year: "CL24",
+			},
+			{
+				role: "Vice ordförande",
+				name: "Samuel Giselsson",
+				mail: "",
+				year: "CL24",
+			},
+			{
+				role: "Ekonomiskt ansvarig",
+				name: "Olivia Sundkvist",
+				mail: "",
+				year: "CL24",
+			},
+			{
+				role: "Ledamot",
 				name: "Nova Roberts",
 				mail: "",
 				year: "CL23",
 			},
 			{
-				role: "Vice ordförande",
-				name: "Viktor Uhlgren",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Ekonomiskt ansvarig",
-				name: "Sander Söderberg",
-				mail: "",
-				year: "CL21",
-			},
-			{
 				role: "Ledamot",
-				name: "Charlie Axelsson",
-				mail: "",
-				year: "CL23",
-			},
-			{
-				role: "Ledamot",
-				name: "Edvin Tran",
+				name: "William Thunholm",
 				mail: "",
 				year: "CL22",
 			},
@@ -383,44 +384,8 @@ const fortroendevaldaList = [
 				year: "CL23",
 			},
 			{
-				role: "Ledamot",
-				name: "Niklas Furtenbach",
-				mail: "",
-				year: "CL21",
-			},
-			{
-				role: "Ledamot",
-				name: "Okan Köker",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Ledamot",
-				name: "William Thunholm",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Valberedare",
-				name: "Henning Lindqvist",
-				mail: "",
-				year: "CL23",
-			},
-			{
-				role: "Valberedare",
-				name: "Tuva Egman",
-				mail: "",
-				year: "CL20",
-			},
-			{
 				role: "Revisor",
-				name: "Ludwig Gustafsson",
-				mail: "",
-				year: "CL21",
-			},
-			{
-				role: "Revisor",
-				name: "Jesper Svensson",
+				name: "Sander Söderberg",
 				mail: "",
 				year: "CL21",
 			},
@@ -428,7 +393,8 @@ const fortroendevaldaList = [
 	},
 	{
 		id: "dubbelspexet",
-		mail: "direktionen@dubbelspexet.com",
+		mail: "",
+		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
 				role: "DireKTHréce",
@@ -438,21 +404,27 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Producent",
-				name: "Linnea Selmarker",
+				name: "Alvin Hallander",
 				mail: "",
-				year: "CL20",
+				year: "CL24",
 			},
 			{
 				role: "Ekonomiskt ansvarig",
-				name: "Lukas Kuusivuori",
-				mail: "ekonomi@dubbelspexet.com",
-				year: "CL22",
+				name: "Felicia Lund",
+				mail: "",
+				year: "CL24",
 			},
 			{
 				role: "Ledamot",
-				name: "Dian Xia",
+				name: "Jan Gomez Morales",
 				mail: "",
-				year: "CL22",
+				year: "CL24",
+			},
+			{
+				role: "Revisor",
+				name: "Jakob Ridal",
+				mail: "",
+				year: "CL24",
 			},
 		],
 	},

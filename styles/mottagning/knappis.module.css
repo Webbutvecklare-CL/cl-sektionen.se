@@ -18,6 +18,10 @@
 	color: white;
 }
 
+.knappisTable tr:nth-child(even) {
+	background-color: #ed9991;
+}
+
 .knappisTable td:first-child,
 .knappisTable td:last-child {
 	text-align: center;
@@ -25,4 +29,8 @@
 
 .knappisTable tbody tr:hover {
 	background-color: #f1f1f1;
+}
+
+.wideContent h2 {
+	text-align: center;
 }

@@ -134,16 +134,16 @@ export default function Dokument({ contents }) {
 					<Card link="https://drive.google.com/file/d/1VquRwgakGEWAZezuBrMNvqyBIDkJtA6x/view?usp=drive_web">
 						<FontAwesomeIcon icon={faFilePdf} /> Ekonomiskt regelverk
 					</Card>
-					<Card link="https://drive.google.com/file/d/1Dey5wOO4O-jb2SvQMl43JsQ6dHzCR4vP/view?usp=drive_web">
+					<Card link="https://drive.google.com/file/d/1kJ7Hl4zt6zlE2sWXCH0O_bGNGFhG_ROY/view?usp=sharing">
 						<FontAwesomeIcon icon={faFilePdf} /> Uppförandekod
 					</Card>
 					<Card link="https://drive.google.com/file/d/1kRL_V5opBUguLuqFSdjamFqcKNKXL7op/view?usp=drive_web">
 						<FontAwesomeIcon icon={faFilePdf} /> Gråttboken
 					</Card>
-					<Card link="https://drive.google.com/file/d/1iPObXIk4zckF1b70JIOezrjkK5R3MCu_/view?usp=drive_web">
+					<Card link="https://drive.google.com/file/d/1zn_N4Y4BHj0wkH2tVcXl229iVZsw15V6/view?usp=sharing">
 						<FontAwesomeIcon icon={faFilePdf} /> Reglemente
 					</Card>
-					<Card link="https://drive.google.com/file/d/1KEP4uWzteiCP8Ce-jLW0XeVINW6iOf2V/view?usp=drive_web">
+					<Card link="https://drive.google.com/file/d/1FspTJSvdjjGWg2LxhR21rUTxYr4AlEtu/view?usp=sharing">
 						<FontAwesomeIcon icon={faFilePdf} /> Stadgar
 					</Card>
 					<Card link="https://drive.google.com/file/d/1SWygyIWxNqOwwIvqmfHx8s-cKH7voL5p/view?usp=drive_web">
@@ -152,18 +152,19 @@ export default function Dokument({ contents }) {
 					<Card link="https://drive.google.com/file/d/1KuZmVOeegFd-iAuLf1WRzpUNS0f4Z1jI/view?usp=drive_web">
 						<FontAwesomeIcon icon={faFilePdf} /> Ekonomisk femårsplan 2025-2029
 					</Card>
-					<Card link="https://drive.google.com/file/d/1GkK2Jk98GWDVdNXiJaVW6PbFhCLTBtqU/view?usp=drive_web">
-						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2025
-					</Card>
 				</div>
 
 				<h2>Verksamhets-berättelser och planer</h2>
 				<div className={styles.cards}>
+					{"."}
+					{/* Hittar inte verksamhetsberättelse 2024 */}
 					<Card link="https://drive.google.com/file/d/1fEAof3da4qs0NKCh0aVpVKPmZCiDXJd-/view?usp=drive_link">
 						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsberättelse 2023
 					</Card>
-					<Card link="https://drive.google.com/file/d/1EXpiAXkQK-gCBgPicBRxdcNgSSly-tYt/view?usp=drive_link">
-						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2024
+					{"."}
+					{/*  Länkar till verksamhetsplanen i 1. Styrdokument */}
+					<Card link="https://drive.google.com/file/d/1GkK2Jk98GWDVdNXiJaVW6PbFhCLTBtqU/view?usp=drive_web">
+						<FontAwesomeIcon icon={faFilePdf} /> Verksamhetsplan 2025
 					</Card>
 					<Card link="https://drive.google.com/drive/folders/1NJxJnjQIhetEji1W8RFBw4iaHgoy6kJy?usp=drive_link">
 						<FontAwesomeIcon icon={faFolder} /> Verksamhetsberättelser

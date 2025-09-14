@@ -2,21 +2,21 @@
 
 Presidiet är ytterst ansvariga för CL-sektionens mottagning.
 
-### Mottagningsansvarig - Moa Wettby
+### Mottagningsansvarig - Mathilda Larsson
 
-Tel: 076 607 08 74
+Tel: 070 243 76 40  
 Mail: mottagningen@cl-sektionen.se
 
-### Vice mottagningsansvarig - Olivia Gadstam
+### Vice mottagningsansvarig - Amanda Nordlund Magnusson
 
-Tel: 076 238 11 54
+Tel: 073 982 37 72  
 Mail: vice.mottagningen@cl-sektionen.se
 
-### Ekonomiskt ansvarig - Viktor Hallberg
+### Ekonomiskt ansvarig - Sofia Lundkvist
 
-Tel: 073 714 68 43 
+Tel: 070 481 92 26  
 Mail: ekonomi.mottagningen@cl-sektionen.se
 
 ### Anonym kontakt
 
-Vill du kontakta presidiet anonymt kan du göra det via följande [formulär](https://forms.gle/eocCcukzjxNuSAv28).
+Vill du kontakta presidiet anonymt kan du göra det via följande [formulär](https://forms.gle/arczMLDg1z75xrXUA).

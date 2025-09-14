@@ -8,7 +8,7 @@ export default function KnappisUppdrag() {
 		<>
 			<CustomHead
 				metaTitle={
-					"Knäppis-uppdrag mottagningen | Sektionen för Civilingenjör och Lärare"
+					"Knäppis poängjakt 2025 | Sektionen för Civilingenjör och Lärare"
 				}
 				description={"Knäppis-uppdrag för Stadsjakten på mottagningen."}
 				url={"https://www.cl-sektionen.se/mottagning/knappis-uppdrag"}
@@ -18,24 +18,19 @@ export default function KnappisUppdrag() {
 					<div className="article-head">
 						<BackButton page="mottagning">Mottagningssidan</BackButton>
 					</div>
+					<h2>Knäppis poängjakt 2025</h2>
 					<p>
-						Här finns uppdraget för Knäppis fototävling som pågår idag. Varje
-						grupp får varsin engångskamera med 27 bilder. Den använder ni för
-						att samla poäng, från att stadsjakten börjar till att kvällen är
-						slut. En Knäppis eller Bästis kommer ta kameran efter Bästismiddagen
-						ikväll.
-					</p>
-					<p>
-						Tabellen nedan visar de 15 uppdragen, och hur mycket poäng man kan
-						få. De behöver inte göras i ordning. Var kreativa, gör ert bästa men
-						framförallt ha roligt tillsammans! Det finns lite felmarginal med
-						antalet bilder, så ta några stycken på annat också!
+						Målet är att fånga de 15 olika motiven listade nedan, och utöver
+						dessa fylla resterande kamerarullen med minnesvärda bilder från
+						dagen. Någon från Knäppis eller Bästis kommer vid kvällens slut/när
+						de lämnar Bästismiddagen ta med sig kameran för framkallning och
+						poängsättning. Ha det så kul och lycka till!
 					</p>
 					<table className={styles.knappisTable}>
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Uppdrag</th>
+								<th>Motiv</th>
 								<th>Poäng</th>
 							</tr>
 						</thead>
@@ -43,18 +38,16 @@ export default function KnappisUppdrag() {
 							<tr>
 								<td>1</td>
 								<td>En mottagare från varje inriktning i samma bild</td>
-								<td>4 p</td>
+								<td>1-4 p</td>
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>
-									Något med pirat-tema som inte är kopplat till mottagningen
-								</td>
+								<td>En bild på något barnsligt roligt</td>
 								<td>7 p</td>
 							</tr>
 							<tr>
 								<td>3</td>
-								<td>En gruppbild på hela Adeptgruppen</td>
+								<td>En bild på hela Adeptgruppen</td>
 								<td>3 p</td>
 							</tr>
 							<tr>
@@ -64,32 +57,32 @@ export default function KnappisUppdrag() {
 							</tr>
 							<tr>
 								<td>5</td>
-								<td>En Bästis som lagar mat</td>
-								<td>4 p</td>
+								<td>Bästis som lagar mat</td>
+								<td>1-3 p</td>
 							</tr>
 							<tr>
 								<td>6</td>
-								<td>Fånga två gruppansvariga mottagare i samma bild</td>
-								<td>10 p</td>
+								<td>Gruppansvariga mottagare i samma bild</td>
+								<td>1-12 p</td>
 							</tr>
 							<tr>
 								<td>7</td>
-								<td>En humla</td>
+								<td>Roligast djur</td>
 								<td>5 p</td>
 							</tr>
 							<tr>
 								<td>8</td>
 								<td>Någon på språng</td>
-								<td>3 p</td>
+								<td>1-5 p</td>
 							</tr>
 							<tr>
 								<td>9</td>
-								<td>En annan Adeptgrupp</td>
-								<td>4 p</td>
+								<td>Annan Adeptgrupp</td>
+								<td>1-4 p</td>
 							</tr>
 							<tr>
 								<td>10</td>
-								<td>En återskapning av en känd scen</td>
+								<td>Återskapning av scen ur barnserie/film</td>
 								<td>3-5 p</td>
 							</tr>
 							<tr>
@@ -100,7 +93,7 @@ export default function KnappisUppdrag() {
 							<tr>
 								<td>12</td>
 								<td>En riktigt “go stund” med “gänget”</td>
-								<td>3 p</td>
+								<td>1-5 p</td>
 							</tr>
 							<tr>
 								<td>13</td>
@@ -110,7 +103,7 @@ export default function KnappisUppdrag() {
 							<tr>
 								<td>14</td>
 								<td>Något som känns olagligt men inte är det</td>
-								<td>6 p</td>
+								<td>1-5 p</td>
 							</tr>
 							<tr>
 								<td>15</td>
@@ -119,6 +112,21 @@ export default function KnappisUppdrag() {
 							</tr>
 						</tbody>
 					</table>
+					<p>
+						Tips:
+						<ul>
+							<li>
+								Det ska finnas information på kameran gällande exempelvis
+								fokusavstånd (hur långt bort saker som ska se skarpa ut får
+								vara), använd den informationen hur ni vill.
+							</li>
+							<li>
+								Det är svårt att få bilder som ser annat än svarta och suddiga
+								ut när det väl skymmer, så försök tömma rullen innan solen går
+								ner och det blir för mörkt.
+							</li>
+						</ul>
+					</p>
 				</article>
 			</div>
 		</>
