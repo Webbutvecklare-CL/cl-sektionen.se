@@ -399,7 +399,7 @@ const fortroendevaldaList = [
 	},
 	{
 		id: "dubbelspexet",
-		mail: "",
+		mail: "dubbelspexet@gmail.com",
 		period: "2025-01-01 – 2025-12-31",
 		people: [
 			{
