@@ -55,9 +55,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Programansvarig student",
-				name: "Nora Zbikowski",
+				name: "William Thunholm",
 				mail: "pas@cl-sektionen.se",
-				year: "CL23",
+				year: "CL22",
 			},
 			{
 				role: "Utbildningsbevakare",
@@ -117,15 +117,15 @@ const fortroendevaldaList = [
 		people: [
 			{
 				role: "Ordförande",
-				name: "Charlie Axelsson",
+				name: "Alma Schalin",
 				mail: "jml@cl-sektionen.se",
-				year: "CL23",
+				year: "CL25",
 			},
 			{
 				role: "Vice ordförande tillika studerandeskyddsombud",
-				name: "Emma Nergell",
+				name: "Nathalie Arnborg",
 				mail: "skyddsombud@cl-sektionen.se",
-				year: "CL23",
+				year: "CL25",
 			},
 		],
 	},
@@ -155,9 +155,9 @@ const fortroendevaldaList = [
 		people: [
 			{
 				role: "Lokalansvarig",
-				name: "Vilmer Arrskog",
+				name: "Alexander Molnar",
 				mail: "lokalnamnden@cl-sektionen.se",
-				year: "CL23",
+				year: "CL25",
 			},
 		],
 	},
@@ -218,19 +218,19 @@ const fortroendevaldaList = [
 		people: [
 			{
 				role: "Femmans representant",
-				name: "Vilmer Arrskog",
+				name: "Emma Östling",
 				mail: "",
-				year: "CL23",
+				year: "CL19",
 			},
 			{
 				role: "Fyrans representant",
-				name: "Viktor Halberg",
+				name: "Viktor Hallberg",
 				mail: "",
 				year: "CL22",
 			},
 			{
 				role: "Treans representant",
-				name: "Tuva Fred",
+				name: "Amanda Nordlund Magnusson",
 				mail: "",
 				year: "CL23",
 			},
@@ -242,9 +242,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Ettans representant",
-				name: "Vakant",
+				name: "Ludvig Mårdh",
 				mail: "",
-				year: "CL",
+				year: "CL25",
 			},
 		],
 	},
@@ -384,8 +384,14 @@ const fortroendevaldaList = [
 				year: "CL23",
 			},
 			{
+				role: "Ledamot",
+				name: "Edvin Tran",
+				mail: "",
+				year: "CL22",
+			},
+			{
 				role: "Revisor",
-				name: "Sander Söderberg",
+				name: "Jesper Svensson",
 				mail: "",
 				year: "CL21",
 			},
