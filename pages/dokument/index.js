@@ -140,7 +140,7 @@ export default function Dokument({ contents }) {
 					<Card link="https://drive.google.com/file/d/1kRL_V5opBUguLuqFSdjamFqcKNKXL7op/view?usp=drive_web">
 						<FontAwesomeIcon icon={faFilePdf} /> Gråttboken
 					</Card>
-					<Card link="https://drive.google.com/file/d/1zn_N4Y4BHj0wkH2tVcXl229iVZsw15V6/view?usp=sharing">
+					<Card link="https://drive.google.com/file/d/1HAbFulRfVcDsrIiShk4Qdz_pu3hQ4Zy_/view?usp=sharing">
 						<FontAwesomeIcon icon={faFilePdf} /> Reglemente
 					</Card>
 					<Card link="https://drive.google.com/file/d/1FspTJSvdjjGWg2LxhR21rUTxYr4AlEtu/view?usp=sharing">
