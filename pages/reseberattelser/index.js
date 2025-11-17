@@ -268,6 +268,40 @@ export default function Reseberattelser() {
 								</div>
 							</div>
 						</Link>
+						<Link
+							href="/reseberattelser/philip-gullberg-tjeckien"
+							className={styles.card}
+						>
+							<span className={styles.cardName}>Philip Gullberg</span>
+							<div className={styles.cardLocationContainer}>
+								<span className={styles.cardLocation}>Tjeckien</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={tjeckienEmoji}
+										alt={"Tjeckien-emoji"}
+										height={16}
+									/>
+								</div>
+							</div>
+						</Link>
+						<Link
+							href="/reseberattelser/sander-söderberg-tjeckien"
+							className={styles.card}
+						>
+							<span className={styles.cardName}>Sander Söderberg</span>
+							<div className={styles.cardLocationContainer}>
+								<span className={styles.cardLocation}>Tjeckien</span>
+								<div className={styles.cardEmojiContainer}>
+									<Image
+										className={styles.cardEmoji}
+										src={tjeckienEmoji}
+										alt={"Tjeckien-emoji"}
+										height={16}
+									/>
+								</div>
+							</div>
+						</Link>					
 					</div>
 				</div>
 			) : null}
