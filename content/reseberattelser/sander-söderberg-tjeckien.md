@@ -3,6 +3,7 @@
 <img src="../../media/reseberattelser/sander-söderberg-prag1.webp" class="rese-top">
 
 Universitet: Czech Technical University in Prague
+
 Termin: HT2023  
 Inriktning: Kemi
 
