@@ -4,9 +4,9 @@
 
 Talmannen är den person som har rätt att öppna sektionsmöten, och vanligtvis agerar mötesordförande. Talmannen är ofta en student från CL som har tagit examen.
 
-### Försäljningsansvarig
+### Vice talman
 
-Försäljningsansvarig är en person som ansvarar för försäljning av sektionens märken, ovvar och liknande. Personen ska löpande ta reda på vad medlemmarna önskar köpa, och införskaffa och sälja därefter.
+Vice talman agerar som mötesadministratör för det digitala verktyget VoteIt när det används under sektionsmöten.
 
 ### Idrottsansvarig
 

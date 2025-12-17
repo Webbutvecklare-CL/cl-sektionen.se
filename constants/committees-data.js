@@ -1,6 +1,5 @@
 import {
 	faAppleWhole,
-	faArrowTrendUp,
 	faBasketball,
 	faBook,
 	faCartShopping,
@@ -10,6 +9,7 @@ import {
 	faGavel,
 	faHeart,
 	faHouse,
+	faLaptop,
 	faMasksTheater,
 	faOtter,
 	faPersonRunning,
@@ -66,6 +66,11 @@ const committees = [
 		icon: faFishFins,
 		id: "valberedningen",
 	},
+	{
+		name: "Lokala Försäljningskommittén (LFK)",
+		icon: faCartShopping,
+		id: "lokala-forsaljningskommitten",
+	},
 ];
 const trustees = [
 	{
@@ -91,13 +96,21 @@ const trustees = [
 ];
 
 const individuals = [
-	{ name: "Talman", icon: faGavel, id: "talman" },
 	{
-		name: "Försäljningsansvarig",
-		icon: faCartShopping,
-		id: "forsaljningsansvarig",
+		name: "Talman",
+		icon: faGavel,
+		id: "talman"
 	},
-	{ name: "Idrottsansvarig", icon: faBasketball, id: "idrottsansvarig" },
+	{
+		name: "Vice talman",
+		icon: faLaptop,
+		id: "vice-talman"
+	},
+	{
+		name: "Idrottsansvarig",
+		icon: faBasketball,
+		id: "idrottsansvarig"
+	},
 ];
 
 const associations = [
