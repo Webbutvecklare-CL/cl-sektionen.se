@@ -301,7 +301,7 @@ export default function Reseberattelser() {
 									/>
 								</div>
 							</div>
-						</Link>					
+						</Link>
 					</div>
 				</div>
 			) : null}
