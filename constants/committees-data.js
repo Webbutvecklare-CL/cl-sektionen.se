@@ -99,17 +99,17 @@ const individuals = [
 	{
 		name: "Talman",
 		icon: faGavel,
-		id: "talman"
+		id: "talman",
 	},
 	{
 		name: "Vice talman",
 		icon: faLaptop,
-		id: "vice-talman"
+		id: "vice-talman",
 	},
 	{
 		name: "Idrottsansvarig",
 		icon: faBasketball,
-		id: "idrottsansvarig"
+		id: "idrottsansvarig",
 	},
 ];
 
