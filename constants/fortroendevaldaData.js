@@ -104,9 +104,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Webbutvecklare",
-				name: "LÄXA TILL WEBBUTVECKLIS",
+				name: "Madeleine Rogersdotter",
 				mail: "webbutvecklare@cl-sektionen.se",
-				year: "LÄXA TILL WEBBUTVECKLIS",
+				year: "CL22",
 			},
 		],
 	},
