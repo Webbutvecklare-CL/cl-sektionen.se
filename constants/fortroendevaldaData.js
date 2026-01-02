@@ -30,9 +30,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Ledamot för Näringslivsfrågor och Kommunikation",
-				name: "???",
+				name: "August Ericsson",
 				mail: "naringsliv@cl-sektionen.se",
-				year: "???",
+				year: "CL24",
 			},
 			{
 				role: "Ledamot för Studiesociala- och JML-frågor",
@@ -168,21 +168,21 @@ const fortroendevaldaList = [
 		people: [
 			{
 				role: "Mottagningsansvarig",
-				name: "Mathilda Larsson",
+				name: "Rasmus Harders",
 				mail: "mottagningen@cl-sektionen.se",
 				year: "CL22",
 			},
 			{
 				role: "Vice mottagningsansvarig",
-				name: "Amanda Nordlund Magnusson",
+				name: "Andrea Donné",
 				mail: "vice.mottagningen@cl-sektionen.se",
-				year: "CL23",
+				year: "CL21",
 			},
 			{
 				role: "Ekonomiskt ansvarig för mottagningen",
-				name: "Sofia Lundkvist",
+				name: "Aron Johansson",
 				mail: "ekonomi.mottagningen@cl-sektionen.se",
-				year: "CL23",
+				year: "CL22",
 			},
 		],
 	},
@@ -229,13 +229,13 @@ const fortroendevaldaList = [
 				year: "CL22",
 			},
 			{
-				role: "Treans representant",
+				role: "Treans representant även sammankallande",
 				name: "Amanda Nordlund Magnusson",
 				mail: "",
 				year: "CL23",
 			},
 			{
-				role: "Tvåans representant även sammankallande",
+				role: "Tvåans representant",
 				name: "Tova Andrae",
 				mail: "",
 				year: "CL24",
