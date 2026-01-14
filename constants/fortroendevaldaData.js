@@ -318,15 +318,15 @@ const fortroendevaldaList = [
 		people: [
 			{
 				role: "Ledamot",
-				name: "Jakob Ridal",
-				mail: "",
-				year: "CL24",
-			},
-			{
-				role: "Suppleant",
 				name: "Mathilda Larsson",
 				mail: "",
 				year: "CL22",
+			},
+			{
+				role: "Suppleant",
+				name: "Jakob Ridal",
+				mail: "",
+				year: "CL24",
 			},
 		],
 	},
