@@ -98,9 +98,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Webbunderhållare",
-				name: "LÄXA TILL WEBBUNDERHÅLLIS",
+				name: "Simon Wandel",
 				mail: "webbunderhallare@cl-sektionen.se",
-				year: "LÄXA TILL WEBBUNDERHÅLLIS",
+				year: "CL25",
 			},
 			{
 				role: "Webbutvecklare",
