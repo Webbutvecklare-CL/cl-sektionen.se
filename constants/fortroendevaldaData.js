@@ -18,7 +18,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Kassör",
-				name: "Vibelina Söderblom",
+				name: "Vibellina Söderblom",
 				mail: "ekonomi@cl-sektionen.se",
 				year: "CL25",
 			},
