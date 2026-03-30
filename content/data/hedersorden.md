@@ -1,5 +1,9 @@
 # Platina
 
+## 2025
+
+Jesper Svensson
+
 ## 2024
 
 Maja Rosén
@@ -43,6 +47,13 @@ Elisabet Lövkvist
 Niclas Lund
 
 # Guld
+
+## 2025
+
+Anders Wallenthin
+Andrea Donné
+Emma Östling
+Madeleine Rogersdotter
 
 ## 2024
 
@@ -200,6 +211,14 @@ Anna Johansson
 Martin Pettersson
 
 # Silver
+
+##
+
+Mikael Lundkvist
+Vida Sihlén
+Martin Schylander
+Amanda Nordlund Magnusson
+Lea Martinelle
 
 ## 2024
 
