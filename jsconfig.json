@@ -1,17 +1,19 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/pages/*": ["pages/*"],
-			"@/styles/*": ["styles/*"],
-			"@/components/*": ["components/*"],
-			"@/content/*": ["content/*"],
-			"@/firebase/*": ["firebase/*"],
-			"@/utils/*": ["utils/*"],
-			"@/context/*": ["context/*"],
-			"@/layouts/*": ["components/layouts/*"],
-			"@/constants/*": ["constants/*"],
-			"@/media/*": ["public/media/*"]
-		}
-	}
+  "compilerOptions": {
+    // this is here for now but once we move to typescript 7.0 we should  remove "baseUrl" as its deprecated (and can remove the "ignoreDeprecations" line as well)
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/pages/*": ["pages/*"],
+      "@/styles/*": ["styles/*"],
+      "@/components/*": ["components/*"],
+      "@/content/*": ["content/*"],
+      "@/firebase/*": ["firebase/*"],
+      "@/utils/*": ["utils/*"],
+      "@/context/*": ["context/*"],
+      "@/layouts/*": ["components/layouts/*"],
+      "@/constants/*": ["constants/*"],
+      "@/media/*": ["public/media/*"]
+    }
+  }
 }
