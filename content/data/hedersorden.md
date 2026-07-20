@@ -212,7 +212,7 @@ Martin Pettersson
 
 # Silver
 
-##
+## 2025
 
 Mikael Lundkvist
 Vida Sihlén
