@@ -14,21 +14,21 @@ export default function ImageCarousel() {
   //men att hårdkoda det är dumt och under ska copilot har gjort det dynamiskt
   //så om de funkar och ser bra ut så ta bort de här
 
-  // const imageArray = [
-  // 	"andrea_pa_scen.webp",
-  // 	"gasqueteori.webp",
-  // 	"mot2024.webp",
-  // 	"mot1.webp",
-  // 	"mot2.webp",
-  // 	"cl15jub.webp",
-  // 	"mot3.webp",
-  // 	"mot4.webp",
-  // ];
+  const imageArray = [
+    "andrea_pa_scen.webp",
+    // "gasqueteori.webp",
+    // "mot2024.webp",
+    "mot1.webp",
+    // "mot2.webp",
+    "cl15jub.webp",
+    "mot3.webp",
+    "mot4.webp",
+  ];
 
-  const imageDir = join(process.cwd(), "public/media/bildspel");
-  const imageArray = readdirSync(imageDir)
-    .filter((file) => /\.(webp|jpg|jpeg|png|gif|avif)$/i.test(file))
-    .sort();
+  //   const imageDir = join(process.cwd(), "public/media/bildspel");
+  //   const imageArray = readdirSync(imageDir)
+  //     .filter((file) => /\.(webp|jpg|jpeg|png|gif|avif)$/i.test(file))
+  //     .sort();
 
   return (
     <div className={styles.indexBg}>
