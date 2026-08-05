@@ -176,12 +176,11 @@ export default function Mottagning({ loggedIn, _posts }) {
                   <Link href={""} target="_blank">
                     Schema
                   </Link>
-                  <Link href={"mottagning/bilder"}>Bilder</Link>
-                  <Link href={"mottagning/info"}>Info</Link>
-                  <Link href={"mottagning/kontakt"}>Kontakt</Link>
-                  <Link href={"mottagning/mottagargrupper"}>
-                    Mottagargrupper
-                  </Link>
+                  {/* Alla länkar här har formatet /mottagning/[sida] där [sida] är namnet på sidan. */}
+                  <Link href={""}>Bilder</Link>
+                  <Link href={""}>Info</Link>
+                  <Link href={""}>Kontakt</Link>
+                  <Link href={""}>Mottagargrupper</Link>
                   {/* Lägg till mottagnings länkar här sedan */}
                   <Link href={""} target="_blank">
                     Adeptbok
@@ -191,7 +190,7 @@ export default function Mottagning({ loggedIn, _posts }) {
                   {/* <Link href={"sangbok"} target="_blank">
                     Sångbok
                   </Link> */}
-                  <Link href={"mottagning/knappis-uppdrag"} target="_blank">
+                  <Link href={""} target="_blank">
                     Knäppis-uppdrag
                   </Link>
                 </div>
