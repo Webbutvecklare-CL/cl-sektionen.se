@@ -189,9 +189,17 @@ export default function Mottagning({ loggedIn, _posts }) {
                   >
                     Bilder
                   </Link>
-                  <Link href={"mottagning/infodumpen"}>Info</Link>
-                  <Link href={"mottagning/presidiet"}>Kontakt</Link>
-                  <Link href={"mottagning/mottagargrupper"}>
+                  <Link
+                    href={"cl-sektionen.se/content/mottagning/infodumpen.md"}
+                  >
+                    Info
+                  </Link>
+                  <Link href={"cl-sektionen.se/content/mottagning/presidiet"}>
+                    Kontakt
+                  </Link>
+                  <Link
+                    href={"cl-sektionen.se/content/mottagning/mottagargrupper"}
+                  >
                     Mottagargrupper
                   </Link>
                   {/* Lägg till mottagnings länkar här sedan */}
