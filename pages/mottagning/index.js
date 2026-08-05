@@ -173,45 +173,42 @@ export default function Mottagning({ loggedIn, _posts }) {
                 </div>
                 <div className={styles.nav}>
                   {/* Lägg till mottagnings länkar här sedan */}
-                  <Link
-                    href={
-                      "https://drive.google.com/file/d/137rvVkilBA0RX8sb39eVZbKZrZtKTAM1/view?usp=drive_link"
-                    }
+                  <a
+                    href="https://drive.google.com/file/d/137rvVkilBA0RX8sb39eVZbKZrZtKTAM1/view?usp=drive_link"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Schema
-                  </Link>
+                  </a>
                   {/* Alla länkar här har formatet /mottagning/[sida] där [sida] är namnet på sidan. */}
-                  <Link
-                    href={
-                      "https://drive.google.com/file/d/1WSYNqkD5Nq_77QiCiBc2As0THwTwFPlT/view?usp=drive_link"
-                    }
+                  <a
+                    href="https://drive.google.com/file/d/1WSYNqkD5Nq_77QiCiBc2As0THwTwFPlT/view?usp=drive_link"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Bilder
-                  </Link>
-                  <Link href={"/mottagning/info"}>Info</Link>
-                  <Link href={"/mottagning/kontakt"}>Kontakt</Link>
-                  <Link href={"/mottagning/mottagargrupper"}>
+                  </a>
+                  <Link href="/mottagning/info">Info</Link>
+                  <Link href="/mottagning/kontakt">Kontakt</Link>
+                  <Link href="/mottagning/mottagargrupper">
                     Mottagargrupper
                   </Link>
                   {/* Lägg till mottagnings länkar här sedan */}
-                  <Link
-                    href={
-                      "https://drive.google.com/file/d/1LigpHKxBmsryOGUyTNnNoZi-zkpXL_KY/view?usp=drive_link"
-                    }
+                  <a
+                    href="https://drive.google.com/file/d/1LigpHKxBmsryOGUyTNnNoZi-zkpXL_KY/view?usp=drive_link"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Adeptbok
-                  </Link>
+                  </a>
                   {/* Sångboken tas bort eftersom Teknogoghymnen är med
 				  vilket är en spoiler och de ska få fysiska häften ändå. */}
                   {/* <Link href={"sangbok"} target="_blank">
                     Sångbok
                   </Link> */}
-                  <Link href={""} target="_blank">
+                  <a href="#" target="_blank" rel="noreferrer">
                     Knäppis-uppdrag
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className={styles.feedWrapper}>
