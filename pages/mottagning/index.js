@@ -173,16 +173,34 @@ export default function Mottagning({ loggedIn, _posts }) {
                 </div>
                 <div className={styles.nav}>
                   {/* Lägg till mottagnings länkar här sedan */}
-                  <Link href={""} target="_blank">
+                  <Link
+                    href={
+                      "https://drive.google.com/file/d/137rvVkilBA0RX8sb39eVZbKZrZtKTAM1/view?usp=drive_link"
+                    }
+                    target="_blank"
+                  >
                     Schema
                   </Link>
                   {/* Alla länkar här har formatet /mottagning/[sida] där [sida] är namnet på sidan. */}
-                  <Link href={""}>Bilder</Link>
-                  <Link href={""}>Info</Link>
-                  <Link href={""}>Kontakt</Link>
-                  <Link href={""}>Mottagargrupper</Link>
+                  <Link
+                    href={
+                      "https://drive.google.com/file/d/1WSYNqkD5Nq_77QiCiBc2As0THwTwFPlT/view?usp=drive_link"
+                    }
+                  >
+                    Bilder
+                  </Link>
+                  <Link href={"mottagning/info"}>Info</Link>
+                  <Link href={"mottagning/kontakt"}>Kontakt</Link>
+                  <Link href={"mottagning/mottagargrupper"}>
+                    Mottagargrupper
+                  </Link>
                   {/* Lägg till mottagnings länkar här sedan */}
-                  <Link href={""} target="_blank">
+                  <Link
+                    href={
+                      "https://drive.google.com/file/d/1LigpHKxBmsryOGUyTNnNoZi-zkpXL_KY/view?usp=drive_link"
+                    }
+                    target="_blank"
+                  >
                     Adeptbok
                   </Link>
                   {/* Sångboken tas bort eftersom Teknogoghymnen är med

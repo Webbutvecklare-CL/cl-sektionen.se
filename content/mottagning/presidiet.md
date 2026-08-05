@@ -2,21 +2,21 @@
 
 Presidiet är ytterst ansvariga för CL-sektionens mottagning.
 
-### Mottagningsansvarig - Mathilda Larsson
+### Mottagningsansvarig - Rasmus Harders
 
-Tel: 070 243 76 40  
+Tel: 070 863 15 27
 Mail: mottagningen@cl-sektionen.se
 
-### Vice mottagningsansvarig - Amanda Nordlund Magnusson
+### Vice mottagningsansvarig - Andrea Donné
 
-Tel: 073 982 37 72  
+Tel: 072 553 64 53
 Mail: vice.mottagningen@cl-sektionen.se
 
-### Ekonomiskt ansvarig - Sofia Lundkvist
+### Ekonomiskt ansvarig - Aron Johansson
 
-Tel: 070 481 92 26  
+Tel: 070 229 13 06
 Mail: ekonomi.mottagningen@cl-sektionen.se
 
 ### Anonym kontakt
 
-Vill du kontakta presidiet anonymt kan du göra det via följande [formulär](https://forms.gle/arczMLDg1z75xrXUA).
+Vill du kontakta presidiet anonymt kan du göra det via följande formulär: https://forms.gle/s5swkJiJgWeN7F3G9
