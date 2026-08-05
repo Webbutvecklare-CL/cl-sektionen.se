@@ -186,6 +186,7 @@ export default function Mottagning({ loggedIn, _posts }) {
                     href={
                       "https://drive.google.com/file/d/1WSYNqkD5Nq_77QiCiBc2As0THwTwFPlT/view?usp=drive_link"
                     }
+                    target="_blank"
                   >
                     Bilder
                   </Link>
