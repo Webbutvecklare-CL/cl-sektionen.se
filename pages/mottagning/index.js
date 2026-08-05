@@ -189,8 +189,8 @@ export default function Mottagning({ loggedIn, _posts }) {
                   >
                     Bilder
                   </Link>
-                  <Link href={"mottagning/info"}>Info</Link>
-                  <Link href={"mottagning/kontakt"}>Kontakt</Link>
+                  <Link href={"mottagning/infodumpen"}>Info</Link>
+                  <Link href={"mottagning/presidiet"}>Kontakt</Link>
                   <Link href={"mottagning/mottagargrupper"}>
                     Mottagargrupper
                   </Link>
