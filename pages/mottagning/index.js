@@ -186,9 +186,11 @@ export default function Mottagning({ loggedIn, _posts }) {
                   <Link href={""} target="_blank">
                     Adeptbok
                   </Link>
-                  <Link href={"sangbok"} target="_blank">
+                  {/* Sångboken tas bort eftersom Teknogoghymnen är med
+				  vilket är en spoiler och de ska få fysiska häften ändå. */}
+                  {/* <Link href={"sangbok"} target="_blank">
                     Sångbok
-                  </Link>
+                  </Link> */}
                   <Link href={"mottagning/knappis-uppdrag"} target="_blank">
                     Knäppis-uppdrag
                   </Link>
