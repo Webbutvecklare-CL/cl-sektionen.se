@@ -45,7 +45,7 @@ const fortroendevaldaList = [
 	{
 		id: "studienamnden",
 		mail: "studienamnden@cl-sektionen.se",
-		period: "2026-01-01 – 2026-12-31 (utbytesansvarig 2025-05-01 – 2026-04-30)",
+		period: "2026-01-01 – 2026-12-31 (utbytesansvarig 2026-05-01 – 2027-04-30)",
 		people: [
 			{
 				role: "Ordförande",
@@ -67,9 +67,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Utbytesansvarig",
-				name: "Charlie Axelsson",
+				name: "Elin Ebbers",
 				mail: "utbyte@cl-sektionen.se",
-				year: "CL23",
+				year: "CL22",
 			},
 		],
 	},
@@ -189,62 +189,62 @@ const fortroendevaldaList = [
 	{
 		id: "clw",
 		mail: "clw@cl-sektionen.se",
-		period: "2025-05-01 – 2026-04-30",
+		period: "2026-05-01 – 2027-04-30",
 		people: [
 			{
 				role: "Klubbmästare – CL",
-				name: "Vida Sihlén",
+				name: "Liam Forsberg",
 				mail: "clw@cl-sektionen.se",
-				year: "CL23",
+				year: "CL25",
 			},
 			{
 				role: "Klubbmästare – W",
-				name: "Gustaf Rosén",
+				name: "Regina Suurwee",
 				mail: "klubbmastare@w-sektionen.se",
-				year: "W22",
+				year: "W25",
 			},
 			{
 				role: "Ekonomiskt ansvarig",
-				name: "Teo Kamiyasu",
+				name: "Nathalie Arnborg",
 				mail: "ekonomi.clw@cl-sektionen.se",
-				year: "CL24",
+				year: "CL25",
 			},
 		],
 	},
 	{
 		id: "valberedningen",
 		mail: "val@cl-sektionen.se",
-		period: "2025-05-01 – 2026-04-30",
+		period: "2026-05-01 – 2027-04-30",
 		people: [
 			{
-				role: "Femmans representant",
-				name: "Emma Östling",
+				role: "Femmans representant även sammankallande",
+				name: "Joar Söderman",
 				mail: "",
-				year: "CL19",
+				year: "CL21",
 			},
 			{
 				role: "Fyrans representant",
-				name: "Viktor Hallberg",
-				mail: "",
-				year: "CL22",
-			},
-			{
-				role: "Treans representant även sammankallande",
-				name: "Amanda Nordlund Magnusson",
+				name: "Emma Nergell",
 				mail: "",
 				year: "CL23",
 			},
 			{
-				role: "Tvåans representant",
-				name: "Tova Andrae",
+				role: "Treans representant",
+				name: "Hanna Wike",
 				mail: "",
 				year: "CL24",
 			},
 			{
-				role: "Ettans representant",
-				name: "Ludvig Mårdh",
+				role: "Tvåans representant",
+				name: "Alexander Molnar",
 				mail: "",
 				year: "CL25",
+			},
+			{
+				role: "Ettans representant",
+				name: "",
+				mail: "",
+				year: "",
 			},
 		],
 	},
@@ -314,17 +314,17 @@ const fortroendevaldaList = [
 	{
 		id: "kf",
 		mail: "kf@cl-sektionen.se",
-		period: "2025-07-01 – 2026-06-30",
+		period: "2026-07-01 – 2027-06-30",
 		people: [
 			{
 				role: "Ledamot",
-				name: "Mathilda Larsson",
+				name: "Amanda Nordlund Magnusson",
 				mail: "",
-				year: "CL22",
+				year: "CL23",
 			},
 			{
 				role: "Suppleant",
-				name: "Jakob Ridal",
+				name: "Felicia Lund",
 				mail: "",
 				year: "CL24",
 			},
@@ -358,7 +358,7 @@ const fortroendevaldaList = [
 	{
 		id: "clek",
 		mail: "clek@cl-sektionen.se",
-		period: "2025-01-01 – 2025-12-31",
+		period: "2026-01-01 – 2026-12-31",
 		people: [
 			{
 				role: "Ordförande",
@@ -425,13 +425,13 @@ const fortroendevaldaList = [
 	{
 		id: "dubbelspexet",
 		mail: "dubbelspexet@gmail.com",
-		period: "2025-01-01 – 2025-12-31",
+		period: "2026-01-01 – 2026-12-31",
 		people: [
 			{
 				role: "DireKTHréce",
-				name: "Lukas Kuusivuori",
+				name: "Jan Gomez Morales",
 				mail: "",
-				year: "CL22",
+				year: "CL24",
 			},
 			{
 				role: "Producent",
@@ -447,7 +447,7 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Ledamot",
-				name: "Jan Gomez Morales",
+				name: "Olivia Sundberg",
 				mail: "",
 				year: "CL24",
 			},
@@ -456,6 +456,12 @@ const fortroendevaldaList = [
 				name: "Jakob Ridal",
 				mail: "",
 				year: "CL24",
+			},
+			{
+				role: "Revisor",
+				name: "Nova Christensen Gudmundson",
+				mail: "",
+				year: "CL25",
 			},
 		],
 	},
