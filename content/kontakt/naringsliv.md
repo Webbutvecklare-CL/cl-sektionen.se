@@ -5,9 +5,10 @@ Om du vill ha något upplagt på socialamedier eller på vår webbplats kontakta
 
 ### Näringslivsnämndens ordförande
 
+Emmy Lilja
 [ordf.naringsliv@cl-sektionen.se](mailto:ordf.naringsliv@cl-sektionen.se)
 
 ### PR-ansvarig
 
-Madeleine Rogersdotter  
-[pransvarig@cl-sektionen.se](pransvarig@cl-sektionen.se)
+Sara Pirkhidran
+[pr@cl-sektionen.se](mailto:pr@cl-sektionen.se)
