@@ -6,7 +6,7 @@ För allmänna frågor eller om du är osäker på vem du ska vända dig till, k
 
 [ctyrelsen@cl-sektionen.se](mailto:ctyrelsen@cl-sektionen.se)
 
-### Styrelse ordförande
+### Sektionsordförande
 
-Andrea Donné  
+Viktor Uhlgren 
 [ordf@cl-sektionen.se](mailto:ordf@cl-sektionen.se)
