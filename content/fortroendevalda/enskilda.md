@@ -12,4 +12,8 @@ Vice talman agerar som mötesadministratör för det digitala verktyget VoteIt n
 
 Idrottsansvarig är framförallt ansvarig för idrottsverksamheten som bedrivs tillsammans med W. Idrottsansvarig representerar sektionen i THS Idrottsråd.
 
+### Balgeneral
+
+Balgeneralen ansvarar för att planera en Vinterbal de år som sektionen inte har ett jubileum.
+
 ---
