@@ -262,6 +262,25 @@ const fortroendevaldaList = [
 		],
 	},
 	{
+		id: "jubileum",
+		mail: "jubileum@cl-sektionen.se",
+		period: "2027-01-01 – 2027-12-31",
+		people: [
+			{
+				role: "Jubileumsgeneral",
+				name: "Mathilda Larsson",
+				mail: "",
+				year: "CL22",
+			},
+			{
+				role: "Jubileumslöjtnant",
+				name: "Madeleine Rogersdotter",
+				mail: "",
+				year: "CL22",
+			},
+		],
+	},
+	{
 		id: "revisorer",
 		mail: "revisor@cl-sektionen.se",
 		period: "2026-01-01 – 2026-12-31",
