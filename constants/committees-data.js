@@ -71,6 +71,11 @@ const committees = [
 		icon: faCartShopping,
 		id: "lokala-forsaljningskommitten",
 	},
+	{
+		name: "Jubileumsarmén",
+		icon: faBirthdayCake ,
+		id: "jubileum",
+	},
 ];
 const trustees = [
 	{
