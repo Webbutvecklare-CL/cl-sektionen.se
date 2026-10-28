@@ -35,7 +35,7 @@ const MENU_LIST = [
 		submenu: [
 			{ text: "VFU", href: "/vfu" },
 			{ text: "Alumniblogg", href: "/alumniblogg" },
-			{ text: "Reseberättelser", href: "/reseberattelser" },
+			{ text: "Utbytesstudier", href: "/reseberattelser" },
 			{ text: "Studiebevakning", href: "/studiebevakning" },
 			{ text: "Valbara kurser", href: "/valbara-kurser" },
 		],
