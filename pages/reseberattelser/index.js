@@ -73,7 +73,6 @@ export default function Reseberattelser() {
 						</button>
 					))}
 				</div>
-			</>
 			<div id={styles.scrollNode} />
 			{!activeContinent || activeContinent === "Nordamerika" ? (
 				<div>
@@ -457,5 +456,6 @@ export default function Reseberattelser() {
 				</div>
 			) : null}
 		</div>
+		</>
 	);
 }
