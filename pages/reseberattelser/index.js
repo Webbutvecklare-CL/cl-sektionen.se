@@ -41,7 +41,7 @@ export default function Reseberattelser() {
 
 	return (
 		<>
-			<div id="contentbody">
+			<div id="info-margins">
 				<h1 id="page-title">Information om utbytesstudier</h1>
 				<p>
 					Välkommen till sidan för utbytesstudier på CL! Här hittar du svar på vanliga frågor 
