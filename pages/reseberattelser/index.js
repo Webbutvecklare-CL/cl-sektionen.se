@@ -40,19 +40,22 @@ export default function Reseberattelser() {
 	};
 
 	return (
-		<div id="contentbody">
-			<h1 id="page-title">Reseberättelser</h1>
-			<h2>
-				Klicka en världsdel för att filtrera reseberättelser eller scrolla ned
-				för att se alla
-			</h2>
+		<div>
+			<h1 id="page-title">Information om utbytesstudier</h1>
 			<p>
-				Här kan du läsa om andra CL-studenters erfarenheter under sina
-				utbytesstudievistelser. Listan av reseberättelser är för tillfället inte
-				särskilt lång, men vi hoppas att den kommer växa så småningom! Förutom
-				att läsa CL-studenters reseberättelser rekommenderar vi även att du
-				kikar på de som publicerats på KTHs webbplats av studenter från andra
-				program.
+				Välkommen till sidan för utbytesstudier på CL! Här hittar du svar på vanliga frågor 
+				om utbyte, reseberättelser från tidigare studenter och annan användbar information. 
+				Har du några frågor är det bara att höra av dig till <a href="mailto:utbyte@cl-sektionen.se">utbyte@cl-sektionen.se</a>.
+			</p>
+			<p><a href="https://docs.google.com/document/d/1pGG23oS2RZcEwONIr8c--2mfyrHoydZ5nzcAxXEbNTI/edit?usp=sharing" target="_blank">FAQ Utlandsstudier</a></p>
+			<p><a href="https://docs.google.com/spreadsheets/d/1uoxt_fZzsGwb4XnSBMJKRhQ8r6qdIAyoYliIYP0UXEc/edit?usp=sharing" target="_blank">Utbytesuniversitet för CL + Räkna ut meritvärde</a></p>
+			<p><a href="https://docs.google.com/spreadsheets/d/1J2l57flYD0CeHAUCy4PJol-0qxTv-pvgnYmUTqOdS8k/edit?usp=sharing" target="_blank">Tidigare tillgodoräknade kursen</a></p>
+		</div>
+		<div id="contentbody">
+			<h2>Reseberättelser</h2>
+			<p>
+				Klicka en världsdel för att filtrera reseberättelser eller scrolla ned
+				för att se alla!
 			</p>
 			<div className={styles.mapSelector}>
 				{continents.map((continent) => (
@@ -72,7 +75,7 @@ export default function Reseberattelser() {
 			<div id={styles.scrollNode} />
 			{!activeContinent || activeContinent === "Nordamerika" ? (
 				<div>
-					<h2>Nordamerika</h2>
+					<h3>Nordamerika</h3>
 					<div className={styles.grid}>
 						<Link
 							href="/reseberattelser/anton-sundberg-usa"
@@ -164,7 +167,7 @@ export default function Reseberattelser() {
 			) : null}
 			{!activeContinent || activeContinent === "Europa" ? (
 				<div>
-					<h2>Europa</h2>
+					<h3>Europa</h3>
 					<div className={styles.grid}>
 						<Link
 							href="/reseberattelser/camilla-björn-irland"
@@ -307,7 +310,7 @@ export default function Reseberattelser() {
 			) : null}
 			{!activeContinent || activeContinent === "Asien" ? (
 				<div>
-					<h2>Asien</h2>
+					<h3>Asien</h3>
 					<div className={styles.grid}>
 						<Link
 							href="/reseberattelser/william-friefeldt-taiwan"
@@ -365,7 +368,7 @@ export default function Reseberattelser() {
 			) : null}
 			{!activeContinent || activeContinent === "Oceanien" ? (
 				<div>
-					<h2>Oceanien</h2>
+					<h3>Oceanien</h3>
 					<div className={styles.grid}>
 						<Link
 							href="/reseberattelser/anna-stolpe-australien"
@@ -406,7 +409,7 @@ export default function Reseberattelser() {
 			) : null}
 			{!activeContinent || activeContinent === "Afrika" ? (
 				<div>
-					<h2>Afrika</h2>
+					<h3>Afrika</h3>
 					<div className={styles.grid}>
 						<Link
 							href="/reseberattelser/veronica-vilbern-botswana"
@@ -447,7 +450,7 @@ export default function Reseberattelser() {
 			) : null}
 			{!activeContinent || activeContinent === "Sydamerika" ? (
 				<div>
-					<h2>Sydamerika</h2>
+					<h3>Sydamerika</h3>
 					<div className={styles.grid}>Inga reseberättelser här än</div>
 				</div>
 			) : null}
