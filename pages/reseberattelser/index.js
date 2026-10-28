@@ -40,38 +40,40 @@ export default function Reseberattelser() {
 	};
 
 	return (
-		<div>
-			<h1 id="page-title">Information om utbytesstudier</h1>
-			<p>
-				Välkommen till sidan för utbytesstudier på CL! Här hittar du svar på vanliga frågor 
-				om utbyte, reseberättelser från tidigare studenter och annan användbar information. 
-				Har du några frågor är det bara att höra av dig till <a href="mailto:utbyte@cl-sektionen.se">utbyte@cl-sektionen.se</a>.
-			</p>
-			<p><a href="https://docs.google.com/document/d/1pGG23oS2RZcEwONIr8c--2mfyrHoydZ5nzcAxXEbNTI/edit?usp=sharing" target="_blank">FAQ Utlandsstudier</a></p>
-			<p><a href="https://docs.google.com/spreadsheets/d/1uoxt_fZzsGwb4XnSBMJKRhQ8r6qdIAyoYliIYP0UXEc/edit?usp=sharing" target="_blank">Utbytesuniversitet för CL + Räkna ut meritvärde</a></p>
-			<p><a href="https://docs.google.com/spreadsheets/d/1J2l57flYD0CeHAUCy4PJol-0qxTv-pvgnYmUTqOdS8k/edit?usp=sharing" target="_blank">Tidigare tillgodoräknade kursen</a></p>
-		</div>
-		<div, id="contentbody">
-			<h2>Reseberättelser</h2>
-			<p>
-				Klicka en världsdel för att filtrera reseberättelser eller scrolla ned
-				för att se alla!
-			</p>
-			<div className={styles.mapSelector}>
-				{continents.map((continent) => (
-					<button
-						type="button"
-						key={continent.name}
-						className={`${styles.continentButton} ${
-							activeContinent === continent.name ? styles.active : ""
-						}`}
-						onClick={() => handleContinentClick(continent.name)}
-					>
-						<span className={styles.continentEmoji}>{continent.emoji}</span>
-						{continent.name}
-					</button>
-				))}
+		<>
+			<div>
+				<h1 id="page-title">Information om utbytesstudier</h1>
+				<p>
+					Välkommen till sidan för utbytesstudier på CL! Här hittar du svar på vanliga frågor 
+					om utbyte, reseberättelser från tidigare studenter och annan användbar information. 
+					Har du några frågor är det bara att höra av dig till <a href="mailto:utbyte@cl-sektionen.se">utbyte@cl-sektionen.se</a>.
+				</p>
+				<p><a href="https://docs.google.com/document/d/1pGG23oS2RZcEwONIr8c--2mfyrHoydZ5nzcAxXEbNTI/edit?usp=sharing" target="_blank">FAQ Utlandsstudier</a></p>
+				<p><a href="https://docs.google.com/spreadsheets/d/1uoxt_fZzsGwb4XnSBMJKRhQ8r6qdIAyoYliIYP0UXEc/edit?usp=sharing" target="_blank">Utbytesuniversitet för CL + Räkna ut meritvärde</a></p>
+				<p><a href="https://docs.google.com/spreadsheets/d/1J2l57flYD0CeHAUCy4PJol-0qxTv-pvgnYmUTqOdS8k/edit?usp=sharing" target="_blank">Tidigare tillgodoräknade kursen</a></p>
 			</div>
+			<div id="contentbody">
+				<h2>Reseberättelser</h2>
+				<p>
+					Klicka en världsdel för att filtrera reseberättelser eller scrolla ned
+					för att se alla!
+				</p>
+				<div className={styles.mapSelector}>
+					{continents.map((continent) => (
+						<button
+							type="button"
+							key={continent.name}
+							className={`${styles.continentButton} ${
+								activeContinent === continent.name ? styles.active : ""
+							}`}
+							onClick={() => handleContinentClick(continent.name)}
+						>
+							<span className={styles.continentEmoji}>{continent.emoji}</span>
+							{continent.name}
+						</button>
+					))}
+				</div>
+			</>
 			<div id={styles.scrollNode} />
 			{!activeContinent || activeContinent === "Nordamerika" ? (
 				<div>
