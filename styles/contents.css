@@ -11,6 +11,17 @@
 	min-height: 85vh;
 }
 
+#info-margins {
+	padding-top: 4rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	max-width: 833px;
+	background-color: #fafafa;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .wideContent {
 	max-width: 1500px !important;
 }
