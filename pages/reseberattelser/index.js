@@ -51,7 +51,7 @@ export default function Reseberattelser() {
 			<p><a href="https://docs.google.com/spreadsheets/d/1uoxt_fZzsGwb4XnSBMJKRhQ8r6qdIAyoYliIYP0UXEc/edit?usp=sharing" target="_blank">Utbytesuniversitet för CL + Räkna ut meritvärde</a></p>
 			<p><a href="https://docs.google.com/spreadsheets/d/1J2l57flYD0CeHAUCy4PJol-0qxTv-pvgnYmUTqOdS8k/edit?usp=sharing" target="_blank">Tidigare tillgodoräknade kursen</a></p>
 		</div>
-		<div id="contentbody">
+		<div, id="contentbody">
 			<h2>Reseberättelser</h2>
 			<p>
 				Klicka en världsdel för att filtrera reseberättelser eller scrolla ned
