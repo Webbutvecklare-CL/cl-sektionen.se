@@ -316,8 +316,8 @@ export default function Publicera() {
 			}
 		}
 
-		// Skickar notis om valt
-		if (data.sendNotification) {
+		// Skickar notis om valt och inlägget är publikt
+		if (data.visibility === "public" && data.sendNotification) {
 			setStatus("Skickar notiser...");
 			try {
 				await sendNotification(user, {
