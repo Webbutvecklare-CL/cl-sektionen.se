@@ -137,7 +137,8 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 			type,
 			link,
 			publishInCalendar: publishInCalendar?.current?.checked,
-			sendNotification: sendNotification?.current?.checked,
+			sendNotification:
+				visibility === "public" && Boolean(sendNotification?.current?.checked),
 		};
 
 		// Om det är ett event skickar vi med start- och sluttid
@@ -494,12 +495,30 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 								className={`${styles.visibilityButton} ${
 									visibility === "public" ? styles.active : ""
 								}`}
-								onClick={() =>
-									setVisibility(visibility === "public" ? "private" : "public")
-								}
-								onKeyDown={() =>
-									setVisibility(visibility === "public" ? "private" : "public")
-								}
+								onClick={() => {
+									const newVis =
+										visibility === "public" ? "private" : "public";
+									setVisibility(newVis);
+									if (sendNotification?.current) {
+										if (newVis === "private") {
+											sendNotification.current.checked = false;
+										} else if (!editMode || prefill?.visibility !== "public") {
+											sendNotification.current.checked = true;
+										}
+									}
+								}}
+								onKeyDown={() => {
+									const newVis =
+										visibility === "public" ? "private" : "public";
+									setVisibility(newVis);
+									if (sendNotification?.current) {
+										if (newVis === "private") {
+											sendNotification.current.checked = false;
+										} else if (!editMode || prefill?.visibility !== "public") {
+											sendNotification.current.checked = true;
+										}
+									}
+								}}
 							>
 								<FontAwesomeIcon
 									icon={visibility !== "public" ? faEyeSlash : faEye}
@@ -543,17 +562,32 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 							</div>
 						)}
 
-						{!editMode && (
-							<div className={styles.calenderInput}>
-								<Label htmlFor={"notis"}>Skicka notis:</Label>
-								<input
-									id={"notis"}
-									type="checkbox"
-									ref={sendNotification}
-									defaultChecked={true}
-								/>
-							</div>
-						)}
+						<div className={styles.calenderInput}>
+							<Label htmlFor={"notis"}>
+								Skicka notis:
+								{editMode && prefill?.notificationSent && (
+									<span
+										style={{
+											fontSize: "0.85rem",
+											fontWeight: "normal",
+											marginLeft: "0.5rem",
+										}}
+									>
+										(Notis har redan skickats)
+									</span>
+								)}
+							</Label>
+							<input
+								id={"notis"}
+								type="checkbox"
+								ref={sendNotification}
+								disabled={visibility !== "public"}
+								defaultChecked={!editMode && visibility === "public"}
+							/>
+							{visibility !== "public" && (
+								<InfoBox text="Notiser kan endast skickas för publika inlägg." />
+							)}
+						</div>
 					</div>
 				)}
 				{type && (

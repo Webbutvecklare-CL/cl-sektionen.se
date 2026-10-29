@@ -25,7 +25,7 @@ import BackButton from "@/components/BackButton";
 import PostForm from "@/components/personalrummet/PostForm";
 import { useAuth } from "@/context/AuthContext";
 
-import { revalidate } from "@/utils/server";
+import { revalidate, sendNotification } from "@/utils/server";
 
 import { formWrapper } from "@/styles/personalrummet/post-form.module.css";
 
@@ -93,6 +93,7 @@ export default function EditPost() {
 						authorCommittee: postData.committee,
 						link: pid,
 						visibility: postData.visibility,
+						notificationSent: postData.notificationSent || false,
 					};
 
 					if (postData.type) {
@@ -271,6 +272,22 @@ export default function EditPost() {
 			revalidate(user, { index: true, aktuellt: true, post: postId });
 		} catch (error) {
 			console.error(error);
+		}
+
+		// Skickar notis om valt och publikt
+		if (data.visibility === "public" && data.sendNotification) {
+			try {
+				await sendNotification(user, {
+					type: "post",
+					postId: postId,
+					dryRun: false,
+				});
+			} catch (notifError) {
+				console.error("Det gick inte att skicka notis:", notifError);
+				alert(
+					`Inlägget är uppdaterat men notisen kunde inte skickas: ${notifError.message}`,
+				);
+			}
 		}
 
 		const { getAnalytics } = await import("../../../firebase/clientApp");

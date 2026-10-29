@@ -11,7 +11,7 @@ const storage = getStorage(app);
 const firestore = getFirestore(app);
 
 import { useAuth } from "@/context/AuthContext";
-import { revalidate } from "@/utils/server";
+import { revalidate, sendNotification } from "@/utils/server";
 
 import bg from "@/media/img/KTHcover.webp";
 
@@ -23,7 +23,10 @@ import {
 	faEyeSlash,
 	faTrashCan,
 } from "@fortawesome/free-regular-svg-icons";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+	faArrowUpRightFromSquare,
+	faBell,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function CommitteeFeed({ posts, permission = "" }) {
@@ -43,9 +46,18 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 
 		const postElem = e.currentTarget.parentElement.parentElement.parentElement;
 		const postIdx = postElem.getAttribute("post-idx");
-		const post = posts[postIdx];
+		const post = postList[postIdx];
 		const postVisibility =
 			post.visibility !== undefined ? post.visibility : "public"; // Det nuvarande läget true = publikt
+		const becomesPublic = postVisibility !== "public";
+
+		let wantToSendNotification = false;
+		if (becomesPublic) {
+			const promptText = post.notificationSent
+				? "Inlägget görs nu publikt.\n\nNotis har redan skickats tidigare för detta inlägg. Vill du skicka en ny notis till sektionsmedlemmarna?"
+				: "Inlägget görs nu publikt.\n\nVill du samtidigt skicka ut en notis till sektionsmedlemmarna?";
+			wantToSendNotification = window.confirm(promptText);
+		}
 
 		// Uppdatera dokumentet
 		const postRef = doc(firestore, "posts", post.id);
@@ -53,15 +65,30 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 		try {
 			console.log("updateDoc - Synlighetsstatus");
 			await updateDoc(postRef, {
-				visibility: postVisibility === "public" ? "private" : "public",
+				visibility: becomesPublic ? "public" : "private",
 			});
-			post.visibility = postVisibility === "public" ? "private" : "public";
+			post.visibility = becomesPublic ? "public" : "private";
+
+			if (wantToSendNotification) {
+				try {
+					await sendNotification(user, {
+						type: "post",
+						postId: post.id,
+						dryRun: false,
+					});
+					post.notificationSent = true;
+					alert("Notis skickad!");
+				} catch (notifErr) {
+					console.error("Fel vid skickande av notis:", notifErr);
+					alert(`Kunde inte skicka notis: ${notifErr.message}`);
+				}
+			}
 
 			// Uppdaterar post med ny status
 			setPostList((prevState) => {
-				const posts = [...prevState];
-				posts[postIdx] = post;
-				return posts;
+				const updated = [...prevState];
+				updated[postIdx] = { ...post };
+				return updated;
 			});
 			// Försöker revalidate
 			try {
@@ -72,6 +99,47 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 			}
 		} catch (error) {
 			console.error("Det gick inte att uppdatera synlighetsstatusen", error);
+		}
+	};
+
+	const handleManualNotification = async (e, post, postIdx) => {
+		e.preventDefault();
+		e.stopPropagation();
+
+		const postVisibility =
+			post.visibility !== undefined ? post.visibility : "public";
+
+		if (postVisibility !== "public") {
+			alert(
+				"Inlägget måste vara publikt för att kunna skicka notis. Ändra synlighet först.",
+			);
+			return;
+		}
+
+		const confirmMsg = post.notificationSent
+			? `En notis har redan skickats för "${post.title}".\n\nVill du skicka en ny notis till sektionsmedlemmarna?`
+			: `Vill du skicka en notis för "${post.title}" till sektionsmedlemmarna?`;
+
+		if (!window.confirm(confirmMsg)) {
+			return;
+		}
+
+		try {
+			await sendNotification(user, {
+				type: "post",
+				postId: post.id,
+				dryRun: false,
+			});
+			post.notificationSent = true;
+			setPostList((prevState) => {
+				const updated = [...prevState];
+				updated[postIdx] = { ...post };
+				return updated;
+			});
+			alert("Notis skickad!");
+		} catch (error) {
+			console.error("Det gick inte att skicka notis:", error);
+			alert(`Kunde inte skicka notis: ${error.message}`);
 		}
 	};
 
@@ -136,10 +204,35 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 								<div
 									onClick={handleChangePublic}
 									onKeyDown={handleChangePublic}
+									title={
+										post.visibility !== "public"
+											? "Gör publikt"
+											: "Gör privat"
+									}
 								>
 									<FontAwesomeIcon
 										icon={post.visibility !== "public" ? faEyeSlash : faEye}
 									/>
+								</div>
+								<div
+									title={
+										post.visibility !== "public"
+											? "Inlägget måste vara publikt för att skicka notis"
+											: post.notificationSent
+												? "Skicka ny notis (notis redan skickad)"
+												: "Skicka notis"
+									}
+									style={{
+										opacity: post.visibility !== "public" ? 0.35 : 1,
+										cursor:
+											post.visibility !== "public"
+												? "not-allowed"
+												: "pointer",
+									}}
+									onClick={(e) => handleManualNotification(e, post, idx)}
+									onKeyDown={(e) => handleManualNotification(e, post, idx)}
+								>
+									<FontAwesomeIcon icon={faBell} />
 								</div>
 
 								{permission === "admin" && (
