@@ -1,6 +1,7 @@
 import {
 	faAppleWhole,
 	faBasketball,
+	faBirthdayCake,
 	faBook,
 	faCartShopping,
 	faDice,
@@ -17,7 +18,6 @@ import {
 	faScaleBalanced,
 	faSection,
 	faWineGlass,
-	faBirthdayCake,
 } from "@fortawesome/free-solid-svg-icons";
 
 const board = {
@@ -74,7 +74,7 @@ const committees = [
 	},
 	{
 		name: "Jubileumsarmén",
-		icon: faBirthdayCake ,
+		icon: faBirthdayCake,
 		id: "jubileum",
 	},
 ];
