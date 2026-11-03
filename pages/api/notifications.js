@@ -12,14 +12,14 @@ export default async function handler(req, res) {
 	if (!req.body.data) {
 		return res.status(400).send({ message: "Felaktiga attribut i body." });
 	}
-	let uid = "";
-	let permission = "";
+	let user = {};
 	try {
-		({ uid, permission } = await verifyUser(req, res));
+		user = await verifyUser(req, res);
 	} catch (error) {
 		console.error("Error validating user authentication:", error);
 		return res.status(401).json({ error: error.error });
 	}
+	const { uid, permission } = user;
 
 	let type;
 	let message;
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 	// Om inget matchar returnera 400 error
 	if (req.body.data.type === "post") {
 		try {
-			const postData = await verifyRequest(uid, req.body.data.postId);
+			const postData = await verifyRequest(user, req.body.data.postId);
 
 			// Skapa payload objekt med all data
 			const payload = createPostPayload(postData);
@@ -97,6 +97,24 @@ export default async function handler(req, res) {
 
 		// Skickar notis till alla som följer eventuella taggar
 		const response = await sendNotification(type, message, dryRun);
+
+		if (req.body.data.type === "post" && req.body.data.postId && !dryRun) {
+			try {
+				await admin
+					.firestore()
+					.collection("posts")
+					.doc(req.body.data.postId)
+					.update({
+						notificationSent: true,
+						notificationSentAt: FieldValue.serverTimestamp(),
+					});
+			} catch (updateErr) {
+				console.error(
+					"Could not update post notificationSent status:",
+					updateErr,
+				);
+			}
+		}
 
 		// Skickar tillbaka respons
 		return res.status(200).json({
@@ -280,9 +298,9 @@ function removeOldTokens(tokensData) {
 	return Promise.all(removedTokens);
 }
 
-function verifyRequest(userId, postId) {
+function verifyRequest(user, postId) {
 	return new Promise((resolve, reject) => {
-		console.log("Verifying request for user", userId, "and post", postId);
+		console.log("Verifying request for user", user?.uid, "and post", postId);
 		const db = admin.firestore();
 		const postRef = db.collection("posts").doc(postId);
 		const snap = postRef.get();
@@ -292,8 +310,22 @@ function verifyRequest(userId, postId) {
 				if (docSnap.exists) {
 					const postData = docSnap.data();
 
-					if (postData.creator !== userId) {
+					const isCreator = postData.creator === user?.uid;
+					const isAdmin = user?.permission === "admin";
+					const isSameCommittee =
+						user?.committee &&
+						(postData.committee === user.committee ||
+							postData.authorCommittee === user.committee);
+
+					if (!isCreator && !isAdmin && !isSameCommittee) {
 						reject({ error: "not a valid user" });
+						return;
+					}
+
+					const postVisibility = postData.visibility || "public";
+					if (postVisibility !== "public") {
+						reject({ error: "post is not public" });
+						return;
 					}
 
 					postData.id = postId;
