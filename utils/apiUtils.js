@@ -34,7 +34,11 @@ export function verifyUser(req, res) {
 						reject({ error: "User not found" });
 					}
 
-					resolve({ uid: userDoc.id, permission: user.permission });
+					resolve({
+						uid: userDoc.id,
+						permission: user.permission,
+						committee: user.committee,
+					});
 				})
 				.catch((error) => {
 					reject({ error });
