@@ -205,9 +205,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 									onClick={handleChangePublic}
 									onKeyDown={handleChangePublic}
 									title={
-										post.visibility !== "public"
-											? "Gör publikt"
-											: "Gör privat"
+										post.visibility !== "public" ? "Gör publikt" : "Gör privat"
 									}
 								>
 									<FontAwesomeIcon
@@ -225,9 +223,7 @@ export default function CommitteeFeed({ posts, permission = "" }) {
 									style={{
 										opacity: post.visibility !== "public" ? 0.35 : 1,
 										cursor:
-											post.visibility !== "public"
-												? "not-allowed"
-												: "pointer",
+											post.visibility !== "public" ? "not-allowed" : "pointer",
 									}}
 									onClick={(e) => handleManualNotification(e, post, idx)}
 									onKeyDown={(e) => handleManualNotification(e, post, idx)}

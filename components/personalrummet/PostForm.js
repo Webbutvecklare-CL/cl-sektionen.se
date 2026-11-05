@@ -496,8 +496,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 									visibility === "public" ? styles.active : ""
 								}`}
 								onClick={() => {
-									const newVis =
-										visibility === "public" ? "private" : "public";
+									const newVis = visibility === "public" ? "private" : "public";
 									setVisibility(newVis);
 									if (sendNotification?.current) {
 										if (newVis === "private") {
@@ -508,8 +507,7 @@ export default function PostForm({ onSubmit, prefill, editMode = false }) {
 									}
 								}}
 								onKeyDown={() => {
-									const newVis =
-										visibility === "public" ? "private" : "public";
+									const newVis = visibility === "public" ? "private" : "public";
 									setVisibility(newVis);
 									if (sendNotification?.current) {
 										if (newVis === "private") {
