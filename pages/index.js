@@ -269,7 +269,7 @@ export async function getStaticProps() {
 		eventList.push(data);
 	});
 
-	let featured = {};
+	let featured = null;
 
 	const newestEventDate = eventList.length
 		? new Date(eventList[0].publishDate.seconds * 1000)
@@ -278,11 +278,14 @@ export async function getStaticProps() {
 		? new Date(infoList[0].publishDate.seconds * 1000)
 		: 0;
 
-	if (newestEventDate >= newestInfoDate) {
+	if (
+		eventList.length > 0 &&
+		(!infoList.length || newestEventDate >= newestInfoDate)
+	) {
 		featured = eventList[0];
 		eventList = eventList.slice(1);
 		infoList = infoList.slice(0, -1);
-	} else {
+	} else if (infoList.length > 0) {
 		featured = infoList[0];
 		infoList = infoList.slice(1);
 		eventList = eventList.slice(0, -1);
@@ -294,7 +297,7 @@ export async function getStaticProps() {
 	return {
 		props: {
 			contents: getContentData("start"),
-			featured: JSON.parse(JSON.stringify(featured)),
+			featured: featured ? JSON.parse(JSON.stringify(featured)) : null,
 			infoList: JSON.parse(JSON.stringify(infoList)),
 			eventList: JSON.parse(JSON.stringify(eventList)),
 		},
