@@ -71,6 +71,125 @@
 	padding: 10px;
 }
 
+.singleImageWrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.carouselContainer {
+	width: 100%;
+	position: relative;
+}
+
+.carouselRoot {
+	width: 100%;
+	border-radius: 4px;
+}
+
+.carouselSlide {
+	display: flex;
+	justify-content: center;
+}
+
+.slideInner {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.imageFrame {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fafafa;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.carouselControl {
+	background-color: var(--clr4) !important;
+	color: white !important;
+	border: 1px solid rgba(255, 255, 255, 0.6) !important;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+	transition: all 0.2s ease !important;
+	opacity: 0.85 !important;
+}
+
+.carouselControl:hover {
+	background-color: var(--clr5) !important;
+	transform: scale(1.1) !important;
+	opacity: 1 !important;
+}
+
+.carouselIndicators {
+	bottom: 3.5rem;
+}
+
+.carouselIndicators button {
+	width: 8px;
+	height: 8px;
+	transition: width 200ms ease;
+	background-color: rgba(255, 255, 255, 0.7);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.carouselIndicators button[data-active] {
+	width: 22px;
+	background-color: var(--clr4);
+}
+
+.imageCaption {
+	margin-top: 0.6rem;
+	padding: 0.5rem 0.8rem;
+	background: #fdfbfb;
+	border-left: 3px solid var(--clr4);
+	border-radius: 4px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.captionContent {
+	font-size: 1.15rem;
+	color: #222;
+}
+
+.captionName {
+	color: #111;
+}
+
+.captionYear {
+	color: #666;
+	font-size: 0.95rem;
+}
+
+.captionDivider {
+	color: #999;
+}
+
+.captionRole {
+	color: var(--clr5);
+}
+
+.captionText {
+	font-size: 1.15rem;
+	color: #222;
+	font-style: italic;
+}
+
+.captionCounter {
+	font-size: 0.9rem;
+	font-weight: bold;
+	color: var(--clr4);
+	background: rgba(167, 41, 29, 0.08);
+	padding: 0.15rem 0.5rem;
+	border-radius: 12px;
+	white-space: nowrap;
+}
+
 .committeeNav li svg {
 	width: 1.6rem;
 }

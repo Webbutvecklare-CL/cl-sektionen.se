@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { getContentData } from "@/utils/contents";
+import { getCommitteeImages } from "@/utils/fortroendevaldaImages";
 
 import CommitteeInfo from "@/components/CommitteeInfo";
 import CustomHead from "@/components/CustomHead";
@@ -19,7 +20,7 @@ import styles from "@/styles/fortroendevalda.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Fortroendevalda({ descriptions }) {
+export default function Fortroendevalda({ descriptions, committeeImages }) {
 	const router = useRouter();
 	const [selectedCommittee, setSelectedCommittee] = useState("ctyrelsen");
 
@@ -105,6 +106,7 @@ export default function Fortroendevalda({ descriptions }) {
 							committee={selectedCommittee}
 							description={descriptions[selectedCommittee]}
 							groupData={getCommitteeInfo(selectedCommittee)}
+							images={committeeImages?.[selectedCommittee] || []}
 						/>
 					</div>
 				</div>
@@ -115,10 +117,12 @@ export default function Fortroendevalda({ descriptions }) {
 export async function getStaticProps() {
 	// get text from markdown for all pages
 	const descriptions = getContentData("fortroendevalda");
+	const committeeImages = getCommitteeImages(fortroendevaldaList);
 
 	return {
 		props: {
 			descriptions,
+			committeeImages,
 		},
 	};
 }
