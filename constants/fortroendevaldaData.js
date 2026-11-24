@@ -368,9 +368,9 @@ const fortroendevaldaList = [
 			},
 			{
 				role: "Idrottsansvarig ⚽",
-				name: "",
+				name: "Hussein Hardan Alanzi",
 				mail: "idrott@cl-sektionen.se",
-				year: "",
+				year: "CL25",
 			},
 			{
 				role: "Balgeneral ❄️",
